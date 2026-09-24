@@ -10,7 +10,7 @@
 
 固定哈希抽取 SciFact dev 100 个论断，展开已知引用文档为 118 条；输入论断和摘要，Choice 选 SUPPORT/CONTRADICT/NOINFO；不提供金标理由，不评估检索。
 
-实际模型为 `jev-1.13.0`，历史实验日期为 2026-09-24。100 个 group 是数据源分组标识，不能直接当作独立患者数。
+实际模型为 `jev-1.13.0`。100 个 group 是数据源分组标识，不能直接当作独立患者数。
 
 请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。
 

@@ -10,7 +10,7 @@
 
 DDI 官方 Test/Extraction 中每类固定哈希取 30 条，共 150；输入句子与两个金标药物片段／偏移；Choice 在 none、mechanism、effect、advise、int 五类中选择。
 
-实际模型为 `jev-1.13.0`，历史实验日期为 2026-09-24。77 个 group 是数据源分组标识，不能直接当作独立患者数。
+实际模型为 `jev-1.13.0`。77 个 group 是数据源分组标识，不能直接当作独立患者数。
 
 请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。
 

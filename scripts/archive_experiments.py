@@ -76,7 +76,7 @@ def main():
         dump(dest/'prompts.json', {'origin': 'Exact question objects from the archived requests; no rewritten prompts.', 'variants': list(prompts.values())})
         dump(dest/'example.json', {'sample': samples[0][2], 'response': json.loads(samples[0][1])})
         sources = [{k:r[k] for k in ('resource','source','completion_note')} for r in catalog if parent in r['tested_tasks']]
-        provenance = {'task': task, 'model': 'jev-1.13.0', 'date': '2026-09-24',
+        provenance = {'task': task, 'model': 'jev-1.13.0',
                       'prepared_shards': sorted({x[3] for x in samples}),
                       'original_shard_sha256': {name: hashlib.sha256((source/name).read_bytes()).hexdigest() for name in sorted({x[3] for x in samples})},
                       'sample_count': len(samples),

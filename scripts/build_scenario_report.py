@@ -46,7 +46,7 @@ def task_doc(scene, task, method, result):
            '| 记录数 | 来源 group 数 | API 响应 | 程序空预测 | 指标 | 结果 |', '| ---: | ---: | ---: | ---: | --- | ---: |',
            f'| {len(rows)} | {groups} | {len(rows)-result["deterministic_empty"]} | {result["deterministic_empty"]} | {m} | **{v}** |', '',
            '## Jev 如何评测', '', method['method'], '',
-           f'实际模型为 `jev-1.13.0`，历史实验日期为 2026-09-24。{groups} 个 group 是数据源分组标识，不能直接当作独立患者数。', '',
+           f'实际模型为 `jev-1.13.0`。{groups} 个 group 是数据源分组标识，不能直接当作独立患者数。', '',
            '请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。', '',
            '### 输入与问题结构', '']
     shapes = sorted({', '.join(r['request']['state'].keys()) if isinstance(r['request']['state'],dict) else '完整文本字符串' for r in rows})
@@ -121,11 +121,11 @@ def build():
               '## 各场景任务与结果', '']
     for s in scenes:
         ts=s['task_ids'];n=sum(tasks[t]['successful'] for t in ts)
-        table=['| 任务（点击查看完整方法与数据） | 类型 | 记录数 | 指标 | 结果 |', '| --- | --- | ---: | --- | ---: |']
+        table=['| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |', '| --- | --- | ---: | --- | ---: |']
         scene_table=list(table)
-        intro += [f'### {s["title"]}', '', s['note'], '', '**主要结果：**'+s['headline']+'。', '']
+        intro += [f'### {s["title"]}', '', s['note'], '', '**主要结果**：'+s['headline']+'。', '']
         for t in ts:
-            m,v=metric(tasks[t]);kind='自编挑战' if t.startswith('challenge_') else '数据适配'
+            m,v=metric(tasks[t]);kind=methods[t]['task_type']
             label=methods[t]['title']
             table.append(f'| [{label}](scenarios/{s["id"]}/{t}/README.md) | {kind} | {tasks[t]["successful"]} | {m} | {v} |')
             scene_table.append(f'| [{label}]({t}/README.md) | {kind} | {tasks[t]["successful"]} | {m} | {v} |')

@@ -10,7 +10,7 @@
 
 经 Git blob 校验的 Verified 发布 test CSV；GCS、CURB-65、SIRS、CHA2DS2-VASc、FeverPAIN 各 20 条。输入病历和问题，以各评分全部整数范围加 unknown 构成 Choice；不提供公式、参考参数或解释，对照数值金标。
 
-实际模型为 `jev-1.13.0`，历史实验日期为 2026-09-24。100 个 group 是数据源分组标识，不能直接当作独立患者数。
+实际模型为 `jev-1.13.0`。100 个 group 是数据源分组标识，不能直接当作独立患者数。
 
 请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。
 

@@ -10,7 +10,7 @@
 
 BioScope 官方 abstracts XML，依据 cue 标签构造句子级类别，每类 25 条；Choice 判断线索类别，不评估 cue 精确边界或实体作用域。
 
-实际模型为 `jev-1.13.0`，历史实验日期为 2026-09-24。94 个 group 是数据源分组标识，不能直接当作独立患者数。
+实际模型为 `jev-1.13.0`。94 个 group 是数据源分组标识，不能直接当作独立患者数。
 
 请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。
 
