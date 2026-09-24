@@ -2,6 +2,7 @@
 from collections import Counter
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import benchmark as b
@@ -22,6 +23,17 @@ def prediction(row, response):
     if task=='imcs_ner_dictionary_pipeline':
         return {tuple(v) for v in row['gold']},{(s,e,a['s'+str(i)]['choice']) for i,(s,e,_) in enumerate(meta['candidates']) if a['s'+str(i)]['choice']!='none'}
     return row['gold'],a['decision']['choice']
+
+
+def same_metrics(actual, expected):
+    """Allow rounding noise from Python's float summation, never count drift."""
+    if isinstance(actual, dict) and isinstance(expected, dict):
+        return actual.keys() == expected.keys() and all(same_metrics(actual[k], expected[k]) for k in actual)
+    if isinstance(actual, list) and isinstance(expected, list):
+        return len(actual) == len(expected) and all(same_metrics(a, e) for a, e in zip(actual, expected))
+    if isinstance(actual, float) and isinstance(expected, float):
+        return math.isfinite(actual) and math.isfinite(expected) and math.isclose(actual, expected, rel_tol=1e-12, abs_tol=1e-12)
+    return actual == expected
 
 
 def verify():
@@ -69,7 +81,7 @@ def verify():
         else:
             task=rr[0]['task']
             actual=b.sets_metric(pairs) if isinstance(pairs[0][0],set) else b.classification([g for g,p in pairs],[p for g,p in pairs])
-            if actual!=res['quality'] or res!=tasks[task]:raise ValueError(f'Recomputed quality differs: {task}')
+            if not same_metrics(actual,res['quality']) or res!=tasks[task]:raise ValueError(f'Recomputed quality differs: {task}')
             if (len(rr),empty,tokens,outtokens)!=(res['successful'],res['deterministic_empty'],res['input_tokens'],res['output_tokens']):raise ValueError(f'Counts or token usage differ: {task}')
     if seen!=set(index):raise ValueError(f'Missing rows: {set(index)-seen}')
     groups={}
