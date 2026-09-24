@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "assignment": "Each task is counted once, under the first resource mapping in scene order. Tool aliases do not add evaluations.",
+  "scenes": [
+    {
+      "id": "records",
+      "title": "病历实体、否定状态与术语标准化",
+      "resource_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        33,
+        34,
+        35,
+        38,
+        39,
+        40,
+        44,
+        45,
+        70
+      ],
+      "note": "给定实体边界的类型分类与端到端抽取分开看；LongHealth 为 20 个虚构患者的 100 个问题。",
+      "headline": "IMCS 类型 Accuracy 96%；端到端 F1 59.5%；NCBI 管线 F1 69.4%；LongHealth Accuracy 95%"
+    },
+    {
+      "id": "documentation",
+      "title": "临床文书、章节归类与交接班",
+      "resource_ids": [
+        14,
+        15,
+        36,
+        37,
+        74
+      ],
+      "note": "已测章节分类；尚未验证从医患对话生成完整病历或真实交接班质量。",
+      "headline": "MTS Accuracy 76%；ACI 已给定章节边界 Accuracy 99%"
+    },
+    {
+      "id": "service",
+      "title": "患者咨询、服务路由与就医流程",
+      "resource_ids": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        56,
+        72
+      ],
+      "note": "MedQuAD 测问题类型；MedJourney 的科室多标签与四类选择题不是实际分诊效果。",
+      "headline": "MedQuAD Accuracy 96%；MedJourney 科室 micro-F1 36.9%，选择题 Accuracy 82%–92%"
+    },
+    {
+      "id": "quality",
+      "title": "医疗质控、幻觉识别与请求安全",
+      "resource_ids": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "note": "错误检出、错误定位、回答幻觉和请求安全是不同任务；MedSafety 的正常／有害来源存在混杂。",
+      "headline": "MEDEC 检出 Accuracy 65%；MedHallu 有证据 Accuracy 82%；请求安全 Accuracy 93.5%"
+    },
+    {
+      "id": "medication",
+      "title": "药物关系、用药变更与出院带药",
+      "resource_ids": [
+        32,
+        41,
+        42,
+        43,
+        71,
+        73
+      ],
+      "note": "关系任务给定实体；CDrugRed 为发布训练池按患者分离的留出样本，不是官方隐藏测试。",
+      "headline": "DDI Accuracy 79.3%；BC5CDR Accuracy 57%；出院带药 micro-F1 48.6%"
+    },
+    {
+      "id": "trials",
+      "title": "患者入组预筛与临床试验匹配",
+      "resource_ids": [
+        31,
+        46,
+        47
+      ],
+      "note": "NLI4CT 测证据材料上的判断与定位；TrialGPT 为直接三分类，不是完整检索排序和逐条纳排推理。",
+      "headline": "TrialGPT 三分类 Accuracy 48%；NLI4CT 判断 Accuracy 88%，证据 micro-F1 49.9%"
+    },
+    {
+      "id": "evidence",
+      "title": "循证研究、PICO 与公共卫生核查",
+      "resource_ids": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "note": "提供证据的判断不能替代检索评价；固定窗口分类与原始序列抽取指标不同。",
+      "headline": "PICO micro-F1 12.7%；EvidenceBench micro-F1 29.4%；PubMedQA Accuracy 74%"
+    },
+    {
+      "id": "calculators",
+      "title": "临床计算、参数选择与评分量表",
+      "resource_ids": [
+        68,
+        69
+      ],
+      "note": "参数选择与公式执行分开记录；Verified 只适配 5 种评分各 20 条，不是全部计算器。",
+      "headline": "输入充分性 Accuracy 81.5%；分级 Accuracy 60.5%；Verified Accuracy 25%；BMI 参数对 17/20"
+    },
+    {
+      "id": "knowledge",
+      "title": "医学知识与考试对照",
+      "resource_ids": [
+        57,
+        58,
+        59
+      ],
+      "note": "选择题用于能力对照，不能外推诊断、处方或医院工作流可靠性。",
+      "headline": "MedQA 英／中 Accuracy 83%／89%；MedMCQA Accuracy 72%；CMExam 单选 Accuracy 92.6%"
+    },
+    {
+      "id": "multimodal",
+      "title": "语音病历、OCR、影像报告与信号",
+      "resource_ids": [
+        16,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "note": "实际执行 ASR 与 OCR；仅一段扮演患者音频、六份文档且只有两种模板。影像和 ECG 尚未运行。",
+      "headline": "ASR 字段 11/12；OCR 文档类型 5/6；影像／ECG 未测"
+    },
+    {
+      "id": "acute",
+      "title": "合成病例、急诊、护理与 ICU",
+      "resource_ids": [
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78
+      ],
+      "note": "当前只有 DDXPlus 合成鉴别诊断实测；使用第三方镜像有限前缀抽样，不能代表急诊或 ICU 验证。",
+      "headline": "DDXPlus 合成病例 Accuracy 67%；真实急诊与 ICU 未测"
+    },
+    {
+      "id": "tcm",
+      "title": "中医知识、辨证与安全",
+      "resource_ids": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "note": "单选 Accuracy 与多选 micro-F1 分列；TCM-BEST 安全项为标签一致率，部分标签存在过度拒绝倾向。",
+      "headline": "TCM-SD Accuracy 33%；BEST 单／多选分列，安全标签一致率 27%"
+    },
+    {
+      "id": "tools",
+      "title": "肿瘤登记、脱敏与临床 NLP 工具",
+      "resource_ids": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "note": "medspaCy 是已运行的候选构造基线，关联的 NCBI 任务只在病历场景计数一次；其余框架未运行。",
+      "headline": "medspaCy 基线严格 F1 58.9%；对应 Jev 结果已计入病历场景"
+    },
+    {
+      "id": "challenge",
+      "title": "跨场景自编边界挑战",
+      "resource_ids": [],
+      "note": "24 类各 4 条，共 96 条；自编且未经独立医生金标验证，不作为真实临床数据集。",
+      "headline": "23 类 Accuracy 100%；隐私候选识别 75%；每类仅 4 条"
+    }
+  ]
+}

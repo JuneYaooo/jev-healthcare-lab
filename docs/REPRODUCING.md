@@ -46,3 +46,15 @@ python3 scripts/analyze_results.py
 额外parquet/medspaCy/ASR依赖在`requirements-optional.txt`。各数据集必须按来源分别获取，不能用其他版本替换后仍宣称复现原快照。自编挑战、PriMock字段与OCR文档类型没有独立医生金标。未运行的资源保留在覆盖账本中。
 
 EvidenceBench有37条历史哈希绑定修正：准备阶段整数键经过JSON序列化变成字符串，排序不同；最终按实际发送格式校正索引，响应未改变。见`results/hash_normalization_audit.json`。
+
+
+## 更新场景目录与 README 统计
+
+`results/medical_catalog.json` 保存全部资源来源、状态与任务映射；`results/scenario_manifest.json` 保存场景归属和人工撰写的结果摘要。修改快照或场景后运行：
+
+```sh
+python3 scripts/build_scenario_report.py
+python3 scripts/build_scenario_report.py --check
+```
+
+脚本从 `all_results.json`、`ablations.json` 和 `snapshot.json` 生成 README 中标记范围内的分场景表，以及 `docs/场景数据集与实验.md`。它检查全部资源恰好归属一个场景、全部主评测任务无遗漏、任务去重后的记录/API/空预测总数与快照一致。人工摘要与实验解释仍需随结果变化复核。CI 使用 `--check` 防止生成文档过期；这不会调用 API 或重跑医疗评测。
