@@ -1,0 +1,14 @@
+{
+  "state": "Synthetic example: a reference note explicitly states no prior treatment with drug class X.",
+  "questions": {
+    "decision": {
+      "type": "choice",
+      "instructions": "Does the synthetic note explicitly support no prior treatment with drug class X? Do not infer missing history.",
+      "criteria": {
+        "yes": "Supported",
+        "no": "Contradicted",
+        "unknown": "Insufficient evidence"
+      }
+    }
+  }
+}

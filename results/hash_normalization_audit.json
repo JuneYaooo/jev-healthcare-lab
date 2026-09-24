@@ -1,0 +1,261 @@
+[
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_0",
+    "old_request_hash": "b803e5769d31c14378dc35d6630200838e5cc72a4bd113daf0b8b58fcce926fc",
+    "actual_serialized_request_hash": "1aaf450db09ce2a3d74aeff65b01362148bfa86821e1165895c615f9fc5b51b9",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_1",
+    "old_request_hash": "4239e05c06b0e0bb2ce9ddfbc2bf747d311eaa2d5bd18da152250deb922a180c",
+    "actual_serialized_request_hash": "232bac010ae305c671c3d898059f4f6774ecc0fe1b2005af891c21e8ba93f513",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_2",
+    "old_request_hash": "0322c46d1bbb7f83a263cd92eaead4ace2a519e910d0ab9c34280d0a7a3df58c",
+    "actual_serialized_request_hash": "f9c7baf7937dd047e96f019252dbdbb7cc8175e0193c68230266d79e969cd8b2",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_3",
+    "old_request_hash": "ada18e7962eacee04308c401c07c28d1b90b42ac924af0276d504314b7d55031",
+    "actual_serialized_request_hash": "022343dfad30790adc2f68fc05106271c67566c0a4f9390ab5892fe391ceafc0",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_4",
+    "old_request_hash": "ade5f059a7c0fd517368f846c194e8a8d754c4a23d26dafe52925db52481c923",
+    "actual_serialized_request_hash": "fd5f5e019449ed52abe18ae8ef28f1738312bedf86dba5ed6f22d3b80681183e",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_5",
+    "old_request_hash": "c303455dcacc4b06eae7713edfad6a536fae4c2e3a99b2564baea243a105ccf6",
+    "actual_serialized_request_hash": "9b1e01ca635b82eb5004c4acac491357b260e0582780251fde0d4b3a92775b1f",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_6",
+    "old_request_hash": "552d9aa997c9c3f71f30e4fa7c848e0f638124ba8e6578cf4cb0d4469cb9b3f4",
+    "actual_serialized_request_hash": "b9db2daf7d33c5e3e03214bd29c5b17f4494db60c011c18fa498fca2ca646c08",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_7",
+    "old_request_hash": "2d4ff56868cae61bf25f28b7b7643e7dd0637b049de758c344051a7875ab9308",
+    "actual_serialized_request_hash": "f7947fc9e0b0dfdc50ba34686f6c99b94f82b30a645d908da1029cecca7c761e",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_8",
+    "old_request_hash": "eacb116b7a079a20ebf2bd565a9ebc5608a91a4903cfba86f5de2b47fa5c99b4",
+    "actual_serialized_request_hash": "f86030afbcea66c758808d9a52c7d1403864d97322809582a7a6468fd0b7c60a",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_9",
+    "old_request_hash": "d5b487589be71248a9e43b550775413151395c75d9f315b0765019c5836aac7c",
+    "actual_serialized_request_hash": "c554d255794ada63c5493c8cf06b4224369cd81d64a4cfef946cdf2d75187d68",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_10",
+    "old_request_hash": "5b38b614e845989c4846ec4b8d55165a68fb3a76b8ce72467e35e81a0ade5ff4",
+    "actual_serialized_request_hash": "ca516dd9da90619dfb65bad69bddb02a9b94148ac657e515c020b15a19441467",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_11",
+    "old_request_hash": "c2c0d4ca5b5790486388dd2fd6ea03ba2d0bcf25ff8a6125b01cff872bf49970",
+    "actual_serialized_request_hash": "0a4dc133de493fce92a51b3ca8c8a451a4459c46069c70200a90cac459778c5f",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_12",
+    "old_request_hash": "c6a5a093240267c733c17f3372e0291243382f8ed6ac1683f383f1f78a55f46a",
+    "actual_serialized_request_hash": "2a042487cff721563717e4e5edaba1c021f5760b3d19856e7a9f5f3f4c924a7c",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_13",
+    "old_request_hash": "839e21e5a363c7e33120260785e1639db61985c3930ffb53129c0da51a853a99",
+    "actual_serialized_request_hash": "6e5d429b0decd145a603394dd5f0778cdaa5167f916f3dfbe52f447f6569cd34",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_14",
+    "old_request_hash": "e2b70281cc4e4109c5e5f34daaf32b92de2aea1977173ddfef3c85fd4a9ec96a",
+    "actual_serialized_request_hash": "6eef9b18c84bd1bc917143023e827b3562fea636ca10de8afa68cdc2633cbdd8",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_15",
+    "old_request_hash": "78e5ce4750876dcd9fae7ce68fd2048953c9e8ffa0ed742b85f00ac37f9b96b3",
+    "actual_serialized_request_hash": "09a4926727601d15c8ba7cf7c2c4eb7059910617f31ac0e86223ff089a51c306",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_16",
+    "old_request_hash": "781f773290f847661b0cf3a95f99ca8223594b7b2caa7e6b716b794dc8a9c2d0",
+    "actual_serialized_request_hash": "8d7acaababc3c9758cc8d158bac214ca24469093ab8867d983be5f513cda8194",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_17",
+    "old_request_hash": "d09b0abe04d7280554aab784fd6e64c6b0788496fe98e91ec6fae978074bf04e",
+    "actual_serialized_request_hash": "3c2f8e1dcba345739e31b9277ebf5010290f60f9ee935d332930fe2d8af4d9bc",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_18",
+    "old_request_hash": "90bfd65a8b8d4e665f3481d11cc308751b82d04a68b28113ec3fd8b27814de00",
+    "actual_serialized_request_hash": "4d77b9ce0300c7d22d6282d5134bdaae0bb9646d308fefa23a31b123d6c9676c",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_19",
+    "old_request_hash": "39d5013755ce499507437e6653d9f14f8b48156225114a4c4f17d5fad233e0ae",
+    "actual_serialized_request_hash": "593c02bf61f22b83df12047a77fc994668bf3a7cac925a682ecb85fced5d9f9a",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_20",
+    "old_request_hash": "2cc1908cfa181d24b773a1ea5cdaf08e751bae77c430ef589df547787fe840f0",
+    "actual_serialized_request_hash": "9805c3b8ef2a588c51759723e6ef2c81ac400b82ae798e974ca4c3bdf8972d28",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_21",
+    "old_request_hash": "e6e6f2cd3eab4e49c33d1d95e1b8ab1d6ddae778ca03954d0752a87177efe3d1",
+    "actual_serialized_request_hash": "e55dc74a20ebb42606accc3fea1c706f817eca3a65b4c04de43a84d72da61d5e",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_22",
+    "old_request_hash": "b28128e514b78329015a5e9e0159f0254a8186a3ab9c42497052318977a76e95",
+    "actual_serialized_request_hash": "416e8616d29894970349713fbdcb0f20d1861500bda7dddd085f6c89b7828169",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_23",
+    "old_request_hash": "ee9dbe75904574a016adc162f2dde53a63990629115a1bfd26126247b933d2bc",
+    "actual_serialized_request_hash": "013f4a7d211b3a79eb54b0c7f149e82fff996aed1d161bb21578de37a43e4047",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_24",
+    "old_request_hash": "b1296af9a3c20a379e141f85593d5afc4676d7022e431af440d97415d71f0048",
+    "actual_serialized_request_hash": "c288afe042741edbdeab2ed89b1f3d899f7e165ccbdbe076c191694a7aea2a77",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_25",
+    "old_request_hash": "2c57df9938a913501d3c7ca14db494e38e73e9504959e680531d1b4aefdb378f",
+    "actual_serialized_request_hash": "9c3b3769f3b75c87279f8f90d661de3536021478d941bf6043533e3efa373d36",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_26",
+    "old_request_hash": "071175534c2fe7fcb4b7c30978c6c8d955c84664cd80426241f3055773f0167b",
+    "actual_serialized_request_hash": "29315db119a58e7af4c037c2da755a3819fe4c1c5f9240b9f2805bdf559e5166",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_27",
+    "old_request_hash": "9ce3fa4cd42d73cc05211e3a60528744160680b4571409ed300ae5409bf47423",
+    "actual_serialized_request_hash": "c3ac7e98b16ef1d4949a0e961f6ccca18370ae60a3aa8f60c49ef2588e4e6cfe",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_28",
+    "old_request_hash": "8e89c28907c3025976e7b326d1f0b3a7ddab34c1bced855e541384a3d31b6052",
+    "actual_serialized_request_hash": "acfceb0137b34c3560e3b215cd1c3a9724083be6891226975d2d66e417aad401",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_29",
+    "old_request_hash": "395dbe31014fcf3d815939f1731a64c2077a7d19f7b323477f2bb909ae1ab3a3",
+    "actual_serialized_request_hash": "ac18cff84e76bc5f2446f3e35a289622772854fab5750ae255ce50f589ab3701",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_30",
+    "old_request_hash": "9b7124b533f60d9e4e4dae92fc6915aa655edc693e68efd53ddcaaa401c70e4c",
+    "actual_serialized_request_hash": "5b747911e9f3d42e1888d05586277e9317f0d92d23ee049b12eaa8a8166b7ba5",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_31",
+    "old_request_hash": "1b767d14937bd52e662bf3f53b2943655c5fbfe3618e9852cc9b3c7a4a9e037c",
+    "actual_serialized_request_hash": "cd485f34c057bb77c560015121212ee5cc5da91119b63549df434b5fe99ef750",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_32",
+    "old_request_hash": "90b93a64cad9bddf22c0094fc1856c70be80232f62a3fa50146d42ba4ca8abb7",
+    "actual_serialized_request_hash": "1bcb9d3ef50194df4d6a75cdbb9ba123b7d166db6d8ba057bc0d80d6a8a21826",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_33",
+    "old_request_hash": "5aec9132033be93500657377015eb708dd7380deb3b140763b00c0fbd3cc0100",
+    "actual_serialized_request_hash": "6ab4f295a2c179ed0c56ae31d05157672fe49b52ec6f85af21171a6d0acb0bf1",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_34",
+    "old_request_hash": "49490c2651ba85c30bab5a6e1eb0835a02a71ce922774f5ee698af7231b4917d",
+    "actual_serialized_request_hash": "a3a74e759a57310c4144e1b8443ec326577b7de2102e12e157f2defdeec3e25c",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_35",
+    "old_request_hash": "c296ca14e20a3255572cd0511f65c8e83aeee3660d0622ad95a301627fb92746",
+    "actual_serialized_request_hash": "e10e60c80018987c7f3edc904be9815222208bc11ebe5f6a27e8926aa1b02ef1",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  },
+  {
+    "task": "evidencebench_sentence_selection",
+    "id": "evidencebench_dev_id_36",
+    "old_request_hash": "a604b46d699a6a20208a19e90bd4912512bea2e639ac7909733d664b773d965f",
+    "actual_serialized_request_hash": "8f78bc8aa98d7f77685b3b42e074b4fe30ed755c282f3c64d51469ca4071a7f0",
+    "reason": "Preparation hashed integer sentence keys before JSON round trip; runner loads string keys then canonical sorts. Corrected hash identifies actual runner payload; response unchanged."
+  }
+]

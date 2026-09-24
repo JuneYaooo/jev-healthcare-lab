@@ -1,0 +1,1233 @@
+[
+  {
+    "domain": "中文病历",
+    "resource": "CMeEE",
+    "scenario": "实体边界与类型",
+    "jev_role": "候选抽取→Choice复核",
+    "metric": "实体严格micro-F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 1,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文病历",
+    "resource": "CMeIE",
+    "scenario": "医学实体关系",
+    "jev_role": "候选实体对→关系Choice",
+    "metric": "端到端三元组F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 2,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文病历",
+    "resource": "CHIP-CDN",
+    "scenario": "诊断标准化",
+    "jev_role": "检索候选标准词→多标签判断",
+    "metric": "候选召回与映射F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 3,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文病历",
+    "resource": "CHIP-CDEE",
+    "scenario": "临床发现事件结构化",
+    "jev_role": "候选核心词、部位、属性、倾向组合",
+    "metric": "事件及字段F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE/blob/main/format_checker/format_checker_CDEE.py",
+    "catalog_id": 4,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文病历",
+    "resource": "CHIP-MDCFNPC",
+    "scenario": "对话临床发现阴阳性",
+    "jev_role": "全文上下文→状态Choice",
+    "metric": "macro-F1及否定类召回",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/winninghealth/chip2021",
+    "catalog_id": 5,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文病历",
+    "resource": "IMCS21",
+    "scenario": "对话行为、实体、症状标准化与状态",
+    "jev_role": "5个评测适配器已实现",
+    "metric": "分类及端到端实体F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/lemuria-wchen/imcs21",
+    "catalog_id": 6,
+    "tested_tasks": [
+      "imcs_assertion_oracle_span",
+      "imcs_dialogue_act",
+      "imcs_entity_type_oracle_span",
+      "imcs_ner_dictionary_pipeline",
+      "imcs_normalization_top20"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 500
+  },
+  {
+    "domain": "中文病历",
+    "resource": "CCKS医疗信息抽取系列",
+    "scenario": "实体、属性、事件",
+    "jev_role": "按届别schema适配候选判断",
+    "metric": "各届官方F1",
+    "status": "需锁定具体届别/授权",
+    "source": "https://arxiv.org/abs/2003.03875",
+    "catalog_id": 7,
+    "tested_tasks": [],
+    "completion_note": "系列赛事不是单个数据集；本轮未取得可验证题目＋金标"
+  },
+  {
+    "domain": "中文服务",
+    "resource": "CHIP-CTC",
+    "scenario": "临床试验条件分类",
+    "jev_role": "44类Choice",
+    "metric": "macro-F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 8,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文服务",
+    "resource": "CHIP-STS",
+    "scenario": "医学问句相似度",
+    "jev_role": "语义匹配Choice",
+    "metric": "macro-F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 9,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文服务",
+    "resource": "KUAKE-QIC",
+    "scenario": "医疗查询意图",
+    "jev_role": "11类Choice",
+    "metric": "accuracy与macro-F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 10,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文服务",
+    "resource": "KUAKE-QTR",
+    "scenario": "查询与标题相关性",
+    "jev_role": "分级Choice或Score",
+    "metric": "官方accuracy；排序另测",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 11,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文服务",
+    "resource": "KUAKE-QQR",
+    "scenario": "查询之间相关性",
+    "jev_role": "分级Choice",
+    "metric": "accuracy",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/CBLUEbenchmark/CBLUE",
+    "catalog_id": 12,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中文服务",
+    "resource": "MedDialog",
+    "scenario": "医患对话",
+    "jev_role": "可做路由/质量筛选；生成需其他模型",
+    "metric": "需另建路由或质量金标",
+    "status": "缺少目标任务独立金标",
+    "source": "https://github.com/UCSD-AI4H/Medical-Dialogue-System",
+    "catalog_id": 13,
+    "tested_tasks": [],
+    "completion_note": "对话/回复可研究；没有可直接当作正确路由或病历字段的金标，不能把医生回复等同正确答案"
+  },
+  {
+    "domain": "临床文书",
+    "resource": "MTS-Dialog",
+    "scenario": "对话对应病历章节",
+    "jev_role": "20类Choice",
+    "metric": "macro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/microsoft/clinical_visit_note_summarization_corpus",
+    "catalog_id": 14,
+    "tested_tasks": [
+      "mts_section_classification"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "临床文书",
+    "resource": "ACI-Bench",
+    "scenario": "会诊到病历",
+    "jev_role": "生成文本外置；Jev按证据检查字段",
+    "metric": "事实错误率及人工修订时间",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/wyim/aci-bench",
+    "catalog_id": 15,
+    "tested_tasks": [
+      "aci_note_section"
+    ],
+    "completion_note": "仅测试参考病历章节分类；未评价从对话生成整份病历",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "临床文书",
+    "resource": "PriMock57",
+    "scenario": "模拟问诊音频与记录",
+    "jev_role": "ASR外置→字段与证据匹配",
+    "metric": "ASR后端到端字段F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/babylonhealth/primock57",
+    "catalog_id": 16,
+    "tested_tasks": [
+      "primock_asr_fields",
+      "primock_reference_fields"
+    ],
+    "completion_note": "一段公开扮演患者音频，真实Whisper转写＋12字段；字段金标由本轮人工定义，非临床评测",
+    "evaluated_rows": 24
+  },
+  {
+    "domain": "临床质控",
+    "resource": "MEDEC-MS",
+    "scenario": "医学错误检测与定位",
+    "jev_role": "错误Choice→句号Choice",
+    "metric": "阳性召回、定位accuracy",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/abachaa/MEDEC",
+    "catalog_id": 17,
+    "tested_tasks": [
+      "medec_error_detection",
+      "medec_error_localization"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 200
+  },
+  {
+    "domain": "临床质控",
+    "resource": "MEDEC-UW",
+    "scenario": "另一来源临床错误",
+    "jev_role": "与MS分开作域外评测",
+    "metric": "跨来源召回下降",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/abachaa/MEDEC",
+    "catalog_id": 18,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "临床质控",
+    "resource": "MEDIQA-CORR",
+    "scenario": "医学错误检测定位纠正",
+    "jev_role": "检测定位可用；自由改写外置",
+    "metric": "检测与定位；纠错另测",
+    "status": "关联赛事入口",
+    "source": "https://github.com/abachaa/MEDIQA-CORR-2024",
+    "catalog_id": 19,
+    "tested_tasks": [],
+    "completion_note": "与MEDEC任务重叠；无额外独立测试集计数"
+  },
+  {
+    "domain": "临床质控",
+    "resource": "MedErrBench",
+    "scenario": "医学错误基准",
+    "jev_role": "候选错误判断",
+    "metric": "按原任务评测及错误类型召回",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/congboma/MedErrBench",
+    "catalog_id": 20,
+    "tested_tasks": [
+      "mederrbench_ARA",
+      "mederrbench_CN",
+      "mederrbench_EN"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 297
+  },
+  {
+    "domain": "临床质控",
+    "resource": "MedHallu",
+    "scenario": "医学问答幻觉",
+    "jev_role": "给证据后判真伪",
+    "metric": "AUROC、误放行率",
+    "status": "已完成有限样本实测",
+    "source": "https://medhallu.github.io/",
+    "catalog_id": 21,
+    "tested_tasks": [
+      "medhallu_with_evidence",
+      "medhallu_without_evidence"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 400
+  },
+  {
+    "domain": "临床质控",
+    "resource": "MedSafetyBench",
+    "scenario": "医学不安全请求或回答",
+    "jev_role": "安全性门控候选",
+    "metric": "有害召回及正常误拦截",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/AI4LIFE-GROUP/med-safety-bench",
+    "catalog_id": 22,
+    "tested_tasks": [
+      "medsafety_request_gate"
+    ],
+    "completion_note": "100 harmful＋100 MedQuAD来源正常问题；来源混杂，非回复安全率",
+    "evaluated_rows": 200
+  },
+  {
+    "domain": "临床质控",
+    "resource": "HealthBench",
+    "scenario": "健康对话细粒度rubric",
+    "jev_role": "对回答逐条判断rubric",
+    "metric": "对人工rubric标注的一致率",
+    "status": "缺少待审回复与独立评审金标",
+    "source": "https://arxiv.org/abs/2505.08775",
+    "catalog_id": 23,
+    "tested_tasks": [],
+    "completion_note": "HealthBench原任务评价生成回复；Jev不生成回复，改为rubric评审需候选回复及独立人工判定，未运行"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2006",
+    "scenario": "脱敏与吸烟状态",
+    "jev_role": "敏感片段候选复核、状态分类",
+    "metric": "PHI召回及吸烟macro-F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 24,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2008",
+    "scenario": "肥胖及合并症状态",
+    "jev_role": "逐病种多标签判断",
+    "metric": "macro/micro-F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 25,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2009",
+    "scenario": "药物名称剂量频次途径",
+    "jev_role": "候选字段关联；数值原文复制",
+    "metric": "字段及关系F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 26,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2010",
+    "scenario": "实体、断言与关系",
+    "jev_role": "候选实体+断言Choice+关系Choice",
+    "metric": "三项分开评测",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://www.i2b2.org/NLP/Relations/",
+    "catalog_id": 27,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2011",
+    "scenario": "临床共指",
+    "jev_role": "候选提及对→是否同一实体",
+    "metric": "官方共指指标",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 28,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2012",
+    "scenario": "时间事件关系",
+    "jev_role": "候选事件对→先后包含关系",
+    "metric": "时间关系F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 29,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "i2b2 2014",
+    "scenario": "脱敏及心脏病风险因素",
+    "jev_role": "片段PHI复核与风险因素状态",
+    "metric": "PHI召回、分类F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 30,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "n2c2 2018 Cohort",
+    "scenario": "队列入选条件",
+    "jev_role": "每项条件独立Noul/Choice",
+    "metric": "逐条件F1与unknown处理",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/",
+    "catalog_id": 31,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "n2c2 2018 ADE",
+    "scenario": "药物与不良事件关系",
+    "jev_role": "候选实体对→关系判断",
+    "metric": "端到端关系F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7489085/",
+    "catalog_id": 32,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "n2c2 2022 SHAC",
+    "scenario": "社会健康决定因素",
+    "jev_role": "事件及状态结构化",
+    "metric": "事件字段F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10354764/",
+    "catalog_id": 33,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "THYME / Clinical TempEval",
+    "scenario": "临床时间线",
+    "jev_role": "候选事件排序；日期运算用代码",
+    "metric": "事件/关系F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/stylerw/thymedata",
+    "catalog_id": 34,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "MedNLI",
+    "scenario": "病历语义推断",
+    "jev_role": "蕴含/矛盾/中立Choice",
+    "metric": "accuracy及各类召回",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://physionet.org/content/mednli/1.0.0/",
+    "catalog_id": 35,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "CLIP",
+    "scenario": "出院后行动项",
+    "jev_role": "句子多标签Noul",
+    "metric": "各行动类别F1及漏项率",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://physionet.org/content/mimic-iii-clinical-action/1.0.0/",
+    "catalog_id": 36,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "英文病历",
+    "resource": "DischargeMe",
+    "scenario": "出院文书生成",
+    "jev_role": "可核对生成草稿；Jev不直接写作",
+    "metric": "事实/遗漏金标需补建",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://www.physionet.org/content/discharge-me/1.3/",
+    "catalog_id": 37,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "否定与时间",
+    "resource": "BioScope",
+    "scenario": "否定、不确定及作用范围",
+    "jev_role": "候选片段状态与范围复核",
+    "metric": "scope-F1；否定召回",
+    "status": "已完成有限样本实测",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2586758/",
+    "catalog_id": 38,
+    "tested_tasks": [
+      "bioscope_sentence_cues"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "否定与时间",
+    "resource": "NUBes",
+    "scenario": "西班牙语否定与不确定",
+    "jev_role": "作用范围复核",
+    "metric": "scope-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus",
+    "catalog_id": 39,
+    "tested_tasks": [
+      "nubes_scope_status"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "药物与术语",
+    "resource": "NCBI Disease",
+    "scenario": "疾病实体与概念映射",
+    "jev_role": "候选疾病→标准概念",
+    "metric": "实体F1+概念accuracy",
+    "status": "已完成有限样本实测",
+    "source": "https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/",
+    "catalog_id": 40,
+    "tested_tasks": [
+      "ncbi_disease_category_oracle_span",
+      "ncbi_medspacy_jev_ner"
+    ],
+    "completion_note": "同时完成给定实体分类与medspaCy候选→Jev端到端严格跨度评价",
+    "evaluated_rows": 200
+  },
+  {
+    "domain": "药物与术语",
+    "resource": "BC5CDR",
+    "scenario": "化学物质疾病实体及关系",
+    "jev_role": "候选实体对→关系判断",
+    "metric": "NER与关系F1",
+    "status": "已完成有限样本实测",
+    "source": "https://ftp.ncbi.nlm.nih.gov/pub/lu/BC5CDR/CDR_Data.zip",
+    "catalog_id": 41,
+    "tested_tasks": [
+      "bc5cdr_relation_oracle_entities"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "药物与术语",
+    "resource": "DDI Corpus",
+    "scenario": "药物相互作用关系",
+    "jev_role": "给定文句与候选药物对→关系类型",
+    "metric": "关系macro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/isegura/DDICorpus",
+    "catalog_id": 42,
+    "tested_tasks": [
+      "ddi_relation_oracle_pairs"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 150
+  },
+  {
+    "domain": "药物与术语",
+    "resource": "CADEC",
+    "scenario": "患者自述药物不良体验",
+    "jev_role": "实体与术语标准化",
+    "metric": "span-F1、概念accuracy",
+    "status": "下载入口未恢复",
+    "source": "https://data.gov.au/dataset/ds-dap-csiro%3A10948/details",
+    "catalog_id": 43,
+    "tested_tasks": [],
+    "completion_note": "原CSIRO数据链接404；主页可达但未取得有效数据包；不是证明无数据或无权访问"
+  },
+  {
+    "domain": "药物与术语",
+    "resource": "MedMentions",
+    "scenario": "生物医学实体链接",
+    "jev_role": "概念检索后Jev重排",
+    "metric": "候选Recall@K与端到端accuracy",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/chanzuckerberg/MedMentions",
+    "catalog_id": 44,
+    "tested_tasks": [
+      "medmentions_type_oracle_span"
+    ],
+    "completion_note": "给定实体边界，21类类型判断；未评价CUIs归一化",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "药物与术语",
+    "resource": "MedAL",
+    "scenario": "医学缩略词消歧",
+    "jev_role": "上下文→候选全称Choice",
+    "metric": "accuracy、未知缩略词覆盖",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/BruceWen120/medal",
+    "catalog_id": 45,
+    "tested_tasks": [
+      "medal_demo_disambiguation"
+    ],
+    "completion_note": "仅100条发布方演示样本；不是独立测试集",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "NLI4CT / SemEval 2023 Task 7",
+    "scenario": "临床试验陈述核验与证据选择",
+    "jev_role": "2类Choice+逐行Noul",
+    "metric": "accuracy、证据micro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/ai-systems/nli4ct",
+    "catalog_id": 46,
+    "tested_tasks": [
+      "nli4ct_entailment",
+      "nli4ct_evidence"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 200
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "TrialGPT / TREC CT",
+    "scenario": "患者与试验资格匹配",
+    "jev_role": "先检索再逐条件判断",
+    "metric": "Recall@K、nDCG、条件F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/ncbi-nlp/TrialGPT",
+    "catalog_id": 47,
+    "tested_tasks": [
+      "trialgpt_sigir_referral"
+    ],
+    "completion_note": "SIGIR三分类150条；不是完整TREC检索排序及逐条标准推理",
+    "evaluated_rows": 150
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "EBM-NLP",
+    "scenario": "PICO人群干预结局抽取",
+    "jev_role": "候选片段分类",
+    "metric": "严格及宽松span-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/bepnye/EBM-NLP",
+    "catalog_id": 48,
+    "tested_tasks": [
+      "ebm_pico_fixed_windows"
+    ],
+    "completion_note": "8词固定窗适配，非官方token级PICO评分；阳性稀疏",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "Evidence Inference",
+    "scenario": "干预相对对照的结局方向",
+    "jev_role": "给定ICO与原文→方向Choice",
+    "metric": "macro-F1及证据F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/jayded/evidence-inference",
+    "catalog_id": 49,
+    "tested_tasks": [
+      "evidence_inference_fulltext"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "EvidenceOutcomes",
+    "scenario": "RCT结局标注",
+    "jev_role": "结局候选复核",
+    "metric": "span及分类F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/ebmlab/EvidenceOutcomes",
+    "catalog_id": 50,
+    "tested_tasks": [
+      "evidenceoutcomes_fixed_window"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "EvidenceBench",
+    "scenario": "循证推断数据",
+    "jev_role": "候选推断判断",
+    "metric": "按人工审核子集另报",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/EvidenceBench/EvidenceBench",
+    "catalog_id": 51,
+    "tested_tasks": [
+      "evidencebench_sentence_selection"
+    ],
+    "completion_note": "37篇dev，句子选择，非官方set-cover/ranking指标",
+    "evaluated_rows": 37
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "PubMedQA",
+    "scenario": "摘要证据问答",
+    "jev_role": "yes/no/maybe Choice",
+    "metric": "accuracy、macro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/pubmedqa/pubmedqa",
+    "catalog_id": 52,
+    "tested_tasks": [
+      "pubmedqa_evidence_qa"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "PubMed 20k RCT",
+    "scenario": "摘要句子角色",
+    "jev_role": "背景目标方法结果结论Choice",
+    "metric": "macro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/Franck-Dernoncourt/pubmed-rct",
+    "catalog_id": 53,
+    "tested_tasks": [
+      "pubmed_rct_section"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "SciFact",
+    "scenario": "科学论断核验",
+    "jev_role": "检索→支持/反驳/证据不足",
+    "metric": "证据F1及标签F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/allenai/scifact",
+    "catalog_id": 54,
+    "tested_tasks": [
+      "scifact_cited_abstract"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 118
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "PUBHEALTH",
+    "scenario": "公共健康主张核验",
+    "jev_role": "给定证据→真假类别",
+    "metric": "macro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/neemakot/Health-Fact-Checking",
+    "catalog_id": 55,
+    "tested_tasks": [
+      "pubhealth_claim_only",
+      "pubhealth_with_article"
+    ],
+    "completion_note": "100个历史claim双条件；给定事实核查文章不等于实时互联网核查",
+    "evaluated_rows": 200
+  },
+  {
+    "domain": "试验与证据",
+    "resource": "MedQuAD",
+    "scenario": "医学问答知识库",
+    "jev_role": "可做检索重排；不能直接评生成",
+    "metric": "需要构造相关性金标",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/abachaa/MedQuAD",
+    "catalog_id": 56,
+    "tested_tasks": [
+      "medquad_question_type"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "知识对照",
+    "resource": "MedQA",
+    "scenario": "医学考试选择题",
+    "jev_role": "选项Choice",
+    "metric": "accuracy及语言分组",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/jind11/MedQA",
+    "catalog_id": 57,
+    "tested_tasks": [
+      "medqa_en_test",
+      "medqa_zh_test"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 200
+  },
+  {
+    "domain": "知识对照",
+    "resource": "MedMCQA",
+    "scenario": "医学考试多选项",
+    "jev_role": "单选任务Choice",
+    "metric": "accuracy",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/medmcqa/medmcqa",
+    "catalog_id": 58,
+    "tested_tasks": [
+      "medmcqa_validation"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "知识对照",
+    "resource": "CMExam",
+    "scenario": "中文医学考试",
+    "jev_role": "选项Choice",
+    "metric": "accuracy与专科分组",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/williamliujl/CMExam",
+    "catalog_id": 59,
+    "tested_tasks": [
+      "cmexam_mcq",
+      "cmexam_mcq_multi"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "结构化记录",
+    "resource": "Synthea",
+    "scenario": "合成纵向病历/FHIR",
+    "jev_role": "用代码查schema；Jev判语义一致性",
+    "metric": "人工/注错金标；字段通过率",
+    "status": "生成器/待集成",
+    "source": "https://github.com/synthetichealth/synthea",
+    "catalog_id": 60,
+    "tested_tasks": [],
+    "completion_note": "可提供合成FHIR；未运行生成器，不能代替真实医院工时或准确率"
+  },
+  {
+    "domain": "结构化记录",
+    "resource": "MIMIC-IV / MIMIC-IV-Note",
+    "scenario": "住院记录、编码、检验及病历",
+    "jev_role": "文本编码候选重排；数值计算代码化",
+    "metric": "ICD多标签F1；流程指标",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://physionet.org/content/mimiciv/3.1/",
+    "catalog_id": 61,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "结构化记录",
+    "resource": "DDXPlus",
+    "scenario": "合成症状与鉴别诊断",
+    "jev_role": "有限候选研究比较",
+    "metric": "诊断召回与校准",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/mila-iqia/ddxplus",
+    "catalog_id": 62,
+    "tested_tasks": [
+      "ddxplus_synthetic_primary"
+    ],
+    "completion_note": "第三方HF镜像test前1MiB中的1574条完整记录固定抽100，49病种；原始Figshare403，非完整官方测试分布",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "报告与多模态",
+    "resource": "RadGraph",
+    "scenario": "放射报告实体关系",
+    "jev_role": "文本候选实体关系判断",
+    "metric": "实体/关系F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/Stanford-AIMI/radgraph",
+    "catalog_id": 63,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "报告与多模态",
+    "resource": "CheXbert",
+    "scenario": "胸片报告观察标签",
+    "jev_role": "逐标签状态判断",
+    "metric": "各观察类F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/stanfordmlgroup/CheXbert",
+    "catalog_id": 64,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "报告与多模态",
+    "resource": "ClinOCR-Bench",
+    "scenario": "临床文档OCR",
+    "jev_role": "OCR外置后才可做字段判断",
+    "metric": "OCR+结构化端到端准确率",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/ClinOCR-Bench/ClinOCR-Bench",
+    "catalog_id": 65,
+    "tested_tasks": [
+      "clinocr_ocr_doctype",
+      "clinocr_reference_doctype"
+    ],
+    "completion_note": "6类失真文档，实际Tesseract；只有2种模板内容，后续只测文档类型",
+    "evaluated_rows": 12
+  },
+  {
+    "domain": "报告与多模态",
+    "resource": "MedMNIST",
+    "scenario": "医学图像分类",
+    "jev_role": "Jev无原生图像能力",
+    "metric": "不安排原生Jev测试",
+    "status": "非原生输入",
+    "source": "https://medmnist.com/v2",
+    "catalog_id": 66,
+    "tested_tasks": [],
+    "completion_note": "Jev文本接口不能直接识别医学图像；未运行独立视觉模型"
+  },
+  {
+    "domain": "报告与多模态",
+    "resource": "PTB-XL",
+    "scenario": "心电波形分类",
+    "jev_role": "需要独立波形模型；Jev可读文字报告",
+    "metric": "波形任务不计入Jev能力",
+    "status": "非原生输入",
+    "source": "https://physionet.org/content/ptb-xl/1.0.3/",
+    "catalog_id": 67,
+    "tested_tasks": [],
+    "completion_note": "Jev不能直接处理ECG波形；未运行独立信号模型"
+  },
+  {
+    "domain": "中文计算",
+    "resource": "CMedCalc-Bench",
+    "scenario": "指标分级与缺失参数拒答",
+    "jev_role": "固定级别Choice、资料充分性判断",
+    "metric": "accuracy与缺失资料召回",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/Zhihong-Zhu/CMedCalc-Bench",
+    "catalog_id": 68,
+    "tested_tasks": [
+      "bmi_height_selection",
+      "bmi_weight_selection",
+      "cmedcalc_input_sufficiency",
+      "cmedcalc_semantic_grade"
+    ],
+    "completion_note": "充分性、分级与20条BMI选择＋公式；不是全部数值指标原始成绩",
+    "evaluated_rows": 402
+  },
+  {
+    "domain": "医学计算",
+    "resource": "MedCalc-Bench / Verified",
+    "scenario": "公式参数提取与计算",
+    "jev_role": "Jev选参数；计算用代码",
+    "metric": "参数accuracy与数值容差",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/ncbi-nlp/MedCalc-Bench",
+    "catalog_id": 69,
+    "tested_tasks": [
+      "medcalc_verified_bounded_score"
+    ],
+    "completion_note": "Verified发布方CSV通过Git blob校验；5种有界评分各20条，闭集数值选择，不是55种指标全量数值生成",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "长病历",
+    "resource": "LongHealth",
+    "scenario": "跨段落信息、药物和时间信息",
+    "jev_role": "完整患者文本→选择题",
+    "metric": "accuracy；按患者bootstrap",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/kbressem/LongHealth",
+    "catalog_id": 70,
+    "tested_tasks": [
+      "longhealth_full_context"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "用药变更",
+    "resource": "CMED / n2c2 2022 medication",
+    "scenario": "启用、停药、增减量、主体与确定性",
+    "jev_role": "候选药物事件的属性分类",
+    "metric": "事件/属性F1",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10529825/",
+    "catalog_id": 71,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "患者流程",
+    "resource": "MedJourney",
+    "scenario": "就诊前后12类任务",
+    "jev_role": "科室多标签判断；其余生成任务需重构",
+    "metric": "科室micro-F1；非原生成指标",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/Medical-AI-Learning/MedJourney",
+    "catalog_id": 72,
+    "tested_tasks": [
+      "medjourney_departments",
+      "medjourney_dp_mcq",
+      "medjourney_ep_mcq",
+      "medjourney_mp_mcq",
+      "medjourney_tp_mcq"
+    ],
+    "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证",
+    "evaluated_rows": 500
+  },
+  {
+    "domain": "出院用药",
+    "resource": "CDrugRed / CHIP2025 Task2",
+    "scenario": "代谢疾病出院药物多标签",
+    "jev_role": "651种药物需检索/分层候选",
+    "metric": "药物micro-F1与候选召回",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/bxx-seu/CDrugRed",
+    "catalog_id": 73,
+    "tested_tasks": [
+      "cdrugred_discharge_candidate_pipeline"
+    ],
+    "completion_note": "官方test无金标；训练发布池按患者hash分离100条holdout，非官方竞赛成绩",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "交接班",
+    "resource": "DiSCQ",
+    "scenario": "出院记录引发的临床提问",
+    "jev_role": "缺失信息/可回答性判断需重构",
+    "metric": "问题对应证据与可回答性金标",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://physionet.org/content/discq/1.0/",
+    "catalog_id": 74,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "急诊",
+    "resource": "MIMIC-IV-ED",
+    "scenario": "分诊、生命体征、诊断",
+    "jev_role": "文本线索抽取与规则组合",
+    "metric": "ESI各级召回；分开评",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://physionet.org/content/mimic-iv-ed/2.2/",
+    "catalog_id": 75,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "急诊",
+    "resource": "MIMIC-IV-Ext-CDS",
+    "scenario": "转诊、分诊、诊断流程",
+    "jev_role": "有限候选支持；不能替代临床决策",
+    "metric": "转诊/ESI/诊断分别评",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://physionet.org/content/mimic-iv-ext-cds/1.0.2/",
+    "catalog_id": 76,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "护理与ICU",
+    "resource": "eICU Demo",
+    "scenario": "护理评估及结构化记录",
+    "jev_role": "语义归类或跨字段核对",
+    "metric": "需另建任务金标",
+    "status": "缺少本任务独立金标",
+    "source": "https://physionet.org/content/eicu-crd-demo/2.0.1/",
+    "catalog_id": 77,
+    "tested_tasks": [],
+    "completion_note": "结构化eICU demo可用于SQL/规则；未构造有临床意义的Jev任务并测试"
+  },
+  {
+    "domain": "护理与ICU",
+    "resource": "AmsterdamUMCdb",
+    "scenario": "ICU观察、药物和OMOP记录",
+    "jev_role": "文本判断辅助；时序预测用专用模型",
+    "metric": "需按目标任务建立金标",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/AmsterdamUMC/AmsterdamUMCdb",
+    "catalog_id": 78,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "中医",
+    "resource": "TCM-SD",
+    "scenario": "148类证型分类",
+    "jev_role": "固定官方词表Choice",
+    "metric": "accuracy与macro-F1",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/borororo/zy-bert",
+    "catalog_id": 79,
+    "tested_tasks": [
+      "tcm_syndrome"
+    ],
+    "completion_note": "148证型＋unknown共149选项；研究许可需单独核对商业用途",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "中医",
+    "resource": "TCMEval-SDT",
+    "scenario": "病机与证型判断",
+    "jev_role": "选项Choice；推理过程不是Jev原生输出",
+    "metric": "选择题accuracy",
+    "status": "无可评分标签",
+    "source": "https://figshare.com/articles/dataset/TCMEval-SDT/27184596",
+    "catalog_id": 80,
+    "tested_tasks": [],
+    "completion_note": "已取得SDT文件，但test/validation答案字段为空；另一figshare入口403；不编造金标"
+  },
+  {
+    "domain": "中医",
+    "resource": "TCM-BEST4SDT",
+    "scenario": "知识、伦理、安全与辨证论治",
+    "jev_role": "闭集判断或回答审查",
+    "metric": "原任务与改编指标分开",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/DYJG-research/TCM-BEST4SDT",
+    "catalog_id": 81,
+    "tested_tasks": [
+      "tcm_best_ethics",
+      "tcm_best_ethics_multi",
+      "tcm_best_knowledge",
+      "tcm_best_knowledge_multi",
+      "tcm_best_location",
+      "tcm_best_location_multi",
+      "tcm_best_nature",
+      "tcm_best_nature_multi",
+      "tcm_best_principles",
+      "tcm_best_principles_multi",
+      "tcm_best_syndrome",
+      "tcm_best_syndrome_multi",
+      "tcm_best_安全问题"
+    ],
+    "completion_note": "知识/伦理/安全与SDT多维；安全金标存在明显过度拒绝倾向",
+    "evaluated_rows": 700
+  },
+  {
+    "domain": "中医",
+    "resource": "TSD",
+    "scenario": "结构化中医病例与证候",
+    "jev_role": "实体/证候判断",
+    "metric": "字段F1与分类",
+    "status": "需数据访问/许可核实或获准原文",
+    "source": "https://github.com/limeiwen/TCM-SyndromeDifferentiation-Dataset",
+    "catalog_id": 82,
+    "tested_tasks": [],
+    "completion_note": "未取得可用于本轮评测的获准文本＋金标；不自动注册、签DUA或申请机构访问"
+  },
+  {
+    "domain": "肿瘤登记",
+    "resource": "DeepPhe / DeepPhe-CR",
+    "scenario": "病理特征、部位、分期登记",
+    "jev_role": "可借鉴证据定位与字段复核",
+    "metric": "登记字段F1与录入工时",
+    "status": "替代框架，未运行",
+    "source": "https://github.com/DeepPhe/DeepPhe-Release",
+    "catalog_id": 83,
+    "tested_tasks": [],
+    "completion_note": "DeepPhe可作临床实体/肿瘤抽取基线；不是本轮已执行项目"
+  },
+  {
+    "domain": "临床NLP工具",
+    "resource": "medspaCy",
+    "scenario": "否定、上下文、章节与实体",
+    "jev_role": "作为候选生成/规则基线",
+    "metric": "同语料端到端F1和成本",
+    "status": "已完成有限样本实测",
+    "source": "https://github.com/medspacy/medspacy",
+    "catalog_id": 84,
+    "tested_tasks": [
+      "ncbi_medspacy_jev_ner"
+    ],
+    "completion_note": "已实际安装medspaCy1.3.1并在100篇NCBI测试摘要运行；仅词典target matcher",
+    "evaluated_rows": 100
+  },
+  {
+    "domain": "临床NLP工具",
+    "resource": "EDS-NLP",
+    "scenario": "法语临床信息抽取",
+    "jev_role": "混合规则和模型的对照路线",
+    "metric": "字段/断言F1",
+    "status": "替代框架，未运行",
+    "source": "https://github.com/aphp/edsnlp",
+    "catalog_id": 85,
+    "tested_tasks": [],
+    "completion_note": "EDS-NLP偏法语临床NLP；未安装运行"
+  },
+  {
+    "domain": "脱敏工具",
+    "resource": "EDS-Pseudo",
+    "scenario": "临床身份信息识别",
+    "jev_role": "规则+模型的候选与对照",
+    "metric": "PHI漏检率",
+    "status": "替代框架，未运行",
+    "source": "https://github.com/aphp/eds-pseudo",
+    "catalog_id": 86,
+    "tested_tasks": [],
+    "completion_note": "EDS-Pseudo去标识化工具；未安装运行"
+  },
+  {
+    "domain": "临床NLP工具",
+    "resource": "medkit",
+    "scenario": "文本/音频/结构化医疗处理",
+    "jev_role": "可搭建解析、NER、上下文管线",
+    "metric": "整条管线质量与耗时",
+    "status": "替代框架，未运行",
+    "source": "https://github.com/medkit-lib/medkit",
+    "catalog_id": 87,
+    "tested_tasks": [],
+    "completion_note": "medkit可编排临床NLP；未运行"
+  },
+  {
+    "domain": "信息抽取工具",
+    "resource": "LangExtract",
+    "scenario": "药物等结构化抽取与原文定位",
+    "jev_role": "生成式候选提取可与Jev判定对比",
+    "metric": "字段F1与证据对齐",
+    "status": "替代框架，未运行",
+    "source": "https://github.com/google/langextract/blob/main/docs/examples/medication_examples.md",
+    "catalog_id": 88,
+    "tested_tasks": [],
+    "completion_note": "LangExtract可生成带证据的结构化结果；需要生成模型服务，本轮未做对照"
+  },
+  {
+    "domain": "评测工具",
+    "resource": "MedEvalKit",
+    "scenario": "医学文本和多模态评测",
+    "jev_role": "可扩展Jev适配器；图像任务另处理",
+    "metric": "逐基准指标",
+    "status": "评测框架，未运行",
+    "source": "https://github.com/alibaba-damo-academy/MedEvalKit",
+    "catalog_id": 89,
+    "tested_tasks": [],
+    "completion_note": "MedEvalKit仅作调研入口；本轮使用可审计自建适配器"
+  },
+  {
+    "domain": "评测工具",
+    "resource": "Medmarks",
+    "scenario": "医学任务统一评测",
+    "jev_role": "参考更多任务入口",
+    "metric": "逐基准指标",
+    "status": "评测框架，未运行",
+    "source": "https://github.com/MedARC-AI/Medmarks",
+    "catalog_id": 90,
+    "tested_tasks": [],
+    "completion_note": "Medmarks仅作调研入口；未运行整套"
+  }
+]

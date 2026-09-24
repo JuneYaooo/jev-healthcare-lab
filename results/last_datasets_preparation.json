@@ -1,0 +1,10 @@
+{
+  "evidence_inference": {
+    "eligible_pool": 1221,
+    "excluded": {
+      "missing_or_inconsistent_annotator": 28,
+      "tied_label": 3
+    },
+    "article_length_cap_chars": 70000
+  }
+}

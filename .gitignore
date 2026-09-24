@@ -1,0 +1,11 @@
+data/
+work/
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+.local-*
