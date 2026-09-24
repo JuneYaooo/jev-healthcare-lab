@@ -1,0 +1,45 @@
+{
+  "task": "clinocr_reference_doctype",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "final_tasks_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
+  },
+  "sample_count": 6,
+  "groups": 2,
+  "resources": [
+    {
+      "resource": "ClinOCR-Bench",
+      "source": "https://github.com/ClinOCR-Bench/ClinOCR-Bench",
+      "completion_note": "6类失真文档，实际Tesseract；只有2种模板内容，后续只测文档类型"
+    }
+  ],
+  "adapter": "prepare_final_tasks.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 13674,
+      "sha256": "63ef10a29aeb8ac190295a6bcc75d31766b1b1bd1ecfda0d9455841fe66b7677"
+    },
+    "responses.jsonl": {
+      "bytes": 3086,
+      "sha256": "5c3bfde6e1819f0ac94065a563bfefdad8b9f1194e7191ebcf5681ad66cde334"
+    },
+    "index.jsonl": {
+      "bytes": 1845,
+      "sha256": "ed04458421f992d37180657b50b00938ce748c3a934512ea66868e5e328b3559"
+    },
+    "prompts.json": {
+      "bytes": 696,
+      "sha256": "bc032a25b3f26b97dbfc79f245093e1b61d385e89b5afeacdca02e6b45f0a059"
+    },
+    "example.json": {
+      "bytes": 3422,
+      "sha256": "f472756933a4ee7235881d975972b6283da7f2bcd4a16fd4bf64bc4fce0749e1"
+    }
+  }
+}

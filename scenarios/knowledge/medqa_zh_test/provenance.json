@@ -1,0 +1,45 @@
+{
+  "task": "medqa_zh_test",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "last_datasets_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "last_datasets_prepared.jsonl": "3b79f759f36b98ccda2e51e56e0f5b351418eab03350091e992648e048b2fdb4"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "MedQA",
+      "source": "https://github.com/jind11/MedQA",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_last_datasets.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 89741,
+      "sha256": "20809e6101bd06094e906b53ed72cb0f5bebdc927fcb988e5fa5b13602b673d2"
+    },
+    "responses.jsonl": {
+      "bytes": 41495,
+      "sha256": "86a6949083bc62812b73fee94cb36c852d7f27ad8bcf402f1c4079a6c6b2f115"
+    },
+    "index.jsonl": {
+      "bytes": 28026,
+      "sha256": "f7e682038cad6affb1464bb1ae173b0dd5fa1aca7ad5314826304065f6f17f2e"
+    },
+    "prompts.json": {
+      "bytes": 54437,
+      "sha256": "eedbd0aab3601246543ac5096e7bda61e53825b64fa60ad14a3312e95c78a727"
+    },
+    "example.json": {
+      "bytes": 1653,
+      "sha256": "51390779c04ccef5f62272a0274dfb4dd4853adb89b8e6982c8a2b7134934697"
+    }
+  }
+}

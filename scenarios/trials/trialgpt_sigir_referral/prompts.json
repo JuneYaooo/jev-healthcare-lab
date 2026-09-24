@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "Irrelevant: would not refer this patient",
+          "1": "Potential: would consider referring upon further investigation",
+          "2": "Eligible: highly likely to refer this patient"
+        },
+        "instructions": "Based on this patient and trial, classify referral suitability. Potential means further investigation is needed; do not treat undocumented criteria as confirmed.",
+        "type": "choice"
+      },
+      "occurrences": 150,
+      "example_sample_id": "sigir-20157:NCT01145313"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "planned": 6,
+  "successful": 6,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 6,
+    "accuracy": 0.8333333333333334,
+    "macro_f1_observed_gold_classes": 0.8333333333333333,
+    "per_class": {
+      "medication_list": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "radiology": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "unknown": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 2,
+    "lower": 0.5,
+    "upper": 1.0
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.14833333333333332,
+    "multiclass_brier_sum": 0.29296666666666665,
+    "brier_n": 6,
+    "bins": [
+      {
+        "lower": 0.8,
+        "n": 1,
+        "mean_selected_probability": 0.89,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.9,
+        "n": 5,
+        "mean_selected_probability": 1.0,
+        "accuracy": 1.0
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 6,
+          "coverage": 1.0,
+          "accuracy": 0.8333333333333334
+        },
+        "by_probability_and_api_confidence": {
+          "n": 6,
+          "coverage": 1.0,
+          "accuracy": 0.8333333333333334
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 5,
+          "coverage": 0.8333333333333334,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 5,
+          "coverage": 0.8333333333333334,
+          "accuracy": 1.0
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 5,
+          "coverage": 0.8333333333333334,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 5,
+          "coverage": 0.8333333333333334,
+          "accuracy": 1.0
+        }
+      }
+    }
+  },
+  "input_tokens": 4873,
+  "output_tokens": 451,
+  "latency_successful_api_p50_s": 0.6440773329813965,
+  "latency_successful_api_p95_s": 0.6633159579942003,
+  "per_indicator": {
+    "handwriting": {
+      "n": 1,
+      "accuracy": 1.0
+    },
+    "mixed": {
+      "n": 1,
+      "accuracy": 0.0
+    },
+    "normal": {
+      "n": 1,
+      "accuracy": 1.0
+    },
+    "poor": {
+      "n": 1,
+      "accuracy": 1.0
+    },
+    "rotated": {
+      "n": 1,
+      "accuracy": 1.0
+    },
+    "tables": {
+      "n": 1,
+      "accuracy": 1.0
+    }
+  }
+}

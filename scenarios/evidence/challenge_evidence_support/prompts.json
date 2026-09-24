@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "contradicted": "原文明示相反",
+          "supported": "原文明示支持",
+          "unknown": "原文不足以判断"
+        },
+        "instructions": "只用证据判断待核验结论，不补充常识诊断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "evidence_support:1"
+    }
+  ]
+}

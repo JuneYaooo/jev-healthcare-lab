@@ -1,0 +1,57 @@
+{
+  "sample": {
+    "gold": "B",
+    "group": "534",
+    "id": "534",
+    "metadata": {
+      "indicator": "公卫预防",
+      "source": "CMExam official test"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "生物群落构成",
+            "B": "生物群落及其非生物环境组成",
+            "C": "人类聚居而成",
+            "D": "人类与其他生物组成",
+            "E": "人类与非生物系统构成"
+          },
+          "instructions": "选择医学考试题的最佳答案。",
+          "type": "choice"
+        }
+      },
+      "state": "生态系统是由"
+    },
+    "request_sha256": "fbd6b5fd377e58c1effb4138e56dea48ff0a92af55279597a73288698ede0ba1",
+    "task": "cmexam_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.5794622909743339,
+    "id": "534",
+    "request_sha256": "fbd6b5fd377e58c1effb4138e56dea48ff0a92af55279597a73288698ede0ba1",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "B",
+          "confidence": 1.0,
+          "probabilities": {
+            "A": 0.0,
+            "B": 1.0,
+            "C": 0.0,
+            "D": 0.0,
+            "E": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 394,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "cmexam_mcq"
+  }
+}

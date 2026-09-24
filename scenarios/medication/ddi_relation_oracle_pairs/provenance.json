@@ -1,0 +1,45 @@
+{
+  "task": "ddi_relation_oracle_pairs",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "extended_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
+  },
+  "sample_count": 150,
+  "groups": 77,
+  "resources": [
+    {
+      "resource": "DDI Corpus",
+      "source": "https://github.com/isegura/DDICorpus",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_extended.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 195441,
+      "sha256": "fb3f282febb3953548b6335645249357b3915027d2c5b4ccda6ebef244c8c977"
+    },
+    "responses.jsonl": {
+      "bytes": 71401,
+      "sha256": "46e272674696791e73476b1a4c100b93cc0bd9a16e3c7d396975a719463934ac"
+    },
+    "index.jsonl": {
+      "bytes": 48798,
+      "sha256": "613ea27a2e5b7ce82f436a77778e2901f974c6b7489e219b27d3b18f9aedd7e7"
+    },
+    "prompts.json": {
+      "bytes": 828,
+      "sha256": "b21226008e52e1df2e55cb1dfa736a94639168b5248008c8cc9e52d8dedfe116"
+    },
+    "example.json": {
+      "bytes": 2251,
+      "sha256": "45d46b1564e6e193410719e9dc9b66a38401517e13f46ba08e7a072f80f6abdc"
+    }
+  }
+}

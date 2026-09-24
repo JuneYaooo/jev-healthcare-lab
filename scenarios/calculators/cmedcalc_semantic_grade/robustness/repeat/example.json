@@ -1,0 +1,66 @@
+{
+  "sample": {
+    "gold": "C",
+    "group": "43",
+    "id": "43",
+    "metadata": {
+      "indicator": "ASIA损伤分级",
+      "original_id": "43",
+      "original_task": "cmedcalc_semantic_grade",
+      "scope": "all162 public semantic cases; canonicalized labels, no gold explanation; explicit grading not free generation",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "repeat"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "A",
+            "B": "B",
+            "C": "C",
+            "D": "D",
+            "E": "E",
+            "unknown": "病历资料不足，不能确定分级"
+          },
+          "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "indicator": "ASIA损伤分级",
+        "note": "主诉：L1爆裂骨折术后右下肢活动困难1月。\n现病史：患者诉右下肢麻木无力，右大腿可带动小腿在床面移动，但不能抬起。右踝关节及足趾无法自主活动。\n查体：右侧髂腰肌肌力3级，股四头肌肌力2级，胫前肌肌力0级，拇长伸肌肌力1级，腓肠肌肌力3级。L1皮节及以上感觉正常，L2皮节感觉减退，L3及以下皮节感觉消失。肛周皮肤（S4-S5）有深压觉，可自主收缩肛门。"
+      }
+    },
+    "request_sha256": "8596e65f6648b739f551fae68d0da686635b61dca91487d94671b7c652d7e5cf",
+    "task": "robust_repeat_cmedcalc_semantic_grade"
+  },
+  "response": {
+    "elapsed_s": 0.7206498750019819,
+    "id": "43",
+    "request_sha256": "8596e65f6648b739f551fae68d0da686635b61dca91487d94671b7c652d7e5cf",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "C",
+          "confidence": 0.51,
+          "probabilities": {
+            "A": 0.01,
+            "B": 0.07,
+            "C": 0.59,
+            "D": 0.32,
+            "E": 0.0,
+            "unknown": 0.01
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 604,
+        "output_tokens": 59
+      }
+    },
+    "status": "ok",
+    "task": "robust_repeat_cmedcalc_semantic_grade"
+  }
+}

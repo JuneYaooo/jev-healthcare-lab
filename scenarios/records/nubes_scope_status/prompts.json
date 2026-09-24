@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "negative": "Negated or absent",
+          "positive": "Affirmed present",
+          "uncertain": "Possible, suspected or uncertain"
+        },
+        "instructions": "Determine the status of the target finding in the Spanish clinical excerpt.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "sample-006.intme.chico:T25"
+    }
+  ]
+}

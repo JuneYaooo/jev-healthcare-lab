@@ -1,0 +1,270 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "重105斤，现体重130斤，身高162厘米，脸部痤疮明显，脐下有根",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "，血压维持可。\n\n查体:\n\n身高160cm,体重75kg.血压14",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "主诉:\n\n女，48岁，身高150cm，体重60kg\n\n因反复",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "糖尿病家族史。\n\n查体:\n\n身高1.62m，体重54kg，卧位血压",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "等。\n\n查体:\nASAⅢ级；身高1.75m，体重114kg；Mal",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "\n患儿呈明显的异常发育外观，身高62cm，体重7kg，可站立，行",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "料】\n\n患者，女，40岁，身高：163cm体重：69kg，BP11",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "P：118/80mmHg\n\n身高155cm，体重56kg。\n\n宫高",
+          "1": "55cm，体重56kg。\n\n宫高32cm，腹围98cm，估计胎儿",
+          "2": "56kg。\n\n宫高32cm，腹围98cm，估计胎儿大小3200g",
+          "3": "宫颈位置中，宫颈未消退，宫颈扩张0cm。先露位置S-3。胎膜未",
+          "4": "胎膜未破。骨盆测量：髂前上棘间径24cm，髂嵴间径26cm，骶耻",
+          "5": "：髂前上棘间径24cm，髂嵴间径26cm，骶耻外径20cm。\n\n",
+          "6": "cm，髂嵴间径26cm，骶耻外径20cm。\n\n辅助检查:\n\n本院",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肩胛下角第12肋间，双肺移动度约3cm。听诊：呼吸不规整，双肺",
+          "1": "心尖搏动位于左锁骨中线第五肋间外0.5cm处，搏动范围直径约1cm",
+          "2": "间外0.5cm处，搏动范围直径约1cm，剑突下明显异常搏动。触",
+          "3": "界如下：右（cm）肋间左（cm）2cmⅡ4cm4cmⅢ5cm5 / 。脏器触诊:肝肋下可触及，肋缘下2cm，剑突下4cm。胆囊点无",
+          "4": "右（cm）肋间左（cm）2cmⅡ4cm4cmⅢ5cm5cmⅣ6 / m）肋间左（cm）2cmⅡ4cm4cmⅢ5cm5cmⅣ6cm/ / 肋下可触及，肋缘下2cm，剑突下4cm。胆囊点无压痛，墨菲征阴",
+          "5": "左（cm）2cmⅡ4cm4cmⅢ5cm5cmⅣ6cm/Ⅴ8.5 / m）2cmⅡ4cm4cmⅢ5cm5cmⅣ6cm/Ⅴ8.5cm锁",
+          "6": "mⅡ4cm4cmⅢ5cm5cmⅣ6cm/Ⅴ8.5cm锁骨中线距",
+          "7": "4cmⅢ5cm5cmⅣ6cm/Ⅴ8.5cm锁骨中线距前正中线8cm",
+          "8": "/Ⅴ8.5cm锁骨中线距前正中线8cm听诊：心律100次/分，",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "性，52岁，ASA分级Ⅱ级，身高154\n\ncm，体重45\n\nkg。\n\n",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "11"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "33kPa），体重74kg，身高156cm，一般情况好，心肺未见异",
+          "1": "未见异常。\n\n辅助检查:\n\n宫高36cm，腹围107cm，纵产式",
+          "2": "辅助检查:\n\n宫高36cm，腹围107cm，纵产式，先露头，部分衔",
+          "3": "：23.0-25.0-18.5-8.5cm。估计胎儿体重4kg。血",
+          "4": "：宫内见头位胎儿图像，胎头双顶径10.0cm，胎心音154次/rai",
+          "5": "rain，胎动正常，胎儿股骨长约7.2cm，胎盘位于左侧壁，厚约4",
+          "6": "7.2cm，胎盘位于左侧壁，厚约4.6cm，胎盘功能Ⅲ级，羊水最大",
+          "7": "cm，胎盘功能Ⅲ级，羊水最大厚度2.7cm，指数6.6cm。",
+          "8": "级，羊水最大厚度2.7cm，指数6.6cm。",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "主诉:\n\n患者男性，18岁，身高183cm，体重55kg。\n\n因左",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": ".8℃，呼吸30次/min，身高133 cm，体重49 kg，鼻导管",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "主诉:\n\n患者，男，25岁，身高160\n\ncm，体重42kg。\n\n因\"",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "BP：146/79mmHg。身高175cm，体重90kg。精神状态",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": ".0kg(第25百分位数)，体长48.3cm(第25百分位数)，头围",
+          "1": ".3cm(第25百分位数)，头围32.5cm（第10百分位数）；1分",
+          "2": "，触摸物体，可以扶坐。此时身高为69.9cm（第96百分位数），头围",
+          "3": ".9cm（第96百分位数），头围43cm（第72百分位数），体重",
+          "4": "【体格检查】\n头面部无畸形。头围45cm（第50百分位数）；前囟",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "沉着，体重为10.5KG，身高为92厘米。该患者的血清维生素A水",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "。主诉：腹痛3天。体格检查：身高165cm，体重240斤。初步诊断",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "体重31kg（约=P3）。身高 148cm（约=P25）。皮肤不干",
+          "unknown": "病历中没有可可靠选取的当前测量值"
+        },
+        "instructions": "选择用于计算当前BMI的身高记录；排除历史值和其他人物的值，不补造数据。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "20"
+    }
+  ]
+}

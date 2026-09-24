@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "insufficient": "仅疑似、家族史或检验异常",
+          "supported": "有明确确诊文书支持",
+          "unsupported": "否认或明确排除"
+        },
+        "instructions": "本题只查文书是否支持“确诊糖尿病”编码；不根据检验自行诊断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "coding_evidence:1"
+    }
+  ]
+}

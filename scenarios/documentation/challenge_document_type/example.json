@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "lab",
+    "group": "document_type:1",
+    "id": "document_type:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "administrative": "行政通知",
+            "discharge": "出院记录",
+            "lab": "检验报告",
+            "prescription": "处方"
+          },
+          "instructions": "按文字功能归类文档。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "检验项目：血红蛋白；结果：120g/L；参考区间见表。"
+      }
+    },
+    "request_sha256": "1497a533c053cdd5d35d7571f4dfe1ed8e1faac71a934e560300ab58292e2e68",
+    "task": "challenge_document_type"
+  },
+  "response": {
+    "elapsed_s": 0.8348842919804156,
+    "id": "document_type:1",
+    "request_sha256": "1497a533c053cdd5d35d7571f4dfe1ed8e1faac71a934e560300ab58292e2e68",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "lab",
+          "confidence": 1.0,
+          "probabilities": {
+            "administrative": 0.0,
+            "discharge": 0.0,
+            "lab": 1.0,
+            "prescription": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 383,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "challenge_document_type"
+  }
+}

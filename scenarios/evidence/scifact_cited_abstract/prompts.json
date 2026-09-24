@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "CONTRADICT": "Contradicts",
+          "NOINFO": "Insufficient evidence",
+          "SUPPORT": "Supports"
+        },
+        "instructions": "Does this supplied abstract support or refute the scientific claim? Use NOINFO if neither follows. Assess only this abstract.",
+        "type": "choice"
+      },
+      "occurrences": 118,
+      "example_sample_id": "48:13734012"
+    }
+  ]
+}

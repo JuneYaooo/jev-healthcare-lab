@@ -1,0 +1,63 @@
+{
+  "sample": {
+    "gold": "E",
+    "group": "5021",
+    "id": "5021",
+    "metadata": {
+      "indicator": "药学",
+      "original_id": "5021",
+      "original_task": "cmexam_mcq",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "irrelevant"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "贝诺酯",
+            "B": "安乃近",
+            "C": "吲哚美辛",
+            "D": "布洛芬",
+            "E": "吡罗昔康"
+          },
+          "instructions": "选择医学考试题的最佳答案。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "administrative_note": "Document imported on Tuesday. Printer paper restocked. Meeting room chairs replaced. This administrative note is unrelated to the patient or task.",
+        "clinical_input": "1，2-苯并噻嗪类非甾体抗炎药"
+      }
+    },
+    "request_sha256": "d896542c6f3b73fca066adb6257ce7732b56dab1468afa2e937a672eb71bc6d5",
+    "task": "robust_irrelevant_cmexam_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.5403881249949336,
+    "id": "5021",
+    "request_sha256": "d896542c6f3b73fca066adb6257ce7732b56dab1468afa2e937a672eb71bc6d5",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "E",
+          "confidence": 1.0,
+          "probabilities": {
+            "A": 0.0,
+            "B": 0.0,
+            "C": 0.0,
+            "D": 0.0,
+            "E": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 429,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "robust_irrelevant_cmexam_mcq"
+  }
+}

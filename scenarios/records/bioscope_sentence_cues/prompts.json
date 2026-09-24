@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "both": "Both negation and speculation cues",
+          "negation": "Negation cue only",
+          "neither": "Neither",
+          "speculation": "Speculative cue only"
+        },
+        "instructions": "Which explicitly expressed linguistic cues occur in this biomedical sentence? Negation denies an event; speculation expresses uncertainty or hypothesis. Classify presence of either kind, not whether the main conclusion is true.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "8283032:S307.7"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "sample": {
+    "gold": [
+      "C",
+      "E"
+    ],
+    "group": "201",
+    "id": "201",
+    "metadata": {
+      "scoring": "multi_question_keys",
+      "source": "TCM-BEST4SDT SDT multilabel, threshold0.5"
+    },
+    "request": {
+      "questions": {
+        "A": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾益气",
+          "type": "noul"
+        },
+        "B": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利水渗湿",
+          "type": "noul"
+        },
+        "C": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热熄风",
+          "type": "noul"
+        },
+        "D": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝解郁",
+          "type": "noul"
+        },
+        "E": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 镇惊安神",
+          "type": "noul"
+        },
+        "F": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰开窍",
+          "type": "noul"
+        },
+        "G": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴降火",
+          "type": "noul"
+        },
+        "H": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 活血化瘀",
+          "type": "noul"
+        },
+        "I": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温中散寒",
+          "type": "noul"
+        },
+        "J": {
+          "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解表散寒",
+          "type": "noul"
+        }
+      },
+      "state": "三岁小女孩,晚春天气转暖却穿着过厚衣物玩耍出汗后被风吹到,突发瘈疭病。严重时闭眼昏迷呈角弓反张姿态,双手紧握成拳,轻症时舌肿胀无法吸吮母乳,持续三日每日拉稀2-3次导致精神萎靡，并伴有体表温度升高。脉象显示跳动次数增多，显示体内存在热证。"
+    },
+    "request_sha256": "b52f1b50c6f3d01912b12d6d53b35211847444997081013afa28bc4154f72f77",
+    "task": "tcm_best_principles_multi"
+  },
+  "response": {
+    "elapsed_s": 1.3525709170498885,
+    "id": "201",
+    "request_sha256": "b52f1b50c6f3d01912b12d6d53b35211847444997081013afa28bc4154f72f77",
+    "response": {
+      "answers": {
+        "A": {
+          "noul": 0.11,
+          "type": "noul"
+        },
+        "B": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "C": {
+          "noul": 0.89,
+          "type": "noul"
+        },
+        "D": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "E": {
+          "noul": 0.61,
+          "type": "noul"
+        },
+        "F": {
+          "noul": 0.37,
+          "type": "noul"
+        },
+        "G": {
+          "noul": 0.21,
+          "type": "noul"
+        },
+        "H": {
+          "noul": 0.07,
+          "type": "noul"
+        },
+        "I": {
+          "noul": 0.05,
+          "type": "noul"
+        },
+        "J": {
+          "noul": 0.16,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 747,
+        "output_tokens": 164
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_principles_multi"
+  }
+}

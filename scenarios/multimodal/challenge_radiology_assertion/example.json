@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "present",
+    "group": "radiology_assertion:1",
+    "id": "radiology_assertion:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "absent": "明确未见",
+            "present": "明确存在",
+            "uncertain": "可疑/不能排除",
+            "unmentioned": "未提及"
+          },
+          "instructions": "只判断本份文字报告对肺结节的态度，不读取影像或作额外诊断。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "右肺上叶见一枚结节。"
+      }
+    },
+    "request_sha256": "a25e481eb65446452e122003983cd8c4fae4a6c39d034a74798982e129300bd2",
+    "task": "challenge_radiology_assertion"
+  },
+  "response": {
+    "elapsed_s": 0.9030522080138326,
+    "id": "radiology_assertion:1",
+    "request_sha256": "a25e481eb65446452e122003983cd8c4fae4a6c39d034a74798982e129300bd2",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "present",
+          "confidence": 0.99,
+          "probabilities": {
+            "absent": 0.0,
+            "present": 0.99,
+            "uncertain": 0.0,
+            "unmentioned": 0.01
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 388,
+        "output_tokens": 50
+      }
+    },
+    "status": "ok",
+    "task": "challenge_radiology_assertion"
+  }
+}

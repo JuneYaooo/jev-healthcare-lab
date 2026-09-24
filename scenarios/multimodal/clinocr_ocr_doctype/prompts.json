@@ -1,0 +1,22 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "billing": "Billing/insurance document",
+          "discharge": "Discharge summary",
+          "lab": "Laboratory result",
+          "medication_list": "Medication list/reconciliation",
+          "radiology": "Radiology report",
+          "referral": "Referral letter",
+          "unknown": "Unreadable or none of these"
+        },
+        "instructions": "Classify this document by its primary clinical purpose.",
+        "type": "choice"
+      },
+      "occurrences": 6,
+      "example_sample_id": "handwriting_t1_s2"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "Contradiction": "The statement conflicts with the supplied records.",
+          "Entailment": "The supplied records support the statement."
+        },
+        "instructions": "Using only the supplied trial section(s), is the statement entailed or contradicted? Primary and secondary refer to the named trial objects.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "cdadcb0a-20c5-47f7-a63a-39f5c6f26ae2"
+    }
+  ]
+}

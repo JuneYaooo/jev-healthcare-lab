@@ -1,0 +1,1321 @@
+{
+  "sample": {
+    "gold": [
+      "5",
+      "6",
+      "8",
+      "9",
+      "10",
+      "27",
+      "30",
+      "33",
+      "37",
+      "38",
+      "39",
+      "40",
+      "48",
+      "84",
+      "85",
+      "95",
+      "96",
+      "98",
+      "103",
+      "104",
+      "105"
+    ],
+    "group": "pmc_1280405",
+    "id": "evidencebench_dev_id_0",
+    "metadata": {
+      "scoring": "multi_question_keys",
+      "source": "all37dev; adapted union of annotated evidence-aspect sentences, not official set-cover ranking metric"
+    },
+    "request": {
+      "questions": {
+        "0": {
+          "instructions": "Does sentence 0 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "1": {
+          "instructions": "Does sentence 1 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "10": {
+          "instructions": "Does sentence 10 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "100": {
+          "instructions": "Does sentence 100 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "101": {
+          "instructions": "Does sentence 101 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "102": {
+          "instructions": "Does sentence 102 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "103": {
+          "instructions": "Does sentence 103 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "104": {
+          "instructions": "Does sentence 104 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "105": {
+          "instructions": "Does sentence 105 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "106": {
+          "instructions": "Does sentence 106 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "107": {
+          "instructions": "Does sentence 107 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "108": {
+          "instructions": "Does sentence 108 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "109": {
+          "instructions": "Does sentence 109 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "11": {
+          "instructions": "Does sentence 11 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "110": {
+          "instructions": "Does sentence 110 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "111": {
+          "instructions": "Does sentence 111 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "112": {
+          "instructions": "Does sentence 112 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "113": {
+          "instructions": "Does sentence 113 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "114": {
+          "instructions": "Does sentence 114 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "115": {
+          "instructions": "Does sentence 115 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "116": {
+          "instructions": "Does sentence 116 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "117": {
+          "instructions": "Does sentence 117 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "118": {
+          "instructions": "Does sentence 118 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "119": {
+          "instructions": "Does sentence 119 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "12": {
+          "instructions": "Does sentence 12 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "120": {
+          "instructions": "Does sentence 120 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "121": {
+          "instructions": "Does sentence 121 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "122": {
+          "instructions": "Does sentence 122 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "123": {
+          "instructions": "Does sentence 123 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "124": {
+          "instructions": "Does sentence 124 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "125": {
+          "instructions": "Does sentence 125 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "126": {
+          "instructions": "Does sentence 126 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "127": {
+          "instructions": "Does sentence 127 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "128": {
+          "instructions": "Does sentence 128 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "129": {
+          "instructions": "Does sentence 129 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "13": {
+          "instructions": "Does sentence 13 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "130": {
+          "instructions": "Does sentence 130 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "131": {
+          "instructions": "Does sentence 131 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "132": {
+          "instructions": "Does sentence 132 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "133": {
+          "instructions": "Does sentence 133 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "134": {
+          "instructions": "Does sentence 134 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "135": {
+          "instructions": "Does sentence 135 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "136": {
+          "instructions": "Does sentence 136 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "137": {
+          "instructions": "Does sentence 137 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "138": {
+          "instructions": "Does sentence 138 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "139": {
+          "instructions": "Does sentence 139 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "14": {
+          "instructions": "Does sentence 14 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "15": {
+          "instructions": "Does sentence 15 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "16": {
+          "instructions": "Does sentence 16 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "17": {
+          "instructions": "Does sentence 17 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "18": {
+          "instructions": "Does sentence 18 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "19": {
+          "instructions": "Does sentence 19 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "2": {
+          "instructions": "Does sentence 2 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "20": {
+          "instructions": "Does sentence 20 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "21": {
+          "instructions": "Does sentence 21 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "22": {
+          "instructions": "Does sentence 22 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "23": {
+          "instructions": "Does sentence 23 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "24": {
+          "instructions": "Does sentence 24 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "25": {
+          "instructions": "Does sentence 25 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "26": {
+          "instructions": "Does sentence 26 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "27": {
+          "instructions": "Does sentence 27 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "28": {
+          "instructions": "Does sentence 28 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "29": {
+          "instructions": "Does sentence 29 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "3": {
+          "instructions": "Does sentence 3 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "30": {
+          "instructions": "Does sentence 30 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "31": {
+          "instructions": "Does sentence 31 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "32": {
+          "instructions": "Does sentence 32 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "33": {
+          "instructions": "Does sentence 33 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "34": {
+          "instructions": "Does sentence 34 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "35": {
+          "instructions": "Does sentence 35 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "36": {
+          "instructions": "Does sentence 36 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "37": {
+          "instructions": "Does sentence 37 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "38": {
+          "instructions": "Does sentence 38 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "39": {
+          "instructions": "Does sentence 39 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "4": {
+          "instructions": "Does sentence 4 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "40": {
+          "instructions": "Does sentence 40 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "41": {
+          "instructions": "Does sentence 41 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "42": {
+          "instructions": "Does sentence 42 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "43": {
+          "instructions": "Does sentence 43 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "44": {
+          "instructions": "Does sentence 44 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "45": {
+          "instructions": "Does sentence 45 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "46": {
+          "instructions": "Does sentence 46 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "47": {
+          "instructions": "Does sentence 47 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "48": {
+          "instructions": "Does sentence 48 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "49": {
+          "instructions": "Does sentence 49 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "5": {
+          "instructions": "Does sentence 5 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "50": {
+          "instructions": "Does sentence 50 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "51": {
+          "instructions": "Does sentence 51 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "52": {
+          "instructions": "Does sentence 52 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "53": {
+          "instructions": "Does sentence 53 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "54": {
+          "instructions": "Does sentence 54 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "55": {
+          "instructions": "Does sentence 55 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "56": {
+          "instructions": "Does sentence 56 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "57": {
+          "instructions": "Does sentence 57 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "58": {
+          "instructions": "Does sentence 58 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "59": {
+          "instructions": "Does sentence 59 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "6": {
+          "instructions": "Does sentence 6 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "60": {
+          "instructions": "Does sentence 60 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "61": {
+          "instructions": "Does sentence 61 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "62": {
+          "instructions": "Does sentence 62 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "63": {
+          "instructions": "Does sentence 63 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "64": {
+          "instructions": "Does sentence 64 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "65": {
+          "instructions": "Does sentence 65 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "66": {
+          "instructions": "Does sentence 66 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "67": {
+          "instructions": "Does sentence 67 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "68": {
+          "instructions": "Does sentence 68 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "69": {
+          "instructions": "Does sentence 69 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "7": {
+          "instructions": "Does sentence 7 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "70": {
+          "instructions": "Does sentence 70 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "71": {
+          "instructions": "Does sentence 71 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "72": {
+          "instructions": "Does sentence 72 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "73": {
+          "instructions": "Does sentence 73 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "74": {
+          "instructions": "Does sentence 74 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "75": {
+          "instructions": "Does sentence 75 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "76": {
+          "instructions": "Does sentence 76 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "77": {
+          "instructions": "Does sentence 77 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "78": {
+          "instructions": "Does sentence 78 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "79": {
+          "instructions": "Does sentence 79 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "8": {
+          "instructions": "Does sentence 8 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "80": {
+          "instructions": "Does sentence 80 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "81": {
+          "instructions": "Does sentence 81 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "82": {
+          "instructions": "Does sentence 82 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "83": {
+          "instructions": "Does sentence 83 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "84": {
+          "instructions": "Does sentence 84 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "85": {
+          "instructions": "Does sentence 85 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "86": {
+          "instructions": "Does sentence 86 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "87": {
+          "instructions": "Does sentence 87 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "88": {
+          "instructions": "Does sentence 88 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "89": {
+          "instructions": "Does sentence 89 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "9": {
+          "instructions": "Does sentence 9 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "90": {
+          "instructions": "Does sentence 90 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "91": {
+          "instructions": "Does sentence 91 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "92": {
+          "instructions": "Does sentence 92 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "93": {
+          "instructions": "Does sentence 93 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "94": {
+          "instructions": "Does sentence 94 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "95": {
+          "instructions": "Does sentence 95 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "96": {
+          "instructions": "Does sentence 96 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "97": {
+          "instructions": "Does sentence 97 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "98": {
+          "instructions": "Does sentence 98 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        },
+        "99": {
+          "instructions": "Does sentence 99 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+          "type": "noul"
+        }
+      },
+      "state": {
+        "hypothesis": "Critically ill neonates have higher DEHP exposure than neonates receiving routine care, mediated by more frequent use of DEHP-containing medical devices.",
+        "sentences": {
+          "0": "Objective: Di(2-ethylhexyl) phthalate (DEHP) is a plasticizer used in medical products made with polyvinyl chloride (PVC) plastic and may be toxic to humans.",
+          "1": "DEHP is lipophilic and binds non-covalently to PVC, allowing it to leach from these products.",
+          "10": "After adjustment for institution and sex, urinary MEHP levels among infants in the high exposure group were 5.1 times those among infants in the low exposure group (p = 0.03).",
+          "100": "Urinary creatinine levels were available for 67 samples, 45 infants in total.",
+          "101": "Using this restricted sample, we analyzed the association between DEHP exposure group and creatinine-adjusted urinary MEHP concentrations, and the results were nearly identical to the results from the analyses of unadjusted MEHP levels.",
+          "102": "Discussion",
+          "103": "Our study of 54 infants receiving care in two NICUs demonstrated that the use of DEHP-containing medical devices is associated with a monotonic increase in urinary levels of MEHP, a metabolite of DEHP.",
+          "104": "In particular, urinary MEHP levels among infants in the high-DEHP exposure group were five times as high as those in the low-DEHP exposure group, after adjustment for infants’ sex and institution of care.",
+          "105": "Urinary MEHP levels among infants in the medium-DEHP exposure group were twice as high as levels among infants in the low-DEHP exposure group.",
+          "106": "Adjustment for institution resulted in modest attenuation in the association between DEHP exposure group and urinary MEHP, which may reflect the potential influence of other unmeasured sources of DEHP exposure that differed between institutions.",
+          "107": "In addition, urinary MEHP levels were modestly higher among male infants.",
+          "108": "Although the length of observation varied across infants, because of the acuteness of care requirements and the indwelling (and therefore continuous) nature of many of the products used, potential DEHP exposure from medical devices in use was stable over each infant’s observation period(s).",
+          "109": "To date, there are limited measurements on human neonatal exposures to phthalates and, to our knowledge, no data on whether such exposures are associated with adverse health effects in these neonates.",
+          "11": "Conclusion: Intensive use of DEHP-containing medical devices in NICU infants results in higher exposure to DEHP as reflected by elevated urinary levels of MEHP.",
+          "110": "Limited data describe the effects of neonatal exposures on health later in life.",
+          "111": "A study of 18 adolescents 14–16 years of age who had undergone ECMO as neonates found no apparent abnormalities in their growth and pubertal maturity, and the levels of luteinizing hormone, follicle-stimulating hormone, testosterone (in boys), and estradiol (in girls) were within the normal reference ranges for stage of pubertal development.",
+          "112": "It is difficult to draw definitive conclusions from this study, because it was very small, and normal reference ranges for reproductive hormones, physical growth, and sexual maturation are quite wide.",
+          "113": "Furthermore, the postnatal levels of DEHP or its metabolites at the time of the ECMO treatment were not known.",
+          "114": "Our study is limited by the narrow range of descriptive data available on the infants and the small number of infants examined.",
+          "115": "Yet it is the first study to directly examine the relative use of DEHP-containing medical products among NICU infants in relation to urinary MEHP concentration.",
+          "116": "Because our study included infants with a range of diagnoses and NICU care requirements, the results of this research may be generalizable to infants of other level III NICUs.",
+          "117": "Several studies have considered DEHP exposure or sources of DEHP exposure in NICU infants.",
+          "118": "considered exposure to DEHP from medical procedures in six newborn infants of a university hospital NICU undergoing intravenous infusion for more than 2 weeks.",
+          "119": "The geometric mean level of MEHP (100 ng/mL) in 33 urine samples collected from these children was several times higher than that from the general U.S. population ≥6 years of age (geometric mean, 3.43 ng/mL).",
+          "12": "Di(2-ethylhexyl) phthalate (DEHP) is an aromatic diester used primarily to soften and plasticize the rigid polymer polyvinyl chloride (PVC); DEHP may represent between 20 and 40% of the finished weight of the plastic.",
+          "120": "The urinary MEHP levels reported in that study were similar to those in the high-DEHP exposure group in our study.",
+          "121": "studied 19 toddlers 12–17 months of age in Imperial County, California.",
+          "122": "Twelve children provided two urine samples, and seven children provided a single sample.",
+          "123": "Eight urine samples from six children had detectable levels of MEHP.",
+          "124": "The mean urinary MEHP level was 4.6 ng/mL (SD, 6.4 ng/mL; range, LOD < 1.2 to 47.3).",
+          "125": "These levels were an order of magnitude lower than the mean in the present study on neonates.",
+          "126": "Others have directly assessed sources of DEHP exposure from medical devices among infants.",
+          "127": "Among neonates, found that DEHP leached from ECMO circuit tubing at 10.5–34.9 mg/kg, depending on length, type, and size of PVC tubing.",
+          "128": "Interestingly, circuits with heparin coating did not leach DEHP.",
+          "129": "directly observed the degradation of 44 indwelling PVC endotracheal tubes that had been used in NICU infants for as little as 12 hr.",
+          "13": "Among other properties, DEHP imparts to PVC flexibility, strength, optical clarity, and resistance to broad-range temperature variations.",
+          "130": "These tubes demonstrated a substantial loss of DEHP, 0.06–0.12 mg DEHP per mg of sample (6–12%), compared with unused tubes.",
+          "131": "In our study, DEHP exposure differed significantly by institution.",
+          "132": "Specifically, most high-DEHP-exposure infants were from institution B, and infants from institution B had a greater median urinary MEHP concentration than did infants from institution A. studied DEHP leaching from parenteral nutrition infusion lines used for 24-hr fat emulsion administration in 2-kg neonates and found that 25 mL of standard 20% lipid emulsion administered by pump via polyethylene syringes and PVC infusion line yielded samples (after 24 hr at 27°C) having postinfusion DEHP concentrations of 422.8 μg/mL.",
+          "133": "The authors concluded that the total amount of DEHP for a 2-kg baby caused by lipid emulsions in a day, under these conditions, is approximately 10.2 mg.",
+          "134": "In our study, we speculate that the higher exposure to DEHP in institution B compared with institution A reflects the extensive use in particular of two DEHP-containing items at institution B: unsiliconized PVC indwelling endotracheal tubes, and a PVC indwelling hemodynamic monitoring UVC used for, among other things, parenteral nutrition.",
+          "135": "These DEHP-containing medical devices were sparingly used in institution A.",
+          "136": "In conclusion, our study demonstrated an association between the use of DEHP-containing medical products and urinary levels of MEHP in NICU infants.",
+          "137": "This study was designed to evaluate the distribution of exposure to DEHP among NICU neonates only.",
+          "138": "Additional studies, larger and more comprehensive than the present one, with follow-up of the infants, are needed.",
+          "139": "Such studies would help determine potential health risks, if any, from DEHP exposure among NICU infants.",
+          "14": "In its pure form, DEHP is a clear, oily liquid, which is highly lipophilic (fat soluble) and poorly soluble in water.",
+          "15": "In PVC plastic, DEHP resides in the PVC matrix as a semisolid and readily migrates out of the plastic into blood or other lipid-containing solutions in contact with the plastic, a phenomenon observed with blood stored in PVC bags.",
+          "16": "Because of its versatile properties, DEHP is also found in many commercial and household products such as vinyl floor and wall coverings, furniture, raincoats, and shower curtains, as well as cosmetics, personal care products, and food packaging.",
+          "17": "DEHP has been used as a plasticizer in a variety of medical products, such as bags containing blood, plasma, intravenous fluids, and total parenteral nutrition, tubing associated with their administration, nasogastric tubes, enteral feeding tubes, umbilical catheters, extra-corporeal membrane oxygenation (ECMO) circuit tubing, hemodialysis tubing, respiratory masks, endotracheal tubes, and examination gloves.",
+          "18": "The rate of DEHP leaching varies not only with the type of solution in contact with the plastic material but also with storage and temperatures at the time of use, storage time, and percent DEHP in the plastic product.",
+          "19": "The leaching rate of DEHP has been studied most rigorously for banked blood and plasma and, as reported, varies between 0.25 to 0.40 mg/100 mL/day for whole blood stored > 21 days at 4°C and 6 mg/unit of platelet concentrate stored at room temperature.",
+          "2": "Medical devices containing DEHP are used extensively in neonatal intensive care units (NICUs).",
+          "20": "Leaching has also been demonstrated in a study in which endotracheal tubes were found to have 6–12% less (0.06–0.12 mg DEHP/mg tube) DEHP after use.",
+          "21": "Mono(2-ethylhexyl) phthalate (MEHP), one of the metabolites of DEHP, consistently produces developmental, reproductive, and hepatic toxicity in laboratory animals, raising concern about whether human exposure to DEHP approaches the levels of adverse effect found in toxicologic studies.",
+          "22": "Medical devices containing DEHP are in extensive use in modern neonatal intensive care units (NICUs).",
+          "23": "It has been estimated that such use might be exposing infants to DEHP at levels that exceed the average daily adult exposure [median = 0.71 μg/kg body weight/day ] by 2–3 orders of magnitude, approaching the lowest observed adverse effect level in animal studies (38–144 mg/kg body weight/day).",
+          "24": "A recent study showed that MEHP urinary concentrations in neonates undergoing intensive therapeutic interventions in a NICU were several times higher than those from the general U.S. population.",
+          "25": "In addition to potentially high neonatal exposure in NICUs from DEHP-containing products, there is additional concern regarding potential health risks because, until 3 months of age, infants have immature glucuronidation pathways.",
+          "26": "Because glucuronidation, via enzymes such as UDP-glucuronosyltransferase, facilitates urinary excretion of phthalates and other xenobiotics, a reduced potential for glucuronidation may lead to slower MEHP excretion and higher levels of MEHP in neonates than in older children and adults.",
+          "27": "Among neonates in NICUs, we conducted a study to characterize DEHP exposure and to quantitatively relate the use of DEHP-containing products to urinary levels of MEHP, a biologic marker of DEHP exposure.",
+          "28": "Materials and Methods",
+          "29": "Study population.",
+          "3": "Among neonates in NICUs, we studied exposure to DEHP-containing medical devices in relation to urinary levels of mono(2-ethylhexyl) phthalate (MEHP), a metabolite of DEHP.",
+          "30": "We studied a convenience sample of 54 infants enrolled from the level III NICUs at two major Boston-area hospitals.",
+          "31": "Level III NICUs provide all newborn care, including mechanical ventilation, high-frequency ventilation, surgery, and cardiac catheterization.",
+          "32": "We selected infants to reflect a range of diagnoses (including congenital anomalies and developmental and metabolic abnormalities) and NICU care requirements (including ventilation, enteral feedings, parenteral nutrition, and indwelling catheterization).",
+          "33": "Infants must have been in the NICU at least 3 consecutive days before enrollment, have had a corrected gestational age of ≤44 weeks, and have been born at or transferred to either hospital between 1 March and 30 April 2003.",
+          "34": "Concerns regarding the sensitivity of this research led to the design and implementation of a data and sample collection protocol that was based on visual inspection and that did not include inspection of the medical records.",
+          "35": "The study protocol and methods were approved by the institutional review boards of Harvard School of Public Health, Brigham and Women’s Hospital, and Massachusetts General Hospital.",
+          "36": "Assessment of DEHP exposure.",
+          "37": "Before data collection, we defined three DEHP exposure categories (low, medium, and high) based on a review of medical products typically used in both NICUs and information provided by their manufacturers with respect to DEHP content.",
+          "38": "Infants classified as having low DEHP exposure were those receiving primarily bottle and/or gavage feedings.",
+          "39": "The medium-DEHP exposure group included infants receiving enteral feedings by indwelling gavage tubes either continuously or by bolus feedings; intravenous hyperalimentation by indwelling percutaneous intravenous central catheter (PICC) line, broviac, or umbilical vessel catheter (UVC); and/or nasal continuous positive airway pressure by nasal prongs.",
+          "4": "Design: We used a cross-sectional design for this study.",
+          "40": "The high-DEHP exposure group included infants receiving continuous indwelling UVC, endotracheal intubation, intravenous hyper-alimentation by the central venous route (i.e., PICC line, broviac, UVC), and an indwelling gavage tube (for gastric decompression).",
+          "41": "One of the study investigators (R.G.) observed the care of each infant for 1–4 hr per day for 1–3 days per infant, for a total of 3–12 hr of observation per infant.",
+          "42": "Observations were made during a single day for 37 infants, on 2 days for 12 infants, and on 3 days for 5 infants.",
+          "43": "During the observations, the investigator took an inventory of products in use for the care of each infant.",
+          "44": "This information was used to categorize infants into low-, medium-, and high-DEHP exposure groups.",
+          "45": "None of the infants changed DEHP exposure groups over the course of observation.",
+          "46": "Assessment of urinary MEHP.",
+          "47": "The observing investigator collected spot urine samples at the end of each infant’s observation period(s).",
+          "48": "A total of 81 urine samples were collected from 54 infants.",
+          "49": "Two or more urine samples came from 17 infants, and of these, four samples were collected concurrently with the first samples, and 18 others were collected 6–72 hr after the first samples.",
+          "5": "Participants: We studied 54 neonates admitted to either of two level III hospital NICUs for at least 3 days between 1 March and 30 April 2003.",
+          "50": "We used these repeated samples to assess intraindividual variability in urinary MEHP levels.",
+          "51": "Urine samples were collected by either squeezing the urine from a cotton gauze placed in the infant’s diaper at the beginning of the observation period or from the cotton filling of the diaper the infant wore during the period of observation.",
+          "52": "The cotton gauze or the removed cotton diaper filling was placed into a 3–5 cc polypropylene syringe (Becton-Dickinson, Franklin Lakes, NJ), the plunger was replaced, and the urine was squeezed into a 2- or 4-cc Nunc (Rochester, NY) cryovial.",
+          "53": "Urine samples were frozen within 4–6 hr at –35°C and shipped on dry ice to the Centers for Disease Control and Prevention (CDC; Atlanta, GA) for analysis.",
+          "54": "Urine specimens were analyzed for 10 phthalate monoesters, including three DEHP metabolites [MEHP, mono(2-ethyl-5-hydroxyhexyl) phthalate, and mono(2-ethyl-5-oxohexyl) phthalate], using automated solid-phase extraction/isotope dilution/high-performance liquid chromatography/tandem mass spectrometry at the CDC.",
+          "55": "Monobutyl phthalate and monobenzyl phthalate were also frequently detected.",
+          "56": "In this report, we focus on levels of MEHP, because this metabolite has been most studied and is a valid biomarker of DEHP exposure.",
+          "57": "The analytical method used for measuring phthalate metabolites in urine has been described in detail previously.",
+          "58": "Briefly, the method involved the enzymatic deconjugation of the phthalate metabolites from their glucuronidated form, followed by automated solid-phase extraction.",
+          "59": "We used reversed-phase high-performance liquid chromatography to separate the phthalate metabolites from other components in the extracted urine.",
+          "6": "Measurements: A priori, we classified the infants’ exposures to DEHP based on medical products used: The low-DEHP exposure group included infants receiving primarily bottle and/or gavage feedings; the medium exposure group included infants receiving enteral feedings, intravenous hyperalimentation, and/or nasal continuous positive airway pressure; and the high exposure group included infants receiving umbilical vessel catheterization, endotracheal intubation, intravenous hyperalimentation, and indwelling gavage tube.",
+          "60": "We then quantified the metabolites by isotope dilution/tandem mass spectrometry.",
+          "61": "Samples, reagent blanks, and quality control (QC) materials were processed identically.",
+          "62": "QC materials were analyzed along with the study samples to ensure the accuracy and reliability of the data.",
+          "63": "QC materials with low concentrations (QCL) and high concentrations (QCH) were prepared from a base urine pool, obtained from multiple anonymous donors as described previously, dispensed in 5-mL aliquots, and stored at –20°C.",
+          "64": "Each QC material was characterized by repeated measurements, spanned over several weeks, to define the mean concentrations and the 95% and 99% control limits of MEHP.",
+          "65": "Each analytical run consisted of 50 (5 QCs, 5 blanks, and 40 unknown) samples.",
+          "66": "The concentrations of the replicate QCH and QCL materials, averaged to obtain one measurement of QCH and QCL for each run, were evaluated using standard statistical probability rules.",
+          "67": "All MEHP concentrations, reported in nanograms per milliliter of urine, were blank-corrected.",
+          "68": "However, MEHP is not typically found in the reagent blank samples, and when it is, it is at concentrations near the limit of detection (LOD; 0.87 ng/mL).",
+          "69": "Specimens with MEHP levels below the LOD were assigned a value of 0.435 ng/mL, the midpoint between 0 and the LOD.",
+          "7": "We measured MEHP in the infants’ urine using automated solid-phase extraction/isotope dilution/high-performance liquid chromatography/ tandem mass spectrometry.",
+          "70": "Assessment of other variables.",
+          "71": "We collected data, as available, on gestational age and length of stay in the NICU.",
+          "72": "However, data on these variables were incomplete for about half of the infants because, as noted, the sample collection was anonymous and not based on review of medical records.",
+          "73": "The interpretation of these data is likely to be tenuous because of missing data, and we therefore do not present these results.",
+          "74": "Statistical analysis.",
+          "75": "We used Fisher’s exact test to evaluate differences in sex and institution by DEHP exposure group.",
+          "76": "To evaluate the intraindividual variability of urinary MEHP levels, we computed Spearman correlations between repeated urine specimens.",
+          "77": "For unadjusted comparisons of urinary MEHP levels by sex, institution, and DEHP exposure group, we used the Mann-Whitney Kruskal-Wallis non-parametric test.",
+          "78": "We used multiple linear regression to compare urinary MEHP levels across DEHP exposure groups, adjusting for institution and infants’ sex.",
+          "79": "Because the distribution of urinary MEHP was skewed, we used log-transformed MEHP values in the regression models.",
+          "8": "Results: Urinary MEHP levels increased monotonically with DEHP exposure.",
+          "80": "In regression models of log-transformed MEHP, the regression parameters estimated MEHP levels in the medium- and high-DEHP exposure groups as a proportion of MEHP levels in the low-DEHP exposure group.",
+          "81": "Our primary analyses focused on the MEHP levels in the first urine specimen collected from each infant; in secondary analyses, we incorporated first and, where available, second and third specimens, using repeated-measures regression to compare MEHP levels across exposure groups.",
+          "82": "We used quantile regression to estimate sex- and institution-adjusted quartiles of urinary MEHP for each DEHP exposure group.",
+          "83": "Results",
+          "84": "The 54 infants in our study were roughly equally distributed between the two institutions, and 34 (63%) were female (Table 1).",
+          "85": "Thirteen (24%) infants had low exposure to DEHP-containing products, 24 (44%) had medium exposure, and 17 (32%) had high exposure.",
+          "86": "Among the first set of urine samples collected from these infants, 11 (20%) had MEHP levels that were less than the LOD (0.87 ng/mL), and the maximum level was 758 ng/mL (geometric mean = 14 ng/mL; geometric SD = 8.6 ng/mL).",
+          "87": "Correlation between urinary MEHP levels in repeated urine samples.",
+          "88": "Among the 17 infants with multiple urine samples, urinary MEHP measurements from the same infants were highly correlated.",
+          "89": "Spearman correlations were 0.9 (p < 0.0001; n = 17) for urinary MEHP levels in the first and second urine specimens, 0.9 (p = 0.04; n = 5) for the second and third specimens, and 0.7 (p = 0.2; n = 5) for the first and third specimens.",
+          "9": "For the low-, medium-, and high-DEHP exposure groups, median (interquartile range) MEHP levels were 4 (18), 28 (58), and 86 ng/mL (150), respectively (p = 0.004).",
+          "90": "Although our data were limited, we observed no apparent dissimilarity in the correlation between specimens collected at the same time (correlation coefficient r = 0.80; n = 4) versus those collected at different times (r = 0.88; n = 13 first and second samples only).",
+          "91": "Correlates of DEHP exposure group and urinary MEHP.",
+          "92": "Compared with infants in the two lowest DEHP exposure groups, infants in the high-DEHP exposure group were more likely to be patients at institution B (Table 1).",
+          "93": "In unadjusted comparisons, urinary MEHP levels were significantly higher among infants at institution B (Mann-Whitney Kruskal-Wallis p = 0.002; Table 2).",
+          "94": "Association of DEHP exposure group with urinary MEHP.",
+          "95": "Progressively higher DEHP exposure group was associated with progressively higher urinary MEHP levels.",
+          "96": "Median urinary MEHP levels (and 25th and 75th percentiles) in infants in the low-, medium-, and high-DEHP exposure groups were 4 (< LOD, 18), 28 (3, 61), and 86 (21, 171) ng/mL, respectively.",
+          "97": "DEHP exposure group remained a substantial predictor of urinary MEHP levels even after adjusting for infants’ sex and institution of hospitalization (p = 0.09; Table 3, Figure 1).",
+          "98": "Compared with infants in the low-DEHP exposure group, infants in the medium-DEHP exposure group had urinary MEHP levels that were twice as high [95% confidence interval (CI) of the multiplication factor, 0.5–7.4; p = 0.3], and infants in the high-DEHP exposure group had levels that were 5.1 times as high (95% CI of the multiplication factor, 1.2–21.9; p = 0.03).",
+          "99": "These results were identical when we analyzed all first, second, and third urinary MEHP values together using repeated-measures regression."
+        }
+      }
+    },
+    "request_sha256": "1aaf450db09ce2a3d74aeff65b01362148bfa86821e1165895c615f9fc5b51b9",
+    "task": "evidencebench_sentence_selection"
+  },
+  "response": {
+    "elapsed_s": 0.9665919170365669,
+    "id": "evidencebench_dev_id_0",
+    "legacy_preparation_request_sha256": "b803e5769d31c14378dc35d6630200838e5cc72a4bd113daf0b8b58fcce926fc",
+    "request_sha256": "1aaf450db09ce2a3d74aeff65b01362148bfa86821e1165895c615f9fc5b51b9",
+    "response": {
+      "answers": {
+        "0": {
+          "noul": 0.22,
+          "type": "noul"
+        },
+        "1": {
+          "noul": 0.29,
+          "type": "noul"
+        },
+        "10": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "100": {
+          "noul": 0.36,
+          "type": "noul"
+        },
+        "101": {
+          "noul": 0.61,
+          "type": "noul"
+        },
+        "102": {
+          "noul": 0.07,
+          "type": "noul"
+        },
+        "103": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "104": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "105": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "106": {
+          "noul": 0.78,
+          "type": "noul"
+        },
+        "107": {
+          "noul": 0.46,
+          "type": "noul"
+        },
+        "108": {
+          "noul": 0.61,
+          "type": "noul"
+        },
+        "109": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "11": {
+          "noul": 0.91,
+          "type": "noul"
+        },
+        "110": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "111": {
+          "noul": 0.38,
+          "type": "noul"
+        },
+        "112": {
+          "noul": 0.15,
+          "type": "noul"
+        },
+        "113": {
+          "noul": 0.25,
+          "type": "noul"
+        },
+        "114": {
+          "noul": 0.23,
+          "type": "noul"
+        },
+        "115": {
+          "noul": 0.57,
+          "type": "noul"
+        },
+        "116": {
+          "noul": 0.4,
+          "type": "noul"
+        },
+        "117": {
+          "noul": 0.19,
+          "type": "noul"
+        },
+        "118": {
+          "noul": 0.82,
+          "type": "noul"
+        },
+        "119": {
+          "noul": 0.84,
+          "type": "noul"
+        },
+        "12": {
+          "noul": 0.14,
+          "type": "noul"
+        },
+        "120": {
+          "noul": 0.82,
+          "type": "noul"
+        },
+        "121": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "122": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "123": {
+          "noul": 0.24,
+          "type": "noul"
+        },
+        "124": {
+          "noul": 0.49,
+          "type": "noul"
+        },
+        "125": {
+          "noul": 0.54,
+          "type": "noul"
+        },
+        "126": {
+          "noul": 0.49,
+          "type": "noul"
+        },
+        "127": {
+          "noul": 0.76,
+          "type": "noul"
+        },
+        "128": {
+          "noul": 0.5,
+          "type": "noul"
+        },
+        "129": {
+          "noul": 0.76,
+          "type": "noul"
+        },
+        "13": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "130": {
+          "noul": 0.73,
+          "type": "noul"
+        },
+        "131": {
+          "noul": 0.78,
+          "type": "noul"
+        },
+        "132": {
+          "noul": 0.75,
+          "type": "noul"
+        },
+        "133": {
+          "noul": 0.68,
+          "type": "noul"
+        },
+        "134": {
+          "noul": 0.85,
+          "type": "noul"
+        },
+        "135": {
+          "noul": 0.7,
+          "type": "noul"
+        },
+        "136": {
+          "noul": 0.88,
+          "type": "noul"
+        },
+        "137": {
+          "noul": 0.5,
+          "type": "noul"
+        },
+        "138": {
+          "noul": 0.08,
+          "type": "noul"
+        },
+        "139": {
+          "noul": 0.07,
+          "type": "noul"
+        },
+        "14": {
+          "noul": 0.11,
+          "type": "noul"
+        },
+        "15": {
+          "noul": 0.48,
+          "type": "noul"
+        },
+        "16": {
+          "noul": 0.18,
+          "type": "noul"
+        },
+        "17": {
+          "noul": 0.5,
+          "type": "noul"
+        },
+        "18": {
+          "noul": 0.44,
+          "type": "noul"
+        },
+        "19": {
+          "noul": 0.36,
+          "type": "noul"
+        },
+        "2": {
+          "noul": 0.48,
+          "type": "noul"
+        },
+        "20": {
+          "noul": 0.58,
+          "type": "noul"
+        },
+        "21": {
+          "noul": 0.27,
+          "type": "noul"
+        },
+        "22": {
+          "noul": 0.4,
+          "type": "noul"
+        },
+        "23": {
+          "noul": 0.62,
+          "type": "noul"
+        },
+        "24": {
+          "noul": 0.85,
+          "type": "noul"
+        },
+        "25": {
+          "noul": 0.29,
+          "type": "noul"
+        },
+        "26": {
+          "noul": 0.32,
+          "type": "noul"
+        },
+        "27": {
+          "noul": 0.77,
+          "type": "noul"
+        },
+        "28": {
+          "noul": 0.06,
+          "type": "noul"
+        },
+        "29": {
+          "noul": 0.86,
+          "type": "noul"
+        },
+        "3": {
+          "noul": 0.78,
+          "type": "noul"
+        },
+        "30": {
+          "noul": 0.67,
+          "type": "noul"
+        },
+        "31": {
+          "noul": 0.5,
+          "type": "noul"
+        },
+        "32": {
+          "noul": 0.68,
+          "type": "noul"
+        },
+        "33": {
+          "noul": 0.39,
+          "type": "noul"
+        },
+        "34": {
+          "noul": 0.36,
+          "type": "noul"
+        },
+        "35": {
+          "noul": 0.05,
+          "type": "noul"
+        },
+        "36": {
+          "noul": 0.19,
+          "type": "noul"
+        },
+        "37": {
+          "noul": 0.74,
+          "type": "noul"
+        },
+        "38": {
+          "noul": 0.78,
+          "type": "noul"
+        },
+        "39": {
+          "noul": 0.79,
+          "type": "noul"
+        },
+        "4": {
+          "noul": 0.18,
+          "type": "noul"
+        },
+        "40": {
+          "noul": 0.82,
+          "type": "noul"
+        },
+        "41": {
+          "noul": 0.57,
+          "type": "noul"
+        },
+        "42": {
+          "noul": 0.4,
+          "type": "noul"
+        },
+        "43": {
+          "noul": 0.71,
+          "type": "noul"
+        },
+        "44": {
+          "noul": 0.69,
+          "type": "noul"
+        },
+        "45": {
+          "noul": 0.58,
+          "type": "noul"
+        },
+        "46": {
+          "noul": 0.24,
+          "type": "noul"
+        },
+        "47": {
+          "noul": 0.38,
+          "type": "noul"
+        },
+        "48": {
+          "noul": 0.43,
+          "type": "noul"
+        },
+        "49": {
+          "noul": 0.48,
+          "type": "noul"
+        },
+        "5": {
+          "noul": 0.75,
+          "type": "noul"
+        },
+        "50": {
+          "noul": 0.35,
+          "type": "noul"
+        },
+        "51": {
+          "noul": 0.23,
+          "type": "noul"
+        },
+        "52": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "53": {
+          "noul": 0.17,
+          "type": "noul"
+        },
+        "54": {
+          "noul": 0.4,
+          "type": "noul"
+        },
+        "55": {
+          "noul": 0.2,
+          "type": "noul"
+        },
+        "56": {
+          "noul": 0.3,
+          "type": "noul"
+        },
+        "57": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "58": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "59": {
+          "noul": 0.19,
+          "type": "noul"
+        },
+        "6": {
+          "noul": 0.87,
+          "type": "noul"
+        },
+        "60": {
+          "noul": 0.17,
+          "type": "noul"
+        },
+        "61": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "62": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "63": {
+          "noul": 0.14,
+          "type": "noul"
+        },
+        "64": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "65": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "66": {
+          "noul": 0.13,
+          "type": "noul"
+        },
+        "67": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "68": {
+          "noul": 0.14,
+          "type": "noul"
+        },
+        "69": {
+          "noul": 0.14,
+          "type": "noul"
+        },
+        "7": {
+          "noul": 0.59,
+          "type": "noul"
+        },
+        "70": {
+          "noul": 0.2,
+          "type": "noul"
+        },
+        "71": {
+          "noul": 0.21,
+          "type": "noul"
+        },
+        "72": {
+          "noul": 0.23,
+          "type": "noul"
+        },
+        "73": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "74": {
+          "noul": 0.13,
+          "type": "noul"
+        },
+        "75": {
+          "noul": 0.3,
+          "type": "noul"
+        },
+        "76": {
+          "noul": 0.33,
+          "type": "noul"
+        },
+        "77": {
+          "noul": 0.55,
+          "type": "noul"
+        },
+        "78": {
+          "noul": 0.8,
+          "type": "noul"
+        },
+        "79": {
+          "noul": 0.2,
+          "type": "noul"
+        },
+        "8": {
+          "noul": 0.9,
+          "type": "noul"
+        },
+        "80": {
+          "noul": 0.76,
+          "type": "noul"
+        },
+        "81": {
+          "noul": 0.65,
+          "type": "noul"
+        },
+        "82": {
+          "noul": 0.47,
+          "type": "noul"
+        },
+        "83": {
+          "noul": 0.2,
+          "type": "noul"
+        },
+        "84": {
+          "noul": 0.51,
+          "type": "noul"
+        },
+        "85": {
+          "noul": 0.76,
+          "type": "noul"
+        },
+        "86": {
+          "noul": 0.83,
+          "type": "noul"
+        },
+        "87": {
+          "noul": 0.46,
+          "type": "noul"
+        },
+        "88": {
+          "noul": 0.46,
+          "type": "noul"
+        },
+        "89": {
+          "noul": 0.46,
+          "type": "noul"
+        },
+        "9": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "90": {
+          "noul": 0.37,
+          "type": "noul"
+        },
+        "91": {
+          "noul": 0.45,
+          "type": "noul"
+        },
+        "92": {
+          "noul": 0.74,
+          "type": "noul"
+        },
+        "93": {
+          "noul": 0.72,
+          "type": "noul"
+        },
+        "94": {
+          "noul": 0.64,
+          "type": "noul"
+        },
+        "95": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "96": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "97": {
+          "noul": 0.93,
+          "type": "noul"
+        },
+        "98": {
+          "noul": 0.96,
+          "type": "noul"
+        },
+        "99": {
+          "noul": 0.9,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 12218,
+        "output_tokens": 2414
+      }
+    },
+    "status": "ok",
+    "task": "evidencebench_sentence_selection"
+  }
+}

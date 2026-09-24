@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "confirmed",
+    "group": "allergy_state:1",
+    "id": "allergy_state:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "confirmed": "明确过敏",
+            "denied": "明确否认",
+            "uncertain": "疑似或待排",
+            "unrecorded": "没有记录"
+          },
+          "instructions": "只判断青霉素过敏的记录状态。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "已确认青霉素过敏。"
+      }
+    },
+    "request_sha256": "e5d8ee089f9c2fa806e1c56105985740ff2e5f82344b07b844f9d343075885f1",
+    "task": "challenge_allergy_state"
+  },
+  "response": {
+    "elapsed_s": 1.4518615000415593,
+    "id": "allergy_state:1",
+    "request_sha256": "e5d8ee089f9c2fa806e1c56105985740ff2e5f82344b07b844f9d343075885f1",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "confirmed",
+          "confidence": 1.0,
+          "probabilities": {
+            "confirmed": 1.0,
+            "denied": 0.0,
+            "uncertain": 0.0,
+            "unrecorded": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 374,
+        "output_tokens": 51
+      }
+    },
+    "status": "ok",
+    "task": "challenge_allergy_state"
+  }
+}

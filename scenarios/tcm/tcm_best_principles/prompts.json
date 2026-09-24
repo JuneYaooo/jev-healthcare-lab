@@ -1,0 +1,65 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "化痰开窍",
+          "B": "活血化瘀",
+          "C": "凉血散血",
+          "D": "辛凉解表",
+          "E": "通腑泄热",
+          "F": "熄风止痉",
+          "G": "清营透热",
+          "H": "利水通淋",
+          "I": "清气泄热",
+          "J": "益气养阴"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "222"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "解郁清热",
+          "B": "化湿退热",
+          "C": "滋阴清热",
+          "D": "益气固表",
+          "E": "辛凉解表",
+          "F": "甘温除热",
+          "G": "温阳散寒",
+          "H": "消食退热",
+          "I": "养血退热",
+          "J": "和解退热"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "228"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "理气止痛",
+          "B": "疏通经络",
+          "C": "解表透邪",
+          "D": "通腑止呕",
+          "E": "清热利湿退黄",
+          "F": "辛温解表",
+          "G": "温肾助阳",
+          "H": "利水消肿",
+          "I": "降气消痞",
+          "J": "宁心安神"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "432"
+    }
+  ]
+}

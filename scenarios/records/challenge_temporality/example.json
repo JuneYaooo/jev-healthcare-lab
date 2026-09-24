@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "past",
+    "group": "temporality:1",
+    "id": "temporality:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "conditional": "只是未来条件",
+            "current": "当前仍有",
+            "past": "过去有、当前已无",
+            "unknown": "没有胸痛状态资料"
+          },
+          "instructions": "将胸痛事件按当前就诊时点分类。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "去年曾胸痛，此后未再发作。"
+      }
+    },
+    "request_sha256": "46843867a4c29b40afd1e4acfd16ed95b5856d202e97fb72d2d6f1354e9a5b88",
+    "task": "challenge_temporality"
+  },
+  "response": {
+    "elapsed_s": 0.838482458028011,
+    "id": "temporality:1",
+    "request_sha256": "46843867a4c29b40afd1e4acfd16ed95b5856d202e97fb72d2d6f1354e9a5b88",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "past",
+          "confidence": 1.0,
+          "probabilities": {
+            "conditional": 0.0,
+            "current": 0.0,
+            "past": 1.0,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 380,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "challenge_temporality"
+  }
+}

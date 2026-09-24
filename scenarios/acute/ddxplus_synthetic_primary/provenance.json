@@ -1,0 +1,45 @@
+{
+  "task": "ddxplus_synthetic_primary",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "ddxplus_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "ddxplus_prepared.jsonl": "7df99fcc0c88ede04a70b7cded13eb6dfaed250c6ffa5b06ab68ebb1d37e1b86"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "DDXPlus",
+      "source": "https://github.com/mila-iqia/ddxplus",
+      "completion_note": "第三方HF镜像test前1MiB中的1574条完整记录固定抽100，49病种；原始Figshare403，非完整官方测试分布"
+    }
+  ],
+  "adapter": "prepare_ddxplus.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 377048,
+      "sha256": "7df99fcc0c88ede04a70b7cded13eb6dfaed250c6ffa5b06ab68ebb1d37e1b86"
+    },
+    "responses.jsonl": {
+      "bytes": 91436,
+      "sha256": "61115d10eb3d67f297f9091bd7b297d4cba92079055e291674530d3b482e722f"
+    },
+    "index.jsonl": {
+      "bytes": 29162,
+      "sha256": "08318788422593ff7916701005d432bc13035d121d94d3f3da6416caedb6b1cf"
+    },
+    "prompts.json": {
+      "bytes": 2236,
+      "sha256": "526101a276d8d1caa4d273c81318844bfb1fea7a6751602a9f0279c7892c5513"
+    },
+    "example.json": {
+      "bytes": 9091,
+      "sha256": "c2ff96b8c605562076bd18942ce601585c4904ae052eb129a840cd40f897c319"
+    }
+  }
+}

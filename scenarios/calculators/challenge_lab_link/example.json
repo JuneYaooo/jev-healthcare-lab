@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "5.6",
+    "group": "lab_link:1",
+    "id": "lab_link:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "12.0": "12.0 mmol/L",
+            "5.6": "5.6 mmol/L",
+            "7.8": "7.8 mmol/L",
+            "unknown": "没有本次空腹值"
+          },
+          "instructions": "本次空腹血糖是多少？保留给定单位；不以其他数值代替。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "本次空腹血糖5.6 mmol/L，餐后血糖7.8 mmol/L。"
+      }
+    },
+    "request_sha256": "b9987540177342dddb53e44384ea86b6b69bb0a93bcc20eafcf8f6c9a6676791",
+    "task": "challenge_lab_link"
+  },
+  "response": {
+    "elapsed_s": 1.3094426249735989,
+    "id": "lab_link:1",
+    "request_sha256": "b9987540177342dddb53e44384ea86b6b69bb0a93bcc20eafcf8f6c9a6676791",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "5.6",
+          "confidence": 1.0,
+          "probabilities": {
+            "12.0": 0.0,
+            "5.6": 1.0,
+            "7.8": 0.0,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 409,
+        "output_tokens": 54
+      }
+    },
+    "status": "ok",
+    "task": "challenge_lab_link"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "sample": {
+    "gold": [
+      "B",
+      "C"
+    ],
+    "group": "312",
+    "id": "312",
+    "metadata": {
+      "scoring": "multi_question_keys",
+      "source": "TCM-BEST4SDT SDT multilabel, threshold0.5"
+    },
+    "request": {
+      "questions": {
+        "A": {
+          "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 虚实夹杂",
+          "type": "noul"
+        },
+        "B": {
+          "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 实证为主",
+          "type": "noul"
+        },
+        "C": {
+          "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 兼有气阴不足",
+          "type": "noul"
+        },
+        "D": {
+          "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 虚证",
+          "type": "noul"
+        }
+      },
+      "state": "我本是南方人，出嫁后随夫长期居住北方，因思念家乡又不能常归，长期忧思郁结。\n我近三十岁，出现胃脘部疼痛、胀闷的症状，三年间逐渐加重，伴有食欲减退、形体消瘦、口干作渴、打嗝反酸、大便干燥。把脉时发现双手脉搏细而紧绷，右手脉搏还带有沉实有力的特征。"
+    },
+    "request_sha256": "9dca8d27a22796b8bf4c18b635d950be2f592039e54bea898dbc0b8a1bcddf2d",
+    "task": "tcm_best_nature_multi"
+  },
+  "response": {
+    "elapsed_s": 0.6327380409929901,
+    "id": "312",
+    "request_sha256": "9dca8d27a22796b8bf4c18b635d950be2f592039e54bea898dbc0b8a1bcddf2d",
+    "response": {
+      "answers": {
+        "A": {
+          "noul": 0.84,
+          "type": "noul"
+        },
+        "B": {
+          "noul": 0.62,
+          "type": "noul"
+        },
+        "C": {
+          "noul": 0.82,
+          "type": "noul"
+        },
+        "D": {
+          "noul": 0.24,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 524,
+        "output_tokens": 68
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_nature_multi"
+  }
+}

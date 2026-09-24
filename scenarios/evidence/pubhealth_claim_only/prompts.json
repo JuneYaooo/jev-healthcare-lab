@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "False",
+          "1": "Mixture of true and false",
+          "2": "True",
+          "3": "Unproven"
+        },
+        "instructions": "Classify this historical public-health claim as of the publication date. No retrieval evidence is supplied.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "25662"
+    }
+  ]
+}

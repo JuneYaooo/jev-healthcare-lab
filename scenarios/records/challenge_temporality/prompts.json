@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "conditional": "只是未来条件",
+          "current": "当前仍有",
+          "past": "过去有、当前已无",
+          "unknown": "没有胸痛状态资料"
+        },
+        "instructions": "将胸痛事件按当前就诊时点分类。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "temporality:1"
+    }
+  ]
+}

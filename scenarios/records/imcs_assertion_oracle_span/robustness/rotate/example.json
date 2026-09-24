@@ -1,0 +1,342 @@
+{
+  "sample": {
+    "gold": "2",
+    "group": "10409100",
+    "id": "10409100:14:0",
+    "metadata": {
+      "inverse_labels": {
+        "0": "2",
+        "1": "0",
+        "2": "1"
+      },
+      "oracle": "given_gold_span; full-dialogue retrospective status, not online triage",
+      "original_id": "10409100:14:0",
+      "original_task": "imcs_assertion_oracle_span",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "rotate"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "根据完整对话仍无法确定",
+            "1": "明确否定该症状",
+            "2": "明确肯定该症状"
+          },
+          "instructions": "根据完整对话，判断 target_turn 的 target_mention 对该患者的症状状态。医生询问本身不表示阳性，需看回答。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "dialogue": [
+          {
+            "sentence": "您好，我是您的辅诊医生，需要询问几个问题，才能更好的评估孩子情况，您还在吗？",
+            "sentence_id": "1",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "在",
+            "sentence_id": "2",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "在",
+            "sentence_id": "3",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "宝宝一天拉几次大便？每次量多吗？",
+            "sentence_id": "4",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "之前大概78回昨天晚上我让吃了点止泻药",
+            "sentence_id": "5",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "宝宝大便一直这样吗？黄色稀水状，有碎渣",
+            "sentence_id": "6",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "刚才拉了一次没那么希但是还是消化不良",
+            "sentence_id": "7",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "有没有带粘液或者脓血的?",
+            "sentence_id": "8",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "没吃止泻药前是",
+            "sentence_id": "9",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "有点带粘液",
+            "sentence_id": "10",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "哦哦",
+            "sentence_id": "11",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "宝宝有没有恶心呕吐？肚子胀吗？",
+            "sentence_id": "12",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "有肚胀",
+            "sentence_id": "13",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "宝宝肚子咕噜响吗？放屁多吗？还有其他症状吗？",
+            "sentence_id": "14",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "之前孩子发烧去医院量了体温医生说头上体温不高就是就是肚子发烧",
+            "sentence_id": "15",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "嗯嗯，是诊断的胃肠型感冒吗",
+            "sentence_id": "16",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "肚子光咕噜",
+            "sentence_id": "17",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "肚子咕噜是肠鸣音亢进哦，和腹泻有关",
+            "sentence_id": "18",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "宝宝精神怎么样？食欲好吗？喝水多吗？",
+            "sentence_id": "19",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "精神没以前好，食欲也可以喝水不多",
+            "sentence_id": "20",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "宝宝尿的多吗？发黄吗？",
+            "sentence_id": "21",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "尿量没以前多黄",
+            "sentence_id": "22",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "嗯嗯，宝宝有脱水情况的，尿少发黄都是哦。给宝宝查过大便吗？",
+            "sentence_id": "23",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "之前以为是在医院吃的药往下面推的引起拉肚子",
+            "sentence_id": "24",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "没",
+            "sentence_id": "25",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "嗯嗯，这一星期有没有复诊呢",
+            "sentence_id": "26",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "没",
+            "sentence_id": "27",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "现在都给宝宝吃什么药",
+            "sentence_id": "28",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "止泻用的什么药呢？",
+            "sentence_id": "29",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "妈咪爱益生菌止泻药头孢克圬枇杷糖浆宝宝还有咳嗽",
+            "sentence_id": "30",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "宝宝流鼻涕吗？嗓子哑吗？咳嗽有痰吗？",
+            "sentence_id": "31",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "小儿速泄停颗粒",
+            "sentence_id": "32",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "嗯",
+            "sentence_id": "33",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "没鼻涕轻微嗓子哑没痰",
+            "sentence_id": "34",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "医生给宝贝听诊肺部了吗",
+            "sentence_id": "35",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "听了没啥",
+            "sentence_id": "36",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "给宝宝诊断的什么疾病呢",
+            "sentence_id": "37",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "就昨天下午呼吸的时候有一点响",
+            "sentence_id": "38",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "嗯嗯",
+            "sentence_id": "39",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "宝宝助消化止泻的药物都是医生给宝宝开的吗？头孢还有糖浆吃多久了？",
+            "sentence_id": "40",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "这两天在卫生所开的物化药没开吃的药",
+            "sentence_id": "41",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "好的",
+            "sentence_id": "42",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "宝宝咳嗽减轻了吗？",
+            "sentence_id": "43",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "三天了",
+            "sentence_id": "44",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "没",
+            "sentence_id": "45",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "医生没开都是家里放的",
+            "sentence_id": "46",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "宝宝感冒时候容易有消化不良表现，比如腹泻呕吐，宝宝现在也有咳嗽有痰情况，建议进一步复诊，听诊肺部看看，有没有支气管炎，同时完善大便常规，根据结果，对症治疗。",
+            "sentence_id": "47",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "那现在止泻药还要吃吗",
+            "sentence_id": "48",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "妈咪爱益生菌，还有速泻停都是助消化的药物，不需要吃太多的，还是先给宝宝检查清楚再比较好哦",
+            "sentence_id": "49",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "婴幼儿用药需要经过儿科医生面诊后开具哦",
+            "sentence_id": "50",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "嗯好",
+            "sentence_id": "51",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "谢谢",
+            "sentence_id": "52",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "不客气",
+            "sentence_id": "53",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "注意宝宝饮食卫生积极补水哦，祝宝宝早日康复。",
+            "sentence_id": "54",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "关于宝贝健康问题您还需要咨询什么吗？",
+            "sentence_id": "55",
+            "speaker": "医生"
+          }
+        ],
+        "self_report": "我家宝宝十个多月了前两天发烧拉肚子去医院包了点药吃吃烧退了但还是拉肚子都一个星期还是没治住怎么办",
+        "target_mention": "肚子咕噜响",
+        "target_turn": "14"
+      }
+    },
+    "request_sha256": "1c308f177baa53787273f4463dcaee9b5b52d08a15732722a1fd0a09b3ea3951",
+    "task": "robust_rotate_imcs_assertion_oracle_span"
+  },
+  "response": {
+    "elapsed_s": 0.6949592920136638,
+    "id": "10409100:14:0",
+    "request_sha256": "1c308f177baa53787273f4463dcaee9b5b52d08a15732722a1fd0a09b3ea3951",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "2",
+          "confidence": 0.98,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.01,
+            "2": 0.99
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 2750,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "robust_rotate_imcs_assertion_oracle_span"
+  }
+}

@@ -1,0 +1,1427 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "生物群落构成",
+          "B": "生物群落及其非生物环境组成",
+          "C": "人类聚居而成",
+          "D": "人类与其他生物组成",
+          "E": "人类与非生物系统构成"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "534"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "牙髓坏死",
+          "B": "牙髓钙化",
+          "C": "牙内吸收",
+          "D": "急性牙髓炎",
+          "E": "慢性根尖周炎"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6274"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "患龋经历",
+          "B": "社会行为",
+          "C": "致龋唾液",
+          "D": "致龋微生物",
+          "E": "以上均包括"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6214"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "硫酸亚铁",
+          "B": "叶酸",
+          "C": "维生素B₁₂",
+          "D": "重组人促红素",
+          "E": "腺嘌呤"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2280"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "鱼油",
+          "B": "维生素A",
+          "C": "维生素D",
+          "D": "维生素AD",
+          "E": "维生素E"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1900"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "三角肌后部肌束",
+          "B": "小圆肌和大圆肌",
+          "C": "肩胛下肌和冈上肌",
+          "D": "冈下肌和三角肌前部纤维",
+          "E": "冈下肌和肩胛下肌"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2736"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "单核-巨噬细胞系统的吞噬作用",
+          "B": "补体",
+          "C": "溶菌酶",
+          "D": "肿瘤坏死因子-α",
+          "E": "细胞免疫"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "126"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "咽鼓管半管的开口",
+          "B": "乳突窦(鼓窦)开口",
+          "C": "鼓室盖",
+          "D": "鼓室上隐窝",
+          "E": "迷路壁"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5338"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "利尿通淋",
+          "B": "解毒敛疮",
+          "C": "清肝泻火",
+          "D": "祛痰止咳",
+          "E": "散瘀消肿"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "482"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "国家食品药品监督管理局",
+          "B": "中国食品药品检定研究所",
+          "C": "省级药品监督管理部门",
+          "D": "省级工商行政管理部门",
+          "E": "省级卫生行政部门"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6053"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "体外及动物水平研究",
+          "B": "描述性研究",
+          "C": "分析性研究",
+          "D": "实验性研究",
+          "E": "理论流行病学研究"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4135"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "胃蛋白酶",
+          "B": "多潘立酮",
+          "C": "洛哌丁胺",
+          "D": "乳果糖",
+          "E": "伪麻黄碱"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1857"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "血糖浓度增高",
+          "B": "血Ca²⁺浓度降低",
+          "C": "血K⁺浓度增高",
+          "D": "循环血量增多",
+          "E": "血Na⁺浓度增高"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "996"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "药物脱敏",
+          "B": "牙髓治疗",
+          "C": "牙周治疗",
+          "D": "垫底充填",
+          "E": "树脂充填"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1634"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "出血时间长短",
+          "B": "下腹痛的程度",
+          "C": "早孕反应是否存在",
+          "D": "宫口开大与否",
+          "E": "妊娠试验阳性"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3553"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肌内注射",
+          "B": "皮下注射",
+          "C": "关节腔注射",
+          "D": "皮内注射",
+          "E": "静脉注射"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2856"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "导致精子产生和成熟发生障碍，抑制女性患者的卵巢功能",
+          "B": "恶心呕吐，腹痛腹泻，重者可见黄疸、肝肿大、消化道出血",
+          "C": "直接作用于中枢神经系统，甚或因呼吸中枢完全麻痹而致死",
+          "D": "血小板、白细胞、血红蛋白减少，并可发生急性粒细胞减少",
+          "E": "心律失常，如心率减慢、早搏、房室传导阻滞"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "424"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "红霉素",
+          "B": "头孢呋辛",
+          "C": "磺胺甲噁唑",
+          "D": "阿奇霉素",
+          "E": "阿莫西林"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2219"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "呼碱",
+          "B": "呼酸合并代碱",
+          "C": "代碱",
+          "D": "呼酸合并代酸",
+          "E": "呼酸"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1057"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "促凝血药",
+          "B": "纤维蛋白溶解药",
+          "C": "抗贫血药",
+          "D": "抗血小板药",
+          "E": "补血药"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1783"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "传染性非典型肺炎",
+          "B": "麻疹",
+          "C": "霍乱",
+          "D": "艾滋病",
+          "E": "肺结核"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "140"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "身面浮肿",
+          "B": "胸胁停饮",
+          "C": "寒痰咳喘",
+          "D": "癥瘕积聚",
+          "E": "顽癣冻疮"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1116"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "针灸",
+          "B": "冲洗",
+          "C": "利尿",
+          "D": "洗胃",
+          "E": "吸氧"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5349"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "冠心病",
+          "B": "肺动脉高压",
+          "C": "心肌炎",
+          "D": "VitB1缺乏",
+          "E": "慢性肺炎"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5118"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "曲线变窄",
+          "B": "曲线变胖",
+          "C": "曲线变高",
+          "D": "曲线变低",
+          "E": "曲线右移"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "70"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "有机酸类化合物",
+          "B": "香豆素类化合物",
+          "C": "二萜类化合物",
+          "D": "三萜类化合物",
+          "E": "倍半萜类化合物"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3541"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "火",
+          "B": "热",
+          "C": "下",
+          "D": "上",
+          "E": "湿"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "976"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "血培养",
+          "B": "尿常规",
+          "C": "血常规",
+          "D": "B超",
+          "E": "血沉"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "699"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "确定使用国家基本药物目录外药品品种数量",
+          "B": "制定国家基本药物药品标准",
+          "C": "审核国家基本药物目录",
+          "D": "制定国家基本药物全国零售指导价",
+          "E": "确定配备使用国家基本药物目录的民族药"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4004"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "食欲减退",
+          "B": "消谷善饥",
+          "C": "恶闻食臭",
+          "D": "饥不欲食",
+          "E": "嗜食异物"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1199"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "运动皮质",
+          "B": "基底节",
+          "C": "中脑",
+          "D": "脑桥",
+          "E": "小脑"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3593"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "解表散寒，祛风胜湿",
+          "B": "疏风散寒，解表清热",
+          "C": "疏风解表，清热解毒",
+          "D": "解肌发表，调和营卫",
+          "E": "疏风清热，宣肺止咳"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6649"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "脑动静脉畸形",
+          "B": "动脉瘤",
+          "C": "脑梗塞",
+          "D": "脑肿瘤",
+          "E": "脑先天发育畸形"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6227"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "病原体从传染源排出后，侵入新的易感宿主前，在外环境中所经历的全过程",
+          "B": "传染病在人群中连续传播的过程必须具备传染源、传播途径及易感人群三个基本环节",
+          "C": "病原体侵入机体后，与机体相互作用、相互斗争的过程",
+          "D": "病原体不断更替宿主的过程",
+          "E": "病原体传播的媒介"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3674"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "药品生产企业名称",
+          "B": "医师签名、药品金额",
+          "C": "患者姓名、临床诊断",
+          "D": "药品名称、剂型、规格、数量、用法用量"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3748"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "雌激素",
+          "B": "孕酮",
+          "C": "肾上腺皮质激素",
+          "D": "催乳素",
+          "E": "睾酮"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5357"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "思维联想障碍",
+          "B": "思维逻辑障碍",
+          "C": "内脏幻觉",
+          "D": "妄想",
+          "E": "人格解体"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1617"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "角化层",
+          "B": "粒层",
+          "C": "棘细胞层",
+          "D": "基底层",
+          "E": "生发层"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1892"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肠结核",
+          "B": "胆囊炎",
+          "C": "胰腺炎",
+          "D": "十二指肠溃疡",
+          "E": "阑尾炎"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3874"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "取得初级专业技术职务任职资格的医师",
+          "B": "在三级甲等医疗机构工作的执业医师",
+          "C": "在二级甲等医疗机构工作的执业医师",
+          "D": "取得中级以上专业技术职务任职资格的医师",
+          "E": "在乡、民族乡、镇、村的医疗机构独立从事一般执业活动的执业助理医师以及乡村医生"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1105"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "意识",
+          "B": "前意识",
+          "C": "潜意识",
+          "D": "患者心理状况",
+          "E": "患者所处环境"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1404"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "含蛋白质总量高",
+          "B": "含饱和脂肪酸的脂肪较多",
+          "C": "含铁量多",
+          "D": "含乳糖量多",
+          "E": "含钙磷髙"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5123"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "1岁以内",
+          "B": "2岁",
+          "C": "3～4岁",
+          "D": "5～6岁",
+          "E": "7～8岁"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5177"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "第一鳃弓",
+          "B": "第二鳃弓",
+          "C": "第三鳃弓",
+          "D": "第四鳃弓",
+          "E": "第五鳃弓"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "43"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "先注射制剂后口服制剂",
+          "B": "先选乙类目录后选甲类目录",
+          "C": "每一最小分类下的同类药品原则上不叠加使用",
+          "D": "先缓控释剂型后常释剂型"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "氨基酸的排列顺序",
+          "B": "每一氨基酸侧链的空间结构",
+          "C": "局部主链的空间结构",
+          "D": "亚基间相对的空间位置",
+          "E": "每一个原子的相对空间位置"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4684"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "会谈法",
+          "B": "调查法",
+          "C": "实验法",
+          "D": "作品分析法",
+          "E": "心理测验法"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "461"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "药品再评价",
+          "B": "药品不良反应的调查与评价",
+          "C": "药物临床应用管理",
+          "D": "药品召回"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3142"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "真性牙周袋，袋底位于釉牙骨质界冠方，牙槽骨嵴顶的根方",
+          "B": "假性牙周袋，袋底位于釉牙骨质界根方，牙槽骨嵴顶冠方",
+          "C": "真性牙周袋，袋底位于釉牙骨质界根方，牙槽骨嵴顶冠方",
+          "D": "假性牙周袋，袋底位于牙槽骨嵴顶的根方",
+          "E": "真性牙周袋，袋底位于牙槽骨嵴顶的根方"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3422"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阴道脱落细胞学检查",
+          "B": "输卵管通畅检查",
+          "C": "宫颈黏液结晶",
+          "D": "子宫内膜病理检查",
+          "E": "子宫输卵管造影"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "764"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "斯金纳",
+          "B": "班杜拉",
+          "C": "华生",
+          "D": "詹姆士",
+          "E": "巴甫洛夫"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5933"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "二氧化硅",
+          "B": "二氧化钛",
+          "C": "二氯甲烷",
+          "D": "聚乙二醇400",
+          "E": "聚乙烯吡咯烷酮"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "55"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "左心房",
+          "B": "半奇静脉",
+          "C": "胸主动脉",
+          "D": "胸导管",
+          "E": "奇静脉"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6358"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肝方叶",
+          "B": "十二指肠降部",
+          "C": "肠系膜上血管",
+          "D": "胆囊",
+          "E": "结肠右曲"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6551"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "牛黄解毒丸",
+          "B": "黄连上清丸",
+          "C": "附子理中丸",
+          "D": "清胃黄连片",
+          "E": "牛黄上清丸"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1027"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "降结肠",
+          "B": "输精管壶腹",
+          "C": "前列腺",
+          "D": "尿生殖膈",
+          "E": "肛提肌"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5657"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "患者几乎都为男性，年龄在25～45岁间病程缓慢",
+          "B": "患肢发凉怕冷，对外界寒冷敏感是血栓闭塞性脉管炎常见的早期症状",
+          "C": "多伴有游走性浅静脉炎病史",
+          "D": "出现肢体动脉搏动减弱或消失",
+          "E": "发病后戒烟对治疗帮助不大"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4950"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "胃肠道内pH",
+          "B": "血浆蛋白水平",
+          "C": "体内各种屏障",
+          "D": "胃肠道内pH及体内各种屏障",
+          "E": "器官或组织的血流量及其对化学毒物的亲和力"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3958"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "苯基硫醚氨酸",
+          "B": "粘康酸",
+          "C": "甲基马尿酸",
+          "D": "马尿酸",
+          "E": "酚类"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5597"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "线粒体",
+          "B": "血管内皮细胞",
+          "C": "内质网",
+          "D": "白细胞",
+          "E": "单核细胞"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2552"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "多吃含碘丰富的食物",
+          "B": "小剂量甲状腺素治疗",
+          "C": "口服甲基硫氧嘧啶治疗",
+          "D": "注射I¹³¹治疗",
+          "E": "甲状腺大部切除术"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2322"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "硝酸甘油静脉滴注",
+          "B": "溶栓治疗",
+          "C": "吗啡皮下注射",
+          "D": "肝素静脉滴注",
+          "E": "卡托普利口服"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3274"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "吸烟",
+          "B": "过量饮酒",
+          "C": "乙肝病毒感染",
+          "D": "工作环境中的致癌物暴露",
+          "E": "衰老"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2671"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "尿道阴茎部",
+          "B": "尿道球部",
+          "C": "尿道膜部",
+          "D": "尿道前列腺部",
+          "E": "膀胱颈部"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4351"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "塞来昔布",
+          "B": "地高辛",
+          "C": "依那普利",
+          "D": "洛伐他汀",
+          "E": "米力农"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1383"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "病原体的繁殖力",
+          "B": "病原体产生毒素的能力",
+          "C": "病原体的数量",
+          "D": "病原体的毒力",
+          "E": "病原体侵入机体并在机体内生长、繁殖的能力"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4890"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "与血清容积之比",
+          "B": "与血浆容积之比",
+          "C": "与血管容积之比",
+          "D": "在血液中所占容积百分比",
+          "E": "在血液中所占重量百分比"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3191"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "植物化学物",
+          "B": "宏量营养素",
+          "C": "微量元素",
+          "D": "宏量元素",
+          "E": "抗氧化营养素"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6268"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "右下腹麦氏点固定压痛",
+          "B": "闭孔内肌试验阳性",
+          "C": "腹肌紧张度增加",
+          "D": "腰大肌试验阳性",
+          "E": "结肠充气试验阳性"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1361"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "主动-被动型",
+          "B": "指导-合作型",
+          "C": "共同参与型",
+          "D": "主动-主动型",
+          "E": "被动-被动型"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3379"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肌肉断裂",
+          "B": "骨折",
+          "C": "尿潴留",
+          "D": "持续的呼吸肌痉挛",
+          "E": "营养障碍"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2187"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "甲状舌管囊肿",
+          "B": "海绵状血管瘤",
+          "C": "舌异位甲状腺",
+          "D": "皮样囊肿",
+          "E": "脂肪瘤"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4534"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "甘油明胶",
+          "B": "聚乙二醇",
+          "C": "可可豆脂",
+          "D": "半合成山苍子油酯",
+          "E": "香果脂"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5287"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "抑制纤维蛋白多聚体的形成",
+          "B": "水解纤维蛋白原",
+          "C": "激活纤溶酶原",
+          "D": "水解凝血因子Ⅲ",
+          "E": "增加毛细血管通透性"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5255"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "凉膈散",
+          "B": "新加香薷饮",
+          "C": "白虎汤",
+          "D": "银翘散合白虎汤",
+          "E": "清营汤"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2702"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "缺铁性贫血",
+          "B": "再生障碍性贫血",
+          "C": "溶血性贫血",
+          "D": "巨幼细胞性贫血",
+          "E": "甲状腺功能减退所致贫血"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3517"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "应避免与其它药品使用同一设备和空气净化系统",
+          "B": "应与其它药品生产厂房分开，并装有独立的专用的空气净化系统",
+          "C": "必须使用专用设备和独立的空气净化系统，并与其它药品生产区域严格分开",
+          "D": "不得同时在同一生产厂房内进行，其储存要严格分开",
+          "E": "必须与其制剂生产严格分开"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4036"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "起自肱骨内上髁",
+          "B": "止于桡骨茎突",
+          "C": "属前臂后群肌",
+          "D": "屈腕关节",
+          "E": "伸肘关节"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3952"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "贝诺酯",
+          "B": "安乃近",
+          "C": "吲哚美辛",
+          "D": "布洛芬",
+          "E": "吡罗昔康"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5021"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "淡黄稀薄脓液",
+          "B": "翠绿色，稍黏稠，有酸臭味",
+          "C": "黄色黏稠脓液",
+          "D": "灰白或灰褐色脓液",
+          "E": "脓液稀薄污浊，似米汤，夹杂有干酪样坏死物"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1988"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "位于大脑外侧裂底",
+          "B": "呈辐射状连接岛叶皮质",
+          "C": "属联络纤维",
+          "D": "属连合纤维，可分为四部分",
+          "E": "参与构成侧脑室底"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5908"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "黄连",
+          "B": "黄芩",
+          "C": "黄柏",
+          "D": "苦参",
+          "E": "土茯苓"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2735"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "左侧卧位",
+          "B": "站立位",
+          "C": "右侧卧位",
+          "D": "平卧位",
+          "E": "俯卧位"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3459"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "房间隔缺损",
+          "B": "室间隔缺损",
+          "C": "动脉导管未闭",
+          "D": "肺动脉狭窄",
+          "E": "法洛四联症"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4358"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "胎膜早破",
+          "B": "胎头未衔接",
+          "C": "胎位异常",
+          "D": "初产妇宫口开大3cm",
+          "E": "严重心脏病"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4561"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "传导躯干四肢的本体感觉和触觉",
+          "B": "在感觉传导路上属第一级神经元",
+          "C": "发出纤维在中线上左右交叉称丘系交叉",
+          "D": "经同侧内侧丘系上行",
+          "E": "止于丘脑的腹后内侧核"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3243"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "增强散热",
+          "B": "减少产热",
+          "C": "两者均有",
+          "D": "两者均无",
+          "E": "无"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2593"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "高血压性心脏损害",
+          "B": "风湿性心脏病",
+          "C": "病毒性心肌炎",
+          "D": "肥厚型心肌病",
+          "E": "扩张型心肌病"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "552"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "由第3-5颈神经前支组成",
+          "B": "属运动性神经，支配膈肌",
+          "C": "经前斜角肌前面下行",
+          "D": "与心包膈血管伴行",
+          "E": "穿经锁骨下动、静脉之间"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1146"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "三金片",
+          "B": "归脾丸",
+          "C": "逍遥丸",
+          "D": "右归丸",
+          "E": "丹蒌片"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2618"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "可复性关节盘前移位",
+          "B": "不可复性关节盘前移位",
+          "C": "翼外肌功能亢进",
+          "D": "关节盘穿孔",
+          "E": "翼外肌痉挛"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5145"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "权威模式",
+          "B": "共同参与模式",
+          "C": "军队管理模式",
+          "D": "听取建议模式",
+          "E": "以上无正确答案"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5369"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "NK细胞",
+          "B": "B细胞",
+          "C": "肥大细胞",
+          "D": "细胞毒性T淋巴细胞",
+          "E": "浆细胞"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2729"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Na₂SO₄·10H₂O",
+          "B": "S",
+          "C": "As₂O₃",
+          "D": "Fe₂O₃",
+          "E": "HgS"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5690"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "避开地方病高发地区和自然疫源地",
+          "B": "地势较低，地形平坦",
+          "C": "避开易受自然灾害影响的地段",
+          "D": "土壤清洁",
+          "E": "靠近地面水体"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6739"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "task": "evidenceoutcomes_fixed_window",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "final_tasks_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
+  },
+  "sample_count": 100,
+  "groups": 92,
+  "resources": [
+    {
+      "resource": "EvidenceOutcomes",
+      "source": "https://github.com/ebmlab/EvidenceOutcomes",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_final_tasks.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 322181,
+      "sha256": "cd3964ec07605b99773b7e6820314b0bf49d87982864b45acf031d9dfcf8b5e3"
+    },
+    "responses.jsonl": {
+      "bytes": 41409,
+      "sha256": "5263f5425340e4a2ba8d8d15d264e145b39b7d8bdb859c38a8864e18bd3e947b"
+    },
+    "index.jsonl": {
+      "bytes": 30882,
+      "sha256": "08a0faebf8ebec1988de1579f7e1f17c7e4ce3445fba35e3a7942692500e299f"
+    },
+    "prompts.json": {
+      "bytes": 557,
+      "sha256": "070e366d926aa7a3d61349ef91f53e9dc1ed45d6b990e17875d62fe9e748aff0"
+    },
+    "example.json": {
+      "bytes": 3836,
+      "sha256": "b277ce1614da4e43ef677204d043f2839d49e3afdb10a9b2ab10f3c60858a624"
+    }
+  }
+}

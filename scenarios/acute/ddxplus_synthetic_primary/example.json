@@ -1,0 +1,294 @@
+{
+  "sample": {
+    "gold": "7",
+    "group": "383",
+    "id": "383",
+    "metadata": {
+      "note": "Published English evidence translations retained, including awkward word choices; only observed findings, not full negative evidence expansion",
+      "source": "Third-party HF mirror aai530-group6/ddxplus test.csv first1MiB; stable100 sampled complete prefix records; original Figshare403; not whole official test distribution or verified primary bytes"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "Acute COPD exacerbation / infection",
+            "1": "Acute dystonic reactions",
+            "10": "Boerhaave",
+            "11": "Bronchiectasis",
+            "12": "Bronchiolitis",
+            "13": "Bronchitis",
+            "14": "Bronchospasm / acute asthma exacerbation",
+            "15": "Chagas",
+            "16": "Chronic rhinosinusitis",
+            "17": "Cluster headache",
+            "18": "Croup",
+            "19": "Ebola",
+            "2": "Acute laryngitis",
+            "20": "Epiglottitis",
+            "21": "GERD",
+            "22": "Guillain-Barré syndrome",
+            "23": "HIV (initial infection)",
+            "24": "Influenza",
+            "25": "Inguinal hernia",
+            "26": "Larygospasm",
+            "27": "Localized edema",
+            "28": "Myasthenia gravis",
+            "29": "Myocarditis",
+            "3": "Acute otitis media",
+            "30": "PSVT",
+            "31": "Pancreatic neoplasm",
+            "32": "Panic attack",
+            "33": "Pericarditis",
+            "34": "Pneumonia",
+            "35": "Possible NSTEMI / STEMI",
+            "36": "Pulmonary embolism",
+            "37": "Pulmonary neoplasm",
+            "38": "SLE",
+            "39": "Sarcoidosis",
+            "4": "Acute pulmonary edema",
+            "40": "Scombroid food poisoning",
+            "41": "Spontaneous pneumothorax",
+            "42": "Spontaneous rib fracture",
+            "43": "Stable angina",
+            "44": "Tuberculosis",
+            "45": "URTI",
+            "46": "Unstable angina",
+            "47": "Viral pharyngitis",
+            "48": "Whooping cough",
+            "5": "Acute rhinosinusitis",
+            "6": "Allergic sinusitis",
+            "7": "Anaphylaxis",
+            "8": "Anemia",
+            "9": "Atrial fibrillation"
+          },
+          "instructions": "Choose the most likely primary pathology in this synthetic DDXPlus record from the full disease vocabulary. Only recorded positive/categorical findings are given; no gold differential diagnoses or probabilities are supplied.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "age": "66",
+        "observed_positive_or_categorical_findings": [
+          {
+            "question": "Do you have a known severe food allergy?",
+            "value": "yes"
+          },
+          {
+            "question": "Have you been in contact with or ate something that you have an allergy to?",
+            "value": "yes"
+          },
+          {
+            "question": "Do you have pain somewhere, related to your reason for consulting?",
+            "value": "yes"
+          },
+          {
+            "question": "Characterize your pain:",
+            "value": "a cramp"
+          },
+          {
+            "question": "Do you feel pain somewhere?",
+            "value": "flank(R)"
+          },
+          {
+            "question": "Do you feel pain somewhere?",
+            "value": "hypochondrium(R)"
+          },
+          {
+            "question": "Do you feel pain somewhere?",
+            "value": "hypochondrium(L)"
+          },
+          {
+            "question": "Do you feel pain somewhere?",
+            "value": "pubis"
+          },
+          {
+            "question": "How intense is the pain?",
+            "value": "9"
+          },
+          {
+            "question": "Does the pain radiate to another location?",
+            "value": "nowhere"
+          },
+          {
+            "question": "How precisely is the pain located?",
+            "value": "4"
+          },
+          {
+            "question": "How fast did the pain appear?",
+            "value": "5"
+          },
+          {
+            "question": "Are you experiencing shortness of breath or difficulty breathing in a significant way?",
+            "value": "yes"
+          },
+          {
+            "question": "Do you feel lightheaded and dizzy or do you feel like you are about to faint?",
+            "value": "yes"
+          },
+          {
+            "question": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?",
+            "value": "yes"
+          },
+          {
+            "question": "What color is the rash?",
+            "value": "pink"
+          },
+          {
+            "question": "Do your lesions peel off?",
+            "value": "N"
+          },
+          {
+            "question": "Is the rash swollen?",
+            "value": "0"
+          },
+          {
+            "question": "Where is the affected region located?",
+            "value": "back of the neck"
+          },
+          {
+            "question": "Where is the affected region located?",
+            "value": "biceps(L)"
+          },
+          {
+            "question": "Where is the affected region located?",
+            "value": "mouth"
+          },
+          {
+            "question": "Where is the affected region located?",
+            "value": "thyroid cartilage"
+          },
+          {
+            "question": "Where is the affected region located?",
+            "value": "ankle(R)"
+          },
+          {
+            "question": "How intense is the pain caused by the rash?",
+            "value": "3"
+          },
+          {
+            "question": "Is the lesion (or are the lesions) larger than 1cm?",
+            "value": "Y"
+          },
+          {
+            "question": "How severe is the itching?",
+            "value": "9"
+          },
+          {
+            "question": "Are you feeling nauseous or do you feel like vomiting?",
+            "value": "yes"
+          },
+          {
+            "question": "Do you have swelling in one or more areas of your body?",
+            "value": "yes"
+          },
+          {
+            "question": "Where is the swelling located?",
+            "value": "forehead"
+          },
+          {
+            "question": "Where is the swelling located?",
+            "value": "cheek(R)"
+          },
+          {
+            "question": "Where is the swelling located?",
+            "value": "cheek(L)"
+          },
+          {
+            "question": "Where is the swelling located?",
+            "value": "nose"
+          },
+          {
+            "question": "Did you lose consciousness?",
+            "value": "yes"
+          },
+          {
+            "question": "Have you noticed a high pitched sound when breathing in?",
+            "value": "yes"
+          },
+          {
+            "question": "Have you traveled out of the country in the last 4 weeks?",
+            "value": "N"
+          },
+          {
+            "question": "Have you noticed a wheezing sound when you exhale?",
+            "value": "yes"
+          }
+        ],
+        "sex": "M"
+      }
+    },
+    "request_sha256": "fcd0699eef988327b2476bb35b0f7bf9e40770f6ced5e87f753fc6c106dc0697",
+    "task": "ddxplus_synthetic_primary"
+  },
+  "response": {
+    "elapsed_s": 0.777127708948683,
+    "id": "383",
+    "request_sha256": "fcd0699eef988327b2476bb35b0f7bf9e40770f6ced5e87f753fc6c106dc0697",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "7",
+          "confidence": 1.0,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "10": 0.0,
+            "11": 0.0,
+            "12": 0.0,
+            "13": 0.0,
+            "14": 0.0,
+            "15": 0.0,
+            "16": 0.0,
+            "17": 0.0,
+            "18": 0.0,
+            "19": 0.0,
+            "2": 0.0,
+            "20": 0.0,
+            "21": 0.0,
+            "22": 0.0,
+            "23": 0.0,
+            "24": 0.0,
+            "25": 0.0,
+            "26": 0.0,
+            "27": 0.0,
+            "28": 0.0,
+            "29": 0.0,
+            "3": 0.0,
+            "30": 0.0,
+            "31": 0.0,
+            "32": 0.0,
+            "33": 0.0,
+            "34": 0.0,
+            "35": 0.0,
+            "36": 0.0,
+            "37": 0.0,
+            "38": 0.0,
+            "39": 0.0,
+            "4": 0.0,
+            "40": 0.0,
+            "41": 0.0,
+            "42": 0.0,
+            "43": 0.0,
+            "44": 0.0,
+            "45": 0.0,
+            "46": 0.0,
+            "47": 0.0,
+            "48": 0.0,
+            "5": 0.0,
+            "6": 0.0,
+            "7": 1.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 2138,
+        "output_tokens": 399
+      }
+    },
+    "status": "ok",
+    "task": "ddxplus_synthetic_primary"
+  }
+}

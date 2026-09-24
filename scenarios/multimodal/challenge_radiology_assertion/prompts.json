@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确未见",
+          "present": "明确存在",
+          "uncertain": "可疑/不能排除",
+          "unmentioned": "未提及"
+        },
+        "instructions": "只判断本份文字报告对肺结节的态度，不读取影像或作额外诊断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "radiology_assertion:1"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "negation",
+    "group": "8283032",
+    "id": "8283032:S307.7",
+    "metadata": {
+      "source": "BioScope abstracts XML official public download,25/class; sentence cue presence derived from gold cue tags; NOT cue/span localization or clinical assertions"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "both": "Both negation and speculation cues",
+            "negation": "Negation cue only",
+            "neither": "Neither",
+            "speculation": "Speculative cue only"
+          },
+          "instructions": "Which explicitly expressed linguistic cues occur in this biomedical sentence? Negation denies an event; speculation expresses uncertainty or hypothesis. Classify presence of either kind, not whether the main conclusion is true.",
+          "type": "choice"
+        }
+      },
+      "state": "Additionally, IFN-gamma activity but not IL-1, IL-2, or IL-4 activity was present in culture supernatants 72 h after R24 stimulation."
+    },
+    "request_sha256": "ce4b402d8f4ac0c05c6ceea4e008e46f69fbf068cdcd7750e3ec75faad3d3ab9",
+    "task": "bioscope_sentence_cues"
+  },
+  "response": {
+    "elapsed_s": 0.675367666000966,
+    "id": "8283032:S307.7",
+    "request_sha256": "ce4b402d8f4ac0c05c6ceea4e008e46f69fbf068cdcd7750e3ec75faad3d3ab9",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "negation",
+          "confidence": 1.0,
+          "probabilities": {
+            "both": 0.0,
+            "negation": 1.0,
+            "neither": 0.0,
+            "speculation": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 419,
+        "output_tokens": 50
+      }
+    },
+    "status": "ok",
+    "task": "bioscope_sentence_cues"
+  }
+}

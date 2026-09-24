@@ -1,0 +1,72 @@
+{
+  "sample": {
+    "gold": "4",
+    "group": "pmc-7196137-1",
+    "id": "41",
+    "metadata": {
+      "indicator": "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk",
+      "source": "MedCalc-Bench-Verified published test CSV via publisher HF mirror;5 full bounded-score calculators x20; converted to closed numeric choice, NOT full55-calculator numerical generation benchmark"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "0",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "unknown": "The patient note lacks information necessary to determine the score"
+          },
+          "instructions": "Determine the requested clinical score from this patient note. Select its numeric value from the fixed full score range. No reference parameters or explanation are supplied. If essential information is missing, select unknown.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "patient_note": "Our patient is a 38-year-old woman with a past medical history most significant for a Roux-en-Y gastric bypass surgery in March 2017, complicated by a marginal ulcer at the anastomosis site with subsequent perforation. The patient could not tolerate oral nutrition and became severely malnourished, and a PICC line was placed for TPN in December 2017. Chronic TPN use led to recurrent candidemia with blood cultures growing Candida albicans resistant to fluconazole and voriconazole. Over several months, her PICC line was replaced thrice, and she was ultimately treated with micafungin. The patient had multiple admissions over the past few months for workup of altered mental status and unsteady gait. Her other past medical history included systemic lupus erythematosus treated with mycophenolate mofetil and hydroxychloroquine, left portal vein branch thrombosis on enoxaparin therapy, type 2 diabetes mellitus not on insulin, fibromyalgia, depression, and anxiety. She presented to our hospital in July 2018 with complaints of tremors, impaired mobility, confusion, gait instability, falls, and lethargy.\nOn admission, she was noted to be confused, with horizontal nystagmus and dilated pupils as well as bradypnea. Dilated fundus examination was indicative of candida retinitis. She was lethargic but arousable. Her speech was difficult to understand, and the history of presenting illness was provided primarily by the patient's mother who relayed to the team that she had been having tremors, episodes of confusion, and numerous falls for the past several months. Her mother also noticed that she had increased irritability and emotional lability during this time. She was initially admitted to the intensive care unit for airway management due to her acute encephalopathy. Due to a lack of meningeal signs, a lumbar puncture was not performed.\nThe infectious disease service was consulted, and she was started on liposomal amphotericin B and flucytosine for a total of 6 weeks. MRI brain showed worsening T1 hyperintensities from June 2018 to July 2018 in the bilateral globus pallidi, as evidenced by the arrows in Figures and , which were thought to be secondary to manganese toxicity from chronic TPN use. Furthermore, a repeat MRI brain was performed in August 2018, one month after discontinuation of TPN, which showed improvement of the T1 hyperintensities in the bilateral globus pallidi, as evidenced by the white arrows in , approaching the intensity level noted in June 2018. Other supporting findings included T1 hyperintensities in the substantia nigra, as evidenced by the arrows in , and decreased signal in the bilateral globus pallidi on T2-weighted images, as evidenced by the arrows in . With antifungal treatment and cessation of TPN, her mentation and neurological symptoms improved within 3-4 days of cessation of TPN.\nGeneral surgery was consulted for gastrostomy tube placement in her remnant stomach, as the patient was unable to consume more than 500 calories by mouth per day due to complaints of nausea and vomiting. Although our patient presented to the hospital seven months after initiation of TPN therapy, her Parkinsonian symptoms had begun to manifest after three months on TPN.",
+        "question": "What is the patient's CHA2DS2-VASc Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+      }
+    },
+    "request_sha256": "8e16d1ffa101c9d0ce626b3f81e67c743b7806754272873d0d936f7953eac8d1",
+    "task": "medcalc_verified_bounded_score"
+  },
+  "response": {
+    "elapsed_s": 0.667330915981438,
+    "id": "41",
+    "request_sha256": "8e16d1ffa101c9d0ce626b3f81e67c743b7806754272873d0d936f7953eac8d1",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "4",
+          "confidence": 0.14,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.03,
+            "2": 0.12,
+            "3": 0.2,
+            "4": 0.23,
+            "5": 0.19,
+            "6": 0.07,
+            "7": 0.03,
+            "8": 0.02,
+            "9": 0.01,
+            "unknown": 0.09
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 1246,
+        "output_tokens": 94
+      }
+    },
+    "status": "ok",
+    "task": "medcalc_verified_bounded_score"
+  }
+}

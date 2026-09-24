@@ -1,0 +1,1454 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "卧床休息",
+          "1": "低盐饮食",
+          "2": "利尿降压",
+          "3": "激素疗法",
+          "4": "中医疗法"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "96"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "立即手术治疗",
+          "1": "密切观察病情变化",
+          "2": "手法还纳包块",
+          "3": "应用吗啡，缓解疼痛",
+          "4": "立即扩容补液"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "75"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "长程标准化学治疗，疗程1-1.5年（异烟肼+链霉素+利福平）",
+          "1": "短程化学治疗，疗程6-9个月（异烟肼+利福平）",
+          "2": "单药长程化学治疗",
+          "3": "三药联合化学治疗（异烟肼+利福平+链霉素）",
+          "4": "两种抑菌剂联合化学治疗（乙胺丁醇+吡嗪酰胺）"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "102"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "卧床休息抬高臀部",
+          "1": "经腹羊膜腔输液",
+          "2": "给予地塞米松",
+          "3": "应用抗生素",
+          "4": "终止妊娠"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "104"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "补充血容量",
+          "1": "急诊切开排脓",
+          "2": "联合应用抗生素",
+          "3": "应用小剂量糖皮质激素",
+          "4": "纠正酸碱平衡失调"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "11"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "停用洋地黄制剂，加钾盐",
+          "1": "停用洋地黄制剂，加用苯妥英钠",
+          "2": "停用洋地黄制剂，加用阿托品",
+          "3": "继续洋地黄治疗",
+          "4": "停用洋地黄制剂，观察"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "76"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "无创通气",
+          "1": "持续高浓度吸氧",
+          "2": "静脉点滴糖皮质激素",
+          "3": "雾化吸入支气管舒张剂",
+          "4": "静脉点滴祛痰药物"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "姑息性胃肿瘤切除术",
+          "1": "部腹探查后关腹",
+          "2": "胃癌根治术",
+          "3": "胃空肠吻合术",
+          "4": "胃癌根治及肝叶切除"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "62"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "脱敏治疗",
+          "1": "口服氨茶碱类药物",
+          "2": "口服免疫抑制剂",
+          "3": "静脉应用糖皮质激素",
+          "4": "去除诱导因素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "泼尼松治疗",
+          "1": "胸腺切除",
+          "2": "吡啶斯的明治疗",
+          "3": "胸腺放射治疗",
+          "4": "环磷酰胺治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "82"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "开胸壁式分离术",
+          "1": "人工瓣膜置换术",
+          "2": "经皮球囊二尖瓣成形术",
+          "3": "开胸直视分离术",
+          "4": "强心药物治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "91"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "仅予抗病毒治疗即可",
+          "1": "甘露醇脱水",
+          "2": "退热",
+          "3": "镇静",
+          "4": "营养支持治疗",
+          "5": "保持呼吸道通畅"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "10%葡萄糖酸钙溶液20ml，缓慢静脉注射",
+          "1": "11.2%乳酸钠溶液60ml，缓慢静脉注射",
+          "2": "口服钠型树脂10g，每日三次",
+          "3": "血液透析",
+          "4": "输同型库存血200ml"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "口服华法林",
+          "1": "静脉滴注rt-PA",
+          "2": "肺动脉内注射尿激酶",
+          "3": "皮下注射低分子肝素",
+          "4": "手术取栓"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "49"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "膀胱灌注化疗",
+          "1": "经尿道电切",
+          "2": "手术",
+          "3": "放疗",
+          "4": "全身化疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "45"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "放置子宫托",
+          "1": "经阴道子宫切除术",
+          "2": "阴道纵膈形成术",
+          "3": "Manchester手术",
+          "4": "盆底肌肉锻炼"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "静脉注射呼吸兴奋剂",
+          "1": "经鼻管给氧吸入",
+          "2": "皮下注射肾上腺索",
+          "3": "快速输液补充血容量",
+          "4": "立即进行心肺复苏"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "134"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "继续补液",
+          "1": "使用抗生素",
+          "2": "观察2日",
+          "3": "使用糖皮质激素",
+          "4": "甘露醇注射"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "清创固定，修复血管",
+          "1": "伤口清创，骨牵引",
+          "2": "清创内固定",
+          "3": "加压包扎，观察血循环",
+          "4": "闭合创口，夹板外固定"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "90"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "外阴广泛切除",
+          "1": "外阴根治术+同侧腹股沟淋巴结清扫术",
+          "2": "外阴根治术+双侧腹股沟淋巴结清扫术",
+          "3": "外阴根治术+双侧腹股沟淋巴结清扫术+尿道前部切除术",
+          "4": "外阴广泛切除",
+          "5": "直肠下段和肛管切除",
+          "6": "人工肛门形成术及双侧腹股沟盆腔淋巴结清扫"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "21"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "免疫治疗",
+          "1": "手术治疗",
+          "2": "化疗+放疗",
+          "3": "介入治疗",
+          "4": "放射治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "35"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "吸氧",
+          "1": "利多卡因静脉注射",
+          "2": "胸外心脏按压",
+          "3": "肾上腺素静脉注射",
+          "4": "非同步直流电复律"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "101"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "改为地塞米松",
+          "1": "将泼尼松加量到80mg/d",
+          "2": "改用环磷酰胺",
+          "3": "用原量继续观察",
+          "4": "减少泼尼松量到40mg/d，加用免疫抑制"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "71"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "绝对安静卧床休息，抗生素治疗",
+          "1": "抽脓后注入抗生素治疗",
+          "2": "切开引流，周身抗生素",
+          "3": "病灶清除术",
+          "4": "脊柱融合术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "88"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "术后卧床休息1~2周",
+          "1": "术中用0.01%醋酸苯汞或1:3000苯扎溴铵行精囊灌注",
+          "2": "术后定期注射雌激素",
+          "3": "术后伤口进行冷敷",
+          "4": "术中进行输精管冲洗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "113"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "静脉滴注葡萄糖液",
+          "1": "静脉注射呋塞米",
+          "2": "碳酸氢钠使尿液碱性化",
+          "3": "有急性肾衰竭时效果更好",
+          "4": "大量饮水"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "80"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "国务院药品监督管理部门",
+          "1": "省级药品监督管理部门",
+          "2": "设区的市级药品监督管理部门",
+          "3": "省级卫生行政部门",
+          "4": "国家中医药管理局"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "123"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "他巴唑剂量减半再用",
+          "1": "他巴唑与升白细胞药合用",
+          "2": "改用丙基硫氧嘧啶",
+          "3": "核素¹³¹I治疗",
+          "4": "白血球恢复正常后立即手术治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "单纯放射治疗",
+          "1": "B•同步放化疗",
+          "2": "乳突凿开术",
+          "3": "乳突凿开术+颈淋巴结清扫术",
+          "4": "颞骨次全切除术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "81"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "静脉注射立止血（或6-氨基己酸）",
+          "1": "口服大剂量雌激素",
+          "2": "口服大量安宫黄体酮",
+          "3": "口服甲基睾丸素",
+          "4": "行刮宫术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "使用广谱抗生素",
+          "1": "注射止痛剂",
+          "2": "禁饮食",
+          "3": "胃肠减压",
+          "4": "补充血容量"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "用药物阻断其自主性过度通气",
+          "1": "增加呼吸道死腔",
+          "2": "积极治疗原发病",
+          "3": "静脉滴注盐酸改善碱中毒"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "146"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "予以10%葡萄糖酸钙10到20ml稀释后缓慢静注",
+          "1": "输同型库存血400ml",
+          "2": "50%葡萄糖液50ml加普通胰岛素10U静脉点滴",
+          "3": "钠型离子交换树脂15g口服，每天3次",
+          "4": "11.2%乳酸钠100ml缓慢静脉点滴"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "107"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "迷走神经切断术",
+          "1": "胃大部切除术",
+          "2": "口服西咪替丁",
+          "3": "溴甲阿托品治疗",
+          "4": "以上都不正确"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "84"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "清宫术",
+          "1": "化疗",
+          "2": "放疗",
+          "3": "保胎治疗",
+          "4": "全子宫切除术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "32"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "清创后一期中厚皮片游离植皮",
+          "1": "清创后末节短缩缝合",
+          "2": "清创后一期示指岛状皮瓣植皮",
+          "3": "清创后人造皮或凡士林纱布暂时覆盖，72小时后再次清创，示指岛状皮瓣植皮",
+          "4": "清创后游离皮瓣植皮"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "92"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "迅速洗胃",
+          "1": "及早",
+          "2": "足量",
+          "3": "反复注射阿托品",
+          "4": "待阿托品疗效不好时，加用氯解磷定",
+          "5": "吸氧",
+          "6": "硫酸镁导泻"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "128"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "螺内酯（安体舒通）治疗",
+          "1": "纠正电解质紊乱",
+          "2": "静脉滴注氯化钾及胰岛素",
+          "3": "吡啶斯的明和皮质激素治疗",
+          "4": "脱水降颅压治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "66"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "绝对卧床休息",
+          "1": "口服铁剂",
+          "2": "遵医嘱使用维生素B12",
+          "3": "给予鼻饲饮食精叶酸食物",
+          "4": "及时添加维生素B12和叶酸食物"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "94"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "停用排钾利尿剂",
+          "1": "停用洋地黄类药物",
+          "2": "补充钾盐",
+          "3": "纠正心律失常",
+          "4": "对快速性心律失常可用阿托品治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "99"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "口服胺碘酮",
+          "1": "暂不治疗，定期随诊",
+          "2": "口服阿托品",
+          "3": "静脉注射异丙肾上腺素",
+          "4": "植入永久起搏器"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "73"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "立即停止给药",
+          "1": "立即静注苯妥英钠",
+          "2": "立即静注硫喷妥钠",
+          "3": "立即在肌松的条件下行气管插管人工通气",
+          "4": "各种支持疗法维持呼吸和循环"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "58"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "急症手术复位，行McVay法修补术",
+          "1": "急症手术复位，行Ferguson法修补术",
+          "2": "及时手法复位，密切观察",
+          "3": "密切观察，病情加重及时手术",
+          "4": "应用抗生素",
+          "5": "止痛剂观察"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "40"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "有创机械通气",
+          "1": "无创机械通气",
+          "2": "间断高浓度吸氧",
+          "3": "持续高频呼吸机通气",
+          "4": "持续低流量吸氧"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "可多次使用利尿合剂或甘露醇，以促进利尿",
+          "1": "严格限制液体入量",
+          "2": "处理高血钾",
+          "3": "防治氮质血症",
+          "4": "纠正酸中毒"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "131"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "晶状体",
+          "1": "玻璃体全部切除术",
+          "2": "晶状体超声乳化术",
+          "3": "晶状体切除联合前部玻璃体切割术",
+          "4": "全玻璃体切割术，将晶状体复位",
+          "5": "晶状体囊内摘除术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "64"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "药物保守治疗",
+          "1": "肌瘤切除术",
+          "2": "子宫全切术",
+          "3": "子宫次全切除术",
+          "4": "诊断性刮宫"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "29"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "透析治疗",
+          "1": "饮食治疗",
+          "2": "氨基酸疗法",
+          "3": "氧化淀粉治疗",
+          "4": "强力利尿治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "114"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "阴道前后壁修补术",
+          "1": "曼氏手术",
+          "2": "经阴道全子宫切除及阴道前后壁修补术",
+          "3": "经腹全子宫切除术",
+          "4": "阴道纵隔成形术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "110"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胆囊切除术",
+          "1": "胆囊切除加总胆管探查术",
+          "2": "胆囊造瘘术",
+          "3": "胆肠吻合术",
+          "4": "PTCD"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "138"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "静滴缩宫素加强宫缩",
+          "1": "立即剖宫产",
+          "2": "等待自然分娩",
+          "3": "米索前列醇加强宫缩",
+          "4": "静滴硫酸镁抑制宫缩"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "70"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "尽快手术恢复扭转的肿瘤",
+          "1": "立即准备行患侧肿瘤剥除术",
+          "2": "尽快手术钳夹肿瘤蒂部后切除肿瘤和蒂",
+          "3": "改变体位，纠正扭转",
+          "4": "卧床休息，随访观察"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "109"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "多吃含碘丰富的食物",
+          "1": "小剂量甲状腺素治疗",
+          "2": "口服甲基硫氧嘧啶治疗",
+          "3": "注射I¹³¹治疗",
+          "4": "甲状腺大部切除术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "抗感染治疗",
+          "1": "解痉止痛",
+          "2": "局部热敷",
+          "3": "口服中药",
+          "4": "针灸"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "43"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "禁食胃肠减压",
+          "1": "输液",
+          "2": "应用糖皮质激素",
+          "3": "肌注新斯的明",
+          "4": "紧急手术治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "运动疗法",
+          "1": "饮食治疗",
+          "2": "中医治疗",
+          "3": "胰岛素治疗",
+          "4": "口服降糖药"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "手术",
+          "1": "单纯化疗",
+          "2": "单纯放疗",
+          "3": "同步放化疗",
+          "4": "先手术再化疗",
+          "5": "先手术再放疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "126"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "国家卫生和计划生育委员会",
+          "1": "人力资源和社会保障部",
+          "2": "国家发展和改革委员会",
+          "3": "商务部"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "121"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "药物疗法",
+          "1": "根治性手术治疗",
+          "2": "姑息性手术",
+          "3": "放射治疗",
+          "4": "胃造瘘术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "给予肾上腺皮质激素治疗",
+          "1": "密切观察患儿呼吸",
+          "2": "脉搏",
+          "3": "神志等",
+          "4": "禁食尖锐",
+          "5": "多刺的食物",
+          "6": "忌服阿司匹林药物",
+          "7": "鼓励患儿多运动"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "98"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "膀胱部分切除",
+          "1": "经尿道膀胱肿瘤电切",
+          "2": "化疗",
+          "3": "根治性膀胱切除",
+          "4": "放疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "25"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "静滴硫酸镁",
+          "1": "即刻产钳术",
+          "2": "急症剖宫产",
+          "3": "静滴肼苯达嗪",
+          "4": "静脉推注葡萄糖＋维生素C"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "135"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "镇痛剂，激素治疗",
+          "1": "小腿石膏托固定",
+          "2": "筋膜室切口减压",
+          "3": "小夹板固定",
+          "4": "跟骨结节骨牵引"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "34"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "应用糖皮质激素",
+          "1": "持续高浓度吸氧",
+          "2": "持续低浓度吸氧",
+          "3": "静脉应用抗生素",
+          "4": "机械通气"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "50"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "抗结核治疗",
+          "1": "病灶清除术",
+          "2": "肾部分切除术",
+          "3": "肾切除术",
+          "4": "肾造瘘术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "补充铁剂",
+          "1": "脾切除",
+          "2": "输血治疗",
+          "3": "肌内注射维生素B12",
+          "4": "病因治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "105"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "光照疗法",
+          "1": "换血疗法",
+          "2": "输血浆",
+          "3": "纠正酸中毒",
+          "4": "苯巴比妥"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "再作根治术",
+          "1": "再作姑息性手术",
+          "2": "暂时不考虑手术，但仍应积极完善其他检查以明确患者大便隐血的具体原因",
+          "3": "分期手术",
+          "4": "作“三明治”式治疗",
+          "5": "以上都不对"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "127"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "加强气道管理",
+          "1": "给氧",
+          "2": "应用呼吸兴奋剂",
+          "3": "机械通气",
+          "4": "使用利尿剂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "112"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "中药治疗",
+          "1": "抗HBV治疗",
+          "2": "对症治疗",
+          "3": "抗肝纤维化治疗",
+          "4": "保肝治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "52"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "换用利培酮治疗",
+          "1": "地西泮静脉推注",
+          "2": "碳酸锂治疗",
+          "3": "舒必利静脉点滴",
+          "4": "口服奥氮平治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "38"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "手术切除病灶",
+          "1": "肝动脉结扎",
+          "2": "肝动脉栓塞",
+          "3": "化疗",
+          "4": "60钴照射"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "镇痛药物治疗",
+          "1": "雌激素治疗",
+          "2": "化学药物治疗",
+          "3": "手术治疗",
+          "4": "放射治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "经尿道膀胱肿瘤切除术",
+          "1": "膀胱全切除术",
+          "2": "膀胱部分切除术",
+          "3": "开放性膀胱肿瘤切除术",
+          "4": "膀胱肿瘤电灼术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "65"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "冬眠低温治疗",
+          "1": "应用脱水剂",
+          "2": "紧急手术治疗",
+          "3": "应用利尿剂",
+          "4": "应用糖皮质激素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "100"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "静脉滴注大剂量抗生素",
+          "1": "皮下注射低分子肝素",
+          "2": "暂不处理，密切随访",
+          "3": "口服血管紧张素转换酶抑制剂",
+          "4": "尽早外科手术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "手法复位和后侧石膏托固定",
+          "1": "持续骨牵引",
+          "2": "切开复位内固定",
+          "3": "手法复位和胶带皮肤牵引",
+          "4": "手法复位和小夹板固定"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "59"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "应用抗癫痫药物",
+          "1": "应用镇静药",
+          "2": "降温治疗",
+          "3": "氧疗",
+          "4": "应用甘露醇"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "28"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "夹板固定",
+          "1": "髋“人”字石膏固定",
+          "2": "立即手术三刃钉内固定",
+          "3": "持续皮牵引固定6-8周",
+          "4": "皮牵引6-8周后，三刃钉内固定"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "83"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "美沙酮替代治疗",
+          "1": "可乐定治疗",
+          "2": "东莨菪碱综合治疗",
+          "3": "昂丹司琼抑制觅药",
+          "4": "心理干预"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "120"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "经尿道膀胱肿瘤内切术",
+          "1": "经尿道前切除术",
+          "2": "经尿道膀胱结石碎石术",
+          "3": "抗结核治疗",
+          "4": "经尿道腺性膀胱炎电切术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "54"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "洋地黄化，并用少量镇静剂",
+          "1": "毒毛旋花子苷K静注，并用乙酰唑胺",
+          "2": "毛花苷C静注，并用普萘洛尔",
+          "3": "洋地黄化，并用地塞米松",
+          "4": "毒毛旋花子苷K静注，临时使用少量利尿剂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "136"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "抗生素治疗",
+          "1": "免疫疗法",
+          "2": "放射治疗",
+          "3": "化学药物治疗",
+          "4": "继续随访观察"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "115"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "输血输液",
+          "1": "镇静，吸氧，观察生命体征",
+          "2": "固定胸壁",
+          "3": "输液，心电监护",
+          "4": "抗休克同时剖腹检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "132"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "支持疗法",
+          "1": "加强子宫收缩",
+          "2": "加强第二产程的观察",
+          "3": "静脉快速滴注缩宫素",
+          "4": "预防产后出血"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "93"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心室超速起搏治疗",
+          "1": "同步直流电转复",
+          "2": "非同步直流电除颤",
+          "3": "植入永久起搏器",
+          "4": "植入临时起搏器"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "24"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "手术治疗",
+          "1": "化疗",
+          "2": "放疗",
+          "3": "内分泌治疗",
+          "4": "靶向治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "治疗原发病",
+          "1": "缩短激素的疗程",
+          "2": "提高血浆胶体渗透压",
+          "3": "补充营养",
+          "4": "控制血压"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "理疗",
+          "1": "限制活动和石膏固定",
+          "2": "体疗加内服药物",
+          "3": "伤湿止痛膏局部贴敷",
+          "4": "醋酸强的松龙局部封闭"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "78"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "导管造影溶栓",
+          "1": "经皮腔内血管成形术",
+          "2": "高压氧治疗",
+          "3": "经股动脉切开取栓术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "139"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "服用酚妥拉明",
+          "1": "化疗",
+          "2": "手术",
+          "3": "服用阿替洛尔",
+          "4": "放疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "36"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "速效胰岛素类似物持续静脉滴注，起始量5.5U/小时",
+          "1": "长效胰岛素类似物持续静脉滴注，起始量5.5U/小时",
+          "2": "常规人胰岛素持续静脉滴注，起始量11U/小时",
+          "3": "恢复4次胰岛素注射治疗，并适当增加剂量",
+          "4": "常规人胰岛素持续静脉滴注，起始量5.5U/小时"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "51"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "泼尼松短程疗法",
+          "1": "泼尼松中程疗法",
+          "2": "泼尼松长程疗法",
+          "3": "甲泼尼松龙冲击疗法",
+          "4": "泼尼松+环磷酰胺"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "生物治疗",
+          "1": "手术治疗",
+          "2": "放射治疗",
+          "3": "化学药物治疗",
+          "4": "中药治疗"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "23"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "非手术治疗",
+          "1": "穿孔修补术",
+          "2": "全胃切除术",
+          "3": "胃大部切除术",
+          "4": "穿孔修补加选择性迷走神经切断术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "46"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肿瘤段切除植骨术",
+          "1": "肿瘤段切除人工关节置换术",
+          "2": "放射治疗",
+          "3": "截指术",
+          "4": "刮除植骨术"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "89"
+    }
+  ]
+}

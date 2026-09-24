@@ -1,0 +1,1514 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "大肠埃希菌",
+          "1": "变形杆菌",
+          "2": "克雷伯杆菌",
+          "3": "链球菌",
+          "4": "革兰氏阳性球菌"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1180"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "慢性甲亢性肌病",
+          "1": "周期性瘫痪",
+          "2": "周围神经炎",
+          "3": "重症肌无力",
+          "4": "癔症"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "606"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "实证",
+          "1": "虚证",
+          "2": "虚实夹杂证",
+          "3": "真虚假实证",
+          "4": "真实假虚证"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1381"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "菌血症",
+          "1": "化脓性海绵状静脉窦炎",
+          "2": "喉头水肿",
+          "3": "面部蜂窝织炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1686"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "共济失调毛细血管扩张症",
+          "1": "DiGeorge综合征",
+          "2": "先天性低丙种球蛋白血症",
+          "3": "高IgM血症",
+          "4": "Wiskott-Aldrich综合征"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1569"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "慢性咳嗽史",
+          "1": "慢性便秘史",
+          "2": "慢性腹痛史",
+          "3": "尿频",
+          "4": "尿急史",
+          "5": "工作种类"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "894"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心尖部粗糙的收缩期杂音",
+          "1": "心尖部Austin-Flint杂音",
+          "2": "心尖部S₁亢进",
+          "3": "A₂增强",
+          "4": "心界呈梨形"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "442"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "消化性溃疡",
+          "1": "急性胃炎",
+          "2": "食管贲门黏膜撕裂综合征",
+          "3": "食管胃底静脉曲张破裂",
+          "4": "食管炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "293"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "血钙迅速转移到骨骼",
+          "1": "尿钙排出过多",
+          "2": "甲状腺功能不全",
+          "3": "血糖偏低",
+          "4": "甲状旁腺反应迟饨"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1413"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "支气管结核",
+          "1": "慢性阻塞性肺疾病",
+          "2": "支气管肺癌",
+          "3": "支气管哮喘",
+          "4": "支气管扩张"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "ST段（J点）抬高出现在2个或2个以上相邻的导联",
+          "1": "V1导联J点抬高大于等于0.2mV",
+          "2": "在V2〜V3导联，男性J点抬高大于等于0.2mV",
+          "3": "在V2〜V3导联，女性J点抬高大于等于0.15mV",
+          "4": "除V2〜V3导联外，其他导联J点抬高大于等于0.1mV"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1479"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "下肢水肿",
+          "1": "肺部湿啰音",
+          "2": "心房纤颤",
+          "3": "劳力性呼吸困难",
+          "4": "夜间阵发性呼吸困难"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1503"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "咳嗽持续或反复发作，1个月",
+          "1": "临床无感染征象，或经较长期抗生素治疗无效",
+          "2": "支气管扩张剂可使咳嗽发作缓解",
+          "3": "有个人或家族过敏史",
+          "4": "常在白天发作，运动后减轻"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "579"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "皮脂腺瘤",
+          "1": "皮样囊肿",
+          "2": "第三鳃瘘",
+          "3": "气管软骨异位",
+          "4": "肋骨畸形"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "695"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Septicemia",
+          "1": "Hemolytic disease",
+          "2": "Physiologic jaundice",
+          "3": "Pneumonia",
+          "4": "Breast feeding-associated jaundice"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1590"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫缩时胎头受压",
+          "1": "胎儿受镇静药物影响",
+          "2": "宫缩时脐带受压，兴奋迷走神经",
+          "3": "胎儿缺氧",
+          "4": "胎儿状况良好"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "晨僵",
+          "1": "关节疼痛",
+          "2": "关节肿胀",
+          "3": "关节畸形",
+          "4": "关节功能障碍"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1113"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "咯血是上部胃肠道出血",
+          "1": "咯血外观呈咖啡色",
+          "2": "咯血是指喉以下的呼吸道或肺组织出血，经口排出",
+          "3": "鼻腔出血经口咳出也属于咯血",
+          "4": "小量咯血有明显症状"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1469"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "接触性隔离",
+          "1": "呼吸道隔离",
+          "2": "昆虫隔离",
+          "3": "保护性隔离",
+          "4": "消化道隔离"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1187"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "头痛剧烈",
+          "1": "呕吐频繁",
+          "2": "呼吸骤停出现早",
+          "3": "血压升高，脉缓有力",
+          "4": "一侧瞳孔散大，对侧偏瘫"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1177"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "弥漫性腹膜炎无局限趋势",
+          "1": "观察12小时症状",
+          "2": "体征加重",
+          "3": "中毒症状明显，有休克表现",
+          "4": "非手术治疗无效",
+          "5": "原发性腹膜炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "913"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心跳，呼吸停止，各种反射消失",
+          "1": "深度昏迷状态",
+          "2": "神经系统停止活动",
+          "3": "各器官新陈代谢停止",
+          "4": "出现尸斑"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1655"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "病毒性脑膜炎",
+          "1": "紧张型头痛",
+          "2": "偏头痛",
+          "3": "原发性头痛",
+          "4": "低颅压性头痛"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1572"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "咳嗽气喘",
+          "1": "咯痰清稀",
+          "2": "胸膈痞闷",
+          "3": "舌红苔黄腻",
+          "4": "脉滑数"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1355"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "产伤是病因之一",
+          "1": "患侧上臂呈外展外旋",
+          "2": "下臂丛神经麻痹，常伴有霍纳综合征",
+          "3": "可有患侧手完全不能活动",
+          "4": "完全性麻痹",
+          "5": "近远端肌肉均无运动"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1449"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "白细胞管型",
+          "1": "红细胞管型",
+          "2": "透明管型",
+          "3": "颗粒管型",
+          "4": "蜡样管型"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "449"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "室性期前收缩",
+          "1": "心房颤动",
+          "2": "心房扑动呈2∶1〜4∶1下传",
+          "3": "一度房室传导阻滞",
+          "4": "二度Ⅰ型房室传导阻滞"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1466"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "急性肾小球肾炎",
+          "1": "急进性肾小球肾炎",
+          "2": "急性肾盂肾炎",
+          "3": "肾病综合征",
+          "4": "慢性肾衰竭"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1264"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "变异型心绞痛",
+          "1": "急性心包炎",
+          "2": "初发型劳力性心绞痛",
+          "3": "恶化型劳力性心绞痛",
+          "4": "急性心肌梗死"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "310"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "表皮水肿",
+          "1": "真皮炎症细胞浸润",
+          "2": "棘层松解",
+          "3": "表皮萎缩",
+          "4": "角化不全"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "637"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "尿闭",
+          "1": "正常",
+          "2": "少尿",
+          "3": "尿量偏少",
+          "4": "全都不对"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1565"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "热汗淋漓",
+          "1": "脉数疾",
+          "2": "畏寒蜷卧",
+          "3": "身热肢冷",
+          "4": "呼吸困难"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1325"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "湿痰微有化热之象",
+          "1": "湿痰证",
+          "2": "热痰证",
+          "3": "风痰证",
+          "4": "燥痰证"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1387"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心肌梗死",
+          "1": "脑出血",
+          "2": "肺动脉栓塞",
+          "3": "肺炎",
+          "4": "脑动脉栓塞"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "好发于老年人",
+          "1": "发生于长骨干骺端",
+          "2": "肿瘤细胞异型性明显",
+          "3": "出现肿瘤性成骨"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1748"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "再生障碍性贫血",
+          "1": "白细胞减少性白血病",
+          "2": "严重的缺铁性贫血",
+          "3": "溶血性贫血"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1728"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肝大",
+          "1": "脾大",
+          "2": "大量腹水",
+          "3": "腹腔积气",
+          "4": "腹腔肿瘤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1066"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "幻肢痛",
+          "1": "神经瘤病",
+          "2": "残肢水肿",
+          "3": "大腿肌肉萎缩",
+          "4": "患者心理问题"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1406"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "婴儿期和儿童期皮损多见于面部和肘窝",
+          "1": "腋窝等处",
+          "2": "青年成人期皮损常表现为肢体屈侧的苔藓样变",
+          "3": "患者本人及家族中有遗传过敏史",
+          "4": "外周血嗜酸性粒细胞降低",
+          "5": "血清IgE升尚"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1568"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "活动时心率每分钟超过110次",
+          "1": "心尖部闻及Ⅱ级收缩期杂音",
+          "2": "二尖瓣区闻及舒张期杂音",
+          "3": "足踝部出现凹陷性水肿",
+          "4": "咳泡沫痰，肺底部有持续性湿啰音"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1062"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胆石症",
+          "1": "门静脉高压症",
+          "2": "胃癌",
+          "3": "十二指肠溃疡",
+          "4": "胃溃疡"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "568"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "急性化脓性胆囊炎",
+          "1": "阿米巴性肝脓肿",
+          "2": "原发性肝癌",
+          "3": "急性细菌性肝脓肿",
+          "4": "膈下脓肿"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "90"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "上皮内瘤变Ⅰ级",
+          "1": "上皮内瘤变Ⅱ级",
+          "2": "重度非典型增生",
+          "3": "原位癌",
+          "4": "早期浸润癌"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "70"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "DNA断裂的结果",
+          "1": "染色体结构异常",
+          "2": "染色体数目异常",
+          "3": "光镜下可见",
+          "4": "光镜下不可见"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1472"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "动脉导管未闭",
+          "1": "室间隔缺损",
+          "2": "肺动脉狭窄",
+          "3": "房间隔缺损",
+          "4": "法洛四联症"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "358"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "病性",
+          "1": "病位",
+          "2": "病类",
+          "3": "病势",
+          "4": "病因"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1331"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "左心室血栓脱落",
+          "1": "心室膨胀瘤",
+          "2": "室间隔穿孔",
+          "3": "心肌梗死后综合症",
+          "4": "乳头肌功能失调"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "500"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "颅内静脉窦血栓",
+          "1": "脑出血",
+          "2": "脑梗死",
+          "3": "蛛网膜下腔出血",
+          "4": "病毒性脑膜炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "908"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "左锁骨上淋巴结",
+          "1": "右锁骨上淋巴结",
+          "2": "颈深淋巴结下群",
+          "3": "乳突区淋巴结"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1740"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "产后乳汁不多",
+          "1": "风寒湿痹证",
+          "2": "痰阻中焦证",
+          "3": "暑热烦渴",
+          "4": "热毒疮肿"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1323"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "脑脓肿",
+          "1": "脑转移瘤",
+          "2": "脑膜瘤",
+          "3": "脑炎",
+          "4": "脑梗死"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "827"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肝破裂",
+          "1": "脾破裂",
+          "2": "小肠破裂",
+          "3": "肾破裂",
+          "4": "胰腺破裂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "180"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "分裂情感性障碍",
+          "1": "精神分裂症",
+          "2": "应激相关障碍",
+          "3": "双相障碍抑郁发作",
+          "4": "双相障碍躁狂发作"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "416"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "子宫脱垂I度轻型",
+          "1": "子宫脱垂I度重型",
+          "2": "子宫脱垂Ⅱ度轻型",
+          "3": "子宫脱垂Ⅱ度重型",
+          "4": "子宫脱垂Ⅲ度"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1224"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "脑溢血",
+          "1": "病毒性脑炎",
+          "2": "乙型脑炎",
+          "3": "流行性脑脊髓膜炎",
+          "4": "结核性脑膜炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1649"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "子宫内膜厚达10mm并呈海绵状",
+          "1": "内膜腺体开口面向宫腔，有糖原溢出",
+          "2": "细胞内的糖原溢出腺体称顶浆分泌",
+          "3": "表面上皮下的间质分化为肥大的蜕膜样细胞",
+          "4": "螺旋小动脉迅速增长超出内膜厚度"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "693"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "直肠癌",
+          "1": "肠结核",
+          "2": "食管炎",
+          "3": "甲亢",
+          "4": "急性胃炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1209"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "初起于四肢",
+          "1": "分批出现的红色斑疹或斑丘疹，并迅速发展成为小水痘",
+          "2": "黏膜皮疹可出现在口腔",
+          "3": "结膜",
+          "4": "生殖器等处",
+          "5": "水痘从中心处开始干瘪，迅速结痂",
+          "6": "在疾病高峰期可见到丘疹",
+          "7": "新旧水疱和结痂同时存在"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1562"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "膈下游离气体",
+          "1": "膈下无游离气体亦不能排除胃肠道穿孔",
+          "2": "左侧卧位水平摄片示右侧腹壁与肝右缘间出现气体透亮影",
+          "3": "可见空回肠换位征",
+          "4": "急性腹膜炎征象"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1393"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "脑出血",
+          "1": "脑血栓形成",
+          "2": "脑栓塞",
+          "3": "蛛网膜下腔出血",
+          "4": "短暂性脑缺血发作"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1144"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "强制性思维",
+          "1": "思维迟缓",
+          "2": "自杀企图",
+          "3": "疑病观念",
+          "4": "自责自罪观念"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "甲状腺功能亢进症",
+          "1": "急性心肌炎",
+          "2": "急性心包炎",
+          "3": "急性冠脉综合症"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1688"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "营养性巨幼细胞贫血",
+          "1": "营养性缺铁性贫血",
+          "2": "地中海贫血",
+          "3": "肺含铁血黄素沉着症",
+          "4": "铅中毒"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "921"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "分化好的鳞癌",
+          "1": "基底细胞癌",
+          "2": "移行细胞癌",
+          "3": "分化差的鳞癌",
+          "4": "分化差的腺癌"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "466"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "黑格征",
+          "1": "子宫体变软",
+          "2": "乳房出现蒙氏结节",
+          "3": "停经",
+          "4": "胎心音"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1161"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "头很痛",
+          "1": "腹痛",
+          "2": "恶心",
+          "3": "入睡困难",
+          "4": "高热"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1625"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "骨折移位明显",
+          "1": "骨折成角明显",
+          "2": "骨折重叠成角",
+          "3": "开放性骨折",
+          "4": "粉碎性骨折"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "668"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "冠状动脉粥样硬化性心脏病",
+          "1": "心肌病",
+          "2": "肺血栓栓塞",
+          "3": "慢性肺源性心脏病",
+          "4": "风湿性心脏瓣膜病"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胆囊结石",
+          "1": "急性化脓性胆管炎",
+          "2": "胰腺癌",
+          "3": "胆总管结石",
+          "4": "急性肝炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "92"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "动脉硬化性闭塞症",
+          "1": "下肢静脉曲张",
+          "2": "多发性动脉炎",
+          "3": "雷诺综合征",
+          "4": "血栓闭塞性脉管炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "难免流产",
+          "1": "不全流产",
+          "2": "流产合并感染",
+          "3": "先兆流产",
+          "4": "稽留流产"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "574"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "神经根型",
+          "1": "交感神经型",
+          "2": "椎动脉型",
+          "3": "脊髓型",
+          "4": "复合型"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "307"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "脑梗死",
+          "1": "脑出血",
+          "2": "癫痫",
+          "3": "帕金森病",
+          "4": "吉兰-巴雷综合征"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1078"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "食管向前受压移位",
+          "1": "心左缘双弧影，心底部双心房影",
+          "2": "心左缘可见左心耳突出（第三弓）",
+          "3": "左主支气管受压降低",
+          "4": "以上都不是"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "719"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "医生做出死亡诊断后",
+          "1": "呼吸停止",
+          "2": "各种反射消失",
+          "3": "心跳停止",
+          "4": "意识丧失"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1638"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "红细胞寿命缩短",
+          "1": "胃肠道黏膜糜烂导致上消化道出血",
+          "2": "铁",
+          "3": "叶酸缺乏",
+          "4": "某些代谢产物抑制骨髓造血功能",
+          "5": "肠道菌群失调"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1232"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "急性牙髓炎",
+          "1": "慢性牙髓炎",
+          "2": "急性中耳炎",
+          "3": "急性根尖炎",
+          "4": "急性上颌窦炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "720"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "掌侧移位",
+          "1": "背侧移位",
+          "2": "尺侧移位",
+          "3": "桡侧移位",
+          "4": "无移位"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1305"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "白肺",
+          "1": "颗粒状阴影",
+          "2": "磨玻璃样影",
+          "3": "肺大疱",
+          "4": "支气管充气征"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "99"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "性病淋巴肉芽肿衣原体",
+          "1": "梅毒螺旋体",
+          "2": "溶脲脲原体",
+          "3": "脑膜炎奈瑟菌",
+          "4": "淋病奈瑟菌"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "832"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腐苔",
+          "1": "腻苔",
+          "2": "假苔",
+          "3": "真苔",
+          "4": "厚苔"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "728"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "恋物症",
+          "1": "异装症",
+          "2": "同性恋",
+          "3": "易性症",
+          "4": "露阴症"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "883"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "滴虫阴道炎",
+          "1": "外阴阴道假丝酵母菌病",
+          "2": "宫颈炎",
+          "3": "老年阴道炎",
+          "4": "盆腔炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1146"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "酸中毒时酸性尿",
+          "1": "反常性碱性尿",
+          "2": "碱中毒时碱性尿",
+          "3": "反常性酸性尿",
+          "4": "酸碱平衡时酸性尿"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "362"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肌肉断裂",
+          "1": "骨折",
+          "2": "尿潴留",
+          "3": "持续的呼吸肌痉挛",
+          "4": "营养障碍"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "184"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "钙化型乳腺纤维腺瘤信号不均匀",
+          "1": "青年妇女最常见的乳腺良性肿瘤",
+          "2": "胶原纤维为主的纤维腺瘤T2WI信号较低",
+          "3": "病灶呈类圆形，可有分叶",
+          "4": "T1WI呈等至略高信号"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "895"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "下肢发紧",
+          "1": "发麻",
+          "2": "行走困难",
+          "3": "上肢发麻，手部肌力弱，持物不稳",
+          "4": "大小便障碍",
+          "5": "压头及牵拉试验阳性",
+          "6": "不规则躯干和下肢感觉障碍，腱反射亢进，肌张力增高"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "642"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "金黄色葡萄球菌肠炎",
+          "1": "难辨梭状芽胞杆菌肠炎",
+          "2": "空肠弯曲菌肠炎",
+          "3": "产毒性大肠杆菌肠炎",
+          "4": "白色念珠菌肠炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "539"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "早期胃癌",
+          "1": "小胃癌",
+          "2": "微小胃癌",
+          "3": "进展期胃癌",
+          "4": "晚期胃癌"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1670"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "矽结节",
+          "1": "肺间质纤维化",
+          "2": "圆形小阴影",
+          "3": "肺泡结构破坏",
+          "4": "肺脏体积增大",
+          "5": "含气量减少"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1613"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "休克患者",
+          "1": "尿毒症患者",
+          "2": "尿崩症患者",
+          "3": "气温过高时",
+          "4": "食用过咸食物时"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1172"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "威胁目标人群生命与健康的疾病或健康问题是什么？",
+          "1": "影响该疾病或健康问题的最重要的危险因素是什么？",
+          "2": "这些疾病或健康问题的受害者在性别",
+          "3": "年龄",
+          "4": "种族",
+          "5": "职业上有何特征？",
+          "6": "目标人群疾病或健康问题发生的行为危险因素是什么？",
+          "7": "对哪些（哪个）问题进行干预可能最敏感？"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1276"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "高血压脑病",
+          "1": "恶性高血压",
+          "2": "高血压危象",
+          "3": "3级高血压",
+          "4": "2级高血压"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "791"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心动过缓",
+          "1": "心动过速",
+          "2": "窦性心律不齐",
+          "3": "甲状腺功能亢进",
+          "4": "心房纤颤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1536"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胎盘剥离不全",
+          "1": "胎盘植入",
+          "2": "产后宫缩乏力",
+          "3": "凝血功能障碍",
+          "4": "软产道损伤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1037"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "左心衰竭",
+          "1": "慢性阻塞性肺疾病",
+          "2": "肺血栓栓塞",
+          "3": "全心衰竭",
+          "4": "冠心病"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "241"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "环境感染",
+          "1": "母婴感染",
+          "2": "器械感染",
+          "3": "医源性感染",
+          "4": "不属于医院感染"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1256"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "湿郁",
+          "1": "火郁",
+          "2": "痰郁",
+          "3": "气郁",
+          "4": "食郁"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1371"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "全心衰",
+          "1": "右心衰",
+          "2": "急性左心衰",
+          "3": "肺栓塞",
+          "4": "慢性左心衰"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "195"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腹泻",
+          "1": "新生儿",
+          "2": "精神障碍患者",
+          "3": "昏迷",
+          "4": "扁桃体术后"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1059"
+    }
+  ]
+}

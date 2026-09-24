@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "once": "每日一次",
+          "prn": "按需，非固定次数",
+          "three": "每日三次",
+          "twice": "每日两次"
+        },
+        "instructions": "仅转换文本明确给出的每天服药次数。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "frequency:1"
+    }
+  ]
+}

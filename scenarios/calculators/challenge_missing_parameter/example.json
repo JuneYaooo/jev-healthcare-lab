@@ -1,0 +1,52 @@
+{
+  "sample": {
+    "gold": "yes",
+    "group": "missing_parameter:1",
+    "id": "missing_parameter:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "no": "资料缺失或矛盾",
+            "yes": "资料完整一致"
+          },
+          "instructions": "按BMI=体重kg/身高m的平方，资料缺失或同次测量矛盾时必须拒绝确定数值。判断能否计算。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "体重60kg，身高1.70m。"
+      }
+    },
+    "request_sha256": "711c5081e1ee397004367dcdc6c8481fc6a117b8735fea2b772a2eac0a16cb78",
+    "task": "challenge_missing_parameter"
+  },
+  "response": {
+    "elapsed_s": 1.488844582985621,
+    "id": "missing_parameter:1",
+    "request_sha256": "711c5081e1ee397004367dcdc6c8481fc6a117b8735fea2b772a2eac0a16cb78",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "yes",
+          "confidence": 1.0,
+          "probabilities": {
+            "no": 0.0,
+            "yes": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 375,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "challenge_missing_parameter"
+  }
+}

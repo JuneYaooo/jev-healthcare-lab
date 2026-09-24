@@ -1,0 +1,52 @@
+{
+  "sample": {
+    "gold": "same",
+    "group": "unit_equivalence:1",
+    "id": "unit_equivalence:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "different": "剂量不同",
+            "same": "剂量相同"
+          },
+          "instructions": "只按单位换算判断两条剂量是否相同。1g=1000mg，1mg=1000μg。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "记录A为0.5g，记录B为500mg。"
+      }
+    },
+    "request_sha256": "cc71d80a3de0077843b401d9b181ac64f97dc500cea7d8e0559527ec7018df69",
+    "task": "challenge_unit_equivalence"
+  },
+  "response": {
+    "elapsed_s": 0.8683534999727271,
+    "id": "unit_equivalence:1",
+    "request_sha256": "cc71d80a3de0077843b401d9b181ac64f97dc500cea7d8e0559527ec7018df69",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "same",
+          "confidence": 1.0,
+          "probabilities": {
+            "different": 0.0,
+            "same": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 366,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "challenge_unit_equivalence"
+  }
+}

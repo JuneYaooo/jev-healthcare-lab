@@ -1,0 +1,71 @@
+{
+  "sample": {
+    "gold": "Contradiction",
+    "group": "NCT00445458",
+    "id": "cdadcb0a-20c5-47f7-a63a-39f5c6f26ae2",
+    "metadata": {
+      "scope": "official binary task; not a calibrated clinical safety gate"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "Contradiction": "The statement conflicts with the supplied records.",
+            "Entailment": "The supplied records support the statement."
+          },
+          "instructions": "Using only the supplied trial section(s), is the statement entailed or contradicted? Primary and secondary refer to the named trial objects.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "primary": {
+          "0": "Outcome Measurement: ",
+          "1": "  Dose Limiting Toxicity Incidence of Neratinib in Combination With Paclitaxel",
+          "10": "Results 2: ",
+          "11": "  Arm/Group Title: Neratinib 240 mg + Paclitaxel 80 mg/m ",
+          "12": "  Arm/Group Description: Neratinib 240 mg qd + Paclitaxel 80 mg/m  IV on days 1, 8, and 15 of a 28 day cycle.",
+          "13": "  Overall Number of Participants Analyzed: 5",
+          "14": "  Measure Type: Count of Participants",
+          "15": "  Unit of Measure: Participants  0   0.0%",
+          "2": "  Dose Limiting Toxicity in subjects with solid tumors treated with neratinib, administered daily, in combination with paclitaxel 80 mg/m² IV on days 1, 8, and 15 of a 28 day cycle.",
+          "3": "  Time frame: From first dose date through day 28",
+          "4": "Results 1: ",
+          "5": "  Arm/Group Title: Neratinib 160 mg + Paclitaxel 80 mg/m ",
+          "6": "  Arm/Group Description: Neratinib 160 mg qd + Paclitaxel 80 mg/m  IV on days 1, 8, and 15 of a 28 day cycle.",
+          "7": "  Overall Number of Participants Analyzed: 3",
+          "8": "  Measure Type: Count of Participants",
+          "9": "  Unit of Measure: Participants  0   0.0%"
+        },
+        "section": "Results",
+        "statement": "the primary trial reports the percentage of patients treated with Neratinib in Combination With Paclitaxel that suffer 0 side effects"
+      }
+    },
+    "request_sha256": "63ca69c2f5fb23a4cbaa281a67055359c606fded6a6ce9a8612e3b76aa10f21c",
+    "task": "nli4ct_entailment"
+  },
+  "response": {
+    "elapsed_s": 0.8843230420025066,
+    "id": "cdadcb0a-20c5-47f7-a63a-39f5c6f26ae2",
+    "request_sha256": "63ca69c2f5fb23a4cbaa281a67055359c606fded6a6ce9a8612e3b76aa10f21c",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "Contradiction",
+          "confidence": 0.23,
+          "probabilities": {
+            "Contradiction": 0.62,
+            "Entailment": 0.38
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 826,
+        "output_tokens": 37
+      }
+    },
+    "status": "ok",
+    "task": "nli4ct_entailment"
+  }
+}

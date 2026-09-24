@@ -1,0 +1,45 @@
+{
+  "task": "tcm_syndrome",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "extended_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "TCM-SD",
+      "source": "https://github.com/borororo/zy-bert",
+      "completion_note": "148证型＋unknown共149选项；研究许可需单独核对商业用途"
+    }
+  ],
+  "adapter": "prepare_extended.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 736978,
+      "sha256": "91f5740e15d36aac87f1d9391b4417be7549f84fb69a80c79e1442dd19a22516"
+    },
+    "responses.jsonl": {
+      "bytes": 392904,
+      "sha256": "fca1bdc0a6e81df21205e47e444f61c8a18ddab50c569947a9381973c400a85d"
+    },
+    "index.jsonl": {
+      "bytes": 33983,
+      "sha256": "3c9a53f5d17c7a9f34faaf8167f460916b79bcd3b28a90757e8a94976ae8ac08"
+    },
+    "prompts.json": {
+      "bytes": 7484,
+      "sha256": "37447e365896bdf0f33a3e26a3c6152ab23e688031aa68a7b6085bb2c6ec8571"
+    },
+    "example.json": {
+      "bytes": 14935,
+      "sha256": "814d27374a7def204eae3c486a929b4287c5bcf19dc713483703e93ca7f049d2"
+    }
+  }
+}

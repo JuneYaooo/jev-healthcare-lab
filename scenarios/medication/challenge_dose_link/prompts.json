@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "1000mg": "1000 mg",
+          "250mg": "250 mg",
+          "500mg": "500 mg",
+          "unknown": "未提供"
+        },
+        "instructions": "选出与阿莫西林对应的每次剂量，未知不要推断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "dose_link:1"
+    }
+  ]
+}

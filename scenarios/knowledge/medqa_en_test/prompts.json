@@ -1,0 +1,1505 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "Sympathetic underactivity",
+          "B": "Anti-thyroglobin antibodies",
+          "C": "Exophthalmos",
+          "D": "Increased TSH release",
+          "E": "Multinucleate giant cells present in the thyroid"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1006"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Deficient heme synthesis",
+          "B": "Deficient DNA crosslink repair",
+          "C": "Deficient erythropoietin secretion",
+          "D": "Deficient nitrogenous base production",
+          "E": "Deficient β-globin chains"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1009"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Increased alveolar-arterial gradient",
+          "B": "Bloody pleural effusion",
+          "C": "Increased total lung capacity",
+          "D": "Concave flow-volume loop",
+          "E": "Increased diffusing capacity (DLCO)"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1237"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Tracheal deviation toward the right side",
+          "B": "Hemoptysis",
+          "C": "A drop in systolic blood pressure of 14 mmHg during inspiration",
+          "D": "Herniation of the stomach into the chest",
+          "E": "Paradoxical motion of part of the chest with breathing\n\""
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "94"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "D cells",
+          "B": "G cells",
+          "C": "I cells",
+          "D": "P/D1 cells",
+          "E": "L cells"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "701"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Desmoplastic",
+          "B": "Nodular",
+          "C": "Acral lentiginous",
+          "D": "Lentigo maligna",
+          "E": "Superficial spreading"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "82"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Chronic inflammatory bowel disease",
+          "B": "Obesity",
+          "C": "Ibuprofen",
+          "D": "History of abdominal surgery",
+          "E": "Alcohol"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "522"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "It reduces neuron and muscle tissue excitability",
+          "B": "It increases GABA linked chloride channel opening",
+          "C": "It acts on the pain centers in the spinal cord and brain",
+          "D": "It competes with acetylcholine for binding sites in the neuromuscular junction",
+          "E": "It persistently depolarizes the cholinergic receptors on the motor end plate"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1063"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Yeasts metabolize glucogenic amino acids which are filtered in the urine into glucose",
+          "B": "There is a disruption of primary active transport of glucose in the proximal renal tubules",
+          "C": "Secondary active transporters fail to completely reabsorb glucose in the renal tubules",
+          "D": "There is a disruption of passive transport of the glucose in the proximal renal tubules",
+          "E": "Glucosuria results from increased glomerular filtration rate"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "958"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Fixed split S2",
+          "B": "Loud P2",
+          "C": "S3 gallop",
+          "D": "Absent S4",
+          "E": "A loud S1"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "534"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Monosodium urate crystal precipitation in the joints",
+          "B": "Bacterial infection of the joint space",
+          "C": "Autoimmune-mediated cartilage erosion",
+          "D": "Calcium pyrophosphate dihydrate crystal precipitation in the joints",
+          "E": "Degenerative disease of the joints"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1081"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "No treatment necessary",
+          "B": "100% oxygen",
+          "C": "Propranolol",
+          "D": "Sumatriptan",
+          "E": "Amitriptyline"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "876"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Rotator cuff impingement",
+          "B": "Adhesive capsulitis",
+          "C": "Biceps tendinopathy",
+          "D": "Glenohumeral osteoarthritis",
+          "E": "Subacromial bursitis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "959"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Alkaline phosphatase",
+          "B": "DNase",
+          "C": "RNase",
+          "D": "Superoxide dismutase",
+          "E": "Telomerase"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1028"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Adverse effect of anesthetic",
+          "B": "Gram negative bacteria in the bloodstream",
+          "C": "Trauma to the bile duct",
+          "D": "Acalculous inflammation of the gallbladder",
+          "E": "Excessive lysis of red blood cells"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "352"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "IM epinephrine",
+          "B": "oral diphenhydramine",
+          "C": "IV epinephrine",
+          "D": "extra-strength topical diphenhydramine",
+          "E": "inhaled sodium cromolyn - mast cell stabilizer"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "293"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "μ, κ, and ẟ receptor antagonist",
+          "B": "μ receptor agonist",
+          "C": "к receptor agonist and μ receptor antagonist",
+          "D": "μ, к, and ẟ receptor agonist",
+          "E": "μ receptor partial agonist and к receptor agonist"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Central fusion of the inferior poles of the kidneys ",
+          "B": "Genetic predisposition to essential hypertension",
+          "C": "Neuroendocrine tumor of the adrenal gland",
+          "D": "Oral contraceptive use",
+          "E": "Chronic corticosteroid use"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "773"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Ages 1 month, 4 months, and 9 months",
+          "B": "Ages 1 month, 6 months, and 9 months",
+          "C": "Ages 2 months, 4 months, and 12 months",
+          "D": "Ages 2 months, 6 months, and 9 months",
+          "E": "Ages 2 months, 6 months, and 12 months"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "802"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Acute calculous cholecystitis",
+          "B": "Acute acalculous cholecystitis",
+          "C": "Biliary colic",
+          "D": "Acute pancreatitis",
+          "E": "Ascending cholangitis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "653"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Agree to his wish for no further treatment",
+          "B": "Begin paroxetine therapy",
+          "C": "Involuntary hospitalization after informing the parents",
+          "D": "Reassure the patient that he will feel better",
+          "E": "Start outpatient psychotherapy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "555"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Alzheimer dementia",
+          "B": "Frontotemporal dementia",
+          "C": "Kluver-Bucy syndrome",
+          "D": "Lewy body dementia",
+          "E": "Vascular dementia"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "148"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Decreased levels of IgA",
+          "B": "Diminished pulses in the lower extremity",
+          "C": "Narrowing of the spinal canal when standing upright",
+          "D": "Pain with elevation of his leg while laying down",
+          "E": "Punctate bleeding spots when dermatologic scales are removed"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1224"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Hypothyroidism",
+          "B": "Endometrial carcinoma",
+          "C": "Addison disease",
+          "D": "Wegener granulomatosus",
+          "E": "Eclampsia"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "295"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "COPD exacerbation",
+          "B": "Diabetic ketoacidosis",
+          "C": "Diuretic overdose",
+          "D": "Hyperventilation",
+          "E": "Opioid overdose"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "997"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Hepatic stellate (Ito) cells",
+          "B": "Periportal hepatocytes",
+          "C": "Hepatic sinusoidal endothelial cells",
+          "D": "Hepatic Kupffer cells",
+          "E": "Centrilobular hepatocytes"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "536"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Hypoxanthine-guanine phosphoribosyl transferase of the pyrimidine metabolism pathway",
+          "B": "Aminolevulinic acid synthetase of the heme metabolism pathway",
+          "C": "Adenosine deaminase of the purine metabolism pathway",
+          "D": "Hypoxanthine-guanine phosphoribosyl transferase of the purine metabolism pathway",
+          "E": "Thymidylate synthetase of the pyrimidine metabolism pathway"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "608"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "ECG",
+          "B": "V/Q scan",
+          "C": "D-dimer",
+          "D": "Lower extremity venous ultrasound",
+          "E": "CT pulmonary angiogram with IV contrast"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "543"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Hematogenous dissemination to the meninges",
+          "B": "Entrance via cribiform plate",
+          "C": "Retrograde migration up peripheral nerve axons",
+          "D": "Reactivation of virus previously latent in dorsal root ganglia",
+          "E": "Infection of oligodendrocytes and astrocytes"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "224"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Kaposi sarcoma",
+          "B": "Bed bug bite",
+          "C": "Molluscum contagiosum",
+          "D": "Atopic dermatitis",
+          "E": "Acute urticaria"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "558"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Melanoma",
+          "B": "Seborrheic keratosis",
+          "C": "Keloid",
+          "D": "Acanthosis nigricans",
+          "E": "Erythema nodosum"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "977"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Legionella pneumophila infection",
+          "B": "Aspergillus fumigatus infection",
+          "C": "Pneumocystis pneumonia",
+          "D": "Histoplasma capsulatum infection",
+          "E": "Blastomyces dermatitidis infection"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Blastic skeletal muscle cells arranged in nests and sheets",
+          "B": "Numerous immature lymphocytes in a starry sky pattern",
+          "C": "Abortive glomeruli and tubules in a spindle cell stroma",
+          "D": "Small blue cells arranged in rosettes around a central neuropil",
+          "E": "Hepatocytes in fetal and embryonic stages of differentiation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "289"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Lack of a comparison group",
+          "B": "No prevalence assessment",
+          "C": "Low number of patients",
+          "D": "Ascertainment bias",
+          "E": "Lack of risk calculation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "212"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Diazepam",
+          "B": "Electroencelphalography",
+          "C": "IV fluids and mannitol",
+          "D": "Phenytoin",
+          "E": "Supportive therapy and observation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "706"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Urgent laparoscopic cholecystectomy",
+          "B": "Medical management followed by elective laparoscopic cholecystectomy",
+          "C": "Medical management followed by elective open cholecystectomy",
+          "D": "Urgent endoscopic retrograde cholangiopancreatography (ECRP)",
+          "E": "Cholecystotomy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "852"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Left circumflex",
+          "B": "Left anterior descending",
+          "C": "Diagonal perforators",
+          "D": "Septal perforators",
+          "E": "Right main"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1184"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Giardia lamblia",
+          "B": "Schistosoma mansoni",
+          "C": "Campylobacter jejuni",
+          "D": "Salmonella typhi",
+          "E": "Clostridium perfringens"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "60"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Trientine",
+          "B": "Calcium disodium edetate (EDTA)",
+          "C": "Dimercaprol",
+          "D": "Penicillamine",
+          "E": "Dimercaptosuccinic acid (DMSA), also known as succimer"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "640"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Cognitive behavioral therapy (CBT)",
+          "B": "The patient does not require any intervention",
+          "C": "Electroconvulsive therapy (ECT)",
+          "D": "A brief trial of antipsychotic therapy",
+          "E": "Refer to outpatient group therapy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "250"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Insulin, IV fluids, and potassium",
+          "B": "Insulin, potassium, IV fluids, and glucose",
+          "C": "IV fluids only",
+          "D": "Oral rehydration",
+          "E": "Supportive therapy and close monitoring"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "34"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Ask the patient's son, the documented health care proxy, how he would like to handle the situation",
+          "B": "Inquire why the patient's daughter feels her mother should not be informed of the diagnosis",
+          "C": "Offer to explain the diagnosis to the patient without using the word \"cancer\"",
+          "D": "Order an ethics consult to determine how to address the situation",
+          "E": "Tell the patient's daughter that the patient must be informed of the diagnosis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1076"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Alcohol",
+          "B": "Amitriptyline",
+          "C": "Cocaine",
+          "D": "Ethylene glycol",
+          "E": "Heroin"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Low serum potassium",
+          "B": "Low serum lactate dehydrogenase",
+          "C": "Low blood urea nitrogen",
+          "D": "Elevated serum calcium",
+          "E": "Elevated serum creatine kinase"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "626"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Strong HLA class II gene makeup",
+          "B": "Pancreatic islet cell amyloid deposition",
+          "C": "Pancreatic islet cell leukocyte infiltration",
+          "D": "Auto-antibodies against pancreatic islet cell antigens",
+          "E": "Unrelated to his abdominal obesity"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1068"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Clomipramine",
+          "B": "Dextroamphetamine",
+          "C": "Methylpenidate",
+          "D": "Modafinil",
+          "E": "Sleep deprivation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "744"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Atropine",
+          "B": "Physostigmine",
+          "C": "Pralidoxime",
+          "D": "Pyridostigmine",
+          "E": "Neostigmine"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1033"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Poor generalizability",
+          "B": "Stratified sampling",
+          "C": "Random error",
+          "D": "Systematic error",
+          "E": "Effect modification"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "192"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Hematopoietic cell transplantation",
+          "B": "Interferon-γ therapy",
+          "C": "Intravenous immune globulin",
+          "D": "Leucovorin supplementation",
+          "E": "Thymic transplantation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "383"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Pelvic inflammatory disease",
+          "B": "Asherman's syndrome",
+          "C": "Diminished ovarian reserve",
+          "D": "Hypogonadotropic hypogonadism",
+          "E": "Premature ovarian failure"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1141"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Nasal decongestant therapy",
+          "B": "Adenoidectomy",
+          "C": "Tympanostomy tube insertion",
+          "D": "Antihistamine therapy",
+          "E": "Corticosteroid therapy\n\""
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "504"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Prevent excess posterior translation of the tibia relative to the femur",
+          "B": "Prevent excess anterior translation of the tibia relative to the femur",
+          "C": "Resist excess varus force on the knee",
+          "D": "Resist excess valgus force on the knee",
+          "E": "Provide a cushion between the lateral tibial and femoral condyles"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "595"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Confidence interval should have been 90%.",
+          "B": "A type 2 error is not possible in this case.",
+          "C": "Null hypothesis should not have been rejected.",
+          "D": "A type 2 error has been made.",
+          "E": "A type 1 error has been made."
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "988"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Gastroenteritis",
+          "B": "Painful dermatomal vesicles",
+          "C": "Lymphadenopathy",
+          "D": "Vesicular rash",
+          "E": "Plantar warts"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "791"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Depolymerization of actin filaments in gastrointestinal mucosal cells, leading to mucosal cell death",
+          "B": "Increased pH of gastrointestinal lumen resulting in reduced mucosal absorption",
+          "C": "Increased intracellular cAMP in gastrointestinal mucosal cells, resulting in decreased absorption and increased secretion in the digestive tract",
+          "D": "Inhibition of elongation factor-2 (EF-2), resulting in decreased protein synthesis in gastrointestinal mucosal cells",
+          "E": "Inhibition of the 60S ribosomal subunit, resulting in decreased protein synthesis in gastrointestinal mucosal cells"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "582"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Maternal oligohydramnios",
+          "B": "Intrauterine alcohol exposure",
+          "C": "Chromosome 13 trisomy",
+          "D": "Maternal diabetes",
+          "E": "Chromosome 18 trisomy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "191"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Bleomycin",
+          "B": "Carboplatin",
+          "C": "Cisplatin",
+          "D": "Ifosfamide",
+          "E": "Methotrexate"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "881"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Group B streptococcus (GBS) infection",
+          "B": "Hepatitis B infection",
+          "C": "Thyroid stimulating hormone deficiency",
+          "D": "Vitamin D deficiency",
+          "E": "Vitamin K deficiency"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "722"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Alpha-Ketoglutarate + NAD+ + CoA <=> Succinyl-CoA + CO2 + NADH",
+          "B": "Acetyl-CoA + Oxaloacetate + H2O <=> Citrate + CoA + H+",
+          "C": "Succinate + FAD (enzyme bound) <=> Fumarate + FADH2",
+          "D": "Isocitrate + NAD+ <=> Alpha-Ketoglutarate + CO2 + NADH",
+          "E": "Succinyl-CoA + Pi + GDP <=> Succinate + GTP + CoA"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "763"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Vitamin D supplementation",
+          "B": "Reassurance and follow-up",
+          "C": "X-ray of the lower extremities",
+          "D": "Bracing of the lower extremities",
+          "E": "Tibial osteotomy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1149"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Blood pressure reading",
+          "B": "Patient’s weight",
+          "C": "High triglyceride levels",
+          "D": "High LDL-cholesterol",
+          "E": "Serum glucose level"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "87"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Blocking reuptake of dopamine and norepinephrine",
+          "B": "Inhibiting breakdown of biogenic amines",
+          "C": "Antagonizing the NMDA receptor",
+          "D": "Activating the acetylcholine receptor",
+          "E": "Inhibiting the GABA receptor"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1038"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Inadvertent surgical removal of parathyroid glands",
+          "B": "Congenital absence of parathyroid glands",
+          "C": "DiGeorge syndrome",
+          "D": "Chronic hypomagnesemia",
+          "E": "Hungry bone syndrome"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Administer dopamine",
+          "B": "Administer glucagon",
+          "C": "Administer dexamethasone",
+          "D": "Administer diphenhydramine and ranitidine",
+          "E": "Administer norepinephrine"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "928"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "“I can not help you due to the ethical principle of autonomy.”",
+          "B": "“I will accept your proposal.”",
+          "C": "“I can not help you due to the ethical principle of justice.”",
+          "D": "“I can not help you due to the ethical principle of nonmaleficence.”",
+          "E": "“I can not help you due to the ethical principle of beneficence.”"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "796"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Transitional cell carcinoma",
+          "B": "Membranous glomerulonephritis",
+          "C": "Proximal renal tubular acidosis",
+          "D": "Impaired urine diluting ability",
+          "E": "Impaired urine concentration ability"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "774"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Activation of AMP-activated protein kinase",
+          "B": "Binding to the alpha subunit of the insulin receptor",
+          "C": "Closure of ATP-sensitive K-channels in the pancreatic beta-cell",
+          "D": "Increased gene expression of GLUT-4",
+          "E": "Glucagon-like peptide-1 receptor agonist"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "222"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Gangrenous necrosis",
+          "B": "Liquefactive necrosis",
+          "C": "Caseous necrosis",
+          "D": "Fibrinoid necrosis",
+          "E": "Coagulative necrosis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "830"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Obstructive sleep apnea",
+          "B": "Delayed sleep phase disorder",
+          "C": "Advanced sleep phase disorder",
+          "D": "Chronic insomnia",
+          "E": "Normal aging"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1092"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "The ribosome will recognize the mischarged tRNA and prevent its incorporation by removing the valine",
+          "B": "The ribosome will recognize the inappropriately inserted valine residue and terminate protein translation",
+          "C": "The mischarged tRNA with valine will be incorporated in the codons that specificy for lysine",
+          "D": "The mischarged tRNA will be degraded by the proteasome",
+          "E": "The mischarged tRNA will be removed by the lysyl-tRNA synthetase"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "186"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Leuprolide",
+          "B": "Finasteride",
+          "C": "Flutamide",
+          "D": "Terazosin",
+          "E": "Anastrozole"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "929"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Left frontal lobe",
+          "B": "Left internal capsule",
+          "C": "Left temporal lobe",
+          "D": "Right frontal lobe",
+          "E": "Right temporal lobe"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1131"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Cavernous sinus",
+          "B": "Corticospinal tract before pyramidal decussation",
+          "C": "Dorsal column-medial lemniscus",
+          "D": "Frontal eye field",
+          "E": "Medial longitudinal fasciculus"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1079"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Increased right ventricular preload",
+          "B": "Increased left ventricular preload",
+          "C": "Increased right ventricular afterload",
+          "D": "Increased left ventricular afterload",
+          "E": "Increased left-to-right shunting"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "573"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Bacteroides fragilis",
+          "B": "Campylobacter jejuni",
+          "C": "Clostridium perfringens",
+          "D": "Salmonella serotype typhi",
+          "E": "Shigella sonnei"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1159"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Acyclovir",
+          "B": "Amphotericin and 5-flucytosine",
+          "C": "Ceftriaxone",
+          "D": "Ceftriaxone and vancomycin",
+          "E": "IV fluids and monitoring"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "724"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Deep venous thrombosis",
+          "B": "Endometrial cancer",
+          "C": "Eruption of seborrheic keratoses",
+          "D": "Increased bleeding",
+          "E": "Osteoporosis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "495"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Thoracocentesis",
+          "B": "Inhaled beclomethasone",
+          "C": "Avoid exposure to birds",
+          "D": "Isoniazid for 6 months",
+          "E": "Reassurance"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "119"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Hyperplasia",
+          "B": "Hypertrophy",
+          "C": "Atrophy",
+          "D": "Metaplasia",
+          "E": "Dysplasia"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1148"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Graves' disease",
+          "B": "De Quervain’s thyroiditis",
+          "C": "Silent thyroiditis",
+          "D": "Hashimoto’s thyroiditis",
+          "E": "Riedel's thyroiditis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1174"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Normal saline bolus and re-evaluation of hemodynamics after infusion",
+          "B": "CT abdomen and pelvis",
+          "C": "Morphine",
+          "D": "Abdominal plain film",
+          "E": "Exploratory laparotomy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "864"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Neutrophilic inflammation of the crypts",
+          "B": "Neutrophil-rich pseudomembranes",
+          "C": "Formation of noncaseating granulomas",
+          "D": "Inflammation limited to the mucosa and submucosa",
+          "E": "Presence of pseudopolyps"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1185"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Endometrial sloughing and uterine contractions mediated by prostaglandin",
+          "B": "Ascending infection of the uterus, fallopian tubes, ovaries, or surrounding tissue",
+          "C": "Fluid-filled sac within the ovary",
+          "D": "Pregnancy",
+          "E": "Hormone-sensitive smooth muscle tumor of the myometrium"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "223"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Raynaud's phenomenon",
+          "B": "Myocardial infarction",
+          "C": "Aortic dissection",
+          "D": "Costochondritis",
+          "E": "Dysphagia"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "CD8+ T lymphocytes",
+          "B": "Bone marrow-derived macrophages",
+          "C": "CD4+ T lymphocytes",
+          "D": "Natural killer cells",
+          "E": "Band neutrophils"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "127"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Activation of G protein-coupled receptors",
+          "B": "Synthesis of glutamine",
+          "C": "Accumulation of cAMP",
+          "D": "Opening of ligand-gated ion channels",
+          "E": "Influx of calcium"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "601"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Amaurosis fugax",
+          "B": "Myocardial infarction",
+          "C": "Tongue infarction",
+          "D": "Palpable purpura",
+          "E": "Polyneuropathy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1233"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Prescribe a long-acting opioid for better pain relief if he is willing to sign a pain contract",
+          "B": "Request further information about which drugs he has taken recently and in the past",
+          "C": "Request consent for urine test to assess current drug use",
+          "D": "Prescribe a short course of oxycodone and schedule a follow-up appointment in one week",
+          "E": "Refer to a substance use counselor for addiction counseling"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1198"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Dilation of the atria and ventricles",
+          "B": "Accumulation of fluid in the pleural cavity",
+          "C": "Occlusion of a coronary artery",
+          "D": "Accumulation of fluid in the pericardial space",
+          "E": "Fibrous thickening of the pericardium"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "379"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Inhibits cell wall synthesis",
+          "B": "Binds D-ala D-ala in the cell wall",
+          "C": "Inhibits initiation complex",
+          "D": "Prevents attachment of aminoacyl-tRNA",
+          "E": "Inhibits sterol synthesis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "538"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Ionizing radiation",
+          "B": "Aromatic amines",
+          "C": "Aflatoxins",
+          "D": "Vinyl chloride",
+          "E": "Radon"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "143"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "69XXY",
+          "B": "45XO",
+          "C": "23XX",
+          "D": "47XYY",
+          "E": "46XX"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1098"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Cytomegalovirus",
+          "B": "Epstein-Barr virus",
+          "C": "Human T-cell leukemia virus type 1",
+          "D": "Human herpesvirus-8",
+          "E": "Human papillomavirus type 16"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "121"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Donovan bodies on Wright-Giemsa stain",
+          "B": "Gram-negative rods in school of fish formation on Gram stain",
+          "C": "PCR positive for Chlamydia trachomatis",
+          "D": "Positive RPR, VDRL, and FTA-ABS",
+          "E": "Tzanck smear with multinucleated giant cells"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1010"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Left ventricular ejection fraction of 41%",
+          "B": "Increased peak tricuspid regurgitation",
+          "C": "Hypokinetic wall of the left ventricle",
+          "D": "Abnormal left ventricular relaxation",
+          "E": "Decreased right atrial pressure"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "577"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Precontemplation",
+          "B": "Contemplation",
+          "C": "Preparation",
+          "D": "Maintenance",
+          "E": "Relapse"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "974"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Administer hepatitis B vaccine",
+          "B": "Administer hepatitis B immunoglobulin (HBIG)",
+          "C": "Administer hepatitis B vaccine and HBIG",
+          "D": "Check hepatitis B serology",
+          "E": "Check liver enzymes"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "873"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Overflow proteinuria",
+          "B": "Transient (functional) proteinuria",
+          "C": "Tubular proteinuria",
+          "D": "Orthostatic proteinuria",
+          "E": "Isolated proteinuria"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1153"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Past hepatitis B infection",
+          "B": "Chronic hepatitis B",
+          "C": "Acute hepatitis A",
+          "D": "Acute hepatitis D superinfection",
+          "E": "Acute hepatitis B"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "680"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "Streptococci viridans",
+          "B": "Enterococci",
+          "C": "Staphylococcus aureus",
+          "D": "Aspergillus fumigatus",
+          "E": "Staphylococcus epidermidis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    }
+  ]
+}

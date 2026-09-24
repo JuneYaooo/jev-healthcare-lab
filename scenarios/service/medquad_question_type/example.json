@@ -1,0 +1,70 @@
+{
+  "sample": {
+    "gold": "treatment",
+    "group": "/Users/june/Documents/Codex/2026-09-23/github-x20/work/medical-bench/more/MedQuAD/2_GARD_QA/0003593.xml",
+    "id": "2_GARD_QA/0003593.xml:6",
+    "metadata": {
+      "source": "public MedQuAD question metadata; top12 types; not answer accuracy"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "causes": "causes",
+            "exams and tests": "exams and tests",
+            "indication": "indication",
+            "information": "information",
+            "inheritance": "inheritance",
+            "other information": "other information",
+            "outlook": "outlook",
+            "precautions": "precautions",
+            "side effects": "side effects",
+            "symptoms": "symptoms",
+            "treatment": "treatment",
+            "when to contact a medical professional": "when to contact a medical professional"
+          },
+          "instructions": "Classify the medical information need expressed by this question.",
+          "type": "choice"
+        }
+      },
+      "state": "What are the treatments for Liddle syndrome ?"
+    },
+    "request_sha256": "baed0a5fa10ed2c10441332b6d2aa4d9956ad5889a8b8c40aba604569ba139e3",
+    "task": "medquad_question_type"
+  },
+  "response": {
+    "elapsed_s": 0.6117547909962013,
+    "id": "2_GARD_QA/0003593.xml:6",
+    "request_sha256": "baed0a5fa10ed2c10441332b6d2aa4d9956ad5889a8b8c40aba604569ba139e3",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "treatment",
+          "confidence": 1.0,
+          "probabilities": {
+            "causes": 0.0,
+            "exams and tests": 0.0,
+            "indication": 0.0,
+            "information": 0.0,
+            "inheritance": 0.0,
+            "other information": 0.0,
+            "outlook": 0.0,
+            "precautions": 0.0,
+            "side effects": 0.0,
+            "symptoms": 0.0,
+            "treatment": 1.0,
+            "when to contact a medical professional": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 486,
+        "output_tokens": 125
+      }
+    },
+    "status": "ok",
+    "task": "medquad_question_type"
+  }
+}

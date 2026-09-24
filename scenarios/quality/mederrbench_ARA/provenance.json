@@ -1,0 +1,45 @@
+{
+  "task": "mederrbench_ARA",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "additional_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "additional_prepared.jsonl": "8c9f86cd8f7d41d867a17f19fd45a538acb7e3dac82ab973ce70ea9353d6a5a7"
+  },
+  "sample_count": 97,
+  "groups": 97,
+  "resources": [
+    {
+      "resource": "MedErrBench",
+      "source": "https://github.com/congboma/MedErrBench",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_additional.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 80465,
+      "sha256": "1b20d6c5ae6909e98f64474d0554a70190c4fd9ac45653b1da76d0b6613d7867"
+    },
+    "responses.jsonl": {
+      "bytes": 38261,
+      "sha256": "b243e5a21a7fa8de56cbc85b0703e5f0c2319802970209e21216587275e0afff"
+    },
+    "index.jsonl": {
+      "bytes": 28789,
+      "sha256": "c16122a76f1a9512f5c9c2707ed8815bf1129f20fde98622d9dbf4dd62f3cd23"
+    },
+    "prompts.json": {
+      "bytes": 503,
+      "sha256": "7821d1d01c2bd0451e5b4f96a987f66b753de1a602c033a839769c8e432788fc"
+    },
+    "example.json": {
+      "bytes": 1450,
+      "sha256": "05c010959d81696859527ad4b6d22b4d534d98a10ab1a81f099b14d5e47ece15"
+    }
+  }
+}

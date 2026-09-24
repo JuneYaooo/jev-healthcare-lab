@@ -1,0 +1,34 @@
+{
+  "sample": {
+    "gold": [],
+    "group": "10279052",
+    "id": "10279052:11",
+    "metadata": {
+      "baseline": [],
+      "candidates": []
+    },
+    "request": {
+      "questions": {},
+      "state": {
+        "sentence": "最近几天"
+      }
+    },
+    "request_sha256": "f2a0ee808f32100e444d95fd0386ffa3829b7aa9a22ab91cda26db6b226c2351",
+    "task": "imcs_ner_dictionary_pipeline"
+  },
+  "response": {
+    "deterministic_empty": true,
+    "elapsed_s": 0,
+    "id": "10279052:11",
+    "request_sha256": "f2a0ee808f32100e444d95fd0386ffa3829b7aa9a22ab91cda26db6b226c2351",
+    "response": {
+      "answers": {},
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    "status": "ok",
+    "task": "imcs_ner_dictionary_pipeline"
+  }
+}

@@ -1,0 +1,1405 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "Solution liners (2-5 μm)",
+          "1": "Suspension Liners (25-30 μm)",
+          "2": "Traditional Liner (0.2-0.3 mm)",
+          "3": "Cement bases"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4a6df62e-15c7-471f-8dc7-d13ff49f0502"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "A shallow sulcus",
+          "1": "Gingival pocket formation",
+          "2": "Infrabony pocket formation",
+          "3": "Periodontal pocket formation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "0f037b6e-1a78-40b6-9eed-fbd59fe36618"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Hand-Schuller-Christian disease",
+          "1": "Paget's disease",
+          "2": "Osteoclastoma",
+          "3": "Albright's syndrome"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "112a964e-4163-4b9f-a26a-f482e0f9d827"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Fibrous dysplasia",
+          "1": "Hyperparathyroidism",
+          "2": "Osteitis deformans",
+          "3": "Hyperthyroidism"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "8dbe206d-75d1-43ba-93fc-5b5c30f72a0a"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Tetracycline therapy",
+          "1": "Fluorosis",
+          "2": "Erythroblastosis fetalis",
+          "3": "None of the above"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "fe7da57a-1e69-43c0-9b93-be4d47f77805"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "12.5 mg",
+          "1": "25 mg",
+          "2": "30 mg",
+          "3": "50 mg"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "e7278113-c555-4128-a8df-cbd10ca7833f"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Polymerization shrinkage is greater if bonded surface area is lesser than unbounded surface area",
+          "1": "Polymerization shrinkage is high if within the enamel margins",
+          "2": "Acid etching and priming will decrease polymerization shrinkage",
+          "3": "Microleakage can occur because of polymerization shrinkage"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "015438df-2f7d-4298-9da3-f15b1fcef278"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Pneumothorax",
+          "1": "Fat embolism",
+          "2": "Pleural effusion",
+          "3": "Congestive hea failure"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5603de35-adb1-4612-a9ea-1e719e1aa879"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Mandibular incisor erupting before mandibular molar",
+          "1": "Mandibular canine erupting before mandibular premolar",
+          "2": "Mandibular 2nd premolar erupting before mandibular 2nd molar",
+          "3": "Maxillary premolar and canine erupting before maxillary 2nd molar"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "17ac8fd0-4e2e-41f5-8a01-93d34668a77e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Staph. aureus",
+          "1": "Staph. epidermidis",
+          "2": "Streptococcus pyogenes",
+          "3": "Enterococcus faecalis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "a31fa037-1f22-44a4-8d07-6457c439b685"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Hyperdolichocephalic",
+          "1": "Dolichocephalic",
+          "2": "Mesocephalic",
+          "3": "Brachycephalic"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "764694a9-132d-4eec-ba26-4a74eb003e0e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Exostosis",
+          "1": "crater",
+          "2": "buttressing bone",
+          "3": "hemiseptum"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "48d70d58-19bb-4648-b72b-d49e9cbb0147"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "8 bit",
+          "1": "6 bit",
+          "2": "12 bit",
+          "3": "4 bit"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "c9b1f63c-3d20-4494-a936-268e426d0c73"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "The establishment of apical tug back resistance to prevent the apical root fracture during obturation",
+          "1": "The cavity form which is obtained for application of condenser in vertical compaction",
+          "2": "The cavity form which is designed for application of condenser in lateral compaction",
+          "3": "Cavity form which is designed to obtain for entry of condenser during obturation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "dc8f8f08-ca45-4ad5-ad3f-278eb9e2bd49"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Rad",
+          "1": "Sv",
+          "2": "Gray",
+          "3": "Kerma"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "62edf8e8-5380-40ad-a505-9ae48c25a6ed"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Thrombocytopenic purpura",
+          "1": "Postoperative ecchymosis",
+          "2": "Impaired blood circulation",
+          "3": "Cellulitis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "87a02021-923f-4cd0-b93d-bfb486c0aa29"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Doxycycline",
+          "1": "Oral fluconazole",
+          "2": "Metronidazole",
+          "3": "Amoxicillin"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "c8d2885b-1529-4575-abcd-b8afdfb64512"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Six",
+          "1": "Twelve",
+          "2": "Eighteen",
+          "3": "Twenty four"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3cbfd65a-92f2-4c67-919d-847dccb7e6d8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Monophasic",
+          "1": "Biphasic",
+          "2": "Triphasic",
+          "3": "Non phasic"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9078aaca-bbfd-41cd-ad69-03057fca84ba"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Actinomyces species.",
+          "1": "Propioni bacterium.",
+          "2": "Propionicum.",
+          "3": "All of the above."
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "32cf44b6-600a-4ea1-ab8a-15696485643e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Mesio-occlusal rest",
+          "1": "Disto-occlusal rest",
+          "2": "Mesial or distal depending on the situation",
+          "3": "Choice of the dentist"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7751b7ed-6aa4-4b9a-a03c-bb991a2936db"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Venlafaxine",
+          "1": "ImiPramine",
+          "2": "Valproate",
+          "3": "OlanzaPine"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "040b2ed8-9b17-4749-8191-2fcc6ead4f73"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Martensite",
+          "1": "Ferrite",
+          "2": "Carbide",
+          "3": "Austenite"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "62141781-1a59-4866-9ee1-57f2a4326685"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "VII",
+          "1": "IX",
+          "2": "X",
+          "3": "II"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "05863ba7-3f7b-48eb-a74b-7cd2598065b4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Apply ketone over tray",
+          "1": "Apply chloroform over tray",
+          "2": "Add flavouring agent to prevent bad odour",
+          "3": "Delay pouring of cast"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "08bb32fa-e20c-4854-8b0f-6f661d7321ed"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "LDL cholesterol less than 100 mg/dl",
+          "1": "Saturated fat <7% of total calories.",
+          "2": "Alcohol consumption of 30 ml/day",
+          "3": "All of the above"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "c78509b1-d4e3-473c-9020-3a9dc70e5c97"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Low control and skilled movements",
+          "1": "More muscle fibers are present",
+          "2": "Increased precisiveness of movements",
+          "3": "None of the above"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "f64d5fed-0367-40d2-bdf2-cb288459a83a"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Drug-induced lupus",
+          "1": "SLE",
+          "2": "Sjogren syndrome",
+          "3": "Scleroderma"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "425262d7-1238-4195-a713-1cb8befefd2d"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "3 year",
+          "1": "8 year",
+          "2": "12 year",
+          "3": "18 year"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "d671e7e4-0614-4b11-8be3-2f453b05e38f"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Use of mouthwash",
+          "1": "Use of desensitizing paste",
+          "2": "Keep roots, plaque free",
+          "3": "None of the above"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1fdec68c-39d2-4f1f-9122-bdeddb18e816"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Pagets disease",
+          "1": "Multiple myeloma",
+          "2": "Osteomalacia",
+          "3": "Hyperthyroidism"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "aa84299f-e4a1-4123-bb64-e280c6a06f23"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Astrocytoma",
+          "1": "Glioblastoma multiforme",
+          "2": "Ependymoma",
+          "3": "Medulloblastoma"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "772be35c-73b9-43c4-8fc6-9ee4efb8dd27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "BCC",
+          "1": "SCC",
+          "2": "Osteosarcoma",
+          "3": "Fibrosarcoma"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "17aac19b-ed5d-4038-9f3a-ec0c7478012e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "USG for fetal cardiac activity",
+          "1": "Fetal cardiac Doppler study",
+          "2": "hCG levels",
+          "3": "MRI pelvis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "114fa1dd-9f36-4b84-9f6a-68303bc63931"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Vaginal hysterectomy",
+          "1": "Weheim's hysterectomy",
+          "2": "Laparoscopic abdominal hysterectomy",
+          "3": "Anterior colporrhaphy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "0c879562-cc36-4620-a809-fd26c1275a47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Epiblast only",
+          "1": "Ectoderm from epiblast; mesoderm and endoderm from hypoblast",
+          "2": "Ectoderm and mesoderm from epiblast; endoderm from hypoblast",
+          "3": "Hypoblast only"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "eb41d147-19ed-4497-906a-8997f8979545"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Impending rupture of scar",
+          "1": "Urethral trauma",
+          "2": "Prolong labour",
+          "3": "Sepsis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ae4e70ec-f2cc-4afa-b122-cdb5a4eede13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Near direct retainer",
+          "1": "As far as possible from fulcrum line",
+          "2": "Near fulcrum line",
+          "3": "Near edentulous area"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1b9ecfa4-d168-458c-891c-e3a30b5f6e77"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Gates glidden drill",
+          "1": "K-File",
+          "2": "K-reamer",
+          "3": "Round bur"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "0aa00d57-86a2-4699-ab06-82f22ecf5438"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Fincham's test",
+          "1": "Determine the axis of cylinder",
+          "2": "Corneal tattooing",
+          "3": "lridectomy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "681b886d-1d27-41d3-8fa5-6d9fb4b0c4c5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Fasciola gigantica",
+          "1": "Gastrodiscoides hominis",
+          "2": "Echinostoma ilocanum",
+          "3": "Opisthorchis viverrini"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "e4749151-5d65-4cf3-b663-67e75d1da084"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Send urine for culture and sensitivity and wait for results",
+          "1": "Send urine for culture and sensitivity and start I.V. antibiotics immediately",
+          "2": "Send urine for culture, do an USG and start chloroquine",
+          "3": "Radio nucleotide studies"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "61d50780-6165-4945-ad76-ef08e193ec57"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Supine",
+          "1": "Prone",
+          "2": "Squatting",
+          "3": "Leaning forwards"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "08773184-d813-48bd-b8ac-fdcaab87d67c"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Rest position",
+          "1": "Occluding position",
+          "2": "Open from resting position",
+          "3": "Between rest and occluding position"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "e3ff3b29-7ef6-41d9-bc6e-e3d6b52d340c"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Unpaired test",
+          "1": "ANOVA",
+          "2": "Chisquare",
+          "3": "Coefficient of variance"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6c101536-99cd-419b-98c7-8ed1b7a74727"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Jones fracture",
+          "1": "Shin splint",
+          "2": "Lisfranc fracture",
+          "3": "Nutcracker"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "23022df5-e07c-40f9-9f79-b3adff072f5e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Sharpey's fibres",
+          "1": "Tomes fibres",
+          "2": "Elastic fibres",
+          "3": "Ray's fibres"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4a1231e6-deb4-4c50-9dcd-d71fcd9021a2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "9",
+          "1": "10",
+          "2": "11",
+          "3": "12"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4d0e668d-e920-4deb-b5c5-7e633bd276fb"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Lower limbs affected more than upper limbs",
+          "1": "Prox. Muscles > distal muscles",
+          "2": "Seizure",
+          "3": "Trunk involved"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "e16742f8-aa56-4a27-9d8d-b7643e5f27c5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Landau reflex",
+          "1": "Babinski reflex",
+          "2": "Startle reflex",
+          "3": "Moro's reflex"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "458b49a6-3d4e-445c-9542-51e2c9b466bd"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Nitrous oxide",
+          "1": "Hatothane",
+          "2": "Enflurane",
+          "3": "Sevoflurane"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "b70b70d6-0d72-41b3-bc8b-405f0e83fa03"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "6%",
+          "1": "10%",
+          "2": "2%",
+          "3": "12%"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9cda8aff-7c42-4c13-af2f-48282d65dbae"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "150 μm",
+          "1": "50 μm",
+          "2": "300 μm",
+          "3": "100 μm"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2e6dd309-e97e-4845-981d-4df1962afeeb"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Antigens fibroblasts",
+          "1": "Bilayered cell therapy",
+          "2": "Enamel matrix derivative",
+          "3": "Acellular dermal matrix"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "58194611-8ffd-4405-83b2-f8e5798b095d"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Roots of trigeminal nerve are attached to Pons",
+          "1": "It has three main divisions",
+          "2": "Trigeminal nerve supplies the dura mater of middle cranial fossa",
+          "3": "The trigeminal ganglion contributes to the sensory root only"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ed8cb5ce-10b7-4f7f-82b9-78d81ca404e0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "GBS",
+          "1": "Dermatomyositis",
+          "2": "DMD",
+          "3": "Acute viral myositis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "73e6bf44-0d77-408b-8610-ad1f6e4b3734"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Chronic cholecystitis",
+          "1": "Carcinoma gallbladder",
+          "2": "Acute cholecystitis due to gallstones",
+          "3": "Gallstones obstructing CBD"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9d0da0b2-711a-4c74-bbbb-5403c601ec88"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Seasonal",
+          "1": "Cyclical",
+          "2": "Periodical",
+          "3": "Secular"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "607d0116-5f85-4d42-87d2-e6fd96abc366"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "a)\tquatic bodies are main habitat",
+          "1": "It can replicate in amoeba",
+          "2": "Urine test is a reliable method",
+          "3": "Person to person transmission"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "97a84ea2-f289-4103-a306-a1cb3526c24e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Cricohyoid",
+          "1": "Cricothyroid",
+          "2": "Arytenoid",
+          "3": "Aryepiglotticus"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2ede6af0-7501-44aa-aa19-39afbe3cf71f"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Stainless steel",
+          "1": "Carbon steel",
+          "2": "Both have equal efficacy",
+          "3": "None"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "95f4dac5-4c51-49d9-9654-f620c04909db"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Adding trichloroacetic acid.",
+          "1": "Adding acetyl alcohol and acetone.",
+          "2": "Adjusting pH to other than the isoelectric point.",
+          "3": "Salts of heavy metals."
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9c96643e-d192-43ab-ad4b-d1c6d863fa87"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Platelet",
+          "1": "Erythrocyte",
+          "2": "Neutrophil",
+          "3": "Monocyte"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "0df1e153-5d4b-44b2-bd64-8e14c181a974"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Cyclin a",
+          "1": "Cyclin b",
+          "2": "Cyclin c",
+          "3": "Cyclin d"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "f85341d3-576d-4ce4-b207-37e3c08e7e6a"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Dynamic",
+          "1": "Static",
+          "2": "Tension of muscle",
+          "3": "All"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "93f5e66f-2b58-40a8-84e0-0c4c42dd7a93"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Burning mouth syndrome",
+          "1": "Fungal infection",
+          "2": "Bacterial infection",
+          "3": "Absence of filiform papillae"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "46fe2094-87db-4117-b06f-7a7bebb94646"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "CT",
+          "1": "MR",
+          "2": "X-ray lumbar spine- AP view",
+          "3": "X-ray lumbar spine- Lateral view"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "07549da1-d7ff-4fc2-85a0-a27023bbb810"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Nasal",
+          "1": "Lacrimal",
+          "2": "Inferior nasal concha",
+          "3": "Vomer"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "e45edfb9-2b6f-4ffb-9d2e-82ee6504cba5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Mitral regurgitation",
+          "1": "Mitral valve prolapse",
+          "2": "Aortic stenosis",
+          "3": "Pulmonary stenosis"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "c0a989ca-6fdf-4c72-9407-44ef61bfceee"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Graphite",
+          "1": "Boric acid",
+          "2": "Iron oxide",
+          "3": "Calcium carbonate with alcohol"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "af165621-880c-4bde-9256-f9283df3344e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "8",
+          "1": "10",
+          "2": "12",
+          "3": "15"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5c0f862f-2651-4ed4-88d4-2456dab0f036"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Age <18 years",
+          "1": "Sustained BP >185/110 mm Fig despite treatment",
+          "2": "On CT scan, edema less than 1/3rd of middle cerebral aery territory",
+          "3": "Acute ischemic stroke within 3 hours of onset"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7de13c5c-b968-4884-87c7-d2b5c8b1840c"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "1 cm above the ischial spine",
+          "1": "1 cm below the ischial spine",
+          "2": "At the level of ischial spine",
+          "3": "1 cm below the cervical os"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6e9406e3-faad-4e92-b1e5-3b21190db3d8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Dexamethasone",
+          "1": "Cytarabine",
+          "2": "Dacarbazine",
+          "3": "Doxorubicin"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7d3de981-356d-475d-b469-5cdfa0190f93"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Cotton rolls",
+          "1": "Salivary ejector",
+          "2": "Isolation with rubber dam",
+          "3": "Svedopter"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ca32e45e-0aa2-4340-beb5-8069626c445e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "a,c,d,b",
+          "1": "b,c,a,d",
+          "2": "d,a,c,b",
+          "3": "c,a,b,d"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ba4749e2-e5f5-4a98-8663-2b703e280c6c"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Protein lipid synthesis",
+          "1": "Protein synthesis",
+          "2": "Sorting of glycoproteins",
+          "3": "None of the above"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3630ec53-489c-4040-9003-c9778939649e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Betadine mouthwash",
+          "1": "Oral hygiene procedures plus chlorhexidine",
+          "2": "Manual brushing",
+          "3": "Powered brushing"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "a9c3188c-2a4d-4745-98d4-ee92580905c4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "It is time consuming",
+          "1": "Rusts the instruments",
+          "2": "Dulls the sharp instruments",
+          "3": "Ineffective sterilization"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "0c1957b7-636d-4450-9a54-46f34f086cf5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Cystic degeneration of the foramina of the anterior palatine nerve",
+          "1": "Loss of osseous structure in the anterior maxilla",
+          "2": "Flabby tissue in the posterior region",
+          "3": "Decrease interocclusal distance"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4cb6b49b-3422-4add-9f90-7a7d6678be62"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Cord blood hemoglobin is less than 10 g %",
+          "1": "Cord bilirubin is more than 5 mg",
+          "2": "History of previous sibling affected",
+          "3": "All of these"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "593bd593-3060-493d-bb10-ff9e10e36f17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "JSSK",
+          "1": "Indira Gandhi YojanaF-IMNCI",
+          "2": "F-IMNCI",
+          "3": "Home-based Care"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "98e20d31-45bf-46c2-80cd-a9020dcaf014"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Remove the short wavelength photons",
+          "1": "Remove the portion of long wavelength photons",
+          "2": "To increase the radiation dose to patient",
+          "3": "To increase scatter of secondary radiation"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "70c721b1-9c86-4a0a-8734-cfe46d206f5a"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Thiormtal",
+          "1": "Halothane",
+          "2": "Nitrous oxide",
+          "3": "Propofol"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7e38cd45-2858-4483-b448-d461bde268ee"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Fibrin",
+          "1": "Plasmin",
+          "2": "Hyaluronidase",
+          "3": "Coagulase"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "8604f600-1e0e-432d-8113-0bea0db44951"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Polysulfide",
+          "1": "Polyether",
+          "2": "ZOE",
+          "3": "Irreversible hydrocolloids"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9f8d3d01-cb19-46e5-83d8-e8d33ae57020"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Bartter syndrome",
+          "1": "Mutation of the calcium sensing receptor",
+          "2": "Ps eudo–ps eudohypoparathyroidism",
+          "3": "Parathyroid adenoma"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "d3b541c9-d300-4ced-9a2c-c64eaa672ff0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Menkes disease",
+          "1": "Down syndrome",
+          "2": "Von gierke disease",
+          "3": "Lesch nyhan syndrome"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "f204b864-ca16-4d18-9d0c-6c6a9cb3533a"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Polycystic ovarian syndrome",
+          "1": "Alopecia",
+          "2": "Weight loss",
+          "3": "Tremor"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ce25cfa6-0524-4cfc-889b-a17312f2642b"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Intubate the patient",
+          "1": "Urgent fluid infusion",
+          "2": "Chest X ray",
+          "3": "Needle inseion in 2nd ICS"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1b4a2a96-cd33-4ccd-bf13-3c208a07983a"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Langer and langer technique",
+          "1": "Pouch and tunnel technique.",
+          "2": "Azis technique.",
+          "3": "Bruno technique"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "d96e31f1-b13f-4127-bc59-7e3147a02ab7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Spherical amalgam alloy, high copper",
+          "1": "Admixed amalgam alloy, high copper",
+          "2": "Admixed amalgam alloy, low copper",
+          "3": "Lathe cut alloy"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "b21a38b8-c966-425a-a140-9ff775745931"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Eyelid",
+          "1": "Epibular",
+          "2": "Intraocular",
+          "3": "Orbit"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "7ef97e72-288b-4b7d-8942-2a9c9fc21daa"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Glycogenolysis",
+          "1": "Glycolysis",
+          "2": "TCA cycle",
+          "3": "Creatine phosphate"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1f536213-3abd-44b5-9011-773e21fe138f"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Liraglutide",
+          "1": "Sitagliptin",
+          "2": "Canagliflozin",
+          "3": "Pioglitazone"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2b110e57-8338-4189-86e2-cbea7d761c30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Calcium carbonate",
+          "1": "Silica",
+          "2": "Sodium Chloride",
+          "3": "Amylase"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "bee09bc5-3c41-4d41-8da8-a307dfd4228e"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Upper third molar is most commonly absent in Mongolians",
+          "1": "Carabelli cusps are seen in Caucasians",
+          "2": "Negros have wide molar cusps and deep, shovel shaped cusps in incisors",
+          "3": "Prominent lingual ridge and labial ridge is seen in Mongolians"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "519a4ff4-7e05-455a-b8dd-edd85636dccf"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "NREM sleep",
+          "1": "REM sleep",
+          "2": "Wakefulness",
+          "3": "Quiet wakefulness"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "74d6497b-16bd-44f8-bba0-a9a139482e77"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Develops within 24 hours",
+          "1": "Mostly seen after sepsis and cardiac surgeries",
+          "2": "It's a cause of non-cardiogenic pulmonary edema",
+          "3": "Plasma is more likely to cause it than whole blood"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "b7dd1d97-3338-4b13-98f3-1b6c61c805b2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Most common method of placental separation",
+          "1": "Maternal side of the placenta presents at the vulva",
+          "2": "Separation stas from the periphery",
+          "3": "Blood collects between the placenta and fetal membranes and escapes through vagina"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3d8328fb-d689-401d-b68f-18a7fe581ee4"
+    }
+  ]
+}

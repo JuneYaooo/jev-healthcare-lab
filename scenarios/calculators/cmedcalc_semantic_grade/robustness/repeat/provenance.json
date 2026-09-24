@@ -1,0 +1,45 @@
+{
+  "task": "robust_repeat_cmedcalc_semantic_grade",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "robustness_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "robustness_prepared.jsonl": "969bb18a0fb3ec076528fea632c8e5aeb6282dda3a2e0f5cd8fd44af689d0e3b"
+  },
+  "sample_count": 20,
+  "groups": 20,
+  "resources": [
+    {
+      "resource": "CMedCalc-Bench",
+      "source": "https://github.com/Zhihong-Zhu/CMedCalc-Bench",
+      "completion_note": "充分性、分级与20条BMI选择＋公式；不是全部数值指标原始成绩"
+    }
+  ],
+  "adapter": "prepare_extended.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 28888,
+      "sha256": "5c95cd8c591023a06d55edab6e619374a2c6fa70728e8bb869290226c85c9053"
+    },
+    "responses.jsonl": {
+      "bytes": 9307,
+      "sha256": "ce320a159287e59c8c40ed597da893d6c2a16eed0e7588e0f61d147429b2dc10"
+    },
+    "index.jsonl": {
+      "bytes": 6100,
+      "sha256": "b8f91190a4d8858dd965bfc94560109c4d1a143a27d454bb98c25e05d6b0bbd4"
+    },
+    "prompts.json": {
+      "bytes": 4167,
+      "sha256": "d2ca118db8374087abb067ec546a9285caa28f1fd89992af493dbdada18c295a"
+    },
+    "example.json": {
+      "bytes": 2344,
+      "sha256": "3b2387f212de97202ab8495acd29611eb88afec5378219af85e461a5c2bb4952"
+    }
+  }
+}

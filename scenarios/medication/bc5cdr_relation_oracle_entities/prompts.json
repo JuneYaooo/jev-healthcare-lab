@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "no": "No annotated chemical-induced disease relation",
+          "yes": "Chemical induces the disease"
+        },
+        "instructions": "Does the abstract establish a chemical-induced disease relation for these target entities, rather than a treatment relation or mere co-occurrence?",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "17356399:C042705:D006212"
+    }
+  ]
+}

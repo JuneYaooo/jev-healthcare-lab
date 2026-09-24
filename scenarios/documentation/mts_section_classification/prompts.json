@@ -1,0 +1,35 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "ALLERGY": "Allergies",
+          "ASSESSMENT": "Clinical assessment",
+          "CC": "Chief complaint",
+          "DIAGNOSIS": "Diagnosis",
+          "DISPOSITION": "Disposition",
+          "EDCOURSE": "Emergency department course",
+          "EXAM": "Physical examination",
+          "FAM/SOCHX": "Family or social history",
+          "GENHX": "History of present illness or general history",
+          "GYNHX": "Gynecologic history",
+          "IMAGING": "Imaging",
+          "IMMUNIZATIONS": "Immunizations",
+          "LABS": "Laboratory results",
+          "MEDICATIONS": "Medications",
+          "OTHER_HISTORY": "Other history",
+          "PASTMEDICALHX": "Past medical history",
+          "PASTSURGICAL": "Past surgical history",
+          "PLAN": "Plan",
+          "PROCEDURES": "Procedures",
+          "ROS": "Review of systems"
+        },
+        "instructions": "Which clinical note section best matches the content of this dialogue?",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "55"
+    }
+  ]
+}

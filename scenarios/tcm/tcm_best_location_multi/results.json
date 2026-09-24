@@ -1,0 +1,26 @@
+{
+  "planned": 79,
+  "successful": 79,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "tp": 107,
+    "fp": 34,
+    "fn": 82,
+    "precision": 0.7588652482269503,
+    "recall": 0.5661375661375662,
+    "micro_f1": 0.6484848484848484
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 79,
+    "lower": 0.599406528189911,
+    "upper": 0.6932515337423313
+  },
+  "calibration": null,
+  "input_tokens": 62959,
+  "output_tokens": 12956,
+  "latency_successful_api_p50_s": 0.6209507079911418,
+  "latency_successful_api_p95_s": 1.3636547499918379,
+  "per_indicator": {}
+}

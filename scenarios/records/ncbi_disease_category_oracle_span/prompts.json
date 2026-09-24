@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "CompositeMention": "Composite mention combining multiple diseases",
+          "DiseaseClass": "A class or category of diseases",
+          "Modifier": "Disease term used as a modifier",
+          "SpecificDisease": "Specific disease entity"
+        },
+        "instructions": "Classify the annotated disease mention category in context.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "9950360:1069"
+    }
+  ]
+}

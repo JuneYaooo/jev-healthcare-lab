@@ -1,0 +1,20 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "advise": "No stated interaction between the two target mentions.",
+          "effect": "Advice, precaution or contraindication about co-use.",
+          "int": "Pharmacodynamic effect or clinical outcome of co-use.",
+          "mechanism": "Interaction stated without specifying its kind.",
+          "none": "Pharmacokinetic mechanism (e.g. concentration, absorption, metabolism)."
+        },
+        "instructions": "Classify only the relation stated between the two target drug mentions in this sentence, not outside drug knowledge.",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "DDI-DrugBank.d773.s1.p2"
+    }
+  ]
+}

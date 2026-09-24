@@ -1,0 +1,83 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "7": "7",
+          "8": "8",
+          "9": "9",
+          "unknown": "The patient note lacks information necessary to determine the score"
+        },
+        "instructions": "Determine the requested clinical score from this patient note. Select its numeric value from the fixed full score range. No reference parameters or explanation are supplied. If essential information is missing, select unknown.",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "41"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "unknown": "The patient note lacks information necessary to determine the score"
+        },
+        "instructions": "Determine the requested clinical score from this patient note. Select its numeric value from the fixed full score range. No reference parameters or explanation are supplied. If essential information is missing, select unknown.",
+        "type": "choice"
+      },
+      "occurrences": 40,
+      "example_sample_id": "481"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "unknown": "The patient note lacks information necessary to determine the score"
+        },
+        "instructions": "Determine the requested clinical score from this patient note. Select its numeric value from the fixed full score range. No reference parameters or explanation are supplied. If essential information is missing, select unknown.",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "641"
+    },
+    {
+      "question": {
+        "criteria": {
+          "10": "10",
+          "11": "11",
+          "12": "12",
+          "13": "13",
+          "14": "14",
+          "15": "15",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "7": "7",
+          "8": "8",
+          "9": "9",
+          "unknown": "The patient note lacks information necessary to determine the score"
+        },
+        "instructions": "Determine the requested clinical score from this patient note. Select its numeric value from the fixed full score range. No reference parameters or explanation are supplied. If essential information is missing, select unknown.",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "901"
+    }
+  ]
+}

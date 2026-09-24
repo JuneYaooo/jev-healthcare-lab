@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "-1": "Significantly decreased",
+          "0": "No significant difference",
+          "1": "Significantly increased"
+        },
+        "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "3784"
+    }
+  ]
+}

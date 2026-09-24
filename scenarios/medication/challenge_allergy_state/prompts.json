@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "confirmed": "明确过敏",
+          "denied": "明确否认",
+          "uncertain": "疑似或待排",
+          "unrecorded": "没有记录"
+        },
+        "instructions": "只判断青霉素过敏的记录状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "allergy_state:1"
+    }
+  ]
+}

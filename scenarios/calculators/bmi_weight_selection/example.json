@@ -1,0 +1,65 @@
+{
+  "sample": {
+    "gold": "1",
+    "group": "1",
+    "id": "1",
+    "metadata": {
+      "alternative_gold_choices": [
+        "1"
+      ],
+      "candidate_gold_covered": true,
+      "candidate_values": [
+        52.5,
+        65.0
+      ],
+      "expected_bmi": {
+        "unit": "kg/m²",
+        "value": "24.8"
+      },
+      "expected_value": 65.0,
+      "source": "all20 BMI cases; exact numeric-unit regex candidates"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "**正常。\n\n查体:\n\n婚前体重105斤，现体重130斤，身高1",
+            "1": "体:\n\n婚前体重105斤，现体重130斤，身高162厘米，脸部痤",
+            "unknown": "病历中没有可可靠选取的当前测量值"
+          },
+          "instructions": "选择用于计算当前BMI的体重记录；排除历史值和其他人物的值，不补造数据。",
+          "type": "choice"
+        }
+      },
+      "state": "主诉:\n\n27岁女性\n\n现病史:\n\n婚后1年性生活正常，未避孕，丈夫**正常。\n\n查体:\n\n婚前体重105斤，现体重130斤，身高162厘米，脸部痤疮明显，脐下有根长毛。\n\n辅助检查:\n\n周期第45天，B超提示子宫约44mm×22mm×37mm，子宫内膜厚5mm，性激素六项示：LH\n\ng/ml，PRL\n\ng/ml，睾酮55ng/dL。17α羟孕酮和硫酸脱氢表雄酮在外院查均在正常范围；近几次监测卵泡值都停留在8mm×6mm，内膜厚约4mm。\n\n【月经及婚育史】\n\n已婚未育，15岁初潮，周期5～7/27～50天，量中，偶有痛经。\n\n【请教】\n\n考虑多囊卵巢，该如何诊？另外小子宫影响怀孕吗？"
+    },
+    "request_sha256": "2c21685713344aff282e9fda1e37108fe79c7f4a53cfc8c39a05f81d1f83a7f7",
+    "task": "bmi_weight_selection"
+  },
+  "response": {
+    "elapsed_s": 0.6327937500318512,
+    "id": "1",
+    "request_sha256": "2c21685713344aff282e9fda1e37108fe79c7f4a53cfc8c39a05f81d1f83a7f7",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "1",
+          "confidence": 0.92,
+          "probabilities": {
+            "0": 0.05,
+            "1": 0.95,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 697,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "bmi_weight_selection"
+  }
+}

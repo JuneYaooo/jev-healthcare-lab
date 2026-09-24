@@ -1,0 +1,425 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "肝",
+          "B": "心",
+          "C": "胆",
+          "D": "脾",
+          "E": "肺",
+          "F": "三焦",
+          "G": "小肠",
+          "H": "肾",
+          "I": "胃",
+          "J": "大肠"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "三焦",
+          "B": "大肠",
+          "C": "心",
+          "D": "胃",
+          "E": "胆",
+          "F": "小肠",
+          "G": "脾",
+          "H": "肝",
+          "I": "肾",
+          "J": "肺"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "小肠",
+          "B": "肺",
+          "C": "三焦",
+          "D": "心",
+          "E": "胃",
+          "F": "心包",
+          "G": "脾",
+          "H": "胆",
+          "I": "大肠",
+          "J": "肝"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "246"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肾",
+          "B": "膀胱",
+          "C": "脾",
+          "D": "胃",
+          "E": "心",
+          "F": "胆",
+          "G": "肺",
+          "H": "肝",
+          "I": "小肠",
+          "J": "大肠"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "三焦",
+          "B": "脾",
+          "C": "肾",
+          "D": "肺",
+          "E": "大肠",
+          "F": "胆",
+          "G": "肝",
+          "H": "胃",
+          "I": "心",
+          "J": "小肠"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "345"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肺卫",
+          "B": "血分",
+          "C": "颈项",
+          "D": "咽喉",
+          "E": "耳",
+          "F": "经络关节",
+          "G": "肌肤",
+          "H": "三焦",
+          "I": "贲门",
+          "J": "肝"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "颈项",
+          "B": "食管",
+          "C": "肾",
+          "D": "生殖器",
+          "E": "筋骨关节",
+          "F": "髓海",
+          "G": "胁肋",
+          "H": "腹部",
+          "I": "目",
+          "J": "体表"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "头窍",
+          "B": "卫表",
+          "C": "肠腑",
+          "D": "心肾",
+          "E": "肌肤",
+          "F": "腹部",
+          "G": "经络",
+          "H": "胃",
+          "I": "肝胆",
+          "J": "咽喉"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "皮肤",
+          "B": "血分",
+          "C": "胃",
+          "D": "面部",
+          "E": "肝络",
+          "F": "心神",
+          "G": "甲状腺",
+          "H": "肺",
+          "I": "鼻",
+          "J": "贲门"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肌肤",
+          "B": "肠道",
+          "C": "经络",
+          "D": "头面",
+          "E": "膜原",
+          "F": "心神",
+          "G": "血分",
+          "H": "大肠",
+          "I": "耳窍",
+          "J": "脏腑"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "血分",
+          "B": "肝",
+          "C": "头窍",
+          "D": "腰部经脉",
+          "E": "胆",
+          "F": "膀胱",
+          "G": "肌肤",
+          "H": "小腿",
+          "I": "肺胃",
+          "J": "宗筋"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肺",
+          "B": "食道",
+          "C": "肾脏",
+          "D": "后项部",
+          "E": "大肠",
+          "F": "髓海",
+          "G": "心",
+          "H": "血分",
+          "I": "胃",
+          "J": "甲状腺"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "头皮",
+          "B": "目",
+          "C": "食道",
+          "D": "外阴",
+          "E": "脑髓",
+          "F": "脾",
+          "G": "胃肠",
+          "H": "心肺",
+          "I": "耳窍",
+          "J": "肌肉"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肺卫",
+          "B": "心",
+          "C": "耳",
+          "D": "肠道",
+          "E": "牙龈",
+          "F": "甲状腺",
+          "G": "经络",
+          "H": "清窍",
+          "I": "头皮",
+          "J": "目"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "目",
+          "B": "脾",
+          "C": "胸膈",
+          "D": "胞脉",
+          "E": "肠",
+          "F": "脑髓",
+          "G": "肾脏",
+          "H": "胃",
+          "I": "生殖器",
+          "J": "肌表"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "目",
+          "B": "肌肉",
+          "C": "肛门",
+          "D": "生殖器",
+          "E": "肾",
+          "F": "肠",
+          "G": "头部",
+          "H": "宗筋",
+          "I": "耳窍",
+          "J": "小腿"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "耳",
+          "B": "膀胱",
+          "C": "肝",
+          "D": "胁肋",
+          "E": "髓海",
+          "F": "脾胃",
+          "G": "经络关节",
+          "H": "咽喉",
+          "I": "胸膈",
+          "J": "血分"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "474"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "外阴",
+          "B": "肝经",
+          "C": "小肠",
+          "D": "体表",
+          "E": "喉",
+          "F": "胞宫",
+          "G": "脑髓",
+          "H": "神志",
+          "I": "筋骨关节",
+          "J": "心肾"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "喉",
+          "B": "肝",
+          "C": "胸膈",
+          "D": "心",
+          "E": "脾",
+          "F": "肾",
+          "G": "筋骨关节",
+          "H": "咽喉",
+          "I": "腹部",
+          "J": "肌肉"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "486"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "心神",
+          "B": "贲门",
+          "C": "脾",
+          "D": "颈项",
+          "E": "髓海",
+          "F": "肝",
+          "G": "甲状腺",
+          "H": "心",
+          "I": "胃",
+          "J": "胆"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "489"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "喉",
+          "B": "小腿",
+          "C": "甲状腺",
+          "D": "血分",
+          "E": "肠道",
+          "F": "肠腑",
+          "G": "肝",
+          "H": "肾",
+          "I": "肺",
+          "J": "脾"
+        },
+        "instructions": "根据病例选择病位的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "495"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "task": "robust_rotate_cmexam_mcq",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "robustness_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "robustness_prepared.jsonl": "969bb18a0fb3ec076528fea632c8e5aeb6282dda3a2e0f5cd8fd44af689d0e3b"
+  },
+  "sample_count": 20,
+  "groups": 20,
+  "resources": [
+    {
+      "resource": "CMExam",
+      "source": "https://github.com/williamliujl/CMExam",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_additional.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 15630,
+      "sha256": "1a7ffb9189b26ee848e6230ff775e1fb2eeba1d3b3f017564417ba66e294efe5"
+    },
+    "responses.jsonl": {
+      "bytes": 8515,
+      "sha256": "5540c2494d65e5fb70efc7aae0477334c231655f9c7bee22813701da7162ff61"
+    },
+    "index.jsonl": {
+      "bytes": 5886,
+      "sha256": "5c15dbc84b83a54fae93ea19fac1f879d18e8a51b8998e87fa14d0922344c8af"
+    },
+    "prompts.json": {
+      "bytes": 8370,
+      "sha256": "0ed8d778088b2493b79f1ac6d2f9dfc929c259a19be7549614dacd62a2f74a55"
+    },
+    "example.json": {
+      "bytes": 1654,
+      "sha256": "4877e2683b03c7891f8f69e4123ed3ae1983181f7042dac6f6a76df41b402fae"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "insufficient": "缺失必要资料或有未解决矛盾，不能可靠计算或分级",
+          "sufficient": "必要资料完整且不矛盾，可以计算或分级"
+        },
+        "instructions": "只判断病历是否提供了计算/分级该指标所必需且不矛盾的资料。不要编造缺失参数。正常知识可以用于理解指标，但不能替代患者资料。",
+        "type": "choice"
+      },
+      "occurrences": 200,
+      "example_sample_id": "insufficient:97"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "planned": 100,
+  "successful": 100,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 100,
+    "accuracy": 0.76,
+    "macro_f1_observed_gold_classes": 0.6712012987012986,
+    "per_class": {
+      "ALLERGY": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "ASSESSMENT": {
+        "support": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "CC": {
+        "support": 4,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      },
+      "DIAGNOSIS": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "DISPOSITION": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "EDCOURSE": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8
+      },
+      "EXAM": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "FAM/SOCHX": {
+        "support": 22,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "GENHX": {
+        "support": 20,
+        "precision": 0.65,
+        "recall": 0.65,
+        "f1": 0.65
+      },
+      "GYNHX": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "IMAGING": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "IMMUNIZATIONS": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "LABS": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "MEDICATIONS": {
+        "support": 7,
+        "precision": 1.0,
+        "recall": 0.7142857142857143,
+        "f1": 0.8333333333333334
+      },
+      "OTHER_HISTORY": {
+        "support": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "PASTMEDICALHX": {
+        "support": 4,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "PASTSURGICAL": {
+        "support": 8,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "PLAN": {
+        "support": 3,
+        "precision": 0.375,
+        "recall": 1.0,
+        "f1": 0.5454545454545454
+      },
+      "PROCEDURES": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "ROS": {
+        "support": 11,
+        "precision": 0.8,
+        "recall": 0.7272727272727273,
+        "f1": 0.7619047619047619
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 100,
+    "lower": 0.67,
+    "upper": 0.84
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.07160000000000002,
+    "multiclass_brier_sum": 0.33293,
+    "brier_n": 100,
+    "bins": [
+      {
+        "lower": 0.3,
+        "n": 5,
+        "mean_selected_probability": 0.324,
+        "accuracy": 0.2
+      },
+      {
+        "lower": 0.4,
+        "n": 4,
+        "mean_selected_probability": 0.4175,
+        "accuracy": 0.5
+      },
+      {
+        "lower": 0.5,
+        "n": 11,
+        "mean_selected_probability": 0.5509090909090909,
+        "accuracy": 0.45454545454545453
+      },
+      {
+        "lower": 0.6,
+        "n": 6,
+        "mean_selected_probability": 0.6333333333333333,
+        "accuracy": 0.16666666666666666
+      },
+      {
+        "lower": 0.7,
+        "n": 7,
+        "mean_selected_probability": 0.7485714285714286,
+        "accuracy": 0.7142857142857143
+      },
+      {
+        "lower": 0.8,
+        "n": 12,
+        "mean_selected_probability": 0.8450000000000001,
+        "accuracy": 0.75
+      },
+      {
+        "lower": 0.9,
+        "n": 55,
+        "mean_selected_probability": 0.9812727272727273,
+        "accuracy": 0.9636363636363636
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 67,
+          "coverage": 0.67,
+          "accuracy": 0.9253731343283582
+        },
+        "by_probability_and_api_confidence": {
+          "n": 65,
+          "coverage": 0.65,
+          "accuracy": 0.9230769230769231
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 55,
+          "coverage": 0.55,
+          "accuracy": 0.9636363636363636
+        },
+        "by_probability_and_api_confidence": {
+          "n": 54,
+          "coverage": 0.54,
+          "accuracy": 0.9629629629629629
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 45,
+          "coverage": 0.45,
+          "accuracy": 0.9777777777777777
+        },
+        "by_probability_and_api_confidence": {
+          "n": 44,
+          "coverage": 0.44,
+          "accuracy": 0.9772727272727273
+        }
+      }
+    }
+  },
+  "input_tokens": 74082,
+  "output_tokens": 20032,
+  "latency_successful_api_p50_s": 0.917688604502473,
+  "latency_successful_api_p95_s": 2.2048147920286283,
+  "per_indicator": {}
+}

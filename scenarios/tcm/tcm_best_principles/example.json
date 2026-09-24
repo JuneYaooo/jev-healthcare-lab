@@ -1,0 +1,66 @@
+{
+  "sample": {
+    "gold": "G",
+    "group": "222",
+    "id": "222",
+    "metadata": {
+      "source": "TCM-BEST4SDT every third SDT case; no diagnosis or explanation in state"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "化痰开窍",
+            "B": "活血化瘀",
+            "C": "凉血散血",
+            "D": "辛凉解表",
+            "E": "通腑泄热",
+            "F": "熄风止痉",
+            "G": "清营透热",
+            "H": "利水通淋",
+            "I": "清气泄热",
+            "J": "益气养阴"
+          },
+          "instructions": "根据病例选择治则治法的最佳选项。",
+          "type": "choice"
+        }
+      },
+      "state": "患者45岁，于农历五月感染外感温热病邪引发温病并伴出疹性疾病。症见内外俱热、极度焦躁不安无片刻宁静，脉微弱难触，舌苔薄黄，每日排便正常但排尿灼热不畅且尿量减少，全身遍布红疹。虽多次服用清热解表药物，体温仍持续偏高未降。"
+    },
+    "request_sha256": "1ce124471c58065e14c40bba52acee8631a326050fb6f26cf285804c1c32fc89",
+    "task": "tcm_best_principles"
+  },
+  "response": {
+    "elapsed_s": 0.5909502500435337,
+    "id": "222",
+    "request_sha256": "1ce124471c58065e14c40bba52acee8631a326050fb6f26cf285804c1c32fc89",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "G",
+          "confidence": 0.63,
+          "probabilities": {
+            "A": 0.0,
+            "B": 0.0,
+            "C": 0.17,
+            "D": 0.0,
+            "E": 0.0,
+            "F": 0.0,
+            "G": 0.67,
+            "H": 0.01,
+            "I": 0.06,
+            "J": 0.09
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 562,
+        "output_tokens": 87
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_principles"
+  }
+}

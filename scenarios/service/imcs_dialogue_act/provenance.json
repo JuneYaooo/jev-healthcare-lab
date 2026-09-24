@@ -1,0 +1,45 @@
+{
+  "task": "imcs_dialogue_act",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "prepared.jsonl": "9c2c93d599ca90fd2d7dca5380abb1a3458e62efdcf76959cbc0a27775e91df8"
+  },
+  "sample_count": 100,
+  "groups": 95,
+  "resources": [
+    {
+      "resource": "IMCS21",
+      "source": "https://github.com/lemuria-wchen/imcs21",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "benchmark.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 148058,
+      "sha256": "17ffa191d53d354fe06d537ea642428496fdc64f3603405f9e2cdf24b44afb46"
+    },
+    "responses.jsonl": {
+      "bytes": 87630,
+      "sha256": "3e33a013ec6cf3dba191d2277dd2a78cb5b953d27c455f473effd77a0012446c"
+    },
+    "index.jsonl": {
+      "bytes": 29575,
+      "sha256": "be108b4821cbb345c37b02a9a3f7e7c460970d3feede0b8ef8a411614e002da2"
+    },
+    "prompts.json": {
+      "bytes": 1315,
+      "sha256": "f29ba6ec87bfa25fa856cb781ac3ed4f4af963ae5110cfe309e94b526fd0c927"
+    },
+    "example.json": {
+      "bytes": 3095,
+      "sha256": "ad37bdbedebf8e469950a743ab081b52c2840bcffaf9ef7d9611591794617f33"
+    }
+  }
+}

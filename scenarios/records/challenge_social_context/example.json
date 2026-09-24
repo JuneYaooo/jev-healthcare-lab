@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "current",
+    "group": "social_context:1",
+    "id": "social_context:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "current": "目前吸烟",
+            "former": "已戒烟",
+            "never": "从不吸烟",
+            "unknown": "无法确定"
+          },
+          "instructions": "只判断患者本人的当前吸烟状态。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "患者每天吸烟10支，尚未戒烟。"
+      }
+    },
+    "request_sha256": "3d0285c2de3906d7f1f6770ece2011314546bc60e6ad43f46f7f4ceb983408aa",
+    "task": "challenge_social_context"
+  },
+  "response": {
+    "elapsed_s": 0.9085631249472499,
+    "id": "social_context:1",
+    "request_sha256": "3d0285c2de3906d7f1f6770ece2011314546bc60e6ad43f46f7f4ceb983408aa",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "current",
+          "confidence": 1.0,
+          "probabilities": {
+            "current": 1.0,
+            "former": 0.0,
+            "never": 0.0,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 371,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "challenge_social_context"
+  }
+}

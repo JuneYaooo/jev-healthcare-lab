@@ -1,0 +1,37 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 虚实夹杂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "312"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 实证为主",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "312"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 兼有气阴不足",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "312"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 Candidate: 虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "312"
+    }
+  ]
+}

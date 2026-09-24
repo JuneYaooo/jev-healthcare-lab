@@ -1,0 +1,20 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "BACKGROUND": "Background and motivation",
+          "CONCLUSIONS": "Conclusions",
+          "METHODS": "Study methods",
+          "OBJECTIVE": "Study objective",
+          "RESULTS": "Study results"
+        },
+        "instructions": "Classify the rhetorical role of this abstract sentence.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "25622666:8"
+    }
+  ]
+}

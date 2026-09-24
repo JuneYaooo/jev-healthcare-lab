@@ -1,0 +1,55 @@
+{
+  "sample": {
+    "gold": "negative",
+    "group": "SAMPLE-006",
+    "id": "sample-006.intme.chico:T25",
+    "metadata": {
+      "source": "50/label from published scope annotations; given gold target scope, no positive-class examples; not end-to-end assertion"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "negative": "Negated or absent",
+            "positive": "Affirmed present",
+            "uncertain": "Possible, suspected or uncertain"
+          },
+          "instructions": "Determine the status of the target finding in the Spanish clinical excerpt.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "excerpt": "ódice por hipoglucemia .\nDolor en paciente con isquemia arterial crónica extremidades .\nTTo ahbtiual : manidon 80-0-120. un medicamento para HBP y un diurético.no anticoagulado ni antiagregado .\nComenta que el mareo y el presíncope ya le ha pasado las veces anteriores que ha fumado porros .\nEn septiembre/16 una tanda de tavanic , ahora con dacortin m",
+        "target": "anticoagulado ni antiagregado"
+      }
+    },
+    "request_sha256": "c420ed7f0685fea89355290f7387024901472ec9fa426cd3391b37b114fd5906",
+    "task": "nubes_scope_status"
+  },
+  "response": {
+    "elapsed_s": 0.6324898329912685,
+    "id": "sample-006.intme.chico:T25",
+    "request_sha256": "c420ed7f0685fea89355290f7387024901472ec9fa426cd3391b37b114fd5906",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "negative",
+          "confidence": 0.94,
+          "probabilities": {
+            "negative": 0.96,
+            "positive": 0.04,
+            "uncertain": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 469,
+        "output_tokens": 40
+      }
+    },
+    "status": "ok",
+    "task": "nubes_scope_status"
+  }
+}

@@ -1,0 +1,613 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 小肠",
+        "type": "noul"
+      },
+      "occurrences": 47,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 大肠",
+        "type": "noul"
+      },
+      "occurrences": 52,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 心",
+        "type": "noul"
+      },
+      "occurrences": 56,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胆",
+        "type": "noul"
+      },
+      "occurrences": 46,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胃",
+        "type": "noul"
+      },
+      "occurrences": 56,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肺",
+        "type": "noul"
+      },
+      "occurrences": 54,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肾",
+        "type": "noul"
+      },
+      "occurrences": 65,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肝",
+        "type": "noul"
+      },
+      "occurrences": 63,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 脾",
+        "type": "noul"
+      },
+      "occurrences": 63,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 三焦",
+        "type": "noul"
+      },
+      "occurrences": 41,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 血分",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "222"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 营分",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "222"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 心包",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胞宫",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肝胆",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肺卫",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 外阴",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 脑络",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 阳明",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 少阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 脾胃",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "255"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肠",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "255"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 膀胱",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肝经",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 皮肤",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 食管",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 腹部",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 冲任",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 脑",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 经络",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 目",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "318"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 经络关节",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 卫表",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 颈项",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "333"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 牙龈",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 体表",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 耳",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 腰骶",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 清窍",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肌肤",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胸膈",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肠道",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 关节",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 咽喉",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 脑髓",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 宗筋",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肛门",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 面部",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胃肠",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 生殖器",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胞脉",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肺胃",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 头窍",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 喉",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 小腿",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 鼻",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 脾肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 头皮",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 神志",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肌表",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 胁肋",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 甲状腺",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 心肾",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 贲门",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肝。",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 耳窍",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 头部",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 筋骨关节",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 髓海",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肌肉",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "423"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 筋骨",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "423"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 眼部",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "438"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 肠腑",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "438"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 食道",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 腰部经脉",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "459"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病位。 Candidate: 头面",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    }
+  ]
+}

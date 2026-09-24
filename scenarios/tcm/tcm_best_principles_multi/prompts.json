@@ -1,0 +1,3317 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾益气",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利水渗湿",
+        "type": "noul"
+      },
+      "occurrences": 11,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热熄风",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝解郁",
+        "type": "noul"
+      },
+      "occurrences": 11,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 镇惊安神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰开窍",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴降火",
+        "type": "noul"
+      },
+      "occurrences": 24,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 活血化瘀",
+        "type": "noul"
+      },
+      "occurrences": 52,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温中散寒",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解表散寒",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温补中焦",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和解少阳",
+        "type": "noul"
+      },
+      "occurrences": 11,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰散结",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 引火归元",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝理气",
+        "type": "noul"
+      },
+      "occurrences": 16,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固表止汗",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热泻火",
+        "type": "noul"
+      },
+      "occurrences": 11,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温中补虚",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热解毒",
+        "type": "noul"
+      },
+      "occurrences": 12,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 发汗解表",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气养阴",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑泄热",
+        "type": "noul"
+      },
+      "occurrences": 20,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 熄风止痉",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温经散寒",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "210"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 回阳救逆",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "210"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气健脾",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃降逆",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利水通淋",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 消食导滞",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解表化湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热化湿",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴润燥",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清气泄热",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血解毒",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳散寒",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 兼清余热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑泻下",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 平肝熄风",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 辛凉解表",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰止咳",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "219"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 平肝潜阳",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "219"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝清胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "219"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气生津",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和脾胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛暑解表",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑开窍",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清暑利湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清暑泄热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养阴清暑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 涩肠固脱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血止痢",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解表清里",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调气行血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴清热",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 生津止渴",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "234"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 攻下热结",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "234"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宣肺平喘",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肾纳气",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 润燥止咳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补益肺气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 辛温解表",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热化痰",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肝泻火",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾化痰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴养胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气养胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 降逆止呕",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固涩止呕",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温胃散寒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 活血和胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰和胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解表和胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血透疹",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "243"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏风清热",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "243"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血活血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "243"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解毒透疹",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "246"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血散血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "246"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉营解毒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "246"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清心开窍",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "246"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肺胃热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "249"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气摄血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "249"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血止血",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "249"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾和胃",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热截疟",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气截疟",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化湿截疟",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳截疟",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固脱救逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "255"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 辟秽泄浊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "255"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热利湿",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 扶正固本",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉营透热",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 收敛肝气",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 大补元气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 救阴回阳",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气固脱",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 安胎固本",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通络止痉",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和气血",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热除烦",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "267"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 平喘降逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "267"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血调经",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "270"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 润肠通便",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "270"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热凉血",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "270"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 软坚散结",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "270"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴润肺",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "273"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肺泻火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "273"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宣肺散寒",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "273"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳利水",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 纳气归元",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰平喘",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肺益肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳化饮",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰安神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 交通心肾",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 润肺止咳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏风散寒",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清泻肺胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 振奋胸阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温通心阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肾降逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃安中",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛寒通络",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气祛湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 降逆和胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清泻火邪",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调理冲脉",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 收敛气机",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋养阴液",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通阳利湿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通络止痛",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 急则治标",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血泻火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解毒通络",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾利湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调理脾胃",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 急则治标，缓则治本",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 增桂降逆",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养阴润燥",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋肾养阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 缓则治本",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清心宁神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气养血活血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴补血",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热利湿通淋",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 升举中气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 升提气机",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑降逆",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固摄止血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾摄血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 标本同治",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 药性平和",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和肝脾",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调理三焦",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝健脾利水，通阳开窍",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肠化湿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气和中",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气养血",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 收敛止血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋养肝肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调理冲任",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 镇心安神",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 活血通络",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气扶正",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气止痛",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "312"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝和胃",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "312"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养阴生津",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肝利胆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "318"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 明目退翳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "318"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血柔肝",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "321"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温补肾阳",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 散寒除湿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾利水",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气行水",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 活血利水",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴利水",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 攻逐水饮",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏风宣肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利胆退黄",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾化湿",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清利肝胆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾止痢",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "333"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 寒热平调",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "333"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 升阳举陷",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "333"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通淋止痛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清利湿热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳化气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固精止遗",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肾固涩",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳益气",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养心安神",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰清热",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气镇惊",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补益心脾",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 安神定志",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "342"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气解郁",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "342"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通络安神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "345"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宁心安神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "348"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温补心肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "348"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳固脱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾补肾",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利湿化浊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 扶正抗癌",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "354"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 镇胃平肝",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 降逆止冲",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 息风止动",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肺益气",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑泄浊",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑驱邪",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾祛湿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调冲益精",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清阳明热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化瘀通络",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血固冲",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固肾调气",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 降逆通腑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 填精滋阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宣肺化痰",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 顾护脾胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 泻热救肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 舒筋活络",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固脱止血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热化瘀",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清胃泄热",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾宁心",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 泻热通腑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益肾填精",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 扶正固表",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调经助孕",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血消肿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 破积消癥",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热益气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肾活血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 渗湿排脓",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛风疏肝",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃止呕",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏通气机",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补脾益气",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰祛湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 燥湿化痰",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏利三焦",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利水消肿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气活血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃安冲",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 引血下行",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 壮水制火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解表透邪",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛风化痰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热扶正",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清解郁热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和营卫",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热利湿退黄",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛痰化瘀",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宣肺止咳",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 平肝清热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清心安神",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气活血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补血养阴",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清泻胃肠",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰宽胸",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和胃气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 行气柔肝",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血安胎",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清窍止痛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气和胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肺和胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益肾固摄",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通补三焦",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气通络活血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 降气消痞",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "387"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宣肺和胃",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "387"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固涩止泻",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "390"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃止泻",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "390"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳通便",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "393"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 行气健脾",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "393"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴养血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "393"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固表敛汗",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "396"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血活血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "396"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 行气化痰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热护正",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 消瘿散结",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热调经",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾养血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清泄郁热",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清泄肝胆",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清胃泻热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 分利止泻",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃通滞",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 收敛浮阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通调三焦",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解毒排脓",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 散寒除湿通痹",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 三焦分治",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴退热",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋肾育阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气固本",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补益宗气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解毒止痒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 刺络泄热",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 育阴潜阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通窍开闭",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 表里双解，清热泻火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋补肝肾",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清泄胃火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 平肝育阴",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 除湿通络",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补气养血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固涩止遗",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解郁止痛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛湿止痒",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血消斑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通调胞宫",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血止痛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 芍药敛阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 运脾消胀",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固涩止带",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 平息虚火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调志易性",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "420"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气祛邪",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "420"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰解毒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "420"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补气摄血",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "420"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血安神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "420"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温补脾胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "423"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补益肝肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "423"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 培补气血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛风止痒",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血润燥",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 解毒化瘀",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰活血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾固肠",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热通络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 生津润燥",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补肾填精",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 辅治血热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 回阳固本",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热润肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化瘀泄浊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 和胃降浊",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 柔肝解郁",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "438"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 佐以养阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "438"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温中健脾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利水强心",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 散寒止泻",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清胃降逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 重镇降逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 潜阳固本",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清气凉营",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温中化痰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和胃肠",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 填补肝肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 补气固元",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "447"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛风润燥",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "447"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 用药审慎",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "447"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 升陷举气",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "447"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 舒筋通络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "450"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛瘀生新",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "450"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固脱敛阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 益气解表",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温阳固摄",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 表里双解",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 生肌敛疮",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血利尿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通利膀胱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 扶正祛邪",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 调和肝胆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 醒神开窍",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "459"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温补脾肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "459"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清补兼施",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "459"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肝泻胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清肺凉血",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 消癥散结",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血消风",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固冲止漏",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉血和营",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清热除湿，兼以调理脾胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 大补真阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温补心阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝泄热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 行气止痛",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋肝养阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通腑利湿",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固摄下焦",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 针灸辅助",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 蠲痹通络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾益肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "471"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋肝熄火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "471"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 泻下热结",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "471"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通淋泄热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "471"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 降逆止血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "474"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 固胎安神",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "474"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 凉肝止血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通则不痛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋阴凉血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 纳气化痰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 收敛固摄",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 清心泻火",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "480"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 润肺平喘",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "480"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 行气消肿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "480"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 通络开窍",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化瘀止痛",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 滋肾健脾清肝",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 宣肺利水",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 理气通络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰祛瘀",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "486"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 祛风散邪",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "486"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养阴清热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "492"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利湿解毒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "492"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 恢复运化",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "492"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 温肺散寒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "495"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 疏肝健脾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "495"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 健脾止泻",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "498"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 养血润燥祛风",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "498"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 利水除湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "498"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的治则治法。 Candidate: 化痰通腑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "498"
+    }
+  ]
+}

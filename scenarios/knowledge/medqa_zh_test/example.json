@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "B",
+    "group": "2588",
+    "id": "2588",
+    "metadata": {
+      "note": "MedMCQA released cop is one answer index even when choice_type says multi; scored as published MCQ, not multiselect",
+      "source": "HF public mirror of published medqa-zh-test",
+      "source_rows": 3426
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "肺",
+            "B": "肾",
+            "C": "心脏",
+            "D": "肝",
+            "E": "胰腺"
+          },
+          "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+          "type": "choice"
+        }
+      },
+      "state": "几乎所有SLE病人免疫病理检查均可出现病变的脏器是（　　）。"
+    },
+    "request_sha256": "90eec3b3bec02c31480e3a62a694bf9a1bbaf4fce567955d3d0931b7392e0df3",
+    "task": "medqa_zh_test"
+  },
+  "response": {
+    "elapsed_s": 0.6779491659835912,
+    "id": "2588",
+    "request_sha256": "90eec3b3bec02c31480e3a62a694bf9a1bbaf4fce567955d3d0931b7392e0df3",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "B",
+          "confidence": 0.97,
+          "probabilities": {
+            "A": 0.02,
+            "B": 0.98,
+            "C": 0.0,
+            "D": 0.0,
+            "E": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 397,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "medqa_zh_test"
+  }
+}

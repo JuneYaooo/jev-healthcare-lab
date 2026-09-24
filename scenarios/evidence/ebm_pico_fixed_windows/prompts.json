@@ -1,0 +1,29 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "Does more than half of the target token window describe the interventions of this clinical trial? Use surrounding abstract for context.",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "25886492:240"
+    },
+    {
+      "question": {
+        "instructions": "Does more than half of the target token window describe the outcomes of this clinical trial? Use surrounding abstract for context.",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "25886492:240"
+    },
+    {
+      "question": {
+        "instructions": "Does more than half of the target token window describe the participants of this clinical trial? Use surrounding abstract for context.",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "25886492:240"
+    }
+  ]
+}

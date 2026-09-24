@@ -1,0 +1,365 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 心",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 肝",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: ",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "15"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 辨中经络、中脏腑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "46"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 中脏腑辨闭证与脱证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "46"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 闭证当辨阳闭与阴闭",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "46"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 辨病期",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "46"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 蛋黄",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "64"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 橘子",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "64"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 牛乳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "64"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 柿子",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "64"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 核黄素",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "64"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 四肢厥冷而胸腹灼热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "69"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 面色紫暗而舌红苔黄",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "69"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 两颧红赤而浮红如妆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "69"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 脉象沉迟但切之有力",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "69"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 寒证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "74"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "74"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 血虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "74"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 水肿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "74"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 高热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "74"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 胃俞",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "87"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 膻中",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "87"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 日月",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "87"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 足三里",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "87"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 关元",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 三阴交",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 血海",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 气海",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 神阙",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "89"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 内关",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "89"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 乳中",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "89"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 至阴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "91"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 间使",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "91"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 少泽",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "91"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 少府",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "91"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 至阳",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "91"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 水沟",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 百会",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 神门",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 十二经脉之海",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "100"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 阴脉之海",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "100"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 五脏六腑之海",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "100"
+    }
+  ]
+}

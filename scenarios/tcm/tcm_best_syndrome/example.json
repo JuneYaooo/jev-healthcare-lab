@@ -1,0 +1,66 @@
+{
+  "sample": {
+    "gold": "F",
+    "group": "201",
+    "id": "201",
+    "metadata": {
+      "source": "TCM-BEST4SDT every third SDT case; no diagnosis or explanation in state"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "卫表不固证",
+            "B": "痰热闭窍证",
+            "C": "风寒表证",
+            "D": "脾虚湿盛证",
+            "E": "心火亢盛证",
+            "F": "肝热动风证",
+            "G": "湿热蕴结证",
+            "H": "阴虚风动证",
+            "I": "气阴两虚证",
+            "J": "阳明腑实证"
+          },
+          "instructions": "根据病例选择证型的最佳选项。",
+          "type": "choice"
+        }
+      },
+      "state": "三岁小女孩,晚春天气转暖却穿着过厚衣物玩耍出汗后被风吹到,突发瘈疭病。严重时闭眼昏迷呈角弓反张姿态,双手紧握成拳,轻症时舌肿胀无法吸吮母乳,持续三日每日拉稀2-3次导致精神萎靡，并伴有体表温度升高。脉象显示跳动次数增多，显示体内存在热证。"
+    },
+    "request_sha256": "3ae8e2b9b2406ace1da77c66233110c99ee21ce6373a6732bdb04685d53c501b",
+    "task": "tcm_best_syndrome"
+  },
+  "response": {
+    "elapsed_s": 1.64109400002053,
+    "id": "201",
+    "request_sha256": "3ae8e2b9b2406ace1da77c66233110c99ee21ce6373a6732bdb04685d53c501b",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "F",
+          "confidence": 0.96,
+          "probabilities": {
+            "A": 0.0,
+            "B": 0.02,
+            "C": 0.01,
+            "D": 0.0,
+            "E": 0.0,
+            "F": 0.97,
+            "G": 0.0,
+            "H": 0.0,
+            "I": 0.0,
+            "J": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 587,
+        "output_tokens": 87
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_syndrome"
+  }
+}

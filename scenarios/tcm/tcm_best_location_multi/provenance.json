@@ -1,0 +1,45 @@
+{
+  "task": "tcm_best_location_multi",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "additional_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "additional_prepared.jsonl": "8c9f86cd8f7d41d867a17f19fd45a538acb7e3dac82ab973ce70ea9353d6a5a7"
+  },
+  "sample_count": 79,
+  "groups": 79,
+  "resources": [
+    {
+      "resource": "TCM-BEST4SDT",
+      "source": "https://github.com/DYJG-research/TCM-BEST4SDT",
+      "completion_note": "知识/伦理/安全与SDT多维；安全金标存在明显过度拒绝倾向"
+    }
+  ],
+  "adapter": "prepare_additional.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 163080,
+      "sha256": "6080b40101ba101781f3c02da35395d27903f3d53ac28f7a23f468978aa564ed"
+    },
+    "responses.jsonl": {
+      "bytes": 51919,
+      "sha256": "f1638a94d7296d1345473b5f9505d6c877e6dc727435f84bb4636d68e0cab4f5"
+    },
+    "index.jsonl": {
+      "bytes": 22831,
+      "sha256": "4719ebda90f48f5ecf023d95ef4732d778b8872e6cfd51064f1dd87262bd41bb"
+    },
+    "prompts.json": {
+      "bytes": 16979,
+      "sha256": "9352420fb1ae9a808e5587cf888a502a7d99f5e8d86f1bc02029b26ab7e5cd3d"
+    },
+    "example.json": {
+      "bytes": 3411,
+      "sha256": "ebaacf72154ccd72e45aa3e229a0802e51ab9f5c3876ca0f3c3ee3b692729d09"
+    }
+  }
+}

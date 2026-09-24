@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "administrative": "行政通知",
+          "discharge": "出院记录",
+          "lab": "检验报告",
+          "prescription": "处方"
+        },
+        "instructions": "按文字功能归类文档。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "document_type:1"
+    }
+  ]
+}

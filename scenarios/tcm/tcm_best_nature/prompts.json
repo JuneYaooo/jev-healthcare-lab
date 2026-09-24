@@ -1,0 +1,1209 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "虚热证",
+          "C": "本虚标实",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "201"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阳虚证",
+          "B": "实热证",
+          "C": "阴虚证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "204"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒实证",
+          "B": "虚热证",
+          "C": "虚实夹杂",
+          "D": "实热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "207"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阴虚证",
+          "B": "阳虚寒盛",
+          "C": "虚实夹杂",
+          "D": "实热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "210"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "虚实夹杂",
+          "C": "寒实证",
+          "D": "虚热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 3,
+      "example_sample_id": "213"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "虚热证",
+          "C": "虚寒证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "216"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚热证",
+          "B": "寒实证",
+          "C": "实热证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "222"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "虚实夹杂",
+          "C": "虚热证",
+          "D": "寒实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "寒实证",
+          "C": "虚热证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "228"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂",
+          "B": "虚热证",
+          "C": "寒实证",
+          "D": "实热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "231"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚热证",
+          "B": "虚实夹杂",
+          "C": "实热证",
+          "D": "寒实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "240"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒实证",
+          "B": "虚热证",
+          "C": "实热证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "243"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒实证",
+          "B": "实热证",
+          "C": "虚热证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "246"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒实证",
+          "B": "实热证",
+          "C": "虚实夹杂",
+          "D": "虚热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "249"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒实证",
+          "B": "虚实夹杂",
+          "C": "实热证",
+          "D": "虚热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "252"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "虚实夹杂证",
+          "C": "虚脱证",
+          "D": "虚寒证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "寒热错杂证",
+          "C": "虚实夹杂证",
+          "D": "虚热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "血瘀证",
+          "C": "虚实夹杂证",
+          "D": "虚热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂",
+          "B": "虚热证",
+          "C": "实热证",
+          "D": "寒实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "273"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚证",
+          "B": "虚实夹杂",
+          "C": "实证",
+          "D": "本虚标实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实",
+          "B": "虚证",
+          "C": "虚实夹杂",
+          "D": "实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂",
+          "B": "本虚标实",
+          "C": "虚证",
+          "D": "实热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证",
+          "B": "虚寒证",
+          "C": "本虚标实",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚证",
+          "B": "实证",
+          "C": "虚实夹杂",
+          "D": "本虚标实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热为主，兼夹虚证",
+          "B": "湿热、血热",
+          "C": "本虚标实，以实为主，兼有阴虚",
+          "D": "本虚为脾肾两虚，标实为气郁痰阻"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实，以虚为主，虚中夹实",
+          "B": "郁热、湿热",
+          "C": "虚实夹杂，寒热错杂",
+          "D": "热证、虚证、实证复合"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本病属虚实夹杂证，以虚为主，兼有实热",
+          "B": "本虚标实，虚实夹杂",
+          "C": "实热、血热",
+          "D": "热证、湿证、实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂，以实为主，兼有阴虚内热",
+          "B": "脾虚为本，肝郁湿阻为标",
+          "C": "本虚标实，虚实夹杂",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证",
+          "B": "虚证",
+          "C": "虚实夹杂",
+          "D": "本虚标实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂",
+          "B": "本虚标实",
+          "C": "实证",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实",
+          "B": "虚实夹杂",
+          "C": "实证",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实",
+          "B": "虚实夹杂",
+          "C": "实热证",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "318"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证",
+          "B": "本虚标实",
+          "C": "虚实夹杂",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "321"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实",
+          "B": "实证",
+          "C": "虚寒证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂",
+          "B": "本虚标实",
+          "C": "虚证",
+          "D": "实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "虚实夹杂",
+          "C": "本虚标实",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒热错杂",
+          "B": "虚实夹杂",
+          "C": "虚寒证",
+          "D": "实热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "333"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实",
+          "B": "虚证",
+          "C": "实证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚证",
+          "B": "虚实夹杂",
+          "C": "本虚标实",
+          "D": "实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚寒证",
+          "B": "本虚标实",
+          "C": "虚实夹杂",
+          "D": "实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "348"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚寒证",
+          "B": "实热证",
+          "C": "本虚标实",
+          "D": "虚实夹杂证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂",
+          "B": "虚证为主",
+          "C": "实证为主",
+          "D": "寒热错杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "354"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实，以湿热实邪为主，兼夹瘀血",
+          "B": "气血亏虚为本，寒凝血瘀为标",
+          "C": "虚热证",
+          "D": "湿热火毒"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "气阴两虚（虚）与瘀血阻滞（实）并存",
+          "B": "虚实夹杂，以阴虚为本，热邪为标",
+          "C": "虚实夹杂，以阴虚火旺为主，兼有痰湿内阻",
+          "D": "实证为主，兼有气滞血瘀"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "热证与湿证并存",
+          "B": "实热夹虚之证",
+          "C": "实证",
+          "D": "虚实夹杂"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "363"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证为主，兼有热灼津伤之象",
+          "B": "虚证为主，兼有虚热",
+          "C": "以虚为主，兼夹实热",
+          "D": "肾虚为本，血瘀为标"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热为主，兼夹阴虚",
+          "B": "肾虚为本，血瘀为标",
+          "C": "本病属虚实夹杂，以实为主，虚为次",
+          "D": "实热证为主，兼有热灼津伤之象"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "369"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "属风寒",
+          "B": "本虚标实，虚实夹杂",
+          "C": "寒湿",
+          "D": "实热为主，兼夹虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实之证，以虚为主，虚中夹实",
+          "B": "实证为主，兼有脾胃虚弱之虚象",
+          "C": "虚实夹杂，以阴虚为本，热邪为标",
+          "D": "气虚为本，血瘀、水湿为标"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实证，标为风邪、痰湿壅滞，本为肺脾两虚",
+          "B": "实证为主，兼有虚象",
+          "C": "肾阳虚损，寒湿内蕴",
+          "D": "火郁为实，兼有阴虚内热"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂，气血同病",
+          "B": "以血虚为本，虚热为标",
+          "C": "本虚标实，虚实夹杂",
+          "D": "属实热证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阴虚",
+          "B": "实证为主，兼有脾胃虚弱之虚象",
+          "C": "属本虚标实之证，以实为主，兼有肾气亏虚",
+          "D": "风湿热邪蕴结兼气血凝滞"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实",
+          "B": "实证",
+          "C": "虚实夹杂",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "393"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "寒热错杂，虚实夹杂",
+          "B": "热毒炽盛，阴液耗伤",
+          "C": "阳虚",
+          "D": "肝胃不和为本虚，痰气交阻为标实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阴虚津亏",
+          "B": "本虚标实，虚实夹杂",
+          "C": "实热为主，兼夹阴虚",
+          "D": "本虚标实，以脾虚为本，痰浊、肝风为标"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "402"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肾阳虚损，寒湿内蕴",
+          "B": "实热夹虚，属温热病夹杂痢疾",
+          "C": "肝胃不和为本虚，痰气交阻为标实",
+          "D": "本虚为气血不足，标实为寒湿瘀阻"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "405"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "湿热毒蕴，化燥伤津",
+          "B": "实热为主，兼有虚损",
+          "C": "虚实夹杂，寒热错杂",
+          "D": "本虚标实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "408"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚证、热证",
+          "B": "实证",
+          "C": "热深厥深",
+          "D": "血虚风燥兼内热"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "气滞、郁热",
+          "B": "实热证",
+          "C": "阳虚寒凝",
+          "D": "阴虚火旺，兼气机郁滞"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "414"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "气阴两虚为虚，痰毒互结为实",
+          "B": "实热为主，兼有气阴两虚",
+          "C": "属热毒炽盛",
+          "D": "气虚兼痰饮"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "417"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "心阳虚为本，痰瘀互结为标",
+          "B": "实证为主，兼有虚象，属虚实夹杂证",
+          "C": "湿热瘀阻",
+          "D": "本虚为脾肾两虚，标实为气郁痰阻"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "420"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "瘀血",
+          "B": "湿热",
+          "C": "虚实夹杂",
+          "D": "寒湿"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "423"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "湿热毒蕴",
+          "B": "风热犯表",
+          "C": "气滞血瘀",
+          "D": "血虚风燥"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阳虚",
+          "B": "阴虚",
+          "C": "气血两虚",
+          "D": "痰湿"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "“上盛下虚”，上部火旺，下部虚损，属虚实夹杂证",
+          "B": "湿热",
+          "C": "热毒炽盛，津液损伤",
+          "D": "本虚标实，以湿热实邪为主，兼夹瘀血"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "432"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "属湿热",
+          "B": "本虚标实之证，以虚为主，虚中夹实",
+          "C": "气滞、津亏",
+          "D": "本虚标实，以虚证为主，兼有虚火内扰"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "435"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热、津伤",
+          "B": "属热毒炽盛",
+          "C": "血虚为本，燥热为标",
+          "D": "本虚标实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "438"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实，虚热内生，热毒炽盛",
+          "B": "本虚标实，以虚为主",
+          "C": "热、滞、津伤",
+          "D": "寒证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂，以实为主，虚为辅",
+          "B": "湿热",
+          "C": "本虚标实，虚实夹杂",
+          "D": "湿热与虚寒并存，属虚实夹杂证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "血热、风燥、湿阻",
+          "B": "虚寒",
+          "C": "实热与虚损并存",
+          "D": "属瘀证，病性属实"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "447"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实之证，以瘀血阻滞为标，气血虚弱为本",
+          "B": "本虚标实之证，以肝火炽盛为标，气阴两虚为本，瘀血阻络为兼夹",
+          "C": "本虚标实，以肾虚为本，血瘀为标",
+          "D": "风湿热邪蕴结兼气血凝滞"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "450"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "湿热内蕴，热盛津伤",
+          "B": "气血两虚",
+          "C": "湿热瘀毒",
+          "D": "属风热"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "453"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实，标实以痰湿阻滞为主，本虚为肺脾虚弱",
+          "B": "虚实夹杂，以实为主",
+          "C": "阳虚水停",
+          "D": "属阴虚内热"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "456"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证与虚证夹杂，兼夹痰湿",
+          "B": "虚证",
+          "C": "本虚标实",
+          "D": "阳虚、寒湿内阻"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "459"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热与虚损并存",
+          "B": "湿热瘀阻",
+          "C": "气虚",
+          "D": "实热为主，兼有阴虚之象"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "阳虚、血瘀",
+          "B": "属本虚标实之证，以实为主，兼有肾气亏虚",
+          "C": "脾虚为本，湿盛为标",
+          "D": "实火内炽"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "痰湿",
+          "B": "血虚为本，燥热为标",
+          "C": "阳虚精亏兼内寒",
+          "D": "本虚标实，虚寒夹逆"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "468"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂，以实热为主，兼有阴虚",
+          "B": "属风热",
+          "C": "实热为主，兼有阴虚",
+          "D": "阴虚火旺"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "471"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "本虚标实之证，以肝火炽盛为标，气阴两虚为本，瘀血阻络为兼夹",
+          "B": "实热",
+          "C": "属实热证",
+          "D": "属寒湿内蕴，脾阳不足，气血两虚"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "474"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "虚实夹杂，以虚为主，兼有内热",
+          "B": "实证为主，兼有虚证，属虚实夹杂",
+          "C": "脾虚为本，肝郁湿阻为标",
+          "D": "本虚标实，以阴虚血燥为本，风邪郁热为标"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "477"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热为主，兼有阴虚",
+          "B": "本虚标实，虚实夹杂，肺脾虚弱为本，肝气郁结为标",
+          "C": "实火内炽",
+          "D": "寒性为主，兼有虚象"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "480"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实热证",
+          "B": "痰湿内阻",
+          "C": "湿热火毒",
+          "D": "气虚兼痰饮"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "483"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证",
+          "B": "虚实夹杂",
+          "C": "虚证",
+          "D": "血瘀证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "486"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证",
+          "B": "虚实夹杂",
+          "C": "热证",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "489"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "实证",
+          "B": "热证",
+          "C": "虚实夹杂",
+          "D": "虚证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "495"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "热证",
+          "B": "虚实夹杂",
+          "C": "虚证",
+          "D": "实证"
+        },
+        "instructions": "根据病例选择病性的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "498"
+    }
+  ]
+}

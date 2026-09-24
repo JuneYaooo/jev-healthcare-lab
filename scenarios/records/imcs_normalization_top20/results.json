@@ -1,0 +1,339 @@
+{
+  "planned": 100,
+  "successful": 100,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 100,
+    "accuracy": 0.93,
+    "macro_f1_observed_gold_classes": 0.9004629629629629,
+    "per_class": {
+      "__none__": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "中等度热": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "低热": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "出汗": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "发热": {
+        "support": 14,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "呃逆": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "呕吐": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "呼吸道感染": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "咳嗽": {
+        "support": 18,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "咳痰": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "咽喉炎": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "哭闹": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "大便粘液": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "头痛": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "干咳": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "感冒": {
+        "support": 6,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "扁桃体炎": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "支原体感染": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "支气管炎": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "消化不良": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "生理性黄疸": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "畏寒": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "病毒感染": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "痰": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "痰鸣音": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "皮疹": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "稀便": {
+        "support": 5,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.75
+      },
+      "糊状便": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "细菌感染": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "肠炎": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "肺炎": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "脓血便": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "脱水": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "腹泻": {
+        "support": 7,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "蛋花汤样便": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "血便": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "过敏体质": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "高热": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "黄疸": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "鼻流涕": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 92,
+    "lower": 0.8787878787878788,
+    "upper": 0.9711538461538461
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.029899999999999986,
+    "multiclass_brier_sum": 0.0901989898989899,
+    "brier_n": 99,
+    "bins": [
+      {
+        "lower": 0.5,
+        "n": 3,
+        "mean_selected_probability": 0.53,
+        "accuracy": 0.3333333333333333
+      },
+      {
+        "lower": 0.6,
+        "n": 3,
+        "mean_selected_probability": 0.6633333333333334,
+        "accuracy": 0.3333333333333333
+      },
+      {
+        "lower": 0.7,
+        "n": 3,
+        "mean_selected_probability": 0.73,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.8,
+        "n": 17,
+        "mean_selected_probability": 0.851764705882353,
+        "accuracy": 0.8823529411764706
+      },
+      {
+        "lower": 0.9,
+        "n": 74,
+        "mean_selected_probability": 0.9854054054054054,
+        "accuracy": 0.9864864864864865
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 91,
+          "coverage": 0.91,
+          "accuracy": 0.967032967032967
+        },
+        "by_probability_and_api_confidence": {
+          "n": 91,
+          "coverage": 0.91,
+          "accuracy": 0.967032967032967
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 74,
+          "coverage": 0.74,
+          "accuracy": 0.9864864864864865
+        },
+        "by_probability_and_api_confidence": {
+          "n": 71,
+          "coverage": 0.71,
+          "accuracy": 1.0
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 67,
+          "coverage": 0.67,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 64,
+          "coverage": 0.64,
+          "accuracy": 1.0
+        }
+      }
+    }
+  },
+  "input_tokens": 87076,
+  "output_tokens": 23193,
+  "latency_successful_api_p50_s": 0.8994523754809052,
+  "latency_successful_api_p95_s": 1.0290985829778947,
+  "per_indicator": {}
+}

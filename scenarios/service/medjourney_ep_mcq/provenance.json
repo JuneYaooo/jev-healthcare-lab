@@ -1,0 +1,45 @@
+{
+  "task": "medjourney_ep_mcq",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "pipeline_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "pipeline_prepared.jsonl": "f52c81d70ab89635c2159ec2bd2ddf995c924b441851e43e4a60b913a38868a3"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "MedJourney",
+      "source": "https://github.com/Medical-AI-Learning/MedJourney",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_pipeline.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 94411,
+      "sha256": "3fced4b1ee059720d7253ac99988315ec834eab026da86c64270d6da48a1b6d8"
+    },
+    "responses.jsonl": {
+      "bytes": 41845,
+      "sha256": "95857096825861a6db101a2cdd18d9452561993239045ad237927cba3d41c00d"
+    },
+    "index.jsonl": {
+      "bytes": 28252,
+      "sha256": "3c39c92cdad788e7231457d06aabc6418fef177bc3c1772b24ad0f398a97613e"
+    },
+    "prompts.json": {
+      "bytes": 43901,
+      "sha256": "ea439047e444e85709c671f2abe2b21290b15e6e07f9c2e7c5a7d7b92c86c290"
+    },
+    "example.json": {
+      "bytes": 1753,
+      "sha256": "7dc82b530a2a0f09aa8e403f363a6f502fc340df85f672f8fc1f75d31837d8f1"
+    }
+  }
+}

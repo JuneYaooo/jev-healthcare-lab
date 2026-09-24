@@ -1,0 +1,45 @@
+{
+  "task": "cdrugred_discharge_candidate_pipeline",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "pipeline_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "pipeline_prepared.jsonl": "f52c81d70ab89635c2159ec2bd2ddf995c924b441851e43e4a60b913a38868a3"
+  },
+  "sample_count": 100,
+  "groups": 83,
+  "resources": [
+    {
+      "resource": "CDrugRed / CHIP2025 Task2",
+      "source": "https://github.com/bxx-seu/CDrugRed",
+      "completion_note": "官方test无金标；训练发布池按患者hash分离100条holdout，非官方竞赛成绩"
+    }
+  ],
+  "adapter": "prepare_pipeline.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 1537984,
+      "sha256": "61c77761a94b00bdb7c7502c7a8ae0541d7252c1c2ad3279aa690cfc16205e92"
+    },
+    "responses.jsonl": {
+      "bytes": 152819,
+      "sha256": "888d0af63ec7a52b94c90d82d46df8f8ac8b241683c4d0001d3a6efbbd8c4bcf"
+    },
+    "index.jsonl": {
+      "bytes": 36630,
+      "sha256": "2c1a8d2a8b775640d49647e3f5ec87286225bcae32651acd2c80a3e3d315f03f"
+    },
+    "prompts.json": {
+      "bytes": 63460,
+      "sha256": "b6895fd805d27eefd40158926eb1604ef9257fff2c6dc7cd1c82c99284b16e84"
+    },
+    "example.json": {
+      "bytes": 18956,
+      "sha256": "b3f993eaf4f05b07cc341c9038816fe11133c7fd855c11f1b8ffbec40d0ab34c"
+    }
+  }
+}

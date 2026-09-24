@@ -1,0 +1,45 @@
+{
+  "task": "bc5cdr_relation_oracle_entities",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "clinical_extra_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "clinical_extra_prepared.jsonl": "e602b25b2350172423b94761341e19ff57477774fc809204c6d346bd4d1c5b0a"
+  },
+  "sample_count": 100,
+  "groups": 82,
+  "resources": [
+    {
+      "resource": "BC5CDR",
+      "source": "https://ftp.ncbi.nlm.nih.gov/pub/lu/BC5CDR/CDR_Data.zip",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_clinical_extra.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 230480,
+      "sha256": "41b4919916495278a9afa9c8e02ac2c835512a8101ec3259db0f2560892c14af"
+    },
+    "responses.jsonl": {
+      "bytes": 42776,
+      "sha256": "368b0773285998a9064564e73c120a41f94baae327e2a7287df7040069da6470"
+    },
+    "index.jsonl": {
+      "bytes": 32228,
+      "sha256": "b80043302baa283c5310d07d279c81d9ac144805e6377784a830cc66f50f685c"
+    },
+    "prompts.json": {
+      "bytes": 579,
+      "sha256": "24c7685223f28e40c097be6644435bbb7b49db3b3d4ba3c0942b3a074075b3a0"
+    },
+    "example.json": {
+      "bytes": 2537,
+      "sha256": "70e296aa9c6fdd66fabb4d7d248c3b720388235619e780f58f7e5a7b4046817c"
+    }
+  }
+}

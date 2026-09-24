@@ -1,0 +1,65 @@
+{
+  "sample": {
+    "gold": "CONTRADICT",
+    "group": "48",
+    "id": "48:13734012",
+    "metadata": {
+      "source": "SciFact dev; cited-document oracle retrieval, includes NEI, not end-to-end corpus search"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "CONTRADICT": "Contradicts",
+            "NOINFO": "Insufficient evidence",
+            "SUPPORT": "Supports"
+          },
+          "instructions": "Does this supplied abstract support or refute the scientific claim? Use NOINFO if neither follows. Assess only this abstract.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "abstract": [
+          "OBJECTIVES To carry out a further survey of archived appendix samples to understand better the differences between existing estimates of the prevalence of subclinical infection with prions after the bovine spongiform encephalopathy epizootic and to see whether a broader birth cohort was affected, and to understand better the implications for the management of blood and blood products and for the handling of surgical instruments.   \n",
+          "DESIGN Irreversibly unlinked and anonymised large scale survey of archived appendix samples.   \n",
+          "SETTING Archived appendix samples from the pathology departments of 41 UK hospitals participating in the earlier survey, and additional hospitals in regions with lower levels of participation in that survey.   ",
+          "SAMPLE 32,441 archived appendix samples fixed in formalin and embedded in paraffin and tested for the presence of abnormal prion protein (PrP).   \n",
+          "RESULTS Of the 32,441 appendix samples 16 were positive for abnormal PrP, indicating an overall prevalence of 493 per million population (95% confidence interval 282 to 801 per million).",
+          "The prevalence in those born in 1941-60 (733 per million, 269 to 1596 per million) did not differ significantly from those born between 1961 and 1985 (412 per million, 198 to 758 per million) and was similar in both sexes and across the three broad geographical areas sampled.",
+          "Genetic testing of the positive specimens for the genotype at PRNP codon 129 revealed a high proportion that were valine homozygous compared with the frequency in the normal population, and in stark contrast with confirmed clinical cases of vCJD, all of which were methionine homozygous at PRNP codon 129.   \n",
+          "CONCLUSIONS This study corroborates previous studies and suggests a high prevalence of infection with abnormal PrP, indicating vCJD carrier status in the population compared with the 177 vCJD cases to date.",
+          "These findings have important implications for the management of blood and blood products and for the handling of surgical instruments."
+        ],
+        "claim": "A total of 1,000 people in the UK are asymptomatic carriers of vCJD infection."
+      }
+    },
+    "request_sha256": "4389a39b869a5ebcf89c98eb75b067810950d00ce1ddd92dfae539225a0ebb73",
+    "task": "scifact_cited_abstract"
+  },
+  "response": {
+    "elapsed_s": 0.5556623340235092,
+    "id": "48:13734012",
+    "request_sha256": "4389a39b869a5ebcf89c98eb75b067810950d00ce1ddd92dfae539225a0ebb73",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "CONTRADICT",
+          "confidence": 0.46,
+          "probabilities": {
+            "CONTRADICT": 0.64,
+            "NOINFO": 0.15,
+            "SUPPORT": 0.21
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 867,
+        "output_tokens": 46
+      }
+    },
+    "status": "ok",
+    "task": "scifact_cited_abstract"
+  }
+}

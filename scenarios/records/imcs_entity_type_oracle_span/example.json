@@ -1,0 +1,61 @@
+{
+  "sample": {
+    "gold": "Drug",
+    "group": "10308783",
+    "id": "10308783:17:0",
+    "metadata": {
+      "oracle": "given_gold_span; not end-to-end extraction"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "Drug": "具体药品名称",
+            "Drug_Category": "药物类别而非具体药品",
+            "Medical_Examination": "医学检查检验",
+            "Operation": "医疗操作",
+            "Symptom": "症状或临床表现"
+          },
+          "instructions": "已给定实体边界，只判断 target_span 的类型。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "end_exclusive": 10,
+        "sentence": "昨天医院开的蒙脱石散和妈咪爱",
+        "start": 6,
+        "target_span": "蒙脱石散"
+      }
+    },
+    "request_sha256": "31d77cbcf2294b6dd2b77e48d78c1219eb6f6750ab67eee1ac828ffb77c3867b",
+    "task": "imcs_entity_type_oracle_span"
+  },
+  "response": {
+    "elapsed_s": 0.9128837499883957,
+    "id": "10308783:17:0",
+    "request_sha256": "31d77cbcf2294b6dd2b77e48d78c1219eb6f6750ab67eee1ac828ffb77c3867b",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "Drug",
+          "confidence": 1.0,
+          "probabilities": {
+            "Drug": 1.0,
+            "Drug_Category": 0.0,
+            "Medical_Examination": 0.0,
+            "Operation": 0.0,
+            "Symptom": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 436,
+        "output_tokens": 58
+      }
+    },
+    "status": "ok",
+    "task": "imcs_entity_type_oracle_span"
+  }
+}

@@ -14,3 +14,4 @@ jobs:
       - run: python -m compileall -q scripts
       - run: python scripts/summary.py
       - run: python scripts/build_scenario_report.py --check
+      - run: python scripts/verify_experiments.py

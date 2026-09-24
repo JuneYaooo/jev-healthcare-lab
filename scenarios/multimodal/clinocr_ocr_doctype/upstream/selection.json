@@ -1,0 +1,146 @@
+[
+  {
+    "doc_id": "handwriting_t1_s2",
+    "subset": "handwriting",
+    "template": 1,
+    "sample": 2,
+    "image": "scans/handwriting/template_1_sample_2_handwriting.jpg",
+    "ground_truth": "ground_truth/handwriting/template_1_sample_2_handwriting.txt",
+    "homo_oneshot": {
+      "doc_id": "handwriting_t1_s1",
+      "subset": "handwriting",
+      "template": 1,
+      "sample": 1,
+      "image": "scans/handwriting/template_1_sample_1_handwriting.jpg",
+      "ground_truth": "ground_truth/handwriting/template_1_sample_1_handwriting.txt"
+    },
+    "hetero_oneshot": {
+      "doc_id": "handwriting_t2_s1",
+      "subset": "handwriting",
+      "template": 2,
+      "sample": 1,
+      "image": "scans/handwriting/template_2_sample_1_handwriting.jpg",
+      "ground_truth": "ground_truth/handwriting/template_2_sample_1_handwriting.txt"
+    }
+  },
+  {
+    "doc_id": "mixed_t9_s2",
+    "subset": "mixed",
+    "template": 9,
+    "sample": 2,
+    "image": "scans/mixed/template_9_sample_2_mixed.jpg",
+    "ground_truth": "ground_truth/mixed/template_9_sample_2_mixed.txt",
+    "homo_oneshot": {
+      "doc_id": "mixed_t9_s1",
+      "subset": "mixed",
+      "template": 9,
+      "sample": 1,
+      "image": "scans/mixed/template_9_sample_1_mixed.jpg",
+      "ground_truth": "ground_truth/mixed/template_9_sample_1_mixed.txt"
+    },
+    "hetero_oneshot": {
+      "doc_id": "mixed_t10_s3",
+      "subset": "mixed",
+      "template": 10,
+      "sample": 3,
+      "image": "scans/mixed/template_10_sample_3_mixed.jpg",
+      "ground_truth": "ground_truth/mixed/template_10_sample_3_mixed.txt"
+    }
+  },
+  {
+    "doc_id": "normal_t1_s2",
+    "subset": "normal",
+    "template": 1,
+    "sample": 2,
+    "image": "scans/normal/template_1_sample_2_normal.jpg",
+    "ground_truth": "ground_truth/normal/template_1_sample_2_normal.txt",
+    "homo_oneshot": {
+      "doc_id": "normal_t1_s1",
+      "subset": "normal",
+      "template": 1,
+      "sample": 1,
+      "image": "scans/normal/template_1_sample_1_normal.jpg",
+      "ground_truth": "ground_truth/normal/template_1_sample_1_normal.txt"
+    },
+    "hetero_oneshot": {
+      "doc_id": "normal_t2_s1",
+      "subset": "normal",
+      "template": 2,
+      "sample": 1,
+      "image": "scans/normal/template_2_sample_1_normal.jpg",
+      "ground_truth": "ground_truth/normal/template_2_sample_1_normal.txt"
+    }
+  },
+  {
+    "doc_id": "poor_t1_s2",
+    "subset": "poor",
+    "template": 1,
+    "sample": 2,
+    "image": "scans/poor/template_1_sample_2_poor.jpg",
+    "ground_truth": "ground_truth/poor/template_1_sample_2_poor.txt",
+    "homo_oneshot": {
+      "doc_id": "poor_t1_s1",
+      "subset": "poor",
+      "template": 1,
+      "sample": 1,
+      "image": "scans/poor/template_1_sample_1_poor.jpg",
+      "ground_truth": "ground_truth/poor/template_1_sample_1_poor.txt"
+    },
+    "hetero_oneshot": {
+      "doc_id": "poor_t2_s1",
+      "subset": "poor",
+      "template": 2,
+      "sample": 1,
+      "image": "scans/poor/template_2_sample_1_poor.jpg",
+      "ground_truth": "ground_truth/poor/template_2_sample_1_poor.txt"
+    }
+  },
+  {
+    "doc_id": "rotated_t1_s2",
+    "subset": "rotated",
+    "template": 1,
+    "sample": 2,
+    "image": "scans/rotated/template_1_sample_2_rotated.jpg",
+    "ground_truth": "ground_truth/rotated/template_1_sample_2_rotated.txt",
+    "homo_oneshot": {
+      "doc_id": "rotated_t1_s1",
+      "subset": "rotated",
+      "template": 1,
+      "sample": 1,
+      "image": "scans/rotated/template_1_sample_1_rotated.jpg",
+      "ground_truth": "ground_truth/rotated/template_1_sample_1_rotated.txt"
+    },
+    "hetero_oneshot": {
+      "doc_id": "rotated_t2_s1",
+      "subset": "rotated",
+      "template": 2,
+      "sample": 1,
+      "image": "scans/rotated/template_2_sample_1_rotated.jpg",
+      "ground_truth": "ground_truth/rotated/template_2_sample_1_rotated.txt"
+    }
+  },
+  {
+    "doc_id": "tables_t9_s2",
+    "subset": "tables",
+    "template": 9,
+    "sample": 2,
+    "image": "scans/tables/template_9_sample_2_tables.jpg",
+    "ground_truth": "ground_truth/tables/template_9_sample_2_tables.txt",
+    "homo_oneshot": {
+      "doc_id": "tables_t9_s1",
+      "subset": "tables",
+      "template": 9,
+      "sample": 1,
+      "image": "scans/tables/template_9_sample_1_tables.jpg",
+      "ground_truth": "ground_truth/tables/template_9_sample_1_tables.txt"
+    },
+    "hetero_oneshot": {
+      "doc_id": "tables_t10_s1",
+      "subset": "tables",
+      "template": 10,
+      "sample": 1,
+      "image": "scans/tables/template_10_sample_1_tables.jpg",
+      "ground_truth": "ground_truth/tables/template_10_sample_1_tables.txt"
+    }
+  }
+]

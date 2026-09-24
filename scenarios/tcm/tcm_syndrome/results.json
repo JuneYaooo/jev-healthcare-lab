@@ -1,0 +1,441 @@
+{
+  "planned": 100,
+  "successful": 100,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 100,
+    "accuracy": 0.33,
+    "macro_f1_observed_gold_classes": 0.22524166165139795,
+    "per_class": {
+      "中气下陷证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "中气不足证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "外伤损络证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "寒痰阻肺证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "心肺气虚证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "心脉痹阻证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "正虚毒瘀证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "正虚瘀结证": {
+        "support": 6,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "气不摄血证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "气滞血瘀证": {
+        "support": 7,
+        "precision": 0.3333333333333333,
+        "recall": 0.2857142857142857,
+        "f1": 0.3076923076923077
+      },
+      "气虚血溢证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "气虚血瘀证": {
+        "support": 15,
+        "precision": 0.5,
+        "recall": 0.4666666666666667,
+        "f1": 0.4827586206896552
+      },
+      "气阴两虚证": {
+        "support": 1,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4
+      },
+      "湿热下注证": {
+        "support": 20,
+        "precision": 0.8461538461538461,
+        "recall": 0.55,
+        "f1": 0.6666666666666666
+      },
+      "湿热内蕴证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "湿热蕴结证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "热毒壅结证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "热毒蕴结证": {
+        "support": 6,
+        "precision": 1.0,
+        "recall": 0.16666666666666666,
+        "f1": 0.2857142857142857
+      },
+      "痰浊内蕴证": {
+        "support": 2,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "痰浊蒙窍证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "痰湿内阻证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "痰湿蒙窍证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "痰湿蕴肺证": {
+        "support": 7,
+        "precision": 0.6666666666666666,
+        "recall": 0.5714285714285714,
+        "f1": 0.6153846153846154
+      },
+      "痰热壅肺证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "痰瘀互结证": {
+        "support": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "痰瘀痹阻证": {
+        "support": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "瘀血阻滞证": {
+        "support": 2,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "瘀血阻络证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "瘀阻心脉证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "肝经湿热证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "肝肾亏虚证": {
+        "support": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "肝肾阴虚证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "肝胃不和证": {
+        "support": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "肝胃郁热证": {
+        "support": 1,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "肝胆湿热证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "肝郁气滞证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "肝郁脾虚证": {
+        "support": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "肝阳上亢证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "肠燥津伤证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "肾气虚证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "肾虚证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "脾肾两虚证": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5
+      },
+      "脾胃气虚证": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "脾胃虚寒证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "脾胃虚弱证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "血热证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "阳虚水泛证": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "阴虚血热证": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "阴虚阳亢证": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "风寒外袭证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "风寒袭肺证": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "风痰入络证": {
+        "support": 2,
+        "precision": 0.3333333333333333,
+        "recall": 0.5,
+        "f1": 0.4
+      },
+      "风痰瘀阻证": {
+        "support": 5,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.3333333333333333
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 100,
+    "lower": 0.24,
+    "upper": 0.42
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.14859999999999998,
+    "multiclass_brier_sum": 0.866866,
+    "brier_n": 100,
+    "bins": [
+      {
+        "lower": 0.1,
+        "n": 4,
+        "mean_selected_probability": 0.17750000000000002,
+        "accuracy": 0.5
+      },
+      {
+        "lower": 0.2,
+        "n": 27,
+        "mean_selected_probability": 0.2525925925925926,
+        "accuracy": 0.18518518518518517
+      },
+      {
+        "lower": 0.3,
+        "n": 25,
+        "mean_selected_probability": 0.33520000000000005,
+        "accuracy": 0.4
+      },
+      {
+        "lower": 0.4,
+        "n": 16,
+        "mean_selected_probability": 0.44,
+        "accuracy": 0.375
+      },
+      {
+        "lower": 0.5,
+        "n": 8,
+        "mean_selected_probability": 0.5425,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.6,
+        "n": 8,
+        "mean_selected_probability": 0.64,
+        "accuracy": 0.375
+      },
+      {
+        "lower": 0.7,
+        "n": 6,
+        "mean_selected_probability": 0.7283333333333334,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "lower": 0.8,
+        "n": 5,
+        "mean_selected_probability": 0.8699999999999999,
+        "accuracy": 0.6
+      },
+      {
+        "lower": 0.9,
+        "n": 1,
+        "mean_selected_probability": 0.91,
+        "accuracy": 0.0
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 6,
+          "coverage": 0.06,
+          "accuracy": 0.5
+        },
+        "by_probability_and_api_confidence": {
+          "n": 6,
+          "coverage": 0.06,
+          "accuracy": 0.5
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 1,
+          "coverage": 0.01,
+          "accuracy": 0.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 1,
+          "coverage": 0.01,
+          "accuracy": 0.0
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 0,
+          "coverage": 0.0,
+          "accuracy": null
+        },
+        "by_probability_and_api_confidence": {
+          "n": 0,
+          "coverage": 0.0,
+          "accuracy": null
+        }
+      }
+    }
+  },
+  "input_tokens": 403926,
+  "output_tokens": 178907,
+  "latency_successful_api_p50_s": 1.161936645541573,
+  "latency_successful_api_p95_s": 1.6615111659630202,
+  "per_indicator": {}
+}

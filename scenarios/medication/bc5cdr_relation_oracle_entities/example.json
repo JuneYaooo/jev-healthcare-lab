@@ -1,0 +1,59 @@
+{
+  "sample": {
+    "gold": "yes",
+    "group": "17356399",
+    "id": "17356399:C042705:D006212",
+    "metadata": {
+      "source": "official test;50/class; given entity IDs/mentions, not end-to-end extraction"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "no": "No annotated chemical-induced disease relation",
+            "yes": "Chemical induces the disease"
+          },
+          "instructions": "Does the abstract establish a chemical-induced disease relation for these target entities, rather than a treatment relation or mere co-occurrence?",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "abstract": "Acute encephalopathy and cerebral vasospasm after multiagent chemotherapy including PEG-asparaginase and intrathecal cytarabine for the treatment of acute lymphoblastic leukemia. A 7-year-old girl with an unusual reaction to induction chemotherapy for precursor B-cell acute lymphoblastic leukemia (ALL) is described. The patient developed acute encephalopathy evidenced by behavioral changes, aphasia, incontinence, visual hallucinations, and right-sided weakness with diffuse cerebral vasospasm on magnetic resonance angiography after the administration of intrathecal cytarabine. Vincristine, dexamethasone, and polyethylene glycol-asparaginase were also administered before the episode as part of induction therapy. Neurologic status returned to baseline within 10 days of the acute event, and magnetic resonance angiography findings returned to normal 4 months later.",
+        "chemical_mentions": [
+          "PEG-asparaginase",
+          "polyethylene glycol-asparaginase"
+        ],
+        "disease_mentions": [
+          "visual hallucinations"
+        ]
+      }
+    },
+    "request_sha256": "a0ca10461e7bf813733b73c6f38e5337a58a3e526d8400d43055e6766d553cf1",
+    "task": "bc5cdr_relation_oracle_entities"
+  },
+  "response": {
+    "elapsed_s": 0.6341533749946393,
+    "id": "17356399:C042705:D006212",
+    "request_sha256": "a0ca10461e7bf813733b73c6f38e5337a58a3e526d8400d43055e6766d553cf1",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "no",
+          "confidence": 0.13,
+          "probabilities": {
+            "no": 0.56,
+            "yes": 0.44
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 573,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "bc5cdr_relation_oracle_entities"
+  }
+}

@@ -1,0 +1,1507 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "乳腺钼靶X线",
+          "1": "乳腺B超",
+          "2": "乳腺触诊",
+          "3": "乳腺核磁",
+          "4": "不推荐"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "409"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "ELISA",
+          "1": "荧光免疫",
+          "2": "放射免疫",
+          "3": "酶免疫印迹",
+          "4": "胶体金层析"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "357"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫颈活检",
+          "1": "宫颈刮片细胞学检查",
+          "2": "宫颈锥切切除，病理检查",
+          "3": "碘试验",
+          "4": "阴道镜检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "205"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "红细胞沉降率",
+          "1": "抗链球菌抗体",
+          "2": "抗中性粒细胞胞浆抗体",
+          "3": "肌酶谱",
+          "4": "免疫球蛋白"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "208"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "超声心动图",
+          "1": "心电图",
+          "2": "核素心肌显像",
+          "3": "心电向量图",
+          "4": "临床体征"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "178"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "放射性核素胰腺扫描",
+          "1": "经皮肝穿胆管造影",
+          "2": "十二指肠低张造影",
+          "3": "腹腔动脉血管造影",
+          "4": "腹腔镜检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "236"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "放射性核素胰腺造影",
+          "1": "ERCP",
+          "2": "十二指肠低张造影",
+          "3": "腹腔镜探查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "418"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "RAST",
+          "1": "直接免疫荧光",
+          "2": "间接免疫荧光",
+          "3": "乳胶凝集试验",
+          "4": "ELISA"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "366"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "PCR",
+          "1": "核酸杂交",
+          "2": "基因芯片",
+          "3": "基因置换",
+          "4": "序列分析"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "ESR",
+          "1": "ASO",
+          "2": "结核抗体",
+          "3": "支原体抗体",
+          "4": "CRP"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "一秒钟用力呼气容积（FEV₁）＜60%",
+          "1": "最大呼气流量（PEF）＜60%",
+          "2": "吸入沙丁胺醇后FEV₁增加率＞15%",
+          "3": "吸入二丙酸倍氯米松后FEV₁增加率＞15%",
+          "4": "支气管激发试验阳性"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "113"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Thomas征",
+          "1": "Tinel征",
+          "2": "Hoffmann征",
+          "3": "Babinski征",
+          "4": "Dugas征"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "156"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫颈活检",
+          "1": "阴道涂片",
+          "2": "宫颈刮片",
+          "3": "阴道",
+          "4": "B超"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "155"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胸部X线正侧位照片",
+          "1": "肺功能",
+          "2": "血常规",
+          "3": "纤维支气管镜",
+          "4": "磁共振显像"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "209"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腹部平片",
+          "1": "立位透视",
+          "2": "选择性肾动脉造影",
+          "3": "逆行肾盂造影",
+          "4": "IVP"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "385"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "是一种阴道与腹壁的联合检查",
+          "1": "检查者双手的示指",
+          "2": "中指进入阴道",
+          "3": "可较清晰地触及子宫后壁",
+          "4": "被检查者取左侧卧位",
+          "5": "适用于未婚女性"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胸片",
+          "1": "心电图",
+          "2": "心脏彩超",
+          "3": "24小时动态心电图",
+          "4": "血气分析"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "352"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腰椎穿刺",
+          "1": "脑脊液生化及培养",
+          "2": "头颅CT",
+          "3": "胸部X线摄片",
+          "4": "血胆红素测定",
+          "5": "血常规"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "206"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "HIV病毒载量检测",
+          "1": "HIV基因型耐药检测",
+          "2": "HIV p24抗原检测",
+          "3": "HIV抗体检测",
+          "4": "HIV的分离培养"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "394"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "血红蛋白的数量",
+          "1": "红细胞的数目",
+          "2": "中性粒细胞碱性磷酸酶(NAP)积分",
+          "3": "血小板的数量",
+          "4": "血细胞比容的多少"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "颅脑超声",
+          "1": "血清CPK-BB",
+          "2": "脑电图",
+          "3": "头颅CT",
+          "4": "临床表现"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "痰标本革兰染色镜检",
+          "1": "病毒分离培养",
+          "2": "补体结合试验",
+          "3": "冷凝集试验",
+          "4": "病原体培养"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "377"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肾穿刺",
+          "1": "静脉肾盂造影",
+          "2": "肾脏CT",
+          "3": "肾脏MRI",
+          "4": "肾脏B超"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "192"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "RF",
+          "1": "CRP",
+          "2": "ESR",
+          "3": "抗ENA抗体",
+          "4": "抗CCP抗体"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "316"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "平扫脑CT或脑MRI",
+          "1": "肝功化验",
+          "2": "脑电图",
+          "3": "动脉血气分析",
+          "4": "凝血常规"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "323"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "CT检查",
+          "1": "B超",
+          "2": "腹部平片",
+          "3": "腹腔镜检",
+          "4": "细胞学检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "103"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "红细胞内游离原卟啉下降",
+          "1": "细胞中央淡染区扩大",
+          "2": "总铁结合力升高",
+          "3": "血清蛋白低于正常",
+          "4": "红细胞内游离原卟啉升高"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "195"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "TSH测定",
+          "1": "TT3测定",
+          "2": "FT3测定",
+          "3": "甲状腺B超",
+          "4": "甲状腺摄131I率"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "159"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肾脏B超",
+          "1": "尿找癌细胞",
+          "2": "肾活检",
+          "3": "尿RBC畸形率检查",
+          "4": "静脉肾盂造影"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "218"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "临床表现",
+          "1": "基础代谢率测定",
+          "2": "放射性碘摄取试验",
+          "3": "甲状腺扫描",
+          "4": "PBI测定（血清蛋白结合碘）"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "219"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "红细胞渗透脆性试验.",
+          "1": "酸化血清溶血试验",
+          "2": "抗人球蛋白试验",
+          "3": "高铁血红蛋白还原试验",
+          "4": "血红蛋白电泳分析"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "333"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心电图",
+          "1": "放射性核素",
+          "2": "二维超声心动图",
+          "3": "冠状动脉造影"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "妇科查体",
+          "1": "宫颈病理检查",
+          "2": "血常规",
+          "3": "输卵管碘油造影",
+          "4": "结核菌素试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "214"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "B超",
+          "1": "静脉尿路造影",
+          "2": "逆行肾盂造影",
+          "3": "CT",
+          "4": "MRI"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "92"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "测定血浆ACTH浓度",
+          "1": "CRH兴奋试验",
+          "2": "小剂量地塞米松抑制试验",
+          "3": "大剂量地塞米松抑制试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "421"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "双合诊",
+          "1": "三合诊",
+          "2": "肛腹诊",
+          "3": "阴道B超",
+          "4": "阴道窥器检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "174"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "白细胞计数",
+          "1": "红细胞计数",
+          "2": "红细胞渗透脆性试验",
+          "3": "白细胞涂片分类",
+          "4": "血细胞比容测定"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "350"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腹部CT",
+          "1": "胃镜",
+          "2": "尿淀粉酶",
+          "3": "腹部X线平片",
+          "4": "血清淀粉酶"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "36"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "粪常规",
+          "1": "肝肾功能",
+          "2": "腹部B超",
+          "3": "血培养",
+          "4": "环卵沉淀试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "115"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "大便隐血试验可呈阳性",
+          "1": "毛细血管脆性试验阳性",
+          "2": "血清IgA及补体C3降低",
+          "3": "血小板计数",
+          "4": "出凝血时间及血块退缩时间正常",
+          "5": "尿液检查可有血尿",
+          "6": "蛋白尿及管型"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "397"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "血清雌激素测定",
+          "1": "宫颈粘液检查",
+          "2": "尿雌二醇测定",
+          "3": "基础体温测定",
+          "4": "诊断性刮宫"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "35"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "观察瓣膜口狭窄面积",
+          "1": "观察瓣膜有无关闭不全和程度",
+          "2": "观察心腔间有无左向右分流和程度",
+          "3": "观察心腔与大血管间的分流",
+          "4": "观察心腔间的右向左分流"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "169"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "骨龄测定",
+          "1": "血清T₃，T₄，TSH",
+          "2": "染色体核型",
+          "3": "尿三氯化铁",
+          "4": "血氨基酸分析"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "51"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "锡克试验",
+          "1": "结核菌素试验",
+          "2": "抗O试验",
+          "3": "肥达试验",
+          "4": "外斐试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "196"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "B超",
+          "1": "腹部X线摄片",
+          "2": "CT/MRI",
+          "3": "腹腔穿刺",
+          "4": "血",
+          "5": "尿淀粉酶"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "小肠X线钡剂造影",
+          "1": "腹部CT",
+          "2": "结肠镜",
+          "3": "粪细菌培养",
+          "4": "腹部B超"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "128"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "直接凝集试验",
+          "1": "间接凝集试验",
+          "2": "间接凝集抑制试验",
+          "3": "沉淀反应",
+          "4": "补体结合试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "X线平片检查",
+          "1": "CT",
+          "2": "多层螺旋CT",
+          "3": "MRI",
+          "4": "B超"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "371"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫腔镜检查",
+          "1": "阴道镜检查",
+          "2": "B型超声检查",
+          "3": "尿妊娠试验",
+          "4": "阴道后穹隆穿刺"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "283"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "餐后2小时血糖",
+          "1": "血谷氨酸脱羧酶抗体",
+          "2": "口服葡萄糖耐量试验",
+          "3": "糖化血红蛋白",
+          "4": "24小时尿糖定量"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "44"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "超声心动图",
+          "1": "心肌坏死标志物",
+          "2": "胸部X线片",
+          "3": "血D-二聚体",
+          "4": "胸部B超"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "69"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "共同途径凝血因子筛选试验",
+          "1": "DIC确诊试验",
+          "2": "内源性凝血因子筛选试验",
+          "3": "外源性凝血因子筛选试验",
+          "4": "DIC筛选试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "332"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "再次行宫颈刮片查癌细胞",
+          "1": "行刮宫活组织检查",
+          "2": "再次行阴道镜下宫颈活检",
+          "3": "行分段刮宫活组织检查",
+          "4": "行宫颈锥切活组织检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "227"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫颈涂片检查",
+          "1": "分段诊断性刮宫",
+          "2": "阴道镜检查",
+          "3": "宫颈活体组织检查",
+          "4": "阴道脱落细胞学检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "248"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "双合诊",
+          "1": "阴道分泌物悬滴检查",
+          "2": "B超",
+          "3": "阴道镜检查",
+          "4": "宫颈刮片检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "250"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "确诊指标",
+          "1": "敏感指标",
+          "2": "特异指标",
+          "3": "辅助参考指标",
+          "4": "价值不大"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "310"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "痰细胞学检查",
+          "1": "支气管检查",
+          "2": "胸部X线检查",
+          "3": "胸腔积液检查",
+          "4": "经胸壁穿刺活检"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "100"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "便常规+潜血",
+          "1": "14C呼气试验",
+          "2": "胃镜+活检",
+          "3": "腹部CT",
+          "4": "X线钡餐"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "157"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "经胸壁穿刺活检",
+          "1": "支气管镜检查",
+          "2": "痰涂片",
+          "3": "血常规",
+          "4": "肺功能检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "62"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "多平面重组",
+          "1": "表面遮蔽显示",
+          "2": "最大密度投影",
+          "3": "动态增强扫描",
+          "4": "CT仿真内镜"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "334"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "注射显像剂前3天开始服用复方碘溶液以封闭甲状腺",
+          "1": "检查前应停用地塞米松",
+          "2": "检查前停用降胆固醇药物",
+          "3": "检查前停用利血平",
+          "4": "检查前停用利尿剂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "373"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腹部CT",
+          "1": "腹部B超",
+          "2": "粪细菌培养",
+          "3": "腹腔穿刺抽液检查",
+          "4": "结核菌素试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "114"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "CA199",
+          "1": "AFP",
+          "2": "CA125",
+          "3": "CEA",
+          "4": "PSA"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "检查前排空小便",
+          "1": "取膀胱截石位",
+          "2": "对未婚者严禁放置扩阴器",
+          "3": "每检查一人，更换一次性垫纸防止交叉感染",
+          "4": "阴道有流血者严禁盆腔检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "237"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "排泄性尿路造影",
+          "1": "逆行肾盂造影",
+          "2": "B超",
+          "3": "肾动脉造影",
+          "4": "CT"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "58"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胃镜",
+          "1": "血清肿瘤标志物",
+          "2": "腹部B超",
+          "3": "腹部CT",
+          "4": "上消化道X线钡剂造影"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "56"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "血清IgG升高，血嗜酸性粒细胞增多",
+          "1": "血清IgE正常，血嗜酸性粒细胞减少",
+          "2": "血清IgE降低，血嗜酸性粒细胞减少",
+          "3": "血清IgG升高，血嗜酸性粒细胞正常",
+          "4": "血清IgE升高，血嗜酸性粒细胞增多"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "406"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "眼底检查",
+          "1": "B型超声检查",
+          "2": "肝功能检查",
+          "3": "白细胞计数",
+          "4": "血细胞比容"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "问诊",
+          "1": "叩诊",
+          "2": "听诊",
+          "3": "触诊",
+          "4": "视诊"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "245"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "血常规，白细胞总数和分类",
+          "1": "腰穿做脑脊液常规及生化",
+          "2": "腰穿做脑脊液免疫球蛋白测定",
+          "3": "脑电图检查",
+          "4": "脑CT检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "112"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "悬滴法",
+          "1": "革兰染色法",
+          "2": "抗酸染色法",
+          "3": "暗视野显微镜法",
+          "4": "压片棉蓝染色法"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "PPD试验",
+          "1": "血白蛋白",
+          "2": "血常规＋血沉",
+          "3": "腹腔穿刺及腹水化验",
+          "4": "腹部CT"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "阴道镜检查",
+          "1": "LEEP锥切术",
+          "2": "宫颈活检",
+          "3": "宫颈冷刀锥切术",
+          "4": "宫颈细胞学检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "67"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "头颅MRI，以了解有无脑转移",
+          "1": "脊髓MRI，以了解有无脊髓转移",
+          "2": "腹部CT，以了解有无肝转移",
+          "3": "血生化检查，以了解有无低钙血症等电解质异常",
+          "4": "暂时不需要检查，观察病情变化"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "346"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肾活检",
+          "1": "IgM抗体",
+          "2": "血涂片",
+          "3": "显微凝集试验",
+          "4": "抗原快速检测"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "33"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "CT",
+          "1": "B超",
+          "2": "MRI",
+          "3": "ERCP",
+          "4": "ECT"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "49"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "性激素测定",
+          "1": "宫颈醋酸白试验",
+          "2": "B超",
+          "3": "子宫颈细胞学检查",
+          "4": "子宫内膜活检"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "176"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "血清胆红素≥85μmol/L",
+          "1": "血清胆红素≤171μmol/L",
+          "2": "血清胆红素≤220.6μmol/L",
+          "3": "血清胆红素<257μmol/L",
+          "4": "血清胆红素>342μmol/L"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "262"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "蛋白电泳示多种免疫蛋白升高",
+          "1": "抗肾小球膜抗体阳性",
+          "2": "抗核抗体阳性",
+          "3": "免疫固定电泳示单克隆免疫球蛋白",
+          "4": "抗中性粒细胞胞浆抗体阳性"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "121"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "粒度检查",
+          "1": "装量检查",
+          "2": "微生物限度",
+          "3": "无菌检查",
+          "4": "崩解时限"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "发病24小时内即可被测得",
+          "1": "淀粉酶＞500U/dl(索氏法）可诊断",
+          "2": "尿淀粉酶升高持续时间比血淀粉酶长",
+          "3": "淀粉酶值的高低与病变程度成正比"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "430"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "膀胱镜",
+          "1": "泌尿系统彩超",
+          "2": "腹部CT",
+          "3": "静脉尿路造影",
+          "4": "PET",
+          "5": "骨扫描"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心脏听诊",
+          "1": "X线摄片",
+          "2": "心电图",
+          "3": "超声心动图",
+          "4": "酶学检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "392"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "CT",
+          "1": "MRI",
+          "2": "B超",
+          "3": "KUB",
+          "4": "膀胱造影检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "138"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胎心率130次/分",
+          "1": "妊娠近足月时，胎动＞20次/24小时",
+          "2": "孕妇尿雌三醇值15mg/24小时",
+          "3": "头位，羊水胎粪污染Ⅲ°",
+          "4": "雌激素/肌苷(E/C)比值＞15"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "160"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胸部X线",
+          "1": "血常规",
+          "2": "血清过敏原检测",
+          "3": "支气管激发试验",
+          "4": "痰培养"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "398"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "X线胃肠钡餐透视",
+          "1": "X线钡灌肠透视检查",
+          "2": "大便潜血检查",
+          "3": "B型超声检查",
+          "4": "胃镜检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "前列腺穿刺活检",
+          "1": "前列腺MRI",
+          "2": "膀胱尿道镜检查",
+          "3": "前列腺增强CT",
+          "4": "经直肠前列腺超声"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "头MRI",
+          "1": "脑电图",
+          "2": "脑脊液",
+          "3": "人格测试",
+          "4": "头颅CT"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫颈刮片细胞学检查",
+          "1": "宫颈活检",
+          "2": "阴道镜",
+          "3": "分段诊断性刮宫",
+          "4": "碘试验"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "290"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肝脏和脾脏以AM顶为扫描基线",
+          "1": "腹膜后腔以肝门为扫描基线",
+          "2": "胆囊和胰腺以肝门为扫描基线",
+          "3": "肾和肾上腺以肾上极为扫描基线",
+          "4": "腹部扫描采用标准或高分辨率模式"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "345"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "CT肺动脉造影",
+          "1": "胸部X线片",
+          "2": "肺通气功能",
+          "3": "血气分析",
+          "4": "超声心动图"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "104"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "检测血清中游离的完全抗体",
+          "1": "检测红细胞上的不完全抗体",
+          "2": "出现红细胞凝集为阴性",
+          "3": "多用于检测母体血清中Rh(D)抗体",
+          "4": "常用于自身免疫性溶血性贫血的检测"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "353"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "B型超声检查",
+          "1": "后穹窿穿刺",
+          "2": "血常规及出凝血时间",
+          "3": "尿妊娠试验",
+          "4": "诊断性刮宫"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "磁共振成像",
+          "1": "肾动脉造影",
+          "2": "静脉肾盂造影",
+          "3": "放射性核素肾图",
+          "4": "肾动脉核素图"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "81"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "幽门螺杆菌培养",
+          "1": "血清幽门螺杆菌抗体检查",
+          "2": "¹³C或¹⁴C尿素呼气试验",
+          "3": "快速尿素酶试验",
+          "4": "组织学检查"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "130"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "心室容积",
+          "1": "跨瓣压差",
+          "2": "静脉压力",
+          "3": "心腔流量",
+          "4": "血流速度"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "150"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "核素骨扫描",
+          "1": "X线摄片",
+          "2": "B型超声",
+          "3": "CT",
+          "4": "MRI"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "98"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "椎体破坏的程度",
+          "1": "椎体破坏的数目",
+          "2": "椎旁软组织阴影的形态",
+          "3": "椎间隙是否变狭窄或消失",
+          "4": "椎体骨质疏松的程度"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "154"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "宫腔镜检查",
+          "1": "阴道后穹窿穿刺",
+          "2": "阴道B超检查",
+          "3": "盆腔检查",
+          "4": "诊断性刮宫"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    }
+  ]
+}

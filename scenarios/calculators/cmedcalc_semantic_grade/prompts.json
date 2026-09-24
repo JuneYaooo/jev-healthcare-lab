@@ -1,0 +1,176 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "1": "1",
+          "1+": "1+",
+          "2": "2",
+          "2+": "2+",
+          "2-": "2-",
+          "3": "3",
+          "3+": "3+",
+          "3-": "3-",
+          "4": "4",
+          "4+": "4+",
+          "4-": "4-",
+          "5": "5",
+          "5-": "5-",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 10,
+      "example_sample_id": "1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 10,
+      "example_sample_id": "11"
+    },
+    {
+      "question": {
+        "criteria": {
+          "III度": "III度",
+          "I度": "I度",
+          "unknown": "病历资料不足，不能确定分级",
+          "浅II度": "浅II度",
+          "深II度": "深II度"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 10,
+      "example_sample_id": "21"
+    },
+    {
+      "question": {
+        "criteria": {
+          "I": "I",
+          "II": "II",
+          "III": "III",
+          "IV": "IV",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 39,
+      "example_sample_id": "31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D",
+          "E": "E",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 10,
+      "example_sample_id": "41"
+    },
+    {
+      "question": {
+        "criteria": {
+          "unknown": "病历资料不足，不能确定分级",
+          "中度活动": "中度活动",
+          "无活动": "无活动",
+          "极高度活动": "极高度活动",
+          "轻度活动": "轻度活动",
+          "高度活动": "高度活动"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "51"
+    },
+    {
+      "question": {
+        "criteria": {
+          "III": "III",
+          "IIa": "IIa",
+          "IIb": "IIb",
+          "IIc": "IIc",
+          "Ia": "Ia",
+          "Ib": "Ib",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 5,
+      "example_sample_id": "71"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "76"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "I": "I",
+          "II": "II",
+          "III": "III",
+          "IV": "IV",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 18,
+      "example_sample_id": "96"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "unknown": "病历资料不足，不能确定分级"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 20,
+      "example_sample_id": "134"
+    }
+  ]
+}

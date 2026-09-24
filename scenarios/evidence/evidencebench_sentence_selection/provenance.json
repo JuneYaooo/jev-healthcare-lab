@@ -1,0 +1,45 @@
+{
+  "task": "evidencebench_sentence_selection",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "evidence_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "evidence_prepared.jsonl": "692b06da90df7bf4c72a47607486fc340f6ad3d9e54c64d223851945e330fd8e"
+  },
+  "sample_count": 37,
+  "groups": 37,
+  "resources": [
+    {
+      "resource": "EvidenceBench",
+      "source": "https://github.com/EvidenceBench/EvidenceBench",
+      "completion_note": "37篇dev，句子选择，非官方set-cover/ranking指标"
+    }
+  ],
+  "adapter": "prepare_evidence.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 2434390,
+      "sha256": "6105370e58bb38ff644a1de0d2dd464cc7a055a8e1cff0fa9ea0f1a68a604fac"
+    },
+    "responses.jsonl": {
+      "bytes": 257154,
+      "sha256": "4a18b429219a8e999857162ae7e79ed3511e9c4ed5ac62676dbd78a6bed2f892"
+    },
+    "index.jsonl": {
+      "bytes": 12080,
+      "sha256": "c5b29a277f4dab94e1a7fb07ab7721b7e37f652c2758dfbfd8835b9ee1e3131b"
+    },
+    "prompts.json": {
+      "bytes": 101817,
+      "sha256": "56a1c889c81026ae80e47fea3b859b08a8e55db622ff1b53a354fea85420fdf6"
+    },
+    "example.json": {
+      "bytes": 74200,
+      "sha256": "1f7a98cb1d594726ff7535f930fddc81b122c4239885a484a945be22dc9535fb"
+    }
+  }
+}

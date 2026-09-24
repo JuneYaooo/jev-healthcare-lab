@@ -1,0 +1,10 @@
+{
+  "model": "whisper.cpp tiny.en-q5_1",
+  "audio": "PriMock57 day1 consultation01 patient channel",
+  "duration_seconds": 457.92,
+  "elapsed_seconds": 8.65944383299211,
+  "reference_words": 490,
+  "hypothesis_words": 391,
+  "word_error_rate": 0.3224489795918367,
+  "normalization": "lowercase,remove TextGrid editorial XML markers,punctuation; keep fillers and spoken numbers; whole patient channel"
+}

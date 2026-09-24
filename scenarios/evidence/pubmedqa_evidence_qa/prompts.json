@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "maybe": "Inconclusive or uncertain",
+          "no": "Evidence supports no",
+          "yes": "Evidence supports yes"
+        },
+        "instructions": "Answer the research question based on the supplied abstract context.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "24799031"
+    }
+  ]
+}

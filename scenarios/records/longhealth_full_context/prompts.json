@@ -1,0 +1,1502 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "a": "Blastic tumor cells showed a negative reaction to MUM1.",
+          "b": "There was a positive reaction to both ALK1 and TdT.",
+          "c": "CD68-positive macrophages were absent in the sample.",
+          "d": "The epidural tumor was identified as a non-aggressive form of lymphoma.",
+          "e": "The blastic tumor cells were positive for MUM1."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_01:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "The patient's cardiovascular risk was decreased, leading to a reduced number of cardiovascular medications at discharge.",
+          "b": "The patient's pain management was escalated, as indicated by an increased frequency of Hydromorphone intake.",
+          "c": "The patient developed a new gastrointestinal issue, hence the introduction of Pantoprazole at discharge.",
+          "d": "The patient's mood disorder was deemed stabilized, leading to the discontinuation of Sertraline at discharge.",
+          "e": "The patient's immobility concerns were resolved, leading to the discontinuation of Enoxaparin sodium (Clexane®) at discharge."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_01:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "A CT imaging of the spine was carried out, showing no material breakage.",
+          "b": "An MRI of her spine was performed, revealing a thoracic neoplastic growth primarily at the level of Th10-L1.",
+          "c": "A CT of her thoracic spine was conducted, showing stability of medial and lateral alignment.",
+          "d": "A CT of the thorax was completed, showing an enlarged lymph node in station 10L.",
+          "e": "An MRI of her head was executed, showing 20 FLAIR hyperintense lesions located near the cortex and in the periventricular region."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_01:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "She has 2-vessel disease",
+          "b": "She was diagnosed with primary progressive type of multiple sclerosis.",
+          "c": "She has a mood disorder.",
+          "d": "She has 3-vessel CHD.",
+          "e": "She has pre-existing ALS."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_01:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "The sample shows evidence of t(14;18) translocation.",
+          "b": "No clonal B-cell expansion was detected.",
+          "c": "No evidence of t(14;18) translocation",
+          "d": "The ligament sample showed evidence of tumor cells.",
+          "e": "The epidural tumor was identified as a T-cell lymphoma."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_01:15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Excision of benign nevus on the right shoulder",
+          "b": "Excision of malignant melanoma on the left upper back",
+          "c": "Biopsy of a mole on the left arm",
+          "d": "Microsurgical resection of right frontal tumor",
+          "e": "Excision of empyema"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_02:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Left Level II",
+          "b": "Right Level II",
+          "c": "Left Level IV",
+          "d": "Right Level IV",
+          "e": "Retropharyngeal space"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_02:18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "March 2020",
+          "b": "January 2020",
+          "c": "May 2020",
+          "d": "Februrary 2020",
+          "e": "June 2020"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_02:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Less than 0.05 cm",
+          "b": "Less than 0.15 cm",
+          "c": "Less than 0.25 cm",
+          "d": "Less than 0.30 cm",
+          "e": "This information was not provided"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_02:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Benign melanocytic nevus",
+          "b": "Atypical melanocytic proliferation",
+          "c": "Exophytic, ulcerated malignant melanoma with a tumor thickness of 5 mm",
+          "d": "Exophytic, ulcerated malignant melanoma with a tumor thickness of at least 15 mm",
+          "e": "Intraepidermal melanoma without invasion"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_02:15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Cyclophosphamide–bortezomib–dexamethasone",
+          "b": "Carfilzomib/Lenolidomide/Dexamethasone",
+          "c": "Stem cell mobilization with cyclophosphamide",
+          "d": "Darzalex 16mg/kg",
+          "e": "Cyclosporine 200mg daily"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_03:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Cyclophosphamide, bortezomib and dexamethasone",
+          "b": "Combination of carfilzomib, lenalidomide, and dexamethasone",
+          "c": "Stem cell mobilization using cyclophosphamide",
+          "d": "Cyclophosphamide–carfilzomib–dexamethasone",
+          "e": "None of the above"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_03:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Omnipaque 320",
+          "b": "Imeron 400",
+          "c": "Optiray 320",
+          "d": "Omnipaque 240",
+          "e": "Ultravist 370"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_03:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "C4",
+          "b": "L1",
+          "c": "Th4",
+          "d": "Th7",
+          "e": "L5"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_03:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Increased erythropoiesis",
+          "b": "Enhanced hemosiderosis",
+          "c": "Evidence of bone marrow edema",
+          "d": "Atypical proliferation of plasma cells",
+          "e": "Normocellular medullary canals"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_03:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "There was evidence of distant metastases.",
+          "b": "The mass in the pancreatic head was in contact with the SMA (>180°).",
+          "c": "Suspicious regional lymph nodes were particularly noted in the anterocaval region.",
+          "d": "The liver showed signs of fatty infiltration.",
+          "e": "The spleen's vein was involved."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_04:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Pancreatic tumor decreasing in size",
+          "b": "Suspicious pulmonary nodules",
+          "c": "Fatty liver",
+          "d": "Elongation of the right iliac artery",
+          "e": "No new liver lesions"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_04:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Seropneumothorax due to a clot at the port tip",
+          "b": "Seropneumothorax due to lung metastasis from pancreatic carcinoma",
+          "c": "Seropneumothorax secondary to punction of a malignant pleural effusion with progressive pulmonary metastasis of a pancreatic head carcinoma",
+          "d": "Pneumothorax due to lung metastasis from pancreatic carcinoma",
+          "e": "Seropneumothorax due to gemcitabine toxicity"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_04:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Red blood cells",
+          "b": "Atypical cells in clusters",
+          "c": "Evidence of a fungal infection",
+          "d": "Many granulocytes",
+          "e": "Active mesothelium"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_04:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Lovenox",
+          "b": "Paracetamol",
+          "c": "Mirtazapine",
+          "d": "Novalgin",
+          "e": "Pancreatic enzymes"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_04:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "5 hours 10 minutes",
+          "b": "6 hours 10 minutes",
+          "c": "4 hours 10 minutes",
+          "d": "3 hours 50 minutes",
+          "e": "4 hours 30 minutes"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_05:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "08/15/19",
+          "b": "08/01/19",
+          "c": "08/11/19",
+          "d": "10/12/19",
+          "e": "12/01/19"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_05:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Repeat stereotactic RTx",
+          "b": "New FLAIR-positive tumor manifestation insular on the right side",
+          "c": "Glioblastoma resection",
+          "d": "Start of radiochemotherapy",
+          "e": "Wound revision and flap plasty"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_05:18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "169 cm",
+          "b": "160 cm",
+          "c": "180 cm",
+          "d": "175 cm",
+          "e": "170 cm"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_05:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Once",
+          "b": "Twice",
+          "c": "Thrice",
+          "d": "Four times",
+          "e": "Never"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_05:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "10/10/2012",
+          "b": "10/10/2013",
+          "c": "10/10/2014",
+          "d": "10/10/2015",
+          "e": "10/10/2016"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_06:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "22,1%",
+          "b": "25,1%",
+          "c": "27,1%",
+          "d": "30,1%",
+          "e": "35,1%"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_06:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Non-insulin-dependent diabetes mellitus type II",
+          "b": "Idiopathic thrombocytopenia",
+          "c": "Liver cirrhosis",
+          "d": "Insulin-dependent diabetes mellitus type I",
+          "e": "Hypothyroidism"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_06:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Intercellular bridges",
+          "b": "Enlarged nuclei",
+          "c": "Nuclear pleomorphism",
+          "d": "Presence of large vacuoles",
+          "e": "Dyskeratosis"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_06:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Mar 14",
+          "b": "Apr 14",
+          "c": "May 14",
+          "d": "June 14",
+          "e": "Jul 14"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_06:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "07.13.19",
+          "b": "08.30.12",
+          "c": "09.01.19",
+          "d": "08.27.19",
+          "e": "09.12.19"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_07:15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Breast MRI < mammography < chest CT < digital mammography",
+          "b": "Mammography and Tomosynthesis < Breast MRI < CT chest and abdomen < Digital Mammography",
+          "c": "Mammography and Tomosynthesis < CT chest and abdomen < Breast MRI < Digital Mammography",
+          "d": "Mammography and Tomosynthesis < Digital Mammography< CT chest and abdomen < Breast MRI",
+          "e": "Mammography and Tomosynthesis < Digital Mammography < Breast MRI < CT chest and abdomen <"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_07:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "6 mm",
+          "b": "17 mm",
+          "c": "2.2 cm",
+          "d": "2.4 cm",
+          "e": "7x5mm"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_07:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Penicillin",
+          "b": "Latex",
+          "c": "Hay fever",
+          "d": "Peanuts",
+          "e": "Aspirin"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_07:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "12%",
+          "b": "15%",
+          "c": "17%",
+          "d": "2%",
+          "e": "Not specified."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_07:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "06/13/2020",
+          "b": "06/14/2020",
+          "c": "06/15/2020",
+          "d": "06/18/2020",
+          "e": "06/19/2020"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_08:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "MRI of the liver",
+          "b": "Ultrasound of the upper abdomen",
+          "c": "Esophagogastroduodenoscopy with banding therapy",
+          "d": "CT Chest/Abdomen/Pelvis with contrast",
+          "e": "Kyphoplasty of thoracic vertebra 8"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_08:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Overweight",
+          "b": "Underweight",
+          "c": "Protein malnutrition",
+          "d": "Adequate nutrition",
+          "e": "Not assessed"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_08:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Active upper GI bleed",
+          "b": "Gastric ulcer",
+          "d": "Intestinal obstruction",
+          "e": "Esophageal varices with alarm signs"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_08:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Ibuprofen",
+          "b": "Acetaminophen",
+          "c": "Morphine",
+          "d": "Paracetamol",
+          "e": "Aspirin"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_08:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "New lesions were observed",
+          "b": "Lesions were stable in size and characteristics",
+          "c": "Lesions showed signs of necrosis",
+          "d": "Lesions had significantly increased in size",
+          "e": "Lesions had disappeared"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_09:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Progression of HCC as noted in follow-up imaging studies",
+          "b": "Development of pulmonary complications requiring steroid therapy",
+          "c": "Detection of Streptococcus pneumoniae in sputum cultures",
+          "d": "Fluctuations in liver function tests indicating possible drug-induced hepatitis",
+          "e": "The patient's personal preference after experiencing side effects"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_09:18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "08/13/2019",
+          "b": "08/13/2020",
+          "c": "07/26/2019",
+          "d": "04/02/2021",
+          "e": "10/24/2020"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_09:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "07/27/2019",
+          "b": "08/24/2019",
+          "c": "01/25/2022",
+          "d": "08/18/2019",
+          "e": "10/26/2021"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_09:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Asthma",
+          "b": "Pulmonary Embolism",
+          "c": "Lung Cancer",
+          "d": "Pulmonary Emphysema",
+          "e": "Tuberculosis"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_09:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Laparoscopic cholecystectomy",
+          "b": "Alloplastic Incisional Hernia Repair",
+          "c": "pTCA stenting",
+          "d": "Nephroureterectomy",
+          "e": "Ablation for atrial fibrillation"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_10:15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "2010",
+          "b": "2012",
+          "c": "2013",
+          "d": "2019",
+          "e": "2020"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_10:0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Laparoscopic cholecystectomy",
+          "b": "pTCA stenting",
+          "c": "Tonsillectomy",
+          "d": "Ureterorenoscopy",
+          "e": "Nephroureterectomy"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_10:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "01/12/2019",
+          "b": "01/16/2019",
+          "c": "02/01/2019",
+          "d": "03/05/2019",
+          "e": "03/20/2019"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_10:6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "5",
+          "b": "6",
+          "c": "8",
+          "d": "10",
+          "e": "12"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_10:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "15%",
+          "b": "0.8%",
+          "c": "14.5%",
+          "d": "26%",
+          "e": "36%"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_11:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Chest CT <\nCT Chest/Abdomen/Pelvis <\nChest CT <\nNeck/Chest CT <\nNeck/Chest CT <\nNeck/Chest/Abdomen/Pelvis CT <\nChest/Abdomen/Pelvis CT <\nAbdomen CT <\nNeck/Chest CT <\nNeck/Chest/Abdomen/Pelvis CT",
+          "b": "Chest CT < CT Chest/Abdomen/Pelvis < Chest CT < Neck/Chest CT < Neck/Chest CT < Neck/Chest/Abdomen/Pelvis CT < Chest/Abdomen/Pelvis CT < Abdomen CT < Neck/Chest CT < Neck/Chest/Abdomen/Pelvis CT",
+          "c": "Chest CT < CT Chest/Abdomen/Pelvis < Chest CT < Neck/Chest CT < Neck/Chest CT < Neck/Chest/Abdomen/Pelvis CT < Chest/Abdomen/Pelvis CT < Abdomen CT < Neck/Chest CT < Neck/Chest/Abdomen/Pelvis CT < Neck/Chest/Abdomen/Pelvis CT",
+          "d": "CT Chest/Abdomen/Pelvis <\nNeck/Chest CT <\nChest CT <\nAbdomen CT <\nNeck/Chest/Abdomen/Pelvis CT <\nChest CT <\nNeck/Chest CT <\nChest/Abdomen/Pelvis CT <\nNeck/Chest/Abdomen/Pelvis CT <\nNeck/Chest CT",
+          "e": "Neck/Chest CT <\nChest CT <\nCT Chest/Abdomen/Pelvis <\nNeck/Chest/Abdomen/Pelvis CT <\nAbdomen CT <\nChest CT <\nNeck/Chest CT <\nChest/Abdomen/Pelvis CT <\nNeck/Chest/Abdomen/Pelvis CT <\nCT Chest/Abdomen/Pelvis"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_11:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Splenomegaly",
+          "b": "Mediastinal lymph node conglomerate",
+          "c": "Liver tuberculosis",
+          "d": "Bronchial and vascular stenosis",
+          "e": "Neck/Thorax CT showing regression of pulmonary infiltrates"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_11:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Sibling donor",
+          "b": "Autologous stem cells",
+          "c": "HLA-identical unrelated donor",
+          "d": "Cord blood",
+          "e": "HLA-mismatched unrelated donor"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_11:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Acyclovir",
+          "b": "Entecavir",
+          "c": "Mycophenolate Mofetil",
+          "d": "Cyclosporine",
+          "e": "Methotrexate"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_11:15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Levels increased within the normal range",
+          "b": "Levels decreased but remained within the normal range",
+          "c": "Levels decreased below the normal range",
+          "d": "Levels increased above the normal range",
+          "e": "Levels remained stable within the reference range"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_12:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Overdose of Marcumar",
+          "b": "Double dosing of Cyclosporin A",
+          "c": "Incorrect administration of Steroid",
+          "d": "Overdose of Minoxidil",
+          "e": "Underdosing of Mycophenolic Acid"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_12:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Femoral artery bypass",
+          "b": "Profundaplasty",
+          "c": "Vein stripping",
+          "d": "Arterial stenting",
+          "e": "Varicose vein treatment"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_12:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Introduction of Apixaban (Eliquis) for anticoagulation therapy",
+          "b": "Increase in the dosage of Cyclosporine (Neoral)",
+          "c": "Addition of Metoprolol Succinate (Toprol-XL) for cardiac management",
+          "d": "Introduction of Mycophenolic Acid (Myfortic) for immunosuppression",
+          "e": "Discontinuation of Aspirin therapy"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_12:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Urosepsis",
+          "b": "Coronary artery disease",
+          "c": "Progressive deterioration of renal transplant function",
+          "d": "Acute postrenal kidney failure",
+          "e": "Anastomotic stricture"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_12:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "First cycle of Lutetium PSMA-Therapy",
+          "b": "Second cycle of Docetaxel therapy",
+          "c": "Fourth cycle of Lutetium-Radioligand Therapy",
+          "d": "First cycle of Actinium-225 labeled PSMA in combination with Lutetium-177 PSMA for tandem radioligand therapy",
+          "e": "After starting anti-hormonal therapy"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_13:8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Oct 15",
+          "b": "Nov 15",
+          "c": "Dec 15",
+          "d": "Jan 16",
+          "e": "Feb 16"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_13:11"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Decrease in metabolic activity",
+          "b": "New extensive metastasis in the sacrum",
+          "c": "New small metastasis in the sacrum",
+          "d": "Remission of iliac metastases",
+          "e": "Increase in the size of known iliac metastases"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_13:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "PSMA PET-CT + MRI < Cystogram < Ultrasound < Cystogram < CT scan abdomen/pelvis < PSMA PET scan < CT scan chest/abdomen < PSMA PET scan",
+          "c": "CT Scan Abdomen/Pelvis < PSMA PET-CT Scan < Abdominal MRI < CT Scan of Chest and Abdomen < PSMA PET-CT Scan.",
+          "d": "PSMA PET-CT + MRI < MRI lumbar spine < Cystogram < Ultrasound < Cystogram < Ultrasound < CT scan abdomen/pelvis < MRI lumbar spine < PSMA PET scan < PSMA PET-CT + MRI < Cystogram < Ultrasound < Cystogram < Ultrasound < CT scan abdomen/pelvis < PSMA PET scan < CT scan chest/abdomen < PSMA PET scan < CT scan chest/abdomen < PSMA PET scan",
+          "e": "PSMA PET-CT + MRI < Cystogram < Ultrasound < Cystogram < Ultrasound of the abdomen < CT scan abdomen/pelvis < MRI lumbar spine < CT scan < PSMA PET-CT  <  CT scan chest/abdomen < PSMA PET scan < CT scan chest/abdomen < PSMA PET scan"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_13:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Polyneuropathy syndrome of the upper extremities",
+          "b": "Acute renal failure",
+          "c": "Polyneuropathy syndrome of the lower extremities",
+          "d": "Myocardial infarction",
+          "e": "Stroke"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_13:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Empagliflozin, Metformin, Atorvastatin, Metoprolol, Aspirin, Pantoprazole initially - Enoxaparin added postoperatively - No changes upon discharge",
+          "b": "Empagliflozin, Metformin, Atorvastatin, Metoprolol, Aspirin, Pantoprazole consistently - Introduction of Enoxaparin and Acetaminophen  - Same regimen upon discharge",
+          "c": "Empagliflozin, Metformin, Atorvastatin, Metoprolol, Aspirin, Pantoprazole consistently - Introduction of Enoxaparin and Acetaminophen (Aspirin discontinued) - Same regimen upon discharge",
+          "d": "Metformin, Atorvastatin, Metoprolol, Aspirin, Pantoprazole initially - Empagliflozin added post-biopsy - Enoxaparin and Acetaminophen post-tumor excision",
+          "e": "Aspirin, Atorvastatin, Pantoprazole initially - Empagliflozin and Metformin added post-biopsy - Enoxaparin post-tumor excision - Acetaminophen introduced for postoperative pain"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_14:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "78%",
+          "b": "94%",
+          "c": "120%",
+          "d": "122%",
+          "e": "130%"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_14:18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Worsening renal function, indicated by a substantial increase in creatinine levels.",
+          "b": "Possible dehydration or increased erythropoiesis, suggested by a marginal rise in hemoglobin and hematocrit values.",
+          "c": "Indications of an acute inflammatory or infection process, evident from a significant elevation in C-Reactive Protein levels.",
+          "d": "A potential coagulation disorder, inferred from changes in Prothrombin Time and INR.",
+          "e": "Likely vitamin B12 or folate deficiency, indicated by an increase in Mean Corpuscular Volume (MCV)."
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_14:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "30 x 40 x 35 mm",
+          "b": "35 x 45 x 40 mm",
+          "c": "40 x 50 x 45 mm",
+          "d": "45 x 55 x 50 mm",
+          "e": "50 x 60 x 55 mm"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_14:0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Biceps femoris and semitendinosus",
+          "b": "Gluteus maximus and minimus",
+          "c": "Gracilis, sartorius, and adductor magnus",
+          "d": "Gracilis, sartorius, and adductor longus",
+          "e": "Rectus femoris and vastus lateralis"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_14:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Galactosemia",
+          "b": "Bronchopneumonia",
+          "c": "Osteopenia",
+          "d": "Vitamin D deficiency",
+          "e": "Liver dysfunction"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_15:0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Diagnosis of galactosemia",
+          "b": "Appendectomy",
+          "c": "Elbow fracture",
+          "d": "Onset of hyperbilirubinemia and hepatopathy",
+          "e": "Initiation of a lactose-free and low-galactose diet"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_15:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Increased from 1.10 mg/dL to 1.22 mg/dL",
+          "b": "Decreased from 1.22 mg/dL to 1.10 mg/dL",
+          "c": "Remained constant at 1.22 mg/dL",
+          "d": "Increased above the reference range",
+          "e": "Decreased below the reference range"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_15:18"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "-0.8",
+          "b": "-0.5",
+          "c": "-0.2",
+          "d": "-1.5",
+          "e": "-2.5"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_15:8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Abdominal sonography < Bone density measurement < Abdominal Sonography < Abdominal Sonography < Abdominal Sonography < Bone density measurement < Abdominal Sonography",
+          "b": "Abdominal sonography < Bone density measurement < Abdominal Sonography < Abdominal Sonography < Abdominal Sonography <  Abdominal Sonography < Bone density measurement",
+          "c": "Chest X-ray < Abdominal sonography < Bone density measurement < Abdominal Sonography < Abdominal Sonography < Abdominal Sonography < Bone density measurement < Abdominal Sonography",
+          "d": "Abdominal sonography < Eye Examination < Abdominal Sonography < Eye Examination < Bone density measurement  < Abdominal Sonography < Abdominal Sonography < Bone density measurement < Abdominal Sonography < Eye Examination",
+          "e": "Abdominal sonography < Bone density measurement < Eye Examination < Abdominal Sonography < Eye Examination < Abdominal Sonography < Abdominal Sonography < Bone density measurement < Eye Examination < Abdominal Sonography"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_15:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Ischemic stroke",
+          "b": "Brain tumor",
+          "c": "Malresorptive hydrocephalus",
+          "d": "Cerebral abscess",
+          "e": "Normal study"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_16:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "-5",
+          "b": "-4",
+          "c": "0",
+          "d": "4",
+          "e": "5"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_16:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "03/04/2017",
+          "b": "08/04/2017",
+          "c": "04/13/2017",
+          "d": "05/01/2017",
+          "e": "05/25/2019"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_16:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "05/24/2019",
+          "b": "05/26/2019",
+          "c": "05/25/2019",
+          "d": "03/04/2017",
+          "e": "05/04/2017"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_16:8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "E. coli",
+          "b": "Pseudomonas aeruginosa",
+          "c": "Staphylococcus capitis",
+          "d": "Streptococcus pneumoniae",
+          "e": "Klebsiella pneumoniae"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_16:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Left ventricle",
+          "b": "Right ventricle",
+          "c": "Anterior wall",
+          "d": "RIVA area",
+          "e": "Lateral wall"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_17:15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Uveitis",
+          "b": "Depression",
+          "c": "Bronchial asthma",
+          "d": "Pulmonary embolism",
+          "e": "Arterial hypertension"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_17:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "From 09/18 to 10/08",
+          "b": "From 09/29 to 10/13",
+          "c": "From 09/30 to 10/13",
+          "d": "From 10/07 to 10/21",
+          "e": "From 10/12 to 10/21"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_17:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Hematocrit percentage",
+          "b": "Red Blood Cells count",
+          "c": "Hemoglobin levels",
+          "d": "Eosinophils percentage",
+          "e": "White Blood Cells count"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_17:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Prednisone",
+          "b": "Methotrexate",
+          "c": "Montelukast",
+          "d": "Desloratadine",
+          "e": "Candesartan"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_17:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "120/70 mmHg",
+          "b": "143/84 mmHg",
+          "c": "175/90 mmHg",
+          "d": "110/70 mmHg",
+          "e": "Not specified"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_18:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Hypothyroidism",
+          "b": "Type 2 diabetes mellitus",
+          "c": "Chronic Hepatitis C",
+          "d": "Post-antiviral therapy",
+          "e": "Status post Hepatitis A"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_18:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Active myocarditis",
+          "b": "Acute inflammation-associated myocardial cell necrosis",
+          "c": "No significant myocardial damage",
+          "d": "Interstitial fibrosis",
+          "e": "Lipomatosis"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_18:6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "40%",
+          "b": "28%",
+          "c": "30%",
+          "d": "45%",
+          "e": "53%"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_18:0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "135 ms",
+          "b": "122 ms",
+          "c": "126 ms",
+          "d": "432 ms",
+          "e": "Not specified"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_18:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Increased from 2 mg to 3 mg",
+          "b": "Decreased from 3 mg to 2 mg",
+          "c": "Remained the same at 2 mg",
+          "d": "Was discontinued",
+          "e": "Changed from twice daily to three times daily"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_19:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Acute hepatitis",
+          "b": "Liver cirrhosis",
+          "c": "Chronic liver congestion",
+          "d": "Liver steatosis",
+          "e": "Liver fibrosis"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_19:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "4830 g",
+          "b": "4765 g",
+          "c": "5060 g",
+          "d": "12.4 kg",
+          "e": "6050 g"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_19:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Echocardiography < Chest X-ray < Echocardiography  < Cardiac Catheterization < Abdominal Ultrasound < Echocardiography < Cardiac MRI",
+          "b": "Echocardiography < Chest X-ray < Echocardiography < ECG < ECG < Cardiac Catheterization < Abdominal Ultrasound < Echocardiography < Cardiac MRI < Abdominal Ultrasound",
+          "c": "Echocardiography < Chest X-ray < Echocardiography < ECG < ECG < Cardiac Catheterization < Abdominal Ultrasound < Echocardiography < Cardiac MRI",
+          "d": "Echocardiography < Chest X-ray < Echocardiography < Echocardiography  < Echocardiography <  Abdominal Ultrasound < Cardiac Angiography and Catheterization < Abdominal Ultrasound < Cardiac MRI",
+          "e": "Echocardiography < ECG < ECG < Cardiac Catheterization < Abdominal Ultrasound < Echocardiography < Cardiac MRI  Abdominal Ultrasound < Cardiac MRI"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_19:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Left ventricular hypertrophy",
+          "b": "Tricuspid valve insufficiency",
+          "c": "Aortic valve stenosis",
+          "d": "Right ventricular dilatation",
+          "e": "Relevant tricuspid valve insufficiency"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_19:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "141 mEq/L",
+          "b": "143 mEq/L",
+          "c": "146 mEq/L",
+          "d": "139 mEq/L",
+          "e": "135 mEq/L"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_20:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "IgE",
+          "b": "IgD",
+          "c": "IgG",
+          "d": "IgB",
+          "e": "None of the above"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_20:0"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Duodenal Ulcers",
+          "b": "Erythematous Antral Gastritis",
+          "c": "Esophageal Varices",
+          "d": "Gastric Polyps",
+          "e": "Barrett's Esophagus"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_20:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "Slower infusion time",
+          "b": "Change in medication",
+          "c": "Oral steroids",
+          "d": "Antihistamines",
+          "e": "Antibiotics"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_20:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "a": "514 mg/dL",
+          "b": "188 mg/dL",
+          "c": "1025 mg/dL",
+          "e": "299.5 mg/dL"
+        },
+        "instructions": "Use the supplied patient documents to answer the question. Select exactly one answer.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "patient_20:11"
+    }
+  ]
+}

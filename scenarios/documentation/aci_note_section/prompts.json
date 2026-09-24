@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "assessment_and_plan": "Clinical assessment, diagnoses and treatment/follow-up plan",
+          "objective_exam": "Physical examination",
+          "objective_results": "Objective laboratory, imaging or diagnostic results",
+          "subjective": "Patient history, symptoms and subjective narrative"
+        },
+        "instructions": "Classify this clinical note section by its role.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "objective_results:12"
+    }
+  ]
+}

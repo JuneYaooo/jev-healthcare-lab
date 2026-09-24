@@ -1,0 +1,39 @@
+{
+  "task": "challenge_negation",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "extended_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
+  },
+  "sample_count": 4,
+  "groups": 4,
+  "resources": [],
+  "adapter": "prepare_extended.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 2458,
+      "sha256": "6b5083d4e046a4735c496abc62355f83318876ceae0a442d4f20dd0ccd113f78"
+    },
+    "responses.jsonl": {
+      "bytes": 1713,
+      "sha256": "b9a122e004c4f9cc01bd0542ec83eca0dda6b965a7880befc6f163de63ed4e19"
+    },
+    "index.jsonl": {
+      "bytes": 1192,
+      "sha256": "cc0c4d27e670e99552ea447696d07f5e90ff8507b91d69cfe9d0ec9969e43b69"
+    },
+    "prompts.json": {
+      "bytes": 481,
+      "sha256": "f2a8e0c3d8044e41b55c9bcfb373a9b6cf9040deaa30055581c0bb6f3a4db584"
+    },
+    "example.json": {
+      "bytes": 1441,
+      "sha256": "c5dc797238b8ffcb0465b642f273e7c2f6a0338c829d6cd38f7c1de363dd0600"
+    }
+  }
+}

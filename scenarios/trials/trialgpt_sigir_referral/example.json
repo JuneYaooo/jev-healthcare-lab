@@ -1,0 +1,60 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "sigir-20157",
+    "id": "sigir-20157:NCT01145313",
+    "metadata": {
+      "source": "SIGIR released judged pool,50/class; direct trial classification not original TrialGPT criterion reasoning or full retrieval"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "Irrelevant: would not refer this patient",
+            "1": "Potential: would consider referring upon further investigation",
+            "2": "Eligible: highly likely to refer this patient"
+          },
+          "instructions": "Based on this patient and trial, classify referral suitability. Potential means further investigation is needed; do not treat undocumented criteria as confirmed.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "patient": "A 20 yo female college student with no significant past medical history presents with a chief complaint of fatigue. She reports increased sleep and appetite over the past few months as well as difficulty concentrating on her schoolwork. She no longer enjoys spending time with her friends and feels guilty for not spending more time with her family. Her physical exam and laboratory tests, including hemoglobin, hematocrit and thyroid stimulating hormone, are within normal limits.",
+        "trial": {
+          "brief_summary": "The primary objective is to examine changes in pre/post-augmentation healthcare costs and resource utilization in patients diagnosed with major depressive disorder (MDD) who augment their current antidepressant therapy with an atypical antipsychotic.",
+          "brief_title": "Impact of Atypical Antipsychotic Therapy on Health Outcomes and Costs Among Patients With Major Depressive Disorder",
+          "exclusion_criteria": ": \n\n Patients are excluded if they: \n\n have any claims for a diagnosis of schizophrenia, schizoaffective or bipolar disorder during the study period \n\n have Electroconvulsive therapy (ECT) during the study period \n\n new augmentation with mood stabilizers, L-thyroxine (T4), L-Thyronine (T3), buspirone, stimulant, or others during the post-period (table 1) \n\n are pregnant during the study period \n\n patients with Medicare or Medicaid",
+          "inclusion_criteria": "inclusion criteria: \n\n Patients who meet the following criteria will be included in the study: \n\n aged 18 to 64 years \n\n diagnosis of major depressive disorder during the study timeframe (ICD 9 codes 296.2, 296.3, 311) \n\n evidence of at least 6 consecutive claims for traditional antidepressant therapy with a 30 day supply or at least 2 claims with a 90 day supply (consecutive defined as ≤15 days gap) \n\n must be continually enrolled during the study timeframe and have both medical and pharmacy benefits \n\n evidence of at least 4 consecutive claims for an atypical antipsychotic prescription with a 30 day supply or 2 claims with a 90 day supply (consecutive defined as ≤15 days gap) \n\n evidence of antidepressant therapy for at least 60 consecutive days prior to the initiation of atypical antipsychotic \n\n After at least a 60 day trial of traditional antidepressant medications, patient augments with an atypical antipsychotic medication for at least 4 months. \n\n "
+        }
+      }
+    },
+    "request_sha256": "c1219b45fc90648620450cf5f35d29e192f3b97f9650e092bb7d2eb889b86afd",
+    "task": "trialgpt_sigir_referral"
+  },
+  "response": {
+    "elapsed_s": 0.6228345829877071,
+    "id": "sigir-20157:NCT01145313",
+    "request_sha256": "c1219b45fc90648620450cf5f35d29e192f3b97f9650e092bb7d2eb889b86afd",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "1",
+          "confidence": 0.47,
+          "probabilities": {
+            "0": 0.33,
+            "1": 0.65,
+            "2": 0.02
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 931,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "trialgpt_sigir_referral"
+  }
+}

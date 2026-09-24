@@ -1,0 +1,270 @@
+{
+  "n": 20,
+  "correct_input_pairs": 17,
+  "emitted_numeric_results": 17,
+  "candidate_covered_pairs": 18,
+  "first_candidate_baseline_correct_pairs": 14,
+  "note": "Actual current value selection + deterministic BMI formula; correct input pairs, not clinical endorsement. Unknowns count as failure to complete. Reference may be rounded.",
+  "cases": [
+    {
+      "id": "1",
+      "weight": 65.0,
+      "height": 1.62,
+      "bmi": 24.76756591982929,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "24.8"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": false,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "2",
+      "weight": 75.0,
+      "height": 1.6,
+      "bmi": 29.296874999999993,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "29.3"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "3",
+      "weight": 60.0,
+      "height": 1.5,
+      "bmi": 26.666666666666668,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "26.7"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "4",
+      "weight": 54.0,
+      "height": 1.62,
+      "bmi": 20.576131687242793,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "20.6"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "5",
+      "weight": 114.0,
+      "height": 1.75,
+      "bmi": 37.224489795918366,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "37.2"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "6",
+      "weight": 7.0,
+      "height": 0.62,
+      "bmi": 18.210197710718003,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "18.2"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "7",
+      "weight": 69.0,
+      "height": 1.6300000000000001,
+      "bmi": 25.970115548195263,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "26.0"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "8",
+      "weight": 56.0,
+      "height": 1.55,
+      "bmi": 23.309053069719038,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "23.3"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": false,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "9",
+      "weight": 52.0,
+      "height": null,
+      "bmi": null,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "20.3"
+      },
+      "both_inputs_correct": false,
+      "first_candidate_baseline_correct": false,
+      "candidates_cover_both": false
+    },
+    {
+      "id": "10",
+      "weight": 45.0,
+      "height": 1.54,
+      "bmi": 18.974531961544947,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "19.0"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "11",
+      "weight": null,
+      "height": null,
+      "bmi": null,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "22.9"
+      },
+      "both_inputs_correct": false,
+      "first_candidate_baseline_correct": false,
+      "candidates_cover_both": false
+    },
+    {
+      "id": "12",
+      "weight": 74.0,
+      "height": 1.56,
+      "bmi": 30.407626561472714,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "30.4"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "13",
+      "weight": 55.0,
+      "height": 1.83,
+      "bmi": 16.423303174176592,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "16.4"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "14",
+      "weight": 49.0,
+      "height": 1.33,
+      "bmi": 27.700831024930746,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "27.7"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": false,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "15",
+      "weight": 42.0,
+      "height": 1.6,
+      "bmi": 16.406249999999996,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "16.4"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "16",
+      "weight": 90.0,
+      "height": 1.75,
+      "bmi": 29.387755102040817,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "29.4"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "17",
+      "weight": null,
+      "height": null,
+      "bmi": null,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "17.4"
+      },
+      "both_inputs_correct": false,
+      "first_candidate_baseline_correct": false,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "18",
+      "weight": 10.5,
+      "height": 0.92,
+      "bmi": 12.4054820415879,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "12.4"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "19",
+      "weight": 120.0,
+      "height": 1.6500000000000001,
+      "bmi": 44.077134986225886,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "44.1"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    },
+    {
+      "id": "20",
+      "weight": 31.0,
+      "height": 1.48,
+      "bmi": 14.152666179693208,
+      "reference_bmi": {
+        "unit": "kg/m²",
+        "value": "14.15"
+      },
+      "both_inputs_correct": true,
+      "first_candidate_baseline_correct": true,
+      "candidates_cover_both": true
+    }
+  ]
+}

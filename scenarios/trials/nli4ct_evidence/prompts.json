@@ -1,0 +1,765 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "Is line 0 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 1 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 2 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 96,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 3 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 88,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 4 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 83,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 5 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 83,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 6 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 72,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 7 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 70,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 8 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 70,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 0 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 1 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 10 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 11 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 12 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 13 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 14 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 15 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 16 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 17 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 18 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 19 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 2 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 20 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 21 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 22 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 23 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 24 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 25 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 26 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 27 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 3 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 4 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 5 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 6 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 7 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 21,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 8 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 19,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 9 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 19,
+      "example_sample_id": "a5617ae4-05a3-42d0-9e14-141de5f8c010"
+    },
+    {
+      "question": {
+        "instructions": "Is line 10 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 69,
+      "example_sample_id": "eb1bfb08-eba0-4130-b328-00f56c0f84a6"
+    },
+    {
+      "question": {
+        "instructions": "Is line 11 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 65,
+      "example_sample_id": "eb1bfb08-eba0-4130-b328-00f56c0f84a6"
+    },
+    {
+      "question": {
+        "instructions": "Is line 12 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 60,
+      "example_sample_id": "eb1bfb08-eba0-4130-b328-00f56c0f84a6"
+    },
+    {
+      "question": {
+        "instructions": "Is line 13 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 56,
+      "example_sample_id": "eb1bfb08-eba0-4130-b328-00f56c0f84a6"
+    },
+    {
+      "question": {
+        "instructions": "Is line 9 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 69,
+      "example_sample_id": "eb1bfb08-eba0-4130-b328-00f56c0f84a6"
+    },
+    {
+      "question": {
+        "instructions": "Is line 14 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 54,
+      "example_sample_id": "961a956e-fece-4baa-a2ad-d3a5320bd9d2"
+    },
+    {
+      "question": {
+        "instructions": "Is line 15 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 54,
+      "example_sample_id": "961a956e-fece-4baa-a2ad-d3a5320bd9d2"
+    },
+    {
+      "question": {
+        "instructions": "Is line 16 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 43,
+      "example_sample_id": "961a956e-fece-4baa-a2ad-d3a5320bd9d2"
+    },
+    {
+      "question": {
+        "instructions": "Is line 17 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 39,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 18 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 19 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 32,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 20 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 31,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 21 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 22 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 23 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 24 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 21,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 25 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 21,
+      "example_sample_id": "2729a321-709b-4392-9604-dd7237bedb17"
+    },
+    {
+      "question": {
+        "instructions": "Is line 26 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 27 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 28 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 29 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 30 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 31 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 12,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 32 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 11,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 33 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 34 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 35 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 36 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 37 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 38 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 39 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 40 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 41 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 42 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 43 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 44 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 45 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 46 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 47 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 48 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 49 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 50 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 51 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 52 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 53 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 54 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 55 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 56 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 57 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 58 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 59 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 60 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 61 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 62 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 63 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 64 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 65 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    },
+    {
+      "question": {
+        "instructions": "Is line 66 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "3a4003f6-ff1c-43d8-be48-f767266b2cf5"
+    }
+  ]
+}

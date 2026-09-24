@@ -1,0 +1,1381 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：丹参软胶囊",
+        "type": "noul"
+      },
+      "occurrences": 50,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：二甲双胍",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氯吡格雷",
+        "type": "noul"
+      },
+      "occurrences": 79,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：瑞巴派特片",
+        "type": "noul"
+      },
+      "occurrences": 97,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：瑞舒伐他汀",
+        "type": "noul"
+      },
+      "occurrences": 99,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：甘精胰岛素",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：甲钴胺",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：硝苯地平控释片",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：碳酸钙片",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：磷酸西格列汀",
+        "type": "noul"
+      },
+      "occurrences": 80,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：维生素D3",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：美托洛尔缓释片",
+        "type": "noul"
+      },
+      "occurrences": 99,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：依帕司他",
+        "type": "noul"
+      },
+      "occurrences": 99,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：羟苯磺酸钙",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：胰激肽原酶肠溶片",
+        "type": "noul"
+      },
+      "occurrences": 75,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：苦参凝胶",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：达格列净片",
+        "type": "noul"
+      },
+      "occurrences": 91,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：金水宝",
+        "type": "noul"
+      },
+      "occurrences": 90,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：银杏叶软胶囊",
+        "type": "noul"
+      },
+      "occurrences": 92,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：门冬胰岛素",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿卡波糖",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿司匹林肠溶片",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿托伐他汀钙片",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：兰索拉唑",
+        "type": "noul"
+      },
+      "occurrences": 96,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿法骨化醇",
+        "type": "noul"
+      },
+      "occurrences": 95,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：雷贝拉唑",
+        "type": "noul"
+      },
+      "occurrences": 96,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：厄贝沙坦",
+        "type": "noul"
+      },
+      "occurrences": 95,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：吡格列酮",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：地特胰岛素",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：坎地沙坦",
+        "type": "noul"
+      },
+      "occurrences": 82,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：比索洛尔",
+        "type": "noul"
+      },
+      "occurrences": 38,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氨氯地平片",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "1302-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氯化钾缓释片",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：沙库巴曲缬沙坦钠片",
+        "type": "noul"
+      },
+      "occurrences": 16,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：盐酸二甲双胍缓释片",
+        "type": "noul"
+      },
+      "occurrences": 20,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：维生素D2软胶囊",
+        "type": "noul"
+      },
+      "occurrences": 16,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：葡萄糖",
+        "type": "noul"
+      },
+      "occurrences": 52,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：螺内酯",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：辛伐他汀片",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：利拉鲁肽",
+        "type": "noul"
+      },
+      "occurrences": 55,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿昔洛韦",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿格列汀",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：单硝酸异山梨酯",
+        "type": "noul"
+      },
+      "occurrences": 43,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：左氧氟沙星",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：替米沙坦",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "57-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：黄葵胶囊",
+        "type": "noul"
+      },
+      "occurrences": 40,
+      "example_sample_id": "204-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：康复新液",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "565-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氢氯吡格雷片",
+        "type": "noul"
+      },
+      "occurrences": 48,
+      "example_sample_id": "565-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：倍他乐克",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "565-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：哌拉西林他唑巴坦",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "565-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：左旋氨氯地平",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "565-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：左甲状腺素钠片",
+        "type": "noul"
+      },
+      "occurrences": 44,
+      "example_sample_id": "565-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：曲美他嗪",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "239-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：海昆肾喜胶囊",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "239-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：维生素B12",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "239-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：促红细胞生成素",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "239-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：呋塞米",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "239-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：尿毒清颗粒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "239-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：血脂康胶囊",
+        "type": "noul"
+      },
+      "occurrences": 11,
+      "example_sample_id": "33-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：非布司他片",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "33-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：乳腺结节",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "1437-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：丙硫氧嘧啶",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "489-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：硝酸甘油",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "489-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：速效救心丸",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "489-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：利格列汀片",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "1323-8"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：格列美脲片",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "1323-8"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：腺苷钴胺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1499-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：贝那鲁肽",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "41-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：格列喹酮",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "41-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：西那卡塞",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1334-4"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：诺和灵50R",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1338-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：诺和灵N",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1338-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：心血宁片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氟桂利嗪胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氨溴索片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：瑞格列奈",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：匹伐他汀",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：维生素B1片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：长春胺缓释胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：地芬尼多片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：雷尼替丁",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：马来酸氨氯地平片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：多索茶碱片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：奥美沙坦",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：布地奈德福莫特罗粉吸入剂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：强力定眩片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "211-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：托拉塞米",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "663-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：开同",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "663-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：乌灵胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1443-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：洛索洛芬",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1443-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：塞来昔布",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1443-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：谷赖胰岛素",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "47-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：度拉糖肽",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "47-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：泮托拉唑肠溶胶囊",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "498-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：脂必泰胶囊",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "498-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：双歧杆菌活菌肠溶胶囊",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "498-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：复方谷氨酰胺肠溶胶囊",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "498-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：诺和灵30R",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "606-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：利伐沙班",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "1675-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：生长激素",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "1096-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氢氯噻嗪",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "1096-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：丽珠维三联",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1585-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：乳果糖",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "1585-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：克拉霉素",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1585-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：来氟米特",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "522-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：津力达颗粒",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "522-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：羟氯喹",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "522-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：蓝芩口服液",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "522-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：双环醇片",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "522-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：黄体酮",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "775-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：比格列酮",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "775-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：优泌林",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "649-4"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：华法林",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "1262-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：百令胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "137-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：贝前列素钠片",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "137-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：赖脯胰岛素",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "137-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：德谷门冬双胰岛素",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "137-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：恩格列净片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "137-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：沙格列汀",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "673-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：致康胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "741-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：康胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "741-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氟他按",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "4-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：酸钙片",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "4-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：戈舍瑞林",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "4-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：普伐他汀",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "4-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：奥美拉唑",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "464-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：普萘洛尔",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "464-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：甲巯咪唑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1869-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：非诺贝特",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "1869-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：地塞米松",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1869-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿罗洛尔",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "14-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：吲哚布芬",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "14-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：枸橼酸莫沙必利片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：碳酸司维拉姆片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿普唑仑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：地高辛片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：莫沙必利分散片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：地衣芽孢杆菌活菌胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：复方新诺明",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1591-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：五水头孢唑林",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1435-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：熊去氧胆酸胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "522-4"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：甲氧那明",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "32-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：复方甲氧那明胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "32-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：西洛他唑",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "239-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：诺和锐30",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "239-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：重组人表皮生长因子滴眼液",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "239-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：复方托吡卡胺滴眼液",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "239-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：妥布霉素地塞米松滴眼液",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "239-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：普拉洛芬滴眼液",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "239-5"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：聚乙二醇",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "715-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：聚乙二醇洛塞那肽",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "715-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：维生素C",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：尼克地尔",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1880-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：叶酸片",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "1483-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：丙种球蛋白",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "739-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：环磷酰胺",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "739-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：扶异",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "739-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：热淋清颗粒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1745-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氨茶碱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1266-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：阿奇霉素",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "1266-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：替吉奥",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "400-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：奥拉西坦胶囊",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "400-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：生血宝合剂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "826-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：达肝素",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "826-3"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：甘桔冰梅片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "739-6"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：吗替麦考酚酯",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "739-6"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：头孢克肟",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "739-6"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：蒙脱石散",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "739-2"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氯苯那敏片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1577-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：氯沙坦钾片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "831-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：钾片",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "831-1"
+    },
+    {
+      "question": {
+        "instructions": "根据病历判断是否应列入该次就诊的出院带药列表，排除已停用、过敏禁忌和仅在住院中使用的药。仅离线复现数据集，不给患者治疗建议。候选药物：法莫替丁",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "209-1"
+    }
+  ]
+}

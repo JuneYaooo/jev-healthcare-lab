@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "A",
+    "group": "201",
+    "id": "201",
+    "metadata": {
+      "source": "TCM-BEST4SDT every third SDT case; no diagnosis or explanation in state"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "实热证",
+            "B": "虚热证",
+            "C": "本虚标实",
+            "D": "虚实夹杂"
+          },
+          "instructions": "根据病例选择病性的最佳选项。",
+          "type": "choice"
+        }
+      },
+      "state": "三岁小女孩,晚春天气转暖却穿着过厚衣物玩耍出汗后被风吹到,突发瘈疭病。严重时闭眼昏迷呈角弓反张姿态,双手紧握成拳,轻症时舌肿胀无法吸吮母乳,持续三日每日拉稀2-3次导致精神萎靡，并伴有体表温度升高。脉象显示跳动次数增多，显示体内存在热证。"
+    },
+    "request_sha256": "e99a5eb22d682faa45950a7b4db80e2a130d1eeb70ecf363b6d9f01f0f500932",
+    "task": "tcm_best_nature"
+  },
+  "response": {
+    "elapsed_s": 0.7087642080150545,
+    "id": "201",
+    "request_sha256": "e99a5eb22d682faa45950a7b4db80e2a130d1eeb70ecf363b6d9f01f0f500932",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "A",
+          "confidence": 0.73,
+          "probabilities": {
+            "A": 0.79,
+            "B": 0.01,
+            "C": 0.12,
+            "D": 0.08
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 480,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_nature"
+  }
+}

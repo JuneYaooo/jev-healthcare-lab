@@ -1,0 +1,57 @@
+{
+  "sample": {
+    "gold": "Modifier",
+    "group": "9950360",
+    "id": "9950360:1069",
+    "metadata": {
+      "source": "NCBI Disease official test, given span; not disease detection or normalization"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "CompositeMention": "Composite mention combining multiple diseases",
+            "DiseaseClass": "A class or category of diseases",
+            "Modifier": "Disease term used as a modifier",
+            "SpecificDisease": "Specific disease entity"
+          },
+          "instructions": "Classify the annotated disease mention category in context.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "abstract": "Molecular analysis of the APC gene in 205 families: extended genotype-phenotype correlations in FAP and evidence for the role of APC amino acid changes in colorectal cancer predisposition. BACKGROUND/AIMS  The development of colorectal cancer and a variable range of extracolonic manifestations in familial adenomatous polyposis (FAP) is the result of the dominant inheritance of adenomatous polyposis coli (APC) gene mutations. In this study, direct mutation analysis of the APC gene was performed to determine genotype-phenotype correlations for nine extracolonic manifestations and to investigate the incidence of APC mutations in non-FAP colorectal cancer. METHODS  The APC gene was analysed in 190 unrelated FAP and 15 non-FAP colorectal cancer patients using denaturing gradient gel electrophoresis, the protein truncation test, and direct sequencing. RESULTS  Chain terminating signals were only identified in patients belonging to the FAP group (105 patients). Amino acid changes were identified in four patients, three of whom belonged to the non-FAP group of colorectal cancer patients. Genotype-phenotype correlations identified significant differences in the nature of certain extracolonic manifestations in FAP patients belonging to three mutation subgroups. CONCLUSIONS  Extended genotype-phenotype correlations made in this study may have the potential to determine the most appropriate surveillance and prophylactic treatment regimens for those patients with mutations associated with life threatening conditions. This study also provided evidence for the pathological nature of amino acid changes in APC associated with both FAP and non-FAP colorectal cancer patients.. ",
+        "mention": "colorectal cancer"
+      }
+    },
+    "request_sha256": "4e9eee32032388da04fa0d2352efae1bd889bfe8322590d0fc27ef5d526533b8",
+    "task": "ncbi_disease_category_oracle_span"
+  },
+  "response": {
+    "elapsed_s": 1.4236649579834193,
+    "id": "9950360:1069",
+    "request_sha256": "4e9eee32032388da04fa0d2352efae1bd889bfe8322590d0fc27ef5d526533b8",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "SpecificDisease",
+          "confidence": 0.81,
+          "probabilities": {
+            "CompositeMention": 0.0,
+            "DiseaseClass": 0.13,
+            "Modifier": 0.01,
+            "SpecificDisease": 0.86
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 721,
+        "output_tokens": 58
+      }
+    },
+    "status": "ok",
+    "task": "ncbi_disease_category_oracle_span"
+  }
+}

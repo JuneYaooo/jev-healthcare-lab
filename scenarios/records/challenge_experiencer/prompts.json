@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "family": "家属",
+          "none": "没有肯定任何人患糖尿病",
+          "patient": "患者本人",
+          "unknown": "主体不明"
+        },
+        "instructions": "本段记录中的糖尿病属于谁？",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "experiencer:1"
+    }
+  ]
+}

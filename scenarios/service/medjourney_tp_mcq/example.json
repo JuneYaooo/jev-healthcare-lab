@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "2",
+    "group": "96",
+    "id": "96",
+    "metadata": {
+      "parseable_pool": 140,
+      "parser_exclusions": 8,
+      "source": "MedJourney public original options"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "卧床休息",
+            "1": "低盐饮食",
+            "2": "利尿降压",
+            "3": "激素疗法",
+            "4": "中医疗法"
+          },
+          "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+          "type": "choice"
+        }
+      },
+      "state": "某患者既往曾有肾小球肾炎史，因病情稳定上班工作。近日，在单位体检时发现血压升高，来医院复查，证实为慢性肾小球肾炎急性发作。为迅速而有效地缓解症状，你考虑下列哪项措施最佳？可能的治疗方案包括：卧床休息、低盐饮食、利尿降压、激素疗法、中医疗法。请从上述治疗方案中选择最正确的一个。（注意，请只输出治疗方案名称，不要给解释！）"
+    },
+    "request_sha256": "8d3bf008b726b8bb284ad4bc92dd7ef5a1c00bf566902fd801bf8d38507a58b9",
+    "task": "medjourney_tp_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.8190802079625428,
+    "id": "96",
+    "request_sha256": "8d3bf008b726b8bb284ad4bc92dd7ef5a1c00bf566902fd801bf8d38507a58b9",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "2",
+          "confidence": 0.95,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.0,
+            "2": 0.96,
+            "3": 0.03,
+            "4": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 536,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "medjourney_tp_mcq"
+  }
+}

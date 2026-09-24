@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "4",
+    "group": "409",
+    "id": "409",
+    "metadata": {
+      "parseable_pool": 420,
+      "parser_exclusions": 12,
+      "source": "MedJourney public original options"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "乳腺钼靶X线",
+            "1": "乳腺B超",
+            "2": "乳腺触诊",
+            "3": "乳腺核磁",
+            "4": "不推荐"
+          },
+          "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+          "type": "choice"
+        }
+      },
+      "state": "某女，30岁，无乳腺癌家族史，无既往病史，根据乳腺癌筛检原则，为其推荐的检查为？可能的检查包括：乳腺钼靶X线、乳腺B超、乳腺触诊、乳腺核磁、不推荐。请从上述检查中选择最正确的一个。（注意，请只输出检查名称，不要给解释！）"
+    },
+    "request_sha256": "5f7593829f990e44f254c13a5ecd3cda55710e3fca2cc9726011feab01c02be7",
+    "task": "medjourney_ep_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.5737423329846933,
+    "id": "409",
+    "request_sha256": "5f7593829f990e44f254c13a5ecd3cda55710e3fca2cc9726011feab01c02be7",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "1",
+          "confidence": 0.33,
+          "probabilities": {
+            "0": 0.07,
+            "1": 0.47000000000000003,
+            "2": 0.21,
+            "3": 0.0,
+            "4": 0.25
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 497,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "medjourney_ep_mcq"
+  }
+}

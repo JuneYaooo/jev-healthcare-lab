@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "B",
+    "group": "101",
+    "id": "101",
+    "metadata": {
+      "source": "TCM-BEST4SDT objective items; one pass not official three-repeat metric"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "理解",
+            "B": "诱导",
+            "C": "适量",
+            "D": "适度",
+            "E": "开导"
+          },
+          "instructions": "选择题目的最佳答案。",
+          "type": "choice"
+        }
+      },
+      "state": "为了切实做到尊重病人自主性或决定，医生向病人提供信息时要避免"
+    },
+    "request_sha256": "91c58d0c6e15357e7807fdacdaedff29a3283d4ac6a74d74ae77b69fc94f8415",
+    "task": "tcm_best_ethics"
+  },
+  "response": {
+    "elapsed_s": 0.587780500005465,
+    "id": "101",
+    "request_sha256": "91c58d0c6e15357e7807fdacdaedff29a3283d4ac6a74d74ae77b69fc94f8415",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "B",
+          "confidence": 1.0,
+          "probabilities": {
+            "A": 0.0,
+            "B": 1.0,
+            "C": 0.0,
+            "D": 0.0,
+            "E": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 380,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_ethics"
+  }
+}

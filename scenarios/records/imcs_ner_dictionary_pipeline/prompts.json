@@ -1,0 +1,2917 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,5) 的候选片段“炎症”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10322885:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“低烧”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10559056:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,7) 的候选片段“烧”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10559056:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“消炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10223621:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,4) 的候选片段“化痰”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10223621:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,4) 的候选片段“痰”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10223621:17"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,13) 的候选片段“血常规”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10799495:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,12) 的候选片段“血常”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10799495:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,11) 的候选片段“血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10799495:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [11,13) 的候选片段“常规”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10799495:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [11,13) 的候选片段“嗜睡”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10350498:24"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,12) 的候选片段“大便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10666036:38"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [11,12) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10666036:38"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [17,19) 的候选片段“大便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10666036:38"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [18,19) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10666036:38"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,5) 的候选片段“消化”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10343789:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,8) 的候选片段“西”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10343789:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,10) 的候选片段“感冒药”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10763584:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,9) 的候选片段“感冒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10763584:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,8) 的候选片段“轮状病毒肠炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10286786:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,6) 的候选片段“轮状病毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10286786:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,6) 的候选片段“状病毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10286786:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“病毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10286786:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,8) 的候选片段“肠炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10286786:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,9) 的候选片段“烫”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10214268:34"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,8) 的候选片段“检查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10339599:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,8) 的候选片段“查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10339599:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,7) 的候选片段“微生态药物”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [9,13) 的候选片段“双歧杆菌”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [9,11) 的候选片段“双歧”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,21) 的候选片段“布拉氏菌酵母散”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,17) 的候选片段“布拉氏”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [15,16) 的候选片段“拉”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [18,21) 的候选片段“酵母散”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10306738:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“咳嗽”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10309191:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,1) 的候选片段“咳”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10309191:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,5) 的候选片段“感冒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10309191:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,8) 的候选片段“蒙脱石散”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,7) 的候选片段“蒙脱石”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“蒙脱”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [11,17) 的候选片段“茵栀黄口服液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [11,14) 的候选片段“茵栀黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [12,17) 的候选片段“栀黄口服液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,14) 的候选片段“黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,17) 的候选片段“口服液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [19,21) 的候选片段“大便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [20,21) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10747362:13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,8) 的候选片段“嗓子哑”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“嗓子”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,8) 的候选片段“哑”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,15) 的候选片段“炎症”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [27,28) 的候选片段“用”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [29,33) 的候选片段“清热解毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [30,31) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10864960:31"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,4) 的候选片段“很”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10144896:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,9) 的候选片段“检查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10372608:8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,9) 的候选片段“查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10372608:8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,11) 的候选片段“肺”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10372608:8"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [11,12) 的候选片段“黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10150892:24"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [75,76) 的候选片段“用”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10009434:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [78,79) 的候选片段“很”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10009434:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [9,11) 的候选片段“大便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10140153:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,11) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10140153:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [12,14) 的候选片段“带血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10140153:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,14) 的候选片段“血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10140153:20"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,8) 的候选片段“着凉”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10121796:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“尿少”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10025954:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,6) 的候选片段“尿”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10025954:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,9) 的候选片段“黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10025954:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [19,20) 的候选片段“水”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10025954:30"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,8) 的候选片段“拉”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10716244:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“着凉”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10120528:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,9) 的候选片段“食欲不好”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10359384:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“肠炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10287625:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,12) 的候选片段“肚子不舒服”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10287625:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,8) 的候选片段“中成药”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“中成”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,12) 的候选片段“清热解毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [9,10) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [16,22) 的候选片段“双黄连口服液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [16,19) 的候选片段“双黄连”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [17,18) 的候选片段“黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [19,22) 的候选片段“口服液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10661245:26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,15) 的候选片段“退热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10177047:57"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,14) 的候选片段“退”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10177047:57"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,15) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10177047:57"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,7) 的候选片段“很”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,8) 的候选片段“黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,15) 的候选片段“黄”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,14) 的候选片段“查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10473704:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“发烧”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10269408:6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,5) 的候选片段“发”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 3,
+      "example_sample_id": "10269408:6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,6) 的候选片段“烧”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10269408:6"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [1,3) 的候选片段“腹泻”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10303394:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,3) 的候选片段“泻”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10303394:10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,4) 的候选片段“37.8”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10350498:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“37”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10350498:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,4) 的候选片段“发热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10154237:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,3) 的候选片段“发”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10154237:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,4) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10154237:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,8) 的候选片段“细菌感染”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10063003:23"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“细菌”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10063003:23"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,8) 的候选片段“感染”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10063003:23"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [1,3) 的候选片段“消炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10278846:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“病毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10194602:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,16) 的候选片段“口服液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10260645:4"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,3) 的候选片段“用”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10328017:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,7) 的候选片段“生理盐水”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10328017:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“盐水”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10328017:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,7) 的候选片段“水”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10328017:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [12,13) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10328017:27"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“大便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [1,2) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,7) 的候选片段“蛋花样”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“蛋花”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“花样”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [17,20) 的候选片段“妈咪爱”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10511278:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [17,19) 的候选片段“妈咪”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10511278:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [22,24) 的候选片段“肠道”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10511278:19"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [12,14) 的候选片段“检查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10309191:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,16) 的候选片段“大便中有粘液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10261841:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,16) 的候选片段“粘液”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10261841:7"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“发热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10075507:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,6) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10075507:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,10) 的候选片段“37.8”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10075507:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,8) 的候选片段“37”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "10075507:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,12) 的候选片段“咳嗽”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10075507:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [10,11) 的候选片段“咳”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10075507:2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [1,3) 的候选片段“发热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [1,2) 的候选片段“发”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [14,15) 的候选片段“吐”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [24,26) 的候选片段“化验”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [25,27) 的候选片段“验血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [26,27) 的候选片段“血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [34,38) 的候选片段“病毒感染”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [34,36) 的候选片段“病毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [36,38) 的候选片段“感染”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [43,44) 的候选片段“查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [45,47) 的候选片段“咽部”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [49,51) 的候选片段“充血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,3) 的候选片段“热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [50,51) 的候选片段“血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [57,59) 的候选片段“鼻塞”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [58,59) 的候选片段“塞”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [59,61) 的候选片段“流涕”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [59,60) 的候选片段“流”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [67,70) 的候选片段“鼻窦炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [7,9) 的候选片段“头痛”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,9) 的候选片段“痛”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,15) 的候选片段“呕吐”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [13,14) 的候选片段“呕”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10234277:22"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [5,7) 的候选片段“大便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10411703:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,7) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10411703:12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [33,35) 的候选片段“便秘”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10557134:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [33,34) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10557134:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [53,55) 的候选片段“检查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10557134:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [54,55) 的候选片段“查”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10557134:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [56,58) 的候选片段“复诊”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10557134:42"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,4) 的候选片段“粪便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,4) 的候选片段“便”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [16,21) 的候选片段“病毒性肠炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [16,19) 的候选片段“病毒性”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [16,18) 的候选片段“病毒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [19,21) 的候选片段“肠炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10041940:47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,6) 的候选片段“肺炎”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10243045:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [4,5) 的候选片段“肺”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10243045:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [3,6) 的候选片段“益生菌”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10348914:46"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,11) 的候选片段“37.5度”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10103102:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,10) 的候选片段“37.5”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10103102:3"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,4) 的候选片段“普通感冒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10302573:48"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [2,4) 的候选片段“感冒”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10302573:48"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [19,21) 的候选片段“拉稀”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10009543:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [19,20) 的候选片段“拉”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10009543:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [20,21) 的候选片段“稀”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10009543:16"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [0,2) 的候选片段“经皮”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [9,11) 的候选片段“抽血”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [9,10) 的候选片段“抽”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [17,18) 的候选片段“痛”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10499370:14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [52,53) 的候选片段“用”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10629721:25"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [6,9) 的候选片段“睡觉多”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10143642:36"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,10) 的候选片段“退热”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10347220:38"
+    },
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现",
+          "none": "不是完整医疗实体"
+        },
+        "instructions": "判断 sentence 中 [8,9) 的候选片段“退”是否是完整医疗实体。边界不完整或不是实体选 none。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "10347220:38"
+    }
+  ]
+}

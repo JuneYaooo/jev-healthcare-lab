@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "objective_results",
+    "group": "D2N100",
+    "id": "objective_results:12",
+    "metadata": {
+      "source": "ACI-Bench test1 reference sections; given section boundaries; not note generation or factual quality"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "assessment_and_plan": "Clinical assessment, diagnoses and treatment/follow-up plan",
+            "objective_exam": "Physical examination",
+            "objective_results": "Objective laboratory, imaging or diagnostic results",
+            "subjective": "Patient history, symptoms and subjective narrative"
+          },
+          "instructions": "Classify this clinical note section by its role.",
+          "type": "choice"
+        }
+      },
+      "state": "objective_results: #####EMPTY#####."
+    },
+    "request_sha256": "dd65b49c0d7e58bab48aafe2b4904024ccc795354d3ba99c82e2b1b4bd46c0bd",
+    "task": "aci_note_section"
+  },
+  "response": {
+    "elapsed_s": 0.9329029160435311,
+    "id": "objective_results:12",
+    "request_sha256": "dd65b49c0d7e58bab48aafe2b4904024ccc795354d3ba99c82e2b1b4bd46c0bd",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "objective_results",
+          "confidence": 1.0,
+          "probabilities": {
+            "assessment_and_plan": 0.0,
+            "objective_exam": 0.0,
+            "objective_results": 1.0,
+            "subjective": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 371,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "aci_note_section"
+  }
+}

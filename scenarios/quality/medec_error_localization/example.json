@@ -1,0 +1,71 @@
+{
+  "sample": {
+    "gold": "none",
+    "group": "ms-val-320",
+    "id": "ms-val-320",
+    "metadata": {},
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "Error is in sentence 0",
+            "1": "Error is in sentence 1",
+            "10": "Error is in sentence 10",
+            "2": "Error is in sentence 2",
+            "3": "Error is in sentence 3",
+            "4": "Error is in sentence 4",
+            "5": "Error is in sentence 5",
+            "6": "Error is in sentence 6",
+            "7": "Error is in sentence 7",
+            "8": "Error is in sentence 8",
+            "9": "Error is in sentence 9",
+            "none": "No medical error"
+          },
+          "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "clinical_text": "A 31-year-old woman comes to the doctor because of episodic nosebleeds and gingival bleeding for the past 2 weeks. She has no history of serious illness and takes no medications. She is sexually active with two male partners and uses condoms inconsistently. Vital signs are within normal limits. Examination shows punctate, non-blanching macules on the chest. The remainder of the examination shows no abnormalities. The hemoglobin concentration is 13.1 g/dL, leukocyte count is 6600/mm3, and platelet count is 28,000/mm3. A peripheral blood smear shows reduced platelets with normal morphology. Hepatitis C antibody testing is ordered. HIV test is negative. ",
+        "numbered_sentences": "0 A 31-year-old woman comes to the doctor because of episodic nosebleeds and gingival bleeding for the past 2 weeks.\n1 She has no history of serious illness and takes no medications.\n2 She is sexually active with two male partners and uses condoms inconsistently.\n3 Vital signs are within normal limits.\n4 Examination shows punctate, non-blanching macules on the chest.\n5 The remainder of the examination shows no abnormalities.\n6 The hemoglobin concentration is 13.1 g/dL\n7 , leukocyte count is 6600/mm3, and platelet count is 28,000/mm3.\n8 A peripheral blood smear shows reduced platelets with normal morphology.\n9 Hepatitis C antibody testing is ordered.\n10 HIV test is negative."
+      }
+    },
+    "request_sha256": "0d2b4a3a5363b5163d3e9afcbc538c1432ae9749d10de26c9ecb4ce5d29dd56a",
+    "task": "medec_error_localization"
+  },
+  "response": {
+    "elapsed_s": 0.876440541993361,
+    "id": "ms-val-320",
+    "request_sha256": "0d2b4a3a5363b5163d3e9afcbc538c1432ae9749d10de26c9ecb4ce5d29dd56a",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "none",
+          "confidence": 0.78,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "10": 0.04,
+            "2": 0.04,
+            "3": 0.0,
+            "4": 0.01,
+            "5": 0.03,
+            "6": 0.0,
+            "7": 0.01,
+            "8": 0.01,
+            "9": 0.04,
+            "none": 0.81
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 852,
+        "output_tokens": 102
+      }
+    },
+    "status": "ok",
+    "task": "medec_error_localization"
+  }
+}

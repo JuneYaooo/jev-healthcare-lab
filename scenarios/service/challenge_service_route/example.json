@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "appointment",
+    "group": "service_route:1",
+    "id": "service_route:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "appointment": "预约挂号",
+            "billing": "费用账单",
+            "medication": "用药咨询",
+            "report": "报告获取"
+          },
+          "instructions": "按患者消息的主要业务意图路由。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "我想把下周的挂号改到周五。"
+      }
+    },
+    "request_sha256": "e0c3cd98ed1e066c4260145bc96e549e61f6adfca285aa5d79517760a8ecbb79",
+    "task": "challenge_service_route"
+  },
+  "response": {
+    "elapsed_s": 0.9617433339590207,
+    "id": "service_route:1",
+    "request_sha256": "e0c3cd98ed1e066c4260145bc96e549e61f6adfca285aa5d79517760a8ecbb79",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "appointment",
+          "confidence": 1.0,
+          "probabilities": {
+            "appointment": 1.0,
+            "billing": 0.0,
+            "medication": 0.0,
+            "report": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 372,
+        "output_tokens": 47
+      }
+    },
+    "status": "ok",
+    "task": "challenge_service_route"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "3",
+    "group": "558",
+    "id": "558",
+    "metadata": {
+      "parseable_pool": 1007,
+      "parser_exclusions": 22,
+      "source": "MedJourney public original options"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "抗疟药",
+            "1": "抗阿米巴原虫药",
+            "2": "抗艾滋病药",
+            "3": "抗结核病药",
+            "4": "抗肝病药"
+          },
+          "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+          "type": "choice"
+        }
+      },
+      "state": "乙胺丁醇属于？可能的药品包括：抗疟药、抗阿米巴原虫药、抗艾滋病药、抗结核病药、抗肝病药。请从上述药品中选择最正确的一个。（注意，请只输出药品名称，不要给解释！）"
+    },
+    "request_sha256": "0b8b38f1b39fb3d881aa152d9bee378db85e8a6ae1c3a57e1151bc5cd70eec07",
+    "task": "medjourney_mp_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.5450807079905644,
+    "id": "558",
+    "request_sha256": "0b8b38f1b39fb3d881aa152d9bee378db85e8a6ae1c3a57e1151bc5cd70eec07",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "3",
+          "confidence": 1.0,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 462,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "medjourney_mp_mcq"
+  }
+}

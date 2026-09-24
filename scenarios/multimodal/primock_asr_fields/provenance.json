@@ -1,0 +1,45 @@
+{
+  "task": "primock_asr_fields",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "final_tasks_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
+  },
+  "sample_count": 12,
+  "groups": 1,
+  "resources": [
+    {
+      "resource": "PriMock57",
+      "source": "https://github.com/babylonhealth/primock57",
+      "completion_note": "一段公开扮演患者音频，真实Whisper转写＋12字段；字段金标由本轮人工定义，非临床评测"
+    }
+  ],
+  "adapter": "prepare_final_tasks.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 32175,
+      "sha256": "9a5a98d9da9dd62217747419f52c22754ab424dba596cde8f973a1f566e187db"
+    },
+    "responses.jsonl": {
+      "bytes": 5027,
+      "sha256": "75fc32ac828910ce576a63e7aee299f390a5eae6c4a956006f9c42cb3607c31d"
+    },
+    "index.jsonl": {
+      "bytes": 3654,
+      "sha256": "41dca7684419eeb4e6d8a2a8ba9476da5b8b711c0eea1cf04906845fd65dff52"
+    },
+    "prompts.json": {
+      "bytes": 4507,
+      "sha256": "6edfd24015caffacb58a80018d7d2635d48a3a08deb7f7b80b0e35c0e2347f94"
+    },
+    "example.json": {
+      "bytes": 3468,
+      "sha256": "b6bc5a873b2930503d803bf9bb3b721a70a521224dbd176e506e8d6857a53e2b"
+    }
+  }
+}

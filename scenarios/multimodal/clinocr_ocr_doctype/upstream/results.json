@@ -1,0 +1,72 @@
+{
+  "engine": "tesseract 5.5.3",
+  "config": "English,pSM3, no deskew/rotation repair; six manually selected first eval docs, four share same template and text; not fullbenchmark",
+  "documents": [
+    {
+      "id": "handwriting_t1_s2",
+      "subset": "handwriting",
+      "template": 1,
+      "word_error_rate": 0.20408163265306123,
+      "reference_words": 245,
+      "hypothesis_words": 247,
+      "numeric_token_recall": 1.0,
+      "elapsed_seconds": 0.6473763749818318,
+      "ocr_path": "data/more/ocr-eval/handwriting_t1_s2-ocr.txt"
+    },
+    {
+      "id": "mixed_t9_s2",
+      "subset": "mixed",
+      "template": 9,
+      "word_error_rate": 0.9944444444444445,
+      "reference_words": 180,
+      "hypothesis_words": 41,
+      "numeric_token_recall": 0.0,
+      "elapsed_seconds": 0.1293599579948932,
+      "ocr_path": "data/more/ocr-eval/mixed_t9_s2-ocr.txt"
+    },
+    {
+      "id": "normal_t1_s2",
+      "subset": "normal",
+      "template": 1,
+      "word_error_rate": 0.14285714285714285,
+      "reference_words": 245,
+      "hypothesis_words": 251,
+      "numeric_token_recall": 1.0,
+      "elapsed_seconds": 0.7445877910358831,
+      "ocr_path": "data/more/ocr-eval/normal_t1_s2-ocr.txt"
+    },
+    {
+      "id": "poor_t1_s2",
+      "subset": "poor",
+      "template": 1,
+      "word_error_rate": 0.6408163265306123,
+      "reference_words": 245,
+      "hypothesis_words": 220,
+      "numeric_token_recall": 0.8095238095238095,
+      "elapsed_seconds": 0.4622807909618132,
+      "ocr_path": "data/more/ocr-eval/poor_t1_s2-ocr.txt"
+    },
+    {
+      "id": "rotated_t1_s2",
+      "subset": "rotated",
+      "template": 1,
+      "word_error_rate": 0.3306122448979592,
+      "reference_words": 245,
+      "hypothesis_words": 219,
+      "numeric_token_recall": 0.9523809523809523,
+      "elapsed_seconds": 0.6430028330069035,
+      "ocr_path": "data/more/ocr-eval/rotated_t1_s2-ocr.txt"
+    },
+    {
+      "id": "tables_t9_s2",
+      "subset": "tables",
+      "template": 9,
+      "word_error_rate": 0.05555555555555555,
+      "reference_words": 180,
+      "hypothesis_words": 177,
+      "numeric_token_recall": 0.9473684210526315,
+      "elapsed_seconds": 0.5202858329867013,
+      "ocr_path": "data/more/ocr-eval/tables_t9_s2-ocr.txt"
+    }
+  ]
+}

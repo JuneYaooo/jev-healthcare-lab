@@ -1,0 +1,59 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "ms-val-560",
+    "id": "ms-val-560",
+    "metadata": {
+      "original_id": "ms-val-560",
+      "original_task": "medec_error_detection",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "irrelevant"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "No medical error",
+            "1": "Contains a medical error"
+          },
+          "instructions": "Does this clinical text contain a medical error? Judge clinical correctness, not style.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "administrative_note": "Document imported on Tuesday. Printer paper restocked. Meeting room chairs replaced. This administrative note is unrelated to the patient or task.",
+        "clinical_input": {
+          "clinical_text": "A 10-year-old boy is brought to the emergency department because he has not been able to walk since waking up that morning. His mother said that when he tried to get out of bed that he was unable to stand without support. He also complained of prickling in his hands and feet. Three weeks ago, he had a fever, dry cough, and a sore throat. The fever and sore throat subsided a week after they began, but the cough is persisting. He has no history of serious illness and takes no medication. His vital signs are within normal limits. The lungs are clear to auscultation. There is severe weakness in both lower extremities and mild sensory loss of the hands and feet. Knee and ankle jerk reflexes are absent. The remainder of the examination shows no abnormalities. Laboratory studies show:\nHemoglobin 12.0 g/dL\nLeukocyte count 6000/mm3\nSegmented neutrophils 64%\nEosinophils 2%\nLymphocytes 26%\nMonocytes 7%\nPlatelet count 160,000/mm3\nErythrocyte sedimentation rate 27 mm/h\nSerum\nNa+ 138 mEq/L\nCl- 101 mEq/L\nK+ 4.9 mEq/L\nHCO3- 26 mEq/L\nCa2+ 9.7 mg/dL\nCreatine kinase 93 U/L\nA lumbar puncture is performed; cerebrospinal fluid analysis shows a leukocyte count of 2/mm3, a glucose concentration of 60 mg/dL, and a protein concentration of 91 mg/dL. Intravenous immunoglobulin (IVIG) was given.",
+          "numbered_sentences": "0 A 10-year-old boy is brought to the emergency department because he has not been able to walk since waking up that morning.\n1 His mother said that when he tried to get out of bed that he was unable to stand without support.\n2 He also complained of prickling in his hands and feet.\n3 Three weeks ago, he had a fever, dry cough, and a sore throat.\n4 The fever and sore throat subsided a week after they began, but the cough is persisting.\n5 He has no history of serious illness and takes no medication.\n6 His vital signs are within normal limits.\n7 The lungs are clear to auscultation.\n8 There is severe weakness in both lower extremities and mild sensory loss of the hands and feet.\n9 Knee and ankle jerk reflexes are absent.\n10 The remainder of the examination shows no abnormalities.\n11 Laboratory studies show:\n12 Hemoglobin 12.0 g\n13 /dL\n14 Leukocyte count 6000/mm3\n15 Segmented neutrophils 64%\n16 Eosinophils 2%\n17 Lymphocytes 26%\n18 Monocytes 7%\n19 Platelet count 160,000/mm3\nErythrocyte sedimentation rate 27 mm/h\n20 Serum\nNa+ 138 mEq/\n21 L\nCl-\n22 101 mEq/\n23 L\nK+\n24 4.9 mEq/L\n25 HCO3- 26 mEq/L\nCa2+\n26 9.7 mg/dL\n27 Creatine kinase\n28 93 U/L\n29 A lumbar puncture is performed; cerebrospinal fluid analysis shows a leukocyte count of 2/mm3, a glucose concentration of 60 mg/dL, and a protein concentration of 91 mg/dL. Intravenous immunoglobulin (IVIG) was given."
+        }
+      }
+    },
+    "request_sha256": "33084d7f0a8f62c635c38f6927d182d6c10b9f6bebe0f72453e8f525fc1d0def",
+    "task": "robust_irrelevant_medec_error_detection"
+  },
+  "response": {
+    "elapsed_s": 0.6393068749457598,
+    "id": "ms-val-560",
+    "request_sha256": "33084d7f0a8f62c635c38f6927d182d6c10b9f6bebe0f72453e8f525fc1d0def",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 0.81,
+          "probabilities": {
+            "0": 0.9,
+            "1": 0.1
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 1214,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "robust_irrelevant_medec_error_detection"
+  }
+}

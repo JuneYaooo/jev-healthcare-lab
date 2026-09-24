@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "lab",
+    "group": "followup_action:1",
+    "id": "followup_action:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "appointment": "待复诊",
+            "imaging": "待影像检查",
+            "lab": "待检验",
+            "none": "无待执行事项"
+          },
+          "instructions": "对当前待执行事项分类；若仅描述已完成事项选none。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "出院后一周复查血常规。"
+      }
+    },
+    "request_sha256": "ce3e3fe0f82f1bf922322a2dae6f3f0e85740f89a648bf857334f79904699117",
+    "task": "challenge_followup_action"
+  },
+  "response": {
+    "elapsed_s": 0.8428809170145541,
+    "id": "followup_action:1",
+    "request_sha256": "ce3e3fe0f82f1bf922322a2dae6f3f0e85740f89a648bf857334f79904699117",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "lab",
+          "confidence": 0.69,
+          "probabilities": {
+            "appointment": 0.23,
+            "imaging": 0.0,
+            "lab": 0.77,
+            "none": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 378,
+        "output_tokens": 46
+      }
+    },
+    "status": "ok",
+    "task": "challenge_followup_action"
+  }
+}

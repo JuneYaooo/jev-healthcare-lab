@@ -1,0 +1,30 @@
+{
+  "file": "test_data.csv",
+  "git_blob": "d11fd22ed3a751ba22a3f68cf60029361299427a",
+  "sha256": "9d296b09668d945d7c4ad8136032e984a3a3b8b0a7b046eb0f9f787331d9d97d",
+  "source": "https://huggingface.co/datasets/nsk7153/MedCalc-Bench-Verified",
+  "transport": "hf-mirror.com",
+  "verification": "Matches Git blob from mirror metadata; not independently checked against primary-host byte stream",
+  "scope": {
+    "Glasgow Coma Score (GCS)": [
+      3,
+      15
+    ],
+    "CURB-65 Score for Pneumonia Severity": [
+      0,
+      5
+    ],
+    "SIRS Criteria": [
+      0,
+      4
+    ],
+    "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk": [
+      0,
+      9
+    ],
+    "FeverPAIN Score for Strep Pharyngitis": [
+      0,
+      5
+    ]
+  }
+}

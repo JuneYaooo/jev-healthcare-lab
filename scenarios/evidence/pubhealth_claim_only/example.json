@@ -1,0 +1,57 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "25662",
+    "id": "25662",
+    "metadata": {
+      "source": "official publisher HF converted test mirrored via hf-mirror,100 paired claims; main_text is a fact-check article not independent raw evidence; explanation excluded; historical labels not current clinical guidance"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "False",
+            "1": "Mixture of true and false",
+            "2": "True",
+            "3": "Unproven"
+          },
+          "instructions": "Classify this historical public-health claim as of the publication date. No retrieval evidence is supplied.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "claim": "Steve Scalise Says Ady Barkan asked Joe Biden, “Do we agree that we can redirect some of the funding for police?”",
+        "publication_date": "August 31, 2020"
+      }
+    },
+    "request_sha256": "ccc500aa22c4f4f685bbb960450c53450aaa6e44dec302cd57f75f419f45ec0c",
+    "task": "pubhealth_claim_only"
+  },
+  "response": {
+    "elapsed_s": 1.4159542080014944,
+    "id": "25662",
+    "request_sha256": "ccc500aa22c4f4f685bbb960450c53450aaa6e44dec302cd57f75f419f45ec0c",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "3",
+          "confidence": 0.37,
+          "probabilities": {
+            "0": 0.31,
+            "1": 0.03,
+            "2": 0.14,
+            "3": 0.52
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 404,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "pubhealth_claim_only"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确否认",
+          "present": "明确有",
+          "unknown": "未明确"
+        },
+        "instructions": "判断是否明确存在当前胸痛。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "mixed_language:1"
+    }
+  ]
+}

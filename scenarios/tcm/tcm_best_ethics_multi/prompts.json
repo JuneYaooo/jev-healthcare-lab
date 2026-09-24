@@ -1,0 +1,125 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 尊重",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "103"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 接纳和关心",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "103"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 信息",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "103"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 安全",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "103"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 和谐的环境",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "103"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 特效解毒剂为二巯基丙醇",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 中毒机制为亚铁血红蛋白转化为高铁血红蛋白",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 多由误食引起",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 中毒时可发生青紫",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 用含硝酸盐高的井水煮粥并存放过久也可引起中毒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 切口内出血压迫气管，并建议立即就医",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "139"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 喉头水肿，并建议立即就医",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "139"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 气管塌陷，并建议立即就医",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "139"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 一侧喉返神经损伤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "139"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 痰液堵塞，并建议立即就医",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "139"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "sample": {
+    "gold": "no",
+    "group": "24799031",
+    "id": "24799031",
+    "metadata": {
+      "scope": "hash-sampled labeled pool, not official held-out test; LONG_ANSWER excluded"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "maybe": "Inconclusive or uncertain",
+            "no": "Evidence supports no",
+            "yes": "Evidence supports yes"
+          },
+          "instructions": "Answer the research question based on the supplied abstract context.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "context": [
+          "The objective was to evaluate the efficacy of diffusion-weighted imaging (DWI) in predicting the development of vascularization in hypovascular hepatocellular lesions (HHLs).",
+          "Forty-two HHLs that were diagnosed by computed tomographic (CT) arteriography were evaluated retrospectively. The lesion on DWI was classified as isointense, hypointense, or hyperintense. Follow-up studies that included intravenous dynamic CT or magnetic resonance imaging were performed.",
+          "The 730-day cumulative developments of vascularization in hypointense, isointense, and hyperintense lesions were 17%, 30%, and 40%, respectively. The differences among these developments were not statistically significant."
+        ],
+        "question": "Is diffusion-weighted imaging a significant indicator of the development of vascularization in hypovascular hepatocellular lesions?"
+      }
+    },
+    "request_sha256": "953e2c2c9bcb9fa2add9c634bac982b6ddc343df356abb7f718071d661375f21",
+    "task": "pubmedqa_evidence_qa"
+  },
+  "response": {
+    "elapsed_s": 0.9660165829700418,
+    "id": "24799031",
+    "request_sha256": "953e2c2c9bcb9fa2add9c634bac982b6ddc343df356abb7f718071d661375f21",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "no",
+          "confidence": 1.0,
+          "probabilities": {
+            "maybe": 0.0,
+            "no": 1.0,
+            "yes": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 550,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "pubmedqa_evidence_qa"
+  }
+}

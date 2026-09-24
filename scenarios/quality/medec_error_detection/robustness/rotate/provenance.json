@@ -1,0 +1,45 @@
+{
+  "task": "robust_rotate_medec_error_detection",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "robustness_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "robustness_prepared.jsonl": "969bb18a0fb3ec076528fea632c8e5aeb6282dda3a2e0f5cd8fd44af689d0e3b"
+  },
+  "sample_count": 20,
+  "groups": 20,
+  "resources": [
+    {
+      "resource": "MEDEC-MS",
+      "source": "https://github.com/abachaa/MEDEC",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "benchmark.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 44723,
+      "sha256": "0796f7f72b7595c3e4d250a0b5b6d9cf292d81030034c26b0a6d04e59870a28d"
+    },
+    "responses.jsonl": {
+      "bytes": 8274,
+      "sha256": "e8125e5e2c119cd4b5c3dc3c63c031f13ca980369a15b5c31cb8f89387be27ef"
+    },
+    "index.jsonl": {
+      "bytes": 6356,
+      "sha256": "2058ca47a1fd45725545ba9d6cf9a87d4831560d1b617993d3292d956a01148c"
+    },
+    "prompts.json": {
+      "bytes": 468,
+      "sha256": "6d4562280bfda00a8d17ace65acb5dbcf53b96eb38cf43ae531e974bb746178b"
+    },
+    "example.json": {
+      "bytes": 4279,
+      "sha256": "d1e5ad10093d59ef1e12529bdd53ad220011c865692832bd1c42ec8ea8d7798b"
+    }
+  }
+}

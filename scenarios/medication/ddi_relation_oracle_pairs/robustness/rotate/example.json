@@ -1,0 +1,78 @@
+{
+  "sample": {
+    "gold": "advise",
+    "group": "DDI-DrugBank.d773",
+    "id": "DDI-DrugBank.d773.s1.p2",
+    "metadata": {
+      "inverse_labels": {
+        "advise": "none",
+        "effect": "advise",
+        "int": "effect",
+        "mechanism": "int",
+        "none": "mechanism"
+      },
+      "original_id": "DDI-DrugBank.d773.s1.p2",
+      "original_task": "ddi_relation_oracle_pairs",
+      "population_class_count": 4737,
+      "scope": "official test subset; 30/class; given gold entity pair, not end-to-end NER",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "rotate"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "advise": "No stated interaction between the two target mentions.",
+            "effect": "Advice, precaution or contraindication about co-use.",
+            "int": "Pharmacodynamic effect or clinical outcome of co-use.",
+            "mechanism": "Interaction stated without specifying its kind.",
+            "none": "Pharmacokinetic mechanism (e.g. concentration, absorption, metabolism)."
+          },
+          "instructions": "Classify only the relation stated between the two target drug mentions in this sentence, not outside drug knowledge.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "sentence": "Patients studied in clinical trials of TNKase were routinely treated with heparin and aspirin. ",
+        "target_1": {
+          "charOffset": "74-80",
+          "text": "heparin"
+        },
+        "target_2": {
+          "charOffset": "86-92",
+          "text": "aspirin"
+        }
+      }
+    },
+    "request_sha256": "16996fd4c827a7adeee6b4baa6d988096d8ecf251a215d2af085298293fbdf95",
+    "task": "robust_rotate_ddi_relation_oracle_pairs"
+  },
+  "response": {
+    "elapsed_s": 1.6395954589825124,
+    "id": "DDI-DrugBank.d773.s1.p2",
+    "request_sha256": "16996fd4c827a7adeee6b4baa6d988096d8ecf251a215d2af085298293fbdf95",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "advise",
+          "confidence": 0.96,
+          "probabilities": {
+            "advise": 0.97,
+            "effect": 0.0,
+            "int": 0.01,
+            "mechanism": 0.02,
+            "none": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 506,
+        "output_tokens": 56
+      }
+    },
+    "status": "ok",
+    "task": "robust_rotate_ddi_relation_oracle_pairs"
+  }
+}

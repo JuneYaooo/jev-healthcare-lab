@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "supported",
+    "group": "coding_evidence:1",
+    "id": "coding_evidence:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "insufficient": "仅疑似、家族史或检验异常",
+            "supported": "有明确确诊文书支持",
+            "unsupported": "否认或明确排除"
+          },
+          "instructions": "本题只查文书是否支持“确诊糖尿病”编码；不根据检验自行诊断。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "出院诊断：2型糖尿病。"
+      }
+    },
+    "request_sha256": "b3dbeacafbc9d4de56807b95bc3439e749998ada6b51301fc2253e4081aa1c3e",
+    "task": "challenge_coding_evidence"
+  },
+  "response": {
+    "elapsed_s": 1.477643457998056,
+    "id": "coding_evidence:1",
+    "request_sha256": "b3dbeacafbc9d4de56807b95bc3439e749998ada6b51301fc2253e4081aa1c3e",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "supported",
+          "confidence": 1.0,
+          "probabilities": {
+            "insufficient": 0.0,
+            "supported": 1.0,
+            "unsupported": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 387,
+        "output_tokens": 41
+      }
+    },
+    "status": "ok",
+    "task": "challenge_coding_evidence"
+  }
+}

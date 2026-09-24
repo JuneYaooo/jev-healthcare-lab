@@ -1,0 +1,45 @@
+{
+  "task": "aci_note_section",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "clinical_extra_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "clinical_extra_prepared.jsonl": "e602b25b2350172423b94761341e19ff57477774fc809204c6d346bd4d1c5b0a"
+  },
+  "sample_count": 100,
+  "groups": 40,
+  "resources": [
+    {
+      "resource": "ACI-Bench",
+      "source": "https://github.com/wyim/aci-bench",
+      "completion_note": "仅测试参考病历章节分类；未评价从对话生成整份病历"
+    }
+  ],
+  "adapter": "prepare_clinical_extra.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 136121,
+      "sha256": "feace295f546d48123a2dd35f27f927931d92c75dc5c56b17cd907078465197f"
+    },
+    "responses.jsonl": {
+      "bytes": 49043,
+      "sha256": "0aaaa2c24a730fe609c29bfca1c94d54131d530af3a5c04ed3b52f7c32975154"
+    },
+    "index.jsonl": {
+      "bytes": 29984,
+      "sha256": "18f52a8813029267c2950aae82f98dc238c538720a928634689f7bbcda3122c4"
+    },
+    "prompts.json": {
+      "bytes": 674,
+      "sha256": "74eba2e9faf431092d768f4597e33fe40f32e87322090c689ea625f05c1031a6"
+    },
+    "example.json": {
+      "bytes": 1688,
+      "sha256": "71d244f45f539231072c835bc36db2a9f802805e9593c4d0643fc94b5cd48fb3"
+    }
+  }
+}

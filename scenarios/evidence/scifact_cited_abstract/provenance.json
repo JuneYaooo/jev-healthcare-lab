@@ -1,0 +1,45 @@
+{
+  "task": "scifact_cited_abstract",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "evidence_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "evidence_prepared.jsonl": "692b06da90df7bf4c72a47607486fc340f6ad3d9e54c64d223851945e330fd8e"
+  },
+  "sample_count": 118,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "SciFact",
+      "source": "https://github.com/allenai/scifact",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_evidence.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 281900,
+      "sha256": "607018a7d3c500c80e9ea06e7acb997b02f1ee96ded77a5fad10c3e18caa0fa0"
+    },
+    "responses.jsonl": {
+      "bytes": 51666,
+      "sha256": "aeda85cac277571aa21914f03fcacbe91bf8e445472571a498f5a902c7372fd2"
+    },
+    "index.jsonl": {
+      "bytes": 35039,
+      "sha256": "3d439027025db3acf1902d0576ad41812fdacab80b9fa9d3a5af90b977fa4fd6"
+    },
+    "prompts.json": {
+      "bytes": 547,
+      "sha256": "2db9a98bdc2ff30669f14a0218641f154a394fd7b644c6498ced9f52449d9adb"
+    },
+    "example.json": {
+      "bytes": 3711,
+      "sha256": "2eacda7a651b760ed97ecf61da4d13f42420ad1507ab1a295e22a0a85f540fd9"
+    }
+  }
+}

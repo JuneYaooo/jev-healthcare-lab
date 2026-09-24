@@ -1,60 +1,38 @@
-# 复现说明
+# 实验归档与核验
 
-## 结果与输入的边界
+当前仓库已从原实验目录恢复全部 **6,886 条计分记录**的真实输入、金标、提示词和响应。归档前逐条核对请求哈希与原响应文件哈希，与原发布的 `results/evaluation_index.jsonl` 完全一致。该过程未新增模型调用或替换失败结果。
 
-仓库包含历史聚合结果、评测身份/哈希和实现代码，不包含第三方基准原文或真实API缓存。因此，`scripts/summary.py`可以离线查看已发布快照，重新调用/重新计分则需要自行取得原始数据并生成请求、保留响应。没有声称这是从空目录一键复现全部数据集的发行包。
+## 归档内容
 
-默认数据目录为仓库根下 `data/`；核心脚本可用环境变量 `JEV_DATA_DIR` 指向已经取得的数据与缓存目录。数据目录不进入Git。原实验中的 `work/medical-bench/...` 在新仓库统一对应 `data/...`。少量OCR/ASR辅助脚本使用根目录相对路径，应在仓库根目录运行。
+实验按 `scenarios/<场景>/<任务>/` 保存。每个主任务包含 `samples.jsonl`、`responses.jsonl`、`prompts.json`、`example.json`、`results.json`、`index.jsonl`、`provenance.json` 和方法说明 `README.md`。5 个任务的额外扰动分别放在自身的 `robustness/repeat`、`rotate`、`irrelevant` 下。
 
-## 调用API
+`samples.jsonl` 是实际参与评测的 prepared 记录，包含完整 `request`、本地评分用的 `gold` 和元数据，不是仅有 ID 的索引。`responses.jsonl` 每行保留原缓存文件的完整字节；去除新增的换行分隔符后计算 SHA256，应等于索引中的 `response_sha256`。通过 `(task, id)` 关联文件，不依赖文件顺序。
 
-先在本机设置 `TYPESAFE_API_KEY`，不把实际密钥写进代码、README或Git；`.env.example`仅为格式示例，不会自动加载。
+所有任务的真实输入已包含在请求中，但不包含上游全量数据集及训练语料。语音实验另保留实际使用的患者扮演音频和两份转写；OCR 实验另保留六张原图、参考文本与识别文本，位于对应任务的 `upstream/`。模型权重和凭据不随仓库分发。
 
-```sh
-python3 scripts/live_batch.py --input data/EXAMPLE_prepared.jsonl --max-calls 10 --workers 4
-```
-
-也可用 `--env-file` 指向自己的私有env文件。示例中的EXAMPLE应替换成真实准备文件。默认模型固定jev-1.13.0。成功结果缓存跳过；网络错误再次运行才重试，失败历史保留。真实调用会收费。不会用模拟预测替代失败请求。
-
-首次运行应检查数据许可、状态字段和标签是否正确；取得数据许可并不自动意味着可以把真实患者信息发送给任意云服务。
-
-## 核验范围
-
-当前仓库测试检查结果计数、重复身份、评分函数、请求校验与独立目录结构，不调用外部API。原联合研究的24项检查覆盖当时本地完整输入和缓存；它们不是本仓库重新执行了所有医学或媒体基准的证明。
-
-旧实验曾遇到磁盘满，少量返回结果未保存，后续重跑缺失项。费用只统计最终被引用的成功响应，不代表完整账单。公开数据可能存在闭源模型训练暴露，跨条件的相关样本不能合并成总体临床/商业准确率。
-
-## 医疗数据适配
-
-- `download_sources.py`：第一轮固定Git blob的公开文件；需要GitHub与源站可达，不处理受限申请。
-- `benchmark.py prepare`：IMCS、NLI4CT、MTS、MEDEC等首轮任务；它不会自动重建全部后续任务。
-- `prepare_*.py`：各扩展数据的适配；文件名、金标字段、选择规则和下载镜像见代码及results里的来源说明。
-- `analyze_results.py`：对医疗准备文件和成功响应逐任务评分。
-- `analyze_ablations.py`：300条配对扰动、BMI链路和用药基线。
-- `run_asr.py` / `run_ocr.py`：需要本地音频、权重、Tesseract及对应输入元数据。
-
-示例：
+## 离线核验
 
 ```sh
-python3 scripts/download_sources.py
-python3 scripts/benchmark.py prepare --n 100
-python3 scripts/prepare_extended.py
-python3 scripts/live_batch.py --input data/extended_prepared.jsonl --max-calls 1000
-python3 scripts/analyze_results.py
-```
-
-额外parquet/medspaCy/ASR依赖在`requirements-optional.txt`。各数据集必须按来源分别获取，不能用其他版本替换后仍宣称复现原快照。自编挑战、PriMock字段与OCR文档类型没有独立医生金标。未运行的资源保留在覆盖账本中。
-
-EvidenceBench有37条历史哈希绑定修正：准备阶段整数键经过JSON序列化变成字符串，排序不同；最终按实际发送格式校正索引，响应未改变。见`results/hash_normalization_audit.json`。
-
-
-## 更新场景目录与 README 统计
-
-`results/medical_catalog.json` 保存全部资源来源、状态与任务映射；`results/scenario_manifest.json` 保存场景归属和人工撰写的结果摘要。修改快照或场景后运行：
-
-```sh
-python3 scripts/build_scenario_report.py
+python3 scripts/verify_experiments.py
 python3 scripts/build_scenario_report.py --check
+python3 -m unittest discover -s tests -v
 ```
 
-脚本从 `all_results.json`、`ablations.json` 和 `snapshot.json` 生成 README 中标记范围内的分场景表，以及 `docs/场景数据集与实验.md`。它检查全部资源恰好归属一个场景、全部主评测任务无遗漏、任务去重后的记录/API/空预测总数与快照一致。人工摘要与实验解释仍需随结果变化复核。CI 使用 `--check` 防止生成文档过期；这不会调用 API 或重跑医疗评测。
+核验器检查 96 个主任务无遗漏，逐条校验请求／响应／文件哈希、模型、token、空预测标记和完整提示词覆盖，再从实际响应与金标重算全部主任务质量指标及 15 组扰动结果。该检查不连接 API。历史置信区间和延迟保留原统计，核验器不将本次本地运行时间写成模型延迟。
+
+## 实际调用方式
+
+原批量调用逻辑见 `scripts/live_batch.py`：向 `https://api.typesafe.ai/v1/systemone` 发送 `request` 加 `model`；`gold` 和 `metadata` 不发送。默认模型为 `jev-1.13.0`。空候选直接生成空预测，成功响应缓存跳过，失败记录保留，不以模拟响应替代。
+
+重新调用使用任务目录中的 `samples.jsonl` 作为 `--input`，需在本地设置 `TYPESAFE_API_KEY`。`.env.example` 仅展示格式，不会自动加载；也可通过 `--env-file` 指定私有配置。重新调用会产生费用，新的服务响应不保证与历史缓存相同。
+
+默认运行缓存目录为根目录下被 Git 忽略的 `data/`；也可通过 `JEV_DATA_DIR` 指定。请求重放不需要重新下载上游全量语料；重新构造候选、重做抽样或运行原数据适配器仍需要相应上游文件。可选依赖见 `requirements-optional.txt`。
+
+## 维护归档
+
+- `results/scenario_manifest.json`：12 个场景和 96 个主任务的一对一归属。
+- `results/task_methods.json`：每个任务的中文名称、实际适配器与实验方法。
+- `scripts/archive_experiments.py --source <原 medical-bench 目录>`：仅抽取已发布索引中的医疗／扰动记录，验证原哈希后归档；不会递归复制凭据或自媒体任务。
+- `scripts/build_scenario_report.py`：从归档生成统计 README、场景页和任务方法页；`--check` 检查页面是否与结果同步。
+
+已归档的每个 prepared 分片原始文件哈希记录在任务的 provenance.json。EvidenceBench 的 37 条历史请求哈希格式修正记录保留在任务的 hash_audit.json；它们是原实验序列化排序修正，不是此次重新生成响应。

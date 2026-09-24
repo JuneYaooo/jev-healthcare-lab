@@ -1,0 +1,142 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "病历资料不足，不能确定分级",
+          "B": "A",
+          "C": "B",
+          "D": "C",
+          "E": "D",
+          "unknown": "E"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "43"
+    },
+    {
+      "question": {
+        "criteria": {
+          "III度": "深II度",
+          "I度": "III度",
+          "unknown": "I度",
+          "浅II度": "病历资料不足，不能确定分级",
+          "深II度": "浅II度"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "24"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1": "病历资料不足，不能确定分级",
+          "2": "1",
+          "3": "2",
+          "4": "3",
+          "5": "4",
+          "unknown": "5"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "93"
+    },
+    {
+      "question": {
+        "criteria": {
+          "I": "病历资料不足，不能确定分级",
+          "II": "I",
+          "III": "II",
+          "IV": "III",
+          "unknown": "IV"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 9,
+      "example_sample_id": "123"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "病历资料不足，不能确定分级",
+          "I": "0",
+          "II": "I",
+          "III": "II",
+          "IV": "III",
+          "unknown": "IV"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "113"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "病历资料不足，不能确定分级",
+          "1": "0",
+          "2": "1",
+          "3": "2",
+          "4": "3",
+          "5": "4",
+          "6": "5",
+          "unknown": "6"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "147"
+    },
+    {
+      "question": {
+        "criteria": {
+          "unknown": "高度活动",
+          "中度活动": "病历资料不足，不能确定分级",
+          "无活动": "中度活动",
+          "极高度活动": "无活动",
+          "轻度活动": "极高度活动",
+          "高度活动": "轻度活动"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "52"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "病历资料不足，不能确定分级",
+          "1": "0",
+          "1+": "1",
+          "2": "1+",
+          "2+": "2",
+          "2-": "2+",
+          "3": "2-",
+          "3+": "3",
+          "3-": "3+",
+          "4": "3-",
+          "4+": "4",
+          "4-": "4+",
+          "5": "4-",
+          "5-": "5",
+          "unknown": "5-"
+        },
+        "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2"
+    }
+  ]
+}

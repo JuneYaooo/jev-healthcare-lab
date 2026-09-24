@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "hallucinated": "Contains hallucinated or unsupported factual claims",
+          "supported": "Factually grounded answer"
+        },
+        "instructions": "Determine whether the answer contains medical or scientific hallucinations. Judge factual consistency with the supplied evidence.",
+        "type": "choice"
+      },
+      "occurrences": 200,
+      "example_sample_id": "203:supported"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0925": "2026-09-25",
+          "0927": "2026-09-27",
+          "1001": "2026-10-01",
+          "unknown": "没有确定日期"
+        },
+        "instructions": "今天为2026-09-24，按自然日解析，不计算就诊日为第1天。选复诊日期。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "relative_date:1"
+    }
+  ]
+}

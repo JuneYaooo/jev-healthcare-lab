@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "routine": "按给定规则普通",
+          "unknown": "给定规则资料不足",
+          "urgent": "按给定规则紧急"
+        },
+        "instructions": "严格执行本题虚构路由规则：明确说“当前无法呼吸”则urgent；只有历史发作则routine；未描述呼吸情况则unknown。这不是临床分诊标准。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "urgency_given_policy:1"
+    }
+  ]
+}

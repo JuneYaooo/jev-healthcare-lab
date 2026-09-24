@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "No medical error",
+          "1": "Contains a medical error"
+        },
+        "instructions": "Does this clinical narrative contain a medical factual or reasoning error? Evaluate the content, not encoding or grammar.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "en-test-43"
+    }
+  ]
+}

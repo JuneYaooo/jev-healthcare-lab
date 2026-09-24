@@ -1,0 +1,45 @@
+{
+  "task": "medmcqa_validation",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "last_datasets_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "last_datasets_prepared.jsonl": "3b79f759f36b98ccda2e51e56e0f5b351418eab03350091e992648e048b2fdb4"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "MedMCQA",
+      "source": "https://github.com/medmcqa/medmcqa",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_last_datasets.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 92169,
+      "sha256": "9cd4eeb028fc0c738c17ac305631b876f48d054c8bba829b4680a5b0340a24c0"
+    },
+    "responses.jsonl": {
+      "bytes": 44370,
+      "sha256": "6d929753f0be236c024856f48442cc01d8ccd1701b6d7c7e26f3cab1b144b2d0"
+    },
+    "index.jsonl": {
+      "bytes": 35000,
+      "sha256": "c0c4528f297c31930b5ca94261c9bdd06d526f32645c821eaa2d958b2fca95c9"
+    },
+    "prompts.json": {
+      "bytes": 53171,
+      "sha256": "72041da1be24a76d54b34dc92ba56782c40652257a94ef97af30557587f1bb08"
+    },
+    "example.json": {
+      "bytes": 1766,
+      "sha256": "0f36ae16ec78ca316222dd8dff10841b4775fd5f4ebf250321168a325357fe46"
+    }
+  }
+}

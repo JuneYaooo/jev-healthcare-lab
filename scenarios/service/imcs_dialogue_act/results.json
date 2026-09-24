@@ -1,0 +1,201 @@
+{
+  "planned": 100,
+  "successful": 100,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 100,
+    "accuracy": 0.7,
+    "macro_f1_observed_gold_classes": 0.570744054056838,
+    "per_class": {
+      "Diagnose": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8
+      },
+      "Inform-Basic_Information": {
+        "support": 3,
+        "precision": 0.3333333333333333,
+        "recall": 0.3333333333333333,
+        "f1": 0.3333333333333333
+      },
+      "Inform-Drug_Recommendation": {
+        "support": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Inform-Etiology": {
+        "support": 3,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      },
+      "Inform-Existing_Examination_and_Treatment": {
+        "support": 8,
+        "precision": 0.7142857142857143,
+        "recall": 0.625,
+        "f1": 0.6666666666666666
+      },
+      "Inform-Medical_Advice": {
+        "support": 7,
+        "precision": 0.6666666666666666,
+        "recall": 0.8571428571428571,
+        "f1": 0.75
+      },
+      "Inform-Precautions": {
+        "support": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Inform-Symptom": {
+        "support": 7,
+        "precision": 0.7777777777777778,
+        "recall": 1.0,
+        "f1": 0.875
+      },
+      "Other": {
+        "support": 39,
+        "precision": 0.9285714285714286,
+        "recall": 0.6666666666666666,
+        "f1": 0.7761194029850746
+      },
+      "Request-Basic_Information": {
+        "support": 5,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.3333333333333333
+      },
+      "Request-Drug_Recommendation": {
+        "support": 2,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Request-Etiology": {
+        "support": 2,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      },
+      "Request-Existing_Examination_and_Treatment": {
+        "support": 1,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4
+      },
+      "Request-Medical_Advice": {
+        "support": 3,
+        "precision": 0.2857142857142857,
+        "recall": 0.6666666666666666,
+        "f1": 0.4
+      },
+      "Request-Precautions": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0
+      },
+      "Request-Symptom": {
+        "support": 10,
+        "precision": 0.7692307692307693,
+        "recall": 1.0,
+        "f1": 0.8695652173913043
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 95,
+    "lower": 0.6060606060606061,
+    "upper": 0.7878787878787878
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.1728,
+    "multiclass_brier_sum": 0.470361,
+    "brier_n": 100,
+    "bins": [
+      {
+        "lower": 0.4,
+        "n": 7,
+        "mean_selected_probability": 0.4414285714285714,
+        "accuracy": 0.42857142857142855
+      },
+      {
+        "lower": 0.5,
+        "n": 12,
+        "mean_selected_probability": 0.535,
+        "accuracy": 0.4166666666666667
+      },
+      {
+        "lower": 0.6,
+        "n": 4,
+        "mean_selected_probability": 0.6425000000000001,
+        "accuracy": 0.25
+      },
+      {
+        "lower": 0.7,
+        "n": 5,
+        "mean_selected_probability": 0.736,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.8,
+        "n": 13,
+        "mean_selected_probability": 0.8576923076923078,
+        "accuracy": 0.46153846153846156
+      },
+      {
+        "lower": 0.9,
+        "n": 59,
+        "mean_selected_probability": 0.9784745762711864,
+        "accuracy": 0.847457627118644
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 72,
+          "coverage": 0.72,
+          "accuracy": 0.7777777777777778
+        },
+        "by_probability_and_api_confidence": {
+          "n": 70,
+          "coverage": 0.7,
+          "accuracy": 0.8
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 59,
+          "coverage": 0.59,
+          "accuracy": 0.847457627118644
+        },
+        "by_probability_and_api_confidence": {
+          "n": 56,
+          "coverage": 0.56,
+          "accuracy": 0.8571428571428571
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 50,
+          "coverage": 0.5,
+          "accuracy": 0.9
+        },
+        "by_probability_and_api_confidence": {
+          "n": 47,
+          "coverage": 0.47,
+          "accuracy": 0.9148936170212766
+        }
+      }
+    }
+  },
+  "input_tokens": 79070,
+  "output_tokens": 21284,
+  "latency_successful_api_p50_s": 0.8977423745091073,
+  "latency_successful_api_p95_s": 1.1276204169844277,
+  "per_indicator": {}
+}

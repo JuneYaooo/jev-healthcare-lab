@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "No medical error",
+          "1": "Contains a medical error"
+        },
+        "instructions": "Does this clinical text contain a medical error? Judge clinical correctness, not style.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "ms-val-314"
+    }
+  ]
+}

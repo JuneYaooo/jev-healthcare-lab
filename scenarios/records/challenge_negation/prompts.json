@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确无发热",
+          "present": "明确有发热",
+          "unknown": "未明确，包括仅提问或未测量"
+        },
+        "instructions": "仅判断患者当前发热状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "negation:1"
+    }
+  ]
+}

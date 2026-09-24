@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "C",
+    "group": "1006",
+    "id": "1006",
+    "metadata": {
+      "note": "MedMCQA released cop is one answer index even when choice_type says multi; scored as published MCQ, not multiselect",
+      "source": "HF public mirror of published medqa-en-test",
+      "source_rows": 1273
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "Sympathetic underactivity",
+            "B": "Anti-thyroglobin antibodies",
+            "C": "Exophthalmos",
+            "D": "Increased TSH release",
+            "E": "Multinucleate giant cells present in the thyroid"
+          },
+          "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+          "type": "choice"
+        }
+      },
+      "state": "A 25-year-old Hispanic male presents with heat intolerance and recent weight loss. Serum analysis shows increased levels of T4 and T3, as well as the presence of thyroglobulin-stimulating immunoglobulins. The patient is found to be tachycardic and has marked edema and waxy discoloration in his legs. Which of the following would be consistent with this patient's disease?"
+    },
+    "request_sha256": "aaa3e710b3c474616f65ee4c38d699216ba190ee52633fae8388eac515b798ec",
+    "task": "medqa_en_test"
+  },
+  "response": {
+    "elapsed_s": 0.6942217500181869,
+    "id": "1006",
+    "request_sha256": "aaa3e710b3c474616f65ee4c38d699216ba190ee52633fae8388eac515b798ec",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "C",
+          "confidence": 0.99,
+          "probabilities": {
+            "A": 0.0,
+            "B": 0.01,
+            "C": 0.99,
+            "D": 0.0,
+            "E": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 478,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "medqa_en_test"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "twice",
+    "group": "frequency:1",
+    "id": "frequency:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "once": "每日一次",
+            "prn": "按需，非固定次数",
+            "three": "每日三次",
+            "twice": "每日两次"
+          },
+          "instructions": "仅转换文本明确给出的每天服药次数。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "该药每12小时一次，连续用药。"
+      }
+    },
+    "request_sha256": "a564f9dd5410eb9dcf274dc65b5816520d4fcfa8ca9a76842df2c369c15bc3e5",
+    "task": "challenge_frequency"
+  },
+  "response": {
+    "elapsed_s": 1.208585790998768,
+    "id": "frequency:1",
+    "request_sha256": "a564f9dd5410eb9dcf274dc65b5816520d4fcfa8ca9a76842df2c369c15bc3e5",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "twice",
+          "confidence": 1.0,
+          "probabilities": {
+            "once": 0.0,
+            "prn": 0.0,
+            "three": 0.0,
+            "twice": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 380,
+        "output_tokens": 48
+      }
+    },
+    "status": "ok",
+    "task": "challenge_frequency"
+  }
+}

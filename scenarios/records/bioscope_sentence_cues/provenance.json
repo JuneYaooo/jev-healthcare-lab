@@ -1,0 +1,45 @@
+{
+  "task": "bioscope_sentence_cues",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "bioscope_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "bioscope_prepared.jsonl": "65b13f869eb168e9ef2eb53cb816b1ad81a790c150776327b1b4adbeb6bcd51c"
+  },
+  "sample_count": 100,
+  "groups": 94,
+  "resources": [
+    {
+      "resource": "BioScope",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2586758/",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_bioscope.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 102239,
+      "sha256": "65b13f869eb168e9ef2eb53cb816b1ad81a790c150776327b1b4adbeb6bcd51c"
+    },
+    "responses.jsonl": {
+      "bytes": 45796,
+      "sha256": "098fb8a339fb36792e302bc5ce89bf5e3741d8a3f7c46ba13bd8f7eff276a843"
+    },
+    "index.jsonl": {
+      "bytes": 30358,
+      "sha256": "e8e4aff25cd1a6726ef8a7d67660dbf0292b25be18a2366ec568b183d056efc1"
+    },
+    "prompts.json": {
+      "bytes": 715,
+      "sha256": "f1d2303273995ed686c28a026fb006b39e6c110e9bbce13d8bb43d45d80789e1"
+    },
+    "example.json": {
+      "bytes": 1841,
+      "sha256": "a0700ecb981234d108694ddf9db530d5c99964ddac5b22d4eda4a20c9f284b18"
+    }
+  }
+}

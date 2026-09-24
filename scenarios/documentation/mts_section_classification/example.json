@@ -1,0 +1,88 @@
+{
+  "sample": {
+    "gold": "GENHX",
+    "group": "55",
+    "id": "55",
+    "metadata": {
+      "scope": "synthetic encounters; reference note text excluded from input"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "ALLERGY": "Allergies",
+            "ASSESSMENT": "Clinical assessment",
+            "CC": "Chief complaint",
+            "DIAGNOSIS": "Diagnosis",
+            "DISPOSITION": "Disposition",
+            "EDCOURSE": "Emergency department course",
+            "EXAM": "Physical examination",
+            "FAM/SOCHX": "Family or social history",
+            "GENHX": "History of present illness or general history",
+            "GYNHX": "Gynecologic history",
+            "IMAGING": "Imaging",
+            "IMMUNIZATIONS": "Immunizations",
+            "LABS": "Laboratory results",
+            "MEDICATIONS": "Medications",
+            "OTHER_HISTORY": "Other history",
+            "PASTMEDICALHX": "Past medical history",
+            "PASTSURGICAL": "Past surgical history",
+            "PLAN": "Plan",
+            "PROCEDURES": "Procedures",
+            "ROS": "Review of systems"
+          },
+          "instructions": "Which clinical note section best matches the content of this dialogue?",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "dialogue": "Doctor: How are you today? \nPatient: I am doing okay. \nDoctor: Just to confirm, you are fifty seven years old? \nPatient: Yes. \nDoctor: What brings you to see me today? \nPatient: I have been having these headaches every day for the last six months. \nDoctor: That is a long time. I am sorry that you have been experiencing that. \nPatient: Well, I am hoping you can make them stop. \nDoctor: I will do my very best to help."
+      }
+    },
+    "request_sha256": "86235cff47cb6c9f8557f50cb68fb52cfc42177ff0a2a3a7e0863bd5be09e53c",
+    "task": "mts_section_classification"
+  },
+  "response": {
+    "elapsed_s": 2.2048147920286283,
+    "id": "55",
+    "request_sha256": "86235cff47cb6c9f8557f50cb68fb52cfc42177ff0a2a3a7e0863bd5be09e53c",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "CC",
+          "confidence": 0.92,
+          "probabilities": {
+            "ALLERGY": 0.0,
+            "ASSESSMENT": 0.0,
+            "CC": 0.93,
+            "DIAGNOSIS": 0.0,
+            "DISPOSITION": 0.0,
+            "EDCOURSE": 0.0,
+            "EXAM": 0.0,
+            "FAM/SOCHX": 0.0,
+            "GENHX": 0.07,
+            "GYNHX": 0.0,
+            "IMAGING": 0.0,
+            "IMMUNIZATIONS": 0.0,
+            "LABS": 0.0,
+            "MEDICATIONS": 0.0,
+            "OTHER_HISTORY": 0.0,
+            "PASTMEDICALHX": 0.0,
+            "PASTSURGICAL": 0.0,
+            "PLAN": 0.0,
+            "PROCEDURES": 0.0,
+            "ROS": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 723,
+        "output_tokens": 198
+      }
+    },
+    "status": "ok",
+    "task": "mts_section_classification"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "Drug": "具体药品名称",
+          "Drug_Category": "药物类别而非具体药品",
+          "Medical_Examination": "医学检查检验",
+          "Operation": "医疗操作",
+          "Symptom": "症状或临床表现"
+        },
+        "instructions": "已给定实体边界，只判断 target_span 的类型。",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "10308783:17:0"
+    }
+  ]
+}

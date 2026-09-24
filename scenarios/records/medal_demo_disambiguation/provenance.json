@@ -1,0 +1,45 @@
+{
+  "task": "medal_demo_disambiguation",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "evidence_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "evidence_prepared.jsonl": "692b06da90df7bf4c72a47607486fc340f6ad3d9e54c64d223851945e330fd8e"
+  },
+  "sample_count": 100,
+  "groups": 34,
+  "resources": [
+    {
+      "resource": "MedAL",
+      "source": "https://github.com/BruceWen120/medal",
+      "completion_note": "仅100条发布方演示样本；不是独立测试集"
+    }
+  ],
+  "adapter": "prepare_evidence.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 488310,
+      "sha256": "735e4517ff041480adaa27f375f3a277e7f1f632fb35429944a113ea729c4c64"
+    },
+    "responses.jsonl": {
+      "bytes": 200283,
+      "sha256": "681663ec18f200a305bef940fd258641e5667ad546b7ad72800e70e901079f29"
+    },
+    "index.jsonl": {
+      "bytes": 28862,
+      "sha256": "7b9beb3f83dbc19392e8cae226ccebc1361583bf5c0cb5c566e6eb4ec1c5b4a4"
+    },
+    "prompts.json": {
+      "bytes": 4808,
+      "sha256": "99f89133967d11bf3a7cc901a2f6d587bf9b8b4242be67ab8419c8edd28aaced"
+    },
+    "example.json": {
+      "bytes": 11069,
+      "sha256": "7da156f7598a3f169651386d258506e9a58a48b203c7163df906859a8f6bdc6b"
+    }
+  }
+}

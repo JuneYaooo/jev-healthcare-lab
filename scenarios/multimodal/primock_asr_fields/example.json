@@ -1,0 +1,52 @@
+{
+  "sample": {
+    "gold": "yes",
+    "group": "day1_consultation01",
+    "id": "diarrhea",
+    "metadata": {
+      "source": "one patient audio channel;12manually authored field gold from reference; gold reused for ASR propagation, not original published field annotations"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "no": "absent",
+            "unknown": "not established",
+            "yes": "present"
+          },
+          "instructions": "Is diarrhea currently present? Only use what this transcript says.",
+          "type": "choice"
+        }
+      },
+      "state": "Hello, hi. Hi, I just had some diarrhea for the last three days and it's been affecting me. I need to stay close to the toilet and yeah, it's been affecting my day to day activities. Yeah, so it's like loose and watery still going to the toilet quite often and like some pain in my lower stomach. I'm probably like six or seven times a day. No, no blood, yeah, just watery and loose still. Yeah. So it's like in my lower abdomen so like yeah, just to one side, on the left side. Yeah, it feels like a cramp, like a muscular cramp and yeah, I feel a bit weak and shaky. It comes and goes. No, just mainly your most stomach. Yeah, it doesn't feel like, yeah, just mainly feel weak. I haven't had a fever at the moment but I did notice a temperature when the symptoms started. So yeah, around about three or four days ago. Yeah, I didn't manage my temperature no, but I felt just a bit flop. No, no. Yeah, so I vomited at the start of the symptoms but now I've stopped vomiting. Yeah, yeah, just normal vomit. Yeah, I had a lot of appetite. I haven't been eating as much but I've been able to hold down fluids. Yeah. And yeah, light foods like smoothies and liquid foods mainly. Yeah, so I had to take away about four days ago, but other than that, yeah, I've been eating normally, nothing unusual. Yeah, I write to the Chinese restaurant with friends. Yeah. So no one else in the family, so I've wiped into kids and one child was vomiting, but they haven't got diarrhea. It's no one would do same symptoms. Yeah, I mean, other than asthma, my music and inhaler, everything else is fine. Yeah, that's fine. Just yeah, you send inhaler and that's on the control. No. No, no other medications. Yeah. So I need to stay closer to the toilet because I go quite frequently during these these past three days. Yeah, other than that, it's the main concern. Yes, yeah. No, I don't smoke. No, I don't drink alcohol though. Yeah. Yeah. Yeah. Okay. Okay. Yeah. Okay. Yeah. Yeah. Okay. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. That's very clear. Thank you. Okay. Thank you. Bye."
+    },
+    "request_sha256": "d2dd530c38caff6c56b67b4a70a2276f717a6751d8923a89cca9a13686acf2c7",
+    "task": "primock_asr_fields"
+  },
+  "response": {
+    "elapsed_s": 0.5760514999856241,
+    "id": "diarrhea",
+    "request_sha256": "d2dd530c38caff6c56b67b4a70a2276f717a6751d8923a89cca9a13686acf2c7",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "yes",
+          "confidence": 1.0,
+          "probabilities": {
+            "no": 0.0,
+            "unknown": 0.0,
+            "yes": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 857,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "primock_asr_fields"
+  }
+}

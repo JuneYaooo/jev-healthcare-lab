@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "compatible": "可以同时成立",
+          "conflict": "直接矛盾",
+          "unknown": "信息不足"
+        },
+        "instructions": "判断同一时间同一患者的两段记录是否直接矛盾。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "contradiction:1"
+    }
+  ]
+}

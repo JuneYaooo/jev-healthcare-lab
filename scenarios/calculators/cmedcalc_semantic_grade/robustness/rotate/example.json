@@ -1,0 +1,74 @@
+{
+  "sample": {
+    "gold": "D",
+    "group": "43",
+    "id": "43",
+    "metadata": {
+      "indicator": "ASIA损伤分级",
+      "inverse_labels": {
+        "A": "unknown",
+        "B": "A",
+        "C": "B",
+        "D": "C",
+        "E": "D",
+        "unknown": "E"
+      },
+      "original_id": "43",
+      "original_task": "cmedcalc_semantic_grade",
+      "scope": "all162 public semantic cases; canonicalized labels, no gold explanation; explicit grading not free generation",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "rotate"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "病历资料不足，不能确定分级",
+            "B": "A",
+            "C": "B",
+            "D": "C",
+            "E": "D",
+            "unknown": "E"
+          },
+          "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "indicator": "ASIA损伤分级",
+        "note": "主诉：L1爆裂骨折术后右下肢活动困难1月。\n现病史：患者诉右下肢麻木无力，右大腿可带动小腿在床面移动，但不能抬起。右踝关节及足趾无法自主活动。\n查体：右侧髂腰肌肌力3级，股四头肌肌力2级，胫前肌肌力0级，拇长伸肌肌力1级，腓肠肌肌力3级。L1皮节及以上感觉正常，L2皮节感觉减退，L3及以下皮节感觉消失。肛周皮肤（S4-S5）有深压觉，可自主收缩肛门。"
+      }
+    },
+    "request_sha256": "cda4fdae4d3aff5450906bb6c9357ae12910d021e06805a7b319542f06750ebe",
+    "task": "robust_rotate_cmedcalc_semantic_grade"
+  },
+  "response": {
+    "elapsed_s": 0.6679574580048211,
+    "id": "43",
+    "request_sha256": "cda4fdae4d3aff5450906bb6c9357ae12910d021e06805a7b319542f06750ebe",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "D",
+          "confidence": 0.49,
+          "probabilities": {
+            "A": 0.01,
+            "B": 0.02,
+            "C": 0.31,
+            "D": 0.58,
+            "E": 0.07,
+            "unknown": 0.01
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 604,
+        "output_tokens": 59
+      }
+    },
+    "status": "ok",
+    "task": "robust_rotate_cmedcalc_semantic_grade"
+  }
+}

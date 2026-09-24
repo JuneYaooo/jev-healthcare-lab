@@ -1,0 +1,17 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "no": "Not predominantly an outcome span",
+          "yes": "Outcome span"
+        },
+        "instructions": "Does more than half of the target token window name a clinically meaningful study outcome (the outcome being measured, not numerical results or other PICO elements)?",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "34196498:168"
+    }
+  ]
+}

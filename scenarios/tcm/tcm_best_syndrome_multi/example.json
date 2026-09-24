@@ -1,0 +1,117 @@
+{
+  "sample": {
+    "gold": [
+      "C",
+      "F"
+    ],
+    "group": "225",
+    "id": "225",
+    "metadata": {
+      "scoring": "multi_question_keys",
+      "source": "TCM-BEST4SDT SDT multilabel, threshold0.5"
+    },
+    "request": {
+      "questions": {
+        "A": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴暑",
+          "type": "noul"
+        },
+        "B": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑热动风",
+          "type": "noul"
+        },
+        "C": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑入阳明",
+          "type": "noul"
+        },
+        "D": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑燥",
+          "type": "noul"
+        },
+        "E": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳暑",
+          "type": "noul"
+        },
+        "F": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热结旁流证",
+          "type": "noul"
+        },
+        "G": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑瘵",
+          "type": "noul"
+        },
+        "H": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑秽",
+          "type": "noul"
+        },
+        "I": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑湿困阻中焦",
+          "type": "noul"
+        },
+        "J": {
+          "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑厥",
+          "type": "noul"
+        }
+      },
+      "state": "盛夏，天津东门里经司胡同的八岁侯姓男孩，发病前在烈日下玩耍出汗后受凉，出现闭目昏迷无法应答、全身高热无汗症状。脉象洪滑而长且两寸脉尤盛，显示体内热邪亢盛。病程持续三天，初起胸胃部灼热，第二晚起意识模糊但尚能饮水，期间连续三日未排便。"
+    },
+    "request_sha256": "42f67731d387550eb283edc0867ae6b6aa3d3ba879abe6b5104da214a5b2d0d3",
+    "task": "tcm_best_syndrome_multi"
+  },
+  "response": {
+    "elapsed_s": 0.6506725839572027,
+    "id": "225",
+    "request_sha256": "42f67731d387550eb283edc0867ae6b6aa3d3ba879abe6b5104da214a5b2d0d3",
+    "response": {
+      "answers": {
+        "A": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "B": {
+          "noul": 0.37,
+          "type": "noul"
+        },
+        "C": {
+          "noul": 0.72,
+          "type": "noul"
+        },
+        "D": {
+          "noul": 0.37,
+          "type": "noul"
+        },
+        "E": {
+          "noul": 0.67,
+          "type": "noul"
+        },
+        "F": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "G": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "H": {
+          "noul": 0.36,
+          "type": "noul"
+        },
+        "I": {
+          "noul": 0.2,
+          "type": "noul"
+        },
+        "J": {
+          "noul": 0.69,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 707,
+        "output_tokens": 164
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_syndrome_multi"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "current": "目前吸烟",
+          "former": "已戒烟",
+          "never": "从不吸烟",
+          "unknown": "无法确定"
+        },
+        "instructions": "只判断患者本人的当前吸烟状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "social_context:1"
+    }
+  ]
+}

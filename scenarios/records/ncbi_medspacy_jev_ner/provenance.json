@@ -1,0 +1,50 @@
+{
+  "task": "ncbi_medspacy_jev_ner",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "medspacy_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "medspacy_prepared.jsonl": "38a123058e32e861cac20022ad735f7220670b56e8d993f5c9d076cd62acd61b"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "NCBI Disease",
+      "source": "https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/",
+      "completion_note": "同时完成给定实体分类与medspaCy候选→Jev端到端严格跨度评价"
+    },
+    {
+      "resource": "medspaCy",
+      "source": "https://github.com/medspacy/medspacy",
+      "completion_note": "已实际安装medspaCy1.3.1并在100篇NCBI测试摘要运行；仅词典target matcher"
+    }
+  ],
+  "adapter": "prepare_medspacy.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 472254,
+      "sha256": "38a123058e32e861cac20022ad735f7220670b56e8d993f5c9d076cd62acd61b"
+    },
+    "responses.jsonl": {
+      "bytes": 74931,
+      "sha256": "efcfbdc77b0a412184fbf3a1583c974e7aff25929f14ba98a522e1d37cd12f54"
+    },
+    "index.jsonl": {
+      "bytes": 29494,
+      "sha256": "9bbfb9e0f629f56c24ae94c5ce12654c84e3ee007dff2f4cc3f1e31ed4a42f69"
+    },
+    "prompts.json": {
+      "bytes": 376297,
+      "sha256": "32f1d5791994b06aea401d3a3107903cf07e8d80b354ec678a0e5af313555165"
+    },
+    "example.json": {
+      "bytes": 7350,
+      "sha256": "dd837d515493ef8102269e045c08bfc2b8d53210834bff423e24f373fa19e7e1"
+    }
+  }
+}

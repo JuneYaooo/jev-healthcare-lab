@@ -1,0 +1,71 @@
+{
+  "sample": {
+    "gold": "none",
+    "group": "DDI-DrugBank.d773",
+    "id": "DDI-DrugBank.d773.s1.p2",
+    "metadata": {
+      "original_id": "DDI-DrugBank.d773.s1.p2",
+      "original_task": "ddi_relation_oracle_pairs",
+      "population_class_count": 4737,
+      "scope": "official test subset; 30/class; given gold entity pair, not end-to-end NER",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "repeat"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "advise": "Advice, precaution or contraindication about co-use.",
+            "effect": "Pharmacodynamic effect or clinical outcome of co-use.",
+            "int": "Interaction stated without specifying its kind.",
+            "mechanism": "Pharmacokinetic mechanism (e.g. concentration, absorption, metabolism).",
+            "none": "No stated interaction between the two target mentions."
+          },
+          "instructions": "Classify only the relation stated between the two target drug mentions in this sentence, not outside drug knowledge.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "sentence": "Patients studied in clinical trials of TNKase were routinely treated with heparin and aspirin. ",
+        "target_1": {
+          "charOffset": "74-80",
+          "text": "heparin"
+        },
+        "target_2": {
+          "charOffset": "86-92",
+          "text": "aspirin"
+        }
+      }
+    },
+    "request_sha256": "e34a0d17ba3910bfc83bc9ebdc4e1898673067bf31fee5a792a7342791b85292",
+    "task": "robust_repeat_ddi_relation_oracle_pairs"
+  },
+  "response": {
+    "elapsed_s": 0.6324628330185078,
+    "id": "DDI-DrugBank.d773.s1.p2",
+    "request_sha256": "e34a0d17ba3910bfc83bc9ebdc4e1898673067bf31fee5a792a7342791b85292",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "none",
+          "confidence": 0.97,
+          "probabilities": {
+            "advise": 0.0,
+            "effect": 0.0,
+            "int": 0.02,
+            "mechanism": 0.0,
+            "none": 0.98
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 506,
+        "output_tokens": 55
+      }
+    },
+    "status": "ok",
+    "task": "robust_repeat_ddi_relation_oracle_pairs"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "start",
+    "group": "medication_change:1",
+    "id": "medication_change:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "continue": "明确继续原用药",
+            "start": "开始服用",
+            "stop": "停止服用",
+            "unknown": "尚未作出变更"
+          },
+          "instructions": "仅判断阿司匹林的明确用药变更，不作治疗建议。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "今日医嘱：开始服用阿司匹林。"
+      }
+    },
+    "request_sha256": "d9fe2d0ae450b9d53eba91dad970ff2d1d2e54c9e76e26c842e7cae55986193a",
+    "task": "challenge_medication_change"
+  },
+  "response": {
+    "elapsed_s": 0.9488901669974439,
+    "id": "medication_change:1",
+    "request_sha256": "d9fe2d0ae450b9d53eba91dad970ff2d1d2e54c9e76e26c842e7cae55986193a",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "start",
+          "confidence": 1.0,
+          "probabilities": {
+            "continue": 0.0,
+            "start": 1.0,
+            "stop": 0.0,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 384,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "challenge_medication_change"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "task": "ebm_pico_fixed_windows",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "evidence_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "evidence_prepared.jsonl": "692b06da90df7bf4c72a47607486fc340f6ad3d9e54c64d223851945e330fd8e"
+  },
+  "sample_count": 100,
+  "groups": 76,
+  "resources": [
+    {
+      "resource": "EBM-NLP",
+      "source": "https://github.com/bepnye/EBM-NLP",
+      "completion_note": "8词固定窗适配，非官方token级PICO评分；阳性稀疏"
+    }
+  ],
+  "adapter": "prepare_evidence.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 278849,
+      "sha256": "8b95b29c5fef4f8aba1eaf792afefedfa254d8db037edd6980479c9325911184"
+    },
+    "responses.jsonl": {
+      "bytes": 43500,
+      "sha256": "486fc9b828ec4a725e4aac5c86ab34a5c80b5619917d005c37257817ff433d0b"
+    },
+    "index.jsonl": {
+      "bytes": 30105,
+      "sha256": "1c753feaea405d3bd51803d02ac5180c1a46a58fd6d5d9eca8ca47822ab90207"
+    },
+    "prompts.json": {
+      "bytes": 993,
+      "sha256": "7974f06e606b8adca0a517aa00256e31d7580aae38f02e7f48ac533d139b8e38"
+    },
+    "example.json": {
+      "bytes": 4662,
+      "sha256": "7b6ed8216672a215a8927816d45fbcf7337d8889f9079d3e7389ecf9e2903da4"
+    }
+  }
+}

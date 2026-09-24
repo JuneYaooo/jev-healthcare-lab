@@ -1,0 +1,164 @@
+{
+  "sample": {
+    "gold": [
+      "30:47",
+      "58:75",
+      "77:79",
+      "157:175",
+      "177:180",
+      "402:404",
+      "981:983",
+      "1025:1027",
+      "1067:1069"
+    ],
+    "group": "9585605",
+    "id": "9585605",
+    "metadata": {
+      "baseline_predictions": [
+        "30:47",
+        "58:75",
+        "77:79",
+        "157:175",
+        "177:180",
+        "402:404",
+        "601:604",
+        "635:638",
+        "666:669",
+        "944:947",
+        "981:983",
+        "1025:1027",
+        "1067:1069"
+      ],
+      "candidate_count": 13,
+      "scoring": "multi_question_keys",
+      "source": "official NCBI test100docs; training-only lexical candidates via medspaCy; strict span detection collapsed disease category"
+    },
+    "request": {
+      "questions": {
+        "1025:1027": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'AS' at character range [1025,1027).",
+          "type": "noul"
+        },
+        "1067:1069": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'AS' at character range [1067,1069).",
+          "type": "noul"
+        },
+        "157:175": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'uniparental disomy' at character range [157,175).",
+          "type": "noul"
+        },
+        "177:180": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'UPD' at character range [177,180).",
+          "type": "noul"
+        },
+        "30:47": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'Angelman syndrome' at character range [30,47).",
+          "type": "noul"
+        },
+        "402:404": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'AS' at character range [402,404).",
+          "type": "noul"
+        },
+        "58:75": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'Angelman syndrome' at character range [58,75).",
+          "type": "noul"
+        },
+        "601:604": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'was' at character range [601,604).",
+          "type": "noul"
+        },
+        "635:638": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'was' at character range [635,638).",
+          "type": "noul"
+        },
+        "666:669": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'was' at character range [666,669).",
+          "type": "noul"
+        },
+        "77:79": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'AS' at character range [77,79).",
+          "type": "noul"
+        },
+        "944:947": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'was' at character range [944,947).",
+          "type": "noul"
+        },
+        "981:983": {
+          "instructions": "Is the target mention a disease/disease class or disease modifier in this abstract? Evaluate only this occurrence, not whether the patient currently has it. Target 'AS' at character range [981,983).",
+          "type": "noul"
+        }
+      },
+      "state": "Mutation analysis of UBE3A in Angelman syndrome patients. Angelman syndrome (AS) is caused by chromosome 15q11-q13 deletions of maternal origin, by paternal uniparental disomy (UPD) 15, by imprinting defects, and by mutations in the UBE3A gene. UBE3A encodes a ubiquitin-protein ligase and shows brain-specific imprinting. Here we describe UBE3A coding-region mutations detected by SSCP analysis in 13 AS individuals or families. Two identical de novo 5-bp duplications in exon 16 were found. Among the other 11 unique mutations, 8 were small deletions or insertions predicted to cause frameshifts, 1 was a mutation to a stop codon, 1 was a missense mutation, and 1 was predicted to cause insertion of an isoleucine in the hect domain of the UBE3A protein, which functions in E2 binding and ubiquitin transfer. Eight of the cases were familial, and five were sporadic. In two familial cases and one sporadic case, mosaicism for UBE3A mutations was detected  in the mother of three AS sons, in the maternal grandfather of two AS first cousins, and in the mother of an AS daughter. The frequencies with which we detected mutations were 5 (14%) of 35 in sporadic cases and 8 (80%) of 10 in familial cases.. "
+    },
+    "request_sha256": "a5e9c0eddaa4973dacb6a69a82a0da6873296dc26fc94b776f703c58a2de8b65",
+    "task": "ncbi_medspacy_jev_ner"
+  },
+  "response": {
+    "elapsed_s": 0.5566098340204917,
+    "id": "9585605",
+    "request_sha256": "a5e9c0eddaa4973dacb6a69a82a0da6873296dc26fc94b776f703c58a2de8b65",
+    "response": {
+      "answers": {
+        "1025:1027": {
+          "noul": 0.71,
+          "type": "noul"
+        },
+        "1067:1069": {
+          "noul": 0.74,
+          "type": "noul"
+        },
+        "157:175": {
+          "noul": 0.79,
+          "type": "noul"
+        },
+        "177:180": {
+          "noul": 0.56,
+          "type": "noul"
+        },
+        "30:47": {
+          "noul": 0.94,
+          "type": "noul"
+        },
+        "402:404": {
+          "noul": 0.74,
+          "type": "noul"
+        },
+        "58:75": {
+          "noul": 0.93,
+          "type": "noul"
+        },
+        "601:604": {
+          "noul": 0.2,
+          "type": "noul"
+        },
+        "635:638": {
+          "noul": 0.18,
+          "type": "noul"
+        },
+        "666:669": {
+          "noul": 0.25,
+          "type": "noul"
+        },
+        "77:79": {
+          "noul": 0.9,
+          "type": "noul"
+        },
+        "944:947": {
+          "noul": 0.21,
+          "type": "noul"
+        },
+        "981:983": {
+          "noul": 0.74,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 1283,
+        "output_tokens": 288
+      }
+    },
+    "status": "ok",
+    "task": "ncbi_medspacy_jev_ner"
+  }
+}

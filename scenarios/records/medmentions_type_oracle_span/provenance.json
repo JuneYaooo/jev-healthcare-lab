@@ -1,0 +1,45 @@
+{
+  "task": "medmentions_type_oracle_span",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "evidence_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "evidence_prepared.jsonl": "692b06da90df7bf4c72a47607486fc340f6ad3d9e54c64d223851945e330fd8e"
+  },
+  "sample_count": 100,
+  "groups": 94,
+  "resources": [
+    {
+      "resource": "MedMentions",
+      "source": "https://github.com/chanzuckerberg/MedMentions",
+      "completion_note": "给定实体边界，21类类型判断；未评价CUIs归一化"
+    }
+  ],
+  "adapter": "prepare_evidence.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 278295,
+      "sha256": "5a52788a2a82e6350b9e053c8e2d9b03eb248e212b7585a725425e94dd690cf9"
+    },
+    "responses.jsonl": {
+      "bytes": 67321,
+      "sha256": "b58906e6d7dcdfcbe90add31752f6d1a57061e04db7b4830575730a0be0439f8"
+    },
+    "index.jsonl": {
+      "bytes": 30823,
+      "sha256": "593433f9d490f965ff9318f114453b8f43c89a8f8d9e33825e8c996ef01c5b87"
+    },
+    "prompts.json": {
+      "bytes": 1193,
+      "sha256": "5a8b5fffa4b6bef53cb457f18da03faa145ba35b0def77db6531d815c2d80bca"
+    },
+    "example.json": {
+      "bytes": 4468,
+      "sha256": "97081ee6c5481edf1f4b4153a6798a60f58f3e67b7a807f448336042faae1ee2"
+    }
+  }
+}

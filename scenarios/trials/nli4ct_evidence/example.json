@@ -1,0 +1,385 @@
+{
+  "sample": {
+    "gold": [
+      "primary:0",
+      "primary:1",
+      "primary:2",
+      "primary:3",
+      "primary:4",
+      "primary:5",
+      "primary:6",
+      "primary:7",
+      "primary:8",
+      "secondary:0",
+      "secondary:9",
+      "secondary:14",
+      "secondary:23"
+    ],
+    "group": "NCT00258960",
+    "id": "a5617ae4-05a3-42d0-9e14-141de5f8c010",
+    "metadata": {},
+    "request": {
+      "questions": {
+        "primary:0": {
+          "instructions": "Is line 0 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:1": {
+          "instructions": "Is line 1 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:2": {
+          "instructions": "Is line 2 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:3": {
+          "instructions": "Is line 3 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:4": {
+          "instructions": "Is line 4 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:5": {
+          "instructions": "Is line 5 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:6": {
+          "instructions": "Is line 6 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:7": {
+          "instructions": "Is line 7 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "primary:8": {
+          "instructions": "Is line 8 of primary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:0": {
+          "instructions": "Is line 0 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:1": {
+          "instructions": "Is line 1 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:10": {
+          "instructions": "Is line 10 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:11": {
+          "instructions": "Is line 11 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:12": {
+          "instructions": "Is line 12 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:13": {
+          "instructions": "Is line 13 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:14": {
+          "instructions": "Is line 14 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:15": {
+          "instructions": "Is line 15 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:16": {
+          "instructions": "Is line 16 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:17": {
+          "instructions": "Is line 17 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:18": {
+          "instructions": "Is line 18 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:19": {
+          "instructions": "Is line 19 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:2": {
+          "instructions": "Is line 2 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:20": {
+          "instructions": "Is line 20 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:21": {
+          "instructions": "Is line 21 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:22": {
+          "instructions": "Is line 22 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:23": {
+          "instructions": "Is line 23 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:24": {
+          "instructions": "Is line 24 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:25": {
+          "instructions": "Is line 25 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:26": {
+          "instructions": "Is line 26 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:27": {
+          "instructions": "Is line 27 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:3": {
+          "instructions": "Is line 3 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:4": {
+          "instructions": "Is line 4 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:5": {
+          "instructions": "Is line 5 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:6": {
+          "instructions": "Is line 6 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:7": {
+          "instructions": "Is line 7 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:8": {
+          "instructions": "Is line 8 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        },
+        "secondary:9": {
+          "instructions": "Is line 9 of secondary evidence needed to determine whether statement is supported or contradicted? Select relevant evidence for either verdict, not just supporting evidence.",
+          "type": "noul"
+        }
+      },
+      "state": {
+        "primary": {
+          "0": "Adverse Events 1:",
+          "1": "  Total: 16/48 (33.33%)",
+          "2": "  Febrile neutropenia grade 3 3/48 (6.25%)",
+          "3": "  Neutropenia grade 3 1/48 (2.08%)",
+          "4": "  Holocraneal cephalea 1/48 (2.08%)",
+          "5": "  Hypersensibility reaction grade 3 2/48 (4.17%)",
+          "6": "  Palmoplantar erythrodysesthesia grade 3, stomatitis grade 3 1/48 (2.08%)",
+          "7": "  Neutropenia grade 4, fever grade 1, oral mucositis grade 3 1/48 (2.08%)",
+          "8": "  Catheter - related infection grade 3 1/48 (2.08%)"
+        },
+        "secondary": {
+          "0": "Adverse Events 1:",
+          "1": "  Total: 21/519 (4.05%)",
+          "10": "  Abdominal pain 1/519 (0.19%)",
+          "11": "  Anal fissure 0/519 (0.00%)",
+          "12": "  Constipation 0/519 (0.00%)",
+          "13": "  Diarrhoea 1/519 (0.19%)",
+          "14": "Adverse Events 2:",
+          "15": "  Total: 119/532 (22.37%)",
+          "16": "  Anaemia 1/532 (0.19%)",
+          "17": "  Blood bilirubin 1/532 (0.19%)",
+          "18": "  Leukopenia 1/532 (0.19%)",
+          "19": "  Neutropenia 5/532 (0.94%)",
+          "2": "  Anaemia 1/519 (0.19%)",
+          "20": "  Arrhythmia 1/532 (0.19%)",
+          "21": "  Carotid artery thrombosis 0/532 (0.00%)",
+          "22": "  Ear infection 1/532 (0.19%)",
+          "23": "  Conjunctivitis 1/532 (0.19%)",
+          "24": "  Abdominal pain 1/532 (0.19%)",
+          "25": "  Anal fissure 1/532 (0.19%)",
+          "26": "  Constipation 1/532 (0.19%)",
+          "27": "  Diarrhoea 6/532 (1.13%)",
+          "3": "  Blood bilirubin 0/519 (0.00%)",
+          "4": "  Leukopenia 0/519 (0.00%)",
+          "5": "  Neutropenia 1/519 (0.19%)",
+          "6": "  Arrhythmia 0/519 (0.00%)",
+          "7": "  Carotid artery thrombosis 1/519 (0.19%)",
+          "8": "  Ear infection 0/519 (0.00%)",
+          "9": "  Conjunctivitis 0/519 (0.00%)"
+        },
+        "section": "Adverse Events",
+        "statement": "the secondary trial reported 1 single case of Conjunctivitis, whereas the primary trial did not report any"
+      }
+    },
+    "request_sha256": "ca7e6fa427221e0cde087aba965d1035725489b3e5a99869aa09252743fc6b83",
+    "task": "nli4ct_evidence"
+  },
+  "response": {
+    "elapsed_s": 0.9855547919869423,
+    "id": "a5617ae4-05a3-42d0-9e14-141de5f8c010",
+    "request_sha256": "ca7e6fa427221e0cde087aba965d1035725489b3e5a99869aa09252743fc6b83",
+    "response": {
+      "answers": {
+        "primary:0": {
+          "noul": 0.27,
+          "type": "noul"
+        },
+        "primary:1": {
+          "noul": 0.36,
+          "type": "noul"
+        },
+        "primary:2": {
+          "noul": 0.15,
+          "type": "noul"
+        },
+        "primary:3": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "primary:4": {
+          "noul": 0.19,
+          "type": "noul"
+        },
+        "primary:5": {
+          "noul": 0.19,
+          "type": "noul"
+        },
+        "primary:6": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "primary:7": {
+          "noul": 0.14,
+          "type": "noul"
+        },
+        "primary:8": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "secondary:0": {
+          "noul": 0.16,
+          "type": "noul"
+        },
+        "secondary:1": {
+          "noul": 0.36,
+          "type": "noul"
+        },
+        "secondary:10": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "secondary:11": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "secondary:12": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "secondary:13": {
+          "noul": 0.11,
+          "type": "noul"
+        },
+        "secondary:14": {
+          "noul": 0.23,
+          "type": "noul"
+        },
+        "secondary:15": {
+          "noul": 0.21,
+          "type": "noul"
+        },
+        "secondary:16": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "secondary:17": {
+          "noul": 0.08,
+          "type": "noul"
+        },
+        "secondary:18": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "secondary:19": {
+          "noul": 0.1,
+          "type": "noul"
+        },
+        "secondary:2": {
+          "noul": 0.56,
+          "type": "noul"
+        },
+        "secondary:20": {
+          "noul": 0.14,
+          "type": "noul"
+        },
+        "secondary:21": {
+          "noul": 0.15,
+          "type": "noul"
+        },
+        "secondary:22": {
+          "noul": 0.68,
+          "type": "noul"
+        },
+        "secondary:23": {
+          "noul": 0.83,
+          "type": "noul"
+        },
+        "secondary:24": {
+          "noul": 0.13,
+          "type": "noul"
+        },
+        "secondary:25": {
+          "noul": 0.11,
+          "type": "noul"
+        },
+        "secondary:26": {
+          "noul": 0.12,
+          "type": "noul"
+        },
+        "secondary:27": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "secondary:3": {
+          "noul": 0.37,
+          "type": "noul"
+        },
+        "secondary:4": {
+          "noul": 0.35,
+          "type": "noul"
+        },
+        "secondary:5": {
+          "noul": 0.55,
+          "type": "noul"
+        },
+        "secondary:6": {
+          "noul": 0.59,
+          "type": "noul"
+        },
+        "secondary:7": {
+          "noul": 0.6,
+          "type": "noul"
+        },
+        "secondary:8": {
+          "noul": 0.41,
+          "type": "noul"
+        },
+        "secondary:9": {
+          "noul": 0.66,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 2684,
+        "output_tokens": 688
+      }
+    },
+    "status": "ok",
+    "task": "nli4ct_evidence"
+  }
+}

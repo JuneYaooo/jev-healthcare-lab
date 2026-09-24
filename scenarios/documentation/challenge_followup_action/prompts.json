@@ -1,0 +1,19 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "appointment": "待复诊",
+          "imaging": "待影像检查",
+          "lab": "待检验",
+          "none": "无待执行事项"
+        },
+        "instructions": "对当前待执行事项分类；若仅描述已完成事项选none。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "followup_action:1"
+    }
+  ]
+}

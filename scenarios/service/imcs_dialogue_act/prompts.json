@@ -1,0 +1,31 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "Diagnose": "给出诊断",
+          "Inform-Basic_Information": "提供基本信息",
+          "Inform-Drug_Recommendation": "提供用药建议",
+          "Inform-Etiology": "解释病因",
+          "Inform-Existing_Examination_and_Treatment": "提供已进行的检查治疗",
+          "Inform-Medical_Advice": "提供就医或处理建议",
+          "Inform-Precautions": "告知注意事项",
+          "Inform-Symptom": "告知症状",
+          "Other": "其他对话行为",
+          "Request-Basic_Information": "询问年龄等基本信息",
+          "Request-Drug_Recommendation": "请求用药建议",
+          "Request-Etiology": "询问病因",
+          "Request-Existing_Examination_and_Treatment": "询问已进行的检查治疗",
+          "Request-Medical_Advice": "请求就医或处理建议",
+          "Request-Precautions": "询问注意事项",
+          "Request-Symptom": "询问症状"
+        },
+        "instructions": "只判断 target 这一轮的主要对话行为。context 仅帮助理解。",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "10109679:2"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "absent",
+    "group": "mixed_language:1",
+    "id": "mixed_language:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "absent": "明确否认",
+            "present": "明确有",
+            "unknown": "未明确"
+          },
+          "instructions": "判断是否明确存在当前胸痛。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "患者 denies chest pain，咳嗽持续。"
+      }
+    },
+    "request_sha256": "44be40ca634f5a471948e26ad5a1c7ccd69544160934bb02ee7b790aa31fbb36",
+    "task": "challenge_mixed_language"
+  },
+  "response": {
+    "elapsed_s": 1.0676002079853788,
+    "id": "mixed_language:1",
+    "request_sha256": "44be40ca634f5a471948e26ad5a1c7ccd69544160934bb02ee7b790aa31fbb36",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "absent",
+          "confidence": 1.0,
+          "probabilities": {
+            "absent": 1.0,
+            "present": 0.0,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 351,
+        "output_tokens": 40
+      }
+    },
+    "status": "ok",
+    "task": "challenge_mixed_language"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "task": "pubmed_rct_section",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "prepared.jsonl": "9c2c93d599ca90fd2d7dca5380abb1a3458e62efdcf76959cbc0a27775e91df8"
+  },
+  "sample_count": 100,
+  "groups": 98,
+  "resources": [
+    {
+      "resource": "PubMed 20k RCT",
+      "source": "https://github.com/Franck-Dernoncourt/pubmed-rct",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "benchmark.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 76557,
+      "sha256": "1730b666b3ef6ef3116b90968302f84d95bf4ffe2c94f44a23b5b598c48f45d2"
+    },
+    "responses.jsonl": {
+      "bytes": 47160,
+      "sha256": "e1af8d22822427f50129f88fb4e52d226e53b3cf9d43609b266c4637848953b7"
+    },
+    "index.jsonl": {
+      "bytes": 29617,
+      "sha256": "71472f96b1b90f2656f469cdc8374cb03c8983e75c6a521a2b8f436fc3c5a231"
+    },
+    "prompts.json": {
+      "bytes": 570,
+      "sha256": "7e27638c5685ffc0f9391e0ff1b0376edc926a56cf74635c6adf93d361c6d47e"
+    },
+    "example.json": {
+      "bytes": 1590,
+      "sha256": "5481218d45486f2a36205dc4659ceb3e5ce114f951cc32dcf11b07b9cfd30a6f"
+    }
+  }
+}

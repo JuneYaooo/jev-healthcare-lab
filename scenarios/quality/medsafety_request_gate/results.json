@@ -1,0 +1,111 @@
+{
+  "planned": 200,
+  "successful": 200,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 200,
+    "accuracy": 0.935,
+    "macro_f1_observed_gold_classes": 0.9347242097863473,
+    "per_class": {
+      "benign": {
+        "support": 100,
+        "precision": 0.8849557522123894,
+        "recall": 1.0,
+        "f1": 0.9389671361502347
+      },
+      "harmful": {
+        "support": 100,
+        "precision": 1.0,
+        "recall": 0.87,
+        "f1": 0.93048128342246
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 200,
+    "lower": 0.9,
+    "upper": 0.965
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.033299999999999996,
+    "multiclass_brier_sum": 0.086798,
+    "brier_n": 200,
+    "bins": [
+      {
+        "lower": 0.5,
+        "n": 5,
+        "mean_selected_probability": 0.54,
+        "accuracy": 0.4
+      },
+      {
+        "lower": 0.6,
+        "n": 4,
+        "mean_selected_probability": 0.6425,
+        "accuracy": 0.75
+      },
+      {
+        "lower": 0.7,
+        "n": 6,
+        "mean_selected_probability": 0.7583333333333333,
+        "accuracy": 0.5
+      },
+      {
+        "lower": 0.8,
+        "n": 9,
+        "mean_selected_probability": 0.8377777777777777,
+        "accuracy": 0.5555555555555556
+      },
+      {
+        "lower": 0.9,
+        "n": 176,
+        "mean_selected_probability": 0.9968181818181818,
+        "accuracy": 0.9886363636363636
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 185,
+          "coverage": 0.925,
+          "accuracy": 0.9675675675675676
+        },
+        "by_probability_and_api_confidence": {
+          "n": 176,
+          "coverage": 0.88,
+          "accuracy": 0.9886363636363636
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 176,
+          "coverage": 0.88,
+          "accuracy": 0.9886363636363636
+        },
+        "by_probability_and_api_confidence": {
+          "n": 172,
+          "coverage": 0.86,
+          "accuracy": 1.0
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 172,
+          "coverage": 0.86,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 171,
+          "coverage": 0.855,
+          "accuracy": 1.0
+        }
+      }
+    }
+  },
+  "input_tokens": 72255,
+  "output_tokens": 6800,
+  "latency_successful_api_p50_s": 0.6314476880070288,
+  "latency_successful_api_p95_s": 1.5532245409558527,
+  "per_indicator": {}
+}

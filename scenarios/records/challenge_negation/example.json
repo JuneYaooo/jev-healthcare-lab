@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "absent",
+    "group": "negation:1",
+    "id": "negation:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "absent": "明确无发热",
+            "present": "明确有发热",
+            "unknown": "未明确，包括仅提问或未测量"
+          },
+          "instructions": "仅判断患者当前发热状态。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "患者否认发热，但持续咳嗽。"
+      }
+    },
+    "request_sha256": "c1f75f727ad1366f7bee1785b3962d6f84c486c4eaeb5c118917e947577327f3",
+    "task": "challenge_negation"
+  },
+  "response": {
+    "elapsed_s": 0.8522243340266868,
+    "id": "negation:1",
+    "request_sha256": "c1f75f727ad1366f7bee1785b3962d6f84c486c4eaeb5c118917e947577327f3",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "absent",
+          "confidence": 0.81,
+          "probabilities": {
+            "absent": 0.88,
+            "present": 0.0,
+            "unknown": 0.12
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 366,
+        "output_tokens": 40
+      }
+    },
+    "status": "ok",
+    "task": "challenge_negation"
+  }
+}

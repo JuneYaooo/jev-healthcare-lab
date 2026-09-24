@@ -1,0 +1,52 @@
+{
+  "sample": {
+    "gold": "yes",
+    "group": "day1_consultation01",
+    "id": "diarrhea",
+    "metadata": {
+      "source": "one patient audio channel;12manually authored field gold from reference; gold reused for ASR propagation, not original published field annotations"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "no": "absent",
+            "unknown": "not established",
+            "yes": "present"
+          },
+          "instructions": "Is diarrhea currently present? Only use what this transcript says.",
+          "type": "choice"
+        }
+      },
+      "state": "Hello, how are you? Oh hey, um, I've just had some diarrhea for the last three days, um, and it's been affecting me I need to stay close to the toilet. And, um, yeah, it's been affecting my day-to-day activities. Yeah, so it's like loose and watery stool, going to the toilet quite often, uh and like some pain in my, like, lower stomach? Um, probably like six or seven times a day? Yeah. No, no blood, yeah, just watery and loose stool. Yep. So  in my lower abdomen, so, uh, like, um...yeah, just to one side. Uh, on the left side. Yeah, it feels, um, like a cramp, like a muscular cramp, and, um, yeah i feel a bit uh weak and shaky. Uh, it comes and goes. Uh...no, just maybe my stomach. Yeah. Um, yeah, it doesn't feel like -- yeah, it just makes me feel weak. I haven't had a fever, um, at the moment, but I did notice um a temperature when the symptoms started, so, um, yeah around about three or four days ago. Yeah, I uh I didn't mention my temperature, no, but I felt, um, just a bit hot. And, y'know. Uh, no. Yeah, so um, I vomited at the start of the symptoms but now um I've stopped vomiting. Yeah, yeah, just normal vomit, yeah. No no blood, no. Yeah. Yep. Um, I had a loss of appetite, um, so I haven't been eating as much, but I've been able to hold down fluids. Yep. Um, just soups, and, uh, yeah, light foods. Like smoothies and, yeah, liquid foods mainly.  Yeah, so I had takeaway about four days ago, um, uh, but other than that I've, yeah, been, uh, eating normally. Nothing unusual here. Um, yeah, I  ate at a Chinese restaurant with friends. Yeah. Um, so no one else in the family, so  a wife and two kids and one, um, child was vomiting, but they haven't got diarrhea. There's no one with the same symptoms. Um, yeah, I mean, other than um athsma, um I use an inhaler, everything uh else is fine. Uh, yeah, that's fine. I just, yeah, use an inhaler, and uh that's under control. No. Uh, no, no other medications. Yeah. Uh, so, I need to stay close to the toilet 'cause I go quite frequently during the these past three days. Um, yeah, other than that, it's uh, yeah, the main concern. Uh, yes, yeah. I I work, er. Um, I'm an accountant. Uh, yeah, I've been going to work. Yeah. Yeah, it's been quite difficult. Yes, yeah. Uh, no, I don't smoke. Uh, no, I I don't drink alcohol, no.  Yeah.  Okay.  Yeah. Yeah.  Mm-hmm. Okay. Yep. Yep. Okay. Yeah. Okay, sure. Yep.  Yep, sure, yep. That sounds great, yeah. Yeah. Um, no, no further questions, no. Uh, yes, yeah, that's that's very clear. Thank you. Okay, thank you. Bye."
+    },
+    "request_sha256": "5016333fe0af99ab3f87f756e83e24fbdb59c572ca63163e0d542264c0025ff3",
+    "task": "primock_reference_fields"
+  },
+  "response": {
+    "elapsed_s": 0.8209487079875544,
+    "id": "diarrhea",
+    "request_sha256": "5016333fe0af99ab3f87f756e83e24fbdb59c572ca63163e0d542264c0025ff3",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "yes",
+          "confidence": 1.0,
+          "probabilities": {
+            "no": 0.0,
+            "unknown": 0.0,
+            "yes": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 1064,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "primock_reference_fields"
+  }
+}

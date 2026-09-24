@@ -1,0 +1,51 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "ms-val-314",
+    "id": "ms-val-314",
+    "metadata": {},
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "No medical error",
+            "1": "Contains a medical error"
+          },
+          "instructions": "Does this clinical text contain a medical error? Judge clinical correctness, not style.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "clinical_text": "A 38-year-old man comes to the physician because of white lesions in his mouth for 4 days. He also has intense pain while chewing food. He was diagnosed with non-Hodgkin lymphoma around 8 months ago. He is undergoing chemotherapy and is currently on his fourth cycle. He was treated for herpes labialis 4 months ago with acyclovir. He has smoked half a pack of cigarettes daily for 15 years. He appears healthy. Vital signs are within normal limits. Cervical and axillary lymphadenopathy is present. Oral examination shows white plaques on his tongue and buccal mucosa that bleed when scraped off. The remainder of the examination shows no abnormalities. Topical nystatin is given. ",
+        "numbered_sentences": "0 A 38-year-old man comes to the physician because of white lesions in his mouth for 4 days.\n1 He also has intense pain while chewing food.\n2 He was diagnosed with non-Hodgkin lymphoma around 8 months ago.\n3 He is undergoing chemotherapy and is currently on his fourth cycle.\n4 He was treated for herpes labialis 4 months ago with acyclovir.\n5 He has smoked half a pack of cigarettes daily for 15 years.\n6 He appears healthy.\n7 Vital signs are within normal limits.\n8 Cervical and axillary lymphadenopathy is present.\n9 Oral examination shows white plaques on his tongue and buccal mucosa that bleed when scraped off.\n10 The remainder of the examination shows no abnormalities.\n11 Topical nystatin is given."
+      }
+    },
+    "request_sha256": "35c5cb51dee7fe657639d6c8a21f1f7ff483cafd72300606fa2442d49c740c3c",
+    "task": "medec_error_detection"
+  },
+  "response": {
+    "elapsed_s": 0.9412643749965355,
+    "id": "ms-val-314",
+    "request_sha256": "35c5cb51dee7fe657639d6c8a21f1f7ff483cafd72300606fa2442d49c740c3c",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 0.83,
+          "probabilities": {
+            "0": 0.91,
+            "1": 0.09
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 664,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "medec_error_detection"
+  }
+}

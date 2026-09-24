@@ -1,0 +1,110 @@
+[
+  {
+    "file": "upstream/scans/handwriting/template_1_sample_2_handwriting.jpg",
+    "source": "more/ocr-eval/scans/handwriting/template_1_sample_2_handwriting.jpg",
+    "bytes": 277741,
+    "sha256": "5df9b6913938ae171b9b340becf72ce6f650beaaef8634832db7f5829917f9eb"
+  },
+  {
+    "file": "upstream/ground_truth/handwriting/template_1_sample_2_handwriting.txt",
+    "source": "more/ocr-eval/ground_truth/handwriting/template_1_sample_2_handwriting.txt",
+    "bytes": 1625,
+    "sha256": "1f633380163af91bf651cba5b019e9036a869b29223ff777c3eba69d4af2d8be"
+  },
+  {
+    "file": "upstream/handwriting_t1_s2-ocr.txt",
+    "source": "more/ocr-eval/handwriting_t1_s2-ocr.txt",
+    "bytes": 1617,
+    "sha256": "a20c935ef27c0c10322bc8c9f19f0e123d1adb4b5ae35bd6438e950bc9430afa"
+  },
+  {
+    "file": "upstream/scans/mixed/template_9_sample_2_mixed.jpg",
+    "source": "more/ocr-eval/scans/mixed/template_9_sample_2_mixed.jpg",
+    "bytes": 29539,
+    "sha256": "f08201fb47cb27bcbedeef3476ccfc6edba344f9f6f0d5b3b95eb63958f2accb"
+  },
+  {
+    "file": "upstream/ground_truth/mixed/template_9_sample_2_mixed.txt",
+    "source": "more/ocr-eval/ground_truth/mixed/template_9_sample_2_mixed.txt",
+    "bytes": 1194,
+    "sha256": "390288797ee8f1e41abe0ffb8d5d8aa2f87363e04e624ac2117a1671c4c8b8ee"
+  },
+  {
+    "file": "upstream/mixed_t9_s2-ocr.txt",
+    "source": "more/ocr-eval/mixed_t9_s2-ocr.txt",
+    "bytes": 201,
+    "sha256": "668fe5b424663f1861ebc7e6596a44153da0c1c110768b7802111c477c3c13ae"
+  },
+  {
+    "file": "upstream/scans/normal/template_1_sample_2_normal.jpg",
+    "source": "more/ocr-eval/scans/normal/template_1_sample_2_normal.jpg",
+    "bytes": 278452,
+    "sha256": "d537d252806cb3fb711029a5e671c53df3aea5d7226d7141bd8208c7caf6e343"
+  },
+  {
+    "file": "upstream/ground_truth/normal/template_1_sample_2_normal.txt",
+    "source": "more/ocr-eval/ground_truth/normal/template_1_sample_2_normal.txt",
+    "bytes": 1625,
+    "sha256": "1f633380163af91bf651cba5b019e9036a869b29223ff777c3eba69d4af2d8be"
+  },
+  {
+    "file": "upstream/normal_t1_s2-ocr.txt",
+    "source": "more/ocr-eval/normal_t1_s2-ocr.txt",
+    "bytes": 1650,
+    "sha256": "de89b00e5d1ab75157813fcf6f53ca9b2f9a215a08d4b4a00519be8ed8c65ac5"
+  },
+  {
+    "file": "upstream/scans/poor/template_1_sample_2_poor.jpg",
+    "source": "more/ocr-eval/scans/poor/template_1_sample_2_poor.jpg",
+    "bytes": 200020,
+    "sha256": "ff67e2716f3bb556b4f0975bfb1f69299bbd9bea5ec7c21c8715362410d03bea"
+  },
+  {
+    "file": "upstream/ground_truth/poor/template_1_sample_2_poor.txt",
+    "source": "more/ocr-eval/ground_truth/poor/template_1_sample_2_poor.txt",
+    "bytes": 1625,
+    "sha256": "1f633380163af91bf651cba5b019e9036a869b29223ff777c3eba69d4af2d8be"
+  },
+  {
+    "file": "upstream/poor_t1_s2-ocr.txt",
+    "source": "more/ocr-eval/poor_t1_s2-ocr.txt",
+    "bytes": 1347,
+    "sha256": "f7595f518b9c58d116c56358d125afe63a9a4efe1f9b2cf98d7482f20f6bddf9"
+  },
+  {
+    "file": "upstream/scans/rotated/template_1_sample_2_rotated.jpg",
+    "source": "more/ocr-eval/scans/rotated/template_1_sample_2_rotated.jpg",
+    "bytes": 240091,
+    "sha256": "d6dfeddcc6056a1b2a98d3eff116fc450971b060a980938feef5e6da9fe3ad91"
+  },
+  {
+    "file": "upstream/ground_truth/rotated/template_1_sample_2_rotated.txt",
+    "source": "more/ocr-eval/ground_truth/rotated/template_1_sample_2_rotated.txt",
+    "bytes": 1625,
+    "sha256": "1f633380163af91bf651cba5b019e9036a869b29223ff777c3eba69d4af2d8be"
+  },
+  {
+    "file": "upstream/rotated_t1_s2-ocr.txt",
+    "source": "more/ocr-eval/rotated_t1_s2-ocr.txt",
+    "bytes": 1419,
+    "sha256": "8c4ec6e1500a4e9dbea4552848c10faefb41aabfd8922a272290febbfecfde2a"
+  },
+  {
+    "file": "upstream/scans/tables/template_9_sample_2_tables.jpg",
+    "source": "more/ocr-eval/scans/tables/template_9_sample_2_tables.jpg",
+    "bytes": 253607,
+    "sha256": "0fc472797c0272a13f53514aad57d46fa1ead4a3c44705af5d02a517d2ad81e1"
+  },
+  {
+    "file": "upstream/ground_truth/tables/template_9_sample_2_tables.txt",
+    "source": "more/ocr-eval/ground_truth/tables/template_9_sample_2_tables.txt",
+    "bytes": 1194,
+    "sha256": "390288797ee8f1e41abe0ffb8d5d8aa2f87363e04e624ac2117a1671c4c8b8ee"
+  },
+  {
+    "file": "upstream/tables_t9_s2-ocr.txt",
+    "source": "more/ocr-eval/tables_t9_s2-ocr.txt",
+    "bytes": 1247,
+    "sha256": "09481857b63b59541efd46f151ab14254a041da3d761bede8a95a0de7c85fe42"
+  }
+]

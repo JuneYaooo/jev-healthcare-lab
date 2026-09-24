@@ -1,0 +1,55 @@
+{
+  "sample": {
+    "gold": "supported",
+    "group": "203",
+    "id": "203:supported",
+    "metadata": {
+      "hallucination_category": "Incomplete Information",
+      "indicator": "hard",
+      "source": "100 fixed pqa_labeled questions, paired gold/generated answers,1000row release; published train split, no local training; paired evidence ablation"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "hallucinated": "Contains hallucinated or unsupported factual claims",
+            "supported": "Factually grounded answer"
+          },
+          "instructions": "Determine whether the answer contains medical or scientific hallucinations. Judge factual consistency using your medical/scientific knowledge.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "answer_to_check": "Our data showed no difference in 25(OH) D levels between normal children and those with CD when adjusted for body mass index.",
+        "question": "Is vitamin D deficiency a feature of pediatric celiac disease?"
+      }
+    },
+    "request_sha256": "8e201ddba3e7207ded999b9d5bbb99f714f5c72b955972abc338c45d504356c2",
+    "task": "medhallu_without_evidence"
+  },
+  "response": {
+    "elapsed_s": 0.6130893750232644,
+    "id": "203:supported",
+    "request_sha256": "8e201ddba3e7207ded999b9d5bbb99f714f5c72b955972abc338c45d504356c2",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "hallucinated",
+          "confidence": 0.43,
+          "probabilities": {
+            "hallucinated": 0.71,
+            "supported": 0.29
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 393,
+        "output_tokens": 35
+      }
+    },
+    "status": "ok",
+    "task": "medhallu_without_evidence"
+  }
+}

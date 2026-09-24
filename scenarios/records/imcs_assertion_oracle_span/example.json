@@ -1,0 +1,263 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "10626577",
+    "id": "10626577:13:0",
+    "metadata": {
+      "oracle": "given_gold_span; full-dialogue retrospective status, not online triage"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "明确否定该症状",
+            "1": "明确肯定该症状",
+            "2": "根据完整对话仍无法确定"
+          },
+          "instructions": "根据完整对话，判断 target_turn 的 target_mention 对该患者的症状状态。医生询问本身不表示阳性，需看回答。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "dialogue": [
+          {
+            "sentence": "您好",
+            "sentence_id": "1",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "咳嗽半月了。大夫听诊是支气管炎吗？",
+            "sentence_id": "2",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "请问儿童支气管肺炎吃什么药",
+            "sentence_id": "3",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "大夫听诊是支气管肺炎？",
+            "sentence_id": "4",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "还是拍片明确的？",
+            "sentence_id": "5",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "是的",
+            "sentence_id": "6",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "没有拍片",
+            "sentence_id": "7",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "我们之前得过支气管肺炎！现在有咳嗽半个月了",
+            "sentence_id": "8",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "没发烧",
+            "sentence_id": "9",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "没感冒",
+            "sentence_id": "10",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "阵咳！有块状痰",
+            "sentence_id": "11",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "哦。肺炎的话，常见是受凉引起的，表现咳嗽有痰。",
+            "sentence_id": "12",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "没有发热说明病情不严重不要担心",
+            "sentence_id": "13",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "情绪激动时才会咳嗽！",
+            "sentence_id": "14",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "有痰比较多难以咳出来",
+            "sentence_id": "15",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "一咳就出痰",
+            "sentence_id": "16",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "哦。目前吃药物了吗？",
+            "sentence_id": "17",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "吃过参贝止咳颗粒和蒲地蓝",
+            "sentence_id": "18",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "三四天",
+            "sentence_id": "19",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "没效果",
+            "sentence_id": "20",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "平时不咳！一被骂或者疯闹就咳！一咳就咳一阵子！吼吼吼的！然后吐出来一块痰",
+            "sentence_id": "21",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "偶尔出现有鼻涕的情况",
+            "sentence_id": "22",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "嗯我那打字比较慢我看看你能不能听清楚，",
+            "sentence_id": "23",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "可以",
+            "sentence_id": "24",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "能听清",
+            "sentence_id": "25",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "医生你可以语音！我能听清楚",
+            "sentence_id": "26",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "建议治疗三到五天看效果假如效果好呢还是出现刚到家你在家发生的发热，额只占极少出现情况，郊区医院，扣的比较深，哦要是有时间就行了，",
+            "sentence_id": "27",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "哦我之前的语音说一下，",
+            "sentence_id": "28",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "因为孩子可老实比较长哦，那个业务不好就不要来吃了那药不给区域了，",
+            "sentence_id": "29",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "换什么药呢因为孩子你们也没人拍大一些了，非常想和有支原体感染，这个IP,IP的，有啥好用的药物，",
+            "sentence_id": "30",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "铁的药物那就是大孩子了还妹子类的药物都含较多，那我们可以说清楚，没说非要去医院给开的充值，",
+            "sentence_id": "31",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "那也是治疗个三五天还行吧，",
+            "sentence_id": "32",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "哦关于有痰的情况是因为那个屏留言中说出，有啥啊，那就是一包烟，黑色三个，来了叫我哦了，",
+            "sentence_id": "33",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "换了二是可以让个，自己刮痧，然后写作业的，要拿给谁打的好了，出来要钱去了，",
+            "sentence_id": "34",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "好的",
+            "sentence_id": "35",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "假如知道三到五天是我跑了或者出现反复高了会痛啊，哦，也可多了货情况啊，加重了，变成孩子了一下酒店的人，输液了，",
+            "sentence_id": "36",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "好的谢谢",
+            "sentence_id": "37",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "哦客气了哦，你还有问题吗？",
+            "sentence_id": "38",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "没有了！谢谢",
+            "sentence_id": "39",
+            "speaker": "患者"
+          },
+          {
+            "sentence": "哦客气了那个充电宝挺好用的流量，再见，",
+            "sentence_id": "40",
+            "speaker": "医生"
+          },
+          {
+            "sentence": "再见",
+            "sentence_id": "41",
+            "speaker": "患者"
+          }
+        ],
+        "self_report": "儿童六岁，支气管炎，咳嗽半个月，块状痰，有吼吼声！不感冒，不发热！吃什么药好",
+        "target_mention": "发热",
+        "target_turn": "13"
+      }
+    },
+    "request_sha256": "ce21770af72778632563a76473615a2f571b0b4716bf6474dad184ca1dbc63a4",
+    "task": "imcs_assertion_oracle_span"
+  },
+  "response": {
+    "elapsed_s": 2.1655218329979107,
+    "id": "10626577:13:0",
+    "request_sha256": "ce21770af72778632563a76473615a2f571b0b4716bf6474dad184ca1dbc63a4",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 1.0,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 2242,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "imcs_assertion_oracle_span"
+  }
+}

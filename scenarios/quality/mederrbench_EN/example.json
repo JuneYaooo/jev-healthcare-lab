@@ -1,0 +1,51 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "en-test-43",
+    "id": "en-test-43",
+    "metadata": {
+      "language": "EN",
+      "source": "MedErrBench official test"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "No medical error",
+            "1": "Contains a medical error"
+          },
+          "instructions": "Does this clinical narrative contain a medical factual or reasoning error? Evaluate the content, not encoding or grammar.",
+          "type": "choice"
+        }
+      },
+      "state": "A 66-year-old man comes to the physician because of a 3-week history of shortness of breath with exertion. He has hypertension, hyperlipidemia, and type 2 diabetes mellitus. Current medications include aspirin, losartan, simvastatin, and insulin. His temperature is 37.1¬∞C (98.8¬∞F), pulse is 74/min, and blood pressure is 150/84 mm Hg. Pulse oximetry on room air shows an oxygen saturation of 96%. Cardiac examination is shown. evaluation of this patient is most likely to show Elevated serum brain natriuretic peptide levels."
+    },
+    "request_sha256": "531c161c7a37814da6e9742b7479d6aeb99fd793379afe65eb008608dd45846d",
+    "task": "mederrbench_EN"
+  },
+  "response": {
+    "elapsed_s": 0.6805521249771118,
+    "id": "en-test-43",
+    "request_sha256": "531c161c7a37814da6e9742b7479d6aeb99fd793379afe65eb008608dd45846d",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 0.65,
+          "probabilities": {
+            "0": 0.83,
+            "1": 0.17
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 472,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "mederrbench_EN"
+  }
+}

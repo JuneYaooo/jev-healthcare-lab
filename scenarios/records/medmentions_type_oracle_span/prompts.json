@@ -1,0 +1,36 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "T005": "Virus",
+          "T007": "Bacterium",
+          "T017": "Anatomical Structure",
+          "T022": "Body System",
+          "T031": "Body Substance",
+          "T033": "Finding",
+          "T037": "Injury or Poisoning",
+          "T038": "Biologic Function",
+          "T058": "Health Care Activity",
+          "T062": "Research Activity",
+          "T074": "Medical Device",
+          "T082": "Spatial Concept",
+          "T091": "Biomedical Occupation or Discipline",
+          "T092": "Organization",
+          "T097": "Professional or Occupational Group",
+          "T098": "Population Group",
+          "T103": "Chemical",
+          "T168": "Food",
+          "T170": "Intellectual Product",
+          "T201": "Clinical Attribute",
+          "T204": "Eukaryote"
+        },
+        "instructions": "Classify the target mention into the supplied UMLS semantic type categories, considering this context.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "27842161:21"
+    }
+  ]
+}

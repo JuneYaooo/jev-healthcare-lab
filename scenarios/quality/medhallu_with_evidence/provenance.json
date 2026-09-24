@@ -1,0 +1,45 @@
+{
+  "task": "medhallu_with_evidence",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "hallucination_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "hallucination_prepared.jsonl": "85585989507af75bbdc99ca9b82edf0ecc6fc8d23e5a4541692f0b0bee244ab1"
+  },
+  "sample_count": 200,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "MedHallu",
+      "source": "https://medhallu.github.io/",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_hallucination.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 508683,
+      "sha256": "c55594c56bd8b342aa3836ba71048326f69b935e029fde94405715ff6d92c2db"
+    },
+    "responses.jsonl": {
+      "bytes": 86632,
+      "sha256": "3eb36b420fe098bfd3a6f136e9be8dbb85601ac8f36b6e8c03abd618e1dab61c"
+    },
+    "index.jsonl": {
+      "bytes": 59856,
+      "sha256": "ee00cbec596d3b8c7abb1189b027be7892327dfce98f68f6ff1e01a1165e33cd"
+    },
+    "prompts.json": {
+      "bytes": 569,
+      "sha256": "1a45c9ce5caf2bfd14952d8ccf0d8790ac16254cde69ae067dad6e540b0aca89"
+    },
+    "example.json": {
+      "bytes": 3369,
+      "sha256": "7a976bd0ef44612679c890559d71be40d0d2f39bb94d37c03f6f130f5d84ffb7"
+    }
+  }
+}

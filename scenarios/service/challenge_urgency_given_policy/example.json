@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "urgent",
+    "group": "urgency_given_policy:1",
+    "id": "urgency_given_policy:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "routine": "按给定规则普通",
+            "unknown": "给定规则资料不足",
+            "urgent": "按给定规则紧急"
+          },
+          "instructions": "严格执行本题虚构路由规则：明确说“当前无法呼吸”则urgent；只有历史发作则routine；未描述呼吸情况则unknown。这不是临床分诊标准。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "我当前无法呼吸。"
+      }
+    },
+    "request_sha256": "9495eedeedfc2d96b3b8a4acd33975f768406b231a3cc5c802c561c85d887f4e",
+    "task": "challenge_urgency_given_policy"
+  },
+  "response": {
+    "elapsed_s": 0.8628841250319965,
+    "id": "urgency_given_policy:1",
+    "request_sha256": "9495eedeedfc2d96b3b8a4acd33975f768406b231a3cc5c802c561c85d887f4e",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "urgent",
+          "confidence": 1.0,
+          "probabilities": {
+            "routine": 0.0,
+            "unknown": 0.0,
+            "urgent": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 405,
+        "output_tokens": 38
+      }
+    },
+    "status": "ok",
+    "task": "challenge_urgency_given_policy"
+  }
+}

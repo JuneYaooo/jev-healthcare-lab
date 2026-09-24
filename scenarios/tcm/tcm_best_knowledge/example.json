@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "C",
+    "group": "1",
+    "id": "1",
+    "metadata": {
+      "source": "TCM-BEST4SDT objective items; one pass not official three-repeat metric"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "散风除湿，宣痹止痛",
+            "B": "疏风通络，散寒除湿",
+            "C": "发汗祛湿，兼清里热",
+            "D": "疏风清热，宣痹止痛",
+            "E": "发汗解表，祛风胜湿"
+          },
+          "instructions": "选择题目的最佳答案。",
+          "type": "choice"
+        }
+      },
+      "state": "九味羌活汤的功用是"
+    },
+    "request_sha256": "19381a5fc9a461a5ee816fbf82a23ef821115f29e560ab4436d9aa1ba41dbd91",
+    "task": "tcm_best_knowledge"
+  },
+  "response": {
+    "elapsed_s": 0.8477682080119848,
+    "id": "1",
+    "request_sha256": "19381a5fc9a461a5ee816fbf82a23ef821115f29e560ab4436d9aa1ba41dbd91",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "C",
+          "confidence": 0.95,
+          "probabilities": {
+            "A": 0.0,
+            "B": 0.0,
+            "C": 0.97,
+            "D": 0.0,
+            "E": 0.03
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 402,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_knowledge"
+  }
+}

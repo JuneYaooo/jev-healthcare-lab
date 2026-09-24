@@ -1,0 +1,45 @@
+{
+  "task": "trialgpt_sigir_referral",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "clinical_extra_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "clinical_extra_prepared.jsonl": "e602b25b2350172423b94761341e19ff57477774fc809204c6d346bd4d1c5b0a"
+  },
+  "sample_count": 150,
+  "groups": 45,
+  "resources": [
+    {
+      "resource": "TrialGPT / TREC CT",
+      "source": "https://github.com/ncbi-nlp/TrialGPT",
+      "completion_note": "SIGIR三分类150条；不是完整TREC检索排序及逐条标准推理"
+    }
+  ],
+  "adapter": "prepare_clinical_extra.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 464321,
+      "sha256": "1dc2da016721cadafda22d2431daf4a0d3d6bb3e4cdafb5705cc5acef38aef9c"
+    },
+    "responses.jsonl": {
+      "bytes": 63903,
+      "sha256": "1231d71426cd86e05ae8676da091e9ff62a70e15f498fe1a65236c813b68a028"
+    },
+    "index.jsonl": {
+      "bytes": 47734,
+      "sha256": "ec684c967defe536ff8f437a52da3e1f5d0fd9c3a6d99bb6949d896bdbc2134c"
+    },
+    "prompts.json": {
+      "bytes": 682,
+      "sha256": "085237cb454daa72fe0465c80a51f85b24e3f9ce6d7c7c16c112af585eef6be8"
+    },
+    "example.json": {
+      "bytes": 4072,
+      "sha256": "431961da1f5aed7188f94a6f288a36258711af47e79cadc599521317300a2926"
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "planned": 95,
+  "successful": 95,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 95,
+    "accuracy": 0.9263157894736842,
+    "macro_f1_observed_gold_classes": 0.9262003863063125,
+    "per_class": {
+      "A": {
+        "support": 22,
+        "precision": 0.88,
+        "recall": 1.0,
+        "f1": 0.9361702127659575
+      },
+      "B": {
+        "support": 20,
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1": 0.95
+      },
+      "C": {
+        "support": 18,
+        "precision": 0.85,
+        "recall": 0.9444444444444444,
+        "f1": 0.8947368421052632
+      },
+      "D": {
+        "support": 19,
+        "precision": 1.0,
+        "recall": 0.7894736842105263,
+        "f1": 0.8823529411764706
+      },
+      "E": {
+        "support": 16,
+        "precision": 1.0,
+        "recall": 0.9375,
+        "f1": 0.967741935483871
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 95,
+    "lower": 0.8736842105263158,
+    "upper": 0.9789473684210527
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.049894736842105214,
+    "multiclass_brier_sum": 0.13558947368421054,
+    "brier_n": 95,
+    "bins": [
+      {
+        "lower": 0.4,
+        "n": 4,
+        "mean_selected_probability": 0.45999999999999996,
+        "accuracy": 0.5
+      },
+      {
+        "lower": 0.5,
+        "n": 6,
+        "mean_selected_probability": 0.5433333333333333,
+        "accuracy": 0.8333333333333334
+      },
+      {
+        "lower": 0.6,
+        "n": 2,
+        "mean_selected_probability": 0.63,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.7,
+        "n": 7,
+        "mean_selected_probability": 0.7271428571428571,
+        "accuracy": 0.8571428571428571
+      },
+      {
+        "lower": 0.8,
+        "n": 7,
+        "mean_selected_probability": 0.8657142857142857,
+        "accuracy": 0.7142857142857143
+      },
+      {
+        "lower": 0.9,
+        "n": 69,
+        "mean_selected_probability": 0.9836231884057972,
+        "accuracy": 0.9855072463768116
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 76,
+          "coverage": 0.8,
+          "accuracy": 0.9605263157894737
+        },
+        "by_probability_and_api_confidence": {
+          "n": 76,
+          "coverage": 0.8,
+          "accuracy": 0.9605263157894737
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 69,
+          "coverage": 0.7263157894736842,
+          "accuracy": 0.9855072463768116
+        },
+        "by_probability_and_api_confidence": {
+          "n": 66,
+          "coverage": 0.6947368421052632,
+          "accuracy": 1.0
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 63,
+          "coverage": 0.6631578947368421,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 58,
+          "coverage": 0.6105263157894737,
+          "accuracy": 1.0
+        }
+      }
+    }
+  },
+  "input_tokens": 38523,
+  "output_tokens": 4919,
+  "latency_successful_api_p50_s": 0.860278332955204,
+  "latency_successful_api_p95_s": 2.6056375420303084,
+  "per_indicator": {
+    "公卫预防": {
+      "n": 13,
+      "accuracy": 0.8461538461538461
+    },
+    "口腔医学": {
+      "n": 12,
+      "accuracy": 0.9166666666666666
+    },
+    "药学": {
+      "n": 14,
+      "accuracy": 1.0
+    },
+    "临床医学": {
+      "n": 42,
+      "accuracy": 0.9523809523809523
+    },
+    "中药学": {
+      "n": 12,
+      "accuracy": 0.8333333333333334
+    },
+    "中西医结合": {
+      "n": 2,
+      "accuracy": 1.0
+    }
+  }
+}

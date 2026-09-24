@@ -1,0 +1,18 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "明确否定该症状",
+          "1": "明确肯定该症状",
+          "2": "根据完整对话仍无法确定"
+        },
+        "instructions": "根据完整对话，判断 target_turn 的 target_mention 对该患者的症状状态。医生询问本身不表示阳性，需看回答。",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "10626577:13:0"
+    }
+  ]
+}

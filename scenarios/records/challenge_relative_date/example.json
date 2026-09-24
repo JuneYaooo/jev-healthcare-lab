@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "0925",
+    "group": "relative_date:1",
+    "id": "relative_date:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0925": "2026-09-25",
+            "0927": "2026-09-27",
+            "1001": "2026-10-01",
+            "unknown": "没有确定日期"
+          },
+          "instructions": "今天为2026-09-24，按自然日解析，不计算就诊日为第1天。选复诊日期。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "明天复诊。"
+      }
+    },
+    "request_sha256": "51e7fc7e6afd5217695c30d8823de05824691b1aea1c5b696c70c30ff4980ded",
+    "task": "challenge_relative_date"
+  },
+  "response": {
+    "elapsed_s": 1.2132822079584002,
+    "id": "relative_date:1",
+    "request_sha256": "51e7fc7e6afd5217695c30d8823de05824691b1aea1c5b696c70c30ff4980ded",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0925",
+          "confidence": 0.99,
+          "probabilities": {
+            "0925": 0.99,
+            "0927": 0.0,
+            "1001": 0.0,
+            "unknown": 0.01
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 414,
+        "output_tokens": 57
+      }
+    },
+    "status": "ok",
+    "task": "challenge_relative_date"
+  }
+}

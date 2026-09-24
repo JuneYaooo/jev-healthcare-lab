@@ -1,0 +1,45 @@
+{
+  "task": "nubes_scope_status",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "pipeline_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "pipeline_prepared.jsonl": "f52c81d70ab89635c2159ec2bd2ddf995c924b441851e43e4a60b913a38868a3"
+  },
+  "sample_count": 100,
+  "groups": 10,
+  "resources": [
+    {
+      "resource": "NUBes",
+      "source": "https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_pipeline.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 105467,
+      "sha256": "5ef2267b050c6f4c894b19fc82552494360995f9316e5c01364d06ed409d3ece"
+    },
+    "responses.jsonl": {
+      "bytes": 45139,
+      "sha256": "bab5cca2cec1b8e2125b6f44e3393de551ae1b119f0d367c0b6dd842983a0e64"
+    },
+    "index.jsonl": {
+      "bytes": 31411,
+      "sha256": "10f8fdda53d28f905ef4ea3906c7498bb547d5c9f4169e26c3c8c23b878296b0"
+    },
+    "prompts.json": {
+      "bytes": 539,
+      "sha256": "0ba57cf024ba2ae6302a7127f5f17988ffba4bad531fb72c129dfcf89ae11bdc"
+    },
+    "example.json": {
+      "bytes": 1919,
+      "sha256": "8aa7cc91c62eacd709c4f15c6941e959364332b5d9d14f7b6c41eecbd5dded20"
+    }
+  }
+}

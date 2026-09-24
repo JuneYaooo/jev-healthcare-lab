@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "2",
+    "group": "4a6df62e-15c7-471f-8dc7-d13ff49f0502",
+    "id": "4a6df62e-15c7-471f-8dc7-d13ff49f0502",
+    "metadata": {
+      "note": "MedMCQA released cop is one answer index even when choice_type says multi; scored as published MCQ, not multiselect",
+      "source": "HF public mirror of published medmcqa-validation",
+      "source_rows": 4183
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "Solution liners (2-5 μm)",
+            "1": "Suspension Liners (25-30 μm)",
+            "2": "Traditional Liner (0.2-0.3 mm)",
+            "3": "Cement bases"
+          },
+          "instructions": "Select the best answer supported by the supplied question or article. For trial outcomes, compare the specified intervention against the specified comparator.",
+          "type": "choice"
+        }
+      },
+      "state": "Pulpal medication and thermal protection is given by"
+    },
+    "request_sha256": "2a716e49e3cf303343bdc5553b6102c7f89e504deca58d4674715b2ffa356227",
+    "task": "medmcqa_validation"
+  },
+  "response": {
+    "elapsed_s": 0.6724974579992704,
+    "id": "4a6df62e-15c7-471f-8dc7-d13ff49f0502",
+    "request_sha256": "2a716e49e3cf303343bdc5553b6102c7f89e504deca58d4674715b2ffa356227",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "3",
+          "confidence": 0.15,
+          "probabilities": {
+            "0": 0.18,
+            "1": 0.12,
+            "2": 0.34,
+            "3": 0.36
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 394,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "medmcqa_validation"
+  }
+}

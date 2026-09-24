@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "25662",
+    "id": "25662",
+    "metadata": {
+      "source": "official publisher HF converted test mirrored via hf-mirror,100 paired claims; main_text is a fact-check article not independent raw evidence; explanation excluded; historical labels not current clinical guidance"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "False",
+            "1": "Mixture of true and false",
+            "2": "True",
+            "3": "Unproven"
+          },
+          "instructions": "Classify this historical public-health claim as of the publication date. Use the supplied fact-checking article, which may directly state its conclusion.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "claim": "Steve Scalise Says Ady Barkan asked Joe Biden, “Do we agree that we can redirect some of the funding for police?”",
+        "fact_check_article": "House Minority Whip Steve Scalise, R-La., shared a video that used manipulated footage of activist Ady Barkan to falsely accuse former Vice President Joe Biden of wanting to defund the police. Biden, the Democratic presidential nominee, has repeatedly rejected that position. The video created the false impression by splicing together clips from a July interview between Biden and Barkan, who has Lou Gehrig’s disease, also known as ALS. Barkan speaks through the use of a computerized device that translates his eye movements into an artificial voice. The manipulation hinged on a portion of the interview where Biden talked about police reform. Scalise’s video spliced Barkan’s words to make it seem like he asked if Biden agreed \"that we can redirect some of the funding for police.\" But that was not a question that Barkan posed. The video was altered to add \"for police.\" \"These are not my words,\" Barkan said in a tweet asking Scalise to remove the video and apologize to the disability community. \"I have lost my ability to speak, but not my agency or my thoughts. You and your team have doctored my words for your own political gain.\" . @SteveScalise, These are not my words. I have lost my ability to speak, but not my agency or my thoughts. You and your team have doctored my words for your own political gain. Please remove this video immediately. You owe the entire disability community an apology. https://t.co/N6G5RgMXlO The manipulated video was first reported by the Washington Post’s Dave Weigel, who tweeted screenshots highlighting its deceptive editing. Twitter flagged the video as \"manipulated,\" after which Scalise deleted it and posted a new version that omitted the spliced footage of Barkan. The video was flagged according to Twitter’s policy against \"synthetic and manipulated media,\" a Twitter spokesperson confirmed. There's a clip here of @AdyBarkan, who has ALS and speaks via voice assistance, asking Biden about \"re-directing\" public safety funding. The clip alters the quote. It splices \"for police\" into it, using Barkan's artificial voice. https://t.co/WKkbRzlrXF https://t.co/mUysm9YDeQ pic.twitter.com/uofqi9428E A Scalise spokesperson said the edit combined two of Barkan’s questions for time and clarity, and Scalise stood by the false suggestion that Biden wants to defund the police on Twitter. \"Look, it shouldn’t have been edited,\" Scalise said on Fox News. \"But at the same time, the comments were always about — in fact, twice in that interview, he asked Joe Biden if he was for redirecting money away from police. And in both times, Joe Biden said yes.\" In fact, Biden has proposed additional police reforms and oversight and called for a $300 million investment in a community policing grant program. The Biden-Barkan interview was posted July 8 by NowThis News, which edited it down to about 27 minutes. The Biden campaign previously gave PolitiFact an unedited audio recording of the exchange, since NowThis trimmed some of Biden’s responses to condense the conversation. The unedited audio shows that when Barkan steered the conversation toward racism and police brutality, Biden made clear that he does not support defunding the police. It also shows that, despite what Scalise’s video suggests, Barkan never asked, \"Do we agree that we can redirect some of the funding for police?\" Scalise’s video, which can be viewed via the Internet Archive, spliced two of Barkan’s questions together. The questions came as Barkan proposed redirecting some police funds to social services. \"We can reduce the responsibilities assigned to police and redirect some of the funding for police into social services, mental health counseling, and affordable housing,\" Barkan said, suggesting that one particular killing might not have happened had a \"wellness counselor\" showed up at the scene instead of an officer. \"Are you open to that kind of reform?\" \"Yes, I proposed that kind of reform,\" Biden said, according to the unedited audio. \"And by the way, the idea though, that’s not the same as getting rid of or defunding all the police.\" As Biden continued explaining his proposals for police reform, Barkan interjected: \"But do we agree that we can redirect some of the funding?\" \"Yes. Absolutely,\" Biden said. \"And by the way, not just redirect, condition them. If they don’t eliminate chokeholds, they don’t get Byrne grants. If they don’t do the following, they don’t get any help.\" Biden described a similar idea for oversight during an interview with CBS News in June. \"No, I don’t support defunding the police,\" he said. \"I support conditioning federal aid to police based on whether or not they meet certain basic standards of decency and honorableness and, in fact, are able to demonstrate they can protect the community and everybody in the community.\" Biden has proposed investing an additional $300 million in the Community Oriented Policing Services Program, or COPS. The program provides police departments with technical and training assistance, hiring grants and access to mental health and wellness resources. Biden has rejected the idea of defunding the police multiple times: in a spokesperson’s statement, in an op-ed, in a number of local and national news interviews, and in a questionnaire from an organization of law enforcement officers. Those in Barkan’s circle shared that takeaway. \"Ady Barkan and Vice President Biden agreed on a lot, and disagreed on issues like Medicare for All and defunding the police,\" said Liz Jaff, the president of Barkan’s Be A Hero political fund, in a statement on Scalise's video that Barkan shared on Twitter. Previously, Jaff told CNN that \"though Ady would have loved Joe Biden to announce in this interview that he is in favor of defunding the police, the vice president never said it.\" Scalise shared a video that said Barkan asked Biden, \"Do we agree that we can redirect some of the funding for police?\" That’s not what Barkan asked. The video spliced together audio from two different questions, taking advantage of the fact that Barkan speaks with computer voice assistance. Biden has repeatedly said he does not support defunding the police, including during his conversation with Barkan.",
+        "publication_date": "August 31, 2020"
+      }
+    },
+    "request_sha256": "2a51e45c6eabe5377692c92a83c0e7b3d75b92c11faf61e9660b4516486981c0",
+    "task": "pubhealth_with_article"
+  },
+  "response": {
+    "elapsed_s": 0.608868875016924,
+    "id": "25662",
+    "request_sha256": "2a51e45c6eabe5377692c92a83c0e7b3d75b92c11faf61e9660b4516486981c0",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 0.92,
+          "probabilities": {
+            "0": 0.94,
+            "1": 0.04,
+            "2": 0.01,
+            "3": 0.01
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 1785,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "pubhealth_with_article"
+  }
+}

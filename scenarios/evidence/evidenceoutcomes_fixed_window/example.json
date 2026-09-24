@@ -1,0 +1,53 @@
+{
+  "sample": {
+    "gold": "yes",
+    "group": "34196498",
+    "id": "34196498:168",
+    "metadata": {
+      "source": "500RCT CoNLL,50positive50negative fixed8token windows; adapted classification, not official extraction F1"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "no": "Not predominantly an outcome span",
+            "yes": "Outcome span"
+          },
+          "instructions": "Does more than half of the target token window name a clinically meaningful study outcome (the outcome being measured, not numerical results or other PICO elements)?",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "abstract": "Safety and Efficacy of Upadacitinib in Patients With Active Ankylosing Spondylitis and an Inadequate Response to Nonsteroidal Antiinflammatory Drug Therapy : One-Year Results of a Double-Blind , Placebo-Controlled Study and Open-Label Extension . OBJECTIVE : To report the efficacy and safety of upadacitinib through 1 year in patients with ankylosing spondylitis ( AS ) . METHODS : In the SELECT-AXIS 1 study , adults with active AS and an inadequate response to nonsteroidal antiinflammatory drugs were randomized to receive upadacitinib 15 mg once daily or placebo . At week 14 , patients who had been randomized to receive placebo were switched to upadacitinib , and all patients continued in the open-label extension and received upadacitinib up to week 104 ; interim data up to week 64 are reported herein . RESULTS : Of 187 patients , 178 completed week 14 on study drug and entered the open-label extension . Similar proportions of patients in either group ( continuous upadacitinib or placebo-to-upadacitinib ) achieved Assessment of SpondyloArthritis international Society 40 % response ( ASAS40 ) or Ankylosing Spondylitis Disease Activity Score ( ASDAS ) showing low disease activity at week 64 : ≥70 % of patients achieved these end points based on nonresponder imputation ( NRI ) and ≥81 % based on as-observed analyses . Furthermore , ≥34 % ( NRI ) and ≥39 % ( as-observed analysis ) achieved ASDAS showing inactive disease or ASAS showing partial remission at week 64 . Mean changes from baseline ( week 0 ) to week 64 in pain , function , and inflammation showed consistent improvement or sustained maintenance through the study . Among 182 patients receiving upadacitinib ( 237.6 patient-years ) , 618 adverse events ( 260.1 per 100 patient-years ) were reported . No serious infections , major adverse cardiovascular events , venous thromboembolic events , gastrointestinal perforation , or deaths were reported . CONCLUSION : Upadacitinib 15 mg once daily showed sustained and consistent efficacy over 1 year . Patients who switched from placebo to upadacitinib at week 14 showed similar efficacy versus those who received continuous upadacitinib . © 2021 AbbVie Inc. Arthritis & Rheumatology published by Wiley Periodicals LLC on behalf of American College of Rheumatology .",
+        "target_window": "40 % response ( ASAS40 ) or Ankylosing"
+      }
+    },
+    "request_sha256": "fbf46d897c845d376772c0afd76b891470ff991261e162592e95fcf0a6d14c52",
+    "task": "evidenceoutcomes_fixed_window"
+  },
+  "response": {
+    "elapsed_s": 0.6460289999959059,
+    "id": "34196498:168",
+    "request_sha256": "fbf46d897c845d376772c0afd76b891470ff991261e162592e95fcf0a6d14c52",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "yes",
+          "confidence": 0.88,
+          "probabilities": {
+            "no": 0.06,
+            "yes": 0.94
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 945,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "evidenceoutcomes_fixed_window"
+  }
+}

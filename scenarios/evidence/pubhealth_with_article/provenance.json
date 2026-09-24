@@ -1,0 +1,45 @@
+{
+  "task": "pubhealth_with_article",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "pubhealth_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "pubhealth_prepared.jsonl": "776490fa05e9eaa25d1cc85bcbc4207f530c61d0dc299b14f99fd90e47475a4a"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "PUBHEALTH",
+      "source": "https://github.com/neemakot/Health-Fact-Checking",
+      "completion_note": "100个历史claim双条件；给定事实核查文章不等于实时互联网核查"
+    }
+  ],
+  "adapter": "prepare_pubhealth.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 483285,
+      "sha256": "2c6449b51d44c6f2d9ebd6317e22621d5aa36924014d02b16047f26c44546ed0"
+    },
+    "responses.jsonl": {
+      "bytes": 41708,
+      "sha256": "fde1f1a029c97ebfee37428ad1963da0d07d5a3404e8dbcce7564aae73ae6b61"
+    },
+    "index.jsonl": {
+      "bytes": 29118,
+      "sha256": "b7a2b6ef9ef9b2717532d3410db3f3a57c4b9921b71d626683dac4b6599b5272"
+    },
+    "prompts.json": {
+      "bytes": 570,
+      "sha256": "1051d33544501fa2336f8abf7fca40ff2a5e6e9c6bcbc86e1c3a7504fa42c6d2"
+    },
+    "example.json": {
+      "bytes": 8088,
+      "sha256": "d6354ee6b64d588ae0a529a939d3c7559c0b32e09ef66b2421d6415de821c05d"
+    }
+  }
+}

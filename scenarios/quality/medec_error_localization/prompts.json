@@ -1,0 +1,507 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 9,
+      "example_sample_id": "ms-val-320"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 8,
+      "example_sample_id": "ms-val-496"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 9,
+      "example_sample_id": "ms-val-516"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 10,
+      "example_sample_id": "ms-val-29"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 8,
+      "example_sample_id": "ms-val-523"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 12,
+      "example_sample_id": "ms-val-215"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 3,
+      "example_sample_id": "ms-val-85"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 7,
+      "example_sample_id": "ms-val-21"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "17": "Error is in sentence 17",
+          "18": "Error is in sentence 18",
+          "19": "Error is in sentence 19",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 3,
+      "example_sample_id": "ms-val-390"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 7,
+      "example_sample_id": "ms-val-154"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "17": "Error is in sentence 17",
+          "18": "Error is in sentence 18",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ms-val-449"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "ms-val-12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 6,
+      "example_sample_id": "ms-val-479"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 5,
+      "example_sample_id": "ms-val-462"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "17": "Error is in sentence 17",
+          "18": "Error is in sentence 18",
+          "19": "Error is in sentence 19",
+          "2": "Error is in sentence 2",
+          "20": "Error is in sentence 20",
+          "21": "Error is in sentence 21",
+          "22": "Error is in sentence 22",
+          "23": "Error is in sentence 23",
+          "24": "Error is in sentence 24",
+          "25": "Error is in sentence 25",
+          "26": "Error is in sentence 26",
+          "27": "Error is in sentence 27",
+          "28": "Error is in sentence 28",
+          "29": "Error is in sentence 29",
+          "3": "Error is in sentence 3",
+          "30": "Error is in sentence 30",
+          "31": "Error is in sentence 31",
+          "32": "Error is in sentence 32",
+          "33": "Error is in sentence 33",
+          "34": "Error is in sentence 34",
+          "35": "Error is in sentence 35",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ms-val-141"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "2": "Error is in sentence 2",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "ms-val-81"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "17": "Error is in sentence 17",
+          "18": "Error is in sentence 18",
+          "19": "Error is in sentence 19",
+          "2": "Error is in sentence 2",
+          "20": "Error is in sentence 20",
+          "21": "Error is in sentence 21",
+          "22": "Error is in sentence 22",
+          "23": "Error is in sentence 23",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ms-val-233"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "17": "Error is in sentence 17",
+          "18": "Error is in sentence 18",
+          "19": "Error is in sentence 19",
+          "2": "Error is in sentence 2",
+          "20": "Error is in sentence 20",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ms-val-332"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "Error is in sentence 0",
+          "1": "Error is in sentence 1",
+          "10": "Error is in sentence 10",
+          "11": "Error is in sentence 11",
+          "12": "Error is in sentence 12",
+          "13": "Error is in sentence 13",
+          "14": "Error is in sentence 14",
+          "15": "Error is in sentence 15",
+          "16": "Error is in sentence 16",
+          "17": "Error is in sentence 17",
+          "18": "Error is in sentence 18",
+          "19": "Error is in sentence 19",
+          "2": "Error is in sentence 2",
+          "20": "Error is in sentence 20",
+          "21": "Error is in sentence 21",
+          "22": "Error is in sentence 22",
+          "23": "Error is in sentence 23",
+          "24": "Error is in sentence 24",
+          "25": "Error is in sentence 25",
+          "26": "Error is in sentence 26",
+          "27": "Error is in sentence 27",
+          "28": "Error is in sentence 28",
+          "29": "Error is in sentence 29",
+          "3": "Error is in sentence 3",
+          "4": "Error is in sentence 4",
+          "5": "Error is in sentence 5",
+          "6": "Error is in sentence 6",
+          "7": "Error is in sentence 7",
+          "8": "Error is in sentence 8",
+          "9": "Error is in sentence 9",
+          "none": "No medical error"
+        },
+        "instructions": "Select the ID of the medically erroneous sentence. If no medical error, select none.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "ms-val-560"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "sample": {
+    "gold": "1",
+    "group": "ara-test-13",
+    "id": "ara-test-13",
+    "metadata": {
+      "language": "ARA",
+      "source": "MedErrBench official test"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "No medical error",
+            "1": "Contains a medical error"
+          },
+          "instructions": "Does this clinical narrative contain a medical factual or reasoning error? Evaluate the content, not encoding or grammar.",
+          "type": "choice"
+        }
+      },
+      "state": "مريض مصاب بابيضاض الدم المزمن ويعاني من خضاب 8، يعزى فقر دمه على الأرجح إلى نقص الحديد."
+    },
+    "request_sha256": "33eb2575f5d91a76e0b9987fffd067e4666fef1060b094ff1f183388818cbcb8",
+    "task": "mederrbench_ARA"
+  },
+  "response": {
+    "elapsed_s": 0.5923606250435114,
+    "id": "ara-test-13",
+    "request_sha256": "33eb2575f5d91a76e0b9987fffd067e4666fef1060b094ff1f183388818cbcb8",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "1",
+          "confidence": 0.92,
+          "probabilities": {
+            "0": 0.04,
+            "1": 0.96
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 387,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "mederrbench_ARA"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "planned": 100,
+  "successful": 100,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 100,
+    "accuracy": 0.96,
+    "macro_f1_observed_gold_classes": 0.9781818181818182,
+    "per_class": {
+      "causes": {
+        "support": 8,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "exams and tests": {
+        "support": 9,
+        "precision": 0.6923076923076923,
+        "recall": 1.0,
+        "f1": 0.8181818181818182
+      },
+      "indication": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "information": {
+        "support": 27,
+        "precision": 1.0,
+        "recall": 0.8518518518518519,
+        "f1": 0.92
+      },
+      "inheritance": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "other information": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "outlook": {
+        "support": 6,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "precautions": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "side effects": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "symptoms": {
+        "support": 20,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "treatment": {
+        "support": 10,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "when to contact a medical professional": {
+        "support": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 98,
+    "lower": 0.9183673469387755,
+    "upper": 0.9901960784313726
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.04359999999999995,
+    "multiclass_brier_sum": 0.05782500000000001,
+    "brier_n": 100,
+    "bins": [
+      {
+        "lower": 0.5,
+        "n": 1,
+        "mean_selected_probability": 0.53,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.7,
+        "n": 1,
+        "mean_selected_probability": 0.77,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.8,
+        "n": 3,
+        "mean_selected_probability": 0.84,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.9,
+        "n": 95,
+        "mean_selected_probability": 0.9936842105263158,
+        "accuracy": 1.0
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 98,
+          "coverage": 0.98,
+          "accuracy": 0.9693877551020408
+        },
+        "by_probability_and_api_confidence": {
+          "n": 97,
+          "coverage": 0.97,
+          "accuracy": 0.979381443298969
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 95,
+          "coverage": 0.95,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 95,
+          "coverage": 0.95,
+          "accuracy": 1.0
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 93,
+          "coverage": 0.93,
+          "accuracy": 1.0
+        },
+        "by_probability_and_api_confidence": {
+          "n": 92,
+          "coverage": 0.92,
+          "accuracy": 1.0
+        }
+      }
+    }
+  },
+  "input_tokens": 48796,
+  "output_tokens": 12444,
+  "latency_successful_api_p50_s": 0.6273018539941404,
+  "latency_successful_api_p95_s": 1.5948270840453915,
+  "per_indicator": {}
+}

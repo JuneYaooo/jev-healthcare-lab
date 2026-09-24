@@ -1,0 +1,166 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "no": "absent",
+          "unknown": "not established",
+          "yes": "present"
+        },
+        "instructions": "Is diarrhea currently present? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "diarrhea"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "stopped/absent",
+          "unknown": "not established",
+          "yes": "ongoing"
+        },
+        "instructions": "Is vomiting still ongoing now? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "vomiting"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "denies current fever",
+          "unknown": "not established",
+          "yes": "current fever"
+        },
+        "instructions": "Does the patient affirm fever at the present time? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "fever"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "explicitly denied",
+          "unknown": "not established",
+          "yes": "present"
+        },
+        "instructions": "Is there blood in the stool? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "blood"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "denied",
+          "unknown": "not established",
+          "yes": "present"
+        },
+        "instructions": "Is asthma in the medical history? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "asthma"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "denies",
+          "unknown": "not established",
+          "yes": "yes"
+        },
+        "instructions": "Does this patient smoke? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "smoking"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "denies",
+          "unknown": "not established",
+          "yes": "yes"
+        },
+        "instructions": "Does this patient drink alcohol? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "alcohol"
+    },
+    {
+      "question": {
+        "criteria": {
+          "high": "increased",
+          "low": "decreased/loss",
+          "normal": "normal",
+          "unknown": "unclear or conflicting"
+        },
+        "instructions": "What happened to appetite? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "appetite"
+    },
+    {
+      "question": {
+        "criteria": {
+          "accountant": "accountant",
+          "doctor": "doctor",
+          "teacher": "teacher",
+          "unknown": "not documented"
+        },
+        "instructions": "What is the occupation? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "occupation"
+    },
+    {
+      "question": {
+        "criteria": {
+          "both": "both",
+          "left": "left",
+          "right": "right",
+          "unknown": "not documented"
+        },
+        "instructions": "Which side is the abdominal pain on? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "pain_side"
+    },
+    {
+      "question": {
+        "criteria": {
+          "2": "two",
+          "4": "four",
+          "6_7": "six or seven",
+          "unknown": "not documented"
+        },
+        "instructions": "How many bowel movements per day? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "frequency"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1": "one day",
+          "3": "three days",
+          "7": "one week",
+          "unknown": "not documented"
+        },
+        "instructions": "How long has diarrhea lasted? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "duration"
+    }
+  ]
+}

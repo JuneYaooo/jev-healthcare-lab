@@ -1,0 +1,80 @@
+{
+  "sample": {
+    "gold": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "group": "103",
+    "id": "103",
+    "metadata": {
+      "scoring": "multi_question_keys",
+      "source": "TCM-BEST4SDT objective multilabel; threshold0.5"
+    },
+    "request": {
+      "questions": {
+        "A": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 尊重",
+          "type": "noul"
+        },
+        "B": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 接纳和关心",
+          "type": "noul"
+        },
+        "C": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 信息",
+          "type": "noul"
+        },
+        "D": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 安全",
+          "type": "noul"
+        },
+        "E": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 和谐的环境",
+          "type": "noul"
+        }
+      },
+      "state": "患者的心理需要包括"
+    },
+    "request_sha256": "0cb615094edcb710aee062da1180128ea174df2d272cddb815a2567f40159268",
+    "task": "tcm_best_ethics_multi"
+  },
+  "response": {
+    "elapsed_s": 0.6086017920169979,
+    "id": "103",
+    "request_sha256": "0cb615094edcb710aee062da1180128ea174df2d272cddb815a2567f40159268",
+    "response": {
+      "answers": {
+        "A": {
+          "noul": 0.87,
+          "type": "noul"
+        },
+        "B": {
+          "noul": 0.79,
+          "type": "noul"
+        },
+        "C": {
+          "noul": 0.8,
+          "type": "noul"
+        },
+        "D": {
+          "noul": 0.9,
+          "type": "noul"
+        },
+        "E": {
+          "noul": 0.64,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 429,
+        "output_tokens": 84
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_ethics_multi"
+  }
+}

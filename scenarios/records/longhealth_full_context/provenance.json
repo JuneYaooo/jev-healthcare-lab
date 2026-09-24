@@ -1,0 +1,45 @@
+{
+  "task": "longhealth_full_context",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "extended_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
+  },
+  "sample_count": 100,
+  "groups": 20,
+  "resources": [
+    {
+      "resource": "LongHealth",
+      "source": "https://github.com/kbressem/LongHealth",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_extended.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 4453510,
+      "sha256": "26b8f7a6719df0a9d98ae1733bf8d55276b1700bba9fb16b513eaa5fe76fffed"
+    },
+    "responses.jsonl": {
+      "bytes": 43469,
+      "sha256": "88ee94ee3380ee44cd34de40f4d515b79adf9b7feb4a0e6f5fb732d6317639a5"
+    },
+    "index.jsonl": {
+      "bytes": 30556,
+      "sha256": "e3d39275365eff8a0f2669ac850fd8d269b5aa0e6484e01e292b7ae9dfd212d1"
+    },
+    "prompts.json": {
+      "bytes": 53034,
+      "sha256": "50bcf6be42a8becc20b1537d5be173b8b0171c8c2be6ecc5de8e09dd1321b180"
+    },
+    "example.json": {
+      "bytes": 47643,
+      "sha256": "0b54db0bbab5c860a514e5d588168d913e8e801754d7668de619846aa4cd3689"
+    }
+  }
+}

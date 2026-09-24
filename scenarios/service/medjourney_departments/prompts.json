@@ -1,0 +1,893 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "对于所给主诉，中医科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，乳腺外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，关节外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，脊柱外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，药剂科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，血液科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，血管外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，超声科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，足踝外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，过敏反应科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，运动医学科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，风湿免疫科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，骨与软组织肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，内分泌科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，骨科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，创伤骨科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，口腔综合科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，口腔颌面外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，口腔黏膜科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，呼吸内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，头颈外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，头颈肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，妇科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，乳腺肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，妇科内分泌科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，妇科肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿乳腺外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿关节外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿内分泌科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿创伤骨科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿口腔颌面外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿口腔黏膜科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿呼吸内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，产前诊断科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿头颈外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿妇科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿屈光科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿康复科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿心理科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿心血管内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿感染科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿手外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿普外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，产科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿泌尿科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿消化科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿牙体牙髓科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿牙周病科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿男科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿皮肤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿眼科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿矫形骨科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿神经内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿神经外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，传染病科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿精神科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿耳鼻喉科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿肛肠外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿肾内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿胃肠外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿胸外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿脊柱外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿营养科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿血液科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿足踝外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，体检科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿过敏反应科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿风湿免疫科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，小儿骨科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，屈光科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，心理科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，心血管内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，心血管外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，急诊科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，性病科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，感染科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，儿科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，整形外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，新生儿科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，普外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，泌尿外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，消化内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，烧伤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，牙体牙髓科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，牙周病科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，生殖医学科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，甲状腺外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，儿童保健科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，男科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，疼痛科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，皮肤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，眼底病科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，眼科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，神经内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，神经外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，精神科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，综合内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，耳鼻喉科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，儿童口腔科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，肛肠外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，肝病科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，肝胆胰外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，肾内科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，肿瘤外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，胃肠外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，胃肠肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，胸外科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    },
+    {
+      "question": {
+        "instructions": "对于所给主诉，胸部肿瘤科是否属于应推荐的就诊科室？判断具体科室是否适合；可以有多个科室，也可以不选。不要仅因科室名与症状共享词就选择。",
+        "type": "noul"
+      },
+      "occurrences": 100,
+      "example_sample_id": "372"
+    }
+  ]
+}

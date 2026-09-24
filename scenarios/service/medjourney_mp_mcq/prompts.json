@@ -1,0 +1,1460 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "0": "抗疟药",
+          "1": "抗阿米巴原虫药",
+          "2": "抗艾滋病药",
+          "3": "抗结核病药",
+          "4": "抗肝病药"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "558"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "黑膏药",
+          "1": "贴剂",
+          "2": "凝胶膏剂",
+          "3": "涂膜剂",
+          "4": "橡胶膏剂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "411"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "辅助治疗药",
+          "1": "可增强疗效的药物",
+          "2": "不含活性药物的制剂",
+          "3": "产生的效果仅来自患者的主观感觉而无实际客观指标",
+          "4": "仅用于口服给药"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "970"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "硫酸鱼精蛋白",
+          "1": "维生素K",
+          "2": "氨甲苯酸",
+          "3": "氨甲环酸",
+          "4": "双香豆素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "576"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "米索前列醇",
+          "1": "法莫替丁",
+          "2": "奥美拉唑",
+          "3": "雷尼替丁",
+          "4": "西咪替丁"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "680"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "阿奇霉素",
+          "1": "青霉素",
+          "2": "多西环素",
+          "3": "氧氟沙星",
+          "4": "头孢曲松"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "100"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "腺苷",
+          "1": "双嘧达莫",
+          "2": "过氯酸钾",
+          "3": "卡托普利",
+          "4": "乙酰唑胺"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "988"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "升药",
+          "1": "轻粉",
+          "2": "砒石",
+          "3": "铅丹",
+          "4": "炉甘石"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "406"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "左布比卡因",
+          "1": "利多卡因",
+          "2": "丁卡因",
+          "3": "普鲁卡因",
+          "4": "地佐辛"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "891"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "五加皮",
+          "1": "独活",
+          "2": "秦艽",
+          "3": "雷公藤",
+          "4": "防已"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "798"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "清暑解毒颗粒",
+          "1": "藿香正气颗粒",
+          "2": "十滴水",
+          "3": "六和定中丸",
+          "4": "清暑益气丸"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "392"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "普萘洛尔（心得安)静脉注射",
+          "1": "毛花苷C静脉注射",
+          "2": "地高辛口服",
+          "3": "间羟胺静脉滴注",
+          "4": "吗啡皮下注射"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "210"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "顺铂",
+          "1": "庆大霉素",
+          "2": "马兜铃酸",
+          "3": "新霉素",
+          "4": "阿米卡星"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "554"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "山莨菪碱片",
+          "1": "泛昔洛韦",
+          "2": "左氧氟沙星",
+          "3": "匹维溴铵",
+          "4": "硝苯地平"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "270"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "泼尼松",
+          "1": "地塞米松",
+          "2": "布地奈德",
+          "3": "甲泼尼龙",
+          "4": "琥珀酸氢化可的松"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "650"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "美托洛尔",
+          "1": "呋塞米",
+          "2": "卡托普利",
+          "3": "氨氯地平",
+          "4": "可乐定"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "912"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "国家药品监督管理局批准试生产的药品",
+          "1": "取得药品广告批准文号的药品",
+          "2": "已取得“制剂许可证”的医疗机构配制的制剂",
+          "3": "二类精神药品",
+          "4": "麻醉药品"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "709"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "洗剂",
+          "1": "溶液剂",
+          "2": "软膏剂",
+          "3": "糖浆剂",
+          "4": "膜剂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "药品说明书",
+          "1": "药品的标签",
+          "2": "药品不良反应信息",
+          "3": "中药说明书",
+          "4": "注射剂和非处方药说明书"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "738"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "奎尼丁",
+          "1": "苯妥英钠",
+          "2": "利多卡因",
+          "3": "维拉帕米",
+          "4": "普萘洛尔"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "154"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "苯妥英钠",
+          "1": "螺内酯",
+          "2": "氟伐他汀",
+          "3": "奥硝唑",
+          "4": "环丙沙星"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "916"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "6-巯基嘌呤",
+          "1": "环磷酰胺",
+          "2": "博来霉素",
+          "3": "氟尿嘧啶",
+          "4": "百消安"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 2,
+      "example_sample_id": "809"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "猪苓",
+          "1": "茯苓",
+          "2": "白术",
+          "3": "泽泻",
+          "4": "桂枝"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "754"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "卡托普利",
+          "1": "双嘧达莫（潘生丁）",
+          "2": "低分子肝素",
+          "3": "甲泼尼龙（甲基强的松龙）",
+          "4": "呋塞米（速尿）"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "56"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "对氨基苯甲酸",
+          "1": "肾上腺酮",
+          "2": "对氨基酚",
+          "3": "间氨基酚",
+          "4": "游离水杨酸"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "328"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "白蛋白",
+          "1": "环孢素",
+          "2": "抗凝血药",
+          "3": "细胞毒药物",
+          "4": "糖皮质激素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "607"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "牛黄解毒片",
+          "1": "人参再造丸",
+          "2": "鼻渊舒口服液",
+          "3": "三七伤药片",
+          "4": "复方丹参滴丸"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "936"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "噻唑烷二酮",
+          "1": "胰岛素",
+          "2": "双胍类",
+          "3": "α-葡萄糖苷酶抑制剂",
+          "4": "磺脲类"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "21"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "《国家非处方药目录》",
+          "1": "《基本医疗保险药品目录》中的“甲类目录”",
+          "2": "《基本医疗保险药品目录》中的“乙类目录”",
+          "3": "《城市社区农村基本用药目录》",
+          "4": "《国家基本药物目录》"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "474"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "麦角胺",
+          "1": "地芬诺酯",
+          "2": "氯胺酮",
+          "3": "麦角胺咖啡因片",
+          "4": "复方甘草片"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "415"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "溴化铵",
+          "1": "胃蛋白酶合剂",
+          "2": "氢氧化铝凝胶",
+          "3": "硫酸亚铁",
+          "4": "地高辛"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1004"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "利多卡因",
+          "1": "阿司匹林",
+          "2": "胺碘酮",
+          "3": "美托洛尔",
+          "4": "维拉帕米"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "212"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "同一种药物相同的剂量应用于不同个体，可能因个体差异产生的作用不一定相同",
+          "1": "药物作用于人体可能具有性别差异",
+          "2": "老年人的用药量应比成年人的用药量大",
+          "3": "肝肾功能受损的患者应用表现出来的效应可能与正常患者不同",
+          "4": "小儿用药剂量的大小与体重有关"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "491"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "小婴儿可以采取平卧的体位给药",
+          "1": "油类药物可以用滴管直接滴入口中",
+          "2": "患儿拒绝服药时可以暂缓给药",
+          "3": "可以用奶瓶给小婴儿喂药",
+          "4": "药物可以和食物混合喂服"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "254"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "去氧肾上腺素",
+          "1": "异丙肾上腺素",
+          "2": "多巴胺",
+          "3": "多巴酚丁胺",
+          "4": "麻黄碱"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "915"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "吲达帕胺",
+          "1": "利培酮",
+          "2": "氨苯蝶啶",
+          "3": "呋塞米",
+          "4": "甘露醇"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "636"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "氯氮平",
+          "1": "氯丙咪嗪",
+          "2": "卡马西平",
+          "3": "氟西汀",
+          "4": "阿普吗啡"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "39"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "甲泼尼龙",
+          "1": "氟氢松",
+          "2": "泼尼松龙",
+          "3": "泼尼松",
+          "4": "地塞米松"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "508"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "麦角新碱",
+          "1": "垂体后叶素",
+          "2": "缩宫素",
+          "3": "麦角胺",
+          "4": "前列腺素E2"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "498"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "氨基已酸",
+          "1": "曲克芦丁",
+          "2": "维生素K",
+          "3": "去氨加压素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1022"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "卡那霉素",
+          "1": "新霉素",
+          "2": "链霉素",
+          "3": "庆大霉素",
+          "4": "妥布霉素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "429"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "磺胺",
+          "1": "阿司匹林",
+          "2": "苯妥英钠",
+          "3": "氯霉素",
+          "4": "保泰松"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "236"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "依那普利",
+          "1": "美托洛尔",
+          "2": "米诺地尔",
+          "3": "氨氯地平",
+          "4": "甲基多巴"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "868"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "阿托品",
+          "1": "山莨菪碱",
+          "2": "新斯的明",
+          "3": "有机磷酸酯类",
+          "4": "碘解磷定"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "838"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "京万红",
+          "1": "正骨水",
+          "2": "骨疏康颗粒",
+          "3": "跌打丸",
+          "4": "活血止痛散"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "426"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "美加明",
+          "1": "利血平",
+          "2": "普萘洛尔",
+          "3": "可乐定",
+          "4": "哌唑嗪"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "862"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "头孢哌酮",
+          "1": "头孢曲松",
+          "2": "头孢唑啉",
+          "3": "头孢噻吩",
+          "4": "头孢呋辛酯"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "863"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "二巯基丙磺酸钠",
+          "1": "亚硝酸钠-硫代硫酸钠",
+          "2": "亚甲蓝",
+          "3": "依地酸二钠钙",
+          "4": "二巯基丙醇"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "996"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "四环素",
+          "1": "奎尼丁",
+          "2": "氯丙嗪",
+          "3": "庆大霉素",
+          "4": "奎宁"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "952"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "破血逐瘀药",
+          "1": "涩肠止泻药",
+          "2": "解表发汗药",
+          "3": "香窜开窍药",
+          "4": "淡渗利湿药"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "400"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "地高辛",
+          "1": "毛花苷C",
+          "2": "洋地黄毒苷",
+          "3": "铃兰毒苷",
+          "4": "毒毛花苷K"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "894"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "阿莫西林",
+          "1": "阿米卡星",
+          "2": "阿糖胞苷",
+          "3": "阿苯哒唑",
+          "4": "阿普唑仑"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "338"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "药品的适用性",
+          "1": "药品的稳定性",
+          "2": "药品的可靠性",
+          "3": "药品的安全性",
+          "4": "药品的有效性"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "424"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "硝普钠",
+          "1": "呋塞米（速尿）",
+          "2": "螺内酯（安体舒通）",
+          "3": "地高辛",
+          "4": "阿司匹林"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "85"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "黄芪",
+          "1": "当归",
+          "2": "甘草",
+          "3": "川芎",
+          "4": "桃仁"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "950"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "新霉素为局部使用药，用于皮肤黏膜感染",
+          "1": "卡那霉素首选于治疗革兰阴性杆菌感染",
+          "2": "庆大霉素首选于治疗鼠疫和兔热病",
+          "3": "链霉素一般单独用于结核病治疗",
+          "4": "庆大霉素与青霉素两种药液同时混合注射可治疗肠球菌性心内膜炎"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "510"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "七制香附丸",
+          "1": "妇科得生丸",
+          "2": "千金止带丸",
+          "3": "更年舒片",
+          "4": "母乳多颗粒"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "462"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "黄连阿胶汤",
+          "1": "归脾汤合酸枣仁汤",
+          "2": "半夏秫米汤",
+          "3": "安神定志丸",
+          "4": "六味地黄丸"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "134"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "氨曲南",
+          "1": "米诺环素",
+          "2": "卡那霉素",
+          "3": "克拉霉素",
+          "4": "螺旋霉素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "687"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "喹诺酮类",
+          "1": "头孢菌素类",
+          "2": "大环内酯类",
+          "3": "氨基糖苷类"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1023"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "美托洛尔",
+          "1": "山莨菪碱",
+          "2": "异丙肾上腺素",
+          "3": "肾上腺素",
+          "4": "去甲肾上腺素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "843"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "二溴海因",
+          "1": "碘伏",
+          "2": "氯己定",
+          "3": "戊二醛",
+          "4": "苯扎溴铵"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "260"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "维生素B12",
+          "1": "肝素",
+          "2": "香豆素类",
+          "3": "维生素K",
+          "4": "阿司匹林"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "496"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "秋水仙碱",
+          "1": "尼美舒利",
+          "2": "吲哚美辛",
+          "3": "对乙酰氨基酚",
+          "4": "布洛芬"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "539"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "伐昔洛韦",
+          "1": "拉米夫定",
+          "2": "金刚烷胺",
+          "3": "利巴韦林",
+          "4": "更昔洛韦"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "879"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "止带方",
+          "1": "知柏地黄丸",
+          "2": "完带汤",
+          "3": "六味地黄丸",
+          "4": "内补丸"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "115"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "肼屈嗪",
+          "1": "卡托普利",
+          "2": "α-甲基多巴",
+          "3": "利血平",
+          "4": "胍乙啶"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "161"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "低分子肝素",
+          "1": "华法林",
+          "2": "维生素K",
+          "3": "尿激酶",
+          "4": "枸橼酸钠"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "627"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "甲药",
+          "1": "乙药",
+          "2": "丙药",
+          "3": "丁药",
+          "4": "一样"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "892"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "β受体阻滞剂",
+          "1": "地高辛",
+          "2": "硝普钠",
+          "3": "α受体阻滞剂",
+          "4": "卡托普利"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "26"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "饮片",
+          "1": "中成药",
+          "2": "药材",
+          "3": "化学药",
+          "4": "抗生素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "928"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "透脓散",
+          "1": "仙方活命饮",
+          "2": "黄连解毒汤",
+          "3": "青蒿鳖甲汤合三妙丸",
+          "4": "萆薢渗湿汤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "119"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "甲苯咪唑",
+          "1": "吡喹酮",
+          "2": "哌嗪",
+          "3": "阿苯达唑",
+          "4": "噻嘧啶"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "884"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "头孢拉定",
+          "1": "头孢克洛",
+          "2": "头孢呋辛酯",
+          "3": "头孢哌酮",
+          "4": "头孢噻吩"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "918"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "利巴韦林",
+          "1": "非那雄胺",
+          "2": "艾司唑仑",
+          "3": "氟尿嘧啶",
+          "4": "氢化可的松"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "500"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "舒巴坦钠",
+          "1": "阿米卡星",
+          "2": "多西环素",
+          "3": "克林霉素",
+          "4": "阿奇霉素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "589"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "调配完毕后的药品，可由调配人员自行复核",
+          "1": "调配完毕后的药品，应由同级的技术人员复核",
+          "2": "复核工作只需要对药味的品种和剂量复核",
+          "3": "调配人员原则上不能再行复核，应由上一级的技术人员进行",
+          "4": "复核完毕后须由调配者进行签字，以示负责"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "727"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "马普替林",
+          "1": "丙米嗪",
+          "2": "地昔帕明",
+          "3": "多塞平",
+          "4": "阿米替林"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "878"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "氯雷他定（OTC）",
+          "1": "艾司唑仑片",
+          "2": "阿奇霉素分散片",
+          "3": "曲马多",
+          "4": "复方樟脑酊"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "416"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "镇肝熄风汤",
+          "1": "杞菊地黄丸",
+          "2": "天仙藤散",
+          "3": "羚角钩藤汤",
+          "4": "半夏白术天麻汤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "127"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "逍遥散",
+          "1": "痛泻要方",
+          "2": "大柴胡汤",
+          "3": "四逆散",
+          "4": "小柴胡汤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "786"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "钙通道阻滞剂",
+          "1": "血管紧张素转换酶抑制剂",
+          "2": "中枢交感神经抑制剂",
+          "3": "β受体阻滞剂",
+          "4": "血管紧张素Ⅱ受体阻滞剂"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "47"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胃复安",
+          "1": "胃乃安",
+          "2": "吗丁啉",
+          "3": "丽珠肠乐",
+          "4": "常乐康"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "441"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "葡萄糖酸钙",
+          "1": "环孢素",
+          "2": "丙磺舒",
+          "3": "西司他丁",
+          "4": "青霉素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "四环素",
+          "1": "利巴韦林",
+          "2": "妥布霉素",
+          "3": "氟康唑",
+          "4": "林可霉素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "67"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "胰岛素",
+          "1": "胰高血糖素",
+          "2": "肾上腺素",
+          "3": "去甲肾上腺素",
+          "4": "生长激素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "965"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "苯妥英钠",
+          "1": "卡马西平",
+          "2": "丙戊酸钠",
+          "3": "苯巴比妥",
+          "4": "托吡酯"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "68"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "麻醉药品和第一类精神药品",
+          "1": "第二类精神药品",
+          "2": "医疗放射药品",
+          "3": "医疗毒性药品",
+          "4": "药材与药材饮片",
+          "5": "原料药",
+          "6": "除上述外的其他药品"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "800"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "硝西泮",
+          "1": "氯霉素",
+          "2": "克林霉素",
+          "3": "肝素",
+          "4": "硝普钠"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "693"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "安坦",
+          "1": "复方左旋多巴",
+          "2": "丙炔苯丙胺",
+          "3": "金刚烷胺",
+          "4": "溴隐亭"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "70"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "沙丁胺醇",
+          "1": "氢化可的松",
+          "2": "氨茶碱",
+          "3": "吗啡",
+          "4": "肾上腺素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "666"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "月华丸",
+          "1": "保真汤",
+          "2": "百合固金汤合秦艽鳖甲散",
+          "3": "补天大造丸",
+          "4": "沙参麦冬汤"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "130"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "可待因",
+          "1": "司可巴比妥",
+          "2": "咖啡因",
+          "3": "异戊巴比妥",
+          "4": "艾司唑仑"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "518"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "苯丙哌林",
+          "1": "羧甲司坦",
+          "2": "喷托维林",
+          "3": "右美沙芬",
+          "4": "氨溴素"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "286"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "阿莫西林",
+          "1": "舒巴坦",
+          "2": "阿米卡星",
+          "3": "头孢噻吩钠",
+          "4": "氨曲南"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "638"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "氨茶碱",
+          "1": "去甲肾上腺素",
+          "2": "甲氧明",
+          "3": "异丙肾上腺素",
+          "4": "多巴胺"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "149"
+    },
+    {
+      "question": {
+        "criteria": {
+          "0": "芍药汤",
+          "1": "白头翁汤",
+          "2": "三仁汤",
+          "3": "藿香正气散",
+          "4": "连朴饮"
+        },
+        "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "716"
+    }
+  ]
+}

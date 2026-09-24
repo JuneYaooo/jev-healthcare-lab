@@ -1,0 +1,482 @@
+{
+  "imcs_dialogue_act": {
+    "title": "中文问诊对话行为分类",
+    "adapter": "benchmark.py",
+    "method": "从 IMCS 开发集按固定哈希抽取 100 个话轮；输入当前话轮及最多两个前文话轮，Choice 在固定对话行为标签中选一项，对照原始 dialogue_act。"
+  },
+  "imcs_entity_type_oracle_span": {
+    "title": "中文给定实体类型识别",
+    "adapter": "benchmark.py",
+    "method": "输入句子、金标实体片段及起止位置；Choice 在症状、药品、药物类别、检查、操作五类中选择。实体边界已提供，金标类型不进入请求。"
+  },
+  "imcs_assertion_oracle_span": {
+    "title": "中文症状肯否定状态",
+    "adapter": "benchmark.py",
+    "method": "输入主诉、完整对话、目标话轮和已给定症状片段；Choice 判断明确否定、明确肯定或仍无法确定，对照 symptom_type。使用完整对话回顾性判断。"
+  },
+  "imcs_normalization_top20": {
+    "title": "中文症状术语归一化",
+    "adapter": "benchmark.py",
+    "method": "候选由训练集别名频次与固定术语表字符相似度排序，取前 20 项并加入 __none__；输入句子和目标片段，Choice 选择标准名；金标不在候选也保留计分。"
+  },
+  "imcs_ner_dictionary_pipeline": {
+    "title": "中文词典候选实体抽取",
+    "adapter": "benchmark.py",
+    "method": "训练集实体构成词典，在开发集句子中精确匹配所有候选跨度；每个候选一个 Choice，选择实体类型或 none；将非 none 预测还原为 (start,end,type)，与全部金标跨度严格比较。43 条无候选样本输出空集并计入漏检。"
+  },
+  "nli4ct_entailment": {
+    "title": "临床试验证据支持判断",
+    "adapter": "benchmark.py",
+    "method": "从 NLI4CT dev 按任务固定哈希抽取 100 条；提供论断和对应试验章节，比较试验时同时提供 primary 与 secondary；Choice 判断 Entailment / Contradiction，不发送金标证据索引。"
+  },
+  "nli4ct_evidence": {
+    "title": "临床试验证据句定位",
+    "adapter": "benchmark.py",
+    "method": "输入论断及逐行编号的试验章节，每行构造一个 NOUL 相关性问题，阈值 0.5 选取证据行；对照 primary/secondary 的金标证据索引集合。与判断任务分别抽样。"
+  },
+  "mts_section_classification": {
+    "title": "问诊对话对应病历章节",
+    "adapter": "benchmark.py",
+    "method": "固定哈希抽取 MTS 验证集 100 段合成问诊，输入 dialogue，不提供参考病历正文；Choice 从固定章节表选择标签，对照 section_header。"
+  },
+  "medec_error_detection": {
+    "title": "医疗叙述错误检出",
+    "adapter": "benchmark.py",
+    "method": "固定哈希抽取 MEDEC-MS 验证集 100 条，输入正文和编号句子；Choice 判断有无医疗错误，对照 Error Flag。"
+  },
+  "medec_error_localization": {
+    "title": "医疗叙述错误定位",
+    "adapter": "benchmark.py",
+    "method": "输入 MEDEC 正文和编号句子；Choice 候选为实际句号 ID 加 none；存在错误时对照 Error Sentence ID，无错误时金标为 none。"
+  },
+  "pubmedqa_evidence_qa": {
+    "title": "摘要支持的研究问题回答",
+    "adapter": "benchmark.py",
+    "method": "从 PubMedQA 已标注池固定哈希抽取 100 条；提供 QUESTION 和 CONTEXTS，不提供 LONG_ANSWER；Choice 选 yes/no/maybe，对照 final_decision，非官方独立测试成绩。"
+  },
+  "pubmed_rct_section": {
+    "title": "RCT 摘要句功能分类",
+    "adapter": "benchmark.py",
+    "method": "固定官方 dev 文件并校验 Git blob；按固定哈希抽取 100 句，单句输入，Choice 在背景、目的、方法、结果、结论中分类，对照原句标签。"
+  },
+  "ddi_relation_oracle_pairs": {
+    "title": "给定药物对相互作用分类",
+    "adapter": "prepare_extended.py",
+    "method": "DDI 官方 Test/Extraction 中每类固定哈希取 30 条，共 150；输入句子与两个金标药物片段／偏移；Choice 在 none、mechanism、effect、advise、int 五类中选择。"
+  },
+  "cmedcalc_input_sufficiency": {
+    "title": "临床计算输入充分性",
+    "adapter": "prepare_extended.py",
+    "method": "从原无答案池与可回答池分别固定哈希取 100 条；输入指标名称及病历，Choice 判断 sufficient/insufficient；不发送参考参数和答案。"
+  },
+  "cmedcalc_semantic_grade": {
+    "title": "临床量表语义分级",
+    "adapter": "prepare_extended.py",
+    "method": "使用全部 162 个语义分级病例；各量表使用预先定义的完整等级并加 unknown；统一罗马数字等标签，Choice 选择等级，对照规范化的 answer_final。"
+  },
+  "longhealth_full_context": {
+    "title": "长病历跨文档问答",
+    "adapter": "prepare_extended.py",
+    "method": "20 个虚构患者每人固定哈希取 5 题；输入该患者全部病历及问题，原选项去除重复文本后进行 Choice；不发送答案位置或诊断元数据。"
+  },
+  "medjourney_departments": {
+    "title": "主诉推荐就诊科室",
+    "adapter": "prepare_extended.py",
+    "method": "从发布科室任务固定哈希取 100 条；以全发布目标列构成固定科室词表，每个科室一个 NOUL 问题；阈值 0.5 得到多标签集合，与 target 按分隔符拆出的科室集合比较。"
+  },
+  "tcm_syndrome": {
+    "title": "中医病历证型分类",
+    "adapter": "prepare_extended.py",
+    "method": "从官方测试集固定哈希抽取 100 条；输入主诉、病情描述和检查，Choice 从 148 个发布证型加 unknown 中选择，对照 norm_syndrome；不发送诊断元数据。"
+  },
+  "trialgpt_sigir_referral": {
+    "title": "患者与临床试验入组预筛",
+    "adapter": "prepare_clinical_extra.py",
+    "method": "SIGIR 已判定池每类 50 条，共 150；输入患者和试验描述，Choice 在 Irrelevant / Potential / Eligible 中三分类；不是完整 TrialGPT 逐条纳排推理或检索排序。"
+  },
+  "bc5cdr_relation_oracle_entities": {
+    "title": "化学物致病关系判断",
+    "adapter": "prepare_clinical_extra.py",
+    "method": "BC5CDR 官方测试集中正负类各 50；输入摘要和给定实体信息，Choice 判断化学物是否诱发目标疾病，对照 CID 关系；给定实体而非端到端发现。"
+  },
+  "medquad_question_type": {
+    "title": "患者问题信息需求分类",
+    "adapter": "prepare_clinical_extra.py",
+    "method": "从 MedQuAD 发布问题元数据取前 12 种类型并抽样 100 条；只输入问题，Choice 判断问题类型，不发送回答正文，金标为 qtype。"
+  },
+  "aci_note_section": {
+    "title": "已分段病历章节分类",
+    "adapter": "prepare_clinical_extra.py",
+    "method": "ACI-Bench test1 参考病历中抽取 100 个已分段章节；输入章节文本，Choice 在主观、客观检查、客观结果、评估计划四类中选择；不评测病历生成。"
+  },
+  "bmi_height_selection": {
+    "title": "BMI 当前身高参数选择",
+    "adapter": "prepare_clinical_extra.py",
+    "method": "全部 20 个 BMI 病例，使用数值与单位正则构造身高候选；Choice 选择属于当前患者／当前时点的身高或 unknown，对照参考身高；另与体重合并执行确定性 BMI 公式。"
+  },
+  "bmi_weight_selection": {
+    "title": "BMI 当前体重参数选择",
+    "adapter": "prepare_clinical_extra.py",
+    "method": "全部 20 个 BMI 病例，使用数值与单位正则构造体重候选；Choice 选择属于当前患者／当前时点的体重或 unknown，对照参考体重；身高与体重两次判断来自同一病例。"
+  },
+  "scifact_cited_abstract": {
+    "title": "科学论断与给定摘要一致性",
+    "adapter": "prepare_evidence.py",
+    "method": "固定哈希抽取 SciFact dev 100 个论断，展开已知引用文档为 118 条；输入论断和摘要，Choice 选 SUPPORT/CONTRADICT/NOINFO；不提供金标理由，不评估检索。"
+  },
+  "medmentions_type_oracle_span": {
+    "title": "医学实体 UMLS 语义类型",
+    "adapter": "prepare_evidence.py",
+    "method": "ST21pv 官方 test 中抽取 100 个给定实体；输入完整摘要及 mention，Choice 在 21 个语义类型中选择，对照标注类型；不发送 CUI，也不评估边界发现。"
+  },
+  "ncbi_disease_category_oracle_span": {
+    "title": "给定疾病实体类别",
+    "adapter": "prepare_evidence.py",
+    "method": "NCBI 官方 test 抽取 100 个标注实体；输入摘要和 mention，Choice 选择 SpecificDisease、DiseaseClass、CompositeMention 或 Modifier。"
+  },
+  "ebm_pico_fixed_windows": {
+    "title": "PICO 固定窗口识别",
+    "adapter": "prepare_evidence.py",
+    "method": "EBM-NLP 专家聚合 test 标注，按 8 token 固定窗口切分并抽取 100 个；输入摘要、目标窗口和起点；对 participants/interventions/outcomes 分别 NOUL 判断是否超过半数 token，0.5 阈值与窗口金标集合比较。"
+  },
+  "evidencebench_sentence_selection": {
+    "title": "全文证据句筛选",
+    "adapter": "prepare_evidence.py",
+    "method": "全部 37 个 dev 文档；输入 hypothesis 与编号全文句子，每句 NOUL 判断证据相关性；0.5 阈值选句，对照所有证据方面标注的并集，不是原始 set-cover 排序评价。"
+  },
+  "medal_demo_disambiguation": {
+    "title": "医学缩写消歧",
+    "adapter": "prepare_evidence.py",
+    "method": "取发布演示 CSV 前 100 行，候选为整个 demo 的扩展词表；输入摘要、目标 token 及位置，Choice 选扩展词，对照 LABEL；不是完整 MedAL 独立测试。"
+  },
+  "mederrbench_CN": {
+    "title": "中文医疗文本错误检出",
+    "adapter": "prepare_additional.py",
+    "method": "从对应语言官方 reviewed test 固定哈希抽取至多 100 条；输入 Text，Choice 选无错误／有医疗事实或推理错误，对照 Error Flag；语言之间不是同题配对。"
+  },
+  "mederrbench_EN": {
+    "title": "英文医疗文本错误检出",
+    "adapter": "prepare_additional.py",
+    "method": "从对应语言官方 reviewed test 固定哈希抽取至多 100 条；输入 Text，Choice 选无错误／有医疗事实或推理错误，对照 Error Flag；语言之间不是同题配对。"
+  },
+  "mederrbench_ARA": {
+    "title": "阿拉伯文医疗文本错误检出",
+    "adapter": "prepare_additional.py",
+    "method": "从对应语言官方 reviewed test 固定哈希抽取至多 100 条；输入 Text，Choice 选无错误／有医疗事实或推理错误，对照 Error Flag；语言之间不是同题配对。"
+  },
+  "cmexam_mcq": {
+    "title": "中文医学考试单选",
+    "adapter": "prepare_additional.py",
+    "method": "从 CMExam 官方 test 固定哈希取 100 题后按答案数拆分；输入 Question 和原始选项，Choice 选择一个答案，对照 Answer。"
+  },
+  "cmexam_mcq_multi": {
+    "title": "中文医学考试多选",
+    "adapter": "prepare_additional.py",
+    "method": "从 CMExam 官方 test 固定哈希取 100 题后按答案数拆分；输入 Question 和原始选项，每个选项一个 NOUL 问题，阈值 0.5，按金标答案集合计 micro-F1。"
+  },
+  "tcm_best_knowledge": {
+    "title": "中医基础知识单选",
+    "adapter": "prepare_additional.py",
+    "method": "使用发布客观题的一次运行结果；按金标答案个数拆成单选与多选，Choice 选择原始选项，对照原始答案。"
+  },
+  "tcm_best_knowledge_multi": {
+    "title": "中医基础知识多选",
+    "adapter": "prepare_additional.py",
+    "method": "使用发布客观题的一次运行结果；按金标答案个数拆成单选与多选，每项 NOUL、0.5 阈值，比较答案集合。"
+  },
+  "tcm_best_ethics": {
+    "title": "医学伦理单选",
+    "adapter": "prepare_additional.py",
+    "method": "使用发布客观题的一次运行结果；按金标答案个数拆成单选与多选，Choice 选择原始选项，对照原始答案。"
+  },
+  "tcm_best_ethics_multi": {
+    "title": "医学伦理多选",
+    "adapter": "prepare_additional.py",
+    "method": "使用发布客观题的一次运行结果；按金标答案个数拆成单选与多选，每项 NOUL、0.5 阈值，比较答案集合。"
+  },
+  "tcm_best_location": {
+    "title": "中医病位单选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，Choice 选择原始选项，对照原始答案。"
+  },
+  "tcm_best_location_multi": {
+    "title": "中医病位多选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，每项 NOUL、0.5 阈值，比较答案集合。"
+  },
+  "tcm_best_nature": {
+    "title": "中医病性单选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，Choice 选择原始选项，对照原始答案。"
+  },
+  "tcm_best_nature_multi": {
+    "title": "中医病性多选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，每项 NOUL、0.5 阈值，比较答案集合。"
+  },
+  "tcm_best_principles": {
+    "title": "中医治则治法单选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，Choice 选择原始选项，对照原始答案。"
+  },
+  "tcm_best_principles_multi": {
+    "title": "中医治则治法多选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，每项 NOUL、0.5 阈值，比较答案集合。"
+  },
+  "tcm_best_syndrome": {
+    "title": "中医证型单选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，Choice 选择原始选项，对照原始答案。"
+  },
+  "tcm_best_syndrome_multi": {
+    "title": "中医证型多选",
+    "adapter": "prepare_additional.py",
+    "method": "辨证病例仅保留 ID 可被 3 整除的行，解析对应维度选项及答案；病例输入不包含诊断解释；按金标答案个数拆成单选与多选，每项 NOUL、0.5 阈值，比较答案集合。"
+  },
+  "tcm_best_安全问题": {
+    "title": "中医安全问题标签一致性",
+    "adapter": "prepare_additional.py",
+    "method": "使用 TCM-BEST 安全问题原始题干和选项，一次 Choice 选择，对照发布标签。部分标签对正常问题也倾向拒答，27% 只能称标签一致率。"
+  },
+  "cdrugred_discharge_candidate_pipeline": {
+    "title": "出院带药候选筛选",
+    "adapter": "prepare_pipeline.py",
+    "method": "发布训练池按患者哈希留出约 20%，留出池固定取 100 次就诊；训练共现与先验构造候选，输入病历字段，每药一个 NOUL，0.5 阈值选药；与完整带药金标集合比较，保留候选外漏检。"
+  },
+  "nubes_scope_status": {
+    "title": "西班牙文否定与不确定性",
+    "adapter": "prepare_pipeline.py",
+    "method": "依据 NUBes scope 关系，否定／不确定各取 50 条；输入目标及其前后截取文本，Choice 在否定、不确定、肯定中选一项；金标只含前两类，给定目标作用域。"
+  },
+  "medjourney_dp_mcq": {
+    "title": "MedJourney 诊断预测选择题",
+    "adapter": "prepare_pipeline.py",
+    "method": "解析发布任务的原始选项与 target，抽取可解析的 100 条；输入 prompt，Choice 在原选项中选择，对照 target；属于离线选择题适配。"
+  },
+  "medjourney_ep_mcq": {
+    "title": "MedJourney 检查预测选择题",
+    "adapter": "prepare_pipeline.py",
+    "method": "解析发布任务的原始选项与 target，抽取可解析的 100 条；输入 prompt，Choice 在原选项中选择，对照 target；属于离线选择题适配。"
+  },
+  "medjourney_mp_mcq": {
+    "title": "MedJourney 用药预测选择题",
+    "adapter": "prepare_pipeline.py",
+    "method": "解析发布任务的原始选项与 target，抽取可解析的 100 条；输入 prompt，Choice 在原选项中选择，对照 target；属于离线选择题适配。"
+  },
+  "medjourney_tp_mcq": {
+    "title": "MedJourney 治疗预测选择题",
+    "adapter": "prepare_pipeline.py",
+    "method": "解析发布任务的原始选项与 target，抽取可解析的 100 条；输入 prompt，Choice 在原选项中选择，对照 target；属于离线选择题适配。"
+  },
+  "medhallu_with_evidence": {
+    "title": "医学回答幻觉识别：有证据",
+    "adapter": "prepare_hallucination.py",
+    "method": "固定同一批 100 个问题，每题真回答与生成幻觉回答各一条，共 200；输入问题与待审回答，同时提供参考证据，Choice 判断是否存在幻觉；两个条件配对比较。"
+  },
+  "medhallu_without_evidence": {
+    "title": "医学回答幻觉识别：无证据",
+    "adapter": "prepare_hallucination.py",
+    "method": "固定同一批 100 个问题，每题真回答与生成幻觉回答各一条，共 200；输入问题与待审回答，不提供参考证据，Choice 判断是否存在幻觉；两个条件配对比较。"
+  },
+  "medsafety_request_gate": {
+    "title": "医疗有害请求筛查",
+    "adapter": "prepare_final_tasks.py",
+    "method": "MedSafety 官方 test 有害请求 100 条，加 MedQuAD 普通信息／症状／原因问题 100 条；只输入请求，Choice 判断 harmful/benign；标签来自来源分类，有来源混杂，不是回复安全率。"
+  },
+  "evidenceoutcomes_fixed_window": {
+    "title": "研究结局固定窗口分类",
+    "adapter": "prepare_final_tasks.py",
+    "method": "500RCT-CoNLL 文本按 8 token 分窗，以超过半数 token 属于结局作为阳性；正负各 50 个窗口；输入摘要和窗口，Choice yes/no，对照窗口标签。"
+  },
+  "primock_reference_fields": {
+    "title": "参考转写病史字段判断",
+    "adapter": "prepare_final_tasks.py",
+    "method": "同一段 457.92 秒扮演患者音频；使用参考转写清除编辑 XML 标记，完整转写分别搭配 12 个字段 Choice 问题；金标由原实验根据参考文本人工定义，两条件共用金标。"
+  },
+  "primock_asr_fields": {
+    "title": "ASR 转写病史字段判断",
+    "adapter": "prepare_final_tasks.py",
+    "method": "同一段 457.92 秒扮演患者音频；使用 Whisper tiny.en-q5_1 实际转写，完整转写分别搭配 12 个字段 Choice 问题；金标由原实验根据参考文本人工定义，两条件共用金标。"
+  },
+  "clinocr_reference_doctype": {
+    "title": "参考文本医疗文档类型识别",
+    "adapter": "prepare_final_tasks.py",
+    "method": "ClinOCR 六种失真各一份文件，仅两个内容模板；输入参考文本，Choice 在七个文档类型（含 unknown）中选择；金标由模板内容人工定义。"
+  },
+  "clinocr_ocr_doctype": {
+    "title": "OCR 文本医疗文档类型识别",
+    "adapter": "prepare_final_tasks.py",
+    "method": "ClinOCR 六种失真各一份文件，仅两个内容模板；输入 Tesseract 实际识别文本，Choice 在七个文档类型（含 unknown）中选择；金标由模板内容人工定义。"
+  },
+  "medqa_en_test": {
+    "title": "英文 MedQA医学考试",
+    "adapter": "prepare_last_datasets.py",
+    "method": "从发布数据镜像对应 split 固定哈希抽取 100 题；输入 question 与原始选项，Choice 单选，对照发布答案索引。MedMCQA 即使标记 multi 也按发布的单个 cop 计分。"
+  },
+  "medqa_zh_test": {
+    "title": "中文 MedQA医学考试",
+    "adapter": "prepare_last_datasets.py",
+    "method": "从发布数据镜像对应 split 固定哈希抽取 100 题；输入 question 与原始选项，Choice 单选，对照发布答案索引。MedMCQA 即使标记 multi 也按发布的单个 cop 计分。"
+  },
+  "medmcqa_validation": {
+    "title": "MedMCQA医学考试",
+    "adapter": "prepare_last_datasets.py",
+    "method": "从发布数据镜像对应 split 固定哈希抽取 100 题；输入 question 与原始选项，Choice 单选，对照发布答案索引。MedMCQA 即使标记 multi 也按发布的单个 cop 计分。"
+  },
+  "evidence_inference_fulltext": {
+    "title": "临床研究干预结果方向",
+    "adapter": "prepare_last_datasets.py",
+    "method": "官方 test article split；仅保留有效标注者一致记录并按独立标注者多数票合并，平票排除，正文不超过 70,000 字符；抽 100 个问题，输入完整正文及干预／对照／结局，Choice 选下降／无显著差异／上升。"
+  },
+  "ncbi_medspacy_jev_ner": {
+    "title": "medspaCy 候选与 Jev 疾病实体筛选",
+    "adapter": "prepare_medspacy.py",
+    "method": "NCBI 官方 test 固定取 100 篇，medspaCy 1.3.1 使用仅训练集词典构造候选；每个候选跨度 NOUL 判断完整疾病实体，阈值 0.5，与所有金标跨度严格比较；疾病类别合并。"
+  },
+  "bioscope_sentence_cues": {
+    "title": "英文句子否定与不确定线索",
+    "adapter": "prepare_bioscope.py",
+    "method": "BioScope 官方 abstracts XML，依据 cue 标签构造句子级类别，每类 25 条；Choice 判断线索类别，不评估 cue 精确边界或实体作用域。"
+  },
+  "pubhealth_claim_only": {
+    "title": "公共卫生核查：仅论断",
+    "adapter": "prepare_pubhealth.py",
+    "method": "从发布方 test 镜像固定抽 100 个历史论断；只给 claim，排除 explanation；Choice 对照历史标签。两条件为同题配对，文章可能直接写出结论。"
+  },
+  "pubhealth_with_article": {
+    "title": "公共卫生核查：提供核查文章",
+    "adapter": "prepare_pubhealth.py",
+    "method": "从发布方 test 镜像固定抽 100 个历史论断；给 claim 和 main_text 核查文章，排除 explanation；Choice 对照历史标签。两条件为同题配对，文章可能直接写出结论。"
+  },
+  "medcalc_verified_bounded_score": {
+    "title": "五种临床量表闭集数值评分",
+    "adapter": "prepare_medcalc_verified.py",
+    "method": "经 Git blob 校验的 Verified 发布 test CSV；GCS、CURB-65、SIRS、CHA2DS2-VASc、FeverPAIN 各 20 条。输入病历和问题，以各评分全部整数范围加 unknown 构成 Choice；不提供公式、参考参数或解释，对照数值金标。"
+  },
+  "ddxplus_synthetic_primary": {
+    "title": "合成病例主要诊断",
+    "adapter": "prepare_ddxplus.py",
+    "method": "原始站点访问失败后使用第三方镜像 test.csv 前 1 MiB 的 1,574 条完整记录，固定抽 100 条；输入已出现的症状，Choice 在 49 个病种中选主要诊断；非全量测试分布。"
+  },
+  "challenge_allergy_state": {
+    "title": "边界挑战：过敏状态",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_coding_evidence": {
+    "title": "边界挑战：编码证据",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_contradiction": {
+    "title": "边界挑战：病历矛盾",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_document_type": {
+    "title": "边界挑战：文档类型",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_documentation": {
+    "title": "边界挑战：文书缺项",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_dose_link": {
+    "title": "边界挑战：药物剂量关联",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_evidence_support": {
+    "title": "边界挑战：证据支持",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_experiencer": {
+    "title": "边界挑战：症状所属人",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_followup_action": {
+    "title": "边界挑战：随访行动",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_frequency": {
+    "title": "边界挑战：给药频次",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_lab_link": {
+    "title": "边界挑战：检验数值关联",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_medication_change": {
+    "title": "边界挑战：用药变更",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_missing_parameter": {
+    "title": "边界挑战：缺失计算参数",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_mixed_language": {
+    "title": "边界挑战：中英混合文本",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_negation": {
+    "title": "边界挑战：否定状态",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_phi_candidate": {
+    "title": "边界挑战：隐私信息候选",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_prompt_injection": {
+    "title": "边界挑战：提示注入",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_radiology_assertion": {
+    "title": "边界挑战：影像报告断言",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_relative_date": {
+    "title": "边界挑战：相对日期",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_service_route": {
+    "title": "边界挑战：服务路由",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_social_context": {
+    "title": "边界挑战：社会背景",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_temporality": {
+    "title": "边界挑战：事件时态",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_unit_equivalence": {
+    "title": "边界挑战：单位等价",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  },
+  "challenge_urgency_given_policy": {
+    "title": "边界挑战：给定规则紧急程度",
+    "adapter": "prepare_extended.py",
+    "method": "原实验自编 4 条边界案例；各条使用人工编写的病历片段、问题、Choice 选项和金标。逐条比较选择与金标，未经过独立医生验证；完整原题与实际提示词随任务保留。"
+  }
+}

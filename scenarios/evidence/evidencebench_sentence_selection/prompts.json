@@ -1,0 +1,2301 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "Does sentence 0 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 1 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 10 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 100 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 101 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 102 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 103 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 104 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 105 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 106 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 31,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 107 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 31,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 108 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 31,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 109 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 11 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 110 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 111 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 112 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 113 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 114 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 115 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 116 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 30,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 117 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 118 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 119 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 12 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 120 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 121 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 122 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 123 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 124 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 125 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 126 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 29,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 127 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 128 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 129 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 28,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 13 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 130 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 26,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 131 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 26,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 132 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 26,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 133 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 26,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 134 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 25,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 135 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 25,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 136 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 25,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 137 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 25,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 138 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 25,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 139 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 25,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 14 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 15 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 16 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 17 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 18 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 19 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 2 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 20 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 21 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 22 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 23 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 24 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 25 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 26 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 27 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 28 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 29 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 3 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 30 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 31 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 32 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 33 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 34 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 35 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 36 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 37 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 38 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 39 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 4 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 40 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 41 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 42 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 43 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 44 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 45 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 46 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 47 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 48 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 49 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 5 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 50 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 51 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 52 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 53 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 54 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 55 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 56 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 57 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 58 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 59 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 6 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 60 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 61 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 62 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 63 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 64 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 65 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 66 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 67 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 68 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 69 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 7 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 70 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 71 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 72 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 36,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 73 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 74 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 75 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 76 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 77 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 78 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 79 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 8 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 80 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 81 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 82 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 83 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 84 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 85 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 86 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 87 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 88 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 89 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 9 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 37,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 90 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 35,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 91 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 34,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 92 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 34,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 93 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 34,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 94 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 34,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 95 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 34,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 96 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 97 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 98 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 99 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 33,
+      "example_sample_id": "evidencebench_dev_id_0"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 140 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 24,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 141 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 24,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 142 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 24,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 143 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 24,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 144 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 24,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 145 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 146 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 147 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 148 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 149 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 150 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 151 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 23,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 152 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 153 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 154 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 155 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 156 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 157 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 158 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 159 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 22,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 160 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 21,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 161 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 21,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 162 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 21,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 163 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 20,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 164 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 20,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 165 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 19,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 166 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 19,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 167 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 19,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 168 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 169 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 170 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 171 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 172 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 173 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 174 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 175 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 17,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 176 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 177 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 178 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 179 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 15,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 180 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 181 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 182 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 183 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 184 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 185 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 186 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 187 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 14,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 188 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 189 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 13,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 190 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 12,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 191 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 12,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 192 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 12,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 193 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 12,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 194 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 195 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 196 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 197 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 198 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 199 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 200 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 201 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 10,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 202 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 203 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 204 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 205 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 206 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 207 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 208 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 9,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 209 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 210 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 211 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 212 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 213 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 214 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 215 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 216 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 217 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 218 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 219 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 220 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 221 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 222 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 223 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 224 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 225 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 226 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 227 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 228 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 229 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 8,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 230 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 231 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 232 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 233 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 234 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 235 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 236 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 237 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 238 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 239 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 240 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 241 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 242 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 243 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 244 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 245 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 246 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 247 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 248 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 249 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 250 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 251 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 252 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 253 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 254 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 255 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 256 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 257 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 258 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 259 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 260 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 261 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 262 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 263 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 264 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 265 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 266 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 267 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 268 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 269 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 270 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "evidencebench_dev_id_1"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 271 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 272 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 273 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 274 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 275 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 276 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 277 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 278 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 279 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 280 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 281 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 282 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 283 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 284 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 285 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "evidencebench_dev_id_19"
+    },
+    {
+      "question": {
+        "instructions": "Does sentence 286 contain evidence relevant to assessing the hypothesis? Select evidence on population, intervention/exposure, comparison, outcomes or findings; exclude mere background.",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "evidencebench_dev_id_19"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "sample": {
+    "gold": [
+      "A",
+      "B"
+    ],
+    "group": "15",
+    "id": "15",
+    "metadata": {
+      "scoring": "multi_question_keys",
+      "source": "TCM-BEST4SDT objective multilabel; threshold0.5"
+    },
+    "request": {
+      "questions": {
+        "A": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 心",
+          "type": "noul"
+        },
+        "B": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 肝",
+          "type": "noul"
+        },
+        "C": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 肺",
+          "type": "noul"
+        },
+        "D": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: 肾",
+          "type": "noul"
+        },
+        "E": {
+          "instructions": "判断该候选是否为此多选题的正确答案。 Candidate: ",
+          "type": "noul"
+        }
+      },
+      "state": "安神药的归经是"
+    },
+    "request_sha256": "afd02776909f4ad402c1c29d8e30f365a3b4cc861ff4b5adc2a8430f8e063fdf",
+    "task": "tcm_best_knowledge_multi"
+  },
+  "response": {
+    "elapsed_s": 3.8813013329636306,
+    "id": "15",
+    "request_sha256": "afd02776909f4ad402c1c29d8e30f365a3b4cc861ff4b5adc2a8430f8e063fdf",
+    "response": {
+      "answers": {
+        "A": {
+          "noul": 0.8,
+          "type": "noul"
+        },
+        "B": {
+          "noul": 0.38,
+          "type": "noul"
+        },
+        "C": {
+          "noul": 0.09,
+          "type": "noul"
+        },
+        "D": {
+          "noul": 0.23,
+          "type": "noul"
+        },
+        "E": {
+          "noul": 0.2,
+          "type": "noul"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 414,
+        "output_tokens": 84
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_knowledge_multi"
+  }
+}

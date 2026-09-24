@@ -1,0 +1,45 @@
+{
+  "task": "medcalc_verified_bounded_score",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "medcalc_verified_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "medcalc_verified_prepared.jsonl": "6c73fdc43160ee7b24619cdd7f5dbb17639019d8a45fb91fa786faf3e23e3830"
+  },
+  "sample_count": 100,
+  "groups": 100,
+  "resources": [
+    {
+      "resource": "MedCalc-Bench / Verified",
+      "source": "https://github.com/ncbi-nlp/MedCalc-Bench",
+      "completion_note": "Verified发布方CSV通过Git blob校验；5种有界评分各20条，闭集数值选择，不是55种指标全量数值生成"
+    }
+  ],
+  "adapter": "prepare_medcalc_verified.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 424975,
+      "sha256": "6c73fdc43160ee7b24619cdd7f5dbb17639019d8a45fb91fa786faf3e23e3830"
+    },
+    "responses.jsonl": {
+      "bytes": 48663,
+      "sha256": "6b3c91660f798c33dec495476880e506f014385a739bd2365ddb8bb89a355e33"
+    },
+    "index.jsonl": {
+      "bytes": 30303,
+      "sha256": "7f07e3c1a4467bdda4c9ef3a8c055336cab807741aeb9d25b5ebf01a64823b1a"
+    },
+    "prompts.json": {
+      "bytes": 2814,
+      "sha256": "80a211700e323b6dddb3ed51681b3ecfb6068f819579396154ed3fffbddd6940"
+    },
+    "example.json": {
+      "bytes": 5530,
+      "sha256": "6022b4b6a3e99756758e054fd14e2da654ce41584ffeccae10e7daa24936c5c7"
+    }
+  }
+}

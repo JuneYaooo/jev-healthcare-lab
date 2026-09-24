@@ -1,0 +1,67 @@
+{
+  "sample": {
+    "gold": "A",
+    "group": "5021",
+    "id": "5021",
+    "metadata": {
+      "indicator": "药学",
+      "inverse_labels": {
+        "A": "E",
+        "B": "A",
+        "C": "B",
+        "D": "C",
+        "E": "D"
+      },
+      "original_id": "5021",
+      "original_task": "cmexam_mcq",
+      "source": "paired perturbation of existing held-out pilot; not new independent cases",
+      "variant": "rotate"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "吡罗昔康",
+            "B": "贝诺酯",
+            "C": "安乃近",
+            "D": "吲哚美辛",
+            "E": "布洛芬"
+          },
+          "instructions": "选择医学考试题的最佳答案。",
+          "type": "choice"
+        }
+      },
+      "state": "1，2-苯并噻嗪类非甾体抗炎药"
+    },
+    "request_sha256": "e8e8037a7bd5111fd8adff20027757a6ca3c78fcc070855fa75182dbd4cae995",
+    "task": "robust_rotate_cmexam_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.6191034590010531,
+    "id": "5021",
+    "request_sha256": "e8e8037a7bd5111fd8adff20027757a6ca3c78fcc070855fa75182dbd4cae995",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "A",
+          "confidence": 1.0,
+          "probabilities": {
+            "A": 1.0,
+            "B": 0.0,
+            "C": 0.0,
+            "D": 0.0,
+            "E": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 384,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "robust_rotate_cmexam_mcq"
+  }
+}

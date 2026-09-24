@@ -1,0 +1,1861 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴暑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑热动风",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑入阳明",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑燥",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳暑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热结旁流证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑瘵",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑秽",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑湿困阻中焦",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑厥",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "225"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热毒壅盛证",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热蕴结证",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气阴两虚证",
+        "type": "noul"
+      },
+      "occurrences": 7,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝胆火炽证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴阳离决证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血暴脱证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳明燥热内结证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 元气欲脱证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿内阻证",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝风内动证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "258"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热内蕴证",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 寒湿黄疸（阴黄）",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热壅肺证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气机逆乱证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝胆实火证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴虚内热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心肾不交证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "261"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝阳上亢证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴虚风动证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热扰心神证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀血阻滞证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝郁化火证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血两虚证",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 血瘀证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "264"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水凌心肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风热痢",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾不纳气",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风热犯肺",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰浊阻肺",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝火犯肺",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺肾阴虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺脾气虚",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热壅肺",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气阴两虚",
+        "type": "noul"
+      },
+      "occurrences": 5,
+      "example_sample_id": "276"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热内蕴",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰浊壅肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心肾不交",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴虚痰热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 寒热错杂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀血阻络",
+        "type": "noul"
+      },
+      "occurrences": 6,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳虚水泛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "279"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气不摄血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾阴亏虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热伤血络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿阻肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴虚火旺",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺胃郁热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 燥邪伤肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "282"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾阳虚",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺气虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 寒湿困脾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心阳虚衰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水气凌心",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾气虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝气郁",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胸阳不振",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "285"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾胃虚弱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝胆湿热",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水饮内停",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心火亢盛",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热入营分证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾虚冲逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺气不降",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃气不和",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "288"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃气上逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾阴不足",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃阴亏虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 冲脉气逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热内扰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热互结证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 食滞胃脘",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝气郁结",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "291"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气机不畅",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血失调",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾不统血",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝肾虚寒证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 虚阳外浮",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "294"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃热炽盛",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气机逆乱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝火犯胃",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "297"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气滞血瘀",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心脾两虚",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿瘀阻络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血两虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝郁脾虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热下注",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "300"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝肾阴虚证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾胃虚弱证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血亏虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 血虚血瘀证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀血内阻证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气虚血瘀证",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾不统血证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾肾阳虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "303"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热内扰证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 冲任失调证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴血亏虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴虚火旺证",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳明腑实证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气滞血瘀证",
+        "type": "noul"
+      },
+      "occurrences": 3,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝阳上亢",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "306"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热腑实证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀血阻络证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰瘀互结证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰浊蒙窍证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "309"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 热结里实证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 虚实夹杂证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃热炽盛证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝胃不和证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 燥热内结证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳明腑实",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "315"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血亏虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳虚寒凝证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 寒凝血瘀证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风寒湿痹证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾虚腰痛证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热下注证",
+        "type": "noul"
+      },
+      "occurrences": 4,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 寒湿痹阻证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝肾亏虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿阻络证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "324"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热壅盛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风水相搏",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾虚湿盛",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水湿浸渍",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气滞水停",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 血瘀水停",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴虚水停",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "327"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃火上炎",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胆郁痰扰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃失和降",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胆腑郁热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 食积化热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃阴虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 酒疸",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热蕴结",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "330"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 中气下陷",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 膀胱湿热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾肾阳虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 精关不固",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝经湿热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肾虚不固",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "336"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳气虚衰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心胆气虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热扰心",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝火扰心",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "339"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝郁脾虚证",
+        "type": "noul"
+      },
+      "occurrences": 2,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿浊内阻证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾肾气虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "351"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 余毒未清证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "354"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾虚湿盛证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "354"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气血失调证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胞宫湿热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胞宫血热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胞宫虚寒证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胞宫痰湿阻滞证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀阻胞宫证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气机失调证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "360"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 邪犯清窍证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气虚夹邪证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 外伤损耳证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水湿浸渍证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 饮留胃肠证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 邪结肠腑证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 火毒炽盛证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水湿内蕴证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水湿内停证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "375"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风伏肺络证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿内蕴证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风阳证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿壅滞证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风瘀证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风水证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 风寒证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 外风证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 内风证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "378"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 暑湿证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心肝阴虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阳暑证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 水轮实热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺燥肠闭证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心胆气虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心肝气血两虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 阴暑证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心肝血虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 虚热扰神证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "381"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气滞兼夹证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心脾血虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 气机阻滞证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热发黄证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热中阻证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热蒙心证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿流注证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "384"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰毒证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰闭证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰饮证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰食证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肝胃两虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰浊证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰湿证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 痰气交阻证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "399"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾肾兼证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾肝兼证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾胃兼证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 肺燥肠热证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热积滞",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 脾肺兼证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热兼夹证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 疫毒伤络证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 胃肠不和证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 湿热外感证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "444"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀阻胸胁证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心阳不足",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀阻肠络证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀闭血脉证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀血犯腰证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀阻脉络证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心阳虚衰证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 瘀阻肺络证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的证型。 Candidate: 心阳虚脱证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "465"
+    }
+  ]
+}

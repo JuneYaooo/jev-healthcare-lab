@@ -1,0 +1,54 @@
+{
+  "sample": {
+    "gold": "unknown",
+    "group": "evidence_support:1",
+    "id": "evidence_support:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "contradicted": "原文明示相反",
+            "supported": "原文明示支持",
+            "unknown": "原文不足以判断"
+          },
+          "instructions": "只用证据判断待核验结论，不补充常识诊断。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "证据：母亲有哮喘。结论：患者本人有哮喘。"
+      }
+    },
+    "request_sha256": "8053843ef6689328197d1d4cabada56b197c0cb442ca3151f3b52f7ce0d66ba8",
+    "task": "challenge_evidence_support"
+  },
+  "response": {
+    "elapsed_s": 0.9030020830105059,
+    "id": "evidence_support:1",
+    "request_sha256": "8053843ef6689328197d1d4cabada56b197c0cb442ca3151f3b52f7ce0d66ba8",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "unknown",
+          "confidence": 0.99,
+          "probabilities": {
+            "contradicted": 0.0,
+            "supported": 0.0,
+            "unknown": 1.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 379,
+        "output_tokens": 41
+      }
+    },
+    "status": "ok",
+    "task": "challenge_evidence_support"
+  }
+}

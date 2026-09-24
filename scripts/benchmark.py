@@ -268,7 +268,7 @@ def prepare(n):
         for q in row['request']['questions'].values():
             if q['type']=='choice':assert 1 < len(q['criteria']) <= 255
         row['request_sha256'] = sha(row['request'])
-    # Public deliverables contain IDs/aggregate statistics. Raw benchmark payloads stay in work/.
+    # Prepared rows can be archived per task with archive_experiments.py after hash verification.
     (DATA/'prepared.jsonl').write_text(''.join(dumps(r)+'\n' for r in rows))
     counts = collections.Counter(r['task'] for r in rows)
     files = {}

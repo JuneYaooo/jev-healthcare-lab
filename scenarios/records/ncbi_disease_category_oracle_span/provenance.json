@@ -1,0 +1,45 @@
+{
+  "task": "ncbi_disease_category_oracle_span",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "evidence_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "evidence_prepared.jsonl": "692b06da90df7bf4c72a47607486fc340f6ad3d9e54c64d223851945e330fd8e"
+  },
+  "sample_count": 100,
+  "groups": 60,
+  "resources": [
+    {
+      "resource": "NCBI Disease",
+      "source": "https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/",
+      "completion_note": "同时完成给定实体分类与medspaCy候选→Jev端到端严格跨度评价"
+    }
+  ],
+  "adapter": "prepare_evidence.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 214679,
+      "sha256": "14c12ac1e213ac0ab67ff3dc3e209dc073e52404d455be5a633de940356f6d17"
+    },
+    "responses.jsonl": {
+      "bytes": 49328,
+      "sha256": "0401bb2abc55716fa937a94fa8554b469dfbbeceba49840e10a0eca109a30f49"
+    },
+    "index.jsonl": {
+      "bytes": 31093,
+      "sha256": "27cf53edf31121e36063250629506d9df62eb162adf47a02129865f9af9f399d"
+    },
+    "prompts.json": {
+      "bytes": 618,
+      "sha256": "9dcda21f9d946cba1dd38f44714b34bdb20fedbcbd210efb2320a9a1c7ea1f55"
+    },
+    "example.json": {
+      "bytes": 3343,
+      "sha256": "e542c436e5c92b3f9ee396f9426c8ae82985f29e4f1c49711556e045698fcb7b"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "1",
+    "id": "1",
+    "metadata": {
+      "indicator": "MRC肌力分级",
+      "scope": "all162 public semantic cases; canonicalized labels, no gold explanation; explicit grading not free generation"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "0",
+            "1": "1",
+            "1+": "1+",
+            "2": "2",
+            "2+": "2+",
+            "2-": "2-",
+            "3": "3",
+            "3+": "3+",
+            "3-": "3-",
+            "4": "4",
+            "4+": "4+",
+            "4-": "4-",
+            "5": "5",
+            "5-": "5-",
+            "unknown": "病历资料不足，不能确定分级"
+          },
+          "instructions": "按指定指标的分级体系选择最符合病历的级别。仅依据病例资料，不猜测未记录事实。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "indicator": "MRC肌力分级",
+        "note": "主诉：胸椎爆裂骨折术后双下肢瘫痪3周。现病史：T8平面以下无自主肌肉收缩，大小便失禁。查体：双下肢肌张力低下，肛门括约肌松弛。辅助检查：肌电图显示胫前肌、腓肠肌失神经电位，MRI示脊髓完全横断。"
+      }
+    },
+    "request_sha256": "75a9b3ab1b8dd55c8ed739d1305c036058154dc48eb765f8a241908c9ee34364",
+    "task": "cmedcalc_semantic_grade"
+  },
+  "response": {
+    "elapsed_s": 0.8493449580273591,
+    "id": "1",
+    "request_sha256": "75a9b3ab1b8dd55c8ed739d1305c036058154dc48eb765f8a241908c9ee34364",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 0.99,
+          "probabilities": {
+            "0": 0.99,
+            "1": 0.0,
+            "1+": 0.0,
+            "2": 0.0,
+            "2+": 0.0,
+            "2-": 0.0,
+            "3": 0.0,
+            "3+": 0.0,
+            "3-": 0.0,
+            "4": 0.0,
+            "4+": 0.0,
+            "4-": 0.0,
+            "5": 0.0,
+            "5-": 0.0,
+            "unknown": 0.01
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 648,
+        "output_tokens": 126
+      }
+    },
+    "status": "ok",
+    "task": "cmedcalc_semantic_grade"
+  }
+}

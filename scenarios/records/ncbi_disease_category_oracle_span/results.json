@@ -1,0 +1,135 @@
+{
+  "planned": 100,
+  "successful": 100,
+  "failed_or_missing": [],
+  "deterministic_empty": 0,
+  "quality": {
+    "n": 100,
+    "accuracy": 0.58,
+    "macro_f1_observed_gold_classes": 0.6051127554615927,
+    "per_class": {
+      "CompositeMention": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "DiseaseClass": {
+        "support": 13,
+        "precision": 0.5,
+        "recall": 0.46153846153846156,
+        "f1": 0.48
+      },
+      "Modifier": {
+        "support": 32,
+        "precision": 0.4166666666666667,
+        "recall": 0.15625,
+        "f1": 0.22727272727272727
+      },
+      "SpecificDisease": {
+        "support": 54,
+        "precision": 0.6133333333333333,
+        "recall": 0.8518518518518519,
+        "f1": 0.7131782945736435
+      }
+    }
+  },
+  "group_bootstrap_95ci": {
+    "method": "1000 group bootstrap, percentile; exploratory pilot",
+    "groups": 60,
+    "lower": 0.47572815533980584,
+    "upper": 0.6857142857142857
+  },
+  "calibration": {
+    "ece10_selected_probability": 0.27759999999999996,
+    "multiclass_brier_sum": 0.63446,
+    "brier_n": 100,
+    "bins": [
+      {
+        "lower": 0.3,
+        "n": 2,
+        "mean_selected_probability": 0.36,
+        "accuracy": 0.5
+      },
+      {
+        "lower": 0.4,
+        "n": 6,
+        "mean_selected_probability": 0.4533333333333333,
+        "accuracy": 0.16666666666666666
+      },
+      {
+        "lower": 0.5,
+        "n": 12,
+        "mean_selected_probability": 0.5391666666666667,
+        "accuracy": 0.3333333333333333
+      },
+      {
+        "lower": 0.6,
+        "n": 5,
+        "mean_selected_probability": 0.642,
+        "accuracy": 0.8
+      },
+      {
+        "lower": 0.7,
+        "n": 7,
+        "mean_selected_probability": 0.7514285714285714,
+        "accuracy": 0.42857142857142855
+      },
+      {
+        "lower": 0.8,
+        "n": 8,
+        "mean_selected_probability": 0.8674999999999999,
+        "accuracy": 0.5
+      },
+      {
+        "lower": 0.9,
+        "n": 60,
+        "mean_selected_probability": 0.9716666666666666,
+        "accuracy": 0.6833333333333333
+      }
+    ],
+    "exploratory_gating_not_validated_policy": {
+      "0.8": {
+        "by_selected_probability": {
+          "n": 68,
+          "coverage": 0.68,
+          "accuracy": 0.6617647058823529
+        },
+        "by_probability_and_api_confidence": {
+          "n": 66,
+          "coverage": 0.66,
+          "accuracy": 0.6818181818181818
+        }
+      },
+      "0.9": {
+        "by_selected_probability": {
+          "n": 60,
+          "coverage": 0.6,
+          "accuracy": 0.6833333333333333
+        },
+        "by_probability_and_api_confidence": {
+          "n": 54,
+          "coverage": 0.54,
+          "accuracy": 0.7037037037037037
+        }
+      },
+      "0.95": {
+        "by_selected_probability": {
+          "n": 49,
+          "coverage": 0.49,
+          "accuracy": 0.7142857142857143
+        },
+        "by_probability_and_api_confidence": {
+          "n": 42,
+          "coverage": 0.42,
+          "accuracy": 0.7142857142857143
+        }
+      }
+    }
+  },
+  "input_tokens": 71497,
+  "output_tokens": 5765,
+  "latency_successful_api_p50_s": 0.6237024164875038,
+  "latency_successful_api_p95_s": 1.4236649579834193,
+  "per_indicator": {}
+}

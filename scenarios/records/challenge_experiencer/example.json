@@ -1,0 +1,56 @@
+{
+  "sample": {
+    "gold": "family",
+    "group": "experiencer:1",
+    "id": "experiencer:1",
+    "metadata": {
+      "scope": "author-written synthetic diagnostic challenge; not physician-validated or population-representative"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "family": "家属",
+            "none": "没有肯定任何人患糖尿病",
+            "patient": "患者本人",
+            "unknown": "主体不明"
+          },
+          "instructions": "本段记录中的糖尿病属于谁？",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "note": "母亲患糖尿病多年。患者无糖尿病史。"
+      }
+    },
+    "request_sha256": "b23ce5c831c7e9b9b81d5b39434c1698c973f24255e502781f64daa3fa6d9798",
+    "task": "challenge_experiencer"
+  },
+  "response": {
+    "elapsed_s": 0.8571378749911673,
+    "id": "experiencer:1",
+    "request_sha256": "b23ce5c831c7e9b9b81d5b39434c1698c973f24255e502781f64daa3fa6d9798",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "family",
+          "confidence": 1.0,
+          "probabilities": {
+            "family": 1.0,
+            "none": 0.0,
+            "patient": 0.0,
+            "unknown": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 377,
+        "output_tokens": 45
+      }
+    },
+    "status": "ok",
+    "task": "challenge_experiencer"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "task": "medquad_question_type",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "clinical_extra_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "clinical_extra_prepared.jsonl": "e602b25b2350172423b94761341e19ff57477774fc809204c6d346bd4d1c5b0a"
+  },
+  "sample_count": 100,
+  "groups": 98,
+  "resources": [
+    {
+      "resource": "MedQuAD",
+      "source": "https://github.com/abachaa/MedQuAD",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_clinical_extra.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 102098,
+      "sha256": "508baff1bf8a05b502ea76f26db1ae8e7443f249743dd4a986e2fdabe5c7fd06"
+    },
+    "responses.jsonl": {
+      "bytes": 67017,
+      "sha256": "a50fcc4c6af1efbdb9c99ae1bcd26eba59ad519ec9fa2ab0702a15026af6a18f"
+    },
+    "index.jsonl": {
+      "bytes": 35482,
+      "sha256": "fa9829d75a3c44c22d4c17b5ad692b9110eaf7576e08f3a57b0f20b4fbf4884f"
+    },
+    "prompts.json": {
+      "bytes": 908,
+      "sha256": "24f27c29fd41dee2bd9bc1a63b33251761384fa081ce6ceb25b14d1718d01011"
+    },
+    "example.json": {
+      "bytes": 2272,
+      "sha256": "2ad1bb7b3728f8d29d2c8653112165d6570fe59ab8886bb635ff5b1ba04fb4bd"
+    }
+  }
+}

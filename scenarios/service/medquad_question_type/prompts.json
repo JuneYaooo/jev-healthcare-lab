@@ -1,0 +1,27 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "causes": "causes",
+          "exams and tests": "exams and tests",
+          "indication": "indication",
+          "information": "information",
+          "inheritance": "inheritance",
+          "other information": "other information",
+          "outlook": "outlook",
+          "precautions": "precautions",
+          "side effects": "side effects",
+          "symptoms": "symptoms",
+          "treatment": "treatment",
+          "when to contact a medical professional": "when to contact a medical professional"
+        },
+        "instructions": "Classify the medical information need expressed by this question.",
+        "type": "choice"
+      },
+      "occurrences": 100,
+      "example_sample_id": "2_GARD_QA/0003593.xml:6"
+    }
+  ]
+}

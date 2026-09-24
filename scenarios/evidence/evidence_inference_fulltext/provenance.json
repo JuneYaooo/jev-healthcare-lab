@@ -1,0 +1,45 @@
+{
+  "task": "evidence_inference_fulltext",
+  "model": "jev-1.13.0",
+  "date": "2026-09-24",
+  "prepared_shards": [
+    "last_datasets_prepared.jsonl"
+  ],
+  "original_shard_sha256": {
+    "last_datasets_prepared.jsonl": "3b79f759f36b98ccda2e51e56e0f5b351418eab03350091e992648e048b2fdb4"
+  },
+  "sample_count": 100,
+  "groups": 84,
+  "resources": [
+    {
+      "resource": "Evidence Inference",
+      "source": "https://github.com/jayded/evidence-inference",
+      "completion_note": "按实际任务适配与抽样完成，非全数据/临床验证"
+    }
+  ],
+  "adapter": "prepare_last_datasets.py",
+  "request_payload": "sample.request plus model; gold and metadata are not sent",
+  "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
+  "files": {
+    "samples.jsonl": {
+      "bytes": 2948063,
+      "sha256": "f836dc63bec645699692c88475a770edbd862febdc5b61faebb60733b19fe3a2"
+    },
+    "responses.jsonl": {
+      "bytes": 41272,
+      "sha256": "9d341760858357aa2bc4062a7fb6f5091f14446320bf7fc86a2dd45f0af57f2d"
+    },
+    "index.jsonl": {
+      "bytes": 29822,
+      "sha256": "43a73f8426e0a70296d59c85fe30357d20b61d12d79c3b5b793da5620e583697"
+    },
+    "prompts.json": {
+      "bytes": 585,
+      "sha256": "fb51f87d93efe528bca5d31a4e47e1727aad2bf37b7953cacf88581c3808fedd"
+    },
+    "example.json": {
+      "bytes": 19277,
+      "sha256": "9118b20e52a4d32cfc982c5e8e735b3e576f39a1cd005cc4845f6486332fea10"
+    }
+  }
+}

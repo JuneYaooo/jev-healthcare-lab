@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "0",
+    "group": "1180",
+    "id": "1180",
+    "metadata": {
+      "parseable_pool": 1723,
+      "parser_exclusions": 38,
+      "source": "MedJourney public original options"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "大肠埃希菌",
+            "1": "变形杆菌",
+            "2": "克雷伯杆菌",
+            "3": "链球菌",
+            "4": "革兰氏阳性球菌"
+          },
+          "instructions": "从题目提供的选项中选择最佳答案。仅作离线评测。",
+          "type": "choice"
+        }
+      },
+      "state": "小儿尿路感染常见的致病菌是？可能的疾病包括：大肠埃希菌、变形杆菌、克雷伯杆菌、链球菌、革兰氏阳性球菌。请从上述疾病中选择最正确的一个。（注意，请只输出疾病名称，不要给解释！）"
+    },
+    "request_sha256": "bb364771306e58837ee7065f598958deca5656e0db49c5621b57ee4370947dd9",
+    "task": "medjourney_dp_mcq"
+  },
+  "response": {
+    "elapsed_s": 0.8211860419833101,
+    "id": "1180",
+    "request_sha256": "bb364771306e58837ee7065f598958deca5656e0db49c5621b57ee4370947dd9",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 1.0,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 465,
+        "output_tokens": 52
+      }
+    },
+    "status": "ok",
+    "task": "medjourney_dp_mcq"
+  }
+}

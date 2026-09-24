@@ -1,0 +1,58 @@
+{
+  "sample": {
+    "gold": "METHODS",
+    "group": "25622666",
+    "id": "25622666:8",
+    "metadata": {
+      "scope": "single sentence classification, not a full-document sequence labeling comparison"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "BACKGROUND": "Background and motivation",
+            "CONCLUSIONS": "Conclusions",
+            "METHODS": "Study methods",
+            "OBJECTIVE": "Study objective",
+            "RESULTS": "Study results"
+          },
+          "instructions": "Classify the rhetorical role of this abstract sentence.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "sentence": "P > 0.05 indicated no significant difference ."
+      }
+    },
+    "request_sha256": "177b7848f76f756f4beb87a069411c176fdaa5b5f9650cd16633e4afe2f28608",
+    "task": "pubmed_rct_section"
+  },
+  "response": {
+    "elapsed_s": 1.1200674580177292,
+    "id": "25622666:8",
+    "request_sha256": "177b7848f76f756f4beb87a069411c176fdaa5b5f9650cd16633e4afe2f28608",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "RESULTS",
+          "confidence": 0.95,
+          "probabilities": {
+            "BACKGROUND": 0.0,
+            "CONCLUSIONS": 0.03,
+            "METHODS": 0.0,
+            "OBJECTIVE": 0.0,
+            "RESULTS": 0.97
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 380,
+        "output_tokens": 62
+      }
+    },
+    "status": "ok",
+    "task": "pubmed_rct_section"
+  }
+}

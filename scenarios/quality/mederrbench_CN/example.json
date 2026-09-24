@@ -1,0 +1,51 @@
+{
+  "sample": {
+    "gold": "1",
+    "group": "cn-test-109",
+    "id": "cn-test-109",
+    "metadata": {
+      "language": "CN",
+      "source": "MedErrBench official test"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "0": "No medical error",
+            "1": "Contains a medical error"
+          },
+          "instructions": "Does this clinical narrative contain a medical factual or reasoning error? Evaluate the content, not encoding or grammar.",
+          "type": "choice"
+        }
+      },
+      "state": "男，65岁。大量饮酒30年，临床诊断肝硬化失代偿期。患者出现上消化道出血，提示病情进展。"
+    },
+    "request_sha256": "925f041fb29c251275b4d1025aed5c20ab82d0a95da804f981a48d8866a4222e",
+    "task": "mederrbench_CN"
+  },
+  "response": {
+    "elapsed_s": 0.5926406249636784,
+    "id": "cn-test-109",
+    "request_sha256": "925f041fb29c251275b4d1025aed5c20ab82d0a95da804f981a48d8866a4222e",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "0",
+          "confidence": 0.91,
+          "probabilities": {
+            "0": 0.95,
+            "1": 0.05
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 371,
+        "output_tokens": 31
+      }
+    },
+    "status": "ok",
+    "task": "mederrbench_CN"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "sample": {
+    "gold": "J",
+    "group": "231",
+    "id": "231",
+    "metadata": {
+      "source": "TCM-BEST4SDT every third SDT case; no diagnosis or explanation in state"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "A": "肝",
+            "B": "心",
+            "C": "胆",
+            "D": "脾",
+            "E": "肺",
+            "F": "三焦",
+            "G": "小肠",
+            "H": "肾",
+            "I": "胃",
+            "J": "大肠"
+          },
+          "instructions": "根据病例选择病位的最佳选项。",
+          "type": "choice"
+        }
+      },
+      "state": "36岁女子秋季劳累受风，引发温病伴痢疾。症见持续全身高热、胸中燥热口渴；每日十余次赤多白少脓血便伴里急后重腹痛；舌苔白厚腻中心微黄，左手脉弦硬、右手脉洪实，呼吸一次脉跳五次。"
+    },
+    "request_sha256": "44fa2d3884b33af90b9d2ba6bf36cb1b48a29793ba95ea10929baa99eba828cc",
+    "task": "tcm_best_location"
+  },
+  "response": {
+    "elapsed_s": 0.6732617500238121,
+    "id": "231",
+    "request_sha256": "44fa2d3884b33af90b9d2ba6bf36cb1b48a29793ba95ea10929baa99eba828cc",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "J",
+          "confidence": 0.96,
+          "probabilities": {
+            "A": 0.0,
+            "B": 0.0,
+            "C": 0.0,
+            "D": 0.0,
+            "E": 0.0,
+            "F": 0.02,
+            "G": 0.0,
+            "H": 0.0,
+            "I": 0.01,
+            "J": 0.97
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 516,
+        "output_tokens": 87
+      }
+    },
+    "status": "ok",
+    "task": "tcm_best_location"
+  }
+}

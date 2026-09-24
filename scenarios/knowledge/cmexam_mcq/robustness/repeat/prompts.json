@@ -1,0 +1,304 @@
+{
+  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "variants": [
+    {
+      "question": {
+        "criteria": {
+          "A": "贝诺酯",
+          "B": "安乃近",
+          "C": "吲哚美辛",
+          "D": "布洛芬",
+          "E": "吡罗昔康"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5021"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "药品生产企业名称",
+          "B": "医师签名、药品金额",
+          "C": "患者姓名、临床诊断",
+          "D": "药品名称、剂型、规格、数量、用法用量"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3748"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "会谈法",
+          "B": "调查法",
+          "C": "实验法",
+          "D": "作品分析法",
+          "E": "心理测验法"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "461"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "病原体的繁殖力",
+          "B": "病原体产生毒素的能力",
+          "C": "病原体的数量",
+          "D": "病原体的毒力",
+          "E": "病原体侵入机体并在机体内生长、繁殖的能力"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4890"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "可复性关节盘前移位",
+          "B": "不可复性关节盘前移位",
+          "C": "翼外肌功能亢进",
+          "D": "关节盘穿孔",
+          "E": "翼外肌痉挛"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5145"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "确定使用国家基本药物目录外药品品种数量",
+          "B": "制定国家基本药物药品标准",
+          "C": "审核国家基本药物目录",
+          "D": "制定国家基本药物全国零售指导价",
+          "E": "确定配备使用国家基本药物目录的民族药"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4004"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "牙髓坏死",
+          "B": "牙髓钙化",
+          "C": "牙内吸收",
+          "D": "急性牙髓炎",
+          "E": "慢性根尖周炎"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6274"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "冠心病",
+          "B": "肺动脉高压",
+          "C": "心肌炎",
+          "D": "VitB1缺乏",
+          "E": "慢性肺炎"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5118"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "与血清容积之比",
+          "B": "与血浆容积之比",
+          "C": "与血管容积之比",
+          "D": "在血液中所占容积百分比",
+          "E": "在血液中所占重量百分比"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3191"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肌内注射",
+          "B": "皮下注射",
+          "C": "关节腔注射",
+          "D": "皮内注射",
+          "E": "静脉注射"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2856"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "凉膈散",
+          "B": "新加香薷饮",
+          "C": "白虎汤",
+          "D": "银翘散合白虎汤",
+          "E": "清营汤"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2702"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "二氧化硅",
+          "B": "二氧化钛",
+          "C": "二氯甲烷",
+          "D": "聚乙二醇400",
+          "E": "聚乙烯吡咯烷酮"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "55"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "肝方叶",
+          "B": "十二指肠降部",
+          "C": "肠系膜上血管",
+          "D": "胆囊",
+          "E": "结肠右曲"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "6551"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "取得初级专业技术职务任职资格的医师",
+          "B": "在三级甲等医疗机构工作的执业医师",
+          "C": "在二级甲等医疗机构工作的执业医师",
+          "D": "取得中级以上专业技术职务任职资格的医师",
+          "E": "在乡、民族乡、镇、村的医疗机构独立从事一般执业活动的执业助理医师以及乡村医生"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1105"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "尿道阴茎部",
+          "B": "尿道球部",
+          "C": "尿道膜部",
+          "D": "尿道前列腺部",
+          "E": "膀胱颈部"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "4351"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "曲线变窄",
+          "B": "曲线变胖",
+          "C": "曲线变高",
+          "D": "曲线变低",
+          "E": "曲线右移"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "70"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "硫酸亚铁",
+          "B": "叶酸",
+          "C": "维生素B₁₂",
+          "D": "重组人促红素",
+          "E": "腺嘌呤"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2280"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "第一鳃弓",
+          "B": "第二鳃弓",
+          "C": "第三鳃弓",
+          "D": "第四鳃弓",
+          "E": "第五鳃弓"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "43"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "三金片",
+          "B": "归脾丸",
+          "C": "逍遥丸",
+          "D": "右归丸",
+          "E": "丹蒌片"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2618"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "意识",
+          "B": "前意识",
+          "C": "潜意识",
+          "D": "患者心理状况",
+          "E": "患者所处环境"
+        },
+        "instructions": "选择医学考试题的最佳答案。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1404"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "sample": {
+    "gold": "insufficient",
+    "group": "97",
+    "id": "insufficient:97",
+    "metadata": {
+      "scope": "adapted binary gate; 100 original unanswerable +100 original answerable; not original numerical score"
+    },
+    "request": {
+      "questions": {
+        "decision": {
+          "criteria": {
+            "insufficient": "缺失必要资料或有未解决矛盾，不能可靠计算或分级",
+            "sufficient": "必要资料完整且不矛盾，可以计算或分级"
+          },
+          "instructions": "只判断病历是否提供了计算/分级该指标所必需且不矛盾的资料。不要编造缺失参数。正常知识可以用于理解指标，但不能替代患者资料。",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "indicator": "Forrest分级（消化道出血）",
+        "note": "间断活动时气短14年，加重伴发热、咳嗽4天。心功能不全病史14年，长期利尿治疗，本次因肺部感染诱发心衰加重。6年前上消化道出血史（输血治疗），无近期呕血、黑便记录。BP 150/80mmHg，颈静脉充盈，双肺湿啰音，心尖部3级收缩期杂音。CRP 116.6mg/L↑，WBC 9.59×10⁹/L↑（中性88.8%），胸部DR示肺淤血、肺部感染，无心源性休克征象"
+      }
+    },
+    "request_sha256": "a65760b22a81d4d704ecbae1599c746e53a9739dbe8240294b65684b8d566a94",
+    "task": "cmedcalc_input_sufficiency"
+  },
+  "response": {
+    "elapsed_s": 0.8847102499566972,
+    "id": "insufficient:97",
+    "request_sha256": "a65760b22a81d4d704ecbae1599c746e53a9739dbe8240294b65684b8d566a94",
+    "response": {
+      "answers": {
+        "decision": {
+          "choice": "insufficient",
+          "confidence": 0.99,
+          "probabilities": {
+            "insufficient": 1.0,
+            "sufficient": 0.0
+          },
+          "type": "choice"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 613,
+        "output_tokens": 40
+      }
+    },
+    "status": "ok",
+    "task": "cmedcalc_input_sufficiency"
+  }
+}
