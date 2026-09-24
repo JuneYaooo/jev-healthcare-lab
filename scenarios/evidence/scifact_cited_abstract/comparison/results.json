@@ -1,0 +1,69 @@
+{
+  "title": "科学论断与给定摘要一致性",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 118,
+  "compared": 118,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 118,
+      "accuracy": 0.8559322033898306,
+      "macro_f1_observed_gold_classes": 0.8536784500639922,
+      "per_class": {
+        "CONTRADICT": {
+          "support": 22,
+          "precision": 0.7777777777777778,
+          "recall": 0.9545454545454546,
+          "f1": 0.8571428571428571
+        },
+        "NOINFO": {
+          "support": 44,
+          "precision": 0.8717948717948718,
+          "recall": 0.7727272727272727,
+          "f1": 0.8192771084337349
+        },
+        "SUPPORT": {
+          "support": 52,
+          "precision": 0.8846153846153846,
+          "recall": 0.8846153846153846,
+          "f1": 0.8846153846153846
+        }
+      }
+    },
+    "latency_median_s": 0.6371714165143203,
+    "cost_usd": 0.003944976,
+    "cost_per_1000_usd": 0.033432
+  },
+  "deepseek": {
+    "quality": {
+      "n": 118,
+      "accuracy": 0.8898305084745762,
+      "macro_f1_observed_gold_classes": 0.8866912989929725,
+      "per_class": {
+        "CONTRADICT": {
+          "support": 22,
+          "precision": 0.9047619047619048,
+          "recall": 0.8636363636363636,
+          "f1": 0.8837209302325582
+        },
+        "NOINFO": {
+          "support": 44,
+          "precision": 0.8809523809523809,
+          "recall": 0.8409090909090909,
+          "f1": 0.8604651162790697
+        },
+        "SUPPORT": {
+          "support": 52,
+          "precision": 0.8909090909090909,
+          "recall": 0.9423076923076923,
+          "f1": 0.9158878504672897
+        }
+      }
+    },
+    "latency_median_s": 0.5418311874964274,
+    "cost_usd": 0.009088043999999998,
+    "cost_per_1000_usd": 0.07701732203389829,
+    "prior_attempts": 1
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "title": "临床试验证据句定位",
+  "scene": "trials",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 358,
+      "fp": 103,
+      "fn": 617,
+      "precision": 0.7765726681127982,
+      "recall": 0.3671794871794872,
+      "micro_f1": 0.4986072423398329
+    },
+    "latency_median_s": 0.9420033960195724,
+    "cost_usd": 0.007307831999999999,
+    "cost_per_1000_usd": 0.07307831999999999
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 602,
+      "fp": 186,
+      "fn": 373,
+      "precision": 0.7639593908629442,
+      "recall": 0.6174358974358974,
+      "micro_f1": 0.6829268292682927
+    },
+    "latency_median_s": 0.8166103125258815,
+    "cost_usd": 0.020016527999999992,
+    "cost_per_1000_usd": 0.20016527999999992,
+    "prior_attempts": 3
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "title": "中文问诊对话行为分类",
+  "scene": "service",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.7,
+      "macro_f1_observed_gold_classes": 0.570744054056838,
+      "per_class": {
+        "Diagnose": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "Inform-Basic_Information": {
+          "support": 3,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "f1": 0.3333333333333333
+        },
+        "Inform-Drug_Recommendation": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "Inform-Etiology": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "Inform-Existing_Examination_and_Treatment": {
+          "support": 8,
+          "precision": 0.7142857142857143,
+          "recall": 0.625,
+          "f1": 0.6666666666666666
+        },
+        "Inform-Medical_Advice": {
+          "support": 7,
+          "precision": 0.6666666666666666,
+          "recall": 0.8571428571428571,
+          "f1": 0.75
+        },
+        "Inform-Precautions": {
+          "support": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Inform-Symptom": {
+          "support": 7,
+          "precision": 0.7777777777777778,
+          "recall": 1.0,
+          "f1": 0.875
+        },
+        "Other": {
+          "support": 39,
+          "precision": 0.9285714285714286,
+          "recall": 0.6666666666666666,
+          "f1": 0.7761194029850746
+        },
+        "Request-Basic_Information": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333333333333333
+        },
+        "Request-Drug_Recommendation": {
+          "support": 2,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Request-Etiology": {
+          "support": 2,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5
+        },
+        "Request-Existing_Examination_and_Treatment": {
+          "support": 1,
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4
+        },
+        "Request-Medical_Advice": {
+          "support": 3,
+          "precision": 0.2857142857142857,
+          "recall": 0.6666666666666666,
+          "f1": 0.4
+        },
+        "Request-Precautions": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "Request-Symptom": {
+          "support": 10,
+          "precision": 0.7692307692307693,
+          "recall": 1.0,
+          "f1": 0.8695652173913043
+        }
+      }
+    },
+    "latency_median_s": 0.8977423745091073,
+    "cost_usd": 0.0033209400000000005,
+    "cost_per_1000_usd": 0.03320940000000001
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.68,
+      "macro_f1_observed_gold_classes": 0.5514764429470311,
+      "per_class": {
+        "Diagnose": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5
+        },
+        "Inform-Basic_Information": {
+          "support": 3,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Inform-Drug_Recommendation": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "Inform-Etiology": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "Inform-Existing_Examination_and_Treatment": {
+          "support": 8,
+          "precision": 0.6666666666666666,
+          "recall": 0.75,
+          "f1": 0.7058823529411765
+        },
+        "Inform-Medical_Advice": {
+          "support": 7,
+          "precision": 0.5454545454545454,
+          "recall": 0.8571428571428571,
+          "f1": 0.6666666666666666
+        },
+        "Inform-Precautions": {
+          "support": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Inform-Symptom": {
+          "support": 7,
+          "precision": 0.7777777777777778,
+          "recall": 1.0,
+          "f1": 0.875
+        },
+        "Other": {
+          "support": 39,
+          "precision": 0.9583333333333334,
+          "recall": 0.5897435897435898,
+          "f1": 0.7301587301587301
+        },
+        "Request-Basic_Information": {
+          "support": 5,
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "f1": 0.5
+        },
+        "Request-Drug_Recommendation": {
+          "support": 2,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Request-Etiology": {
+          "support": 2,
+          "precision": 0.3333333333333333,
+          "recall": 0.5,
+          "f1": 0.4
+        },
+        "Request-Existing_Examination_and_Treatment": {
+          "support": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "Request-Medical_Advice": {
+          "support": 3,
+          "precision": 0.3,
+          "recall": 1.0,
+          "f1": 0.46153846153846156
+        },
+        "Request-Precautions": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "Request-Symptom": {
+          "support": 10,
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091
+        }
+      }
+    },
+    "latency_median_s": 0.5375987290171906,
+    "cost_usd": 0.004177721999999999,
+    "cost_per_1000_usd": 0.04177721999999999,
+    "prior_attempts": 0
+  }
+}

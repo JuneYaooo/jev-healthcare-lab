@@ -1,0 +1,81 @@
+{
+  "title": "边界挑战：服务路由",
+  "scene": "service",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "appointment": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "billing": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "medication": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "report": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 1.6559325415000785,
+    "cost_usd": 6.2622e-05,
+    "cost_per_1000_usd": 0.0156555
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "appointment": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "billing": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "medication": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "report": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.3957069164898712,
+    "cost_usd": 0.0001671,
+    "cost_per_1000_usd": 0.041775,
+    "prior_attempts": 0
+  }
+}

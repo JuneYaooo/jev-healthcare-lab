@@ -1,0 +1,57 @@
+{
+  "title": "中文医疗文本错误检出",
+  "scene": "quality",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.73,
+      "macro_f1_observed_gold_classes": 0.7297567811029927,
+      "per_class": {
+        "0": {
+          "support": 52,
+          "precision": 0.7450980392156863,
+          "recall": 0.7307692307692307,
+          "f1": 0.7378640776699029
+        },
+        "1": {
+          "support": 48,
+          "precision": 0.7142857142857143,
+          "recall": 0.7291666666666666,
+          "f1": 0.7216494845360825
+        }
+      }
+    },
+    "latency_median_s": 0.6132319165335502,
+    "cost_usd": 0.0017962980000000004,
+    "cost_per_1000_usd": 0.017962980000000003
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.74,
+      "macro_f1_observed_gold_classes": 0.7267759562841529,
+      "per_class": {
+        "0": {
+          "support": 52,
+          "precision": 0.6857142857142857,
+          "recall": 0.9230769230769231,
+          "f1": 0.7868852459016393
+        },
+        "1": {
+          "support": 48,
+          "precision": 0.8666666666666667,
+          "recall": 0.5416666666666666,
+          "f1": 0.6666666666666666
+        }
+      }
+    },
+    "latency_median_s": 0.5601914169965312,
+    "cost_usd": 0.0033154080000000023,
+    "cost_per_1000_usd": 0.03315408000000002,
+    "prior_attempts": 1
+  }
+}

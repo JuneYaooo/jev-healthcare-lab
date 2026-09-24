@@ -1,0 +1,93 @@
+{
+  "title": "RCT 摘要句功能分类",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.75,
+      "macro_f1_observed_gold_classes": 0.6372309337134711,
+      "per_class": {
+        "BACKGROUND": {
+          "support": 12,
+          "precision": 0.6363636363636364,
+          "recall": 0.5833333333333334,
+          "f1": 0.6086956521739131
+        },
+        "CONCLUSIONS": {
+          "support": 14,
+          "precision": 0.8333333333333334,
+          "recall": 0.35714285714285715,
+          "f1": 0.5
+        },
+        "METHODS": {
+          "support": 31,
+          "precision": 0.8666666666666667,
+          "recall": 0.8387096774193549,
+          "f1": 0.8524590163934426
+        },
+        "OBJECTIVE": {
+          "support": 6,
+          "precision": 0.3,
+          "recall": 0.5,
+          "f1": 0.375
+        },
+        "RESULTS": {
+          "support": 37,
+          "precision": 0.7906976744186046,
+          "recall": 0.918918918918919,
+          "f1": 0.85
+        }
+      }
+    },
+    "latency_median_s": 0.8985222289920785,
+    "cost_usd": 0.0016967580000000003,
+    "cost_per_1000_usd": 0.016967580000000003
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.77,
+      "macro_f1_observed_gold_classes": 0.6753546507169695,
+      "per_class": {
+        "BACKGROUND": {
+          "support": 12,
+          "precision": 0.6363636363636364,
+          "recall": 0.5833333333333334,
+          "f1": 0.6086956521739131
+        },
+        "CONCLUSIONS": {
+          "support": 14,
+          "precision": 0.8571428571428571,
+          "recall": 0.42857142857142855,
+          "f1": 0.5714285714285714
+        },
+        "METHODS": {
+          "support": 31,
+          "precision": 0.84375,
+          "recall": 0.8709677419354839,
+          "f1": 0.8571428571428571
+        },
+        "OBJECTIVE": {
+          "support": 6,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5
+        },
+        "RESULTS": {
+          "support": 37,
+          "precision": 0.7727272727272727,
+          "recall": 0.918918918918919,
+          "f1": 0.8395061728395061
+        }
+      }
+    },
+    "latency_median_s": 0.5293994169915095,
+    "cost_usd": 0.0036301859999999984,
+    "cost_per_1000_usd": 0.036301859999999984,
+    "prior_attempts": 2
+  }
+}

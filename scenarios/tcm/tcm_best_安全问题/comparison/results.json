@@ -1,0 +1,93 @@
+{
+  "title": "中医安全问题标签一致性",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.27,
+      "macro_f1_observed_gold_classes": 0.3392451561166154,
+      "per_class": {
+        "A": {
+          "support": 15,
+          "precision": 0.35714285714285715,
+          "recall": 0.3333333333333333,
+          "f1": 0.3448275862068966
+        },
+        "B": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "C": {
+          "support": 15,
+          "precision": 0.32142857142857145,
+          "recall": 0.6,
+          "f1": 0.4186046511627907
+        },
+        "D": {
+          "support": 20,
+          "precision": 0.4666666666666667,
+          "recall": 0.35,
+          "f1": 0.4
+        },
+        "E": {
+          "support": 50,
+          "precision": 0.5,
+          "recall": 0.12,
+          "f1": 0.1935483870967742
+        }
+      }
+    },
+    "latency_median_s": 0.6411668749933597,
+    "cost_usd": 0.0018998279999999997,
+    "cost_per_1000_usd": 0.018998279999999996
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.29,
+      "macro_f1_observed_gold_classes": 0.36720018487259865,
+      "per_class": {
+        "A": {
+          "support": 15,
+          "precision": 0.28,
+          "recall": 0.4666666666666667,
+          "f1": 0.35
+        },
+        "B": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "C": {
+          "support": 15,
+          "precision": 0.375,
+          "recall": 0.6,
+          "f1": 0.46153846153846156
+        },
+        "D": {
+          "support": 20,
+          "precision": 0.6153846153846154,
+          "recall": 0.4,
+          "f1": 0.48484848484848486
+        },
+        "E": {
+          "support": 50,
+          "precision": 0.625,
+          "recall": 0.1,
+          "f1": 0.1724137931034483
+        }
+      }
+    },
+    "latency_median_s": 0.5255805209744722,
+    "cost_usd": 0.0033522300000000007,
+    "cost_per_1000_usd": 0.03352230000000001,
+    "prior_attempts": 2
+  }
+}

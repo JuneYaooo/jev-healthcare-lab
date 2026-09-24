@@ -1,0 +1,81 @@
+{
+  "title": "边界挑战：相对日期",
+  "scene": "records",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "0925": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "0927": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "1001": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.8990983540134039,
+    "cost_usd": 7.001400000000001e-05,
+    "cost_per_1000_usd": 0.0175035
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "0925": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "0927": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "1001": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.50562114600325,
+    "cost_usd": 0.00010893599999999999,
+    "cost_per_1000_usd": 0.027233999999999998,
+    "prior_attempts": 0
+  }
+}

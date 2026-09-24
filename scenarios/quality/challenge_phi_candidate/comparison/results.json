@@ -1,0 +1,81 @@
+{
+  "title": "边界挑战：隐私信息候选",
+  "scene": "quality",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 0.75,
+      "macro_f1_observed_gold_classes": 0.6666666666666666,
+      "per_class": {
+        "clinical_value": {
+          "support": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "name": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "other": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "record_id": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.8395446045324206,
+    "cost_usd": 6.4932e-05,
+    "cost_per_1000_usd": 0.016232999999999997
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 0.75,
+      "macro_f1_observed_gold_classes": 0.6666666666666666,
+      "per_class": {
+        "clinical_value": {
+          "support": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "name": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "other": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "record_id": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.5551926665066276,
+    "cost_usd": 0.00017175,
+    "cost_per_1000_usd": 0.0429375,
+    "prior_attempts": 0
+  }
+}

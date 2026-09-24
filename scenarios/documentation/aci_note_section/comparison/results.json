@@ -1,0 +1,81 @@
+{
+  "title": "已分段病历章节分类",
+  "scene": "documentation",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.99,
+      "macro_f1_observed_gold_classes": 0.9903810580836108,
+      "per_class": {
+        "assessment_and_plan": {
+          "support": 26,
+          "precision": 0.9629629629629629,
+          "recall": 1.0,
+          "f1": 0.9811320754716981
+        },
+        "objective_exam": {
+          "support": 23,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "objective_results": {
+          "support": 26,
+          "precision": 1.0,
+          "recall": 0.9615384615384616,
+          "f1": 0.9803921568627451
+        },
+        "subjective": {
+          "support": 25,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.6224386455141939,
+    "cost_usd": 0.002122554,
+    "cost_per_1000_usd": 0.02122554
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "assessment_and_plan": {
+          "support": 26,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "objective_exam": {
+          "support": 23,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "objective_results": {
+          "support": 26,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "subjective": {
+          "support": 25,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.5451691669877619,
+    "cost_usd": 0.004816907999999997,
+    "cost_per_1000_usd": 0.04816907999999997,
+    "prior_attempts": 0
+  }
+}

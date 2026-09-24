@@ -1,0 +1,69 @@
+{
+  "title": "边界挑战：给定规则紧急程度",
+  "scene": "service",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "routine": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "urgent": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.8628117500338703,
+    "cost_usd": 6.879600000000001e-05,
+    "cost_per_1000_usd": 0.017199000000000002
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "routine": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "urgent": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.5995044795272406,
+    "cost_usd": 0.00018,
+    "cost_per_1000_usd": 0.045000000000000005,
+    "prior_attempts": 0
+  }
+}

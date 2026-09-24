@@ -1,0 +1,35 @@
+{
+  "title": "PICO 固定窗口识别",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 4,
+      "fp": 47,
+      "fn": 8,
+      "precision": 0.0784313725490196,
+      "recall": 0.3333333333333333,
+      "micro_f1": 0.12698412698412698
+    },
+    "latency_median_s": 0.6323815835057758,
+    "cost_usd": 0.0033521039999999985,
+    "cost_per_1000_usd": 0.03352103999999998
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 8,
+      "fp": 43,
+      "fn": 4,
+      "precision": 0.1568627450980392,
+      "recall": 0.6666666666666666,
+      "micro_f1": 0.25396825396825395
+    },
+    "latency_median_s": 0.5555803955066949,
+    "cost_usd": 0.008397756,
+    "cost_per_1000_usd": 0.08397755999999999,
+    "prior_attempts": 0
+  }
+}

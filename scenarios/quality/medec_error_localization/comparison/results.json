@@ -1,0 +1,267 @@
+{
+  "title": "医疗叙述错误定位",
+  "scene": "quality",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.72,
+      "macro_f1_observed_gold_classes": 0.6340643949887648,
+      "per_class": {
+        "0": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "1": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "10": {
+          "support": 6,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334
+        },
+        "11": {
+          "support": 3,
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "f1": 0.5714285714285714
+        },
+        "12": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "13": {
+          "support": 3,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666
+        },
+        "14": {
+          "support": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "15": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75
+        },
+        "16": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "18": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "19": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "20": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "3": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "4": {
+          "support": 6,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334
+        },
+        "5": {
+          "support": 6,
+          "precision": 0.6666666666666666,
+          "recall": 0.3333333333333333,
+          "f1": 0.4444444444444444
+        },
+        "6": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "7": {
+          "support": 6,
+          "precision": 0.7142857142857143,
+          "recall": 0.8333333333333334,
+          "f1": 0.7692307692307693
+        },
+        "8": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "9": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888
+        },
+        "none": {
+          "support": 47,
+          "precision": 0.7254901960784313,
+          "recall": 0.7872340425531915,
+          "f1": 0.7551020408163265
+        }
+      }
+    },
+    "latency_median_s": 0.9492277709941845,
+    "cost_usd": 0.0038671920000000006,
+    "cost_per_1000_usd": 0.038671920000000005
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.7,
+      "macro_f1_observed_gold_classes": 0.6011925982514218,
+      "per_class": {
+        "0": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "1": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "10": {
+          "support": 6,
+          "precision": 0.8,
+          "recall": 0.6666666666666666,
+          "f1": 0.7272727272727273
+        },
+        "11": {
+          "support": 3,
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4
+        },
+        "12": {
+          "support": 1,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5
+        },
+        "13": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "14": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "15": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75
+        },
+        "16": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "18": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "19": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "20": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "4": {
+          "support": 6,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334
+        },
+        "5": {
+          "support": 6,
+          "precision": 0.6,
+          "recall": 0.5,
+          "f1": 0.5454545454545454
+        },
+        "6": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "7": {
+          "support": 6,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334
+        },
+        "8": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "9": {
+          "support": 5,
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8
+        },
+        "none": {
+          "support": 47,
+          "precision": 0.6730769230769231,
+          "recall": 0.7446808510638298,
+          "f1": 0.7070707070707071
+        }
+      }
+    },
+    "latency_median_s": 0.5359952919825446,
+    "cost_usd": 0.008914182,
+    "cost_per_1000_usd": 0.08914182,
+    "prior_attempts": 0
+  }
+}

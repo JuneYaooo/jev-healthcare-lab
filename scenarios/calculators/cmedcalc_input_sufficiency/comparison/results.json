@@ -1,0 +1,57 @@
+{
+  "title": "临床计算输入充分性",
+  "scene": "calculators",
+  "synthetic": false,
+  "planned": 200,
+  "compared": 200,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 200,
+      "accuracy": 0.815,
+      "macro_f1_observed_gold_classes": 0.8115657864582007,
+      "per_class": {
+        "insufficient": {
+          "support": 100,
+          "precision": 0.7480314960629921,
+          "recall": 0.95,
+          "f1": 0.8370044052863436
+        },
+        "sufficient": {
+          "support": 100,
+          "precision": 0.9315068493150684,
+          "recall": 0.68,
+          "f1": 0.7861271676300579
+        }
+      }
+    },
+    "latency_median_s": 0.925331937498413,
+    "cost_usd": 0.008512938,
+    "cost_per_1000_usd": 0.042564689999999995
+  },
+  "deepseek": {
+    "quality": {
+      "n": 200,
+      "accuracy": 0.84,
+      "macro_f1_observed_gold_classes": 0.8383838383838383,
+      "per_class": {
+        "insufficient": {
+          "support": 100,
+          "precision": 0.7833333333333333,
+          "recall": 0.94,
+          "f1": 0.8545454545454545
+        },
+        "sufficient": {
+          "support": 100,
+          "precision": 0.925,
+          "recall": 0.74,
+          "f1": 0.8222222222222222
+        }
+      }
+    },
+    "latency_median_s": 0.5477417704823893,
+    "cost_usd": 0.015692652000000005,
+    "cost_per_1000_usd": 0.07846326000000003,
+    "prior_attempts": 2
+  }
+}

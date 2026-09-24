@@ -1,0 +1,81 @@
+{
+  "title": "MedMCQA医学考试",
+  "scene": "knowledge",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.72,
+      "macro_f1_observed_gold_classes": 0.7199994127319709,
+      "per_class": {
+        "0": {
+          "support": 31,
+          "precision": 0.75,
+          "recall": 0.5806451612903226,
+          "f1": 0.6545454545454545
+        },
+        "1": {
+          "support": 25,
+          "precision": 0.7241379310344828,
+          "recall": 0.84,
+          "f1": 0.7777777777777778
+        },
+        "2": {
+          "support": 22,
+          "precision": 0.7142857142857143,
+          "recall": 0.6818181818181818,
+          "f1": 0.6976744186046512
+        },
+        "3": {
+          "support": 22,
+          "precision": 0.6923076923076923,
+          "recall": 0.8181818181818182,
+          "f1": 0.75
+        }
+      }
+    },
+    "latency_median_s": 0.6290789999766275,
+    "cost_usd": 0.0016327499999999999,
+    "cost_per_1000_usd": 0.016327499999999998
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.67,
+      "macro_f1_observed_gold_classes": 0.6724100492910343,
+      "per_class": {
+        "0": {
+          "support": 31,
+          "precision": 0.625,
+          "recall": 0.6451612903225806,
+          "f1": 0.6349206349206349
+        },
+        "1": {
+          "support": 25,
+          "precision": 0.6923076923076923,
+          "recall": 0.72,
+          "f1": 0.7058823529411765
+        },
+        "2": {
+          "support": 22,
+          "precision": 0.6666666666666666,
+          "recall": 0.6363636363636364,
+          "f1": 0.6511627906976745
+        },
+        "3": {
+          "support": 22,
+          "precision": 0.7142857142857143,
+          "recall": 0.6818181818181818,
+          "f1": 0.6976744186046512
+        }
+      }
+    },
+    "latency_median_s": 0.5406123334832955,
+    "cost_usd": 0.003677016000000002,
+    "cost_per_1000_usd": 0.03677016000000002,
+    "prior_attempts": 0
+  }
+}

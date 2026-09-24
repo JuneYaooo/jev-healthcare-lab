@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 6 | 2 | 6 | 0 | Accuracy | **100.0%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 100.0% | 100.0% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.63 秒 | 0.56 秒 |
+| 每千条 API 费用估算 | $0.036 | $0.046 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 ClinOCR 六种失真各一份文件，仅两个内容模板；输入参考文本，Choice 在七个文档类型（含 unknown）中选择；金标由模板内容人工定义。

@@ -1,0 +1,105 @@
+{
+  "title": "MedJourney 治疗预测选择题",
+  "scene": "service",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.83,
+      "macro_f1_observed_gold_classes": 0.8446190912484305,
+      "per_class": {
+        "0": {
+          "support": 15,
+          "precision": 0.7222222222222222,
+          "recall": 0.8666666666666667,
+          "f1": 0.7878787878787878
+        },
+        "1": {
+          "support": 25,
+          "precision": 0.92,
+          "recall": 0.92,
+          "f1": 0.92
+        },
+        "2": {
+          "support": 17,
+          "precision": 0.7692307692307693,
+          "recall": 0.5882352941176471,
+          "f1": 0.6666666666666666
+        },
+        "3": {
+          "support": 20,
+          "precision": 0.8888888888888888,
+          "recall": 0.8,
+          "f1": 0.8421052631578947
+        },
+        "4": {
+          "support": 22,
+          "precision": 0.8,
+          "recall": 0.9090909090909091,
+          "f1": 0.851063829787234
+        },
+        "7": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.6238172079902142,
+    "cost_usd": 0.002369513999999999,
+    "cost_per_1000_usd": 0.023695139999999993
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.82,
+      "macro_f1_observed_gold_classes": 0.8421144589565642,
+      "per_class": {
+        "0": {
+          "support": 15,
+          "precision": 0.7222222222222222,
+          "recall": 0.8666666666666667,
+          "f1": 0.7878787878787878
+        },
+        "1": {
+          "support": 25,
+          "precision": 0.92,
+          "recall": 0.92,
+          "f1": 0.92
+        },
+        "2": {
+          "support": 17,
+          "precision": 0.65,
+          "recall": 0.7647058823529411,
+          "f1": 0.7027027027027027
+        },
+        "3": {
+          "support": 20,
+          "precision": 0.8888888888888888,
+          "recall": 0.8,
+          "f1": 0.8421052631578947
+        },
+        "4": {
+          "support": 22,
+          "precision": 0.8888888888888888,
+          "recall": 0.7272727272727273,
+          "f1": 0.8
+        },
+        "7": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.5058568750100676,
+    "cost_usd": 0.004026617999999999,
+    "cost_per_1000_usd": 0.04026617999999999,
+    "prior_attempts": 1
+  }
+}

@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 100 | 74 | 100 | 0 | micro-F1 | **49.9%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| micro-F1 | 49.9% | 68.3% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.94 秒 | 0.82 秒 |
+| 每千条 API 费用估算 | $0.073 | $0.200 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 输入论断及逐行编号的试验章节，每行构造一个 NOUL 相关性问题，阈值 0.5 选取证据行；对照 primary/secondary 的金标证据索引集合。与判断任务分别抽样。

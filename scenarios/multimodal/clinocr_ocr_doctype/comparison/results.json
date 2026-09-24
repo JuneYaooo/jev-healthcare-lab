@@ -1,0 +1,69 @@
+{
+  "title": "OCR 文本医疗文档类型识别",
+  "scene": "multimodal",
+  "synthetic": false,
+  "planned": 6,
+  "compared": 6,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 6,
+      "accuracy": 0.8333333333333334,
+      "macro_f1_observed_gold_classes": 0.8333333333333333,
+      "per_class": {
+        "medication_list": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "radiology": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.6440773329813965,
+    "cost_usd": 0.00020466600000000002,
+    "cost_per_1000_usd": 0.03411100000000001
+  },
+  "deepseek": {
+    "quality": {
+      "n": 6,
+      "accuracy": 0.8333333333333334,
+      "macro_f1_observed_gold_classes": 0.8333333333333333,
+      "per_class": {
+        "medication_list": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "radiology": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.7207536665082444,
+    "cost_usd": 0.000440706,
+    "cost_per_1000_usd": 0.073451,
+    "prior_attempts": 0
+  }
+}

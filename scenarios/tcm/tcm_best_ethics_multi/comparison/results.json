@@ -1,0 +1,35 @@
+{
+  "title": "医学伦理多选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 3,
+  "compared": 3,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 4,
+      "precision": 1.0,
+      "recall": 0.6923076923076923,
+      "micro_f1": 0.8181818181818182
+    },
+    "latency_median_s": 0.6086017920169979,
+    "cost_usd": 6.0018e-05,
+    "cost_per_1000_usd": 0.020006000000000003
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 12,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9230769230769231,
+      "micro_f1": 0.96
+    },
+    "latency_median_s": 0.6815972090116702,
+    "cost_usd": 0.000148602,
+    "cost_per_1000_usd": 0.049534,
+    "prior_attempts": 0
+  }
+}

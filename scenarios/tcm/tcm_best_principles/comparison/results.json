@@ -1,0 +1,81 @@
+{
+  "title": "中医治则治法单选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 3,
+  "compared": 3,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 3,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "E": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "F": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "G": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.5909502500435337,
+    "cost_usd": 6.8964e-05,
+    "cost_per_1000_usd": 0.022988
+  },
+  "deepseek": {
+    "quality": {
+      "n": 3,
+      "accuracy": 0.3333333333333333,
+      "macro_f1_observed_gold_classes": 0.3333333333333333,
+      "per_class": {
+        "D": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "E": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "F": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "G": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "H": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.40276708296732977,
+    "cost_usd": 0.00011740199999999998,
+    "cost_per_1000_usd": 0.039133999999999995,
+    "prior_attempts": 0
+  }
+}

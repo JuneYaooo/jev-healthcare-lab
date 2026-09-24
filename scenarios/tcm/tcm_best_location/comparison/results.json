@@ -1,0 +1,141 @@
+{
+  "title": "中医病位单选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 21,
+  "compared": 21,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 21,
+      "accuracy": 0.8095238095238095,
+      "macro_f1_observed_gold_classes": 0.7396825396825396,
+      "per_class": {
+        "A": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "B": {
+          "support": 3,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666
+        },
+        "C": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "D": {
+          "support": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "E": {
+          "support": 2,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "F": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "G": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "I": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "J": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.635286292003002,
+    "cost_usd": 0.0005004720000000001,
+    "cost_per_1000_usd": 0.023832000000000006
+  },
+  "deepseek": {
+    "quality": {
+      "n": 21,
+      "accuracy": 0.7619047619047619,
+      "macro_f1_observed_gold_classes": 0.698941798941799,
+      "per_class": {
+        "A": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "B": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "C": {
+          "support": 2,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "D": {
+          "support": 1,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5
+        },
+        "E": {
+          "support": 2,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "F": {
+          "support": 3,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666
+        },
+        "G": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "I": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "J": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.4780168749857694,
+    "cost_usd": 0.0008561639999999998,
+    "cost_per_1000_usd": 0.04076971428571427,
+    "prior_attempts": 0
+  }
+}

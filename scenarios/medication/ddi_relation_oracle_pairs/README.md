@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 150 | 77 | 150 | 0 | Accuracy | **79.3%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 79.3% | 74.7% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.91 秒 | 0.53 秒 |
+| 每千条 API 费用估算 | $0.024 | $0.038 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 DDI 官方 Test/Extraction 中每类固定哈希取 30 条，共 150；输入句子与两个金标药物片段／偏移；Choice 在 none、mechanism、effect、advise、int 五类中选择。

@@ -1,0 +1,57 @@
+{
+  "title": "边界挑战：文书缺项",
+  "scene": "documentation",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "documented": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "missing": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.898559937486425,
+    "cost_usd": 6.0438000000000006e-05,
+    "cost_per_1000_usd": 0.015109500000000001
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "documented": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "missing": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.41819449997274205,
+    "cost_usd": 0.0001653,
+    "cost_per_1000_usd": 0.041325,
+    "prior_attempts": 0
+  }
+}

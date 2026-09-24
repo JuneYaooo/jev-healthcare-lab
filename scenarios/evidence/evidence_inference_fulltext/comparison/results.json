@@ -1,0 +1,69 @@
+{
+  "title": "临床研究干预结果方向",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.89,
+      "macro_f1_observed_gold_classes": 0.8878617958398105,
+      "per_class": {
+        "-1": {
+          "support": 28,
+          "precision": 0.8620689655172413,
+          "recall": 0.8928571428571429,
+          "f1": 0.8771929824561403
+        },
+        "0": {
+          "support": 39,
+          "precision": 0.9,
+          "recall": 0.9230769230769231,
+          "f1": 0.9113924050632911
+        },
+        "1": {
+          "support": 33,
+          "precision": 0.9032258064516129,
+          "recall": 0.8484848484848485,
+          "f1": 0.875
+        }
+      }
+    },
+    "latency_median_s": 0.8722994375275448,
+    "cost_usd": 0.032475240000000016,
+    "cost_per_1000_usd": 0.32475240000000016
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.76,
+      "macro_f1_observed_gold_classes": 0.7372166105499439,
+      "per_class": {
+        "-1": {
+          "support": 28,
+          "precision": 0.8125,
+          "recall": 0.4642857142857143,
+          "f1": 0.5909090909090909
+        },
+        "0": {
+          "support": 39,
+          "precision": 0.9166666666666666,
+          "recall": 0.8461538461538461,
+          "f1": 0.88
+        },
+        "1": {
+          "support": 33,
+          "precision": 0.625,
+          "recall": 0.9090909090909091,
+          "f1": 0.7407407407407407
+        }
+      }
+    },
+    "latency_median_s": 0.572840416978579,
+    "cost_usd": 0.10410374999999995,
+    "cost_per_1000_usd": 1.0410374999999996,
+    "prior_attempts": 0
+  }
+}

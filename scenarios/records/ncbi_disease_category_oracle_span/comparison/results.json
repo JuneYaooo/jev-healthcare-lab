@@ -1,0 +1,81 @@
+{
+  "title": "给定疾病实体类别",
+  "scene": "records",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.58,
+      "macro_f1_observed_gold_classes": 0.6051127554615927,
+      "per_class": {
+        "CompositeMention": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DiseaseClass": {
+          "support": 13,
+          "precision": 0.5,
+          "recall": 0.46153846153846156,
+          "f1": 0.48
+        },
+        "Modifier": {
+          "support": 32,
+          "precision": 0.4166666666666667,
+          "recall": 0.15625,
+          "f1": 0.22727272727272727
+        },
+        "SpecificDisease": {
+          "support": 54,
+          "precision": 0.6133333333333333,
+          "recall": 0.8518518518518519,
+          "f1": 0.7131782945736435
+        }
+      }
+    },
+    "latency_median_s": 0.6237024164875038,
+    "cost_usd": 0.003002874000000001,
+    "cost_per_1000_usd": 0.03002874000000001
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.61,
+      "macro_f1_observed_gold_classes": 0.5997652582159625,
+      "per_class": {
+        "CompositeMention": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DiseaseClass": {
+          "support": 13,
+          "precision": 0.7142857142857143,
+          "recall": 0.38461538461538464,
+          "f1": 0.5
+        },
+        "Modifier": {
+          "support": 32,
+          "precision": 0.75,
+          "recall": 0.09375,
+          "f1": 0.16666666666666666
+        },
+        "SpecificDisease": {
+          "support": 54,
+          "precision": 0.5909090909090909,
+          "recall": 0.9629629629629629,
+          "f1": 0.7323943661971831
+        }
+      }
+    },
+    "latency_median_s": 0.5609237505123019,
+    "cost_usd": 0.005842277999999999,
+    "cost_per_1000_usd": 0.058422779999999994,
+    "prior_attempts": 0
+  }
+}

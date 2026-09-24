@@ -1,0 +1,93 @@
+{
+  "title": "给定药物对相互作用分类",
+  "scene": "medication",
+  "synthetic": false,
+  "planned": 150,
+  "compared": 150,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 150,
+      "accuracy": 0.7933333333333333,
+      "macro_f1_observed_gold_classes": 0.7860092763625973,
+      "per_class": {
+        "advise": {
+          "support": 30,
+          "precision": 0.875,
+          "recall": 0.9333333333333333,
+          "f1": 0.9032258064516129
+        },
+        "effect": {
+          "support": 30,
+          "precision": 0.627906976744186,
+          "recall": 0.9,
+          "f1": 0.7397260273972602
+        },
+        "int": {
+          "support": 30,
+          "precision": 0.9375,
+          "recall": 0.5,
+          "f1": 0.6521739130434783
+        },
+        "mechanism": {
+          "support": 30,
+          "precision": 0.8787878787878788,
+          "recall": 0.9666666666666667,
+          "f1": 0.9206349206349206
+        },
+        "none": {
+          "support": 30,
+          "precision": 0.7692307692307693,
+          "recall": 0.6666666666666666,
+          "f1": 0.7142857142857143
+        }
+      }
+    },
+    "latency_median_s": 0.9132684170035645,
+    "cost_usd": 0.0035299740000000004,
+    "cost_per_1000_usd": 0.023533160000000004
+  },
+  "deepseek": {
+    "quality": {
+      "n": 150,
+      "accuracy": 0.7466666666666667,
+      "macro_f1_observed_gold_classes": 0.7445745511319282,
+      "per_class": {
+        "advise": {
+          "support": 30,
+          "precision": 0.8709677419354839,
+          "recall": 0.9,
+          "f1": 0.8852459016393442
+        },
+        "effect": {
+          "support": 30,
+          "precision": 0.5319148936170213,
+          "recall": 0.8333333333333334,
+          "f1": 0.6493506493506493
+        },
+        "int": {
+          "support": 30,
+          "precision": 1.0,
+          "recall": 0.4666666666666667,
+          "f1": 0.6363636363636364
+        },
+        "mechanism": {
+          "support": 30,
+          "precision": 0.8709677419354839,
+          "recall": 0.9,
+          "f1": 0.8852459016393442
+        },
+        "none": {
+          "support": 30,
+          "precision": 0.7037037037037037,
+          "recall": 0.6333333333333333,
+          "f1": 0.6666666666666666
+        }
+      }
+    },
+    "latency_median_s": 0.5260489999782294,
+    "cost_usd": 0.005699544000000001,
+    "cost_per_1000_usd": 0.03799696,
+    "prior_attempts": 0
+  }
+}

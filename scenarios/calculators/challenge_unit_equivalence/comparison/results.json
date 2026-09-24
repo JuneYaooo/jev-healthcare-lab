@@ -1,0 +1,57 @@
+{
+  "title": "边界挑战：单位等价",
+  "scene": "calculators",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "different": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "same": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 1.0593908129958436,
+    "cost_usd": 6.1488e-05,
+    "cost_per_1000_usd": 0.015372000000000002
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "different": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "same": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.46400641652871855,
+    "cost_usd": 0.0001674,
+    "cost_per_1000_usd": 0.04185,
+    "prior_attempts": 0
+  }
+}

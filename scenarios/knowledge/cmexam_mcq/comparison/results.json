@@ -1,0 +1,93 @@
+{
+  "title": "中文医学考试单选",
+  "scene": "knowledge",
+  "synthetic": false,
+  "planned": 95,
+  "compared": 95,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 95,
+      "accuracy": 0.9263157894736842,
+      "macro_f1_observed_gold_classes": 0.9262003863063125,
+      "per_class": {
+        "A": {
+          "support": 22,
+          "precision": 0.88,
+          "recall": 1.0,
+          "f1": 0.9361702127659575
+        },
+        "B": {
+          "support": 20,
+          "precision": 0.95,
+          "recall": 0.95,
+          "f1": 0.95
+        },
+        "C": {
+          "support": 18,
+          "precision": 0.85,
+          "recall": 0.9444444444444444,
+          "f1": 0.8947368421052632
+        },
+        "D": {
+          "support": 19,
+          "precision": 1.0,
+          "recall": 0.7894736842105263,
+          "f1": 0.8823529411764706
+        },
+        "E": {
+          "support": 16,
+          "precision": 1.0,
+          "recall": 0.9375,
+          "f1": 0.967741935483871
+        }
+      }
+    },
+    "latency_median_s": 0.860278332955204,
+    "cost_usd": 0.0016179660000000008,
+    "cost_per_1000_usd": 0.01703122105263159
+  },
+  "deepseek": {
+    "quality": {
+      "n": 95,
+      "accuracy": 0.8526315789473684,
+      "macro_f1_observed_gold_classes": 0.8537134833175616,
+      "per_class": {
+        "A": {
+          "support": 22,
+          "precision": 0.8,
+          "recall": 0.9090909090909091,
+          "f1": 0.851063829787234
+        },
+        "B": {
+          "support": 20,
+          "precision": 0.8095238095238095,
+          "recall": 0.85,
+          "f1": 0.8292682926829268
+        },
+        "C": {
+          "support": 18,
+          "precision": 0.875,
+          "recall": 0.7777777777777778,
+          "f1": 0.8235294117647058
+        },
+        "D": {
+          "support": 19,
+          "precision": 1.0,
+          "recall": 0.7894736842105263,
+          "f1": 0.8823529411764706
+        },
+        "E": {
+          "support": 16,
+          "precision": 0.8333333333333334,
+          "recall": 0.9375,
+          "f1": 0.8823529411764706
+        }
+      }
+    },
+    "latency_median_s": 0.5758116249926388,
+    "cost_usd": 0.003702234,
+    "cost_per_1000_usd": 0.038970884210526316,
+    "prior_attempts": 3
+  }
+}

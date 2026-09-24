@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 150 | 45 | 150 | 0 | Accuracy | **48.0%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 48.0% | 54.7% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.65 秒 | 0.50 秒 |
+| 每千条 API 费用估算 | $0.038 | $0.096 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 SIGIR 已判定池每类 50 条，共 150；输入患者和试验描述，Choice 在 Irrelevant / Potential / Eligible 中三分类；不是完整 TrialGPT 逐条纳排推理或检索排序。

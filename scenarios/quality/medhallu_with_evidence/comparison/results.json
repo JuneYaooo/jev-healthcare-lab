@@ -1,0 +1,57 @@
+{
+  "title": "医学回答幻觉识别：有证据",
+  "scene": "quality",
+  "synthetic": false,
+  "planned": 200,
+  "compared": 200,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 200,
+      "accuracy": 0.82,
+      "macro_f1_observed_gold_classes": 0.8191136569189026,
+      "per_class": {
+        "hallucinated": {
+          "support": 100,
+          "precision": 0.7807017543859649,
+          "recall": 0.89,
+          "f1": 0.8317757009345794
+        },
+        "supported": {
+          "support": 100,
+          "precision": 0.872093023255814,
+          "recall": 0.75,
+          "f1": 0.8064516129032258
+        }
+      }
+    },
+    "latency_median_s": 0.6355389790260233,
+    "cost_usd": 0.0064181460000000004,
+    "cost_per_1000_usd": 0.032090730000000005
+  },
+  "deepseek": {
+    "quality": {
+      "n": 200,
+      "accuracy": 0.825,
+      "macro_f1_observed_gold_classes": 0.8212416047396511,
+      "per_class": {
+        "hallucinated": {
+          "support": 100,
+          "precision": 0.9577464788732394,
+          "recall": 0.68,
+          "f1": 0.7953216374269005
+        },
+        "supported": {
+          "support": 100,
+          "precision": 0.751937984496124,
+          "recall": 0.97,
+          "f1": 0.8471615720524017
+        }
+      }
+    },
+    "latency_median_s": 0.5428234790160786,
+    "cost_usd": 0.015401850000000002,
+    "cost_per_1000_usd": 0.07700925000000002,
+    "prior_attempts": 2
+  }
+}

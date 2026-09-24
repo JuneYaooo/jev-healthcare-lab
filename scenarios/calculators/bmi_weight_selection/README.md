@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 20 | 20 | 20 | 0 | Accuracy | **95.0%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 95.0% | 90.0% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.63 秒 | 0.49 秒 |
+| 每千条 API 费用估算 | $0.043 | $0.111 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 全部 20 个 BMI 病例，使用数值与单位正则构造体重候选；Choice 选择属于当前患者／当前时点的体重或 unknown，对照参考体重；身高与体重两次判断来自同一病例。

@@ -1,0 +1,153 @@
+{
+  "title": "中医证型单选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 68,
+  "compared": 68,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 68,
+      "accuracy": 0.8088235294117647,
+      "macro_f1_observed_gold_classes": 0.8239583808004861,
+      "per_class": {
+        "A": {
+          "support": 10,
+          "precision": 0.875,
+          "recall": 0.7,
+          "f1": 0.7777777777777778
+        },
+        "B": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888
+        },
+        "C": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "D": {
+          "support": 5,
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091
+        },
+        "E": {
+          "support": 10,
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8
+        },
+        "F": {
+          "support": 6,
+          "precision": 0.625,
+          "recall": 0.8333333333333334,
+          "f1": 0.7142857142857143
+        },
+        "G": {
+          "support": 6,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "H": {
+          "support": 6,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "I": {
+          "support": 8,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.8888888888888888
+        },
+        "J": {
+          "support": 10,
+          "precision": 0.7777777777777778,
+          "recall": 0.7,
+          "f1": 0.7368421052631579
+        }
+      }
+    },
+    "latency_median_s": 0.6286350415030029,
+    "cost_usd": 0.0018576180000000001,
+    "cost_per_1000_usd": 0.027317911764705882
+  },
+  "deepseek": {
+    "quality": {
+      "n": 68,
+      "accuracy": 0.7205882352941176,
+      "macro_f1_observed_gold_classes": 0.7333167348647225,
+      "per_class": {
+        "A": {
+          "support": 10,
+          "precision": 0.5,
+          "recall": 0.6,
+          "f1": 0.5454545454545454
+        },
+        "B": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75
+        },
+        "C": {
+          "support": 2,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "D": {
+          "support": 5,
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1": 0.8333333333333334
+        },
+        "E": {
+          "support": 10,
+          "precision": 0.8571428571428571,
+          "recall": 0.6,
+          "f1": 0.7058823529411765
+        },
+        "F": {
+          "support": 6,
+          "precision": 0.7142857142857143,
+          "recall": 0.8333333333333334,
+          "f1": 0.7692307692307693
+        },
+        "G": {
+          "support": 6,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666
+        },
+        "H": {
+          "support": 6,
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1": 0.9090909090909091
+        },
+        "I": {
+          "support": 8,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75
+        },
+        "J": {
+          "support": 10,
+          "precision": 0.7777777777777778,
+          "recall": 0.7,
+          "f1": 0.7368421052631579
+        }
+      }
+    },
+    "latency_median_s": 0.4964510624995455,
+    "cost_usd": 0.0034402620000000012,
+    "cost_per_1000_usd": 0.05059208823529414,
+    "prior_attempts": 1
+  }
+}

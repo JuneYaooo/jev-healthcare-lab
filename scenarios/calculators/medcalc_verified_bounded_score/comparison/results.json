@@ -1,0 +1,219 @@
+{
+  "title": "五种临床量表闭集数值评分",
+  "scene": "calculators",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.25,
+      "macro_f1_observed_gold_classes": 0.23567305710162853,
+      "per_class": {
+        "0": {
+          "support": 7,
+          "precision": 1.0,
+          "recall": 0.2857142857142857,
+          "f1": 0.4444444444444444
+        },
+        "1": {
+          "support": 17,
+          "precision": 0.4,
+          "recall": 0.11764705882352941,
+          "f1": 0.18181818181818182
+        },
+        "10": {
+          "support": 3,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "11": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "12": {
+          "support": 2,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "15": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "2": {
+          "support": 17,
+          "precision": 0.09090909090909091,
+          "recall": 0.058823529411764705,
+          "f1": 0.07142857142857142
+        },
+        "3": {
+          "support": 21,
+          "precision": 0.35714285714285715,
+          "recall": 0.23809523809523808,
+          "f1": 0.2857142857142857
+        },
+        "4": {
+          "support": 11,
+          "precision": 0.2727272727272727,
+          "recall": 0.5454545454545454,
+          "f1": 0.36363636363636365
+        },
+        "5": {
+          "support": 4,
+          "precision": 0.17647058823529413,
+          "recall": 0.75,
+          "f1": 0.2857142857142857
+        },
+        "6": {
+          "support": 5,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "7": {
+          "support": 3,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5
+        },
+        "8": {
+          "support": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "9": {
+          "support": 5,
+          "precision": 0.14285714285714285,
+          "recall": 0.2,
+          "f1": 0.16666666666666666
+        },
+        "unknown": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.660811895999359,
+    "cost_usd": 0.005144538000000002,
+    "cost_per_1000_usd": 0.05144538000000003
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.31,
+      "macro_f1_observed_gold_classes": 0.30201940916226633,
+      "per_class": {
+        "0": {
+          "support": 7,
+          "precision": 1.0,
+          "recall": 0.14285714285714285,
+          "f1": 0.25
+        },
+        "1": {
+          "support": 17,
+          "precision": 0.7142857142857143,
+          "recall": 0.29411764705882354,
+          "f1": 0.4166666666666667
+        },
+        "10": {
+          "support": 3,
+          "precision": 0.16666666666666666,
+          "recall": 0.3333333333333333,
+          "f1": 0.2222222222222222
+        },
+        "11": {
+          "support": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "12": {
+          "support": 2,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "14": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "15": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "2": {
+          "support": 17,
+          "precision": 0.22727272727272727,
+          "recall": 0.29411764705882354,
+          "f1": 0.2564102564102564
+        },
+        "3": {
+          "support": 21,
+          "precision": 0.391304347826087,
+          "recall": 0.42857142857142855,
+          "f1": 0.4090909090909091
+        },
+        "4": {
+          "support": 11,
+          "precision": 0.4,
+          "recall": 0.36363636363636365,
+          "f1": 0.38095238095238093
+        },
+        "5": {
+          "support": 4,
+          "precision": 0.4,
+          "recall": 0.5,
+          "f1": 0.4444444444444444
+        },
+        "6": {
+          "support": 5,
+          "precision": 0.16666666666666666,
+          "recall": 0.2,
+          "f1": 0.18181818181818182
+        },
+        "7": {
+          "support": 3,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "8": {
+          "support": 2,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "9": {
+          "support": 5,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "unknown": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.60018993698759,
+    "cost_usd": 0.013557750000000004,
+    "cost_per_1000_usd": 0.13557750000000005,
+    "prior_attempts": 2
+  }
+}

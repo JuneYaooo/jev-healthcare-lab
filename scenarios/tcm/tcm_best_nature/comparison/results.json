@@ -1,0 +1,81 @@
+{
+  "title": "中医病性单选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 99,
+  "compared": 99,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 99,
+      "accuracy": 0.696969696969697,
+      "macro_f1_observed_gold_classes": 0.6976094392559283,
+      "per_class": {
+        "A": {
+          "support": 32,
+          "precision": 0.7407407407407407,
+          "recall": 0.625,
+          "f1": 0.6779661016949152
+        },
+        "B": {
+          "support": 21,
+          "precision": 0.6666666666666666,
+          "recall": 0.7619047619047619,
+          "f1": 0.7111111111111111
+        },
+        "C": {
+          "support": 24,
+          "precision": 0.7142857142857143,
+          "recall": 0.625,
+          "f1": 0.6666666666666666
+        },
+        "D": {
+          "support": 22,
+          "precision": 0.6666666666666666,
+          "recall": 0.8181818181818182,
+          "f1": 0.7346938775510204
+        }
+      }
+    },
+    "latency_median_s": 0.6493665000307374,
+    "cost_usd": 0.00238476,
+    "cost_per_1000_usd": 0.024088484848484852
+  },
+  "deepseek": {
+    "quality": {
+      "n": 99,
+      "accuracy": 0.5959595959595959,
+      "macro_f1_observed_gold_classes": 0.5965761147297637,
+      "per_class": {
+        "A": {
+          "support": 32,
+          "precision": 0.6206896551724138,
+          "recall": 0.5625,
+          "f1": 0.5901639344262295
+        },
+        "B": {
+          "support": 21,
+          "precision": 0.5,
+          "recall": 0.6190476190476191,
+          "f1": 0.5531914893617021
+        },
+        "C": {
+          "support": 24,
+          "precision": 0.6521739130434783,
+          "recall": 0.625,
+          "f1": 0.6382978723404256
+        },
+        "D": {
+          "support": 22,
+          "precision": 0.6190476190476191,
+          "recall": 0.5909090909090909,
+          "f1": 0.6046511627906976
+        }
+      }
+    },
+    "latency_median_s": 0.5365535839810036,
+    "cost_usd": 0.004425816000000001,
+    "cost_per_1000_usd": 0.04470521212121213,
+    "prior_attempts": 0
+  }
+}

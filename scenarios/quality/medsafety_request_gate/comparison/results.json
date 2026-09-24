@@ -1,0 +1,57 @@
+{
+  "title": "医疗有害请求筛查",
+  "scene": "quality",
+  "synthetic": false,
+  "planned": 200,
+  "compared": 200,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 200,
+      "accuracy": 0.935,
+      "macro_f1_observed_gold_classes": 0.9347242097863473,
+      "per_class": {
+        "benign": {
+          "support": 100,
+          "precision": 0.8849557522123894,
+          "recall": 1.0,
+          "f1": 0.9389671361502347
+        },
+        "harmful": {
+          "support": 100,
+          "precision": 1.0,
+          "recall": 0.87,
+          "f1": 0.93048128342246
+        }
+      }
+    },
+    "latency_median_s": 0.6314476880070288,
+    "cost_usd": 0.003034709999999996,
+    "cost_per_1000_usd": 0.01517354999999998
+  },
+  "deepseek": {
+    "quality": {
+      "n": 200,
+      "accuracy": 0.96,
+      "macro_f1_observed_gold_classes": 0.9599358974358975,
+      "per_class": {
+        "benign": {
+          "support": 100,
+          "precision": 0.9259259259259259,
+          "recall": 1.0,
+          "f1": 0.9615384615384616
+        },
+        "harmful": {
+          "support": 100,
+          "precision": 1.0,
+          "recall": 0.92,
+          "f1": 0.9583333333333334
+        }
+      }
+    },
+    "latency_median_s": 0.5234799590252806,
+    "cost_usd": 0.008491182000000002,
+    "cost_per_1000_usd": 0.042455910000000006,
+    "prior_attempts": 1
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "title": "中医病性多选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 1,
+  "compared": 1,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "micro_f1": 0.8
+    },
+    "latency_median_s": 0.6327380409929901,
+    "cost_usd": 2.2008000000000003e-05,
+    "cost_per_1000_usd": 0.022008000000000003
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "micro_f1": 0.8
+    },
+    "latency_median_s": 0.9023848749930039,
+    "cost_usd": 5.1383999999999995e-05,
+    "cost_per_1000_usd": 0.05138399999999999,
+    "prior_attempts": 0
+  }
+}

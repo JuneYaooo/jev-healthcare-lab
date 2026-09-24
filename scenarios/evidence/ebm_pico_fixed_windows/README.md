@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 100 | 76 | 100 | 0 | micro-F1 | **12.7%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| micro-F1 | 12.7% | 25.4% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.63 秒 | 0.56 秒 |
+| 每千条 API 费用估算 | $0.034 | $0.084 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 EBM-NLP 专家聚合 test 标注，按 8 token 固定窗口切分并抽取 100 个；输入摘要、目标窗口和起点；对 participants/interventions/outcomes 分别 NOUL 判断是否超过半数 token，0.5 阈值与窗口金标集合比较。

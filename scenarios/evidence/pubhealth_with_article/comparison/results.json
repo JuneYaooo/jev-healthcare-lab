@@ -1,0 +1,81 @@
+{
+  "title": "公共卫生核查：提供核查文章",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.67,
+      "macro_f1_observed_gold_classes": 0.47081238547963244,
+      "per_class": {
+        "0": {
+          "support": 31,
+          "precision": 0.7741935483870968,
+          "recall": 0.7741935483870968,
+          "f1": 0.7741935483870968
+        },
+        "1": {
+          "support": 13,
+          "precision": 0.18181818181818182,
+          "recall": 0.15384615384615385,
+          "f1": 0.16666666666666666
+        },
+        "2": {
+          "support": 54,
+          "precision": 0.9302325581395349,
+          "recall": 0.7407407407407407,
+          "f1": 0.8247422680412371
+        },
+        "3": {
+          "support": 2,
+          "precision": 0.06666666666666667,
+          "recall": 0.5,
+          "f1": 0.11764705882352941
+        }
+      }
+    },
+    "latency_median_s": 0.8247651455167215,
+    "cost_usd": 0.005238324000000001,
+    "cost_per_1000_usd": 0.052383240000000005
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.72,
+      "macro_f1_observed_gold_classes": 0.5726923076923077,
+      "per_class": {
+        "0": {
+          "support": 31,
+          "precision": 0.9047619047619048,
+          "recall": 0.6129032258064516,
+          "f1": 0.7307692307692307
+        },
+        "1": {
+          "support": 13,
+          "precision": 0.3333333333333333,
+          "recall": 0.6923076923076923,
+          "f1": 0.45
+        },
+        "2": {
+          "support": 54,
+          "precision": 0.9347826086956522,
+          "recall": 0.7962962962962963,
+          "f1": 0.86
+        },
+        "3": {
+          "support": 2,
+          "precision": 0.16666666666666666,
+          "recall": 0.5,
+          "f1": 0.25
+        }
+      }
+    },
+    "latency_median_s": 0.5456982709874865,
+    "cost_usd": 0.015130800000000002,
+    "cost_per_1000_usd": 0.151308,
+    "prior_attempts": 3
+  }
+}

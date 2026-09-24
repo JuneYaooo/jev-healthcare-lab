@@ -1,0 +1,57 @@
+{
+  "title": "化学物致病关系判断",
+  "scene": "medication",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.57,
+      "macro_f1_observed_gold_classes": 0.562608076492727,
+      "per_class": {
+        "no": {
+          "support": 50,
+          "precision": 0.5945945945945946,
+          "recall": 0.44,
+          "f1": 0.5057471264367817
+        },
+        "yes": {
+          "support": 50,
+          "precision": 0.5555555555555556,
+          "recall": 0.7,
+          "f1": 0.6194690265486725
+        }
+      }
+    },
+    "latency_median_s": 0.6414059999806341,
+    "cost_usd": 0.0031485720000000005,
+    "cost_per_1000_usd": 0.03148572
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.66,
+      "macro_f1_observed_gold_classes": 0.6587715776796468,
+      "per_class": {
+        "no": {
+          "support": 50,
+          "precision": 0.6818181818181818,
+          "recall": 0.6,
+          "f1": 0.6382978723404256
+        },
+        "yes": {
+          "support": 50,
+          "precision": 0.6428571428571429,
+          "recall": 0.72,
+          "f1": 0.6792452830188679
+        }
+      }
+    },
+    "latency_median_s": 0.5223992085084319,
+    "cost_usd": 0.00687234,
+    "cost_per_1000_usd": 0.0687234,
+    "prior_attempts": 0
+  }
+}

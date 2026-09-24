@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 5 | 5 | 5 | 0 | micro-F1 | **75.9%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| micro-F1 | 75.9% | 87.5% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.90 秒 | 0.54 秒 |
+| 每千条 API 费用估算 | $0.018 | $0.045 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 从 CMExam 官方 test 固定哈希取 100 题后按答案数拆分；输入 Question 和原始选项，每个选项一个 NOUL 问题，阈值 0.5，按金标答案集合计 micro-F1。

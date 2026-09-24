@@ -14,6 +14,7 @@
 
 ```sh
 python3 scripts/verify_experiments.py
+python3 scripts/verify_comparison.py
 python3 scripts/build_scenario_report.py --check
 python3 -m unittest discover -s tests -v
 ```
@@ -36,3 +37,9 @@ python3 -m unittest discover -s tests -v
 - `scripts/build_scenario_report.py`：从归档生成统计 README、场景页和任务方法页；`--check` 检查页面是否与结果同步。
 
 已归档的每个 prepared 分片原始文件哈希记录在任务的 provenance.json。EvidenceBench 的 37 条历史请求哈希格式修正记录保留在任务的 hash_audit.json；它们是原实验序列化排序修正，不是此次重新生成响应。
+
+## DeepSeek 同题对比
+
+主任务的 `comparison/` 保留同一批输入的 DeepSeek 原始回答、适配结果和费用；失败重试记录单独保留。完整方法见 [对比实验说明](../comparisons/deepseek-flash/README.md)。`verify_comparison.py` 离线检查全部主任务的输入绑定、原始回答适配、文件哈希，并重算分数和费用，不需要 API key。
+
+如需自行重跑，`compare_deepseek.py --key-file <私有配置路径>` 读取包含 `DEEPSEEK_API_KEY` 的私有文件；默认 8 个并发，缓存位于被 Git 忽略的 `comparisons/deepseek-flash/runs/`。`--max-usd` 限制已报告用量的估算支出，在途请求可能使最终金额略超限。`--retry-errors` 只重试失败记录并保留旧尝试，不重试有效但答错的回答。中国法定节假日重跑时，应按官方规则加 `--off-peak-holiday` 使用全天空闲价；其他时间按官方 UTC 时段计算。重新调用会产生费用和新的响应。

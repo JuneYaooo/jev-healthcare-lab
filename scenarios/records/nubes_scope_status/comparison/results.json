@@ -1,0 +1,69 @@
+{
+  "title": "西班牙文否定与不确定性",
+  "scene": "records",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.72,
+      "macro_f1_observed_gold_classes": 0.7970886075949367,
+      "per_class": {
+        "negative": {
+          "support": 50,
+          "precision": 0.86,
+          "recall": 0.86,
+          "f1": 0.86
+        },
+        "positive": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "uncertain": {
+          "support": 50,
+          "precision": 1.0,
+          "recall": 0.58,
+          "f1": 0.7341772151898734
+        }
+      }
+    },
+    "latency_median_s": 0.6233023750246502,
+    "cost_usd": 0.0019093199999999995,
+    "cost_per_1000_usd": 0.019093199999999994
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.77,
+      "macro_f1_observed_gold_classes": 0.842716049382716,
+      "per_class": {
+        "negative": {
+          "support": 50,
+          "precision": 0.92,
+          "recall": 0.92,
+          "f1": 0.92
+        },
+        "positive": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "uncertain": {
+          "support": 50,
+          "precision": 1.0,
+          "recall": 0.62,
+          "f1": 0.7654320987654321
+        }
+      }
+    },
+    "latency_median_s": 0.5589155835041311,
+    "cost_usd": 0.00385575,
+    "cost_per_1000_usd": 0.038557499999999995,
+    "prior_attempts": 1
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "title": "中医治则治法多选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 97,
+  "compared": 97,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 150,
+      "fp": 56,
+      "fn": 71,
+      "precision": 0.7281553398058253,
+      "recall": 0.6787330316742082,
+      "micro_f1": 0.702576112412178
+    },
+    "latency_median_s": 0.6277176670264453,
+    "cost_usd": 0.00338898,
+    "cost_per_1000_usd": 0.034937938144329904
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 119,
+      "fp": 42,
+      "fn": 102,
+      "precision": 0.7391304347826086,
+      "recall": 0.5384615384615384,
+      "micro_f1": 0.6230366492146597
+    },
+    "latency_median_s": 0.6008124999934807,
+    "cost_usd": 0.010372998,
+    "cost_per_1000_usd": 0.1069381237113402,
+    "prior_attempts": 3
+  }
+}

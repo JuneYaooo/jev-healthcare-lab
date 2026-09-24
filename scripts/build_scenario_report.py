@@ -49,6 +49,20 @@ def task_doc(scene, task, method, result):
            f'实际模型为 `jev-1.13.0`。{groups} 个 group 是数据源分组标识，不能直接当作独立患者数。', '',
            '请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。', '',
            '### 输入与问题结构', '']
+    cp=ROOT/'comparisons/deepseek-flash/summary.json'
+    if cp.exists():
+        comp=load('comparisons/deepseek-flash/summary.json')
+        if comp['summary']['complete']:
+            c=comp['tasks'][task];dq=c['deepseek']['quality'];dm,dv=metric({'quality':dq})
+            block=['## 和 DeepSeek 同题比较', '', '| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |', '| --- | ---: | ---: |',
+                   f'| {m} | {v} | {dv} |',
+                   f'| 最终未能按要求作答 | 0 | {len(c["failures"])} |',
+                   f'| 成功请求典型等待（中位数） | {c["jev"]["latency_median_s"]:.2f} 秒 | {c["deepseek"]["latency_median_s"]:.2f} 秒 |',
+                   f'| 每千条 API 费用估算 | ${c["jev"]["cost_per_1000_usd"]:.3f} | ${c["deepseek"]["cost_per_1000_usd"]:.3f} |', '',
+                   '同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。', '',
+                   '[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)', '']
+            position=out.index('## Jev 如何评测')
+            out[position:position]=block
     shapes = sorted({', '.join(r['request']['state'].keys()) if isinstance(r['request']['state'],dict) else '完整文本字符串' for r in rows})
     out += ['- 输入字段：' + '；'.join('`'+x+'`' for x in shapes) + '。',
             '- 问题类型与总数：' + '，'.join(f'`{k}` {n} 个' for k,n in sorted(qtypes.items())) + '。',
@@ -122,13 +136,15 @@ def build():
     for s in scenes:
         ts=s['task_ids'];n=sum(tasks[t]['successful'] for t in ts)
         table=['| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |', '| --- | --- | ---: | --- | ---: |']
-        scene_table=list(table)
+        scene_table=['| 任务（点击查看方法与费用） | 任务类型 | 记录数 | 指标 | Jev | DeepSeek |', '| --- | --- | ---: | --- | ---: | ---: |']
         intro += [f'### {s["title"]}', '', s['note'], '', '**主要结果**：'+s['headline']+'。', '']
         for t in ts:
             m,v=metric(tasks[t]);kind=methods[t]['task_type']
             label=methods[t]['title']
             table.append(f'| [{label}](scenarios/{s["id"]}/{t}/README.md) | {kind} | {tasks[t]["successful"]} | {m} | {v} |')
-            scene_table.append(f'| [{label}]({t}/README.md) | {kind} | {tasks[t]["successful"]} | {m} | {v} |')
+            comp=load('comparisons/deepseek-flash/summary.json')['tasks'][t]
+            _,dv=metric({'quality':comp['deepseek']['quality']})
+            scene_table.append(f'| [{label}]({t}/README.md) | {kind} | {tasks[t]["successful"]} | {m} | {v} | {dv} |')
             outputs[ROOT/'scenarios'/s['id']/t/'README.md']=task_doc(s,t,methods[t],tasks[t])
             folder=ROOT/'scenarios'/s['id']/t
             for var,title in [('repeat','重复调用'),('rotate','选项标签轮换'),('irrelevant','无关说明')]:
@@ -162,7 +178,9 @@ def build():
         intro.append(f'| [{methods[t]["title"]}](scenarios/{owner[t]}/{t}/robustness/{var}/README.md) | {label} | {v["n"]} | {v["changed_predictions"]} | {v["original_correct"]} | {v["correct"]} |')
     intro += ['', '## 尚未完成的覆盖', '',
               f'另有 [90 项资源的调研与阻塞清单](docs/覆盖与阻塞账本.md)，其中 {sum(bool(r["tested_tasks"]) for r in catalog)} 项入口映射到已有实验；包含同一数据集的重叠入口和工具，不能称为 90 个已测数据集。受限数据、缺失金标、完整医学影像／ECG、其余临床计算器和真实医院流程验证未计入上述已测覆盖。', '']
-    outputs[ROOT/'README.md']='\n'.join(intro)
+    outputs[ROOT/'docs/完整任务统计.md']='\n'.join(intro).replace('](scenarios/', '](../scenarios/').replace('](docs/', '](')
+    from business_readme import render
+    outputs[ROOT/'README.md']=render()
     outputs[ROOT/'docs/场景数据集与实验.md']='\n'.join(['# 场景数据集与实验索引','','所有实际实验均按场景和任务归档：','']+[f'- [{s["title"]}](../scenarios/{s["id"]}/README.md)：{len(s["task_ids"])} 个任务。' for s in scenes]+['','[全部资源来源与未完成项](覆盖与阻塞账本.md) · [资源元数据](../results/medical_catalog.json) · [总指标](../results/all_results.json) · [归档核验统计](../results/archive_summary.json)',''])
     return outputs
 

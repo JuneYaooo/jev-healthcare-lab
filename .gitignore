@@ -9,3 +9,7 @@ __pycache__/
 .DS_Store
 *.log
 .local-*
+
+# Individual comparison caches are consolidated into per-task JSONL archives.
+comparisons/deepseek-flash/runs/
+comparisons/deepseek-flash/attempt_history/

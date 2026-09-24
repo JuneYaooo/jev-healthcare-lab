@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 100 | 34 | 100 | 0 | Accuracy | **67.0%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 67.0% | 35.0% |
+| 最终未能按要求作答 | 0 | 17 |
+| 成功请求典型等待（中位数） | 0.67 秒 | 0.58 秒 |
+| 每千条 API 费用估算 | $0.116 | $0.082 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 取发布演示 CSV 前 100 行，候选为整个 demo 的扩展词表；输入摘要、目标 token 及位置，Choice 选扩展词，对照 LABEL；不是完整 MedAL 独立测试。

@@ -1,0 +1,81 @@
+{
+  "title": "边界挑战：事件时态",
+  "scene": "records",
+  "synthetic": true,
+  "planned": 4,
+  "compared": 4,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 4,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "conditional": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "current": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "past": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.8593326254922431,
+    "cost_usd": 6.3756e-05,
+    "cost_per_1000_usd": 0.015939000000000002
+  },
+  "deepseek": {
+    "quality": {
+      "n": 4,
+      "accuracy": 0.75,
+      "macro_f1_observed_gold_classes": 0.6666666666666666,
+      "per_class": {
+        "conditional": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "current": {
+          "support": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "past": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "unknown": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.39832114599994384,
+    "cost_usd": 0.0001701,
+    "cost_per_1000_usd": 0.042525,
+    "prior_attempts": 0
+  }
+}

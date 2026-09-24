@@ -1,0 +1,35 @@
+{
+  "title": "全文证据句筛选",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 37,
+  "compared": 37,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 490,
+      "fp": 2144,
+      "fn": 211,
+      "precision": 0.18602885345482156,
+      "recall": 0.6990014265335235,
+      "micro_f1": 0.2938530734632684
+    },
+    "latency_median_s": 1.1544144579675049,
+    "cost_usd": 0.022522752000000004,
+    "cost_per_1000_usd": 0.6087230270270272
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 514,
+      "fp": 2759,
+      "fn": 187,
+      "precision": 0.1570424686831653,
+      "recall": 0.7332382310984308,
+      "micro_f1": 0.2586814292903875
+    },
+    "latency_median_s": 2.309602458961308,
+    "cost_usd": 0.07130058600000001,
+    "cost_per_1000_usd": 1.9270428648648652,
+    "prior_attempts": 0
+  }
+}

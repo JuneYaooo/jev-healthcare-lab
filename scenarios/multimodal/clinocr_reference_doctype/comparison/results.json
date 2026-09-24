@@ -1,0 +1,57 @@
+{
+  "title": "参考文本医疗文档类型识别",
+  "scene": "multimodal",
+  "synthetic": false,
+  "planned": 6,
+  "compared": 6,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 6,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "medication_list": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "radiology": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.6252964375016745,
+    "cost_usd": 0.00021604800000000004,
+    "cost_per_1000_usd": 0.036008000000000005
+  },
+  "deepseek": {
+    "quality": {
+      "n": 6,
+      "accuracy": 1.0,
+      "macro_f1_observed_gold_classes": 1.0,
+      "per_class": {
+        "medication_list": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "radiology": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "latency_median_s": 0.5616306875017472,
+    "cost_usd": 0.00027759599999999996,
+    "cost_per_1000_usd": 0.046265999999999995,
+    "prior_attempts": 0
+  }
+}

@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 100 | 100 | 100 | 0 | Accuracy | **67.0%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 67.0% | 71.0% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.69 秒 | 0.58 秒 |
+| 每千条 API 费用估算 | $0.072 | $0.095 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 原始站点访问失败后使用第三方镜像 test.csv 前 1 MiB 的 1,574 条完整记录，固定抽 100 条；输入已出现的症状，Choice 在 49 个病种中选主要诊断；非全量测试分布。

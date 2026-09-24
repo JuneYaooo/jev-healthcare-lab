@@ -1,0 +1,35 @@
+{
+  "title": "中文医学考试多选",
+  "scene": "knowledge",
+  "synthetic": false,
+  "planned": 5,
+  "compared": 5,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 11,
+      "fp": 3,
+      "fn": 4,
+      "precision": 0.7857142857142857,
+      "recall": 0.7333333333333333,
+      "micro_f1": 0.7586206896551724
+    },
+    "latency_median_s": 0.9037813330069184,
+    "cost_usd": 8.954400000000001e-05,
+    "cost_per_1000_usd": 0.0179088
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 14,
+      "fp": 3,
+      "fn": 1,
+      "precision": 0.8235294117647058,
+      "recall": 0.9333333333333333,
+      "micro_f1": 0.875
+    },
+    "latency_median_s": 0.539696833002381,
+    "cost_usd": 0.00022271999999999998,
+    "cost_per_1000_usd": 0.044544,
+    "prior_attempts": 0
+  }
+}

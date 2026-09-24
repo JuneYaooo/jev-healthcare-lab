@@ -1,273 +1,69 @@
-# Jev 医疗场景评测统计
+# Jev 在医疗任务中表现如何？
 
-**12 类医疗场景 · 96 个主评测任务条件 · 6,886 条计分记录**
+这份对比帮助医疗机构、医疗产品团队和行业从业者判断：**Jev 能做好哪些工作，和 DeepSeek 相比准不准、快不快、花多少钱。**
 
-主评测包含 **72 个公开数据／材料适配任务 + 24 个自编边界挑战任务**，共 **6,586 条记录**；另有 **15 组配对扰动实验、300 条额外记录**。其中 **6,843 条有真实 API 响应，43 条无实体候选由程序输出空预测**。
+## 先看结论
 
-每个任务均有独立实验目录，保留实际测试输入、金标、完整提示词、模型响应、评分结果和方法说明。测试记录包含同一病例的多个字段或条件，不是独立患者数；Accuracy 与 micro-F1 分别列示，不混算总体准确率。
+- **Jev 在部分明确、范围小的判断任务上表现较好。** 已分段病历的章节分类正确率 99%，已给定实体的类型识别 96%，给定完整长病历的选择题 95%。这些结果支持进一步做场景验证，不能当作整份病历处理准确率。
+- **入组判断、复杂抽取和临床评分仍不可靠。** 患者与试验适配三分类正确率 48%，五种量表数值判断 25%，研究要素抽取综合分 12.7/100；这些任务目前不能直接交给 Jev 自动决策。
+- **同题对比中，Jev 在更多任务上得分更高。** 72 项公开数据测试中，Jev 更高 39 项，DeepSeek 更高 27 项，持平 6 项。不同任务不能混成一个“医疗总准确率”。
+- **费用和速度要分开看。** 这批题每千条 API 费用约为 Jev $0.057、DeepSeek $0.130，Jev 费用约低 56%；典型等待分别为 0.75 秒和 0.55 秒。下面列出具体口径。
 
-## 场景覆盖
+## Jev 与 DeepSeek：效果、等待时间、费用
 
-| 医疗场景 | 数据适配任务 | 自编挑战任务 | 主评测记录 | 额外扰动记录 |
-| --- | ---: | ---: | ---: | ---: |
-| [病历实体、否定状态与术语标准化](scenarios/records/README.md) | 11 | 7 | 1,128 | 60 |
-| [病历章节、文书质控与随访记录](scenarios/documentation/README.md) | 2 | 3 | 212 | 0 |
-| [患者咨询、服务路由与就医流程](scenarios/service/README.md) | 7 | 2 | 708 | 0 |
-| [医疗质控、幻觉识别与请求安全](scenarios/quality/README.md) | 8 | 3 | 1,109 | 60 |
-| [药物关系、用药变更与出院带药](scenarios/medication/README.md) | 3 | 4 | 366 | 60 |
-| [患者入组预筛与临床试验匹配](scenarios/trials/README.md) | 3 | 0 | 350 | 0 |
-| [循证研究、PICO 与公共卫生核查](scenarios/evidence/README.md) | 9 | 1 | 859 | 0 |
-| [临床计算、参数选择与评分量表](scenarios/calculators/README.md) | 5 | 3 | 514 | 60 |
-| [医学知识与考试对照](scenarios/knowledge/README.md) | 5 | 0 | 400 | 60 |
-| [语音病历、医疗文档 OCR 与报告断言](scenarios/multimodal/README.md) | 4 | 1 | 40 | 0 |
-| [合成病例主要诊断](scenarios/acute/README.md) | 1 | 0 | 100 | 0 |
-| [中医知识、辨证与安全](scenarios/tcm/README.md) | 14 | 0 | 800 | 0 |
-| **合计** | **72** | **24** | **6,586** | **300** |
+两者使用同一批 **6,586 条输入**，覆盖 **12 类医疗工作、96 项具体测试**。其中 72 项来自公开数据，24 项为自编小样本边界测试；上面的胜负统计只使用前 72 项。
 
-“覆盖”仅指下列已测文本任务与适配链路。例如语音／OCR 场景已测转写后的字段与文档类型，不能理解为已完成医学影像识别或 ECG 诊断。
+| 对比项 | Jev 1.13 | DeepSeek V4.1 Flash（非思考模式） |
+| --- | ---: | ---: |
+| 得分更高的公开数据任务 | 39 / 72 | 27 / 72 |
+| 最终未能按要求作答的输入 | 0 | 29 |
+| 成功请求典型等待：一半在此时间内完成 | 0.75 秒 | 0.55 秒 |
+| 每千条输入的 API 费用估算 | $0.057 | $0.130 |
+| 这批 6,586 条输入的 API 费用估算 | $0.376 | $0.853 |
 
-## 各场景任务与结果
+**怎么看时间和费用**：时间是成功请求从发出到收到完整回答的网络等待，失败尝试和重试前的等待不计入中位数，Jev 来自历史真实记录，DeepSeek 为本次调用，**不是同期测速**。费用按实际 token 用量和官方价格估算，以美元统一列示；DeepSeek 包含实际缓存命中折扣。每条输入可能是一段文本、一道题或一个字段，**不是一份完整病历**；费用不包含 OCR、语音识别、人工复核和系统接入。
 
-### 病历实体、否定状态与术语标准化
+DeepSeek 的旧名 `deepseek-v4-flash` 已转接到 V4.1 Flash，本表使用实际提供服务的版本。两者接收相同内容和问题，输出格式按各自接口适配。未能作答的输入仍计入评分，不从题数中删除；完整计分方法、失败记录及用量见 [对比实验详情](comparisons/deepseek-flash/README.md)。
 
-给定实体边界的类型分类与端到端抽取分开看；LongHealth 为 20 个虚构患者的 100 个问题。
+## 放到具体医疗工作里，表现怎样？
 
-**主要结果**：IMCS 类型 Accuracy 96%；端到端 F1 59.5%；NCBI 管线 F1 69.4%；LongHealth Accuracy 95%。
+下表为事先选定的代表任务，不是各场景平均分。**正确率**表示有多少题答对；**抽取综合分**同时衡量漏检和误报，满分 100，不能当作正确率。
 
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/README.md) | 实体状态分类 | 100 | Accuracy | 79.0% |
-| [中文给定实体类型识别](scenarios/records/imcs_entity_type_oracle_span/README.md) | 实体类型分类 | 100 | Accuracy | 96.0% |
-| [中文词典候选实体抽取](scenarios/records/imcs_ner_dictionary_pipeline/README.md) | 实体抽取与筛选 | 100 | micro-F1 | 59.5% |
-| [中文症状术语归一化](scenarios/records/imcs_normalization_top20/README.md) | 术语归一化 | 100 | Accuracy | 93.0% |
-| [英文句子否定与不确定线索](scenarios/records/bioscope_sentence_cues/README.md) | 句子线索分类 | 100 | Accuracy | 83.0% |
-| [西班牙文否定与不确定性](scenarios/records/nubes_scope_status/README.md) | 实体状态分类 | 100 | Accuracy | 72.0% |
-| [给定疾病实体类别](scenarios/records/ncbi_disease_category_oracle_span/README.md) | 实体类型分类 | 100 | Accuracy | 58.0% |
-| [medspaCy 候选与 Jev 疾病实体筛选](scenarios/records/ncbi_medspacy_jev_ner/README.md) | 实体抽取与筛选 | 100 | micro-F1 | 69.4% |
-| [医学实体 UMLS 语义类型](scenarios/records/medmentions_type_oracle_span/README.md) | 实体类型分类 | 100 | Accuracy | 60.0% |
-| [医学缩写消歧](scenarios/records/medal_demo_disambiguation/README.md) | 缩写消歧 | 100 | Accuracy | 67.0% |
-| [长病历跨文档问答](scenarios/records/longhealth_full_context/README.md) | 证据问答 | 100 | Accuracy | 95.0% |
-| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 编码证据判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 主体归属判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 跨语言语义判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 否定识别 | 4 | Accuracy | 100.0% |
-| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 相对时间解析 | 4 | Accuracy | 100.0% |
-| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 社会背景识别 | 4 | Accuracy | 100.0% |
-| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 事件时态判断 | 4 | Accuracy | 100.0% |
+| 医疗工作 | 测了什么 | 题数 | Jev | DeepSeek | 读结果时注意 |
+| --- | --- | ---: | ---: | ---: | --- |
+| 病历信息整理 | [识别已圈出的症状、药品等实体类型](scenarios/records/imcs_entity_type_oracle_span/README.md) | 100 | 96.0% 正确率 | 92.0% 正确率 | 这里只判断类型，实体位置已给出 |
+| 病历信息整理 | [从中文句子中找出医疗实体](scenarios/records/imcs_ner_dictionary_pipeline/README.md) | 100 | 59.5 分·抽取综合分 | 59.2 分·抽取综合分 | 同时看漏检和误报 |
+| 文书归档 | [判断文本属于哪一类病历章节](scenarios/documentation/aci_note_section/README.md) | 100 | 99.0% 正确率 | 100.0% 正确率 | 章节边界已给出，不是自动写病历 |
+| 患者咨询 | [判断患者在问症状、病因还是其他信息](scenarios/service/medquad_question_type/README.md) | 100 | 96.0% 正确率 | 97.0% 正确率 | 评测问题分类，不是回复质量 |
+| 病历质控 | [发现病历中的医学错误](scenarios/quality/medec_error_detection/README.md) | 100 | 65.0% 正确率 | 60.0% 正确率 | 不能只看总体分，还要看漏错 |
+| 回答核查 | [结合参考证据识别医学回答幻觉](scenarios/quality/medhallu_with_evidence/README.md) | 200 | 82.0% 正确率 | 82.5% 正确率 | 已提供证据，不含联网检索 |
+| 药物信息 | [筛选出院带药候选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 100 | 48.6 分·抽取综合分 | 47.9 分·抽取综合分 | 不是可直接用于处方的验证 |
+| 临床试验 | [初筛患者是否适合某个试验](scenarios/trials/trialgpt_sigir_referral/README.md) | 150 | 48.0% 正确率 | 54.7% 正确率 | 还需人工逐条核对纳排标准 |
+| 医学研究 | [识别研究人群、干预和结局片段](scenarios/evidence/ebm_pico_fixed_windows/README.md) | 100 | 12.7 分·抽取综合分 | 25.4 分·抽取综合分 | 评测固定文本窗口，不是全文综述 |
+| 临床评分 | [从病历判断五种量表的数值](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 100 | 25.0% 正确率 | 31.0% 正确率 | 未提供公式，不能外推所有计算器 |
+| 医学知识 | [回答中文医学选择题](scenarios/knowledge/medqa_zh_test/README.md) | 100 | 89.0% 正确率 | 84.0% 正确率 | 考试成绩不等于临床诊断能力 |
+| 语音病历 | [从语音转写中判断病史字段](scenarios/multimodal/primock_asr_fields/README.md) | 12 | 91.7% 正确率 | 91.7% 正确率 | 只有一段扮演患者音频、12 个字段 |
+| 病例判断 | [为合成病例选择主要诊断](scenarios/acute/ddxplus_synthetic_primary/README.md) | 100 | 67.0% 正确率 | 71.0% 正确率 | 合成病例，不是真实临床诊断 |
+| 中医辨证 | [从中医病例中选择证型](scenarios/tcm/tcm_syndrome/README.md) | 100 | 33.0% 正确率 | 40.0% 正确率 | 候选共 148 个证型及无法判断选项 |
 
-### 病历章节、文书质控与随访记录
+## 有哪些场景和测试？
 
-已测章节分类；尚未验证从医患对话生成完整病历或真实交接班质量。
+| 场景 | 具体测试数 | 输入记录数 |
+| --- | ---: | ---: |
+| [病历实体、否定状态与术语标准化](scenarios/records/README.md) | 18 | 1,128 |
+| [病历章节、文书质控与随访记录](scenarios/documentation/README.md) | 5 | 212 |
+| [患者咨询、服务路由与就医流程](scenarios/service/README.md) | 9 | 708 |
+| [医疗质控、幻觉识别与请求安全](scenarios/quality/README.md) | 11 | 1,109 |
+| [药物关系、用药变更与出院带药](scenarios/medication/README.md) | 7 | 366 |
+| [患者入组预筛与临床试验匹配](scenarios/trials/README.md) | 3 | 350 |
+| [循证研究、PICO 与公共卫生核查](scenarios/evidence/README.md) | 10 | 859 |
+| [临床计算、参数选择与评分量表](scenarios/calculators/README.md) | 8 | 514 |
+| [医学知识与考试对照](scenarios/knowledge/README.md) | 5 | 400 |
+| [语音病历、医疗文档 OCR 与报告断言](scenarios/multimodal/README.md) | 5 | 40 |
+| [合成病例主要诊断](scenarios/acute/README.md) | 1 | 100 |
+| [中医知识、辨证与安全](scenarios/tcm/README.md) | 14 | 800 |
+| **合计** | **96** | **6,586** |
 
-**主要结果**：MTS Accuracy 76%；ACI 已给定章节边界 Accuracy 99%。
+点击场景可看全部任务；点击任务可看测试数据、提示词、模型回答、逐项分数和费用。原有的重复调用、选项换序等稳定性测试保留在 [实验统计详情](docs/完整任务统计.md)，不计入本次模型对比分数。
 
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [问诊对话对应病历章节](scenarios/documentation/mts_section_classification/README.md) | 章节分类 | 100 | Accuracy | 76.0% |
-| [已分段病历章节分类](scenarios/documentation/aci_note_section/README.md) | 章节分类 | 100 | Accuracy | 99.0% |
-| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 文档类型分类 | 4 | Accuracy | 100.0% |
-| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 文书缺项判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 行动项识别 | 4 | Accuracy | 100.0% |
-
-### 患者咨询、服务路由与就医流程
-
-MedQuAD 测问题类型；MedJourney 的科室多标签与四类选择题不是实际分诊效果。
-
-**主要结果**：MedQuAD Accuracy 96%；MedJourney 科室 micro-F1 36.9%，选择题 Accuracy 82%–92%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [中文问诊对话行为分类](scenarios/service/imcs_dialogue_act/README.md) | 意图分类 | 100 | Accuracy | 70.0% |
-| [患者问题信息需求分类](scenarios/service/medquad_question_type/README.md) | 意图分类 | 100 | Accuracy | 96.0% |
-| [主诉推荐就诊科室](scenarios/service/medjourney_departments/README.md) | 多标签科室推荐 | 100 | micro-F1 | 36.9% |
-| [MedJourney 诊断预测选择题](scenarios/service/medjourney_dp_mcq/README.md) | 单选问答 | 100 | Accuracy | 92.0% |
-| [MedJourney 检查预测选择题](scenarios/service/medjourney_ep_mcq/README.md) | 单选问答 | 100 | Accuracy | 82.0% |
-| [MedJourney 用药预测选择题](scenarios/service/medjourney_mp_mcq/README.md) | 单选问答 | 100 | Accuracy | 86.0% |
-| [MedJourney 治疗预测选择题](scenarios/service/medjourney_tp_mcq/README.md) | 单选问答 | 100 | Accuracy | 83.0% |
-| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 服务路由分类 | 4 | Accuracy | 100.0% |
-| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 规则紧急程度分类 | 4 | Accuracy | 100.0% |
-
-### 医疗质控、幻觉识别与请求安全
-
-错误检出、错误定位、回答幻觉和请求安全是不同任务；MedSafety 的正常／有害来源存在混杂。
-
-**主要结果**：MEDEC 检出 Accuracy 65%；MedHallu 有证据 Accuracy 82%；请求安全 Accuracy 93.5%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [医疗叙述错误检出](scenarios/quality/medec_error_detection/README.md) | 错误检出 | 100 | Accuracy | 65.0% |
-| [医疗叙述错误定位](scenarios/quality/medec_error_localization/README.md) | 错误定位 | 100 | Accuracy | 72.0% |
-| [阿拉伯文医疗文本错误检出](scenarios/quality/mederrbench_ARA/README.md) | 错误检出 | 97 | Accuracy | 69.1% |
-| [中文医疗文本错误检出](scenarios/quality/mederrbench_CN/README.md) | 错误检出 | 100 | Accuracy | 73.0% |
-| [英文医疗文本错误检出](scenarios/quality/mederrbench_EN/README.md) | 错误检出 | 100 | Accuracy | 81.0% |
-| [医学回答幻觉识别：有证据](scenarios/quality/medhallu_with_evidence/README.md) | 幻觉识别 | 200 | Accuracy | 82.0% |
-| [医学回答幻觉识别：无证据](scenarios/quality/medhallu_without_evidence/README.md) | 幻觉识别 | 200 | Accuracy | 60.0% |
-| [医疗有害请求筛查](scenarios/quality/medsafety_request_gate/README.md) | 请求安全分类 | 200 | Accuracy | 93.5% |
-| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 矛盾检测 | 4 | Accuracy | 100.0% |
-| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 隐私信息识别 | 4 | Accuracy | 75.0% |
-| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 提示注入抵抗 | 4 | Accuracy | 100.0% |
-
-### 药物关系、用药变更与出院带药
-
-关系任务给定实体；CDrugRed 为发布训练池按患者分离的留出样本，不是官方隐藏测试。
-
-**主要结果**：DDI Accuracy 79.3%；BC5CDR Accuracy 57%；出院带药 micro-F1 48.6%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [化学物致病关系判断](scenarios/medication/bc5cdr_relation_oracle_entities/README.md) | 关系分类 | 100 | Accuracy | 57.0% |
-| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/README.md) | 关系分类 | 150 | Accuracy | 79.3% |
-| [出院带药候选筛选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 多标签候选筛选 | 100 | micro-F1 | 48.6% |
-| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 过敏状态判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 剂量关联判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 频次解析 | 4 | Accuracy | 100.0% |
-| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 用药变更判断 | 4 | Accuracy | 100.0% |
-
-### 患者入组预筛与临床试验匹配
-
-NLI4CT 测证据材料上的判断与定位；TrialGPT 为直接三分类，不是完整检索排序和逐条纳排推理。
-
-**主要结果**：TrialGPT 三分类 Accuracy 48%；NLI4CT 判断 Accuracy 88%，证据 micro-F1 49.9%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [临床试验证据支持判断](scenarios/trials/nli4ct_entailment/README.md) | 文本蕴含判断 | 100 | Accuracy | 88.0% |
-| [临床试验证据句定位](scenarios/trials/nli4ct_evidence/README.md) | 证据句筛选 | 100 | micro-F1 | 49.9% |
-| [患者与临床试验入组预筛](scenarios/trials/trialgpt_sigir_referral/README.md) | 入组适配分类 | 150 | Accuracy | 48.0% |
-
-### 循证研究、PICO 与公共卫生核查
-
-提供证据的判断不能替代检索评价；固定窗口分类与原始序列抽取指标不同。
-
-**主要结果**：PICO micro-F1 12.7%；EvidenceBench micro-F1 29.4%；PubMedQA Accuracy 74%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [PICO 固定窗口识别](scenarios/evidence/ebm_pico_fixed_windows/README.md) | PICO 多标签识别 | 100 | micro-F1 | 12.7% |
-| [临床研究干预结果方向](scenarios/evidence/evidence_inference_fulltext/README.md) | 干预效果方向分类 | 100 | Accuracy | 89.0% |
-| [研究结局固定窗口分类](scenarios/evidence/evidenceoutcomes_fixed_window/README.md) | 研究结局识别 | 100 | Accuracy | 88.0% |
-| [全文证据句筛选](scenarios/evidence/evidencebench_sentence_selection/README.md) | 证据句筛选 | 37 | micro-F1 | 29.4% |
-| [摘要支持的研究问题回答](scenarios/evidence/pubmedqa_evidence_qa/README.md) | 证据问答 | 100 | Accuracy | 74.0% |
-| [RCT 摘要句功能分类](scenarios/evidence/pubmed_rct_section/README.md) | 章节分类 | 100 | Accuracy | 75.0% |
-| [科学论断与给定摘要一致性](scenarios/evidence/scifact_cited_abstract/README.md) | 文本蕴含判断 | 118 | Accuracy | 85.6% |
-| [公共卫生核查：仅论断](scenarios/evidence/pubhealth_claim_only/README.md) | 事实核查分类 | 100 | Accuracy | 20.0% |
-| [公共卫生核查：提供核查文章](scenarios/evidence/pubhealth_with_article/README.md) | 事实核查分类 | 100 | Accuracy | 67.0% |
-| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 证据支持判断 | 4 | Accuracy | 100.0% |
-
-### 临床计算、参数选择与评分量表
-
-参数选择与公式执行分开记录；Verified 只适配 5 种评分各 20 条，不是全部计算器。
-
-**主要结果**：输入充分性 Accuracy 81.5%；分级 Accuracy 60.5%；Verified Accuracy 25%；BMI 参数对 17/20。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [BMI 当前身高参数选择](scenarios/calculators/bmi_height_selection/README.md) | 数值参数选择 | 20 | Accuracy | 95.0% |
-| [BMI 当前体重参数选择](scenarios/calculators/bmi_weight_selection/README.md) | 数值参数选择 | 20 | Accuracy | 95.0% |
-| [临床计算输入充分性](scenarios/calculators/cmedcalc_input_sufficiency/README.md) | 输入充分性判断 | 200 | Accuracy | 81.5% |
-| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/README.md) | 量表分级 | 162 | Accuracy | 60.5% |
-| [五种临床量表闭集数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 闭集数值评分 | 100 | Accuracy | 25.0% |
-| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 检验数值关联 | 4 | Accuracy | 100.0% |
-| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 输入充分性判断 | 4 | Accuracy | 100.0% |
-| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 单位等价判断 | 4 | Accuracy | 100.0% |
-
-### 医学知识与考试对照
-
-选择题用于能力对照，不能外推诊断、处方或医院工作流可靠性。
-
-**主要结果**：MedQA 英／中 Accuracy 83%／89%；MedMCQA Accuracy 72%；CMExam 单选 Accuracy 92.6%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [英文 MedQA医学考试](scenarios/knowledge/medqa_en_test/README.md) | 单选问答 | 100 | Accuracy | 83.0% |
-| [中文 MedQA医学考试](scenarios/knowledge/medqa_zh_test/README.md) | 单选问答 | 100 | Accuracy | 89.0% |
-| [MedMCQA医学考试](scenarios/knowledge/medmcqa_validation/README.md) | 单选问答 | 100 | Accuracy | 72.0% |
-| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/README.md) | 单选问答 | 95 | Accuracy | 92.6% |
-| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 多选问答 | 5 | micro-F1 | 75.9% |
-
-### 语音病历、医疗文档 OCR 与报告断言
-
-实际执行 ASR 与 OCR；仅一段扮演患者音频、六份文档且只有两种模板。影像和 ECG 尚未运行。
-
-**主要结果**：ASR 字段 11/12；OCR 文档类型 5/6；影像／ECG 未测。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 病史字段判断 | 12 | Accuracy | 91.7% |
-| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 病史字段判断 | 12 | Accuracy | 100.0% |
-| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 文档类型分类 | 6 | Accuracy | 83.3% |
-| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 文档类型分类 | 6 | Accuracy | 100.0% |
-| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 报告断言判断 | 4 | Accuracy | 100.0% |
-
-### 合成病例主要诊断
-
-当前只有 DDXPlus 合成鉴别诊断实测；使用第三方镜像有限前缀抽样，不能代表急诊或 ICU 验证。
-
-**主要结果**：DDXPlus 合成病例 Accuracy 67%；真实急诊与 ICU 未测。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [合成病例主要诊断](scenarios/acute/ddxplus_synthetic_primary/README.md) | 诊断分类 | 100 | Accuracy | 67.0% |
-
-### 中医知识、辨证与安全
-
-单选 Accuracy 与多选 micro-F1 分列；TCM-BEST 安全项为标签一致率，部分标签存在过度拒绝倾向。
-
-**主要结果**：TCM-SD Accuracy 33%；BEST 单／多选分列，安全标签一致率 27%。
-
-| 任务（点击查看完整方法与数据） | 任务类型 | 记录数 | 指标 | 结果 |
-| --- | --- | ---: | --- | ---: |
-| [中医病历证型分类](scenarios/tcm/tcm_syndrome/README.md) | 证型分类 | 100 | Accuracy | 33.0% |
-| [医学伦理单选](scenarios/tcm/tcm_best_ethics/README.md) | 单选问答 | 97 | Accuracy | 89.7% |
-| [医学伦理多选](scenarios/tcm/tcm_best_ethics_multi/README.md) | 多选问答 | 3 | micro-F1 | 81.8% |
-| [中医基础知识单选](scenarios/tcm/tcm_best_knowledge/README.md) | 单选问答 | 89 | Accuracy | 91.0% |
-| [中医基础知识多选](scenarios/tcm/tcm_best_knowledge_multi/README.md) | 多选问答 | 11 | micro-F1 | 79.3% |
-| [中医病位单选](scenarios/tcm/tcm_best_location/README.md) | 单选问答 | 21 | Accuracy | 81.0% |
-| [中医病位多选](scenarios/tcm/tcm_best_location_multi/README.md) | 多选问答 | 79 | micro-F1 | 64.8% |
-| [中医病性单选](scenarios/tcm/tcm_best_nature/README.md) | 单选问答 | 99 | Accuracy | 69.7% |
-| [中医病性多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 多选问答 | 1 | micro-F1 | 80.0% |
-| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 单选问答 | 3 | Accuracy | 100.0% |
-| [中医治则治法多选](scenarios/tcm/tcm_best_principles_multi/README.md) | 多选问答 | 97 | micro-F1 | 70.3% |
-| [中医证型单选](scenarios/tcm/tcm_best_syndrome/README.md) | 单选问答 | 68 | Accuracy | 80.9% |
-| [中医证型多选](scenarios/tcm/tcm_best_syndrome_multi/README.md) | 多选问答 | 32 | micro-F1 | 52.8% |
-| [中医安全问题标签一致性](scenarios/tcm/tcm_best_安全问题/README.md) | 安全标签分类 | 100 | Accuracy | 27.0% |
-
-## 基线与配对实验
-
-| 实验 | 对照结果 | 详细实验 |
-| --- | --- | --- |
-| 中文实体抽取 | 词典 micro-F1 42.6% → Jev 59.5% | [输入、响应与基线](scenarios/records/imcs_ner_dictionary_pipeline/README.md) |
-| 中文术语归一化 | 规则 Accuracy 98% → Jev 93% | [输入、响应与基线](scenarios/records/imcs_normalization_top20/README.md) |
-| 英文实体抽取 | medspaCy micro-F1 58.9% → Jev 69.4% | [候选与基线](scenarios/records/ncbi_medspacy_jev_ner/README.md) |
-| 出院带药 | top-5 micro-F1 25.4% → Jev 48.6% | [候选与基线](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) |
-| BMI 参数 + 公式 | 首个候选正确参数对 14/20 → Jev 17/20 | [逐病例联合结果](scenarios/calculators/bmi_weight_selection/hybrid.json) |
-| MedHallu 证据消融 | 无证据 Accuracy 60% → 有证据 82% | [有证据](scenarios/quality/medhallu_with_evidence/README.md) / [无证据](scenarios/quality/medhallu_without_evidence/README.md) |
-| PUBHEALTH 证据消融 | 仅论断 Accuracy 20% → 提供核查文章 67% | [仅论断](scenarios/evidence/pubhealth_claim_only/README.md) / [核查文章](scenarios/evidence/pubhealth_with_article/README.md) |
-| ASR 误差传播 | Whisper WER 32.2%；参考字段 12/12 → ASR 字段 11/12 | [音频、转写与 Jev 实验](scenarios/multimodal/primock_asr_fields/README.md) |
-| OCR 误差传播 | 参考文档类型 6/6 → OCR 文本类型 5/6 | [扫描图、识别文本与 Jev 实验](scenarios/multimodal/clinocr_ocr_doctype/README.md) |
-
-以上基线和配对条件已包含于主评测及关联统计，不再次累计样本。
-
-## 鲁棒性实验
-
-| 主任务 | 扰动 | 记录数 | 预测改变 | 原条件正确 | 扰动后正确 |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/robustness/repeat/README.md) | 重复调用 | 20 | 0 | 16 | 16 |
-| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/robustness/rotate/README.md) | 标签轮换 | 20 | 0 | 16 | 16 |
-| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/robustness/irrelevant/README.md) | 无关说明 | 20 | 0 | 16 | 16 |
-| [医疗叙述错误检出](scenarios/quality/medec_error_detection/robustness/repeat/README.md) | 重复调用 | 20 | 0 | 13 | 13 |
-| [医疗叙述错误检出](scenarios/quality/medec_error_detection/robustness/rotate/README.md) | 标签轮换 | 20 | 1 | 13 | 14 |
-| [医疗叙述错误检出](scenarios/quality/medec_error_detection/robustness/irrelevant/README.md) | 无关说明 | 20 | 0 | 13 | 13 |
-| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/robustness/repeat/README.md) | 重复调用 | 20 | 1 | 16 | 17 |
-| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/robustness/rotate/README.md) | 标签轮换 | 20 | 1 | 16 | 17 |
-| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/robustness/irrelevant/README.md) | 无关说明 | 20 | 1 | 16 | 17 |
-| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/robustness/repeat/README.md) | 重复调用 | 20 | 0 | 16 | 16 |
-| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/robustness/rotate/README.md) | 标签轮换 | 20 | 6 | 16 | 10 |
-| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/robustness/irrelevant/README.md) | 无关说明 | 20 | 0 | 16 | 16 |
-| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/robustness/repeat/README.md) | 重复调用 | 20 | 0 | 19 | 19 |
-| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/robustness/rotate/README.md) | 标签轮换 | 20 | 0 | 19 | 19 |
-| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/robustness/irrelevant/README.md) | 无关说明 | 20 | 2 | 19 | 17 |
-
-## 尚未完成的覆盖
-
-另有 [90 项资源的调研与阻塞清单](docs/覆盖与阻塞账本.md)，其中 39 项入口映射到已有实验；包含同一数据集的重叠入口和工具，不能称为 90 个已测数据集。受限数据、缺失金标、完整医学影像／ECG、其余临床计算器和真实医院流程验证未计入上述已测覆盖。
+这些是公开数据及人工构造材料上的离线测试，尚未证明医院实际节省了多少工时。选择模型时，应以准备接入的具体工作为准，尤其要核对错误类型和人工复核成本。

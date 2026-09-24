@@ -6,6 +6,19 @@
 | ---: | ---: | ---: | ---: | --- | ---: |
 | 12 | 1 | 12 | 0 | Accuracy | **91.7%** |
 
+## 和 DeepSeek 同题比较
+
+| 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
+| --- | ---: | ---: |
+| Accuracy | 91.7% | 91.7% |
+| 最终未能按要求作答 | 0 | 0 |
+| 成功请求典型等待（中位数） | 0.61 秒 | 0.60 秒 |
+| 每千条 API 费用估算 | $0.036 | $0.100 |
+
+同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
+
+[DeepSeek 原始回答](comparison/deepseek_responses.jsonl) · [本任务对比结果](comparison/results.json) · [完整对比方法](../../../comparisons/deepseek-flash/README.md)
+
 ## Jev 如何评测
 
 同一段 457.92 秒扮演患者音频；使用 Whisper tiny.en-q5_1 实际转写，完整转写分别搭配 12 个字段 Choice 问题；金标由原实验根据参考文本人工定义，两条件共用金标。

@@ -1,0 +1,942 @@
+[
+  {
+    "path": "scenarios/service/medjourney_dp_mcq/comparison/deepseek_responses.jsonl",
+    "sha256": "26529e87b327c1771ccff744b249418be197be0a1e072d7a591f64c5e518c83d"
+  },
+  {
+    "path": "scenarios/service/medjourney_dp_mcq/comparison/results.json",
+    "sha256": "a1c9332d0e4d061ed6d369098cfcf57ff7412b9f66688534ca6c199532019f1b"
+  },
+  {
+    "path": "scenarios/service/medjourney_dp_mcq/comparison/deepseek_attempts.jsonl",
+    "sha256": "eacab5ae6a064928274b9c2eed1b625e7667113a02298b84254be4a265e1ccb6"
+  },
+  {
+    "path": "scenarios/evidence/ebm_pico_fixed_windows/comparison/deepseek_responses.jsonl",
+    "sha256": "bcc7db9dc36be28fd32e4c56e4d819c1c66eb2dd7f51eb2f3fbcee7653be93e0"
+  },
+  {
+    "path": "scenarios/evidence/ebm_pico_fixed_windows/comparison/results.json",
+    "sha256": "377b3e4830b578f1df8ba139e9372e05cb11efea17f9da6b42ba54d6b0e50539"
+  },
+  {
+    "path": "scenarios/calculators/medcalc_verified_bounded_score/comparison/deepseek_responses.jsonl",
+    "sha256": "b02a27bf7aa862246116c34411220afd3ec29a0f553972a100c8a578685f530a"
+  },
+  {
+    "path": "scenarios/calculators/medcalc_verified_bounded_score/comparison/results.json",
+    "sha256": "46902af6cdc292d03601d4e3cc555c223198d944cf9ccb6d71c27ac5501d5c85"
+  },
+  {
+    "path": "scenarios/calculators/medcalc_verified_bounded_score/comparison/deepseek_attempts.jsonl",
+    "sha256": "d6145ffe4bc185b37abeef2f2aa1f585d847fae71f4809df48005b00eb91c670"
+  },
+  {
+    "path": "scenarios/evidence/scifact_cited_abstract/comparison/deepseek_responses.jsonl",
+    "sha256": "e87a2ee6c10aefb49fff5ea1d3bdd3af0b760cde263d4162b1b9e9736b1d10c9"
+  },
+  {
+    "path": "scenarios/evidence/scifact_cited_abstract/comparison/results.json",
+    "sha256": "4151ce005d783addbbac72dec59681d18ecf706d6ce6c856e71eb17a6c79e78c"
+  },
+  {
+    "path": "scenarios/evidence/scifact_cited_abstract/comparison/deepseek_attempts.jsonl",
+    "sha256": "b08efc9b7a297415dfab5701bc5d8adbd1207a7c3fd447bf50b1d95d50265682"
+  },
+  {
+    "path": "scenarios/trials/trialgpt_sigir_referral/comparison/deepseek_responses.jsonl",
+    "sha256": "f3e192ce82902785e49745abef90699ab4fe3397b0cff83c442f375da929d934"
+  },
+  {
+    "path": "scenarios/trials/trialgpt_sigir_referral/comparison/results.json",
+    "sha256": "b1a968eb58860d1d3402846d56d764758d7fdc2b77ab365ce82e3cb20d27d09d"
+  },
+  {
+    "path": "scenarios/trials/trialgpt_sigir_referral/comparison/deepseek_attempts.jsonl",
+    "sha256": "24232bc01fe3b034c3b627c4bc4a6a8a389815605aa0b9ba544f6cf8e5bf5a62"
+  },
+  {
+    "path": "scenarios/evidence/pubhealth_with_article/comparison/deepseek_responses.jsonl",
+    "sha256": "ca2c77ea9f96737c87ed735fc162bfbf6359d3304a3826ed0d9669307c475b4f"
+  },
+  {
+    "path": "scenarios/evidence/pubhealth_with_article/comparison/results.json",
+    "sha256": "bbaf82b173c5564fef3a24f3fd94a7160ee47782c7a8b7c6b42091d09d251892"
+  },
+  {
+    "path": "scenarios/evidence/pubhealth_with_article/comparison/deepseek_attempts.jsonl",
+    "sha256": "642220564dc003f28f5ef175d21574550d4739c9f4dde2c385d1003c0cccc838"
+  },
+  {
+    "path": "scenarios/medication/bc5cdr_relation_oracle_entities/comparison/deepseek_responses.jsonl",
+    "sha256": "d5c029b9cff8ec0d456535b445954a6eb49e6e055956ec0424f55cac7f662335"
+  },
+  {
+    "path": "scenarios/medication/bc5cdr_relation_oracle_entities/comparison/results.json",
+    "sha256": "dc6418161f833de40bf4bd744d7cdf24066a989757e9ed2ab5fae8215f1cc65f"
+  },
+  {
+    "path": "scenarios/calculators/cmedcalc_input_sufficiency/comparison/deepseek_responses.jsonl",
+    "sha256": "1fab13ecd061f45955bb51aafe4cb45f61401bd426ff4a283d6de8a15f6f64c9"
+  },
+  {
+    "path": "scenarios/calculators/cmedcalc_input_sufficiency/comparison/results.json",
+    "sha256": "6d10c553dd769ad2f37e1b76ca88be39fb14770c24822c7d0e33a2e570869437"
+  },
+  {
+    "path": "scenarios/calculators/cmedcalc_input_sufficiency/comparison/deepseek_attempts.jsonl",
+    "sha256": "c175abdf1cbafdb9591b7848c0ad2510a6e31f284bf04b62c1b086da9b5ea884"
+  },
+  {
+    "path": "scenarios/trials/nli4ct_entailment/comparison/deepseek_responses.jsonl",
+    "sha256": "fa7a14b8302843ec1fc400e12beaa19d00526497b58828ee9dba9e725642f918"
+  },
+  {
+    "path": "scenarios/trials/nli4ct_entailment/comparison/results.json",
+    "sha256": "1d2e8e5aa93484bc7e31f0a030e77be31a470cd78c016fc06e63abc952cf90ed"
+  },
+  {
+    "path": "scenarios/trials/nli4ct_entailment/comparison/deepseek_attempts.jsonl",
+    "sha256": "47cddfb7ad28da4c7cf7967af62b4f50e68ea026ded0d5f0c712c869fc311bf4"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_knowledge/comparison/deepseek_responses.jsonl",
+    "sha256": "23832f9876760392426a4aa329c44b1f267659094af4397371d52d3d1afc8329"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_knowledge/comparison/results.json",
+    "sha256": "f50f27d77a986ea75202d4ad1d355d6c2b099e642753d08c61011b1645efe4bb"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_knowledge/comparison/deepseek_attempts.jsonl",
+    "sha256": "b9dab7721cd3d553c918055a11e822a8325a518ff40f306ae7289b393a0f9924"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_EN/comparison/deepseek_responses.jsonl",
+    "sha256": "cf6a3c68da80c9cc5aa8f41928c3489d5637c560222a81fb714e2306881d607a"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_EN/comparison/results.json",
+    "sha256": "8fc0f23958a54cd31b564c9765091e8d34b1663d546eb844275cf0e2a36c889e"
+  },
+  {
+    "path": "scenarios/records/ncbi_disease_category_oracle_span/comparison/deepseek_responses.jsonl",
+    "sha256": "186c51d27d58abf3483f57528673ad43cee5167e636b6fae9c7ecce5eb7a20c2"
+  },
+  {
+    "path": "scenarios/records/ncbi_disease_category_oracle_span/comparison/results.json",
+    "sha256": "f5638290ab6242ea766aa5b7360444a55e2c5c89df31e99fea6d62303be16940"
+  },
+  {
+    "path": "scenarios/medication/cdrugred_discharge_candidate_pipeline/comparison/deepseek_responses.jsonl",
+    "sha256": "8c43bbd70c7390319d1c5d515016c3e04abda55ece2e821444465503149da11d"
+  },
+  {
+    "path": "scenarios/medication/cdrugred_discharge_candidate_pipeline/comparison/results.json",
+    "sha256": "d583267ce59341486bbcbc2dd7cc0770a6b36f5017e1448359ed666606f50c16"
+  },
+  {
+    "path": "scenarios/medication/cdrugred_discharge_candidate_pipeline/comparison/deepseek_attempts.jsonl",
+    "sha256": "cdaa53ba87b045aabc0593f36b9f9e2aa7b5d3fca887be68f29438f12237ba44"
+  },
+  {
+    "path": "scenarios/records/challenge_experiencer/comparison/deepseek_responses.jsonl",
+    "sha256": "6dd01f083af4fe94a46369d0b8ca3999890354c0666a9f8216acbc97ef0f362c"
+  },
+  {
+    "path": "scenarios/records/challenge_experiencer/comparison/results.json",
+    "sha256": "4e273fdbfc5864de768bd9b9bdd2cfeec64a5e126ee9c5e12daf1c7e8384d475"
+  },
+  {
+    "path": "scenarios/records/imcs_assertion_oracle_span/comparison/deepseek_responses.jsonl",
+    "sha256": "d7506f373fa8c76ea689e1dc8bd1a1a067c2786a9c6ca31549315c69c76c88d8"
+  },
+  {
+    "path": "scenarios/records/imcs_assertion_oracle_span/comparison/results.json",
+    "sha256": "31ec0fe759dfb67f93ed5745fa48e88d28b910ec8a46dd678afaa7e7d1eb511c"
+  },
+  {
+    "path": "scenarios/records/imcs_assertion_oracle_span/comparison/deepseek_attempts.jsonl",
+    "sha256": "55cf2905678a2a94d145df68c211b8a493c2917e01ecd63a53f92ed210692060"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_principles_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "5e11f0af4b1719bfd0596ef38ae76199dbe408a21a77d8a4ad1513c4be8cb61c"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_principles_multi/comparison/results.json",
+    "sha256": "e5fad75e087ee1c30946f852d2732948b4f43f386f3032a1f3f0cf6f302c395c"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_principles_multi/comparison/deepseek_attempts.jsonl",
+    "sha256": "80955d483f8b198ad3aa91699ce210b2cfc2326b15c4f35acc9b2601dcd50c78"
+  },
+  {
+    "path": "scenarios/trials/nli4ct_evidence/comparison/deepseek_responses.jsonl",
+    "sha256": "3ddfccf420282ea27f8e483b60534674bcd99b3630226ab2a6a2ca98360a60ed"
+  },
+  {
+    "path": "scenarios/trials/nli4ct_evidence/comparison/results.json",
+    "sha256": "283988965f8f03f119521111442f49a17e98c58219d87cc20d34be8a260a81d4"
+  },
+  {
+    "path": "scenarios/trials/nli4ct_evidence/comparison/deepseek_attempts.jsonl",
+    "sha256": "a152327acc4d7b4b59d16c7ed77bb48eebe34ecdc8f0cf95531c927f1a87eb69"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_syndrome_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "050e49a1666afffda3daee4f716deb27ff10abeacfffc64a1dbea5801dd9bd0e"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_syndrome_multi/comparison/results.json",
+    "sha256": "c488518b6ed1497c3ff06da1b4cfb229097adbb83aed43145c1e189eef4c90a2"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_syndrome_multi/comparison/deepseek_attempts.jsonl",
+    "sha256": "8a6b1e3953551f29fbcc22a44df05b9894f498d104663d7d1920cdf0b1f3329f"
+  },
+  {
+    "path": "scenarios/acute/ddxplus_synthetic_primary/comparison/deepseek_responses.jsonl",
+    "sha256": "2fb36613ec7793f992020c824695f0b22f6885f852cf4c5cedb008f698593444"
+  },
+  {
+    "path": "scenarios/acute/ddxplus_synthetic_primary/comparison/results.json",
+    "sha256": "4d4f32657adcb529247f8570d5b3b233de6ae9cb54e67cbaaade790c47ea07ed"
+  },
+  {
+    "path": "scenarios/quality/medhallu_without_evidence/comparison/deepseek_responses.jsonl",
+    "sha256": "27945eb2dbaccd330e54566cbb6f2f61c7c248c7b060321d7b928c1f4ae21f8e"
+  },
+  {
+    "path": "scenarios/quality/medhallu_without_evidence/comparison/results.json",
+    "sha256": "43b38d3a4932c2856cf146a6e4e50fe1adf290c143a027b6adc5af8e2e46605a"
+  },
+  {
+    "path": "scenarios/quality/medhallu_without_evidence/comparison/deepseek_attempts.jsonl",
+    "sha256": "132e9c98daec9d667a7c667fd8686fa5ec841f0607cb51d9f687a4d64888479c"
+  },
+  {
+    "path": "scenarios/knowledge/medmcqa_validation/comparison/deepseek_responses.jsonl",
+    "sha256": "09ad6ea0534d8388413b5249c7431553fa149fe9cf87f876bcdff8febc955a0d"
+  },
+  {
+    "path": "scenarios/knowledge/medmcqa_validation/comparison/results.json",
+    "sha256": "fdba5f3055c10a4f16ef8865996d75f5f11b366b7188c324e3cf15d05dcfecfb"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_nature/comparison/deepseek_responses.jsonl",
+    "sha256": "d6cf87d46c76d32edc3c16adc781eb951c77e50854ec2e321b3b9a32051c20b2"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_nature/comparison/results.json",
+    "sha256": "0c07b89f0c855c6c8439d1045c4a4d70291ffc78d85eff199ad231b5395c9231"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_ARA/comparison/deepseek_responses.jsonl",
+    "sha256": "18f22447b457f099f03f0fd6930dadba37a26cc4342c2f4c8f4d9a93a301323f"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_ARA/comparison/results.json",
+    "sha256": "5859c45e5f22f0298d1d91ce58c22ff5f1591366d1380a0cc0559670b6e6acfd"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_ARA/comparison/deepseek_attempts.jsonl",
+    "sha256": "2c13bf1ea527960cc3027f308d924606ea03d8f915bacf2bbac6b941feddeb80"
+  },
+  {
+    "path": "scenarios/records/nubes_scope_status/comparison/deepseek_responses.jsonl",
+    "sha256": "9d43a84334402564f46a7e3547c253637c3a0cd8f6d6f3feac0fa513bbb47172"
+  },
+  {
+    "path": "scenarios/records/nubes_scope_status/comparison/results.json",
+    "sha256": "6c150636ae71ea7ba46d8c85df7ab026b4f6bf7938e8cac4587cafe1f199279b"
+  },
+  {
+    "path": "scenarios/records/nubes_scope_status/comparison/deepseek_attempts.jsonl",
+    "sha256": "2bd6155bb80c8d859ae23bd20408e2ab0234e49fe8e344d0067715670aa723c0"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_CN/comparison/deepseek_responses.jsonl",
+    "sha256": "6cb4f4637b3a8fda7a3e97391444d2153d3c980dc7df088ecf1779c1a49cff40"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_CN/comparison/results.json",
+    "sha256": "2a8634dcb28d233d22170faf5dc0f90916855babe309fc51803cde3a79783d4c"
+  },
+  {
+    "path": "scenarios/quality/mederrbench_CN/comparison/deepseek_attempts.jsonl",
+    "sha256": "402ceb8311872c708265ef93db2ed0ad0cc4f232a0aaa3a784d979c82aedfe1d"
+  },
+  {
+    "path": "scenarios/service/imcs_dialogue_act/comparison/deepseek_responses.jsonl",
+    "sha256": "b8d50f0221bc29268691a0d58bd36da07cca8282c7e84e059aecdf029ba7138c"
+  },
+  {
+    "path": "scenarios/service/imcs_dialogue_act/comparison/results.json",
+    "sha256": "93a6ff9b7423ab28d6142968268a42250557d14265c751cba4f7ffb2dbb5ad40"
+  },
+  {
+    "path": "scenarios/documentation/mts_section_classification/comparison/deepseek_responses.jsonl",
+    "sha256": "689b85d815aff5704a601d2175593c4c6a228438638e311e31d4aed85d4ad06e"
+  },
+  {
+    "path": "scenarios/documentation/mts_section_classification/comparison/results.json",
+    "sha256": "19d29afa41c297e5b69a31081876122fd92c60a2724f6d944886a1eff3989271"
+  },
+  {
+    "path": "scenarios/documentation/mts_section_classification/comparison/deepseek_attempts.jsonl",
+    "sha256": "e19d401734cee54655d09a559713980bf4976225867ca04cc40f5e8699d7db39"
+  },
+  {
+    "path": "scenarios/service/medquad_question_type/comparison/deepseek_responses.jsonl",
+    "sha256": "0a0f5bf06c43791f4013dfa020e70bfdf55b95957f2fb0caa3c9d56860196f8c"
+  },
+  {
+    "path": "scenarios/service/medquad_question_type/comparison/results.json",
+    "sha256": "98718519080016072fcc59e0e5748d5c96a67deb91e165302d2cf4e7f5df8767"
+  },
+  {
+    "path": "scenarios/service/medquad_question_type/comparison/deepseek_attempts.jsonl",
+    "sha256": "8aa27b8508adeaabd7c9a9918c78531b7f978a212165cddecb72c6c6f293764b"
+  },
+  {
+    "path": "scenarios/evidence/evidencebench_sentence_selection/comparison/deepseek_responses.jsonl",
+    "sha256": "4ebc95aa46faad9ecca54d396bb1f6c600c1dee63a84364506932a9f180b2f5f"
+  },
+  {
+    "path": "scenarios/evidence/evidencebench_sentence_selection/comparison/results.json",
+    "sha256": "8a79e671cda08779fb8c323d3d49100eb91d28cd356887107de74f7ee9e35d96"
+  },
+  {
+    "path": "scenarios/service/medjourney_tp_mcq/comparison/deepseek_responses.jsonl",
+    "sha256": "72af646b71568c2cf8a7e7edd3998de4553f565efaab44de047222730f198d2f"
+  },
+  {
+    "path": "scenarios/service/medjourney_tp_mcq/comparison/results.json",
+    "sha256": "88ae1ef84ec2a3985237db2a6d146f7a442af6e1cf7949e5aaf3ead34ddfad93"
+  },
+  {
+    "path": "scenarios/service/medjourney_tp_mcq/comparison/deepseek_attempts.jsonl",
+    "sha256": "83162f0117723a295ad42c05e9e8b56a0748ff1b73645fe01a4d1493803e93a3"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_syndrome/comparison/deepseek_responses.jsonl",
+    "sha256": "b71df3c3fd7fa61322dbf45a23336a1de8090bbf0af7694c11be6abdfd99f85b"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_syndrome/comparison/results.json",
+    "sha256": "7b0cdb62fde0d72bf0885210d02169fc01cb928fdec21ee6803140091ad34270"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_syndrome/comparison/deepseek_attempts.jsonl",
+    "sha256": "65da8cdf72b703df0452b23fd8017507781bf584430894cca7c4c05440920d76"
+  },
+  {
+    "path": "scenarios/calculators/cmedcalc_semantic_grade/comparison/deepseek_responses.jsonl",
+    "sha256": "020718d03d009aea4fa4927773eb511711ca06fb996378e6ce9a510e92ccbf22"
+  },
+  {
+    "path": "scenarios/calculators/cmedcalc_semantic_grade/comparison/results.json",
+    "sha256": "ae353c20d5473eca33e1119ac7fa3524075249c53fadee0ac4747cd559297999"
+  },
+  {
+    "path": "scenarios/evidence/pubmed_rct_section/comparison/deepseek_responses.jsonl",
+    "sha256": "e9ddeccca3540b2765bae1505740f3c0672b2c14936807fe5a03c00101f8b547"
+  },
+  {
+    "path": "scenarios/evidence/pubmed_rct_section/comparison/results.json",
+    "sha256": "03896541f89458aa4a60385810ebd444b811388824eb959f1648d13497a75400"
+  },
+  {
+    "path": "scenarios/evidence/pubmed_rct_section/comparison/deepseek_attempts.jsonl",
+    "sha256": "166d2c79768407b9ff60be97b6f38cf06e35fdf633edfa860a1993a6f2bd957e"
+  },
+  {
+    "path": "scenarios/records/imcs_ner_dictionary_pipeline/comparison/deepseek_responses.jsonl",
+    "sha256": "d18711882e380dd29e7f54574b1e49e2e1b884c6e60d1620676b8f3c2b707639"
+  },
+  {
+    "path": "scenarios/records/imcs_ner_dictionary_pipeline/comparison/results.json",
+    "sha256": "9f42e3f3440f87af4e727f7300903fe0b2552b12892449c1b6bab4e6ef94a221"
+  },
+  {
+    "path": "scenarios/records/imcs_ner_dictionary_pipeline/comparison/deepseek_attempts.jsonl",
+    "sha256": "4f95e85367b0d81aed9a2564c47b5a4245b973310bd79a1abefa2994c8fce115"
+  },
+  {
+    "path": "scenarios/quality/medsafety_request_gate/comparison/deepseek_responses.jsonl",
+    "sha256": "31f3cdce5446a7540d8694dfb5dee7376d3864fbf98d85872532887b78926581"
+  },
+  {
+    "path": "scenarios/quality/medsafety_request_gate/comparison/results.json",
+    "sha256": "1b587b4967fb95a57ffb02c7d45b8798d920f2978dab2a78c2cfc473b1daa2ed"
+  },
+  {
+    "path": "scenarios/quality/medsafety_request_gate/comparison/deepseek_attempts.jsonl",
+    "sha256": "7c48eebd428cde57d8ebf8e1eb356df46a9187f70b0369a209c5cbd0648953d6"
+  },
+  {
+    "path": "scenarios/tcm/tcm_syndrome/comparison/deepseek_responses.jsonl",
+    "sha256": "09417c9532121411070565ec1b6fc315db47ad56b1a89d0e1025e85c429cb207"
+  },
+  {
+    "path": "scenarios/tcm/tcm_syndrome/comparison/results.json",
+    "sha256": "802dee1a68991bb5fc0954f08771e33883ed90a4da825342f57675b04d84024e"
+  },
+  {
+    "path": "scenarios/tcm/tcm_syndrome/comparison/deepseek_attempts.jsonl",
+    "sha256": "9cb24b70138d630af6de6375d4821ff93c5512cdbaddc22c427a55c6d4b7d0ec"
+  },
+  {
+    "path": "scenarios/records/longhealth_full_context/comparison/deepseek_responses.jsonl",
+    "sha256": "75616761614a0e8bc26d2f444f4a432d71f4a8b89447a2603d515e3cc495b85e"
+  },
+  {
+    "path": "scenarios/records/longhealth_full_context/comparison/results.json",
+    "sha256": "c5b751fc58f7e08b4f9ce889d1bee3a0f495e3f454002be0940dee5ccaf9583f"
+  },
+  {
+    "path": "scenarios/records/longhealth_full_context/comparison/deepseek_attempts.jsonl",
+    "sha256": "ed1249b2c00041de37d8a9947983f051d62d963cf08ae6dc02539f1b0b5f3a69"
+  },
+  {
+    "path": "scenarios/service/medjourney_ep_mcq/comparison/deepseek_responses.jsonl",
+    "sha256": "7436900b097e3003cf825b2fd3a08e854b2e348cf360b48c26d4713e576589ee"
+  },
+  {
+    "path": "scenarios/service/medjourney_ep_mcq/comparison/results.json",
+    "sha256": "8ebebcf727332eee6e6b26a8576f54048b79aff8b333aefb96b84d0c24aafede"
+  },
+  {
+    "path": "scenarios/service/medjourney_ep_mcq/comparison/deepseek_attempts.jsonl",
+    "sha256": "11195bb46ae7463d2ff714187d283dcfe10788eb5b005fbf73b1132897964bd9"
+  },
+  {
+    "path": "scenarios/records/ncbi_medspacy_jev_ner/comparison/deepseek_responses.jsonl",
+    "sha256": "0882f4299aa7a355c2a1a0e338c09a861ccb005fe365268d9a6d3d2f7e64d964"
+  },
+  {
+    "path": "scenarios/records/ncbi_medspacy_jev_ner/comparison/results.json",
+    "sha256": "c2569c5a2bb02fafe7ca0091dc749a4d6af7610959bf97f49ef350e2655a1413"
+  },
+  {
+    "path": "scenarios/records/ncbi_medspacy_jev_ner/comparison/deepseek_attempts.jsonl",
+    "sha256": "bc02ea8987317e6534f888c373494e31f5aca7d54187d0d84e56815258d74069"
+  },
+  {
+    "path": "scenarios/records/imcs_normalization_top20/comparison/deepseek_responses.jsonl",
+    "sha256": "0be1882601d0a41da1817d9648e268d5593d9750b2b902658192ba014c65fabd"
+  },
+  {
+    "path": "scenarios/records/imcs_normalization_top20/comparison/results.json",
+    "sha256": "61c9fb6c276f58db89488960dc70876161c4a4b196125523a2f648c7605bf354"
+  },
+  {
+    "path": "scenarios/records/imcs_normalization_top20/comparison/deepseek_attempts.jsonl",
+    "sha256": "72409747f4ddc426e2e19bc0e7dd2f11b4908ab14e4263075c8fe77d289e424c"
+  },
+  {
+    "path": "scenarios/quality/medec_error_detection/comparison/deepseek_responses.jsonl",
+    "sha256": "823caba68ef0f7d87712436860613b4850c2fdc9e8b2daf2ebbae67ef1298add"
+  },
+  {
+    "path": "scenarios/quality/medec_error_detection/comparison/results.json",
+    "sha256": "be1009827a64a21c30d2bfe30f98b7f3efb68e1f44f1cb23be039bb615bea3a5"
+  },
+  {
+    "path": "scenarios/quality/medec_error_detection/comparison/deepseek_attempts.jsonl",
+    "sha256": "82f1690fa776f8c36e4b41e342646471588deacc03caae9ee38c26df47daed4b"
+  },
+  {
+    "path": "scenarios/quality/medhallu_with_evidence/comparison/deepseek_responses.jsonl",
+    "sha256": "539074e234e9ffb035027eb5543ecc9dd5ac8f02ca0d94445c2e6700a7a56be8"
+  },
+  {
+    "path": "scenarios/quality/medhallu_with_evidence/comparison/results.json",
+    "sha256": "95b274b4201df8e63f576a90a1167258382269c23cebdc9f3d3125974942c997"
+  },
+  {
+    "path": "scenarios/quality/medhallu_with_evidence/comparison/deepseek_attempts.jsonl",
+    "sha256": "a9941238cfc5a97564cd430d38bc87f583ba1e167e75e6ca603e3727ad839099"
+  },
+  {
+    "path": "scenarios/knowledge/cmexam_mcq/comparison/deepseek_responses.jsonl",
+    "sha256": "065d16f8e31cd69bbf018ebfc5fe2b68fd8f03d5f4f7f6c8294f23c304f4cc7c"
+  },
+  {
+    "path": "scenarios/knowledge/cmexam_mcq/comparison/results.json",
+    "sha256": "af05434d79cf13199d611affd051ac9b15d9e4e3c14a9a68eba7841d7d778623"
+  },
+  {
+    "path": "scenarios/knowledge/cmexam_mcq/comparison/deepseek_attempts.jsonl",
+    "sha256": "d2dd85ebcac20f2715ef2ab3da07abc9b1a2192cc21ece40621327260a285b83"
+  },
+  {
+    "path": "scenarios/evidence/evidence_inference_fulltext/comparison/deepseek_responses.jsonl",
+    "sha256": "54ef76c411e189df73d51357da1dc089a30134a37a2a19e649db2cb9fc2f6d10"
+  },
+  {
+    "path": "scenarios/evidence/evidence_inference_fulltext/comparison/results.json",
+    "sha256": "c375e987c604f7188ad0059d16c2fc213d3fad8fe3f74277ade8a42c9433b699"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_ethics/comparison/deepseek_responses.jsonl",
+    "sha256": "311f4c4f30af8f06f31758df4db12f40dd04eb3effd169fb88d073c8d30c83cf"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_ethics/comparison/results.json",
+    "sha256": "95a215372aed9c7b36b06ef5e58f8476808a84fd6068c7cf607352cde71438f9"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_ethics/comparison/deepseek_attempts.jsonl",
+    "sha256": "e210697f38ab2bc79d7622d7ac3547dc3150a7ef69d6d48efc078b2741dea6e1"
+  },
+  {
+    "path": "scenarios/quality/medec_error_localization/comparison/deepseek_responses.jsonl",
+    "sha256": "68beb15798cef9db70a207a90b14cd9122e00730f9a476c21ad545f9550d769d"
+  },
+  {
+    "path": "scenarios/quality/medec_error_localization/comparison/results.json",
+    "sha256": "dbddf1d7a7d67392596b56d9cab576db4add4d9d7c688e0d24cdbee9e5ec177b"
+  },
+  {
+    "path": "scenarios/evidence/pubhealth_claim_only/comparison/deepseek_responses.jsonl",
+    "sha256": "382b88f7c82d9e255df91d468cf58b9b166e42ab36cccdc55df6cffc334c9dc6"
+  },
+  {
+    "path": "scenarios/evidence/pubhealth_claim_only/comparison/results.json",
+    "sha256": "fd0863c0d83da22e29c6c1b8988afa0d8500d5b76101a32fed5a27b5c776877d"
+  },
+  {
+    "path": "scenarios/evidence/pubhealth_claim_only/comparison/deepseek_attempts.jsonl",
+    "sha256": "27fd9155901058305a63f9c9699e8d1e9e5f00b5c3f897216b2ae9c32d6627bb"
+  },
+  {
+    "path": "scenarios/evidence/evidenceoutcomes_fixed_window/comparison/deepseek_responses.jsonl",
+    "sha256": "d818b68b2e05cffa24e9ff2fc64a0de3c85a4073abb88aaf65e24eff5e517511"
+  },
+  {
+    "path": "scenarios/evidence/evidenceoutcomes_fixed_window/comparison/results.json",
+    "sha256": "086cc9c86e9173ab7956172d6eea9ef660a45ee46cb4b07a08def646ac4d1ec4"
+  },
+  {
+    "path": "scenarios/service/medjourney_mp_mcq/comparison/deepseek_responses.jsonl",
+    "sha256": "12866847212230341b8fb142bb81d6faa4e290a904c2f0523e80f419f8464522"
+  },
+  {
+    "path": "scenarios/service/medjourney_mp_mcq/comparison/results.json",
+    "sha256": "d2017b9241f4b155b92f3e35e96c60dc37e58673a577f087c8061eddd3d2957a"
+  },
+  {
+    "path": "scenarios/service/medjourney_mp_mcq/comparison/deepseek_attempts.jsonl",
+    "sha256": "e9c1d75e253eda0501fda2ec9580abf2166cac6e3b43dee8b4117678f0fd14c1"
+  },
+  {
+    "path": "scenarios/records/bioscope_sentence_cues/comparison/deepseek_responses.jsonl",
+    "sha256": "42875570c05a1d9d1fdbcff2939b522206efa055aef077f7b9473c486593bcc7"
+  },
+  {
+    "path": "scenarios/records/bioscope_sentence_cues/comparison/results.json",
+    "sha256": "b5cfaa98c65404a9b2e6d3ec1dff4b9d62ee572733d2cec4e1984178226ecbfe"
+  },
+  {
+    "path": "scenarios/records/bioscope_sentence_cues/comparison/deepseek_attempts.jsonl",
+    "sha256": "36f552d87baada4b5e4ec5ed84f1a971cc8920b3ef663989a5490f4bd684ab0b"
+  },
+  {
+    "path": "scenarios/medication/ddi_relation_oracle_pairs/comparison/deepseek_responses.jsonl",
+    "sha256": "603fc15d98c77188d2f0f0eee98cec747024e9fa8ef757affdfe3a6cbcc0e798"
+  },
+  {
+    "path": "scenarios/medication/ddi_relation_oracle_pairs/comparison/results.json",
+    "sha256": "913da7c4b32c079e42ea66bbbde0c4da689edb5ad02dc819cc3148d683981a00"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_安全问题/comparison/deepseek_responses.jsonl",
+    "sha256": "057a2c75b1492d9635c243555dc5ebcb449fa02b4e18793161ffed93b79cc60e"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_安全问题/comparison/results.json",
+    "sha256": "7305ec0d4d082d7cc85b984419bdf58eb2db208c389abe2bd823428031f32661"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_安全问题/comparison/deepseek_attempts.jsonl",
+    "sha256": "271db9d036fa78da70de36393451cadefed7f8d619f6ef05b40fa9355136e75e"
+  },
+  {
+    "path": "scenarios/calculators/challenge_unit_equivalence/comparison/deepseek_responses.jsonl",
+    "sha256": "210a1a6203e43eb34ef84ecb36fdc1477f8d13781a6dc6c73911f7ff4bc0211a"
+  },
+  {
+    "path": "scenarios/calculators/challenge_unit_equivalence/comparison/results.json",
+    "sha256": "146185e0c1a5820f23cdf0ed3377f5180446a5f76eaa9c990293a4d9dcf92e4b"
+  },
+  {
+    "path": "scenarios/multimodal/clinocr_reference_doctype/comparison/deepseek_responses.jsonl",
+    "sha256": "f02f6bce568e9ace91985dd0818c70a7016baeb583dbed5e2dc2d8b7b2a8aab7"
+  },
+  {
+    "path": "scenarios/multimodal/clinocr_reference_doctype/comparison/results.json",
+    "sha256": "e9673a734b6e0fb2f385fcf190bbf8cbbe204d32ee7b161453c1453060379da7"
+  },
+  {
+    "path": "scenarios/knowledge/medqa_en_test/comparison/deepseek_responses.jsonl",
+    "sha256": "e3a93e74d27ffc51cd0a1e01c3ce55a5df532ddbf09af68cef7436e980bbbce2"
+  },
+  {
+    "path": "scenarios/knowledge/medqa_en_test/comparison/results.json",
+    "sha256": "33143ff210dac26655c68d367d6ae405f54b7b2ed1c553c434c7255fc853fd2a"
+  },
+  {
+    "path": "scenarios/knowledge/medqa_en_test/comparison/deepseek_attempts.jsonl",
+    "sha256": "461f46ef1efb9bccb72689dd4559c639c08c0ae66e9863f67dcb8c63bbd14f77"
+  },
+  {
+    "path": "scenarios/documentation/aci_note_section/comparison/deepseek_responses.jsonl",
+    "sha256": "f9b90293f851229c7296069f567653e420296a0ff973b40792ee1811c13f9d67"
+  },
+  {
+    "path": "scenarios/documentation/aci_note_section/comparison/results.json",
+    "sha256": "4c641dc895f777a62e8fae3469781a73f2654f26684bb34afccd182f07ef11e0"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_location_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "1e1e6b7f035993de5a91381fb9f341900ffab0a056839ab36c22e90e5c727fe3"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_location_multi/comparison/results.json",
+    "sha256": "8d4e22ebf2fd0f7698f8fb51654ddd017799e554619ab91e28ac0e9bde3c0430"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_location_multi/comparison/deepseek_attempts.jsonl",
+    "sha256": "c62dd5077bba82d6ad4e1f3049f93ece831c883ab26300501872c1f27e9db24b"
+  },
+  {
+    "path": "scenarios/calculators/bmi_weight_selection/comparison/deepseek_responses.jsonl",
+    "sha256": "b7da75a877c4e40ba637920db7b12e19f250a37eb7f51e5ff598e49cd7664b02"
+  },
+  {
+    "path": "scenarios/calculators/bmi_weight_selection/comparison/results.json",
+    "sha256": "1d5b66e7806c46afff8f2797497b3541bf5f56136610e0271e803da61fee8135"
+  },
+  {
+    "path": "scenarios/knowledge/medqa_zh_test/comparison/deepseek_responses.jsonl",
+    "sha256": "b7425be90e26bc8309e96fb31a9c7c4f3931e29a9fb112b7cc4ae6f08f7be7d8"
+  },
+  {
+    "path": "scenarios/knowledge/medqa_zh_test/comparison/results.json",
+    "sha256": "c4fd829efab73a7407e86accf1aaee4ed0678e534cdb2f6dd4240662c8e0c9e2"
+  },
+  {
+    "path": "scenarios/multimodal/primock_asr_fields/comparison/deepseek_responses.jsonl",
+    "sha256": "7abeb6194bd61903c069e6958bfe81552ac0962f2eb1fb5573b4be056770c275"
+  },
+  {
+    "path": "scenarios/multimodal/primock_asr_fields/comparison/results.json",
+    "sha256": "4d11411afe5a71a79cd4ebd6281d4962a452217ff22cc0e8d8413ec211319171"
+  },
+  {
+    "path": "scenarios/records/medmentions_type_oracle_span/comparison/deepseek_responses.jsonl",
+    "sha256": "7b3d2ba63433b2a9d7798e312060e41f916ce77bf0435424ac3700e4f592e45e"
+  },
+  {
+    "path": "scenarios/records/medmentions_type_oracle_span/comparison/results.json",
+    "sha256": "e52ab259a0c115508d425061238c4894d32770436e96866e90d97f53be164a48"
+  },
+  {
+    "path": "scenarios/records/medmentions_type_oracle_span/comparison/deepseek_attempts.jsonl",
+    "sha256": "f2381280cfbdc47333c7c284d7cfc00c9b709335bd8c03bb27e97857ae6bcbc3"
+  },
+  {
+    "path": "scenarios/service/medjourney_departments/comparison/deepseek_responses.jsonl",
+    "sha256": "865b4d6ba64bcb83b74ed8bb3ac58c6be45c2a858c046378fb5b0b090b581b03"
+  },
+  {
+    "path": "scenarios/service/medjourney_departments/comparison/results.json",
+    "sha256": "f251657f0ab8a96faada1b6aeb92be97da0180d15c673634fd5067cf7164f93a"
+  },
+  {
+    "path": "scenarios/service/medjourney_departments/comparison/deepseek_attempts.jsonl",
+    "sha256": "c0f463b88ae24b20fc25edcd8e76390cbc230d84f735aa0f76b833063a8bb98f"
+  },
+  {
+    "path": "scenarios/multimodal/clinocr_ocr_doctype/comparison/deepseek_responses.jsonl",
+    "sha256": "e27d693ec041085d501aaf871709a3e3b79fb936721d27869ea9ed6f69959c1e"
+  },
+  {
+    "path": "scenarios/multimodal/clinocr_ocr_doctype/comparison/results.json",
+    "sha256": "c7f85d6c62b7aebdd4748a7f518977accb3f456dc0115b0d031c963937967e2d"
+  },
+  {
+    "path": "scenarios/records/imcs_entity_type_oracle_span/comparison/deepseek_responses.jsonl",
+    "sha256": "ea0631335f91c7e5aa4c5317e013ff0dbd2c74317b03f7df40d39766fc25c697"
+  },
+  {
+    "path": "scenarios/records/imcs_entity_type_oracle_span/comparison/results.json",
+    "sha256": "d88e6985e7ae2a07ff926fdaf827d51e6ce9545a797023e390ac21c56a8dccbd"
+  },
+  {
+    "path": "scenarios/records/imcs_entity_type_oracle_span/comparison/deepseek_attempts.jsonl",
+    "sha256": "e965c8099554e0ed36675c0ea9792c35deae3b67f2c8ce7eea6bbb801f54968b"
+  },
+  {
+    "path": "scenarios/evidence/pubmedqa_evidence_qa/comparison/deepseek_responses.jsonl",
+    "sha256": "e3567299f2f96cd46d3956c81f47a622a0dcfe149c7cb537042f9ca942776523"
+  },
+  {
+    "path": "scenarios/evidence/pubmedqa_evidence_qa/comparison/results.json",
+    "sha256": "6574e60cfa3ea194c2485dae0d53280ae38cc8021b579e4cb6e1c776435ffb32"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_location/comparison/deepseek_responses.jsonl",
+    "sha256": "387da4d88d748faeaa54211eb4ca960e9d577d9e7ecc8d2f7bfa56dd65e7b656"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_location/comparison/results.json",
+    "sha256": "c113a6dfd64f417e78e00c5b1db7f7037810d8561cd739077400c1f91d5a3542"
+  },
+  {
+    "path": "scenarios/calculators/challenge_lab_link/comparison/deepseek_responses.jsonl",
+    "sha256": "19e8fa93d43e45749c911bca80b544a331cd594298391e4b74bb81a87ca0eb39"
+  },
+  {
+    "path": "scenarios/calculators/challenge_lab_link/comparison/results.json",
+    "sha256": "98456b30e2a19d875b0159f65b9ccb1e9d2752cbd720a5501dad83ce3374b3d6"
+  },
+  {
+    "path": "scenarios/records/medal_demo_disambiguation/comparison/deepseek_responses.jsonl",
+    "sha256": "a5d33b0e9ec8547d391a85a0e592aeb3f3fd922013d1168959c31b8d3dd4e0cb"
+  },
+  {
+    "path": "scenarios/records/medal_demo_disambiguation/comparison/results.json",
+    "sha256": "f2eea6f55fc9c29c17767608a56bb78ac70fa5d8fbf4a145691feba39cfdd8e0"
+  },
+  {
+    "path": "scenarios/records/medal_demo_disambiguation/comparison/deepseek_attempts.jsonl",
+    "sha256": "ce94687faa703706bfb3c2dfe75f749f23ded93d0bb54ea2fab0b43eb168861c"
+  },
+  {
+    "path": "scenarios/service/challenge_service_route/comparison/deepseek_responses.jsonl",
+    "sha256": "4bd69c974b2f6b68607d4e7ef0b893292c967da31ffb6e2348af771f5cf831fa"
+  },
+  {
+    "path": "scenarios/service/challenge_service_route/comparison/results.json",
+    "sha256": "7301b3e03ac5bf9388bcff9f210b6dbe37b46950a50c005eba151c62fe8ae96a"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_principles/comparison/deepseek_responses.jsonl",
+    "sha256": "793f6ea9e86cf3042e74bb7b04b04d37d4d382fbd5c9ccd3ac5542421d912e8b"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_principles/comparison/results.json",
+    "sha256": "ee7682470de8691663878717e04d3051a0085a0ca9dad8dccb0527412d23fbf7"
+  },
+  {
+    "path": "scenarios/service/challenge_urgency_given_policy/comparison/deepseek_responses.jsonl",
+    "sha256": "9cd60f630d9f624e4d170269c927b80d6061ae85d1f38077b063e03342644c83"
+  },
+  {
+    "path": "scenarios/service/challenge_urgency_given_policy/comparison/results.json",
+    "sha256": "3f7286d447ab90dc868b794cb95651261e127d6ee8fceaab508ad8121d4c4b98"
+  },
+  {
+    "path": "scenarios/calculators/bmi_height_selection/comparison/deepseek_responses.jsonl",
+    "sha256": "0122524d86f4f68df77b276399b6ac328df8db4dea32cf583753fd878d5432e5"
+  },
+  {
+    "path": "scenarios/calculators/bmi_height_selection/comparison/results.json",
+    "sha256": "428c24c222cf987f2a4971a2bd11336f24ef3805da25c6ae8db85c5a303a750c"
+  },
+  {
+    "path": "scenarios/records/challenge_negation/comparison/deepseek_responses.jsonl",
+    "sha256": "95489e8855fc2296b346353c27a07e90c47688ff6fa18618348898c156e6c0c9"
+  },
+  {
+    "path": "scenarios/records/challenge_negation/comparison/results.json",
+    "sha256": "cdf3722babb898fdfcc13bcd2e4bb615cc2a94cde6dabe25b32343b67f2b695f"
+  },
+  {
+    "path": "scenarios/quality/challenge_contradiction/comparison/deepseek_responses.jsonl",
+    "sha256": "af52e1ee6d4fc732a5b14d16ec92a6c7c089277e441c2079c7a56f024bbedfdc"
+  },
+  {
+    "path": "scenarios/quality/challenge_contradiction/comparison/results.json",
+    "sha256": "43dc6d33bad4ea2e2aad629f39814a3b5887590cd761cffd610c7035ac33f4b4"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_knowledge_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "6e733b6f711eb955cb49add375e17c6266f2579a9456ce65d692da7bedad9b54"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_knowledge_multi/comparison/results.json",
+    "sha256": "c521dcedbd29114ea27f10d6e9641e45b7fa2e02cc226d5316b665b3bbee6584"
+  },
+  {
+    "path": "scenarios/calculators/challenge_missing_parameter/comparison/deepseek_responses.jsonl",
+    "sha256": "1108bd466db9d957c73e623d6ab7edc8f88b23fa0e11c67fb7125f9145b1a77d"
+  },
+  {
+    "path": "scenarios/calculators/challenge_missing_parameter/comparison/results.json",
+    "sha256": "5894b84eeb6bce133633302a77d593a72c7d4a74ce19ba309e5d3aa5497a6609"
+  },
+  {
+    "path": "scenarios/records/challenge_social_context/comparison/deepseek_responses.jsonl",
+    "sha256": "9393cb174ac2146a14306deb0c1eb21b5e30ec18effee6fd9ec148324d8b338c"
+  },
+  {
+    "path": "scenarios/records/challenge_social_context/comparison/results.json",
+    "sha256": "15a292efc407aa2d19b7db5c4afdf29bae3ea739fe63e0a94de76c7b8048376a"
+  },
+  {
+    "path": "scenarios/medication/challenge_medication_change/comparison/deepseek_responses.jsonl",
+    "sha256": "81c03744a49b6c416c0c62e198bb97beb73439d1871657f8b0d67214bfb4554e"
+  },
+  {
+    "path": "scenarios/medication/challenge_medication_change/comparison/results.json",
+    "sha256": "0c9e91f2ebcc2b2d7c6633ddb61365a602c2e4ebdecd9e1a713259033fd62061"
+  },
+  {
+    "path": "scenarios/multimodal/primock_reference_fields/comparison/deepseek_responses.jsonl",
+    "sha256": "aa59c8498d00e75a6657f1dc183b08c035cd6df2b5949903868e6820bb25f2a4"
+  },
+  {
+    "path": "scenarios/multimodal/primock_reference_fields/comparison/results.json",
+    "sha256": "350e42f43061104fb754eaeb70d208267a299b22777fbd0b7a840eafa66b6d98"
+  },
+  {
+    "path": "scenarios/medication/challenge_dose_link/comparison/deepseek_responses.jsonl",
+    "sha256": "e9420299703787dbe0a6b0337342f9ef29e397a63b97af2b9301ee1a065f55a2"
+  },
+  {
+    "path": "scenarios/medication/challenge_dose_link/comparison/results.json",
+    "sha256": "33a168a6505a5ee7edbc75493b754a970e5838e737ce8e0a129eaf59ca626754"
+  },
+  {
+    "path": "scenarios/medication/challenge_allergy_state/comparison/deepseek_responses.jsonl",
+    "sha256": "dee5dc3aac4f421d23ea397f7717693a70e7987b6de2099d85aea09fab91871c"
+  },
+  {
+    "path": "scenarios/medication/challenge_allergy_state/comparison/results.json",
+    "sha256": "aebabbbbce28b2fb269453be94584a1d15ed6c966cf5b6a5c053b8764660b5ec"
+  },
+  {
+    "path": "scenarios/multimodal/challenge_radiology_assertion/comparison/deepseek_responses.jsonl",
+    "sha256": "53d62a25b62c325be6af6ac8600655fe94605ac884b68a721f3d3544bcfaf036"
+  },
+  {
+    "path": "scenarios/multimodal/challenge_radiology_assertion/comparison/results.json",
+    "sha256": "3e2a131795a3b9942dba695554e66d6b779ef772210c364911f55619729e639f"
+  },
+  {
+    "path": "scenarios/quality/challenge_phi_candidate/comparison/deepseek_responses.jsonl",
+    "sha256": "474ed9f1684c19d90b61c7dc8d8d73ee27b8a16f5504519ccba0766486bd40aa"
+  },
+  {
+    "path": "scenarios/quality/challenge_phi_candidate/comparison/results.json",
+    "sha256": "8d80bafb6e9673ca3001cffa4e8b552990afe6b231d44ed7731f53b2cbbbeeb9"
+  },
+  {
+    "path": "scenarios/evidence/challenge_evidence_support/comparison/deepseek_responses.jsonl",
+    "sha256": "02f56cdb94f0aa27475603ffff2f61d7f2342d2c8f9842bb830171f31b0f446d"
+  },
+  {
+    "path": "scenarios/evidence/challenge_evidence_support/comparison/results.json",
+    "sha256": "2189e9aa3ab7583dd0fae0aa2a3f64da8b3daa146ff7d5ff46e48f445dcd57b1"
+  },
+  {
+    "path": "scenarios/documentation/challenge_document_type/comparison/deepseek_responses.jsonl",
+    "sha256": "400e366072da3de837f5cbbbc50453eb2ac225b4ae16f0ac02feb6b91c7236fa"
+  },
+  {
+    "path": "scenarios/documentation/challenge_document_type/comparison/results.json",
+    "sha256": "389a132285d2b8397073971c391c48769870581d523038dc7ed7d76c98c25278"
+  },
+  {
+    "path": "scenarios/documentation/challenge_followup_action/comparison/deepseek_responses.jsonl",
+    "sha256": "c24468dca039e8d58b31f6c4edccf5ef7e2255a4f5ff06a703ef170a5e46fe65"
+  },
+  {
+    "path": "scenarios/documentation/challenge_followup_action/comparison/results.json",
+    "sha256": "62cad3e10ee7e0f5c541310ab2775247109b82b8509119796f8290bba48f6ed9"
+  },
+  {
+    "path": "scenarios/records/challenge_relative_date/comparison/deepseek_responses.jsonl",
+    "sha256": "bc0ff49e0d789b12c3463d7c64661d32359a8fbf77d5b4924c3bdcff73ce26d8"
+  },
+  {
+    "path": "scenarios/records/challenge_relative_date/comparison/results.json",
+    "sha256": "a8d5c6dfd77322e5756ab475063f6c415a30ca15b4d066707443775f54bb4f35"
+  },
+  {
+    "path": "scenarios/medication/challenge_frequency/comparison/deepseek_responses.jsonl",
+    "sha256": "f329be1ea08a6452b34ad16083fbc3afca5c0c2ec91b2ec1f9c2cc7e17b89f46"
+  },
+  {
+    "path": "scenarios/medication/challenge_frequency/comparison/results.json",
+    "sha256": "e42a283134f904c9bc51ad0a10758d0e888c03d69de6bfe55fcc8384ef5736ea"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_ethics_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "6feb701980d05f52400e9c8d7417b6ebc8c5e4bb7452c078dd4b5a04b613c503"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_ethics_multi/comparison/results.json",
+    "sha256": "50c9607d6b30be7f7a30c72044be336c72eb739a85f1fb10781cb7e3897a08c5"
+  },
+  {
+    "path": "scenarios/knowledge/cmexam_mcq_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "d2ebc16351db7f3408ba12e3378448c111f0be88cf6cf3e51328598d1aaa49e5"
+  },
+  {
+    "path": "scenarios/knowledge/cmexam_mcq_multi/comparison/results.json",
+    "sha256": "e455c50a4331d5981437ebb67b67ff49450c39b339f935674107a6fc5a98243f"
+  },
+  {
+    "path": "scenarios/records/challenge_coding_evidence/comparison/deepseek_responses.jsonl",
+    "sha256": "24161041612609bd7e8ba1086883e9ba39512e300f674bf1e3e5cbb6d4dc4785"
+  },
+  {
+    "path": "scenarios/records/challenge_coding_evidence/comparison/results.json",
+    "sha256": "c2d29406fd6ffc64d483fbb8e0f012ffad4df4183e8fbd2d149de7b376351576"
+  },
+  {
+    "path": "scenarios/documentation/challenge_documentation/comparison/deepseek_responses.jsonl",
+    "sha256": "8b8fff27ce5fe1b9c5f5368f42171e3b53622fdc36246cf379664d8cb80d7903"
+  },
+  {
+    "path": "scenarios/documentation/challenge_documentation/comparison/results.json",
+    "sha256": "bc50ba9dfde14c3d97ff24b066c484a690fcdf01aa475714905543f24fe9fcb6"
+  },
+  {
+    "path": "scenarios/records/challenge_mixed_language/comparison/deepseek_responses.jsonl",
+    "sha256": "e02b45a371902439c8e94aec8b1a652267cb3c7ed67584c03087e177d1dad1d7"
+  },
+  {
+    "path": "scenarios/records/challenge_mixed_language/comparison/results.json",
+    "sha256": "a9ca6c7e3211fdc52d58cb1eb1edab93f3dad3fabab3d0991543f27dd7a4c6ab"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_nature_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "61899ee4979d6174998a20962a879b15e7aa8ec8f77fe77ceb2ee78e982f9cbc"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_nature_multi/comparison/results.json",
+    "sha256": "48ebc6d6c9d0869f1820470c8fbdc68835a3b7afbc32d1889ebd6bd353f089c8"
+  },
+  {
+    "path": "scenarios/quality/challenge_prompt_injection/comparison/deepseek_responses.jsonl",
+    "sha256": "78b41dce896e6561ab231ea51b83f982038970c740f827c60ca17e68d572dfaf"
+  },
+  {
+    "path": "scenarios/quality/challenge_prompt_injection/comparison/results.json",
+    "sha256": "37b99ab97e74b563a4099bca585852c0d943da5f8f996a9e7999c484b5ea62ed"
+  },
+  {
+    "path": "scenarios/records/challenge_temporality/comparison/deepseek_responses.jsonl",
+    "sha256": "f80cc5b1097ecf1834fbe3d51996bb14f1cf7a49f91d47739772f9e1019a3e88"
+  },
+  {
+    "path": "scenarios/records/challenge_temporality/comparison/results.json",
+    "sha256": "15fdf2b907c6912c0b182ca7ee597f01b188ece2343dfc94fe7a703083ee0868"
+  }
+]

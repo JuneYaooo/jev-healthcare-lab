@@ -1,0 +1,57 @@
+{
+  "title": "研究结局固定窗口分类",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.88,
+      "macro_f1_observed_gold_classes": 0.8799519807923168,
+      "per_class": {
+        "no": {
+          "support": 50,
+          "precision": 0.8958333333333334,
+          "recall": 0.86,
+          "f1": 0.8775510204081632
+        },
+        "yes": {
+          "support": 50,
+          "precision": 0.8653846153846154,
+          "recall": 0.9,
+          "f1": 0.8823529411764706
+        }
+      }
+    },
+    "latency_median_s": 0.6602315004856791,
+    "cost_usd": 0.004369596000000001,
+    "cost_per_1000_usd": 0.043695960000000006
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.67,
+      "macro_f1_observed_gold_classes": 0.6576408341114224,
+      "per_class": {
+        "no": {
+          "support": 50,
+          "precision": 0.6231884057971014,
+          "recall": 0.86,
+          "f1": 0.7226890756302521
+        },
+        "yes": {
+          "support": 50,
+          "precision": 0.7741935483870968,
+          "recall": 0.48,
+          "f1": 0.5925925925925926
+        }
+      }
+    },
+    "latency_median_s": 0.5549542085209396,
+    "cost_usd": 0.01083162,
+    "cost_per_1000_usd": 0.1083162,
+    "prior_attempts": 0
+  }
+}

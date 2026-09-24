@@ -1,0 +1,35 @@
+{
+  "title": "出院带药候选筛选",
+  "scene": "medication",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 339,
+      "fp": 439,
+      "fn": 277,
+      "precision": 0.43573264781491,
+      "recall": 0.5503246753246753,
+      "micro_f1": 0.48637015781922527
+    },
+    "latency_median_s": 0.782095250004204,
+    "cost_usd": 0.021807828000000005,
+    "cost_per_1000_usd": 0.21807828000000004
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 252,
+      "fp": 184,
+      "fn": 364,
+      "precision": 0.5779816513761468,
+      "recall": 0.4090909090909091,
+      "micro_f1": 0.4790874524714829
+    },
+    "latency_median_s": 0.9271433540270664,
+    "cost_usd": 0.05866312800000001,
+    "cost_per_1000_usd": 0.5866312800000001,
+    "prior_attempts": 2
+  }
+}

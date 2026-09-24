@@ -1,0 +1,35 @@
+{
+  "title": "medspaCy 候选与 Jev 疾病实体筛选",
+  "scene": "records",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 592,
+      "fp": 155,
+      "fn": 368,
+      "precision": 0.7925033467202142,
+      "recall": 0.6166666666666667,
+      "micro_f1": 0.6936145284124194
+    },
+    "latency_median_s": 0.6620366249990184,
+    "cost_usd": 0.0048900600000000025,
+    "cost_per_1000_usd": 0.04890060000000002
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 571,
+      "fp": 132,
+      "fn": 389,
+      "precision": 0.8122332859174964,
+      "recall": 0.5947916666666667,
+      "micro_f1": 0.6867107636800962
+    },
+    "latency_median_s": 0.7102582495135721,
+    "cost_usd": 0.019091850000000004,
+    "cost_per_1000_usd": 0.19091850000000005,
+    "prior_attempts": 1
+  }
+}

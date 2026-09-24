@@ -1,0 +1,35 @@
+{
+  "title": "中医病位多选",
+  "scene": "tcm",
+  "synthetic": false,
+  "planned": 79,
+  "compared": 79,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "tp": 107,
+      "fp": 34,
+      "fn": 82,
+      "precision": 0.7588652482269503,
+      "recall": 0.5661375661375662,
+      "micro_f1": 0.6484848484848484
+    },
+    "latency_median_s": 0.6209507079911418,
+    "cost_usd": 0.0026442780000000008,
+    "cost_per_1000_usd": 0.03347187341772153
+  },
+  "deepseek": {
+    "quality": {
+      "tp": 119,
+      "fp": 49,
+      "fn": 70,
+      "precision": 0.7083333333333334,
+      "recall": 0.6296296296296297,
+      "micro_f1": 0.6666666666666666
+    },
+    "latency_median_s": 0.6231419999967329,
+    "cost_usd": 0.008063136,
+    "cost_per_1000_usd": 0.10206501265822786,
+    "prior_attempts": 1
+  }
+}

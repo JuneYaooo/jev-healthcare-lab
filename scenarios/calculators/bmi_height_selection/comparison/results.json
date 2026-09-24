@@ -1,0 +1,69 @@
+{
+  "title": "BMI 当前身高参数选择",
+  "scene": "calculators",
+  "synthetic": false,
+  "planned": 20,
+  "compared": 20,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.6,
+      "per_class": {
+        "0": {
+          "support": 17,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "2": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "unknown": {
+          "support": 2,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        }
+      }
+    },
+    "latency_median_s": 0.6356919370009564,
+    "cost_usd": 0.0009035460000000002,
+    "cost_per_1000_usd": 0.04517730000000001
+  },
+  "deepseek": {
+    "quality": {
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.6,
+      "per_class": {
+        "0": {
+          "support": 17,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "2": {
+          "support": 1,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "unknown": {
+          "support": 2,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        }
+      }
+    },
+    "latency_median_s": 0.5201201874879189,
+    "cost_usd": 0.0023296499999999995,
+    "cost_per_1000_usd": 0.11648249999999997,
+    "prior_attempts": 0
+  }
+}

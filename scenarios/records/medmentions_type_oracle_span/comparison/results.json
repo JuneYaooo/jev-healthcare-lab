@@ -1,0 +1,304 @@
+{
+  "title": "医学实体 UMLS 语义类型",
+  "scene": "records",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [
+    {
+      "id": "27761213:511",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    },
+    {
+      "id": "28332776:377",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    },
+    {
+      "id": "27667559:1300",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    },
+    {
+      "id": "28239461:474",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    },
+    {
+      "id": "27470609:401",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    }
+  ],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.6,
+      "macro_f1_observed_gold_classes": 0.6524499030381382,
+      "per_class": {
+        "T005": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "T007": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T017": {
+          "support": 10,
+          "precision": 0.5,
+          "recall": 0.4,
+          "f1": 0.4444444444444444
+        },
+        "T031": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T033": {
+          "support": 4,
+          "precision": 0.1,
+          "recall": 0.25,
+          "f1": 0.14285714285714285
+        },
+        "T037": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T038": {
+          "support": 22,
+          "precision": 0.7142857142857143,
+          "recall": 0.45454545454545453,
+          "f1": 0.5555555555555556
+        },
+        "T058": {
+          "support": 8,
+          "precision": 0.5,
+          "recall": 0.375,
+          "f1": 0.42857142857142855
+        },
+        "T062": {
+          "support": 10,
+          "precision": 0.8181818181818182,
+          "recall": 0.9,
+          "f1": 0.8571428571428571
+        },
+        "T082": {
+          "support": 9,
+          "precision": 0.75,
+          "recall": 0.3333333333333333,
+          "f1": 0.46153846153846156
+        },
+        "T091": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T092": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "T097": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "T098": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "T103": {
+          "support": 16,
+          "precision": 0.8333333333333334,
+          "recall": 0.9375,
+          "f1": 0.8823529411764706
+        },
+        "T168": {
+          "support": 2,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "T170": {
+          "support": 7,
+          "precision": 0.6,
+          "recall": 0.42857142857142855,
+          "f1": 0.5
+        },
+        "T201": {
+          "support": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "T204": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        }
+      }
+    },
+    "latency_median_s": 0.6358444795187097,
+    "cost_usd": 0.0044007180000000005,
+    "cost_per_1000_usd": 0.04400718000000001
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.51,
+      "macro_f1_observed_gold_classes": 0.5685707665092973,
+      "per_class": {
+        "T005": {
+          "support": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "T017": {
+          "support": 10,
+          "precision": 0.5,
+          "recall": 0.1,
+          "f1": 0.16666666666666666
+        },
+        "T022": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T031": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T033": {
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "T037": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T038": {
+          "support": 22,
+          "precision": 0.6153846153846154,
+          "recall": 0.36363636363636365,
+          "f1": 0.45714285714285713
+        },
+        "T058": {
+          "support": 8,
+          "precision": 0.375,
+          "recall": 0.375,
+          "f1": 0.375
+        },
+        "T062": {
+          "support": 10,
+          "precision": 0.6923076923076923,
+          "recall": 0.9,
+          "f1": 0.782608695652174
+        },
+        "T074": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T082": {
+          "support": 9,
+          "precision": 0.75,
+          "recall": 0.3333333333333333,
+          "f1": 0.46153846153846156
+        },
+        "T091": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
+        "T092": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "T097": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "T098": {
+          "support": 3,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "T103": {
+          "support": 16,
+          "precision": 0.8461538461538461,
+          "recall": 0.6875,
+          "f1": 0.7586206896551724
+        },
+        "T168": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "T170": {
+          "support": 7,
+          "precision": 0.5714285714285714,
+          "recall": 0.5714285714285714,
+          "f1": 0.5714285714285714
+        },
+        "T201": {
+          "support": 1,
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4
+        },
+        "T204": {
+          "support": 4,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.8888888888888888
+        },
+        "__API_OR_FORMAT_FAILURE__": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.5399325840407982,
+    "cost_usd": 0.009557886,
+    "cost_per_1000_usd": 0.09557886,
+    "prior_attempts": 6
+  }
+}

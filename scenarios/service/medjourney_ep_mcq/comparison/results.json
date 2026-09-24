@@ -1,0 +1,118 @@
+{
+  "title": "MedJourney 检查预测选择题",
+  "scene": "service",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [
+    {
+      "id": "399",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    },
+    {
+      "id": "316",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    },
+    {
+      "id": "49",
+      "status": "error",
+      "error_type": "ValueError",
+      "http_status": null
+    }
+  ],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.82,
+      "macro_f1_observed_gold_classes": 0.8143781021180402,
+      "per_class": {
+        "0": {
+          "support": 17,
+          "precision": 0.7222222222222222,
+          "recall": 0.7647058823529411,
+          "f1": 0.7428571428571429
+        },
+        "1": {
+          "support": 21,
+          "precision": 0.8333333333333334,
+          "recall": 0.9523809523809523,
+          "f1": 0.8888888888888888
+        },
+        "2": {
+          "support": 20,
+          "precision": 0.8888888888888888,
+          "recall": 0.8,
+          "f1": 0.8421052631578947
+        },
+        "3": {
+          "support": 26,
+          "precision": 0.9090909090909091,
+          "recall": 0.7692307692307693,
+          "f1": 0.8333333333333334
+        },
+        "4": {
+          "support": 16,
+          "precision": 0.7222222222222222,
+          "recall": 0.8125,
+          "f1": 0.7647058823529411
+        }
+      }
+    },
+    "latency_median_s": 0.6145110829966143,
+    "cost_usd": 0.0021780780000000004,
+    "cost_per_1000_usd": 0.021780780000000007
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.79,
+      "macro_f1_observed_gold_classes": 0.7981040157998683,
+      "per_class": {
+        "0": {
+          "support": 17,
+          "precision": 0.6842105263157895,
+          "recall": 0.7647058823529411,
+          "f1": 0.7222222222222222
+        },
+        "1": {
+          "support": 21,
+          "precision": 0.7916666666666666,
+          "recall": 0.9047619047619048,
+          "f1": 0.8444444444444444
+        },
+        "2": {
+          "support": 20,
+          "precision": 0.9375,
+          "recall": 0.75,
+          "f1": 0.8333333333333334
+        },
+        "3": {
+          "support": 26,
+          "precision": 0.8695652173913043,
+          "recall": 0.7692307692307693,
+          "f1": 0.8163265306122449
+        },
+        "4": {
+          "support": 16,
+          "precision": 0.8,
+          "recall": 0.75,
+          "f1": 0.7741935483870968
+        },
+        "__API_OR_FORMAT_FAILURE__": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        }
+      }
+    },
+    "latency_median_s": 0.5366480419761501,
+    "cost_usd": 0.003767136,
+    "cost_per_1000_usd": 0.037671359999999994,
+    "prior_attempts": 4
+  }
+}

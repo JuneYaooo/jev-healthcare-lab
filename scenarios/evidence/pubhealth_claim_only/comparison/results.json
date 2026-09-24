@@ -1,0 +1,81 @@
+{
+  "title": "公共卫生核查：仅论断",
+  "scene": "evidence",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.2,
+      "macro_f1_observed_gold_classes": 0.19146825396825398,
+      "per_class": {
+        "0": {
+          "support": 31,
+          "precision": 0.8235294117647058,
+          "recall": 0.45161290322580644,
+          "f1": 0.5833333333333334
+        },
+        "1": {
+          "support": 13,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "2": {
+          "support": 54,
+          "precision": 0.4444444444444444,
+          "recall": 0.07407407407407407,
+          "f1": 0.12698412698412698
+        },
+        "3": {
+          "support": 2,
+          "precision": 0.02857142857142857,
+          "recall": 1.0,
+          "f1": 0.05555555555555555
+        }
+      }
+    },
+    "latency_median_s": 0.7679559795069508,
+    "cost_usd": 0.0016493399999999994,
+    "cost_per_1000_usd": 0.016493399999999995
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.44,
+      "macro_f1_observed_gold_classes": 0.30012967512967514,
+      "per_class": {
+        "0": {
+          "support": 31,
+          "precision": 0.8461538461538461,
+          "recall": 0.3548387096774194,
+          "f1": 0.5
+        },
+        "1": {
+          "support": 13,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "2": {
+          "support": 54,
+          "precision": 0.7111111111111111,
+          "recall": 0.5925925925925926,
+          "f1": 0.6464646464646465
+        },
+        "3": {
+          "support": 2,
+          "precision": 0.02857142857142857,
+          "recall": 0.5,
+          "f1": 0.05405405405405406
+        }
+      }
+    },
+    "latency_median_s": 0.5549534999881871,
+    "cost_usd": 0.0033372780000000004,
+    "cost_per_1000_usd": 0.033372780000000005,
+    "prior_attempts": 2
+  }
+}

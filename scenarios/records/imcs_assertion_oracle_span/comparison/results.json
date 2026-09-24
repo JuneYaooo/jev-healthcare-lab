@@ -1,0 +1,69 @@
+{
+  "title": "中文症状肯否定状态",
+  "scene": "records",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.79,
+      "macro_f1_observed_gold_classes": 0.6981382978723404,
+      "per_class": {
+        "0": {
+          "support": 10,
+          "precision": 0.4090909090909091,
+          "recall": 0.9,
+          "f1": 0.5625
+        },
+        "1": {
+          "support": 75,
+          "precision": 0.9242424242424242,
+          "recall": 0.8133333333333334,
+          "f1": 0.8652482269503546
+        },
+        "2": {
+          "support": 15,
+          "precision": 0.75,
+          "recall": 0.6,
+          "f1": 0.6666666666666666
+        }
+      }
+    },
+    "latency_median_s": 0.9847878960135859,
+    "cost_usd": 0.009591413999999998,
+    "cost_per_1000_usd": 0.09591413999999997
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.73,
+      "macro_f1_observed_gold_classes": 0.6530118399446893,
+      "per_class": {
+        "0": {
+          "support": 10,
+          "precision": 0.47368421052631576,
+          "recall": 0.9,
+          "f1": 0.6206896551724138
+        },
+        "1": {
+          "support": 75,
+          "precision": 0.9310344827586207,
+          "recall": 0.72,
+          "f1": 0.8120300751879699
+        },
+        "2": {
+          "support": 15,
+          "precision": 0.43478260869565216,
+          "recall": 0.6666666666666666,
+          "f1": 0.5263157894736842
+        }
+      }
+    },
+    "latency_median_s": 0.5371035624993965,
+    "cost_usd": 0.020931377999999994,
+    "cost_per_1000_usd": 0.20931377999999992,
+    "prior_attempts": 1
+  }
+}

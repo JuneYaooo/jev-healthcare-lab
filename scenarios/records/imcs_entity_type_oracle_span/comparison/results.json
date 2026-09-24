@@ -1,0 +1,93 @@
+{
+  "title": "中文给定实体类型识别",
+  "scene": "records",
+  "synthetic": false,
+  "planned": 100,
+  "compared": 100,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.96,
+      "macro_f1_observed_gold_classes": 0.9391798941798942,
+      "per_class": {
+        "Drug": {
+          "support": 13,
+          "precision": 0.9285714285714286,
+          "recall": 1.0,
+          "f1": 0.9629629629629629
+        },
+        "Drug_Category": {
+          "support": 14,
+          "precision": 0.9285714285714286,
+          "recall": 0.9285714285714286,
+          "f1": 0.9285714285714286
+        },
+        "Medical_Examination": {
+          "support": 9,
+          "precision": 0.8888888888888888,
+          "recall": 0.8888888888888888,
+          "f1": 0.8888888888888888
+        },
+        "Operation": {
+          "support": 7,
+          "precision": 0.875,
+          "recall": 1.0,
+          "f1": 0.9333333333333333
+        },
+        "Symptom": {
+          "support": 57,
+          "precision": 1.0,
+          "recall": 0.9649122807017544,
+          "f1": 0.9821428571428571
+        }
+      }
+    },
+    "latency_median_s": 0.872865291981725,
+    "cost_usd": 0.0018777780000000007,
+    "cost_per_1000_usd": 0.018777780000000008
+  },
+  "deepseek": {
+    "quality": {
+      "n": 100,
+      "accuracy": 0.92,
+      "macro_f1_observed_gold_classes": 0.8923365300784656,
+      "per_class": {
+        "Drug": {
+          "support": 13,
+          "precision": 0.7222222222222222,
+          "recall": 1.0,
+          "f1": 0.8387096774193549
+        },
+        "Drug_Category": {
+          "support": 14,
+          "precision": 0.9,
+          "recall": 0.6428571428571429,
+          "f1": 0.75
+        },
+        "Medical_Examination": {
+          "support": 9,
+          "precision": 0.8181818181818182,
+          "recall": 1.0,
+          "f1": 0.9
+        },
+        "Operation": {
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "Symptom": {
+          "support": 57,
+          "precision": 1.0,
+          "recall": 0.9473684210526315,
+          "f1": 0.972972972972973
+        }
+      }
+    },
+    "latency_median_s": 0.48396158299874514,
+    "cost_usd": 0.0031324499999999997,
+    "cost_per_1000_usd": 0.03132449999999999,
+    "prior_attempts": 1
+  }
+}

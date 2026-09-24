@@ -1,0 +1,69 @@
+{
+  "title": "患者与临床试验入组预筛",
+  "scene": "trials",
+  "synthetic": false,
+  "planned": 150,
+  "compared": 150,
+  "failures": [],
+  "jev": {
+    "quality": {
+      "n": 150,
+      "accuracy": 0.48,
+      "macro_f1_observed_gold_classes": 0.41930286913211784,
+      "per_class": {
+        "0": {
+          "support": 50,
+          "precision": 0.5432098765432098,
+          "recall": 0.88,
+          "f1": 0.6717557251908397
+        },
+        "1": {
+          "support": 50,
+          "precision": 0.3709677419354839,
+          "recall": 0.46,
+          "f1": 0.4107142857142857
+        },
+        "2": {
+          "support": 50,
+          "precision": 0.7142857142857143,
+          "recall": 0.1,
+          "f1": 0.17543859649122806
+        }
+      }
+    },
+    "latency_median_s": 0.6466867709823418,
+    "cost_usd": 0.005713847999999999,
+    "cost_per_1000_usd": 0.03809231999999999
+  },
+  "deepseek": {
+    "quality": {
+      "n": 150,
+      "accuracy": 0.5466666666666666,
+      "macro_f1_observed_gold_classes": 0.5142365718217111,
+      "per_class": {
+        "0": {
+          "support": 50,
+          "precision": 0.5542168674698795,
+          "recall": 0.92,
+          "f1": 0.6917293233082706
+        },
+        "1": {
+          "support": 50,
+          "precision": 0.4423076923076923,
+          "recall": 0.46,
+          "f1": 0.45098039215686275
+        },
+        "2": {
+          "support": 50,
+          "precision": 0.8666666666666667,
+          "recall": 0.26,
+          "f1": 0.4
+        }
+      }
+    },
+    "latency_median_s": 0.4972295000043232,
+    "cost_usd": 0.014469113999999996,
+    "cost_per_1000_usd": 0.09646075999999998,
+    "prior_attempts": 1
+  }
+}
