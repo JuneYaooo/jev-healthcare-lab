@@ -1,0 +1,90 @@
+{
+  "dataset": "临床试验摘要整理",
+  "source_url": "https://github.com/Franck-Dernoncourt/pubmed-rct",
+  "source_pool": "First 300 complete test abstracts, 10–24 sentences; exclude all archived main and paired IDs and any exact sentence match, stable SHA256 order.",
+  "source_pool_sha256": "fb078abbafdc6edd539d0f6e759f8b71ebbfd71d38193b7df03d741c5dd9ef01",
+  "eligible_documents": null,
+  "documents": 60,
+  "questions_per_document": 10,
+  "unique_decisions": 600,
+  "group_sizes": [
+    1,
+    5,
+    10
+  ],
+  "repetitions": 2,
+  "workers": 4,
+  "connect_timeout_s": 10,
+  "read_timeout_s": 30,
+  "retry_limit": 1,
+  "retry_delay_s": 1,
+  "http_client": "httpx persistent per-provider connection pool, HTTP/1.1; no local response cache",
+  "order": [
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 1
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 5
+    }
+  ],
+  "selection_sha256": "38b81c18855c8d7aa6927aa3de2a2218d1dd4c5f7baa5e1a4073bf59131f5eae",
+  "quality": "Each question scored against original source label; terminal missing outputs counted wrong; all groups use identical full state, questions and labels.",
+  "cost": "Actual reported usage at submission-time tariff, including recorded retries. Cache hit/miss retained; cache is not controlled.",
+  "scope": "Ten fixed judgments per material, groups of 1/5/10; four material workers, sequential requests within material; two reversed-order rounds with persistent connections. Descriptive API/workflow measurement, not clinical validation.",
+  "description": "60 篇新摘要，每篇固定 10 句，使用原始背景／目的／方法／结果／结论标签。",
+  "positive_label": null
+}

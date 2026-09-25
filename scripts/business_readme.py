@@ -1,7 +1,7 @@
 """Plain-language homepage for healthcare readers, driven by comparison results."""
 import json
 from pathlib import Path
-from analyze_paired_new import table as paired_table
+from analyze_paired_suite import table as suite_table
 
 ROOT=Path(__file__).resolve().parents[1]
 def score(q):return q.get('accuracy',q.get('micro_f1'))
@@ -27,8 +27,13 @@ def render():
     saving=100*(1-j['cost_per_1000_usd']/d['cost_per_1000_usd'])
     timing={p:json.loads((ROOT/f'comparisons/batch-time/{p}/summary.json').read_text()) for p in ['jev','deepseek']}
     tj,td=timing['jev'],timing['deepseek']
-    paired=json.loads((ROOT/'scenarios/evidence/pubmed_rct_section/paired-new/summary.json').read_text())
-    merged=next(r for r in paired['results'] if r['group_size']==10)
+    suite=json.loads((ROOT/'comparisons/paired-suite/summary.json').read_text())
+    expanded=suite['experiments']
+    merged=[next(r for r in e['summary']['results'] if r['group_size']==10) for e in expanded]
+    faster=sum(r['jev']['batch_elapsed_mean_s']<r['deepseek']['batch_elapsed_mean_s'] for r in merged)
+    evidence=merged[2]
+    evidence_single=expanded[2]['summary']['results'][0]
+    evidence_f1={p:evidence[p]['quality_detail']['per_class']['evidence']['f1'] for p in ['jev','deepseek']}
     replay_cheaper='Jev' if tj['cost_usd']<td['cost_usd'] else 'DeepSeek'
     replay_saving=100*(1-min(tj['cost_usd'],td['cost_usd'])/max(tj['cost_usd'],td['cost_usd']))
     failures={p:sum(v for k,v in r['counts'].items() if k!='ok') for p,r in timing.items()}
@@ -37,7 +42,7 @@ def render():
            '## 先看结论', '',
            '- **信息分类是目前更值得尝试的方向。** 医疗实体类型识别、病历章节归类、患者问题分类的正确率为 96%–99%；本批效果评测中，相较 DeepSeek，分数接近或更高，模型调用费用低约 39%–56%，适合优先试用在批量整理和分流环节。',
            '- **长病历中的指定问题回答，也显示出较好的性价比。** 在 100 道给定完整病历的选择题上，Jev 正确率为 95%，DeepSeek 为 83%；Jev 的调用费用低约 68%。这一结果对应指定问题回答，整份病历的自动总结仍需另行验证。',
-           f'- **同一份材料的多项判断，值得合并处理。** 在另选的 20 篇临床试验摘要上，每篇 10 项判断合并调用，Jev 完成整批平均用时 {merged["jev"]["batch_elapsed_mean_s"]:.1f} 秒，DeepSeek 为 {merged["deepseek"]["batch_elapsed_mean_s"]:.1f} 秒；正确率分别为 {merged["jev"]["accuracy"]:.1%} 和 {merged["deepseek"]["accuracy"]:.1%}。这是新材料、相同问题的配对测试，详见下表。',
+           f'- **新增 140 份材料检验批量处理。** 在摘要整理、中文问诊归类和证据句筛选三个任务中，每份合并处理 10 项判断时，Jev 在 {faster} 个任务完成整批更快。各场景的正确率、费用和完整批次时间见下表；速度优势需要与该场景的答对率一起看。',
            '- **复杂医疗判断仍有明显短板。** 试验入组判断正确率 48%、临床量表数值判断 25%、中医证型判断 33%；这些任务即使调用便宜，也不足以支持自动决策。', '',
            '## 哪些工作更值得优先试用？', '',
            '以下任务兼具较好的答对率和较低的调用费用。费用按每千条同类输入估算，单位为美元。', '',
@@ -55,10 +60,13 @@ def render():
               f'| 测速最终未能作答的输入 | {failures["jev"]} 条 | {failures["deepseek"]} 条 |', '',
               '费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。重复输入可能使 DeepSeek 更多命中缓存，从而显著降价；性价比需要结合实际业务的重复程度判断。总耗时包含重试与失败等待，详见[整批测速](comparisons/batch-time/README.md)。', '',
               '### 新材料实测：逐项处理，还是合并处理？', '',
-              '另选 20 篇未进入主评测的临床试验摘要，每篇固定 10 个句子，判断其属于背景、目的、方法、结果还是结论。两家读取相同全文、回答相同问题，分别按每次 1 项、5 项、10 项调用。共 200 个不同判断，每种配置测两轮。', '',
-              *paired_table(paired), '',
-              '这里比较完成整批 200 项判断的总时间，两轮取平均；同时处理 4 篇摘要，每篇内部依次完成请求。两家均复用连接，DeepSeek 关闭思考；本次没有失败或重试。两轮平均费用显示 Jev 更低，但第二轮缓存增加后，DeepSeek 在三个分组的费用均更低。', '',
-              '这是医学文献整理的小规模配对实验，不能直接推广到诊断或所有医疗任务。两轮明细、提示词、原始答案与真实响应见[新材料对照实验](scenarios/evidence/pubmed_rct_section/paired-new/README.md)；原主评测的[按问题数量分组观察](comparisons/batch-time/question_counts.md)另行保留。', '',
+              '新增 **140 份材料、1,400 个不同判断**：60 篇临床试验摘要、40 段中文问诊、40 组医学主张与文献。每份固定 10 项判断，两家读取相同全文、回答相同问题，分别按每次 1 项、5 项、10 项处理。每种配置测两轮，重复调用不计作新案例。', '',
+              *suite_table(expanded), '',
+              '总耗时是完成该行场景全部材料的时间，两轮取平均，包含重试和失败等待；同时处理 4 份材料，每份内部依次请求。费用单位为美元。重复内容命中缓存后，费用排序可能改变，各场景子页保留分轮明细。', '',
+              f'证据筛选合并 10 项时，Jev 两轮分别用时 {evidence["jev"]["batch_elapsed_s"][0]:.1f} 秒和 {evidence["jev"]["batch_elapsed_s"][1]:.1f} 秒，其中一轮发生超时重试，因此表中平均总时间更长。', '',
+              f'证据筛选还需要关注漏检和误报：每次合并 10 项时，Jev 的证据筛选综合分为 {evidence_f1["jev"]*100:.1f}，DeepSeek 为 {evidence_f1["deepseek"]*100:.1f}（满分 100）。整理、分类任务中的优势不能直接推广为诊疗能力。', '',
+              f'证据筛选中，DeepSeek 部分答案因格式不符触发重试；按答案含义补充识别后，逐项处理的正确率为 {evidence_single["deepseek"]["semantic_review"]["accuracy"]:.1%}，证据综合分为 {evidence_single["deepseek"]["semantic_review"]["per_class"]["evidence"]["f1"]*100:.1f}。主表仍保留按指定格式完成任务的结果与实际耗时。', '',
+              '查看[全部新增案例与对比详情](comparisons/paired-suite/README.md)，可进入各场景查看逐案例成绩、完整测试材料和问题。[此前 20 篇摘要实验](scenarios/evidence/pubmed_rct_section/paired-new/README.md)单独保留，未并入这 140 份材料。', '',
               '## 覆盖哪些医疗场景？', '',
               '共 72 项公开数据任务和 24 项自编边界测试。点击场景可查看全部任务，点击任务可查看测试数据、方法和结果。', '',
               '| 场景 | 具体测试数 | 输入记录数 |', '| --- | ---: | ---: |']

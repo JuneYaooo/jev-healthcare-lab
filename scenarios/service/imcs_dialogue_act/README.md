@@ -89,3 +89,7 @@
 - [IMCS21](https://github.com/lemuria-wchen/imcs21)：按实际任务适配与抽样完成，非全数据/临床验证。
 
 原准备分片：`prepared.jsonl`。
+
+## 关联实验
+
+- [新增材料与逐案例对照](paired-expanded/README.md)

@@ -80,3 +80,7 @@
 - SciFact dev; cited-document oracle retrieval, includes NEI, not end-to-end corpus search
 
 原准备分片：`evidence_prepared.jsonl`。
+
+## 关联实验
+
+- [新增材料与逐案例对照](paired-expanded/README.md)

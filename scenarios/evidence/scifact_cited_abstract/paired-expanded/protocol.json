@@ -1,0 +1,90 @@
+{
+  "dataset": "医学文献证据句筛选",
+  "source_url": "https://github.com/allenai/scifact",
+  "source_pool": "SciFact train (public gold); one claim per distinct document, 10–30 sentences; retain all 1–5 gold rationale sentences plus hash-selected negatives to ten; exclude exact archived claims or abstract sentences. Annotations may omit alternative valid rationale sentences.",
+  "source_pool_sha256": "e3de3fd032226d5e120c371ecdecf60298de5af39cffeffb0817cd5515b43434",
+  "eligible_documents": null,
+  "documents": 40,
+  "questions_per_document": 10,
+  "unique_decisions": 400,
+  "group_sizes": [
+    1,
+    5,
+    10
+  ],
+  "repetitions": 2,
+  "workers": 4,
+  "connect_timeout_s": 10,
+  "read_timeout_s": 30,
+  "retry_limit": 1,
+  "retry_delay_s": 1,
+  "http_client": "httpx persistent per-provider connection pool, HTTP/1.1; no local response cache",
+  "order": [
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 1
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 1
+    }
+  ],
+  "selection_sha256": "20693d97083aed729872bc4240ff765094d4f280a76dbbe34e9b0516515a279d",
+  "quality": "Each question scored against original source label; terminal missing outputs counted wrong; all groups use identical full state, questions and labels.",
+  "cost": "Actual reported usage at submission-time tariff, including recorded retries. Cache hit/miss retained; cache is not controlled.",
+  "scope": "Ten fixed judgments per material, groups of 1/5/10; four material workers, sequential requests within material; two reversed-order rounds with persistent connections. Descriptive API/workflow measurement, not clinical validation.",
+  "description": "40 组新的主张与摘要，每组筛选 10 个句子是否属于支持或反驳该主张的直接证据。答案取原始证据句标注；不是重新判断整项主张真假。",
+  "positive_label": "evidence"
+}

@@ -1,0 +1,90 @@
+{
+  "dataset": "中文问诊内容归类",
+  "source_url": "https://github.com/lemuria-wchen/imcs21",
+  "source_pool": "IMCS21 dev; 10–40 utterances; exclude every patient ID in existing IMCS main tasks; stable SHA256 order, ten utterances selected without label balancing.",
+  "source_pool_sha256": "ec2a93e4de8c337042420492faba4297f85f117c85a8caa49052ea2da74ad8fa",
+  "eligible_documents": null,
+  "documents": 40,
+  "questions_per_document": 10,
+  "unique_decisions": 400,
+  "group_sizes": [
+    1,
+    5,
+    10
+  ],
+  "repetitions": 2,
+  "workers": 4,
+  "connect_timeout_s": 10,
+  "read_timeout_s": 30,
+  "retry_limit": 1,
+  "retry_delay_s": 1,
+  "http_client": "httpx persistent per-provider connection pool, HTTP/1.1; no local response cache",
+  "order": [
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 1
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 5
+    }
+  ],
+  "selection_sha256": "cd43a7ee9c808ed891187cf1f61dda08a89c3f31651e6180497bd7a93009f52a",
+  "quality": "Each question scored against original source label; terminal missing outputs counted wrong; all groups use identical full state, questions and labels.",
+  "cost": "Actual reported usage at submission-time tariff, including recorded retries. Cache hit/miss retained; cache is not controlled.",
+  "scope": "Ten fixed judgments per material, groups of 1/5/10; four material workers, sequential requests within material; two reversed-order rounds with persistent connections. Descriptive API/workflow measurement, not clinical validation.",
+  "description": "40 段新的公开中文问诊对话，每段固定 10 句话，使用原始对话行为标注；任务是内容归类，不是给出诊疗建议。",
+  "positive_label": null
+}

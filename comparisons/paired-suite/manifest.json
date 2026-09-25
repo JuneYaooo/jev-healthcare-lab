@@ -1,0 +1,31 @@
+{
+  "experiments": [
+    {
+      "id": "pubmed",
+      "title": "临床试验摘要整理",
+      "path": "scenarios/evidence/pubmed_rct_section/paired-expanded",
+      "materials": 60,
+      "unique_decisions": 600,
+      "selection_sha256": "38b81c18855c8d7aa6927aa3de2a2218d1dd4c5f7baa5e1a4073bf59131f5eae"
+    },
+    {
+      "id": "imcs",
+      "title": "中文问诊内容归类",
+      "path": "scenarios/service/imcs_dialogue_act/paired-expanded",
+      "materials": 40,
+      "unique_decisions": 400,
+      "selection_sha256": "cd43a7ee9c808ed891187cf1f61dda08a89c3f31651e6180497bd7a93009f52a"
+    },
+    {
+      "id": "scifact",
+      "title": "医学文献证据句筛选",
+      "path": "scenarios/evidence/scifact_cited_abstract/paired-expanded",
+      "materials": 40,
+      "unique_decisions": 400,
+      "selection_sha256": "20693d97083aed729872bc4240ff765094d4f280a76dbbe34e9b0516515a279d"
+    }
+  ],
+  "materials": 140,
+  "unique_decisions": 1400,
+  "previous_paired_materials_excluded": 20
+}

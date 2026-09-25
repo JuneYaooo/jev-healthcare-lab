@@ -85,4 +85,5 @@
 
 ## 关联实验
 
+- [新增材料与逐案例对照](paired-expanded/README.md)
 - [新材料逐项与多项合并处理对照](paired-new/README.md)

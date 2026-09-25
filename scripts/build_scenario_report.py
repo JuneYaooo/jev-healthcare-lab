@@ -94,7 +94,7 @@ def task_doc(scene, task, method, result):
     if notes:
         out += ['', '原始适配元数据：', ''] + ['- '+x for x in notes]
     out += ['', '原准备分片：'+ '、'.join('`'+x+'`' for x in provenance['prepared_shards'])+'。', '']
-    attachments = [('paired-new/README.md','新材料逐项与多项合并处理对照'),('attempts.jsonl','保留的失败调用记录'),('baseline.json','规则／候选基线'),('hybrid.json','BMI 参数选择与程序公式联合实验'),('source_verification.json','源数据版本与字节校验'),('hash_audit.json','历史哈希格式修正'),('upstream/manifest.json','实际上游音频／图像／转写文件及哈希'),('upstream/results.json','OCR／ASR 上游指标')]
+    attachments = [('paired-expanded/README.md','新增材料与逐案例对照'),('paired-new/README.md','新材料逐项与多项合并处理对照'),('attempts.jsonl','保留的失败调用记录'),('baseline.json','规则／候选基线'),('hybrid.json','BMI 参数选择与程序公式联合实验'),('source_verification.json','源数据版本与字节校验'),('hash_audit.json','历史哈希格式修正'),('upstream/manifest.json','实际上游音频／图像／转写文件及哈希'),('upstream/results.json','OCR／ASR 上游指标')]
     present=[(name,label) for name,label in attachments if (folder/name).exists()]
     if present:
         out += ['## 关联实验', '']+[f'- [{label}]({name})' for name,label in present]+['']

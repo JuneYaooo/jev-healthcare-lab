@@ -5,10 +5,13 @@ import benchmark as b
 from compare_deepseek import request_payload,normalize
 from prepare_paired_new import BASE
 
-def analyze(folder):
- protocol=json.loads((BASE/'protocol.json').read_text());samples=[json.loads(x) for x in (BASE/'inputs.jsonl').read_text().splitlines()];assert b.sha(samples)==protocol['selection_sha256'];source={r['id']:r for r in samples}
+def analyze(folder, base=BASE):
+ protocol=json.loads((base/'protocol.json').read_text());samples=[json.loads(x) for x in (base/'inputs.jsonl').read_text().splitlines()];assert b.sha(samples)==protocol['selection_sha256'];source={r['id']:r for r in samples}
+ assert len(source)==len(samples)==protocol['documents'] and protocol['questions_per_document']==10 and protocol['repetitions']==2
+ assert all(len(r['gold'])==len(r['request']['questions'])==10 for r in samples)
+ assert json.loads((folder/'protocol.json').read_text())==protocol
  blocks=[json.loads(x) for x in (folder/'blocks.jsonl').read_text().splitlines()];records=[json.loads(x) for x in (folder/'responses.jsonl').read_text().splitlines()]
- assert [{k:s[k] for k in ['round','provider','group_size']} for s in blocks]==protocol['order'];assert all(not s['aborted'] and s['documents']==20 for s in blocks)
+ assert [{k:s[k] for k in ['round','provider','group_size']} for s in blocks]==protocol['order'];assert all(not s['aborted'] and s['documents']==len(samples) for s in blocks)
  blockmap={(s['round'],s['provider'],s['group_size']):s for s in blocks};seen=set();groups=collections.defaultdict(list)
  for r in records:
   key=(r['round'],r['provider'],r['group_size']);identity=(*key,r['id']);assert identity not in seen;seen.add(identity);sample=source[r['id']];p=r['provider'];seenq=[];pred={};cost=0;retries=0;usage=collections.Counter();errors=collections.Counter();connection_starts=0;attempts=0
@@ -40,7 +43,7 @@ def analyze(folder):
    if c['attempts'][-1]['status']=='ok':pred.update(c['attempts'][-1]['answers'])
   assert seenq==list(sample['request']['questions'])
   groups[key].append({'id':r['id'],'correct':sum(pred.get(q)==g for q,g in sample['gold'].items()),'missing':10-len(pred),'cost_usd':cost,'elapsed_s':r['elapsed_s'],'retries':retries,'usage':dict(usage),'errors':dict(errors),'connection_starts':connection_starts,'attempts':attempts})
- assert len(seen)==240
+ assert len(seen)==len(samples)*len(protocol['order'])
  for key,rs in groups.items():
   assert {r['id'] for r in rs}==set(source)
   assert math.isclose(sum(r['cost_usd'] for r in rs),blockmap[key]['reported_cost_usd'],abs_tol=1e-9)
@@ -50,9 +53,9 @@ def analyze(folder):
   for p in ['jev','deepseek']:
    rs=[r for rep in [1,2] for r in groups[(rep,p,size)]];cost=sum(r['cost_usd'] for r in rs);use=collections.Counter();errors=collections.Counter()
    for r in rs:use.update(r['usage']);errors.update(r['errors'])
-   result[p]={'scored_decisions':400,'correct':sum(r['correct'] for r in rs),'accuracy':sum(r['correct'] for r in rs)/400,'missing_answers':sum(r['missing'] for r in rs),'document_elapsed_median_s':statistics.median(r['elapsed_s'] for r in rs),'batch_elapsed_s':[blockmap[(rep,p,size)]['batch_elapsed_s'] for rep in [1,2]],'batch_elapsed_mean_s':statistics.mean(blockmap[(rep,p,size)]['batch_elapsed_s'] for rep in [1,2]),'cost_usd':cost,'cost_per_1000_decisions_usd':cost/400*1000,'retry_attempts':sum(r['retries'] for r in rs),'attempts':sum(r['attempts'] for r in rs),'connection_starts':sum(r['connection_starts'] for r in rs),'usage':dict(use),'errors':dict(errors),'round_accuracy':[sum(r['correct'] for r in groups[(rep,p,size)])/200 for rep in [1,2]],'round_cost_usd':[sum(r['cost_usd'] for r in groups[(rep,p,size)]) for rep in [1,2]],'round_cache_hit_fraction':[sum(r['usage'].get('prompt_cache_hit_tokens',0) for r in groups[(rep,p,size)])/max(1,sum(r['usage'].get('prompt_tokens',0) for r in groups[(rep,p,size)])) if p=='deepseek' else None for rep in [1,2]]}
+   result[p]={'scored_decisions':len(samples)*20,'correct':sum(r['correct'] for r in rs),'accuracy':sum(r['correct'] for r in rs)/(len(samples)*20),'missing_answers':sum(r['missing'] for r in rs),'document_elapsed_median_s':statistics.median(r['elapsed_s'] for r in rs),'batch_elapsed_s':[blockmap[(rep,p,size)]['batch_elapsed_s'] for rep in [1,2]],'batch_elapsed_mean_s':statistics.mean(blockmap[(rep,p,size)]['batch_elapsed_s'] for rep in [1,2]),'cost_usd':cost,'cost_per_1000_decisions_usd':cost/(len(samples)*20)*1000,'retry_attempts':sum(r['retries'] for r in rs),'attempts':sum(r['attempts'] for r in rs),'connection_starts':sum(r['connection_starts'] for r in rs),'usage':dict(use),'errors':dict(errors),'round_accuracy':[sum(r['correct'] for r in groups[(rep,p,size)])/(len(samples)*10) for rep in [1,2]],'round_cost_usd':[sum(r['cost_usd'] for r in groups[(rep,p,size)]) for rep in [1,2]],'round_cache_hit_fraction':[sum(r['usage'].get('prompt_cache_hit_tokens',0) for r in groups[(rep,p,size)])/max(1,sum(r['usage'].get('prompt_tokens',0) for r in groups[(rep,p,size)])) if p=='deepseek' else None for rep in [1,2]]}
   results.append(result)
- return {'documents':20,'unique_decisions':200,'repetitions':2,'results':results}
+ return {'documents':len(samples),'unique_decisions':len(samples)*10,'repetitions':2,'results':results}
 
 def table(summary):
  lines=['| 每次处理的判断数 | 正确率：Jev / DeepSeek | 完成全部 20 篇总耗时：Jev / DeepSeek | 每千项判断费用：Jev / DeepSeek |','| --- | ---: | ---: | ---: |']

@@ -1,0 +1,1805 @@
+{
+  "materials": 140,
+  "unique_decisions": 1400,
+  "experiments": [
+    {
+      "id": "pubmed",
+      "title": "临床试验摘要整理",
+      "path": "scenarios/evidence/pubmed_rct_section/paired-expanded",
+      "materials": 60,
+      "unique_decisions": 600,
+      "selection_sha256": "38b81c18855c8d7aa6927aa3de2a2218d1dd4c5f7baa5e1a4073bf59131f5eae",
+      "summary": {
+        "documents": 60,
+        "unique_decisions": 600,
+        "repetitions": 2,
+        "results": [
+          {
+            "group_size": 1,
+            "jev": {
+              "scored_decisions": 1200,
+              "correct": 1019,
+              "accuracy": 0.8491666666666666,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 2.646939104073681,
+              "batch_elapsed_s": [
+                41.79796762496699,
+                40.92661041696556
+              ],
+              "batch_elapsed_mean_s": 41.36228902096627,
+              "cost_usd": 0.04742640000000001,
+              "cost_per_1000_decisions_usd": 0.03952200000000001,
+              "retry_attempts": 0,
+              "attempts": 1200,
+              "connection_starts": 0,
+              "usage": {
+                "input_tokens": 1129200,
+                "output_tokens": 76576
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.85,
+                0.8483333333333334
+              ],
+              "round_cost_usd": [
+                0.023713200000000004,
+                0.023713200000000004
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 1200,
+                "accuracy": 0.8491666666666666,
+                "macro_f1_observed_gold_classes": 0.7929498964667404,
+                "per_class": {
+                  "BACKGROUND": {
+                    "support": 146,
+                    "precision": 0.6964285714285714,
+                    "recall": 0.5342465753424658,
+                    "f1": 0.6046511627906976
+                  },
+                  "CONCLUSIONS": {
+                    "support": 164,
+                    "precision": 0.930379746835443,
+                    "recall": 0.8963414634146342,
+                    "f1": 0.9130434782608695
+                  },
+                  "METHODS": {
+                    "support": 398,
+                    "precision": 0.8099173553719008,
+                    "recall": 0.9849246231155779,
+                    "f1": 0.8888888888888888
+                  },
+                  "OBJECTIVE": {
+                    "support": 110,
+                    "precision": 0.6538461538461539,
+                    "recall": 0.6181818181818182,
+                    "f1": 0.6355140186915887
+                  },
+                  "RESULTS": {
+                    "support": 382,
+                    "precision": 0.9766081871345029,
+                    "recall": 0.8743455497382199,
+                    "f1": 0.9226519337016574
+                  }
+                }
+              }
+            },
+            "deepseek": {
+              "scored_decisions": 1200,
+              "correct": 1040,
+              "accuracy": 0.8666666666666667,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 6.374766020511743,
+              "batch_elapsed_s": [
+                101.35616820899304,
+                97.07910804101266
+              ],
+              "batch_elapsed_mean_s": 99.21763812500285,
+              "cost_usd": 0.0919548,
+              "cost_per_1000_decisions_usd": 0.076629,
+              "retry_attempts": 1,
+              "attempts": 1201,
+              "connection_starts": 0,
+              "usage": {
+                "completion_tokens": 13767,
+                "prompt_cache_hit_tokens": 316750,
+                "prompt_cache_miss_tokens": 551629,
+                "prompt_tokens": 868379,
+                "total_tokens": 882146
+              },
+              "errors": {
+                "ValueError": 1
+              },
+              "round_accuracy": [
+                0.8633333333333333,
+                0.87
+              ],
+              "round_cost_usd": [
+                0.06923277,
+                0.02272203
+              ],
+              "round_cache_hit_fraction": [
+                0.0014725541221161523,
+                0.7287670601254149
+              ],
+              "quality_detail": {
+                "n": 1200,
+                "accuracy": 0.8666666666666667,
+                "macro_f1_observed_gold_classes": 0.809636286728576,
+                "per_class": {
+                  "BACKGROUND": {
+                    "support": 146,
+                    "precision": 0.7076923076923077,
+                    "recall": 0.6301369863013698,
+                    "f1": 0.6666666666666666
+                  },
+                  "CONCLUSIONS": {
+                    "support": 164,
+                    "precision": 0.9342105263157895,
+                    "recall": 0.8658536585365854,
+                    "f1": 0.8987341772151899
+                  },
+                  "METHODS": {
+                    "support": 398,
+                    "precision": 0.8552631578947368,
+                    "recall": 0.9798994974874372,
+                    "f1": 0.9133489461358314
+                  },
+                  "OBJECTIVE": {
+                    "support": 110,
+                    "precision": 0.66,
+                    "recall": 0.6,
+                    "f1": 0.6285714285714286
+                  },
+                  "RESULTS": {
+                    "support": 382,
+                    "precision": 0.9668508287292817,
+                    "recall": 0.9162303664921466,
+                    "f1": 0.9408602150537635
+                  }
+                }
+              }
+            }
+          },
+          {
+            "group_size": 5,
+            "jev": {
+              "scored_decisions": 1200,
+              "correct": 1018,
+              "accuracy": 0.8483333333333334,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.48824322898872197,
+              "batch_elapsed_s": [
+                9.39037208398804,
+                8.484839790966362
+              ],
+              "batch_elapsed_mean_s": 8.937605937477201,
+              "cost_usd": 0.0141624,
+              "cost_per_1000_decisions_usd": 0.011802,
+              "retry_attempts": 0,
+              "attempts": 240,
+              "connection_starts": 4,
+              "usage": {
+                "input_tokens": 337200,
+                "output_tokens": 73696
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.8466666666666667,
+                0.85
+              ],
+              "round_cost_usd": [
+                0.0070812,
+                0.0070812
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 1200,
+                "accuracy": 0.8483333333333334,
+                "macro_f1_observed_gold_classes": 0.7931674877424183,
+                "per_class": {
+                  "BACKGROUND": {
+                    "support": 146,
+                    "precision": 0.6964285714285714,
+                    "recall": 0.5342465753424658,
+                    "f1": 0.6046511627906976
+                  },
+                  "CONCLUSIONS": {
+                    "support": 164,
+                    "precision": 0.9363057324840764,
+                    "recall": 0.8963414634146342,
+                    "f1": 0.9158878504672897
+                  },
+                  "METHODS": {
+                    "support": 398,
+                    "precision": 0.805327868852459,
+                    "recall": 0.9874371859296482,
+                    "f1": 0.8871331828442438
+                  },
+                  "OBJECTIVE": {
+                    "support": 110,
+                    "precision": 0.6601941747572816,
+                    "recall": 0.6181818181818182,
+                    "f1": 0.6384976525821596
+                  },
+                  "RESULTS": {
+                    "support": 382,
+                    "precision": 0.9764705882352941,
+                    "recall": 0.8691099476439791,
+                    "f1": 0.9196675900277008
+                  }
+                }
+              }
+            },
+            "deepseek": {
+              "scored_decisions": 1200,
+              "correct": 1014,
+              "accuracy": 0.845,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 1.3624571044929326,
+              "batch_elapsed_s": [
+                22.416977250017226,
+                19.71608754200861
+              ],
+              "batch_elapsed_mean_s": 21.066532396012917,
+              "cost_usd": 0.021883248,
+              "cost_per_1000_decisions_usd": 0.018236040000000002,
+              "retry_attempts": 0,
+              "attempts": 240,
+              "connection_starts": 4,
+              "usage": {
+                "completion_tokens": 8337,
+                "prompt_cache_hit_tokens": 138616,
+                "prompt_cache_miss_tokens": 109768,
+                "prompt_tokens": 248384,
+                "total_tokens": 256721
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.845,
+                0.845
+              ],
+              "round_cost_usd": [
+                0.015707808,
+                0.00617544
+              ],
+              "round_cache_hit_fraction": [
+                0.29580005153311,
+                0.8203426951816543
+              ],
+              "quality_detail": {
+                "n": 1200,
+                "accuracy": 0.845,
+                "macro_f1_observed_gold_classes": 0.788171366790607,
+                "per_class": {
+                  "BACKGROUND": {
+                    "support": 146,
+                    "precision": 0.6779661016949152,
+                    "recall": 0.547945205479452,
+                    "f1": 0.6060606060606061
+                  },
+                  "CONCLUSIONS": {
+                    "support": 164,
+                    "precision": 0.9419354838709677,
+                    "recall": 0.8902439024390244,
+                    "f1": 0.9153605015673981
+                  },
+                  "METHODS": {
+                    "support": 398,
+                    "precision": 0.835990888382688,
+                    "recall": 0.9221105527638191,
+                    "f1": 0.8769414575866189
+                  },
+                  "OBJECTIVE": {
+                    "support": 110,
+                    "precision": 0.6017699115044248,
+                    "recall": 0.6181818181818182,
+                    "f1": 0.6098654708520179
+                  },
+                  "RESULTS": {
+                    "support": 382,
+                    "precision": 0.9413333333333334,
+                    "recall": 0.9240837696335078,
+                    "f1": 0.9326287978863936
+                  }
+                }
+              }
+            }
+          },
+          {
+            "group_size": 10,
+            "jev": {
+              "scored_decisions": 1200,
+              "correct": 1015,
+              "accuracy": 0.8458333333333333,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.2459802710218355,
+              "batch_elapsed_s": [
+                5.362832457991317,
+                4.896010125055909
+              ],
+              "batch_elapsed_mean_s": 5.129421291523613,
+              "cost_usd": 0.0100044,
+              "cost_per_1000_decisions_usd": 0.008337,
+              "retry_attempts": 0,
+              "attempts": 120,
+              "connection_starts": 0,
+              "usage": {
+                "input_tokens": 238200,
+                "output_tokens": 73336
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.8466666666666667,
+                0.845
+              ],
+              "round_cost_usd": [
+                0.0050022,
+                0.0050022
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 1200,
+                "accuracy": 0.8458333333333333,
+                "macro_f1_observed_gold_classes": 0.7908877069817246,
+                "per_class": {
+                  "BACKGROUND": {
+                    "support": 146,
+                    "precision": 0.6964285714285714,
+                    "recall": 0.5342465753424658,
+                    "f1": 0.6046511627906976
+                  },
+                  "CONCLUSIONS": {
+                    "support": 164,
+                    "precision": 0.9358974358974359,
+                    "recall": 0.8902439024390244,
+                    "f1": 0.9125
+                  },
+                  "METHODS": {
+                    "support": 398,
+                    "precision": 0.8032786885245902,
+                    "recall": 0.9849246231155779,
+                    "f1": 0.8848758465011287
+                  },
+                  "OBJECTIVE": {
+                    "support": 110,
+                    "precision": 0.6538461538461539,
+                    "recall": 0.6181818181818182,
+                    "f1": 0.6355140186915887
+                  },
+                  "RESULTS": {
+                    "support": 382,
+                    "precision": 0.9735294117647059,
+                    "recall": 0.8664921465968587,
+                    "f1": 0.9168975069252078
+                  }
+                }
+              }
+            },
+            "deepseek": {
+              "scored_decisions": 1200,
+              "correct": 1025,
+              "accuracy": 0.8541666666666666,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.797541166539304,
+              "batch_elapsed_s": [
+                12.456050542066805,
+                12.511429999954998
+              ],
+              "batch_elapsed_mean_s": 12.483740271010902,
+              "cost_usd": 0.014247527999999999,
+              "cost_per_1000_decisions_usd": 0.011872939999999998,
+              "retry_attempts": 0,
+              "attempts": 120,
+              "connection_starts": 4,
+              "usage": {
+                "completion_tokens": 7403,
+                "prompt_cache_hit_tokens": 107776,
+                "prompt_cache_miss_tokens": 63216,
+                "prompt_tokens": 170992,
+                "total_tokens": 178395
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.8566666666666667,
+                0.8516666666666667
+              ],
+              "round_cost_usd": [
+                0.010103207999999999,
+                0.00414432
+              ],
+              "round_cache_hit_fraction": [
+                0.3922522691120052,
+                0.8683447178815383
+              ],
+              "quality_detail": {
+                "n": 1200,
+                "accuracy": 0.8541666666666666,
+                "macro_f1_observed_gold_classes": 0.7917651653152675,
+                "per_class": {
+                  "BACKGROUND": {
+                    "support": 146,
+                    "precision": 0.6638655462184874,
+                    "recall": 0.541095890410959,
+                    "f1": 0.5962264150943396
+                  },
+                  "CONCLUSIONS": {
+                    "support": 164,
+                    "precision": 0.9419354838709677,
+                    "recall": 0.8902439024390244,
+                    "f1": 0.9153605015673981
+                  },
+                  "METHODS": {
+                    "support": 398,
+                    "precision": 0.8407079646017699,
+                    "recall": 0.9547738693467337,
+                    "f1": 0.8941176470588236
+                  },
+                  "OBJECTIVE": {
+                    "support": 110,
+                    "precision": 0.5862068965517241,
+                    "recall": 0.6181818181818182,
+                    "f1": 0.6017699115044248
+                  },
+                  "RESULTS": {
+                    "support": 382,
+                    "precision": 0.9832402234636871,
+                    "recall": 0.9214659685863874,
+                    "f1": 0.9513513513513514
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "imcs",
+      "title": "中文问诊内容归类",
+      "path": "scenarios/service/imcs_dialogue_act/paired-expanded",
+      "materials": 40,
+      "unique_decisions": 400,
+      "selection_sha256": "cd43a7ee9c808ed891187cf1f61dda08a89c3f31651e6180497bd7a93009f52a",
+      "summary": {
+        "documents": 40,
+        "unique_decisions": 400,
+        "repetitions": 2,
+        "results": [
+          {
+            "group_size": 1,
+            "jev": {
+              "scored_decisions": 800,
+              "correct": 591,
+              "accuracy": 0.73875,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 2.816289250040427,
+              "batch_elapsed_s": [
+                28.791957917041145,
+                32.123838749947026
+              ],
+              "batch_elapsed_mean_s": 30.457898333494086,
+              "cost_usd": 0.06039684000000001,
+              "cost_per_1000_decisions_usd": 0.07549605000000001,
+              "retry_attempts": 0,
+              "attempts": 800,
+              "connection_starts": 0,
+              "usage": {
+                "input_tokens": 1438020,
+                "output_tokens": 172301
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.735,
+                0.7425
+              ],
+              "round_cost_usd": [
+                0.030198420000000004,
+                0.030198420000000004
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.73875,
+                "macro_f1_observed_gold_classes": 0.6449695982108713,
+                "per_class": {
+                  "Diagnose": {
+                    "support": 16,
+                    "precision": 0.7692307692307693,
+                    "recall": 0.625,
+                    "f1": 0.6896551724137931
+                  },
+                  "Inform-Basic_Information": {
+                    "support": 44,
+                    "precision": 0.43478260869565216,
+                    "recall": 0.6818181818181818,
+                    "f1": 0.5309734513274337
+                  },
+                  "Inform-Drug_Recommendation": {
+                    "support": 72,
+                    "precision": 0.8636363636363636,
+                    "recall": 0.5277777777777778,
+                    "f1": 0.6551724137931034
+                  },
+                  "Inform-Etiology": {
+                    "support": 14,
+                    "precision": 0.52,
+                    "recall": 0.9285714285714286,
+                    "f1": 0.6666666666666666
+                  },
+                  "Inform-Existing_Examination_and_Treatment": {
+                    "support": 38,
+                    "precision": 0.813953488372093,
+                    "recall": 0.9210526315789473,
+                    "f1": 0.8641975308641975
+                  },
+                  "Inform-Medical_Advice": {
+                    "support": 30,
+                    "precision": 0.2857142857142857,
+                    "recall": 0.8666666666666667,
+                    "f1": 0.4297520661157025
+                  },
+                  "Inform-Precautions": {
+                    "support": 38,
+                    "precision": 0.6363636363636364,
+                    "recall": 0.3684210526315789,
+                    "f1": 0.4666666666666667
+                  },
+                  "Inform-Symptom": {
+                    "support": 102,
+                    "precision": 0.9056603773584906,
+                    "recall": 0.9411764705882353,
+                    "f1": 0.9230769230769231
+                  },
+                  "Other": {
+                    "support": 240,
+                    "precision": 0.9880239520958084,
+                    "recall": 0.6875,
+                    "f1": 0.8108108108108109
+                  },
+                  "Request-Basic_Information": {
+                    "support": 18,
+                    "precision": 0.75,
+                    "recall": 0.3333333333333333,
+                    "f1": 0.46153846153846156
+                  },
+                  "Request-Drug_Recommendation": {
+                    "support": 40,
+                    "precision": 1.0,
+                    "recall": 0.5,
+                    "f1": 0.6666666666666666
+                  },
+                  "Request-Etiology": {
+                    "support": 4,
+                    "precision": 0.36363636363636365,
+                    "recall": 1.0,
+                    "f1": 0.5333333333333333
+                  },
+                  "Request-Existing_Examination_and_Treatment": {
+                    "support": 52,
+                    "precision": 0.8813559322033898,
+                    "recall": 1.0,
+                    "f1": 0.9369369369369369
+                  },
+                  "Request-Medical_Advice": {
+                    "support": 6,
+                    "precision": 0.24,
+                    "recall": 1.0,
+                    "f1": 0.3870967741935484
+                  },
+                  "Request-Precautions": {
+                    "support": 14,
+                    "precision": 0.3157894736842105,
+                    "recall": 0.42857142857142855,
+                    "f1": 0.36363636363636365
+                  },
+                  "Request-Symptom": {
+                    "support": 72,
+                    "precision": 0.8974358974358975,
+                    "recall": 0.9722222222222222,
+                    "f1": 0.9333333333333333
+                  }
+                }
+              }
+            },
+            "deepseek": {
+              "scored_decisions": 800,
+              "correct": 579,
+              "accuracy": 0.72375,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 6.485854104452301,
+              "batch_elapsed_s": [
+                65.32938462495804,
+                66.38682329107542
+              ],
+              "batch_elapsed_mean_s": 65.85810395801673,
+              "cost_usd": 0.07400398799999999,
+              "cost_per_1000_decisions_usd": 0.09250498499999998,
+              "retry_attempts": 0,
+              "attempts": 800,
+              "connection_starts": 4,
+              "usage": {
+                "completion_tokens": 11248,
+                "prompt_cache_hit_tokens": 471196,
+                "prompt_cache_miss_tokens": 438944,
+                "prompt_tokens": 910140,
+                "total_tokens": 921388
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.7275,
+                0.72
+              ],
+              "round_cost_usd": [
+                0.058235508,
+                0.01576848
+              ],
+              "round_cache_hit_fraction": [
+                0.20026809062342057,
+                0.8351682158788758
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.72375,
+                "macro_f1_observed_gold_classes": 0.638017855736838,
+                "per_class": {
+                  "Diagnose": {
+                    "support": 16,
+                    "precision": 1.0,
+                    "recall": 0.625,
+                    "f1": 0.7692307692307693
+                  },
+                  "Inform-Basic_Information": {
+                    "support": 44,
+                    "precision": 0.475,
+                    "recall": 0.4318181818181818,
+                    "f1": 0.4523809523809524
+                  },
+                  "Inform-Drug_Recommendation": {
+                    "support": 72,
+                    "precision": 0.94,
+                    "recall": 0.6527777777777778,
+                    "f1": 0.7704918032786885
+                  },
+                  "Inform-Etiology": {
+                    "support": 14,
+                    "precision": 0.35,
+                    "recall": 1.0,
+                    "f1": 0.5185185185185185
+                  },
+                  "Inform-Existing_Examination_and_Treatment": {
+                    "support": 38,
+                    "precision": 0.6333333333333333,
+                    "recall": 1.0,
+                    "f1": 0.7755102040816326
+                  },
+                  "Inform-Medical_Advice": {
+                    "support": 30,
+                    "precision": 0.3023255813953488,
+                    "recall": 0.8666666666666667,
+                    "f1": 0.4482758620689655
+                  },
+                  "Inform-Precautions": {
+                    "support": 38,
+                    "precision": 0.5625,
+                    "recall": 0.47368421052631576,
+                    "f1": 0.5142857142857142
+                  },
+                  "Inform-Symptom": {
+                    "support": 102,
+                    "precision": 0.8596491228070176,
+                    "recall": 0.9607843137254902,
+                    "f1": 0.9074074074074074
+                  },
+                  "Other": {
+                    "support": 240,
+                    "precision": 0.974025974025974,
+                    "recall": 0.625,
+                    "f1": 0.7614213197969543
+                  },
+                  "Request-Basic_Information": {
+                    "support": 18,
+                    "precision": 0.47058823529411764,
+                    "recall": 0.4444444444444444,
+                    "f1": 0.45714285714285713
+                  },
+                  "Request-Drug_Recommendation": {
+                    "support": 40,
+                    "precision": 0.9393939393939394,
+                    "recall": 0.775,
+                    "f1": 0.8493150684931506
+                  },
+                  "Request-Etiology": {
+                    "support": 4,
+                    "precision": 0.26666666666666666,
+                    "recall": 1.0,
+                    "f1": 0.42105263157894735
+                  },
+                  "Request-Existing_Examination_and_Treatment": {
+                    "support": 52,
+                    "precision": 0.8431372549019608,
+                    "recall": 0.8269230769230769,
+                    "f1": 0.8349514563106796
+                  },
+                  "Request-Medical_Advice": {
+                    "support": 6,
+                    "precision": 0.23076923076923078,
+                    "recall": 1.0,
+                    "f1": 0.375
+                  },
+                  "Request-Precautions": {
+                    "support": 14,
+                    "precision": 0.5555555555555556,
+                    "recall": 0.35714285714285715,
+                    "f1": 0.43478260869565216
+                  },
+                  "Request-Symptom": {
+                    "support": 72,
+                    "precision": 0.9841269841269841,
+                    "recall": 0.8611111111111112,
+                    "f1": 0.9185185185185185
+                  }
+                }
+              }
+            }
+          },
+          {
+            "group_size": 5,
+            "jev": {
+              "scored_decisions": 800,
+              "correct": 587,
+              "accuracy": 0.73375,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.7078206039732322,
+              "batch_elapsed_s": [
+                9.176910332986154,
+                32.9658829580294
+              ],
+              "batch_elapsed_mean_s": 21.071396645507775,
+              "cost_usd": 0.023153928,
+              "cost_per_1000_decisions_usd": 0.02894241,
+              "retry_attempts": 1,
+              "attempts": 161,
+              "connection_starts": 4,
+              "usage": {
+                "input_tokens": 551284,
+                "output_tokens": 170387
+              },
+              "errors": {
+                "ReadTimeout": 1
+              },
+              "round_accuracy": [
+                0.7325,
+                0.735
+              ],
+              "round_cost_usd": [
+                0.011576964,
+                0.011576964
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.73375,
+                "macro_f1_observed_gold_classes": 0.6380832628070463,
+                "per_class": {
+                  "Diagnose": {
+                    "support": 16,
+                    "precision": 0.8333333333333334,
+                    "recall": 0.625,
+                    "f1": 0.7142857142857143
+                  },
+                  "Inform-Basic_Information": {
+                    "support": 44,
+                    "precision": 0.43478260869565216,
+                    "recall": 0.6818181818181818,
+                    "f1": 0.5309734513274337
+                  },
+                  "Inform-Drug_Recommendation": {
+                    "support": 72,
+                    "precision": 0.8636363636363636,
+                    "recall": 0.5277777777777778,
+                    "f1": 0.6551724137931034
+                  },
+                  "Inform-Etiology": {
+                    "support": 14,
+                    "precision": 0.48,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.6153846153846154
+                  },
+                  "Inform-Existing_Examination_and_Treatment": {
+                    "support": 38,
+                    "precision": 0.7906976744186046,
+                    "recall": 0.8947368421052632,
+                    "f1": 0.8395061728395061
+                  },
+                  "Inform-Medical_Advice": {
+                    "support": 30,
+                    "precision": 0.2765957446808511,
+                    "recall": 0.8666666666666667,
+                    "f1": 0.41935483870967744
+                  },
+                  "Inform-Precautions": {
+                    "support": 38,
+                    "precision": 0.6666666666666666,
+                    "recall": 0.3684210526315789,
+                    "f1": 0.4745762711864407
+                  },
+                  "Inform-Symptom": {
+                    "support": 102,
+                    "precision": 0.9047619047619048,
+                    "recall": 0.9313725490196079,
+                    "f1": 0.9178743961352657
+                  },
+                  "Other": {
+                    "support": 240,
+                    "precision": 0.9879518072289156,
+                    "recall": 0.6833333333333333,
+                    "f1": 0.8078817733990148
+                  },
+                  "Request-Basic_Information": {
+                    "support": 18,
+                    "precision": 1.0,
+                    "recall": 0.3333333333333333,
+                    "f1": 0.5
+                  },
+                  "Request-Drug_Recommendation": {
+                    "support": 40,
+                    "precision": 1.0,
+                    "recall": 0.5,
+                    "f1": 0.6666666666666666
+                  },
+                  "Request-Etiology": {
+                    "support": 4,
+                    "precision": 0.2857142857142857,
+                    "recall": 1.0,
+                    "f1": 0.4444444444444444
+                  },
+                  "Request-Existing_Examination_and_Treatment": {
+                    "support": 52,
+                    "precision": 0.8813559322033898,
+                    "recall": 1.0,
+                    "f1": 0.9369369369369369
+                  },
+                  "Request-Medical_Advice": {
+                    "support": 6,
+                    "precision": 0.25,
+                    "recall": 1.0,
+                    "f1": 0.4
+                  },
+                  "Request-Precautions": {
+                    "support": 14,
+                    "precision": 0.3,
+                    "recall": 0.42857142857142855,
+                    "f1": 0.35294117647058826
+                  },
+                  "Request-Symptom": {
+                    "support": 72,
+                    "precision": 0.8974358974358975,
+                    "recall": 0.9722222222222222,
+                    "f1": 0.9333333333333333
+                  }
+                }
+              }
+            },
+            "deepseek": {
+              "scored_decisions": 800,
+              "correct": 565,
+              "accuracy": 0.70625,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 1.5671389374765567,
+              "batch_elapsed_s": [
+                15.434614749974571,
+                17.891048249904998
+              ],
+              "batch_elapsed_mean_s": 16.662831499939784,
+              "cost_usd": 0.028550741999999997,
+              "cost_per_1000_decisions_usd": 0.035688427499999995,
+              "retry_attempts": 0,
+              "attempts": 160,
+              "connection_starts": 0,
+              "usage": {
+                "completion_tokens": 8006,
+                "prompt_cache_hit_tokens": 177014,
+                "prompt_cache_miss_tokens": 154774,
+                "prompt_tokens": 331788,
+                "total_tokens": 339794
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.7025,
+                0.71
+              ],
+              "round_cost_usd": [
+                0.023347955999999996,
+                0.005202786
+              ],
+              "round_cache_hit_fraction": [
+                0.1612595995032973,
+                0.9057711550749273
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.70625,
+                "macro_f1_observed_gold_classes": 0.607170334768338,
+                "per_class": {
+                  "Diagnose": {
+                    "support": 16,
+                    "precision": 0.7142857142857143,
+                    "recall": 0.625,
+                    "f1": 0.6666666666666666
+                  },
+                  "Inform-Basic_Information": {
+                    "support": 44,
+                    "precision": 0.6666666666666666,
+                    "recall": 0.45454545454545453,
+                    "f1": 0.5405405405405406
+                  },
+                  "Inform-Drug_Recommendation": {
+                    "support": 72,
+                    "precision": 0.8333333333333334,
+                    "recall": 0.625,
+                    "f1": 0.7142857142857143
+                  },
+                  "Inform-Etiology": {
+                    "support": 14,
+                    "precision": 0.27906976744186046,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.42105263157894735
+                  },
+                  "Inform-Existing_Examination_and_Treatment": {
+                    "support": 38,
+                    "precision": 0.6666666666666666,
+                    "recall": 0.9473684210526315,
+                    "f1": 0.782608695652174
+                  },
+                  "Inform-Medical_Advice": {
+                    "support": 30,
+                    "precision": 0.32558139534883723,
+                    "recall": 0.9333333333333333,
+                    "f1": 0.4827586206896552
+                  },
+                  "Inform-Precautions": {
+                    "support": 38,
+                    "precision": 0.5333333333333333,
+                    "recall": 0.42105263157894735,
+                    "f1": 0.47058823529411764
+                  },
+                  "Inform-Symptom": {
+                    "support": 102,
+                    "precision": 0.8348623853211009,
+                    "recall": 0.8921568627450981,
+                    "f1": 0.8625592417061612
+                  },
+                  "Other": {
+                    "support": 240,
+                    "precision": 0.9404761904761905,
+                    "recall": 0.6583333333333333,
+                    "f1": 0.7745098039215687
+                  },
+                  "Request-Basic_Information": {
+                    "support": 18,
+                    "precision": 0.42857142857142855,
+                    "recall": 0.3333333333333333,
+                    "f1": 0.375
+                  },
+                  "Request-Drug_Recommendation": {
+                    "support": 40,
+                    "precision": 0.8108108108108109,
+                    "recall": 0.75,
+                    "f1": 0.7792207792207793
+                  },
+                  "Request-Etiology": {
+                    "support": 4,
+                    "precision": 0.3076923076923077,
+                    "recall": 1.0,
+                    "f1": 0.47058823529411764
+                  },
+                  "Request-Existing_Examination_and_Treatment": {
+                    "support": 52,
+                    "precision": 0.7884615384615384,
+                    "recall": 0.7884615384615384,
+                    "f1": 0.7884615384615384
+                  },
+                  "Request-Medical_Advice": {
+                    "support": 6,
+                    "precision": 0.24,
+                    "recall": 1.0,
+                    "f1": 0.3870967741935484
+                  },
+                  "Request-Precautions": {
+                    "support": 14,
+                    "precision": 0.36363636363636365,
+                    "recall": 0.2857142857142857,
+                    "f1": 0.32
+                  },
+                  "Request-Symptom": {
+                    "support": 72,
+                    "precision": 0.9666666666666667,
+                    "recall": 0.8055555555555556,
+                    "f1": 0.8787878787878788
+                  }
+                }
+              }
+            }
+          },
+          {
+            "group_size": 10,
+            "jev": {
+              "scored_decisions": 800,
+              "correct": 590,
+              "accuracy": 0.7375,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.4359513545059599,
+              "batch_elapsed_s": [
+                4.772932375082746,
+                4.939273416996002
+              ],
+              "batch_elapsed_mean_s": 4.856102896039374,
+              "cost_usd": 0.018498564000000002,
+              "cost_per_1000_decisions_usd": 0.023123205000000004,
+              "retry_attempts": 0,
+              "attempts": 80,
+              "connection_starts": 0,
+              "usage": {
+                "input_tokens": 440442,
+                "output_tokens": 170178
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.735,
+                0.74
+              ],
+              "round_cost_usd": [
+                0.009249282000000001,
+                0.009249282000000001
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.7375,
+                "macro_f1_observed_gold_classes": 0.6470380072979527,
+                "per_class": {
+                  "Diagnose": {
+                    "support": 16,
+                    "precision": 0.8333333333333334,
+                    "recall": 0.625,
+                    "f1": 0.7142857142857143
+                  },
+                  "Inform-Basic_Information": {
+                    "support": 44,
+                    "precision": 0.42857142857142855,
+                    "recall": 0.6818181818181818,
+                    "f1": 0.5263157894736842
+                  },
+                  "Inform-Drug_Recommendation": {
+                    "support": 72,
+                    "precision": 0.8695652173913043,
+                    "recall": 0.5555555555555556,
+                    "f1": 0.6779661016949152
+                  },
+                  "Inform-Etiology": {
+                    "support": 14,
+                    "precision": 0.48,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.6153846153846154
+                  },
+                  "Inform-Existing_Examination_and_Treatment": {
+                    "support": 38,
+                    "precision": 0.8181818181818182,
+                    "recall": 0.9473684210526315,
+                    "f1": 0.8780487804878049
+                  },
+                  "Inform-Medical_Advice": {
+                    "support": 30,
+                    "precision": 0.27956989247311825,
+                    "recall": 0.8666666666666667,
+                    "f1": 0.42276422764227645
+                  },
+                  "Inform-Precautions": {
+                    "support": 38,
+                    "precision": 0.7,
+                    "recall": 0.3684210526315789,
+                    "f1": 0.4827586206896552
+                  },
+                  "Inform-Symptom": {
+                    "support": 102,
+                    "precision": 0.9047619047619048,
+                    "recall": 0.9313725490196079,
+                    "f1": 0.9178743961352657
+                  },
+                  "Other": {
+                    "support": 240,
+                    "precision": 0.9878787878787879,
+                    "recall": 0.6791666666666667,
+                    "f1": 0.8049382716049382
+                  },
+                  "Request-Basic_Information": {
+                    "support": 18,
+                    "precision": 0.75,
+                    "recall": 0.3333333333333333,
+                    "f1": 0.46153846153846156
+                  },
+                  "Request-Drug_Recommendation": {
+                    "support": 40,
+                    "precision": 1.0,
+                    "recall": 0.5,
+                    "f1": 0.6666666666666666
+                  },
+                  "Request-Etiology": {
+                    "support": 4,
+                    "precision": 0.4,
+                    "recall": 1.0,
+                    "f1": 0.5714285714285714
+                  },
+                  "Request-Existing_Examination_and_Treatment": {
+                    "support": 52,
+                    "precision": 0.8666666666666667,
+                    "recall": 1.0,
+                    "f1": 0.9285714285714286
+                  },
+                  "Request-Medical_Advice": {
+                    "support": 6,
+                    "precision": 0.24,
+                    "recall": 1.0,
+                    "f1": 0.3870967741935484
+                  },
+                  "Request-Precautions": {
+                    "support": 14,
+                    "precision": 0.3157894736842105,
+                    "recall": 0.42857142857142855,
+                    "f1": 0.36363636363636365
+                  },
+                  "Request-Symptom": {
+                    "support": 72,
+                    "precision": 0.8974358974358975,
+                    "recall": 0.9722222222222222,
+                    "f1": 0.9333333333333333
+                  }
+                }
+              }
+            },
+            "deepseek": {
+              "scored_decisions": 800,
+              "correct": 568,
+              "accuracy": 0.71,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.9740468959789723,
+              "batch_elapsed_s": [
+                8.994271999923512,
+                10.431425167014822
+              ],
+              "batch_elapsed_mean_s": 9.712848583469167,
+              "cost_usd": 0.018889374,
+              "cost_per_1000_decisions_usd": 0.0236117175,
+              "retry_attempts": 0,
+              "attempts": 80,
+              "connection_starts": 4,
+              "usage": {
+                "completion_tokens": 7783,
+                "prompt_cache_hit_tokens": 168058,
+                "prompt_cache_miss_tokens": 91436,
+                "prompt_tokens": 259494,
+                "total_tokens": 267277
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.71,
+                0.71
+              ],
+              "round_cost_usd": [
+                0.01502589,
+                0.003863484
+              ],
+              "round_cache_hit_fraction": [
+                0.3551527202941108,
+                0.9401219296014551
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.71,
+                "macro_f1_observed_gold_classes": 0.6108676910984588,
+                "per_class": {
+                  "Diagnose": {
+                    "support": 16,
+                    "precision": 0.7142857142857143,
+                    "recall": 0.625,
+                    "f1": 0.6666666666666666
+                  },
+                  "Inform-Basic_Information": {
+                    "support": 44,
+                    "precision": 0.5348837209302325,
+                    "recall": 0.5227272727272727,
+                    "f1": 0.5287356321839081
+                  },
+                  "Inform-Drug_Recommendation": {
+                    "support": 72,
+                    "precision": 0.8181818181818182,
+                    "recall": 0.625,
+                    "f1": 0.7086614173228346
+                  },
+                  "Inform-Etiology": {
+                    "support": 14,
+                    "precision": 0.3,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.4444444444444444
+                  },
+                  "Inform-Existing_Examination_and_Treatment": {
+                    "support": 38,
+                    "precision": 0.6481481481481481,
+                    "recall": 0.9210526315789473,
+                    "f1": 0.7608695652173914
+                  },
+                  "Inform-Medical_Advice": {
+                    "support": 30,
+                    "precision": 0.3218390804597701,
+                    "recall": 0.9333333333333333,
+                    "f1": 0.47863247863247865
+                  },
+                  "Inform-Precautions": {
+                    "support": 38,
+                    "precision": 0.56,
+                    "recall": 0.3684210526315789,
+                    "f1": 0.4444444444444444
+                  },
+                  "Inform-Symptom": {
+                    "support": 102,
+                    "precision": 0.8640776699029126,
+                    "recall": 0.8725490196078431,
+                    "f1": 0.8682926829268293
+                  },
+                  "Other": {
+                    "support": 240,
+                    "precision": 0.9520958083832335,
+                    "recall": 0.6625,
+                    "f1": 0.7813267813267813
+                  },
+                  "Request-Basic_Information": {
+                    "support": 18,
+                    "precision": 0.4,
+                    "recall": 0.3333333333333333,
+                    "f1": 0.36363636363636365
+                  },
+                  "Request-Drug_Recommendation": {
+                    "support": 40,
+                    "precision": 0.8157894736842105,
+                    "recall": 0.775,
+                    "f1": 0.7948717948717948
+                  },
+                  "Request-Etiology": {
+                    "support": 4,
+                    "precision": 0.3076923076923077,
+                    "recall": 1.0,
+                    "f1": 0.47058823529411764
+                  },
+                  "Request-Existing_Examination_and_Treatment": {
+                    "support": 52,
+                    "precision": 0.8269230769230769,
+                    "recall": 0.8269230769230769,
+                    "f1": 0.8269230769230769
+                  },
+                  "Request-Medical_Advice": {
+                    "support": 6,
+                    "precision": 0.2727272727272727,
+                    "recall": 1.0,
+                    "f1": 0.42857142857142855
+                  },
+                  "Request-Precautions": {
+                    "support": 14,
+                    "precision": 0.36363636363636365,
+                    "recall": 0.2857142857142857,
+                    "f1": 0.32
+                  },
+                  "Request-Symptom": {
+                    "support": 72,
+                    "precision": 0.9672131147540983,
+                    "recall": 0.8194444444444444,
+                    "f1": 0.8872180451127819
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "scifact",
+      "title": "医学文献证据句筛选",
+      "path": "scenarios/evidence/scifact_cited_abstract/paired-expanded",
+      "materials": 40,
+      "unique_decisions": 400,
+      "selection_sha256": "20693d97083aed729872bc4240ff765094d4f280a76dbbe34e9b0516515a279d",
+      "summary": {
+        "documents": 40,
+        "unique_decisions": 400,
+        "repetitions": 2,
+        "results": [
+          {
+            "group_size": 1,
+            "jev": {
+              "scored_decisions": 800,
+              "correct": 702,
+              "accuracy": 0.8775,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 2.996630792040378,
+              "batch_elapsed_s": [
+                32.307795500033535,
+                32.838184666936286
+              ],
+              "batch_elapsed_mean_s": 32.57299008348491,
+              "cost_usd": 0.037598400000000004,
+              "cost_per_1000_decisions_usd": 0.046998000000000005,
+              "retry_attempts": 0,
+              "attempts": 800,
+              "connection_starts": 4,
+              "usage": {
+                "input_tokens": 895200,
+                "output_tokens": 32592
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.88,
+                0.875
+              ],
+              "round_cost_usd": [
+                0.018799200000000002,
+                0.018799200000000002
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.8775,
+                "macro_f1_observed_gold_classes": 0.8250609162880782,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6346153846153846,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.7292817679558011
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9628378378378378,
+                    "recall": 0.8823529411764706,
+                    "f1": 0.9208400646203554
+                  }
+                }
+              },
+              "semantic_review": {
+                "n": 800,
+                "accuracy": 0.8775,
+                "macro_f1_observed_gold_classes": 0.8250609162880782,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6346153846153846,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.7292817679558011
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9628378378378378,
+                    "recall": 0.8823529411764706,
+                    "f1": 0.9208400646203554
+                  }
+                }
+              },
+              "boolean_answers_converted": 0
+            },
+            "deepseek": {
+              "scored_decisions": 800,
+              "correct": 643,
+              "accuracy": 0.80375,
+              "missing_answers": 58,
+              "document_elapsed_median_s": 7.119336000003386,
+              "batch_elapsed_s": [
+                82.3891310839681,
+                81.69043633306865
+              ],
+              "batch_elapsed_mean_s": 82.03978370851837,
+              "cost_usd": 0.074140848,
+              "cost_per_1000_decisions_usd": 0.09267605999999999,
+              "retry_attempts": 70,
+              "attempts": 870,
+              "connection_starts": 4,
+              "usage": {
+                "completion_tokens": 10470,
+                "prompt_cache_hit_tokens": 325316,
+                "prompt_cache_miss_tokens": 445886,
+                "prompt_tokens": 771202,
+                "total_tokens": 781672
+              },
+              "errors": {
+                "ValueError": 128
+              },
+              "round_accuracy": [
+                0.8225,
+                0.785
+              ],
+              "round_cost_usd": [
+                0.05730834,
+                0.016832508
+              ],
+              "round_cache_hit_fraction": [
+                0.046331658557084675,
+                0.7834834781324855
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.80375,
+                "macro_f1_observed_gold_classes": 0.7622318158032444,
+                "per_class": {
+                  "MISSING": {
+                    "support": 0,
+                    "precision": 0.0,
+                    "recall": 0,
+                    "f1": 0.0
+                  },
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6785714285714286,
+                    "recall": 0.6168831168831169,
+                    "f1": 0.6462585034013606
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9102990033222591,
+                    "recall": 0.848297213622291,
+                    "f1": 0.8782051282051282
+                  }
+                }
+              },
+              "semantic_review": {
+                "n": 800,
+                "accuracy": 0.87,
+                "macro_f1_observed_gold_classes": 0.783313018928858,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6785714285714286,
+                    "recall": 0.6168831168831169,
+                    "f1": 0.6462585034013606
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9106060606060606,
+                    "recall": 0.9303405572755418,
+                    "f1": 0.9203675344563553
+                  }
+                }
+              },
+              "boolean_answers_converted": 58
+            }
+          },
+          {
+            "group_size": 5,
+            "jev": {
+              "scored_decisions": 800,
+              "correct": 700,
+              "accuracy": 0.875,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.5020770624396391,
+              "batch_elapsed_s": [
+                6.0884633749956265,
+                6.209974790923297
+              ],
+              "batch_elapsed_mean_s": 6.149219082959462,
+              "cost_usd": 0.0100464,
+              "cost_per_1000_decisions_usd": 0.012558000000000001,
+              "retry_attempts": 0,
+              "attempts": 160,
+              "connection_starts": 1,
+              "usage": {
+                "input_tokens": 239200,
+                "output_tokens": 30670
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.875,
+                0.875
+              ],
+              "round_cost_usd": [
+                0.0050232,
+                0.0050232
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.875,
+                "macro_f1_observed_gold_classes": 0.8221842882037056,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6285714285714286,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.7252747252747253
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9627118644067797,
+                    "recall": 0.8792569659442725,
+                    "f1": 0.919093851132686
+                  }
+                }
+              },
+              "semantic_review": {
+                "n": 800,
+                "accuracy": 0.875,
+                "macro_f1_observed_gold_classes": 0.8221842882037056,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6285714285714286,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.7252747252747253
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9627118644067797,
+                    "recall": 0.8792569659442725,
+                    "f1": 0.919093851132686
+                  }
+                }
+              },
+              "boolean_answers_converted": 0
+            },
+            "deepseek": {
+              "scored_decisions": 800,
+              "correct": 694,
+              "accuracy": 0.8675,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 1.3589236040133983,
+              "batch_elapsed_s": [
+                14.510140707949176,
+                14.467367292032577
+              ],
+              "batch_elapsed_mean_s": 14.488753999990877,
+              "cost_usd": 0.017518007999999998,
+              "cost_per_1000_decisions_usd": 0.02189751,
+              "retry_attempts": 0,
+              "attempts": 160,
+              "connection_starts": 0,
+              "usage": {
+                "completion_tokens": 6452,
+                "prompt_cache_hit_tokens": 103936,
+                "prompt_cache_miss_tokens": 88900,
+                "prompt_tokens": 192836,
+                "total_tokens": 199288
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.865,
+                0.87
+              ],
+              "round_cost_usd": [
+                0.013098684,
+                0.004419324
+              ],
+              "round_cache_hit_fraction": [
+                0.23364931859196417,
+                0.8443236740027795
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.8675,
+                "macro_f1_observed_gold_classes": 0.8053688810546803,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6237113402061856,
+                    "recall": 0.7857142857142857,
+                    "f1": 0.6954022988505747
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9455445544554455,
+                    "recall": 0.8869969040247678,
+                    "f1": 0.9153354632587859
+                  }
+                }
+              },
+              "semantic_review": {
+                "n": 800,
+                "accuracy": 0.8675,
+                "macro_f1_observed_gold_classes": 0.8053688810546803,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6237113402061856,
+                    "recall": 0.7857142857142857,
+                    "f1": 0.6954022988505747
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9455445544554455,
+                    "recall": 0.8869969040247678,
+                    "f1": 0.9153354632587859
+                  }
+                }
+              },
+              "boolean_answers_converted": 0
+            }
+          },
+          {
+            "group_size": 10,
+            "jev": {
+              "scored_decisions": 800,
+              "correct": 704,
+              "accuracy": 0.88,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.25797362450975925,
+              "batch_elapsed_s": [
+                33.7675408750074,
+                3.925056333071552
+              ],
+              "batch_elapsed_mean_s": 18.846298604039475,
+              "cost_usd": 0.0066024000000000005,
+              "cost_per_1000_decisions_usd": 0.008253,
+              "retry_attempts": 1,
+              "attempts": 81,
+              "connection_starts": 0,
+              "usage": {
+                "input_tokens": 157200,
+                "output_tokens": 30434
+              },
+              "errors": {
+                "ReadTimeout": 1
+              },
+              "round_accuracy": [
+                0.88,
+                0.88
+              ],
+              "round_cost_usd": [
+                0.0033012000000000002,
+                0.0033012000000000002
+              ],
+              "round_cache_hit_fraction": [
+                null,
+                null
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.88,
+                "macro_f1_observed_gold_classes": 0.8279569892473118,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6407766990291263,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.7333333333333333
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9629629629629629,
+                    "recall": 0.8854489164086687,
+                    "f1": 0.9225806451612903
+                  }
+                }
+              },
+              "semantic_review": {
+                "n": 800,
+                "accuracy": 0.88,
+                "macro_f1_observed_gold_classes": 0.8279569892473118,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.6407766990291263,
+                    "recall": 0.8571428571428571,
+                    "f1": 0.7333333333333333
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9629629629629629,
+                    "recall": 0.8854489164086687,
+                    "f1": 0.9225806451612903
+                  }
+                }
+              },
+              "boolean_answers_converted": 0
+            },
+            "deepseek": {
+              "scored_decisions": 800,
+              "correct": 705,
+              "accuracy": 0.88125,
+              "missing_answers": 0,
+              "document_elapsed_median_s": 0.7802353749284521,
+              "batch_elapsed_s": [
+                7.689586417051032,
+                8.420976625056937
+              ],
+              "batch_elapsed_mean_s": 8.055281521053985,
+              "cost_usd": 0.012829229999999999,
+              "cost_per_1000_decisions_usd": 0.016036537499999996,
+              "retry_attempts": 0,
+              "attempts": 80,
+              "connection_starts": 0,
+              "usage": {
+                "completion_tokens": 5746,
+                "prompt_cache_hit_tokens": 66810,
+                "prompt_cache_miss_tokens": 61208,
+                "prompt_tokens": 128018,
+                "total_tokens": 133764
+              },
+              "errors": {},
+              "round_accuracy": [
+                0.885,
+                0.8775
+              ],
+              "round_cost_usd": [
+                0.009770838,
+                0.003058392
+              ],
+              "round_cache_hit_fraction": [
+                0.16397694074270805,
+                0.8797825305816369
+              ],
+              "quality_detail": {
+                "n": 800,
+                "accuracy": 0.88125,
+                "macro_f1_observed_gold_classes": 0.8300836837857355,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.642512077294686,
+                    "recall": 0.8636363636363636,
+                    "f1": 0.7368421052631579
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9645868465430016,
+                    "recall": 0.8854489164086687,
+                    "f1": 0.9233252623083131
+                  }
+                }
+              },
+              "semantic_review": {
+                "n": 800,
+                "accuracy": 0.88125,
+                "macro_f1_observed_gold_classes": 0.8300836837857355,
+                "per_class": {
+                  "evidence": {
+                    "support": 154,
+                    "precision": 0.642512077294686,
+                    "recall": 0.8636363636363636,
+                    "f1": 0.7368421052631579
+                  },
+                  "not_evidence": {
+                    "support": 646,
+                    "precision": 0.9645868465430016,
+                    "recall": 0.8854489164086687,
+                    "f1": 0.9233252623083131
+                  }
+                }
+              },
+              "boolean_answers_converted": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

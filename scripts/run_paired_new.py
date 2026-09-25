@@ -7,14 +7,17 @@ from compare_deepseek import request_payload,normalize
 from prepare_paired_new import BASE
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--env-file',type=Path,required=True);ap.add_argument('--output',type=Path,required=True);ap.add_argument('--off-peak',action='store_true');a=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('--env-file',type=Path,required=True);ap.add_argument('--output',type=Path,required=True);ap.add_argument('--experiment',type=Path,default=BASE);ap.add_argument('--off-peak',action='store_true');a=ap.parse_args()
  assert not a.output.exists(),'Use a new output directory; never merge incomplete runs'
- rows=[json.loads(x) for x in (BASE/'inputs.jsonl').read_text().splitlines()];protocol=json.loads((BASE/'protocol.json').read_text());assert b.sha(rows)==protocol['selection_sha256']
+ rows=[json.loads(x) for x in (a.experiment/'inputs.jsonl').read_text().splitlines()];protocol=json.loads((a.experiment/'protocol.json').read_text());assert b.sha(rows)==protocol['selection_sha256']
+ assert len(rows)==protocol['documents'] and protocol['questions_per_document']==10 and protocol['group_sizes']==[1,5,10] and protocol['repetitions']==2
+ assert all(len(r['request']['questions'])==10 for r in rows)
+ assert (protocol['workers'],protocol['connect_timeout_s'],protocol['read_timeout_s'],protocol['retry_limit'],protocol['retry_delay_s'])==(4,10,30,1,1)
  keys={k:v.strip().strip('"').strip("'") for line in a.env_file.read_text().splitlines() if '=' in line and not line.startswith('#') for k,v in [line.split('=',1)]}
  urls={'jev':'https://api.typesafe.ai/v1/systemone','deepseek':'https://api.deepseek.com/chat/completions'}
  clients={p:httpx.Client(timeout=httpx.Timeout(30,connect=10),limits=httpx.Limits(max_connections=4,max_keepalive_connections=4,keepalive_expiry=300),headers={'Authorization':'Bearer '+keys['TYPESAFE_API_KEY' if p=='jev' else 'DEEPSEEK_API_KEY']}) for p in urls}
  a.output.mkdir(parents=True);stop=threading.Event();lock=threading.Lock();spend=0
- (a.output/'protocol.json').write_text((BASE/'protocol.json').read_text())
+ (a.output/'protocol.json').write_text((a.experiment/'protocol.json').read_text())
  try:
   with (a.output/'responses.jsonl').open('w') as out,(a.output/'blocks.jsonl').open('w') as blocks:
    for block in protocol['order']:
