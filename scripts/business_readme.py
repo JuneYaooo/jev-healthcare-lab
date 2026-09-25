@@ -27,43 +27,55 @@ def display(q):
     return f'{score(q)*100:.1f}'+('% 正确率' if 'accuracy' in q else ' 分·抽取综合分')
 def money(v):return f'${v:.3f}'
 
+# Highlight bounded workflows where measured quality and per-task cost support a pilot.
+PRIORITIES=[
+    ('records','imcs_entity_type_oracle_span','给已圈出的症状、药品等信息分类'),
+    ('documentation','aci_note_section','把已分段的病历内容归入对应章节'),
+    ('service','medquad_question_type','把患者提问分为症状、病因等类别'),
+    ('records','longhealth_full_context','根据完整长病历回答指定选择题'),
+]
+
+
 def render():
     comparison=json.loads((ROOT/'comparisons/deepseek-flash/summary.json').read_text())
     summary=comparison['summary'];tasks=comparison['tasks']
     if not summary['complete']:raise ValueError('Do not publish an incomplete comparison as final')
-    benchmark=[t for t in tasks.values() if not t['synthetic']]
-    jwin=sum(score(t['jev']['quality'])>score(t['deepseek']['quality'])+1e-12 for t in benchmark)
-    dwin=sum(score(t['deepseek']['quality'])>score(t['jev']['quality'])+1e-12 for t in benchmark)
-    tie=len(benchmark)-jwin-dwin
     j=summary['jev'];d=summary['deepseek']
-    winner='DeepSeek' if dwin>jwin else 'Jev' if jwin>dwin else '两者'
-    lines=['# Jev 在医疗任务中表现如何？', '',
-           '这份对比帮助医疗机构、医疗产品团队和行业从业者判断：**Jev 能做好哪些工作，和 DeepSeek 相比准不准、快不快、花多少钱。**', '',
+    saving=100*(1-j['cost_per_1000_usd']/d['cost_per_1000_usd'])
+    lines=['# Jev 医疗场景评测', '',
+           '覆盖 **12 类医疗场景、96 项任务、6,586 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。', '',
            '## 先看结论', '',
-           '- **Jev 在部分明确、范围小的判断任务上表现较好。** 已分段病历的章节分类正确率 99%，已给定实体的类型识别 96%，给定完整长病历的选择题 95%。这些结果支持进一步做场景验证，不能当作整份病历处理准确率。',
-           '- **入组判断、复杂抽取和临床评分仍不可靠。** 患者与试验适配三分类正确率 48%，五种量表数值判断 25%，研究要素抽取综合分 12.7/100；这些任务目前不能直接交给 Jev 自动决策。',
-           f'- **同题对比中，{winner} 在更多任务上得分更高。** 72 项公开数据测试中，Jev 更高 {jwin} 项，DeepSeek 更高 {dwin} 项，持平 {tie} 项。不同任务不能混成一个“医疗总准确率”。',
-           f'- **费用和速度要分开看。** 这批题每千条 API 费用约为 Jev {money(j["cost_per_1000_usd"])}、DeepSeek {money(d["cost_per_1000_usd"])}，Jev 费用约低 {100*(1-j["cost_per_1000_usd"]/d["cost_per_1000_usd"]):.0f}%；典型等待分别为 {j["latency_median_s"]:.2f} 秒和 {d["latency_median_s"]:.2f} 秒。下面列出具体口径。', '',
-           '## Jev 与 DeepSeek：效果、等待时间、费用', '',
-           '两者使用同一批 **6,586 条输入**，覆盖 **12 类医疗工作、96 项具体测试**。其中 72 项来自公开数据，24 项为自编小样本边界测试；上面的胜负统计只使用前 72 项。', '',
-           '| 对比项 | Jev 1.13 | DeepSeek V4.1 Flash（非思考模式） |', '| --- | ---: | ---: |',
-           f'| 得分更高的公开数据任务 | {jwin} / 72 | {dwin} / 72 |',
-           f'| 最终未能按要求作答的输入 | 0 | {summary["failed_rows"]} |',
-           f'| 成功请求典型等待：一半在此时间内完成 | {j["latency_median_s"]:.2f} 秒 | {d["latency_median_s"]:.2f} 秒 |',
-           f'| 每千条输入的 API 费用估算 | {money(j["cost_per_1000_usd"])} | {money(d["cost_per_1000_usd"])} |',
-           f'| 这批 6,586 条输入的 API 费用估算 | {money(j["cost_usd"])} | {money(d["cost_usd"])} |', '',
-           '**怎么看时间和费用**：时间是成功请求从发出到收到完整回答的网络等待，失败尝试和重试前的等待不计入中位数，Jev 来自历史真实记录，DeepSeek 为本次调用，**不是同期测速**。费用按实际 token 用量和官方价格估算，以美元统一列示；DeepSeek 包含实际缓存命中折扣。每条输入可能是一段文本、一道题或一个字段，**不是一份完整病历**；费用不包含 OCR、语音识别、人工复核和系统接入。', '',
-           'DeepSeek 的旧名 `deepseek-v4-flash` 已转接到 V4.1 Flash，本表使用实际提供服务的版本。两者接收相同内容和问题，输出格式按各自接口适配。未能作答的输入仍计入评分，不从题数中删除；完整计分方法、失败记录及用量见 [对比实验详情](comparisons/deepseek-flash/README.md)。', '',
-           '## 放到具体医疗工作里，表现怎样？', '',
-           '下表为事先选定的代表任务，不是各场景平均分。**正确率**表示有多少题答对；**抽取综合分**同时衡量漏检和误报，满分 100，不能当作正确率。', '',
-           '| 医疗工作 | 测了什么 | 题数 | Jev | DeepSeek | 读结果时注意 |', '| --- | --- | ---: | ---: | ---: | --- |']
+           '- **信息分类是目前更值得尝试的方向。** 医疗实体类型识别、病历章节归类、患者问题分类的正确率为 96%–99%；相较 DeepSeek，分数接近或更高，模型调用费用低约 39%–56%，适合优先试用在批量整理和分流环节。',
+           '- **长病历中的指定问题回答，也显示出较好的性价比。** 在 100 道给定完整病历的选择题上，Jev 正确率为 95%，DeepSeek 为 83%；Jev 的调用费用低约 68%。这一结果对应指定问题回答，整份病历的自动总结仍需另行验证。',
+           '- **复杂医疗判断仍有明显短板。** 试验入组判断正确率 48%、临床量表数值判断 25%、中医证型判断 33%；这些任务即使调用便宜，也不足以支持自动决策。', '',
+           '## 哪些工作更值得优先试用？', '',
+           '以下任务兼具较好的答对率和较低的调用费用。费用按每千条同类输入估算，单位为美元。', '',
+           '| 具体工作 | 测试题数 | Jev 正确率 | DeepSeek 正确率 | 每千条费用：Jev / DeepSeek |',
+           '| --- | ---: | ---: | ---: | ---: |']
+    for scene,t,label in PRIORITIES:
+        r=tasks[t]
+        lines.append(f'| [{label}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {score(r["jev"]["quality"]):.1%} | {score(r["deepseek"]["quality"]):.1%} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
+    lines += ['', '## 其他医疗工作表现怎样？', '',
+              '下表展示各场景中的具体测试。正确率表示答对比例；抽取综合分兼顾漏检和误报，满分 100。每行代表一个任务，不能当作整个场景的平均水平。', '',
+              '| 医疗工作与测试内容 | 题数 | Jev | DeepSeek | 适用范围 |',
+              '| --- | ---: | ---: | ---: | --- |']
+    priorities={t for _,t,_ in PRIORITIES}
     for scene,label,t,work,note in EXAMPLES:
-        r=tasks[t];lines.append(f'| {label} | [{work}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {note} |')
-    lines += ['', '## 有哪些场景和测试？', '', '| 场景 | 具体测试数 | 输入记录数 |', '| --- | ---: | ---: |']
+        if t in priorities:continue
+        r=tasks[t]
+        lines.append(f'| [{label}：{work}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {note} |')
+    lines += ['', '## 花多少钱，等多久？', '',
+              f'按全部测试输入合计，Jev 的模型调用费用比 DeepSeek **低约 {saving:.0f}%**。具体能否节省业务成本，还取决于该任务的准确率和人工复核量。', '',
+              '| 对比项 | Jev | DeepSeek Flash |', '| --- | ---: | ---: |',
+              f'| 每千条输入的模型调用费用 | {money(j["cost_per_1000_usd"])} | {money(d["cost_per_1000_usd"])} |',
+              f'| 成功请求的典型等待（中位数） | {j["latency_median_s"]:.2f} 秒 | {d["latency_median_s"]:.2f} 秒 |', '',
+              '费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。等待时间来自两批实际记录，非同期测速，仅供参考。', '',
+              '## 覆盖哪些医疗场景？', '',
+              '共 72 项公开数据任务和 24 项自编边界测试。点击场景可查看全部任务，点击任务可查看测试数据、方法和结果。', '',
+              '| 场景 | 具体测试数 | 输入记录数 |', '| --- | ---: | ---: |']
     scenes=json.loads((ROOT/'results/scenario_manifest.json').read_text())['scenes']
     for s in scenes:
         lines.append(f'| [{s["title"]}](scenarios/{s["id"]}/README.md) | {len(s["task_ids"])} | {sum(tasks[t]["planned"] for t in s["task_ids"]):,} |')
     lines += ['| **合计** | **96** | **6,586** |', '',
-              '点击场景可看全部任务；点击任务可看测试数据、提示词、模型回答、逐项分数和费用。原有的重复调用、选项换序等稳定性测试保留在 [实验统计详情](docs/完整任务统计.md)，不计入本次模型对比分数。', '',
-              '这些是公开数据及人工构造材料上的离线测试，尚未证明医院实际节省了多少工时。选择模型时，应以准备接入的具体工作为准，尤其要核对错误类型和人工复核成本。', '']
+              '[完整任务结果](docs/完整任务统计.md) · [对比实验详情](comparisons/deepseek-flash/README.md)', '']
     return '\n'.join(lines)
