@@ -82,3 +82,7 @@
 - single sentence classification, not a full-document sequence labeling comparison
 
 原准备分片：`prepared.jsonl`。
+
+## 关联实验
+
+- [新材料逐项与多项合并处理对照](paired-new/README.md)

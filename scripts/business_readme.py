@@ -1,7 +1,7 @@
 """Plain-language homepage for healthcare readers, driven by comparison results."""
 import json
 from pathlib import Path
-from question_count_report import table as question_table
+from analyze_paired_new import table as paired_table
 
 ROOT=Path(__file__).resolve().parents[1]
 def score(q):return q.get('accuracy',q.get('micro_f1'))
@@ -27,16 +27,17 @@ def render():
     saving=100*(1-j['cost_per_1000_usd']/d['cost_per_1000_usd'])
     timing={p:json.loads((ROOT/f'comparisons/batch-time/{p}/summary.json').read_text()) for p in ['jev','deepseek']}
     tj,td=timing['jev'],timing['deepseek']
-    question_groups=json.loads((ROOT/'comparisons/batch-time/question_counts.json').read_text())
+    paired=json.loads((ROOT/'scenarios/evidence/pubmed_rct_section/paired-new/summary.json').read_text())
+    merged=next(r for r in paired['results'] if r['group_size']==10)
     replay_cheaper='Jev' if tj['cost_usd']<td['cost_usd'] else 'DeepSeek'
     replay_saving=100*(1-min(tj['cost_usd'],td['cost_usd'])/max(tj['cost_usd'],td['cost_usd']))
     failures={p:sum(v for k,v in r['counts'].items() if k!='ok') for p,r in timing.items()}
     lines=['# Jev 医疗场景评测', '',
-           f'覆盖 **12 类医疗场景、96 项任务、{total:,} 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。', '',
+           f'主评测覆盖 **12 类医疗场景、96 项任务、{total:,} 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。', '',
            '## 先看结论', '',
            '- **信息分类是目前更值得尝试的方向。** 医疗实体类型识别、病历章节归类、患者问题分类的正确率为 96%–99%；本批效果评测中，相较 DeepSeek，分数接近或更高，模型调用费用低约 39%–56%，适合优先试用在批量整理和分流环节。',
            '- **长病历中的指定问题回答，也显示出较好的性价比。** 在 100 道给定完整病历的选择题上，Jev 正确率为 95%，DeepSeek 为 83%；Jev 的调用费用低约 68%。这一结果对应指定问题回答，整份病历的自动总结仍需另行验证。',
-           f'- **批量处理速度需结合实测判断。** 同样以 8 并发处理 {total:,} 条输入，Jev 用时 {tj["batch_elapsed_s"]/60:.1f} 分钟，DeepSeek 用时 {td["batch_elapsed_s"]/60:.1f} 分钟；最终未能作答的输入分别为 {failures["jev"]} 和 {failures["deepseek"]} 条。',
+           f'- **同一份材料的多项判断，值得合并处理。** 在另选的 20 篇临床试验摘要上，每篇 10 项判断合并调用，Jev 完成整批平均用时 {merged["jev"]["batch_elapsed_mean_s"]:.1f} 秒，DeepSeek 为 {merged["deepseek"]["batch_elapsed_mean_s"]:.1f} 秒；正确率分别为 {merged["jev"]["accuracy"]:.1%} 和 {merged["deepseek"]["accuracy"]:.1%}。这是新材料、相同问题的配对测试，详见下表。',
            '- **复杂医疗判断仍有明显短板。** 试验入组判断正确率 48%、临床量表数值判断 25%、中医证型判断 33%；这些任务即使调用便宜，也不足以支持自动决策。', '',
            '## 哪些工作更值得优先试用？', '',
            '以下任务兼具较好的答对率和较低的调用费用。费用按每千条同类输入估算，单位为美元。', '',
@@ -46,18 +47,18 @@ def render():
         r=tasks[t]
         lines.append(f'| [{label}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {score(r["jev"]["quality"]):.1%} | {score(r["deepseek"]["quality"]):.1%} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
     lines += ['', '## 花多少钱，等多久？', '',
-              f'在这批效果评测中，Jev 的模型调用费用比 DeepSeek **低约 {saving:.0f}%**；重新调用同样内容测速时，**{replay_cheaper} 的费用低约 {replay_saving:.0f}%**。具体能否节省业务成本，还取决于缓存利用、该任务的准确率和人工复核量。', '',
+              f'在原主评测的 {total:,} 条输入中，Jev 的模型调用费用比 DeepSeek **低约 {saving:.0f}%**；重新调用同样内容测速时，**{replay_cheaper} 的费用低约 {replay_saving:.0f}%**。具体能否节省业务成本，还取决于缓存利用、该任务的准确率和人工复核量。', '',
               '| 对比项 | Jev | DeepSeek Flash |', '| --- | ---: | ---: |',
               f'| 效果评测：每千条输入费用 | {money(j["cost_per_1000_usd"])} | {money(d["cost_per_1000_usd"])} |',
               f'| 重复输入测速：每千条输入费用 | {money(tj["cost_usd"]/total*1000)} | {money(td["cost_usd"]/total*1000)} |',
               f'| 整批 {total:,} 条输入总耗时（8 并发） | {tj["batch_elapsed_s"]/60:.1f} 分钟 | {td["batch_elapsed_s"]/60:.1f} 分钟 |',
               f'| 测速最终未能作答的输入 | {failures["jev"]} 条 | {failures["deepseek"]} 条 |', '',
               '费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。重复输入可能使 DeepSeek 更多命中缓存，从而显著降价；性价比需要结合实际业务的重复程度判断。总耗时包含重试与失败等待，详见[整批测速](comparisons/batch-time/README.md)。', '',
-              '### 单项判断与多项同时判断', '',
-              '单项判断，例如给一段病历内容归类；多项同时判断，例如在同一份材料中核对多个候选实体。上面的 8 并发表示同时处理 8 份输入，与每份输入包含几个判断是两回事。', '',
-              *question_table(question_groups), '',
-              f'本批约 {question_groups["groups"][0]["inputs"]/total:.0%} 的输入只有一个问题。单问题组中 DeepSeek 更快，11 项及以上组中 Jev 更快。表内是单份输入的等待中位数，包含重试与最终失败；整批总耗时仍以上表为准。', '',
-              '各组材料和任务不同，以上是现有记录的分组观察，尚不能证明同一份病历合并多个判断后能加速多少。DeepSeek 使用非思考模式、只返回简短答案；重复输入缓存也会影响费用。详见[单项与多项对照](comparisons/batch-time/question_counts.md)。', '',
+              '### 新材料实测：逐项处理，还是合并处理？', '',
+              '另选 20 篇未进入主评测的临床试验摘要，每篇固定 10 个句子，判断其属于背景、目的、方法、结果还是结论。两家读取相同全文、回答相同问题，分别按每次 1 项、5 项、10 项调用。共 200 个不同判断，每种配置测两轮。', '',
+              *paired_table(paired), '',
+              '这里比较完成整批 200 项判断的总时间，两轮取平均；同时处理 4 篇摘要，每篇内部依次完成请求。两家均复用连接，DeepSeek 关闭思考；本次没有失败或重试。两轮平均费用显示 Jev 更低，但第二轮缓存增加后，DeepSeek 在 10 项合并组的费用更低。', '',
+              '这是医学文献整理的小规模配对实验，不能直接推广到诊断或所有医疗任务。两轮明细、提示词、原始答案与真实响应见[新材料对照实验](scenarios/evidence/pubmed_rct_section/paired-new/README.md)；原主评测的[按问题数量分组观察](comparisons/batch-time/question_counts.md)另行保留。', '',
               '## 覆盖哪些医疗场景？', '',
               '共 72 项公开数据任务和 24 项自编边界测试。点击场景可查看全部任务，点击任务可查看测试数据、方法和结果。', '',
               '| 场景 | 具体测试数 | 输入记录数 |', '| --- | ---: | ---: |']

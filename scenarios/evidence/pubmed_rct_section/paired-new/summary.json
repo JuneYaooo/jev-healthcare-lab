@@ -1,0 +1,229 @@
+{
+  "documents": 20,
+  "unique_decisions": 200,
+  "repetitions": 2,
+  "results": [
+    {
+      "group_size": 1,
+      "jev": {
+        "scored_decisions": 400,
+        "correct": 352,
+        "accuracy": 0.88,
+        "missing_answers": 0,
+        "document_elapsed_median_s": 2.574483645556029,
+        "batch_elapsed_s": [
+          14.526028249994852,
+          14.546693125041202
+        ],
+        "batch_elapsed_mean_s": 14.536360687518027,
+        "cost_usd": 0.01592052,
+        "cost_per_1000_decisions_usd": 0.0398013,
+        "retry_attempts": 0,
+        "attempts": 400,
+        "connection_starts": 0,
+        "usage": {
+          "input_tokens": 379060,
+          "output_tokens": 25504
+        },
+        "errors": {},
+        "round_accuracy": [
+          0.88,
+          0.88
+        ],
+        "round_cost_usd": [
+          0.00796026,
+          0.00796026
+        ],
+        "round_cache_hit_fraction": [
+          null,
+          null
+        ]
+      },
+      "deepseek": {
+        "scored_decisions": 400,
+        "correct": 357,
+        "accuracy": 0.8925,
+        "missing_answers": 0,
+        "document_elapsed_median_s": 6.583918291551527,
+        "batch_elapsed_s": [
+          35.869335582945496,
+          33.29692516603973
+        ],
+        "batch_elapsed_mean_s": 34.58313037449261,
+        "cost_usd": 0.03041739,
+        "cost_per_1000_decisions_usd": 0.076043475,
+        "retry_attempts": 0,
+        "attempts": 400,
+        "connection_starts": 4,
+        "usage": {
+          "completion_tokens": 4548,
+          "prompt_cache_hit_tokens": 110030,
+          "prompt_cache_miss_tokens": 182390,
+          "prompt_tokens": 292420,
+          "total_tokens": 296968
+        },
+        "errors": {},
+        "round_accuracy": [
+          0.885,
+          0.9
+        ],
+        "round_cost_usd": [
+          0.0233025,
+          0.00711489
+        ],
+        "round_cache_hit_fraction": [
+          0.0,
+          0.7525477053553109
+        ]
+      }
+    },
+    {
+      "group_size": 5,
+      "jev": {
+        "scored_decisions": 400,
+        "correct": 352,
+        "accuracy": 0.88,
+        "missing_answers": 0,
+        "document_elapsed_median_s": 0.5440134165110067,
+        "batch_elapsed_s": [
+          3.6440357910469174,
+          3.1637091250158846
+        ],
+        "batch_elapsed_mean_s": 3.403872458031401,
+        "cost_usd": 0.004743144,
+        "cost_per_1000_decisions_usd": 0.011857860000000001,
+        "retry_attempts": 0,
+        "attempts": 80,
+        "connection_starts": 4,
+        "usage": {
+          "input_tokens": 112932,
+          "output_tokens": 24544
+        },
+        "errors": {},
+        "round_accuracy": [
+          0.88,
+          0.88
+        ],
+        "round_cost_usd": [
+          0.002371572,
+          0.002371572
+        ],
+        "round_cache_hit_fraction": [
+          null,
+          null
+        ]
+      },
+      "deepseek": {
+        "scored_decisions": 400,
+        "correct": 355,
+        "accuracy": 0.8875,
+        "missing_answers": 0,
+        "document_elapsed_median_s": 1.5647454165155068,
+        "batch_elapsed_s": [
+          8.343344125081785,
+          7.702232582960278
+        ],
+        "batch_elapsed_mean_s": 8.022788354021031,
+        "cost_usd": 0.007641432,
+        "cost_per_1000_decisions_usd": 0.01910358,
+        "retry_attempts": 0,
+        "attempts": 80,
+        "connection_starts": 0,
+        "usage": {
+          "completion_tokens": 2788,
+          "prompt_cache_hit_tokens": 44544,
+          "prompt_cache_miss_tokens": 38900,
+          "prompt_tokens": 83444,
+          "total_tokens": 86232
+        },
+        "errors": {},
+        "round_accuracy": [
+          0.89,
+          0.885
+        ],
+        "round_cost_usd": [
+          0.005484156,
+          0.002157276
+        ],
+        "round_cache_hit_fraction": [
+          0.25770576674176693,
+          0.8099324097598389
+        ]
+      }
+    },
+    {
+      "group_size": 10,
+      "jev": {
+        "scored_decisions": 400,
+        "correct": 352,
+        "accuracy": 0.88,
+        "missing_answers": 0,
+        "document_elapsed_median_s": 0.24584479199256748,
+        "batch_elapsed_s": [
+          2.0133915420155972,
+          1.311322790919803
+        ],
+        "batch_elapsed_mean_s": 1.6623571664677002,
+        "cost_usd": 0.0033459720000000004,
+        "cost_per_1000_decisions_usd": 0.008364930000000001,
+        "retry_attempts": 0,
+        "attempts": 40,
+        "connection_starts": 0,
+        "usage": {
+          "input_tokens": 79666,
+          "output_tokens": 24424
+        },
+        "errors": {},
+        "round_accuracy": [
+          0.88,
+          0.88
+        ],
+        "round_cost_usd": [
+          0.0016729860000000002,
+          0.0016729860000000002
+        ],
+        "round_cache_hit_fraction": [
+          null,
+          null
+        ]
+      },
+      "deepseek": {
+        "scored_decisions": 400,
+        "correct": 357,
+        "accuracy": 0.8925,
+        "missing_answers": 0,
+        "document_elapsed_median_s": 0.8125885835033841,
+        "batch_elapsed_s": [
+          4.679664083989337,
+          4.374067957978696
+        ],
+        "batch_elapsed_mean_s": 4.526866020984016,
+        "cost_usd": 0.005838456,
+        "cost_per_1000_decisions_usd": 0.014596139999999999,
+        "retry_attempts": 0,
+        "attempts": 40,
+        "connection_starts": 0,
+        "usage": {
+          "completion_tokens": 2518,
+          "prompt_cache_hit_tokens": 29052,
+          "prompt_cache_miss_tokens": 28270,
+          "prompt_tokens": 57322,
+          "total_tokens": 59840
+        },
+        "errors": {},
+        "round_accuracy": [
+          0.895,
+          0.89
+        ],
+        "round_cost_usd": [
+          0.004439622,
+          0.001398834
+        ],
+        "round_cache_hit_fraction": [
+          0.14737797006384984,
+          0.8662642615400719
+        ]
+      }
+    }
+  ]
+}

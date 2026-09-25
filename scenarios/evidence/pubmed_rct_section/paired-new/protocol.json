@@ -1,0 +1,88 @@
+{
+  "dataset": "PubMed 20k RCT test; fresh documents excluded from all existing main-task inputs",
+  "source_url": "https://github.com/Franck-Dernoncourt/pubmed-rct/blob/master/PubMed_20k_RCT/test.txt",
+  "source_pool": "First 300 complete test abstracts; retain 10–24 sentences, exclude prior IDs and any exact sentence overlap, choose 20 by fixed SHA256 order.",
+  "source_pool_sha256": "fb078abbafdc6edd539d0f6e759f8b71ebbfd71d38193b7df03d741c5dd9ef01",
+  "eligible_documents": 235,
+  "documents": 20,
+  "questions_per_document": 10,
+  "unique_decisions": 200,
+  "group_sizes": [
+    1,
+    5,
+    10
+  ],
+  "repetitions": 2,
+  "workers": 4,
+  "connect_timeout_s": 10,
+  "read_timeout_s": 30,
+  "retry_limit": 1,
+  "retry_delay_s": 1,
+  "http_client": "httpx persistent per-provider connection pool, HTTP/1.1; no local response cache",
+  "order": [
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 1
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 1,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 1,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 1
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 10
+    },
+    {
+      "round": 2,
+      "provider": "jev",
+      "group_size": 5
+    },
+    {
+      "round": 2,
+      "provider": "deepseek",
+      "group_size": 1
+    }
+  ],
+  "selection_sha256": "349b3354e0eeb349fd401fa6119753373250868c8c54da8f7aa3b917849d12e3",
+  "quality": "Each question scored against original source label; terminal missing outputs counted wrong; all groups use identical full state, questions and labels.",
+  "cost": "Actual reported usage at submission-time tariff, including recorded retries. Cache hit/miss retained; cache is not controlled.",
+  "scope": "Same ten questions per document, partitioned into groups of 1, 5 or 10. Four documents at a time; groups within each document execute sequentially. Paired workflow latency, not pure inference or unrestricted maximum throughput."
+}

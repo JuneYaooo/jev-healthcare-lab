@@ -58,3 +58,9 @@ python3 -m unittest discover -s tests -v
 [整批测速](../comparisons/batch-time/README.md) 保存独立重新调用的全部响应、尝试次数与相对计时。`measure_batch_time.py` 接收完整输入 JSONL，使用 `--provider jev` 或 `--provider deepseek` 分别计时；本次配置为 `--workers 8 --timeout 45`，每条最多两次请求。DeepSeek 空闲时段使用 `--off-peak`。`--output` 必须是新目录，避免混入既有结果。
 
 计时文件由 `finalize_batch_time.py` 发布，`verify_batch_time.py` 核验输入一致性、计时边界、失败计数和费用。新运行会产生新的响应与成本，不能覆盖原始效果评测以择优提高分数。
+
+## 新材料的配对实验
+
+`scenarios/evidence/pubmed_rct_section/paired-new/` 单独保存 20 篇新摘要、200 个原始标注判断及两轮单项／合并调用。它们不混入原 7,032 条主评测统计。`inputs.jsonl` 包含完整材料、问题和金标，`protocol.json` 固定抽样、分组及顺序，`responses.jsonl` 和 `blocks.jsonl` 保留请求与整批时间。
+
+运行 `python3 scripts/analyze_paired_new.py --check` 可离线核验全部 240 次文档处理、原始模型回答、问题配对、费用与总耗时。调用程序为 `run_paired_new.py`，依赖可选的 httpx，使用连接池；重新调用时须使用新的输出目录。`prepare_paired_new.py --source <PubMed_20k_RCT/test.txt>` 使用前 300 篇完整摘要构建候选池，排除主评测重合内容；已有实验方案不会被覆盖。
