@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -12,7 +12,7 @@
         "instructions": "对当前待执行事项分类；若仅描述已完成事项选none。",
         "type": "choice"
       },
-      "occurrences": 4,
+      "occurrences": 20,
       "example_sample_id": "followup_action:1"
     }
   ]

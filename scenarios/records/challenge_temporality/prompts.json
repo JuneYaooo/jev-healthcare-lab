@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -14,6 +14,62 @@
       },
       "occurrences": 4,
       "example_sample_id": "temporality:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "conditional": "只是未来条件",
+          "current": "当前仍有",
+          "past": "过去有、当前已无",
+          "unknown": "没有头痛状态资料"
+        },
+        "instructions": "将头痛事件按当前就诊时点分类。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:temporality:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "conditional": "只是未来条件",
+          "current": "当前仍有",
+          "past": "过去有、当前已无",
+          "unknown": "没有恶心状态资料"
+        },
+        "instructions": "将恶心事件按当前就诊时点分类。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:temporality:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "conditional": "只是未来条件",
+          "current": "当前仍有",
+          "past": "过去有、当前已无",
+          "unknown": "没有咳嗽状态资料"
+        },
+        "instructions": "将咳嗽事件按当前就诊时点分类。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:temporality:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "conditional": "只是未来条件",
+          "current": "当前仍有",
+          "past": "过去有、当前已无",
+          "unknown": "没有皮疹状态资料"
+        },
+        "instructions": "将皮疹事件按当前就诊时点分类。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:temporality:13"
     }
   ]
 }

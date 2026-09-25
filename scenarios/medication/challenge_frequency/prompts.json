@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -14,6 +14,62 @@
       },
       "occurrences": 4,
       "example_sample_id": "frequency:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "once": "每日一次",
+          "prn": "按需，非固定次数",
+          "three": "每日三次",
+          "twice": "每日两次"
+        },
+        "instructions": "仅转换药物甲文本明确给出的每天次数。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:frequency:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "once": "每日一次",
+          "prn": "按需，非固定次数",
+          "three": "每日三次",
+          "twice": "每日两次"
+        },
+        "instructions": "仅转换药物乙文本明确给出的每天次数。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:frequency:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "once": "每日一次",
+          "prn": "按需，非固定次数",
+          "three": "每日三次",
+          "twice": "每日两次"
+        },
+        "instructions": "仅转换药物丙文本明确给出的每天次数。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:frequency:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "once": "每日一次",
+          "prn": "按需，非固定次数",
+          "three": "每日三次",
+          "twice": "每日两次"
+        },
+        "instructions": "仅转换药物丁文本明确给出的每天次数。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:frequency:13"
     }
   ]
 }

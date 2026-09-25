@@ -7,32 +7,65 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2445,
-      "sha256": "aab9f57adfa3accb7414227838d134cc936d74baf6a7d4e6dc6991f8ca1c6cff"
+      "bytes": 15000,
+      "sha256": "bb7b405963233386822c395e1560477a3a59eea9e46f7a1099bbfdde3a9664fc"
     },
     "responses.jsonl": {
-      "bytes": 1707,
-      "sha256": "9dda0c84dc256aa0221b2ad58f074bf658d01b035f3ce99b6875e3994443ce30"
+      "bytes": 8710,
+      "sha256": "9e33549f32f0239c773ebdf0d30883620111f1e8b101b198738efdc2503c3a69"
     },
     "index.jsonl": {
-      "bytes": 1288,
-      "sha256": "b2f43a2ce28201ba25182501e14561ba412e72e71ab1617c85899f5e23205854"
+      "bytes": 6774,
+      "sha256": "ad59ba3e4ea34df387c0ccbefe04293433f65f374f68b80e93fb641055167cb7"
     },
     "prompts.json": {
-      "bytes": 460,
-      "sha256": "7e02f10018910beedfc17654fde250fb0c24b5bbdc7c971cf3b332b727898c8e"
+      "bytes": 435,
+      "sha256": "510f8b4689d64dde66cb591a72b2e5a4346e890c31873ca4116fda9b7100efe7"
     },
     "example.json": {
       "bytes": 1411,
       "sha256": "1e2aac15d4605ec4893a29e6abd33056e9e80a0304f6170e27efd1be4883925e"
+    },
+    "attempts.jsonl": {
+      "bytes": 237,
+      "sha256": "ce6216ea2e1c93904ddf4c0d6a83dbc9d8da5f72282259c6ed1f7b7e1279d568"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:unit_equivalence:1",
+        "expansion:unit_equivalence:2",
+        "expansion:unit_equivalence:3",
+        "expansion:unit_equivalence:4",
+        "expansion:unit_equivalence:5",
+        "expansion:unit_equivalence:6",
+        "expansion:unit_equivalence:7",
+        "expansion:unit_equivalence:8",
+        "expansion:unit_equivalence:9",
+        "expansion:unit_equivalence:10",
+        "expansion:unit_equivalence:11",
+        "expansion:unit_equivalence:12",
+        "expansion:unit_equivalence:13",
+        "expansion:unit_equivalence:14",
+        "expansion:unit_equivalence:15",
+        "expansion:unit_equivalence:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

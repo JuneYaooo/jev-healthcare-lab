@@ -244,8 +244,8 @@
         66,
         67
       ],
-      "note": "实际执行 ASR 与 OCR；仅一段扮演患者音频、六份文档且只有两种模板。影像和 ECG 尚未运行。",
-      "headline": "ASR 字段 11/12；OCR 文档类型 5/6；影像／ECG 未测",
+      "note": "语音字段测试来自 3 个扮演患者病例，OCR 类型测试来自 20 张扫描图、16 个模板。影像和 ECG 尚未运行。",
+      "headline": "ASR 字段正确 19/20；OCR 文档类型正确 19/20；影像／ECG 未测",
       "task_ids": [
         "primock_asr_fields",
         "primock_reference_fields",

@@ -22,8 +22,9 @@ class SnapshotTests(unittest.TestCase):
 
  def test_aggregate_completeness(self):
   r=json.loads((ROOT/'results/all_results.json').read_text());s=r['summary']
-  self.assertEqual(sum(t['successful'] for t in r['tasks'].values()),6586)
-  self.assertEqual(s['successful_api_responses']+s['deterministic_empty_rows'],6586)
+  expected=sum(1 for p in (ROOT/'scenarios').glob('*/*/samples.jsonl') for line in p.read_text().splitlines())
+  self.assertEqual(sum(t['successful'] for t in r['tasks'].values()),expected)
+  self.assertEqual(s['successful_api_responses']+s['deterministic_empty_rows'],expected)
   self.assertFalse(any(t['failed_or_missing'] for t in r['tasks'].values()))
   self.assertFalse(any(t.startswith('media_') for t in r['tasks']))
 

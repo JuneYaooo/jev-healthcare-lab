@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -13,6 +13,58 @@
       },
       "occurrences": 4,
       "example_sample_id": "urgency_given_policy:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "routine": "按给定规则普通",
+          "unknown": "给定规则资料不足",
+          "urgent": "按给定规则紧急"
+        },
+        "instructions": "仅执行虚构文本路由规则：明确说“当前无法呼吸”选urgent；只有历史发作且现已恢复选routine；未提供该功能状态选unknown。这不是临床分诊标准。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:urgency_given_policy:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "routine": "按给定规则普通",
+          "unknown": "给定规则资料不足",
+          "urgent": "按给定规则紧急"
+        },
+        "instructions": "仅执行虚构文本路由规则：明确说“当前无法吞咽”选urgent；只有历史发作且现已恢复选routine；未提供该功能状态选unknown。这不是临床分诊标准。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:urgency_given_policy:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "routine": "按给定规则普通",
+          "unknown": "给定规则资料不足",
+          "urgent": "按给定规则紧急"
+        },
+        "instructions": "仅执行虚构文本路由规则：明确说“当前无法站立”选urgent；只有历史发作且现已恢复选routine；未提供该功能状态选unknown。这不是临床分诊标准。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:urgency_given_policy:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "routine": "按给定规则普通",
+          "unknown": "给定规则资料不足",
+          "urgent": "按给定规则紧急"
+        },
+        "instructions": "仅执行虚构文本路由规则：明确说“当前无法睁眼”选urgent；只有历史发作且现已恢复选routine；未提供该功能状态选unknown。这不是临床分诊标准。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:urgency_given_policy:13"
     }
   ]
 }

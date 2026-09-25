@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -13,6 +13,58 @@
       },
       "occurrences": 4,
       "example_sample_id": "mixed_language:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确否认",
+          "present": "明确有",
+          "unknown": "未明确"
+        },
+        "instructions": "判断患者当前是否存在头痛。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:mixed_language:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确否认",
+          "present": "明确有",
+          "unknown": "未明确"
+        },
+        "instructions": "判断患者当前是否存在恶心。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:mixed_language:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确否认",
+          "present": "明确有",
+          "unknown": "未明确"
+        },
+        "instructions": "判断患者当前是否存在咳嗽。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:mixed_language:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确否认",
+          "present": "明确有",
+          "unknown": "未明确"
+        },
+        "instructions": "判断患者当前是否存在腹痛。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:mixed_language:13"
     }
   ]
 }

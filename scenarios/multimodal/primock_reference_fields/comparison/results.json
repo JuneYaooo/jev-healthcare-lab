@@ -2,12 +2,12 @@
   "title": "参考转写病史字段判断",
   "scene": "multimodal",
   "synthetic": false,
-  "planned": 12,
-  "compared": 12,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 12,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
@@ -29,13 +29,37 @@
           "recall": 1.0,
           "f1": 1.0
         },
-        "left": {
+        "before": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
+        "chest_hands_arms": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "impaired": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "left": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "low": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "midday": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
@@ -47,21 +71,27 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "worse": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "yes": {
-          "support": 2,
+          "support": 4,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.7825820209982339,
-    "cost_usd": 0.0005404980000000002,
-    "cost_per_1000_usd": 0.04504150000000001
+    "latency_median_s": 0.64336033348809,
+    "cost_usd": 0.0007220640000000001,
+    "cost_per_1000_usd": 0.0361032
   },
   "deepseek": {
     "quality": {
-      "n": 12,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
@@ -83,13 +113,37 @@
           "recall": 1.0,
           "f1": 1.0
         },
-        "left": {
+        "before": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
+        "chest_hands_arms": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "impaired": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "left": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "low": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "midday": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
@@ -101,17 +155,23 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "worse": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "yes": {
-          "support": 2,
+          "support": 4,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.5289089369762223,
-    "cost_usd": 0.0015820079999999995,
-    "cost_per_1000_usd": 0.13183399999999998,
+    "latency_median_s": 0.567727041488979,
+    "cost_usd": 0.00199683,
+    "cost_per_1000_usd": 0.09984149999999999,
     "prior_attempts": 0
   }
 }

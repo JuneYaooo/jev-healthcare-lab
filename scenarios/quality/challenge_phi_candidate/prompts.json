@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -12,7 +12,7 @@
         "instructions": "识别方括号内候选片段类型。以下均为人为虚构测试文本。",
         "type": "choice"
       },
-      "occurrences": 4,
+      "occurrences": 20,
       "example_sample_id": "phi_candidate:1"
     }
   ]

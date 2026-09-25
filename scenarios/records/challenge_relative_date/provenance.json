@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2596,
-      "sha256": "5a6e014505282d9b338f125c246ae4ff2196eecf38dea8127a142165d682f0bb"
+      "bytes": 16338,
+      "sha256": "58b97f6d70f3487daefc6d96116bda5d529f0a7c8a52d6a3ebee304b8f0f9d41"
     },
     "responses.jsonl": {
-      "bytes": 1779,
-      "sha256": "35fa8e362b797c9ba8851d1acbe74b39dcf0a3e16f95dec039f54c5bfda66c58"
+      "bytes": 9424,
+      "sha256": "9ae16ed7cd0f73a28e9bea3c48d42a71a62b799246790fa155f9e8c9a49ac165"
     },
     "index.jsonl": {
-      "bytes": 1252,
-      "sha256": "be023784637771e0f65ec6eba5d912042fa6c5e1aec2c9f5593f6772b2782fb7"
+      "bytes": 6594,
+      "sha256": "f32d02a8932c7f944e0868f44ea73fc4c214de48736ef1925411dfe44d7082a8"
     },
     "prompts.json": {
-      "bytes": 538,
-      "sha256": "68c66b0080958c05edc2de2ddad22b4dcaa985d336e5286aa19b45e707eb13da"
+      "bytes": 7703,
+      "sha256": "0fd018dea0769bfc0cf708f986e5448f175843039aad6c9ecd360ccd7cce51d7"
     },
     "example.json": {
       "bytes": 1512,
       "sha256": "5358afd16417bcc7490c6a3b8f421b73b83f9400003e6b5d892182374788b694"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:relative_date:1",
+        "expansion:relative_date:2",
+        "expansion:relative_date:3",
+        "expansion:relative_date:4",
+        "expansion:relative_date:5",
+        "expansion:relative_date:6",
+        "expansion:relative_date:7",
+        "expansion:relative_date:8",
+        "expansion:relative_date:9",
+        "expansion:relative_date:10",
+        "expansion:relative_date:11",
+        "expansion:relative_date:12",
+        "expansion:relative_date:13",
+        "expansion:relative_date:14",
+        "expansion:relative_date:15",
+        "expansion:relative_date:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

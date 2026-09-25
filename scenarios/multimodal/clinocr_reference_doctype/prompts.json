@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -17,6 +17,23 @@
       },
       "occurrences": 6,
       "example_sample_id": "handwriting_t1_s2"
+    },
+    {
+      "question": {
+        "criteria": {
+          "billing": "Billing/insurance document",
+          "discharge": "Discharge summary or post-procedure discharge instructions",
+          "lab": "Laboratory or pathology report",
+          "medication_list": "Medication list/reconciliation",
+          "radiology": "Radiology report",
+          "referral": "Referral letter",
+          "unknown": "Other clinical note, assessment, questionnaire, daily report, or unreadable"
+        },
+        "instructions": "Classify this document by its primary clinical purpose.",
+        "type": "choice"
+      },
+      "occurrences": 14,
+      "example_sample_id": "normal_t2_s2"
     }
   ]
 }

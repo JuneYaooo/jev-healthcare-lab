@@ -2,80 +2,80 @@
   "title": "边界挑战：药物剂量关联",
   "scene": "medication",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "1000mg": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "250mg": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "500mg": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.8464072500064503,
-    "cost_usd": 6.5772e-05,
-    "cost_per_1000_usd": 0.016443000000000003
+    "latency_median_s": 0.624389021017123,
+    "cost_usd": 0.00032768400000000007,
+    "cost_per_1000_usd": 0.016384200000000005
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "1000mg": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "250mg": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "500mg": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.45846460448228754,
-    "cost_usd": 0.000174,
-    "cost_per_1000_usd": 0.0435,
+    "latency_median_s": 0.6062076460220851,
+    "cost_usd": 0.0008628000000000002,
+    "cost_per_1000_usd": 0.04314000000000001,
     "prior_attempts": 0
   }
 }

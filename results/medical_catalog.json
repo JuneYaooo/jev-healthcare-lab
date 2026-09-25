@@ -205,7 +205,7 @@
       "primock_asr_fields",
       "primock_reference_fields"
     ],
-    "completion_note": "一段公开扮演患者音频，真实Whisper转写＋12字段；字段金标由本轮人工定义，非临床评测",
+    "completion_note": "3 个公开扮演患者病例：原完整声道与两个 90 秒片段；真实 Whisper 转写和参考文本各测 20 个字段，金标由参考文本人工定义",
     "evaluated_rows": 24
   },
   {
@@ -884,7 +884,7 @@
       "clinocr_ocr_doctype",
       "clinocr_reference_doctype"
     ],
-    "completion_note": "6类失真文档，实际Tesseract；只有2种模板内容，后续只测文档类型",
+    "completion_note": "20 张扫描文档、16 个模板；Tesseract 实际 OCR 与参考文本对照，评测文档类型",
     "evaluated_rows": 12
   },
   {

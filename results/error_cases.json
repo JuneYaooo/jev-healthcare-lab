@@ -567,6 +567,15 @@
     "synthetic_challenge": false
   },
   {
+    "task": "challenge_followup_action",
+    "id": "expansion:followup_action:9",
+    "gold": "lab",
+    "prediction": "appointment",
+    "selected_probability": 0.52,
+    "confidence": 0.36,
+    "synthetic_challenge": true
+  },
+  {
     "task": "challenge_phi_candidate",
     "id": "phi_candidate:4",
     "gold": "other",
@@ -576,12 +585,39 @@
     "synthetic_challenge": true
   },
   {
+    "task": "challenge_service_route",
+    "id": "expansion:service_route:11",
+    "gold": "billing",
+    "prediction": "appointment",
+    "selected_probability": 0.53,
+    "confidence": 0.37,
+    "synthetic_challenge": true
+  },
+  {
+    "task": "challenge_unit_equivalence",
+    "id": "expansion:unit_equivalence:14",
+    "gold": "different",
+    "prediction": "same",
+    "selected_probability": 0.7,
+    "confidence": 0.41,
+    "synthetic_challenge": true
+  },
+  {
     "task": "clinocr_ocr_doctype",
     "id": "mixed_t9_s2",
     "gold": "medication_list",
     "prediction": "unknown",
     "selected_probability": 0.89,
     "confidence": 0.86,
+    "synthetic_challenge": false
+  },
+  {
+    "task": "clinocr_reference_doctype",
+    "id": "tables_t10_s2",
+    "gold": "unknown",
+    "prediction": "medication_list",
+    "selected_probability": 0.68,
+    "confidence": 0.62,
     "synthetic_challenge": false
   },
   {

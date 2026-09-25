@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -192,6 +192,574 @@
       },
       "occurrences": 1,
       "example_sample_id": "1111"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：精神药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1546"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：一类精神药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1546"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：二类精神药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1546"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：麻醉药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1546"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：戒毒药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1546"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：El-MS",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5610"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：1H-NMR中有关质子的化学位移",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5610"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：13C-NMR中有关碳的苷化位移",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5610"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：有关糖H1和H2的偶合常数",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5610"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：酸催化甲醇解",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5610"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：每张处方仅限于一名患者用药",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "819"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：药品名称书写应当使用药品的商品名",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "819"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：中药饮片应当单独开具处方",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "819"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：每张西药处方不得超过5种药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "819"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：非特殊情况无须注明临床诊断",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "819"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：大青叶",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1359"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：板兰根",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1359"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：白术",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1359"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：鳖甲",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1359"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：黄芪",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "1359"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：生产中药饮片必须持有《药品生产许可证》、《药品生产质量管理规范认证证书》",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3856"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：出产的中药饮片应检验合格，并随货附纸质或者电子版的检验报告书",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3856"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：批发零售中药饮片必须持有《药品经营许可证》、《药品经营管理规范认证证书》",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3856"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：中药饮片生产企业可以外购中药饮片半成品进行分包装改换标签",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3856"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：医疗机构可以从中药材市场采购中药饮片调剂使用",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3856"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：2，6-二甲基-4-（2-硝基苯基）-3，5-吡啶二甲酸二甲酯",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5528"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：1，4-二氢-2，6-二甲基-4-（2-硝基苯基）-3，5-吡啶二甲酸二甲酯",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5528"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：易溶于丙酮、氯仿，几乎不溶于水",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5528"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：遇光不稳定",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5528"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：抑制心肌细胞对钙离子的摄取",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5528"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：二级以上医院药学部门负责人，应具备高等学校药学专业本科以上学历及本专业高级技术职务任职资格",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5336"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：各医疗机构应根据医院级别分别设置药学部、药剂科或药房",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5336"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：医疗机构药学部门具体负责药品管理，药学技术服务和药事管理工作",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5336"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：各级医疗机构应当设立药事管理与药物治疗学委员会",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5336"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：烘干法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3350"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：高效液相色谱法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3350"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：甲苯法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3350"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：减压干燥法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3350"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：气相色谱法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3350"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：气体导入法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2758"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：超声波导入法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2758"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：离子导入法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2758"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：电穿孔导入法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2758"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：紫外光导入法",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "2758"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：保泰松",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5331"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：卡马西平",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5331"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：苯妥英钠",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5331"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：阿苯达唑",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "5331"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：该药品上市许可持有人注册地址在天津",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3114"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：该药品广告是非处方药广告",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3114"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：该药品广告只能在天津电视台播放",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3114"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：该药品广告的有效期至2022年1月",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3114"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：对疾病的预防、诊断、治疗、监护、缓解",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "178"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：对损伤或者残疾的诊断、治疗、监护、缓解、补偿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "178"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：对解剖或者生理过程的研究、替代、调节",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "178"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：妊娠控制",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "178"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：用药理学、免疫学或者代谢的手段作用于人体体表及体内",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "178"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：喘息",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "171"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：呃逆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "171"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：肝阳上亢",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "171"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：心神不宁",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "171"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：血热气逆之衄血",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "171"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：地榆",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3501"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：乌梅",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3501"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：陈皮",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3501"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：木瓜",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3501"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：女贞子",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3501"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：制定本医疗机构处方集和基本用药供应目录",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3631"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：分析、评估本医疗机构用药风险和药品不良反应",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3631"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：向公众宣传、推荐使用本医疗机构常用药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3631"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为多选题的正确答案。 候选：监督指导特殊管理药品的临床使用与规范化管理",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "3631"
     }
   ]
 }

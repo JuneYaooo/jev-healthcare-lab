@@ -1,14 +1,62 @@
 {
-  "planned": 4,
-  "successful": 4,
+  "planned": 20,
+  "successful": 20,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 4,
+    "n": 20,
     "accuracy": 1.0,
     "macro_f1_observed_gold_classes": 1.0,
     "per_class": {
+      "100": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
       "12.0": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "120": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "135": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "140": {
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "145": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "3.5": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "4.0": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "5.0": {
         "support": 1,
         "precision": 1.0,
         "recall": 1.0,
@@ -20,14 +68,26 @@
         "recall": 1.0,
         "f1": 1.0
       },
+      "60": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
       "7.8": {
         "support": 1,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
-      "unknown": {
+      "90": {
         "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "unknown": {
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -36,64 +96,64 @@
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 4,
+    "groups": 20,
     "lower": 1.0,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.0024999999999999467,
-    "multiclass_brier_sum": 5.000000000000005e-05,
-    "brier_n": 4,
+    "ece10_selected_probability": 0.000500000000000056,
+    "multiclass_brier_sum": 1.000000000000001e-05,
+    "brier_n": 20,
     "bins": [
       {
         "lower": 0.9,
-        "n": 4,
-        "mean_selected_probability": 0.9975,
+        "n": 20,
+        "mean_selected_probability": 0.9994999999999999,
         "accuracy": 1.0
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         }
       }
     }
   },
-  "input_tokens": 1629,
-  "output_tokens": 215,
-  "latency_successful_api_p50_s": 1.2001273539790418,
-  "latency_successful_api_p95_s": 1.3094426249735989,
+  "input_tokens": 8013,
+  "output_tokens": 1045,
+  "latency_successful_api_p50_s": 0.5963754169933964,
+  "latency_successful_api_p95_s": 1.2672447079676203,
   "per_indicator": {}
 }

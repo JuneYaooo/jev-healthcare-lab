@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -14,6 +14,62 @@
       },
       "occurrences": 4,
       "example_sample_id": "experiencer:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "family": "家属",
+          "none": "没有肯定任何人患糖尿病",
+          "patient": "患者本人",
+          "unknown": "主体不明"
+        },
+        "instructions": "记录中哮喘属于谁？",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:experiencer:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "family": "家属",
+          "none": "没有肯定任何人患糖尿病",
+          "patient": "患者本人",
+          "unknown": "主体不明"
+        },
+        "instructions": "记录中高血压属于谁？",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:experiencer:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "family": "家属",
+          "none": "没有肯定任何人患糖尿病",
+          "patient": "患者本人",
+          "unknown": "主体不明"
+        },
+        "instructions": "记录中偏头痛属于谁？",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:experiencer:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "family": "家属",
+          "none": "没有肯定任何人患糖尿病",
+          "patient": "患者本人",
+          "unknown": "主体不明"
+        },
+        "instructions": "记录中甲状腺疾病属于谁？",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:experiencer:13"
     }
   ]
 }

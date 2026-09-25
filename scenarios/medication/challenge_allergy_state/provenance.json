@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2534,
-      "sha256": "815ed266df97aa7483beec030d8aeeb9f8f87ce893779445028613f9ce658bc5"
+      "bytes": 15516,
+      "sha256": "65445aa41089ea32b705d3760598da7119a8c87b85f53c68504c2f003ca45927"
     },
     "responses.jsonl": {
-      "bytes": 1849,
-      "sha256": "4e3434b1d7e01d15505ade267c4cd2598f61180a3d5708a83f60e5ad811a7a6b"
+      "bytes": 9408,
+      "sha256": "80eb9e5afb8d5d1652a325db1740e46dabff3b0e97e3c42b89f6bdea035bc581"
     },
     "index.jsonl": {
-      "bytes": 1252,
-      "sha256": "752852b3d297aaad68d7ef3bdd4f067cb000a6c20579779c91e36499b8a7183e"
+      "bytes": 6594,
+      "sha256": "ab63df243a0fed7a58a9cbcd7dc72578dc78cffe1508fdc242cb01c3b2fd6042"
     },
     "prompts.json": {
-      "bytes": 506,
-      "sha256": "b2fb61289bd60a3b890d0d27edba5f3b057feba80b9123e6ae4d6834aaae60f0"
+      "bytes": 2089,
+      "sha256": "e964a68e7744c1dffb2871869d7a533c1855898329b5fadbc60de5620fefa412"
     },
     "example.json": {
       "bytes": 1514,
       "sha256": "4ab8c208a8aac4332569f79326f63fe1501e078047d5bd7132bc53144b1642a4"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:allergy_state:1",
+        "expansion:allergy_state:2",
+        "expansion:allergy_state:3",
+        "expansion:allergy_state:4",
+        "expansion:allergy_state:5",
+        "expansion:allergy_state:6",
+        "expansion:allergy_state:7",
+        "expansion:allergy_state:8",
+        "expansion:allergy_state:9",
+        "expansion:allergy_state:10",
+        "expansion:allergy_state:11",
+        "expansion:allergy_state:12",
+        "expansion:allergy_state:13",
+        "expansion:allergy_state:14",
+        "expansion:allergy_state:15",
+        "expansion:allergy_state:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

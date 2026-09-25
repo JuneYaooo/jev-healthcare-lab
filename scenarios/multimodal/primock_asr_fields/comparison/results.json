@@ -2,14 +2,14 @@
   "title": "ASR 转写病史字段判断",
   "scene": "multimodal",
   "synthetic": false,
-  "planned": 12,
-  "compared": 12,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 12,
-      "accuracy": 0.9166666666666666,
-      "macro_f1_observed_gold_classes": 0.8571428571428571,
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.9166666666666666,
       "per_class": {
         "3": {
           "support": 1,
@@ -29,13 +29,37 @@
           "recall": 0.0,
           "f1": 0.0
         },
-        "left": {
+        "before": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
+        "chest_hands_arms": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "impaired": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "left": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "low": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "midday": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
@@ -53,23 +77,29 @@
           "recall": 0,
           "f1": 0.0
         },
+        "worse": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "yes": {
-          "support": 2,
+          "support": 4,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.6128562499652617,
-    "cost_usd": 0.00043617000000000005,
-    "cost_per_1000_usd": 0.036347500000000005
+    "latency_median_s": 0.6003618959803134,
+    "cost_usd": 0.0006100080000000001,
+    "cost_per_1000_usd": 0.030500400000000004
   },
   "deepseek": {
     "quality": {
-      "n": 12,
-      "accuracy": 0.9166666666666666,
-      "macro_f1_observed_gold_classes": 0.8571428571428571,
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.9166666666666666,
       "per_class": {
         "3": {
           "support": 1,
@@ -89,13 +119,37 @@
           "recall": 0.0,
           "f1": 0.0
         },
-        "left": {
+        "before": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
+        "chest_hands_arms": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "impaired": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "left": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "low": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "midday": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
@@ -113,17 +167,23 @@
           "recall": 0,
           "f1": 0.0
         },
+        "worse": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "yes": {
-          "support": 2,
+          "support": 4,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.6039022500044666,
-    "cost_usd": 0.0011944079999999999,
-    "cost_per_1000_usd": 0.09953399999999998,
+    "latency_median_s": 0.6349870834965259,
+    "cost_usd": 0.00158343,
+    "cost_per_1000_usd": 0.0791715,
     "prior_attempts": 0
   }
 }

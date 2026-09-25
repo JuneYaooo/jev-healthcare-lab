@@ -1,6 +1,6 @@
 # 病历实体、否定状态与术语标准化
 
-**18 个任务条件，1,128 条主评测记录。** [全部场景](../../README.md)
+**18 个任务条件，1,240 条主评测记录。** [全部场景](../../README.md)
 
 给定实体边界的类型分类与端到端抽取分开看；LongHealth 为 20 个虚构患者的 100 个问题。
 
@@ -17,10 +17,10 @@
 | [医学实体 UMLS 语义类型](medmentions_type_oracle_span/README.md) | 实体类型分类 | 100 | Accuracy | 60.0% | 51.0% |
 | [医学缩写消歧](medal_demo_disambiguation/README.md) | 缩写消歧 | 100 | Accuracy | 67.0% | 35.0% |
 | [长病历跨文档问答](longhealth_full_context/README.md) | 证据问答 | 100 | Accuracy | 95.0% | 83.0% |
-| [边界挑战：编码证据](challenge_coding_evidence/README.md) | 编码证据判断 | 4 | Accuracy | 100.0% | 100.0% |
-| [边界挑战：症状所属人](challenge_experiencer/README.md) | 主体归属判断 | 4 | Accuracy | 100.0% | 100.0% |
-| [边界挑战：中英混合文本](challenge_mixed_language/README.md) | 跨语言语义判断 | 4 | Accuracy | 100.0% | 100.0% |
-| [边界挑战：否定状态](challenge_negation/README.md) | 否定识别 | 4 | Accuracy | 100.0% | 100.0% |
-| [边界挑战：相对日期](challenge_relative_date/README.md) | 相对时间解析 | 4 | Accuracy | 100.0% | 100.0% |
-| [边界挑战：社会背景](challenge_social_context/README.md) | 社会背景识别 | 4 | Accuracy | 100.0% | 100.0% |
-| [边界挑战：事件时态](challenge_temporality/README.md) | 事件时态判断 | 4 | Accuracy | 100.0% | 75.0% |
+| [边界挑战：编码证据](challenge_coding_evidence/README.md) | 编码证据判断 | 20 | Accuracy | 100.0% | 100.0% |
+| [边界挑战：症状所属人](challenge_experiencer/README.md) | 主体归属判断 | 20 | Accuracy | 100.0% | 100.0% |
+| [边界挑战：中英混合文本](challenge_mixed_language/README.md) | 跨语言语义判断 | 20 | Accuracy | 100.0% | 100.0% |
+| [边界挑战：否定状态](challenge_negation/README.md) | 否定识别 | 20 | Accuracy | 100.0% | 100.0% |
+| [边界挑战：相对日期](challenge_relative_date/README.md) | 相对时间解析 | 20 | Accuracy | 100.0% | 100.0% |
+| [边界挑战：社会背景](challenge_social_context/README.md) | 社会背景识别 | 20 | Accuracy | 100.0% | 100.0% |
+| [边界挑战：事件时态](challenge_temporality/README.md) | 事件时态判断 | 20 | Accuracy | 100.0% | 75.0% |

@@ -2,68 +2,68 @@
   "title": "边界挑战：给定规则紧急程度",
   "scene": "service",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "routine": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "urgent": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.8628117500338703,
-    "cost_usd": 6.879600000000001e-05,
-    "cost_per_1000_usd": 0.017199000000000002
+    "latency_median_s": 0.5851477084797807,
+    "cost_usd": 0.00035078400000000014,
+    "cost_per_1000_usd": 0.017539200000000005
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "routine": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "urgent": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.5995044795272406,
-    "cost_usd": 0.00018,
-    "cost_per_1000_usd": 0.045000000000000005,
+    "latency_median_s": 0.5659459585149307,
+    "cost_usd": 0.000619194,
+    "cost_per_1000_usd": 0.0309597,
     "prior_attempts": 0
   }
 }

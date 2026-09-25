@@ -1,33 +1,33 @@
 {
-  "planned": 4,
-  "successful": 4,
+  "planned": 20,
+  "successful": 20,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 4,
-    "accuracy": 0.75,
-    "macro_f1_observed_gold_classes": 0.6666666666666666,
+    "n": 20,
+    "accuracy": 0.95,
+    "macro_f1_observed_gold_classes": 0.9494949494949495,
     "per_class": {
       "clinical_value": {
-        "support": 1,
-        "precision": 0.5,
+        "support": 5,
+        "precision": 0.8333333333333334,
         "recall": 1.0,
-        "f1": 0.6666666666666666
+        "f1": 0.9090909090909091
       },
       "name": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
       "other": {
-        "support": 1,
-        "precision": 0,
-        "recall": 0.0,
-        "f1": 0.0
+        "support": 5,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8888888888888888
       },
       "record_id": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -36,14 +36,14 @@
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 4,
-    "lower": 0.25,
+    "groups": 20,
+    "lower": 0.85,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.2125,
-    "multiclass_brier_sum": 0.36124999999999996,
-    "brier_n": 4,
+    "ece10_selected_probability": 0.052000000000000116,
+    "multiclass_brier_sum": 0.07264999999999999,
+    "brier_n": 20,
     "bins": [
       {
         "lower": 0.8,
@@ -53,53 +53,53 @@
       },
       {
         "lower": 0.9,
-        "n": 3,
-        "mean_selected_probability": 1.0,
+        "n": 19,
+        "mean_selected_probability": 0.9899999999999999,
         "accuracy": 1.0
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
-          "accuracy": 0.75
+          "accuracy": 0.95
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         }
       }
     }
   },
-  "input_tokens": 1546,
-  "output_tokens": 191,
-  "latency_successful_api_p50_s": 0.8395446045324206,
-  "latency_successful_api_p95_s": 1.3829907919862308,
+  "input_tokens": 7806,
+  "output_tokens": 951,
+  "latency_successful_api_p50_s": 0.6148690005065873,
+  "latency_successful_api_p95_s": 0.8685856670490466,
   "per_indicator": {}
 }

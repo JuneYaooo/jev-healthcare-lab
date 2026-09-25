@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -161,6 +161,110 @@
       },
       "occurrences": 1,
       "example_sample_id": "duration"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "Explicitly denies itching",
+          "unknown": "Not documented",
+          "yes": "Reports itching"
+        },
+        "instructions": "Does the patient report current itching? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation02:itching"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "Explicitly denies red skin",
+          "unknown": "Not documented",
+          "yes": "Reports red skin"
+        },
+        "instructions": "Does the patient report red skin? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation02:red_skin"
+    },
+    {
+      "question": {
+        "criteria": {
+          "chest_hands_arms": "Chest, hands and arms",
+          "face_feet": "Face and feet",
+          "unknown": "Not documented"
+        },
+        "instructions": "Which set of affected locations does the patient explicitly mention? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation02:location"
+    },
+    {
+      "question": {
+        "criteria": {
+          "impaired": "Cannot sleep at night",
+          "normal": "No effect on sleep",
+          "unknown": "Not documented"
+        },
+        "instructions": "What effect on sleep is reported? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation02:sleep"
+    },
+    {
+      "question": {
+        "criteria": {
+          "midday": "Since mid-day",
+          "unknown": "Not documented",
+          "yesterday": "Yesterday"
+        },
+        "instructions": "When did this headache start? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation03:onset"
+    },
+    {
+      "question": {
+        "criteria": {
+          "left": "Left",
+          "right": "Right",
+          "unknown": "Not documented"
+        },
+        "instructions": "Which side is the headache on? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation03:side"
+    },
+    {
+      "question": {
+        "criteria": {
+          "after": "After",
+          "before": "A few minutes before",
+          "unknown": "Not documented"
+        },
+        "instructions": "When were zig-zag visual lines noticed relative to the headache? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation03:vision"
+    },
+    {
+      "question": {
+        "criteria": {
+          "better": "It improves",
+          "unknown": "Not documented",
+          "worse": "It gets worse"
+        },
+        "instructions": "What happens to the headache when moving or leaning forward? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "day1_consultation03:movement"
     }
   ]
 }

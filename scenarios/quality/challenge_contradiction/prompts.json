@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -11,7 +11,7 @@
         "instructions": "判断同一时间同一患者的两段记录是否直接矛盾。",
         "type": "choice"
       },
-      "occurrences": 4,
+      "occurrences": 20,
       "example_sample_id": "contradiction:1"
     }
   ]

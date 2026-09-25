@@ -7,38 +7,59 @@
   "original_shard_sha256": {
     "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
   },
-  "sample_count": 12,
-  "groups": 1,
+  "sample_count": 20,
+  "groups": 3,
   "resources": [
     {
       "resource": "PriMock57",
       "source": "https://github.com/babylonhealth/primock57",
-      "completion_note": "一段公开扮演患者音频，真实Whisper转写＋12字段；字段金标由本轮人工定义，非临床评测"
+      "completion_note": "3 个公开扮演患者病例：原完整声道与两个 90 秒片段；真实 Whisper 转写和参考文本各测 20 个字段，金标由参考文本人工定义"
     }
   ],
-  "adapter": "prepare_final_tasks.py",
+  "adapter": "prepare_media_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 32175,
-      "sha256": "9a5a98d9da9dd62217747419f52c22754ab424dba596cde8f973a1f566e187db"
+      "bytes": 44636,
+      "sha256": "5c4faae62c41c4280951acee31b33b2eff84cf45b9e0d87826c9bb263f56447d"
     },
     "responses.jsonl": {
-      "bytes": 5027,
-      "sha256": "75fc32ac828910ce576a63e7aee299f390a5eae6c4a956006f9c42cb3607c31d"
+      "bytes": 8562,
+      "sha256": "5ca821964ab7ef073465bd6131a86d5fed79a4d7b547ff63db4209dc4d017f71"
     },
     "index.jsonl": {
-      "bytes": 3654,
-      "sha256": "41dca7684419eeb4e6d8a2a8ba9476da5b8b711c0eea1cf04906845fd65dff52"
+      "bytes": 6241,
+      "sha256": "048c4fa9c434379213d32beaf3f60cae182c01f47cc856c488d81cde237e0f74"
     },
     "prompts.json": {
-      "bytes": 4507,
-      "sha256": "6edfd24015caffacb58a80018d7d2635d48a3a08deb7f7b80b0e35c0e2347f94"
+      "bytes": 7715,
+      "sha256": "c634607c20cb25cb498d1886a99246f0775d86860b2df463c9cc50fb2faab2b3"
     },
     "example.json": {
       "bytes": 3468,
       "sha256": "b6bc5a873b2930503d803bf9bb3b721a70a521224dbd176e506e8d6857a53e2b"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "day1_consultation02:itching",
+        "day1_consultation02:red_skin",
+        "day1_consultation02:location",
+        "day1_consultation02:sleep",
+        "day1_consultation03:onset",
+        "day1_consultation03:side",
+        "day1_consultation03:vision",
+        "day1_consultation03:movement"
+      ],
+      "sources": [
+        "PriMock57 public acted consultation; first 90 seconds of patient channel; gold annotated from reference before model calls"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

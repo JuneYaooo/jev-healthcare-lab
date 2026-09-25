@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2664,
-      "sha256": "377882285e769c970767504f96a0e112cf9a51c3d39c6951d8cbb7df3486dbe9"
+      "bytes": 16390,
+      "sha256": "ad25e8401efcc7d39b151f06552e626ab53cc69cdefba7bd4302b656bb9e523d"
     },
     "responses.jsonl": {
-      "bytes": 1668,
-      "sha256": "dc51b1b65fcd08077acbeb79c905624a9eb63a22330bb3f2f5ff00528cf79fd3"
+      "bytes": 8520,
+      "sha256": "5c83d38c171d7d313f70fb2c564fbc421ebd921076b4f2d001ab06275e2f0270"
     },
     "index.jsonl": {
-      "bytes": 1300,
-      "sha256": "71df7977817b14a3c113c361f7d1fadbccb513ff095e403b8ce7418e59ee1ba3"
+      "bytes": 6834,
+      "sha256": "dedd92acbe9a13a6bda51f19379cd0d042654209b1b14814b93897273064700e"
     },
     "prompts.json": {
-      "bytes": 510,
-      "sha256": "3d1a5b89e1936cb8e3db486449b9fc38f374e231fc5c1635bdf6c91eb50bfc47"
+      "bytes": 485,
+      "sha256": "ed0a1ae856b6b012d0b062eea711c84a790b22200eeb623481c305c2fe498b9d"
     },
     "example.json": {
       "bytes": 1446,
       "sha256": "99fbed6883780cb5d41bcb585941e299a185f42dbd2e9153d5ef235d450ed7d9"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:missing_parameter:1",
+        "expansion:missing_parameter:2",
+        "expansion:missing_parameter:3",
+        "expansion:missing_parameter:4",
+        "expansion:missing_parameter:5",
+        "expansion:missing_parameter:6",
+        "expansion:missing_parameter:7",
+        "expansion:missing_parameter:8",
+        "expansion:missing_parameter:9",
+        "expansion:missing_parameter:10",
+        "expansion:missing_parameter:11",
+        "expansion:missing_parameter:12",
+        "expansion:missing_parameter:13",
+        "expansion:missing_parameter:14",
+        "expansion:missing_parameter:15",
+        "expansion:missing_parameter:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

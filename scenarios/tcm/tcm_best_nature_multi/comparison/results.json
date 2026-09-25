@@ -2,34 +2,34 @@
   "title": "中医病性多选",
   "scene": "tcm",
   "synthetic": false,
-  "planned": 1,
-  "compared": 1,
+  "planned": 2,
+  "compared": 2,
   "failures": [],
   "jev": {
     "quality": {
-      "tp": 2,
-      "fp": 1,
+      "tp": 4,
+      "fp": 2,
       "fn": 0,
       "precision": 0.6666666666666666,
       "recall": 1.0,
       "micro_f1": 0.8
     },
-    "latency_median_s": 0.6327380409929901,
-    "cost_usd": 2.2008000000000003e-05,
-    "cost_per_1000_usd": 0.022008000000000003
+    "latency_median_s": 0.6153855204756837,
+    "cost_usd": 4.2504000000000005e-05,
+    "cost_per_1000_usd": 0.021252000000000004
   },
   "deepseek": {
     "quality": {
-      "tp": 2,
-      "fp": 1,
-      "fn": 0,
-      "precision": 0.6666666666666666,
-      "recall": 1.0,
-      "micro_f1": 0.8
+      "tp": 3,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.6,
+      "recall": 0.75,
+      "micro_f1": 0.6666666666666666
     },
-    "latency_median_s": 0.9023848749930039,
-    "cost_usd": 5.1383999999999995e-05,
-    "cost_per_1000_usd": 0.05138399999999999,
+    "latency_median_s": 0.8933412079932168,
+    "cost_usd": 0.00011813399999999999,
+    "cost_per_1000_usd": 0.059066999999999995,
     "prior_attempts": 0
   }
 }

@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -10,7 +10,7 @@
         "instructions": "按BMI=体重kg/身高m的平方，资料缺失或同次测量矛盾时必须拒绝确定数值。判断能否计算。",
         "type": "choice"
       },
-      "occurrences": 4,
+      "occurrences": 20,
       "example_sample_id": "missing_parameter:1"
     }
   ]

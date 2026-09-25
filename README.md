@@ -1,11 +1,12 @@
 # Jev 医疗场景评测
 
-覆盖 **12 类医疗场景、96 项任务、6,586 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。
+覆盖 **12 类医疗场景、96 项任务、7,032 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。
 
 ## 先看结论
 
-- **信息分类是目前更值得尝试的方向。** 医疗实体类型识别、病历章节归类、患者问题分类的正确率为 96%–99%；相较 DeepSeek，分数接近或更高，模型调用费用低约 39%–56%，适合优先试用在批量整理和分流环节。
+- **信息分类是目前更值得尝试的方向。** 医疗实体类型识别、病历章节归类、患者问题分类的正确率为 96%–99%；本批效果评测中，相较 DeepSeek，分数接近或更高，模型调用费用低约 39%–56%，适合优先试用在批量整理和分流环节。
 - **长病历中的指定问题回答，也显示出较好的性价比。** 在 100 道给定完整病历的选择题上，Jev 正确率为 95%，DeepSeek 为 83%；Jev 的调用费用低约 68%。这一结果对应指定问题回答，整份病历的自动总结仍需另行验证。
+- **批量处理速度需结合实测判断。** 同样以 8 并发处理 7,032 条输入，Jev 用时 22.1 分钟，DeepSeek 用时 18.2 分钟；最终未能作答的输入分别为 1 和 38 条。
 - **复杂医疗判断仍有明显短板。** 试验入组判断正确率 48%、临床量表数值判断 25%、中医证型判断 33%；这些任务即使调用便宜，也不足以支持自动决策。
 
 ## 哪些工作更值得优先试用？
@@ -21,14 +22,16 @@
 
 ## 花多少钱，等多久？
 
-按全部测试输入合计，Jev 的模型调用费用比 DeepSeek **低约 56%**。具体能否节省业务成本，还取决于该任务的准确率和人工复核量。
+在这批效果评测中，Jev 的模型调用费用比 DeepSeek **低约 56%**；重新调用同样内容测速时，**DeepSeek 的费用低约 13%**。具体能否节省业务成本，还取决于缓存利用、该任务的准确率和人工复核量。
 
 | 对比项 | Jev | DeepSeek Flash |
 | --- | ---: | ---: |
-| 每千条输入的模型调用费用 | $0.057 | $0.130 |
-| 整批任务总耗时（相同并发） | 待实测 | 待实测 |
+| 效果评测：每千条输入费用 | $0.055 | $0.124 |
+| 重复输入测速：每千条输入费用 | $0.055 | $0.048 |
+| 整批 7,032 条输入总耗时（8 并发） | 22.1 分钟 | 18.2 分钟 |
+| 测速最终未能作答的输入 | 1 条 | 38 条 |
 
-费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。现有记录尚不能比较同等条件下的整批处理速度。
+费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。重复输入可能使 DeepSeek 更多命中缓存，从而显著降价；性价比需要结合实际业务的重复程度判断。总耗时包含重试与失败等待，详见[整批测速](comparisons/batch-time/README.md)。
 
 ## 覆盖哪些医疗场景？
 
@@ -36,19 +39,19 @@
 
 | 场景 | 具体测试数 | 输入记录数 |
 | --- | ---: | ---: |
-| [病历实体、否定状态与术语标准化](scenarios/records/README.md) | 18 | 1,128 |
-| [病历章节、文书质控与随访记录](scenarios/documentation/README.md) | 5 | 212 |
-| [患者咨询、服务路由与就医流程](scenarios/service/README.md) | 9 | 708 |
-| [医疗质控、幻觉识别与请求安全](scenarios/quality/README.md) | 11 | 1,109 |
-| [药物关系、用药变更与出院带药](scenarios/medication/README.md) | 7 | 366 |
+| [病历实体、否定状态与术语标准化](scenarios/records/README.md) | 18 | 1,240 |
+| [病历章节、文书质控与随访记录](scenarios/documentation/README.md) | 5 | 260 |
+| [患者咨询、服务路由与就医流程](scenarios/service/README.md) | 9 | 740 |
+| [医疗质控、幻觉识别与请求安全](scenarios/quality/README.md) | 11 | 1,157 |
+| [药物关系、用药变更与出院带药](scenarios/medication/README.md) | 7 | 430 |
 | [患者入组预筛与临床试验匹配](scenarios/trials/README.md) | 3 | 350 |
-| [循证研究、PICO 与公共卫生核查](scenarios/evidence/README.md) | 10 | 859 |
-| [临床计算、参数选择与评分量表](scenarios/calculators/README.md) | 8 | 514 |
-| [医学知识与考试对照](scenarios/knowledge/README.md) | 5 | 400 |
-| [语音病历、医疗文档 OCR 与报告断言](scenarios/multimodal/README.md) | 5 | 40 |
+| [循证研究、PICO 与公共卫生核查](scenarios/evidence/README.md) | 10 | 875 |
+| [临床计算、参数选择与评分量表](scenarios/calculators/README.md) | 8 | 562 |
+| [医学知识与考试对照](scenarios/knowledge/README.md) | 5 | 415 |
+| [语音病历、医疗文档 OCR 与报告断言](scenarios/multimodal/README.md) | 5 | 100 |
 | [合成病例主要诊断](scenarios/acute/README.md) | 1 | 100 |
-| [中医知识、辨证与安全](scenarios/tcm/README.md) | 14 | 800 |
-| **合计** | **96** | **6,586** |
+| [中医知识、辨证与安全](scenarios/tcm/README.md) | 14 | 803 |
+| **合计** | **96** | **7,032** |
 
 ## 全部任务的对比表现
 
@@ -71,13 +74,13 @@
 | [医学实体 UMLS 语义类型](scenarios/records/medmentions_type_oracle_span/README.md) | 实体类型分类 | 100 | 60.0% 正确率 | 51.0% 正确率 | $0.044 / $0.096 |
 | [医学缩写消歧](scenarios/records/medal_demo_disambiguation/README.md) | 缩写消歧 | 100 | 67.0% 正确率 | 35.0% 正确率 | $0.116 / $0.082 |
 | [长病历跨文档问答](scenarios/records/longhealth_full_context/README.md) | 证据问答 | 100 | 95.0% 正确率 | 83.0% 正确率 | $0.537 / $1.697 |
-| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 编码证据判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
-| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 主体归属判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.041 |
-| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 跨语言语义判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.015 / $0.040 |
-| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 否定识别 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.015 / $0.041 |
-| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 相对时间解析 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.018 / $0.027 |
-| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 社会背景识别 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.041 |
-| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 事件时态判断 | 4 | 100.0% 正确率 | 75.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 编码证据判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.044 |
+| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 主体归属判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.041 |
+| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 跨语言语义判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.015 / $0.039 |
+| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 否定识别 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.015 / $0.041 |
+| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 相对时间解析 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.018 / $0.030 |
+| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 社会背景识别 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.041 |
+| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 事件时态判断 | 20 | 100.0% 正确率 | 75.0% 正确率 | $0.016 / $0.042 |
 
 ### 病历章节、文书质控与随访记录
 
@@ -85,9 +88,9 @@
 | --- | --- | ---: | ---: | ---: | ---: |
 | [问诊对话对应病历章节](scenarios/documentation/mts_section_classification/README.md) | 章节分类 | 100 | 76.0% 正确率 | 73.0% 正确率 | $0.031 / $0.044 |
 | [已分段病历章节分类](scenarios/documentation/aci_note_section/README.md) | 章节分类 | 100 | 99.0% 正确率 | 100.0% 正确率 | $0.021 / $0.048 |
-| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 文档类型分类 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
-| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 文书缺项判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.015 / $0.041 |
-| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 行动项识别 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 文档类型分类 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
+| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 文书缺项判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
+| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 行动项识别 | 20 | 95.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
 
 ### 患者咨询、服务路由与就医流程
 
@@ -100,8 +103,8 @@
 | [MedJourney 检查预测选择题](scenarios/service/medjourney_ep_mcq/README.md) | 单选问答 | 100 | 82.0% 正确率 | 79.0% 正确率 | $0.022 / $0.038 |
 | [MedJourney 用药预测选择题](scenarios/service/medjourney_mp_mcq/README.md) | 单选问答 | 100 | 86.0% 正确率 | 88.0% 正确率 | $0.020 / $0.034 |
 | [MedJourney 治疗预测选择题](scenarios/service/medjourney_tp_mcq/README.md) | 单选问答 | 100 | 83.0% 正确率 | 82.0% 正确率 | $0.024 / $0.040 |
-| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 服务路由分类 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
-| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 规则紧急程度分类 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.017 / $0.045 |
+| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 服务路由分类 | 20 | 95.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
+| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 规则紧急程度分类 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.018 / $0.031 |
 
 ### 医疗质控、幻觉识别与请求安全
 
@@ -115,9 +118,9 @@
 | [医学回答幻觉识别：有证据](scenarios/quality/medhallu_with_evidence/README.md) | 幻觉识别 | 200 | 82.0% 正确率 | 82.5% 正确率 | $0.032 / $0.077 |
 | [医学回答幻觉识别：无证据](scenarios/quality/medhallu_without_evidence/README.md) | 幻觉识别 | 200 | 60.0% 正确率 | 69.5% 正确率 | $0.017 / $0.032 |
 | [医疗有害请求筛查](scenarios/quality/medsafety_request_gate/README.md) | 请求安全分类 | 200 | 93.5% 正确率 | 96.0% 正确率 | $0.015 / $0.042 |
-| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 矛盾检测 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
-| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 隐私信息识别 | 4 | 75.0% 正确率 | 75.0% 正确率 | $0.016 / $0.043 |
-| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 提示注入抵抗 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
+| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 矛盾检测 | 20 | 100.0% 正确率 | 95.0% 正确率 | $0.016 / $0.042 |
+| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 隐私信息识别 | 20 | 95.0% 正确率 | 95.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 提示注入抵抗 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.017 / $0.043 |
 
 ### 药物关系、用药变更与出院带药
 
@@ -126,10 +129,10 @@
 | [化学物致病关系判断](scenarios/medication/bc5cdr_relation_oracle_entities/README.md) | 关系分类 | 100 | 57.0% 正确率 | 66.0% 正确率 | $0.031 / $0.069 |
 | [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/README.md) | 关系分类 | 150 | 79.3% 正确率 | 74.7% 正确率 | $0.024 / $0.038 |
 | [出院带药候选筛选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 多标签候选筛选 | 100 | 48.6 分·抽取综合分 | 47.9 分·抽取综合分 | $0.218 / $0.587 |
-| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 过敏状态判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
-| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 剂量关联判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
-| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 频次解析 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
-| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 用药变更判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.042 |
+| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 过敏状态判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 剂量关联判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 频次解析 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 用药变更判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
 
 ### 患者入组预筛与临床试验匹配
 
@@ -152,7 +155,7 @@
 | [科学论断与给定摘要一致性](scenarios/evidence/scifact_cited_abstract/README.md) | 文本蕴含判断 | 118 | 85.6% 正确率 | 89.0% 正确率 | $0.033 / $0.077 |
 | [公共卫生核查：仅论断](scenarios/evidence/pubhealth_claim_only/README.md) | 事实核查分类 | 100 | 20.0% 正确率 | 44.0% 正确率 | $0.016 / $0.033 |
 | [公共卫生核查：提供核查文章](scenarios/evidence/pubhealth_with_article/README.md) | 事实核查分类 | 100 | 67.0% 正确率 | 72.0% 正确率 | $0.052 / $0.151 |
-| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 证据支持判断 | 4 | 100.0% 正确率 | 75.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 证据支持判断 | 20 | 100.0% 正确率 | 75.0% 正确率 | $0.016 / $0.043 |
 
 ### 临床计算、参数选择与评分量表
 
@@ -163,9 +166,9 @@
 | [临床计算输入充分性](scenarios/calculators/cmedcalc_input_sufficiency/README.md) | 输入充分性判断 | 200 | 81.5% 正确率 | 84.0% 正确率 | $0.043 / $0.078 |
 | [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/README.md) | 量表分级 | 162 | 60.5% 正确率 | 39.5% 正确率 | $0.027 / $0.046 |
 | [五种临床量表闭集数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 闭集数值评分 | 100 | 25.0% 正确率 | 31.0% 正确率 | $0.051 / $0.136 |
-| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 检验数值关联 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.017 / $0.046 |
-| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 输入充分性判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
-| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 单位等价判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.015 / $0.042 |
+| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 检验数值关联 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.017 / $0.041 |
+| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 输入充分性判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
+| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 单位等价判断 | 20 | 95.0% 正确率 | 100.0% 正确率 | $0.015 / $0.042 |
 
 ### 医学知识与考试对照
 
@@ -175,17 +178,17 @@
 | [中文 MedQA医学考试](scenarios/knowledge/medqa_zh_test/README.md) | 单选问答 | 100 | 89.0% 正确率 | 84.0% 正确率 | $0.018 / $0.034 |
 | [MedMCQA医学考试](scenarios/knowledge/medmcqa_validation/README.md) | 单选问答 | 100 | 72.0% 正确率 | 67.0% 正确率 | $0.016 / $0.037 |
 | [中文医学考试单选](scenarios/knowledge/cmexam_mcq/README.md) | 单选问答 | 95 | 92.6% 正确率 | 85.3% 正确率 | $0.017 / $0.039 |
-| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 多选问答 | 5 | 75.9 分·抽取综合分 | 87.5 分·抽取综合分 | $0.018 / $0.045 |
+| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 多选问答 | 20 | 83.2 分·抽取综合分 | 90.3 分·抽取综合分 | $0.020 / $0.061 |
 
 ### 语音病历、医疗文档 OCR 与报告断言
 
 | 任务 | 任务类型 | 测试记录 | Jev | DeepSeek | 每千条费用：Jev / DeepSeek |
 | --- | --- | ---: | ---: | ---: | ---: |
-| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 病史字段判断 | 12 | 91.7% 正确率 | 91.7% 正确率 | $0.036 / $0.100 |
-| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 病史字段判断 | 12 | 100.0% 正确率 | 100.0% 正确率 | $0.045 / $0.132 |
-| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 文档类型分类 | 6 | 83.3% 正确率 | 83.3% 正确率 | $0.034 / $0.073 |
-| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 文档类型分类 | 6 | 100.0% 正确率 | 100.0% 正确率 | $0.036 / $0.046 |
-| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 报告断言判断 | 4 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
+| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 病史字段判断 | 20 | 95.0% 正确率 | 95.0% 正确率 | $0.031 / $0.079 |
+| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 病史字段判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.036 / $0.100 |
+| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 文档类型分类 | 20 | 95.0% 正确率 | 85.0% 正确率 | $0.037 / $0.088 |
+| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 文档类型分类 | 20 | 95.0% 正确率 | 95.0% 正确率 | $0.038 / $0.079 |
+| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 报告断言判断 | 20 | 100.0% 正确率 | 100.0% 正确率 | $0.016 / $0.043 |
 
 ### 合成病例主要诊断
 
@@ -205,8 +208,8 @@
 | [中医病位单选](scenarios/tcm/tcm_best_location/README.md) | 单选问答 | 21 | 81.0% 正确率 | 76.2% 正确率 | $0.024 / $0.041 |
 | [中医病位多选](scenarios/tcm/tcm_best_location_multi/README.md) | 多选问答 | 79 | 64.8 分·抽取综合分 | 66.7 分·抽取综合分 | $0.033 / $0.102 |
 | [中医病性单选](scenarios/tcm/tcm_best_nature/README.md) | 单选问答 | 99 | 69.7% 正确率 | 59.6% 正确率 | $0.024 / $0.045 |
-| [中医病性多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 多选问答 | 1 | 80.0 分·抽取综合分 | 80.0 分·抽取综合分 | $0.022 / $0.051 |
-| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 单选问答 | 3 | 100.0% 正确率 | 33.3% 正确率 | $0.023 / $0.039 |
+| [中医病性多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 多选问答 | 2 | 80.0 分·抽取综合分 | 66.7 分·抽取综合分 | $0.021 / $0.059 |
+| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 单选问答 | 5 | 100.0% 正确率 | 40.0% 正确率 | $0.023 / $0.047 |
 | [中医治则治法多选](scenarios/tcm/tcm_best_principles_multi/README.md) | 多选问答 | 97 | 70.3 分·抽取综合分 | 62.3 分·抽取综合分 | $0.035 / $0.107 |
 | [中医证型单选](scenarios/tcm/tcm_best_syndrome/README.md) | 单选问答 | 68 | 80.9% 正确率 | 72.1% 正确率 | $0.027 / $0.051 |
 | [中医证型多选](scenarios/tcm/tcm_best_syndrome_multi/README.md) | 多选问答 | 32 | 52.8 分·抽取综合分 | 36.7 分·抽取综合分 | $0.036 / $0.110 |

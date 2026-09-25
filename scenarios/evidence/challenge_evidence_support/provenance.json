@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2722,
-      "sha256": "7feefb61504634516142fd5e859624ae20b27d6e5b2583066ef805731c516c6e"
+      "bytes": 16252,
+      "sha256": "0ac5f6966bdbb5627bf51f675ae7b5af18986bf139f2abfa472620d4e86ad0ea"
     },
     "responses.jsonl": {
-      "bytes": 1817,
-      "sha256": "a9224e5007c8a495a6601b9128a17a5357a593616bd9a64b3add49e77d53d842"
+      "bytes": 9238,
+      "sha256": "c38fb9b508e8e8fdbadd1f17371e5a6a10eb69faad84bea95d024cbef4b1cd51"
     },
     "index.jsonl": {
-      "bytes": 1288,
-      "sha256": "59764f463993209b237c95f8ad1899c99d7a4e165552679f4c5929d337d9de48"
+      "bytes": 6774,
+      "sha256": "5d2813eb1f7527a7172d1f4965f4843a728c47b86cb519d9af1eb1ca5265a46f"
     },
     "prompts.json": {
-      "bytes": 509,
-      "sha256": "5bba64fdb2e7f9c007001dedd4f81a6fbbd1ffe317ee72a795685f62c6485103"
+      "bytes": 484,
+      "sha256": "1b858b0b52319aca24e4343834f7087b440639e8522db9147b81764205bd1f9c"
     },
     "example.json": {
       "bytes": 1530,
       "sha256": "feb577ce04f94ce391c0cced33da14a51fcbf960aa8fba3944d06b3fb0a4a936"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:evidence_support:1",
+        "expansion:evidence_support:2",
+        "expansion:evidence_support:3",
+        "expansion:evidence_support:4",
+        "expansion:evidence_support:5",
+        "expansion:evidence_support:6",
+        "expansion:evidence_support:7",
+        "expansion:evidence_support:8",
+        "expansion:evidence_support:9",
+        "expansion:evidence_support:10",
+        "expansion:evidence_support:11",
+        "expansion:evidence_support:12",
+        "expansion:evidence_support:13",
+        "expansion:evidence_support:14",
+        "expansion:evidence_support:15",
+        "expansion:evidence_support:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

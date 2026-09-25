@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -32,6 +32,38 @@
       },
       "occurrences": 1,
       "example_sample_id": "312"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 候选：虚实夹杂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "316"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 候选：以实为主",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "316"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 候选：虚实夹杂，以实为主",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "316"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该选项是否是正确的病性。 候选：虚证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "316"
     }
   ]
 }

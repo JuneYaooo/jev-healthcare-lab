@@ -2,68 +2,68 @@
   "title": "边界挑战：否定状态",
   "scene": "records",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.8575182715139817,
-    "cost_usd": 6.1572e-05,
-    "cost_per_1000_usd": 0.015393
+    "latency_median_s": 0.5891163954802323,
+    "cost_usd": 0.000308658,
+    "cost_per_1000_usd": 0.0154329
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.451712291513104,
-    "cost_usd": 0.00016394999999999997,
-    "cost_per_1000_usd": 0.040987499999999996,
+    "latency_median_s": 0.6519435624650214,
+    "cost_usd": 0.0008101499999999999,
+    "cost_per_1000_usd": 0.040507499999999995,
     "prior_attempts": 0
   }
 }

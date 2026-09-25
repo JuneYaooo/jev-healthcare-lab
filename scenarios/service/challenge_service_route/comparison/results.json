@@ -2,80 +2,80 @@
   "title": "边界挑战：服务路由",
   "scene": "service",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
-      "accuracy": 1.0,
-      "macro_f1_observed_gold_classes": 1.0,
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.9494949494949495,
       "per_class": {
         "appointment": {
-          "support": 1,
-          "precision": 1.0,
+          "support": 5,
+          "precision": 0.8333333333333334,
           "recall": 1.0,
-          "f1": 1.0
+          "f1": 0.9090909090909091
         },
         "billing": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0
+          "recall": 0.8,
+          "f1": 0.8888888888888888
         },
         "medication": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "report": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 1.6559325415000785,
-    "cost_usd": 6.2622e-05,
-    "cost_per_1000_usd": 0.0156555
+    "latency_median_s": 0.5932973534800112,
+    "cost_usd": 0.000312354,
+    "cost_per_1000_usd": 0.015617699999999998
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "appointment": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "billing": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "medication": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "report": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.3957069164898712,
-    "cost_usd": 0.0001671,
-    "cost_per_1000_usd": 0.041775,
+    "latency_median_s": 0.5124588960024994,
+    "cost_usd": 0.0008327999999999999,
+    "cost_per_1000_usd": 0.041639999999999996,
     "prior_attempts": 0
   }
 }

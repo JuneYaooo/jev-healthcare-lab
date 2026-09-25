@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -13,6 +13,58 @@
       },
       "occurrences": 4,
       "example_sample_id": "negation:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确无头痛",
+          "present": "明确有头痛",
+          "unknown": "状态未明确"
+        },
+        "instructions": "只判断患者当前是否存在头痛。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:negation:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确无恶心",
+          "present": "明确有恶心",
+          "unknown": "状态未明确"
+        },
+        "instructions": "只判断患者当前是否存在恶心。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:negation:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确无咳嗽",
+          "present": "明确有咳嗽",
+          "unknown": "状态未明确"
+        },
+        "instructions": "只判断患者当前是否存在咳嗽。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:negation:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "明确无皮疹",
+          "present": "明确有皮疹",
+          "unknown": "状态未明确"
+        },
+        "instructions": "只判断患者当前是否存在皮疹。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:negation:13"
     }
   ]
 }

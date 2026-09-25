@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2616,
-      "sha256": "c9895cbdb3d4d7680a01df75c0107a8e5bbce574a7c179c73eb460dddbf3a7bd"
+      "bytes": 15686,
+      "sha256": "874ec6bdfcbd71df9bf0570cb1c0d77724837c11272bf2cfc74894d069dada68"
     },
     "responses.jsonl": {
-      "bytes": 1789,
-      "sha256": "c3a116c2c16043f4e00843fbf0a57aa4409d0c3be1a72dbd51395df793829482"
+      "bytes": 9112,
+      "sha256": "f070eaf2fed2c5e758e4a70116b4489f89e95c5ef4d44514f7e44e7f29ac5a65"
     },
     "index.jsonl": {
-      "bytes": 1252,
-      "sha256": "333003dd192fc8d584dd44ad48d4c976d2b8323c8df399bb4b11cd1a734bc9ee"
+      "bytes": 6594,
+      "sha256": "bdb6076871ab450ca39785585d8fdee9ce85559562b8030d77df6c17e677122f"
     },
     "prompts.json": {
-      "bytes": 494,
-      "sha256": "2d856e659e1ca8debc613304af4e2639dbd4e0f74f38b83bdf39ca316b80f408"
+      "bytes": 469,
+      "sha256": "f21e0c18587cfd74daf70219f3e11df424521507bb3f86d11a050feddf8fc7f0"
     },
     "example.json": {
       "bytes": 1509,
       "sha256": "a291d0e897b7acc33254f0d5e1ee0348edebb52dfb3f218a45d5e3ba50e32fab"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:contradiction:1",
+        "expansion:contradiction:2",
+        "expansion:contradiction:3",
+        "expansion:contradiction:4",
+        "expansion:contradiction:5",
+        "expansion:contradiction:6",
+        "expansion:contradiction:7",
+        "expansion:contradiction:8",
+        "expansion:contradiction:9",
+        "expansion:contradiction:10",
+        "expansion:contradiction:11",
+        "expansion:contradiction:12",
+        "expansion:contradiction:13",
+        "expansion:contradiction:14",
+        "expansion:contradiction:15",
+        "expansion:contradiction:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

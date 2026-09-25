@@ -2,80 +2,80 @@
   "title": "边界挑战：用药变更",
   "scene": "medication",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "continue": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "start": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "stop": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.9007836669916287,
-    "cost_usd": 6.4554e-05,
-    "cost_per_1000_usd": 0.0161385
+    "latency_median_s": 0.5943625415093265,
+    "cost_usd": 0.00032646600000000003,
+    "cost_per_1000_usd": 0.0163233
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "continue": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "start": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "stop": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.48010924996924587,
-    "cost_usd": 0.00016994999999999998,
-    "cost_per_1000_usd": 0.0424875,
+    "latency_median_s": 0.6165723539888859,
+    "cost_usd": 0.0008503499999999998,
+    "cost_per_1000_usd": 0.04251749999999999,
     "prior_attempts": 0
   }
 }

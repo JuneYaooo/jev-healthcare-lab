@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2602,
-      "sha256": "cf71ff23764863651ade679e696c0e096cec6b3eddf134c5bd981e36b9fe1508"
+      "bytes": 15239,
+      "sha256": "6564fc57127237dcfb5607a10d12560bc07e3d4a7b33e348eda4962a040ed6ef"
     },
     "responses.jsonl": {
-      "bytes": 1724,
-      "sha256": "501a518099ee307dd88c1dc61d1f4abf06459f236b895f2f197562b8b04a7650"
+      "bytes": 8742,
+      "sha256": "ce695848298c64fc2ed6680bc37b0a19d2095a35b640799e8e36e8c997e07585"
     },
     "index.jsonl": {
-      "bytes": 1192,
-      "sha256": "95e32e3fe1dc7913cd16bd1691a90c47ce361f47a888c49b6f89baeb3515ef23"
+      "bytes": 6294,
+      "sha256": "8d1144050f1d621af4dc59242e6f16215454e1e4e88cadcc7d2e93593b0170f3"
     },
     "prompts.json": {
-      "bytes": 521,
-      "sha256": "07b25bdc6fbe65a07bb2c08f263e96affb979a0a51192284b08e5e6f01ad10c8"
+      "bytes": 2080,
+      "sha256": "d4e8c8a6c9f18451cf5bd17967958b1ba561b8adeeb4a969152e2aed18324c10"
     },
     "example.json": {
       "bytes": 1509,
       "sha256": "1392aed65d139700139d9607e61a5ca6c4da22ea21ccd3d4a2b08ad3bce4976d"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:lab_link:1",
+        "expansion:lab_link:2",
+        "expansion:lab_link:3",
+        "expansion:lab_link:4",
+        "expansion:lab_link:5",
+        "expansion:lab_link:6",
+        "expansion:lab_link:7",
+        "expansion:lab_link:8",
+        "expansion:lab_link:9",
+        "expansion:lab_link:10",
+        "expansion:lab_link:11",
+        "expansion:lab_link:12",
+        "expansion:lab_link:13",
+        "expansion:lab_link:14",
+        "expansion:lab_link:15",
+        "expansion:lab_link:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

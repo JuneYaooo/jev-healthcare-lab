@@ -2,68 +2,68 @@
   "title": "边界挑战：中英混合文本",
   "scene": "records",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 1.2029365624766797,
-    "cost_usd": 5.8506e-05,
-    "cost_per_1000_usd": 0.014626499999999999
+    "latency_median_s": 0.6074653960240539,
+    "cost_usd": 0.00029463000000000004,
+    "cost_per_1000_usd": 0.014731500000000003
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.4893838544958271,
-    "cost_usd": 0.0001581,
-    "cost_per_1000_usd": 0.039525,
+    "latency_median_s": 0.5484683960094117,
+    "cost_usd": 0.0007887,
+    "cost_per_1000_usd": 0.039435000000000005,
     "prior_attempts": 0
   }
 }

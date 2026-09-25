@@ -1,27 +1,27 @@
 {
-  "planned": 4,
-  "successful": 4,
+  "planned": 20,
+  "successful": 20,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 4,
+    "n": 20,
     "accuracy": 1.0,
     "macro_f1_observed_gold_classes": 1.0,
     "per_class": {
       "absent": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
       "present": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
       "unknown": {
-        "support": 2,
+        "support": 10,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -30,14 +30,14 @@
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 4,
+    "groups": 20,
     "lower": 1.0,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.03249999999999997,
-    "multiclass_brier_sum": 0.0072499999999999995,
-    "brier_n": 4,
+    "ece10_selected_probability": 0.010499999999999992,
+    "multiclass_brier_sum": 0.0016300000000000002,
+    "brier_n": 20,
     "bins": [
       {
         "lower": 0.8,
@@ -47,53 +47,53 @@
       },
       {
         "lower": 0.9,
-        "n": 3,
-        "mean_selected_probability": 0.9966666666666667,
+        "n": 19,
+        "mean_selected_probability": 0.9952631578947368,
         "accuracy": 1.0
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 4,
+          "n": 20,
           "coverage": 1.0,
           "accuracy": 1.0
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 19,
+          "coverage": 0.95,
           "accuracy": 1.0
         }
       }
     }
   },
-  "input_tokens": 1466,
-  "output_tokens": 157,
-  "latency_successful_api_p50_s": 0.8575182715139817,
-  "latency_successful_api_p95_s": 1.2589284169953316,
+  "input_tokens": 7349,
+  "output_tokens": 785,
+  "latency_successful_api_p50_s": 0.5891163954802323,
+  "latency_successful_api_p95_s": 0.8628122090012766,
   "per_indicator": {}
 }

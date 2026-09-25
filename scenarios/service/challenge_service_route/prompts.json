@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -12,7 +12,7 @@
         "instructions": "按患者消息的主要业务意图路由。",
         "type": "choice"
       },
-      "occurrences": 4,
+      "occurrences": 20,
       "example_sample_id": "service_route:1"
     }
   ]

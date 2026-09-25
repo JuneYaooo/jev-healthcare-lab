@@ -1,6 +1,6 @@
 # 医学知识与考试对照
 
-**5 个任务条件，400 条主评测记录。** [全部场景](../../README.md)
+**5 个任务条件，415 条主评测记录。** [全部场景](../../README.md)
 
 选择题用于能力对照，不能外推诊断、处方或医院工作流可靠性。
 
@@ -10,4 +10,4 @@
 | [中文 MedQA医学考试](medqa_zh_test/README.md) | 单选问答 | 100 | Accuracy | 89.0% | 84.0% |
 | [MedMCQA医学考试](medmcqa_validation/README.md) | 单选问答 | 100 | Accuracy | 72.0% | 67.0% |
 | [中文医学考试单选](cmexam_mcq/README.md) | 单选问答 | 95 | Accuracy | 92.6% | 85.3% |
-| [中文医学考试多选](cmexam_mcq_multi/README.md) | 多选问答 | 5 | micro-F1 | 75.9% | 87.5% |
+| [中文医学考试多选](cmexam_mcq_multi/README.md) | 多选问答 | 20 | micro-F1 | 83.2% | 90.3% |

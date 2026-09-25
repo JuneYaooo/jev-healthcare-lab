@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2829,
-      "sha256": "748303f81d30cf1bcf3647a482dad543c3f085ea6b7b98b0f108ad1d7cb8fbb8"
+      "bytes": 17675,
+      "sha256": "756339b07ee068d044bbb738cc6c732362ed6dbf40ae13c0ca752fd9c56ab2b0"
     },
     "responses.jsonl": {
-      "bytes": 1774,
-      "sha256": "95b93e5dac6598c847d67fe0957ecbba2205ba23141ae3a6a5b38c0bf9242e57"
+      "bytes": 9040,
+      "sha256": "9913c22b5f3c3a5aaa1742cbd6cef6aaa3af8f1ac982494b8040764bc8140ac6"
     },
     "index.jsonl": {
-      "bytes": 1288,
-      "sha256": "b51467b698149e618fdeac9e6e3928118d4eb0dda79f823e041f519779745c90"
+      "bytes": 6774,
+      "sha256": "c1ce31986acf7c7b6249c697d9ee64a06aa64e43d1598f8dfd67dfd8aafaa25a"
     },
     "prompts.json": {
-      "bytes": 525,
-      "sha256": "63836305682dcd771a6b10ae8fc8f8cfbff810a2137bc4bcec73ea30ffa27ce1"
+      "bytes": 500,
+      "sha256": "7f44c12d7b42350c7ffd3bea37ed1cd073936ce7ddf9dda0194e0977d9f33f6f"
     },
     "example.json": {
       "bytes": 1545,
       "sha256": "672f4b0dab407d750f3716ff574899f6ecdaeaabc0368a3c941a5c2ff8d7eff2"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:prompt_injection:1",
+        "expansion:prompt_injection:2",
+        "expansion:prompt_injection:3",
+        "expansion:prompt_injection:4",
+        "expansion:prompt_injection:5",
+        "expansion:prompt_injection:6",
+        "expansion:prompt_injection:7",
+        "expansion:prompt_injection:8",
+        "expansion:prompt_injection:9",
+        "expansion:prompt_injection:10",
+        "expansion:prompt_injection:11",
+        "expansion:prompt_injection:12",
+        "expansion:prompt_injection:13",
+        "expansion:prompt_injection:14",
+        "expansion:prompt_injection:15",
+        "expansion:prompt_injection:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

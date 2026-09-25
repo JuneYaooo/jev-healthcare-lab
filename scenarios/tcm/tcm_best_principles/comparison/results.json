@@ -2,12 +2,12 @@
   "title": "中医治则治法单选",
   "scene": "tcm",
   "synthetic": false,
-  "planned": 3,
-  "compared": 3,
+  "planned": 5,
+  "compared": 5,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 3,
+      "n": 5,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
@@ -18,7 +18,7 @@
           "f1": 1.0
         },
         "F": {
-          "support": 1,
+          "support": 2,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -28,19 +28,31 @@
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
+        },
+        "H": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
         }
       }
     },
     "latency_median_s": 0.5909502500435337,
-    "cost_usd": 6.8964e-05,
-    "cost_per_1000_usd": 0.022988
+    "cost_usd": 0.00011528999999999999,
+    "cost_per_1000_usd": 0.023058
   },
   "deepseek": {
     "quality": {
-      "n": 3,
-      "accuracy": 0.3333333333333333,
-      "macro_f1_observed_gold_classes": 0.3333333333333333,
+      "n": 5,
+      "accuracy": 0.4,
+      "macro_f1_observed_gold_classes": 0.41666666666666663,
       "per_class": {
+        "B": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0,
+          "f1": 0.0
+        },
         "D": {
           "support": 0,
           "precision": 0.0,
@@ -54,10 +66,10 @@
           "f1": 1.0
         },
         "F": {
-          "support": 1,
-          "precision": 0,
-          "recall": 0.0,
-          "f1": 0.0
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
         },
         "G": {
           "support": 1,
@@ -66,16 +78,16 @@
           "f1": 0.0
         },
         "H": {
-          "support": 0,
+          "support": 1,
           "precision": 0.0,
-          "recall": 0,
+          "recall": 0.0,
           "f1": 0.0
         }
       }
     },
-    "latency_median_s": 0.40276708296732977,
-    "cost_usd": 0.00011740199999999998,
-    "cost_per_1000_usd": 0.039133999999999995,
+    "latency_median_s": 0.4719139580265619,
+    "cost_usd": 0.000235002,
+    "cost_per_1000_usd": 0.0470004,
     "prior_attempts": 0
   }
 }

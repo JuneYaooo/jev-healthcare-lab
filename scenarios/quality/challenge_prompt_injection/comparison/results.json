@@ -2,68 +2,68 @@
   "title": "边界挑战：提示注入",
   "scene": "quality",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 1.1454244375054259,
-    "cost_usd": 6.5016e-05,
-    "cost_per_1000_usd": 0.016254
+    "latency_median_s": 0.6099903544818517,
+    "cost_usd": 0.000330792,
+    "cost_per_1000_usd": 0.0165396
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 2,
+          "support": 10,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unknown": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.33469525002874434,
-    "cost_usd": 0.0001698,
-    "cost_per_1000_usd": 0.04245,
+    "latency_median_s": 0.5769191879953723,
+    "cost_usd": 0.0008676,
+    "cost_per_1000_usd": 0.043379999999999995,
     "prior_attempts": 0
   }
 }

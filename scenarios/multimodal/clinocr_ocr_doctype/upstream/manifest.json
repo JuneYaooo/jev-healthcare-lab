@@ -106,5 +106,257 @@
     "source": "more/ocr-eval/tables_t9_s2-ocr.txt",
     "bytes": 1247,
     "sha256": "09481857b63b59541efd46f151ab14254a041da3d761bede8a95a0de7c85fe42"
+  },
+  {
+    "file": "upstream/expansion/normal_t2_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t2_s2",
+    "bytes": 343000,
+    "sha256": "e5819d35277294bdba569a06012ce1729b1ba90b39905c5203e6b40e282bde95"
+  },
+  {
+    "file": "upstream/expansion/normal_t2_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t2_s2",
+    "bytes": 1968,
+    "sha256": "b765b3f740c3d72cbd8e0fa588d6ffa696dec31e3b6924e627c69f92de2f94b4"
+  },
+  {
+    "file": "upstream/expansion/normal_t2_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t2_s2",
+    "bytes": 2103,
+    "sha256": "23de7ade33a04ff04759e183e6788077b5446f671c554aa01b7493e8c13525f2"
+  },
+  {
+    "file": "upstream/expansion/normal_t3_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t3_s2",
+    "bytes": 371891,
+    "sha256": "851ec760e468491e33bccdab4d80d1b6a85a1cefa2906992f954884f6706744f"
+  },
+  {
+    "file": "upstream/expansion/normal_t3_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t3_s2",
+    "bytes": 2547,
+    "sha256": "98a2e0cef36f33ea7295bd9055f0b9f89259254a567c1f5c84dbaf578c14e0dd"
+  },
+  {
+    "file": "upstream/expansion/normal_t3_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t3_s2",
+    "bytes": 2563,
+    "sha256": "10180b32e24ae21b19c3f9216f54792c19fa874bfe66fcb7d42fd018019d3045"
+  },
+  {
+    "file": "upstream/expansion/normal_t4_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t4_s2",
+    "bytes": 350698,
+    "sha256": "aa2eda744b64883ebaacd86f15c1936f1594e6d7d72607b55041e62f127666ab"
+  },
+  {
+    "file": "upstream/expansion/normal_t4_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t4_s2",
+    "bytes": 2409,
+    "sha256": "571c568cb740883e4e3ccb05456b1e8216490fab69d3e22395aae0c61a11fb06"
+  },
+  {
+    "file": "upstream/expansion/normal_t4_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t4_s2",
+    "bytes": 2440,
+    "sha256": "092044c588d6ef7b4a7cb2c17fe12337e613f774afce77a6e8913d93f2cd7303"
+  },
+  {
+    "file": "upstream/expansion/normal_t5_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t5_s2",
+    "bytes": 220608,
+    "sha256": "878965890502fab87d399d275bbb329d7e24ae08f9a592ebec1b3b11abbbf540"
+  },
+  {
+    "file": "upstream/expansion/normal_t5_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t5_s2",
+    "bytes": 867,
+    "sha256": "a76eb4062910ac4ca8d49afe2f37ce1a5dc89601a3e48bf682824ab4ca390f3d"
+  },
+  {
+    "file": "upstream/expansion/normal_t5_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t5_s2",
+    "bytes": 903,
+    "sha256": "268961e5fc28d89541c30d026668992f520217052ef23870667f258d301c1545"
+  },
+  {
+    "file": "upstream/expansion/normal_t6_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t6_s2",
+    "bytes": 250076,
+    "sha256": "cc1518adfbc9cd6755264e8de2eef6b751f002e66fe2ea2ffa1a8359b121c21b"
+  },
+  {
+    "file": "upstream/expansion/normal_t6_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t6_s2",
+    "bytes": 1431,
+    "sha256": "6fdd3affc2f7a1769720c6fb8004d43560b5e8dd19ed81566e54988cae4349e7"
+  },
+  {
+    "file": "upstream/expansion/normal_t6_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t6_s2",
+    "bytes": 1441,
+    "sha256": "233bc6205e5d0ebfc7804f81fcb971b3e056a8f91fcbe70b4f1f0ed5d147a14f"
+  },
+  {
+    "file": "upstream/expansion/normal_t7_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t7_s2",
+    "bytes": 210882,
+    "sha256": "bac4a1ccfb528a0fe787b98887642a3294e2331f419b9a033c3316cfc5a60069"
+  },
+  {
+    "file": "upstream/expansion/normal_t7_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t7_s2",
+    "bytes": 1202,
+    "sha256": "8b93fb354e666ac86bd7b3a23ddd1a05d8c0a797bb4a5c0530db7bba96fa31c8"
+  },
+  {
+    "file": "upstream/expansion/normal_t7_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t7_s2",
+    "bytes": 1210,
+    "sha256": "d8785cfea58ba6fb48738c2c039bf160eba0cba490e3d70c9eb1456c17ef106d"
+  },
+  {
+    "file": "upstream/expansion/normal_t8_s2.jpg",
+    "source": "ClinOCR-Bench official normal test normal_t8_s2",
+    "bytes": 228745,
+    "sha256": "1de63ba9d1198fe7e3060bae084813736d31552f496da2bf3d1c542747063b86"
+  },
+  {
+    "file": "upstream/expansion/normal_t8_s2-reference.txt",
+    "source": "ClinOCR-Bench official normal test normal_t8_s2",
+    "bytes": 1491,
+    "sha256": "48e7427c03f0f459627796be8c6c2f52091b9a9cbdaf5f08b677143b1ae09fc6"
+  },
+  {
+    "file": "upstream/expansion/normal_t8_s2-ocr.txt",
+    "source": "ClinOCR-Bench official normal test normal_t8_s2",
+    "bytes": 1506,
+    "sha256": "cf2c8156450bec77edb3b938c9276b03d867ae1b24643179ec66810177073719"
+  },
+  {
+    "file": "upstream/expansion/tables_t10_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t10_s2",
+    "bytes": 253746,
+    "sha256": "b988131f1a3414888058c9129eaa1fc32c07ee20e7787d95b11b9e1c086f4df2"
+  },
+  {
+    "file": "upstream/expansion/tables_t10_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t10_s2",
+    "bytes": 792,
+    "sha256": "a23cce294ce3bc778a91d39d2de110ee6864e9bf323cada4c1a997ed9a970c9e"
+  },
+  {
+    "file": "upstream/expansion/tables_t10_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t10_s2",
+    "bytes": 823,
+    "sha256": "a98e0cb03928567568b9d2625bd25aab466c98d8c0d600e17618032500c9c7c0"
+  },
+  {
+    "file": "upstream/expansion/tables_t11_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t11_s2",
+    "bytes": 287852,
+    "sha256": "87c90976a3e89bbc50f60a195dba55033b84bdf29c53e9626157160c884e1c01"
+  },
+  {
+    "file": "upstream/expansion/tables_t11_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t11_s2",
+    "bytes": 1119,
+    "sha256": "40b72afb529efe7c012da9c3622333ce1b108ba232f13398961d29acfb615871"
+  },
+  {
+    "file": "upstream/expansion/tables_t11_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t11_s2",
+    "bytes": 1110,
+    "sha256": "856746308eff41ce27c0691bba863d05cf19dfaa5da4bc8d244d489631a55d7c"
+  },
+  {
+    "file": "upstream/expansion/tables_t12_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t12_s2",
+    "bytes": 231110,
+    "sha256": "1666931252ffab9e3fed3a66f4c518a9bbdaea0eccaf7195a3c7a61e4a543f44"
+  },
+  {
+    "file": "upstream/expansion/tables_t12_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t12_s2",
+    "bytes": 893,
+    "sha256": "49a0b67ce4214db308f3d31e382ea6eda0d3e6de784abd249a057cfde5e0cdfe"
+  },
+  {
+    "file": "upstream/expansion/tables_t12_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t12_s2",
+    "bytes": 873,
+    "sha256": "d02440ee84c7c4b5815c74752e8f0064e1c7385a771ffaf6823dcd44f06182e6"
+  },
+  {
+    "file": "upstream/expansion/tables_t13_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t13_s2",
+    "bytes": 290827,
+    "sha256": "f5746b3ce908131e1c22ed52a773a861ea39702b582553e7ff48ef7beef31c31"
+  },
+  {
+    "file": "upstream/expansion/tables_t13_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t13_s2",
+    "bytes": 1011,
+    "sha256": "5c02d03f35e8d19324f1c1eb0910957dde05a8733bd109bd2e163bc761f1626d"
+  },
+  {
+    "file": "upstream/expansion/tables_t13_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t13_s2",
+    "bytes": 964,
+    "sha256": "fcb5ea5b7b9d7d3ff3bc3fa02b462d438e726abf2005efc489491c20c9c5fe1c"
+  },
+  {
+    "file": "upstream/expansion/tables_t14_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t14_s2",
+    "bytes": 284827,
+    "sha256": "82885517e612f9c261d50448b5180a0f4dd7efbbd48d8df2ce6f7a94e696342d"
+  },
+  {
+    "file": "upstream/expansion/tables_t14_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t14_s2",
+    "bytes": 1338,
+    "sha256": "e76e493cf06309448c69080499e47577ae0e6710b8fcd268c4f3e87df49e4c1c"
+  },
+  {
+    "file": "upstream/expansion/tables_t14_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t14_s2",
+    "bytes": 1113,
+    "sha256": "f97839cace13b7f483003ab491c3efcfbd9b990aa7b5bd60f29806bbc79eaacc"
+  },
+  {
+    "file": "upstream/expansion/tables_t15_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t15_s2",
+    "bytes": 271447,
+    "sha256": "e384306b89d03168428d21129a7875fcf556a6a52eb7021990f791f93b5db568"
+  },
+  {
+    "file": "upstream/expansion/tables_t15_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t15_s2",
+    "bytes": 603,
+    "sha256": "ecd318404f95530f7db5ce2708a6149fa2cd02689b31ba4d0e7f640954a53941"
+  },
+  {
+    "file": "upstream/expansion/tables_t15_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t15_s2",
+    "bytes": 462,
+    "sha256": "06f0bc4dc2a61e24d5feba54ac7c71ac343a6610b96e51f73ea3941b3fd9c549"
+  },
+  {
+    "file": "upstream/expansion/tables_t16_s2.jpg",
+    "source": "ClinOCR-Bench official tables test tables_t16_s2",
+    "bytes": 285728,
+    "sha256": "659fcb791df66fb974d732d609abe08c0bbf8b1b9ae2bee23ccc4256d4ee9194"
+  },
+  {
+    "file": "upstream/expansion/tables_t16_s2-reference.txt",
+    "source": "ClinOCR-Bench official tables test tables_t16_s2",
+    "bytes": 1516,
+    "sha256": "05984c00f40bc011cd4b304fd5f4f338969dc59522e4d1042421a1ea5cd3ecaa"
+  },
+  {
+    "file": "upstream/expansion/tables_t16_s2-ocr.txt",
+    "source": "ClinOCR-Bench official tables test tables_t16_s2",
+    "bytes": 1444,
+    "sha256": "bc60057427412c009bf0fa1c1f51523666c8904e822853859a93816d1c596e7f"
   }
 ]

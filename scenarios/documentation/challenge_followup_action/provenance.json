@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2627,
-      "sha256": "232acfb0454243631b79ed95c67b254918be9999d9c61ea9fc2c0653e6e6184e"
+      "bytes": 15985,
+      "sha256": "c502239fa3067544888b02c1ba70820a5474abf02e68ca4f229f9b8c4ed03e5d"
     },
     "responses.jsonl": {
-      "bytes": 1822,
-      "sha256": "a0ed51dbe7220d614fa3fad38665fcee87c09caf50f3c50f31c7312a3db872f3"
+      "bytes": 9298,
+      "sha256": "8e1ada71b9bb5ab8b153dd1e2f5795e56a227fb60b5c4232691b5f1739c1fb45"
     },
     "index.jsonl": {
-      "bytes": 1276,
-      "sha256": "f2197ebaf921672329f6df69f83c08b76354fa2a03738365333c662cebbdc9fc"
+      "bytes": 6714,
+      "sha256": "76358671b010a1c1fd3ee2b50c74acb84894e4100113a785e0be092e814a9bb1"
     },
     "prompts.json": {
-      "bytes": 527,
-      "sha256": "7fcd6f6c72c690163ab06a69e01cf927ea30986d0cb091629e6238584ebe3870"
+      "bytes": 502,
+      "sha256": "c1caf717cef7fe0448c02ece6269cb7370b9386975e4f0315f0622696ea7c5b0"
     },
     "example.json": {
       "bytes": 1531,
       "sha256": "fb4f577d8ae9efe2e55ecf4ec3115db72251aa238f22e97d12af27d3fe3e9984"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:followup_action:1",
+        "expansion:followup_action:2",
+        "expansion:followup_action:3",
+        "expansion:followup_action:4",
+        "expansion:followup_action:5",
+        "expansion:followup_action:6",
+        "expansion:followup_action:7",
+        "expansion:followup_action:8",
+        "expansion:followup_action:9",
+        "expansion:followup_action:10",
+        "expansion:followup_action:11",
+        "expansion:followup_action:12",
+        "expansion:followup_action:13",
+        "expansion:followup_action:14",
+        "expansion:followup_action:15",
+        "expansion:followup_action:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

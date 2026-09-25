@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -10,7 +10,7 @@
         "instructions": "只按单位换算判断两条剂量是否相同。1g=1000mg，1mg=1000μg。",
         "type": "choice"
       },
-      "occurrences": 4,
+      "occurrences": 20,
       "example_sample_id": "unit_equivalence:1"
     }
   ]

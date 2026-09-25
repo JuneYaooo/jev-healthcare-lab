@@ -35,12 +35,12 @@ def normalize(row,data):
     return answers
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--key-file',required=True,type=Path);ap.add_argument('--limit',type=int,default=0);ap.add_argument('--workers',type=int,default=8);ap.add_argument('--task');ap.add_argument('--retry-errors',action='store_true');ap.add_argument('--off-peak-holiday',action='store_true');ap.add_argument('--max-usd',type=float,default=5.0);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--key-file',required=True,type=Path);ap.add_argument('--input',type=Path);ap.add_argument('--limit',type=int,default=0);ap.add_argument('--workers',type=int,default=8);ap.add_argument('--task');ap.add_argument('--retry-errors',action='store_true');ap.add_argument('--off-peak-holiday',action='store_true');ap.add_argument('--max-usd',type=float,default=5.0);args=ap.parse_args()
     key=next(x.split('=',1)[1].strip() for x in args.key_file.read_text().splitlines() if x.startswith('DEEPSEEK_API_KEY='))
     out=ROOT/'comparisons/deepseek-flash';cache=out/'runs';cache.mkdir(parents=True,exist_ok=True)
     config={'model_requested':'deepseek-flash','model_display':'DeepSeek V4.1 Flash','thinking':'disabled','temperature':0,'system_prompt':SYSTEM,'output_adapter':'choice key or binary true/false; binary decisions mapped to NOUL 1/0, not model probabilities','pricing_usd_per_million':{'off_peak':{'cache_hit':.003,'cache_miss':.15,'output':.6},'peak':{'cache_hit':.006,'cache_miss':.3,'output':1.2}},'pricing_source':'https://api-docs.deepseek.com/quick_start/pricing/','jev_pricing_usd_per_million_input':.042,'jev_pricing_source':'https://docs.typesafe.ai/models','scope':'All archived main tasks; no extra perturbation requests. Same inputs and gold; provider-specific output interface. Jev uses historical cached runs, not simultaneous testing.'}
     (out/'config.json').write_text(json.dumps(config,ensure_ascii=False,indent=2)+'\n')
-    allrows=load_rows();rows=[r for r in allrows if not args.task or r['task']==args.task]
+    allrows=[json.loads(line) for line in args.input.read_text().splitlines()] if args.input else load_rows();rows=[r for r in allrows if not args.task or r['task']==args.task]
     if args.limit:rows=rows[:args.limit]
     # Stable cache keys bind complete provider prompt to each source request.
     def dest(r):return cache/(sha([r['task'],r['id'],request_payload(r)])+'.json')

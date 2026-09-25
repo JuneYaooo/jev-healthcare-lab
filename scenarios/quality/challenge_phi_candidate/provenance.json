@@ -7,32 +7,65 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2679,
-      "sha256": "cd3892aabda7d344f04696dc7589ffb88241d1fa4ee32b93488b13a2ea1016ae"
+      "bytes": 16257,
+      "sha256": "3a11e6c68a39a0a65c1b0532e33efb4a33580d9cc2fc3e6b6a508a6fb1a170a0"
     },
     "responses.jsonl": {
-      "bytes": 1848,
-      "sha256": "38aa79e90aa95c2a1d341227cfd76d17260949d2c47afb967d88b1259f982d9b"
+      "bytes": 9392,
+      "sha256": "af18b68ccba688f5d7e43f4bd62342405dfcaac15c77002a663af7dad2326287"
     },
     "index.jsonl": {
-      "bytes": 1252,
-      "sha256": "ff092158a813bf6619285b94f7fdce0306edd085a026fe26fd7a2ada182fb91d"
+      "bytes": 6594,
+      "sha256": "0d7d1d6593d1e807728f87ee75dd636b50ab6bc46a57524725beb3a976184421"
     },
     "prompts.json": {
-      "bytes": 549,
-      "sha256": "d629bd2934568b33a35ee332ef27141f624341ecda00bc558fa5662d7d7c2041"
+      "bytes": 524,
+      "sha256": "6c655e55a180f49653cc5cbabc45840225221227b1c31e43919b591dffa9ed06"
     },
     "example.json": {
       "bytes": 1553,
       "sha256": "93f1c20fff810082208bc0f183b0be3329877a88ed179e9a3b0f458f411e179f"
+    },
+    "attempts.jsonl": {
+      "bytes": 230,
+      "sha256": "22e07ffe405466f519ab33e6cf83a03ed4093b9a4cd685e88aa92e60026bf322"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:phi_candidate:1",
+        "expansion:phi_candidate:2",
+        "expansion:phi_candidate:3",
+        "expansion:phi_candidate:4",
+        "expansion:phi_candidate:5",
+        "expansion:phi_candidate:6",
+        "expansion:phi_candidate:7",
+        "expansion:phi_candidate:8",
+        "expansion:phi_candidate:9",
+        "expansion:phi_candidate:10",
+        "expansion:phi_candidate:11",
+        "expansion:phi_candidate:12",
+        "expansion:phi_candidate:13",
+        "expansion:phi_candidate:14",
+        "expansion:phi_candidate:15",
+        "expansion:phi_candidate:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

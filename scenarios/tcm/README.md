@@ -1,6 +1,6 @@
 # 中医知识、辨证与安全
 
-**14 个任务条件，800 条主评测记录。** [全部场景](../../README.md)
+**14 个任务条件，803 条主评测记录。** [全部场景](../../README.md)
 
 单选 Accuracy 与多选 micro-F1 分列；TCM-BEST 安全项为标签一致率，部分标签存在过度拒绝倾向。
 
@@ -14,8 +14,8 @@
 | [中医病位单选](tcm_best_location/README.md) | 单选问答 | 21 | Accuracy | 81.0% | 76.2% |
 | [中医病位多选](tcm_best_location_multi/README.md) | 多选问答 | 79 | micro-F1 | 64.8% | 66.7% |
 | [中医病性单选](tcm_best_nature/README.md) | 单选问答 | 99 | Accuracy | 69.7% | 59.6% |
-| [中医病性多选](tcm_best_nature_multi/README.md) | 多选问答 | 1 | micro-F1 | 80.0% | 80.0% |
-| [中医治则治法单选](tcm_best_principles/README.md) | 单选问答 | 3 | Accuracy | 100.0% | 33.3% |
+| [中医病性多选](tcm_best_nature_multi/README.md) | 多选问答 | 2 | micro-F1 | 80.0% | 66.7% |
+| [中医治则治法单选](tcm_best_principles/README.md) | 单选问答 | 5 | Accuracy | 100.0% | 40.0% |
 | [中医治则治法多选](tcm_best_principles_multi/README.md) | 多选问答 | 97 | micro-F1 | 70.3% | 62.3% |
 | [中医证型单选](tcm_best_syndrome/README.md) | 单选问答 | 68 | Accuracy | 80.9% | 72.1% |
 | [中医证型多选](tcm_best_syndrome_multi/README.md) | 多选问答 | 32 | micro-F1 | 52.8% | 36.7% |

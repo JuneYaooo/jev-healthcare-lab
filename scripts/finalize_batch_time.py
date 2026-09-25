@@ -1,0 +1,67 @@
+"""Publish completed timing runs without replacing quality-evaluation responses."""
+import collections,json,shutil
+from pathlib import Path
+import benchmark as b
+ROOT=Path(__file__).resolve().parents[1]
+
+def main():
+ source=ROOT/'data/expansion';dest=ROOT/'comparisons/batch-time'
+ summaries={p:json.loads((source/('timing-'+p)/'summary.json').read_text()) for p in ['jev','deepseek']}
+ assert all(s['completed_without_abort'] for s in summaries.values())
+ rows=[json.loads(x) for x in (source/'all_timing_inputs.jsonl').read_text().splitlines()]
+ dest.mkdir(parents=True,exist_ok=True)
+ (dest/'input_index.jsonl').write_text(''.join(b.dumps({k:r[k] for k in ['task','id','request_sha256']})+'\n' for r in rows))
+ for p in summaries:
+  target=dest/p;target.mkdir(exist_ok=True)
+  for name in ['summary.json','responses.jsonl']:shutil.copyfile(source/('timing-'+p)/name,target/name)
+ from verify_batch_time import verify
+ verify()
+ stats={}
+ for p,s in summaries.items():
+  records=[json.loads(x) for x in (dest/p/'responses.jsonl').read_text().splitlines()]
+  attempts=[a for r in records for a in r['attempts']]
+  usage=collections.Counter()
+  for a in attempts:
+   if 'response' in a:
+    for k,v in a['response']['usage'].items():
+     if isinstance(v,(int,float)):usage[k]+=v
+  stats[p]={'retry_inputs':sum(len(r['attempts'])>1 for r in records),'attempts':len(attempts),'failed_inputs':sum(r['status']!='ok' for r in records),'usage':dict(usage),'reported_error_types':dict(collections.Counter(a.get('error_type',str(a.get('http_status',a['status']))) for a in attempts if a['status']!='ok'))}
+ (dest/'usage_summary.json').write_text(json.dumps(stats,ensure_ascii=False,indent=2)+'\n')
+ j,d=summaries['jev'],summaries['deepseek'];js,ds=stats['jev'],stats['deepseek'];n=len(rows)
+ hit=ds['usage']['prompt_cache_hit_tokens']/ds['usage']['prompt_tokens']
+ text=f'''# 同一批医疗任务的总响应时间
+
+两模型分别以 **8 并发**处理相同的 **{n:,} 条输入**，从提交批次到全部输入完成或最终失败计时。两个批次在同一台机器上近同时启动，重新请求 API；43 条无候选输入按相同规则返回空集。
+
+| 项目 | Jev | DeepSeek Flash |
+| --- | ---: | ---: |
+| 整批实际经过时间 | {j['batch_elapsed_s']/60:.2f} 分钟 | {d['batch_elapsed_s']/60:.2f} 分钟 |
+| 最终未能作答的输入 | {js['failed_inputs']} | {ds['failed_inputs']} |
+| 发生重试的输入 | {js['retry_inputs']} | {ds['retry_inputs']} |
+| 实际请求次数（含重试） | {js['attempts']:,} | {ds['attempts']:,} |
+| 本次测速可核验调用费用 | ${j['cost_usd']:.6f} | ${d['cost_usd']:.6f} |
+| 本次测速每千条输入费用 | ${j['cost_usd']/n*1000:.4f} | ${d['cost_usd']/n*1000:.4f} |
+
+## 计时方法
+
+Jev 使用 `jev-1.13.0`；DeepSeek 使用 `deepseek-flash`、关闭思考。输入顺序、候选与问题相同，输出格式分别适配接口。每个模型 8 个工作线程，socket 超时 45 秒，网络或格式错误最多补试一次，补试前等待 1 秒。有效但答错的响应不重试。socket 超时控制网络读写等待，并非整个请求的硬性截止时间。
+
+总耗时包括本地排队、完整响应接收、超时、重试等待和写入记录，直到所有输入进入最终状态。失败输入不被删除，也不把成功请求的中位数乘以题数或除以并发数。上游语音转写、OCR 和人工复核不在此计时范围内。
+
+这是一次批量实测，反映当前网络与服务负载下的结果，不代表所有部署的固定速度。两模型有不同数量的最终失败，因此“批次结束”不等于所有输入均已有效作答。逐次错误类型与用量见 [用量统计](usage_summary.json)。
+
+## 重复输入与缓存费用
+
+这是对既有评测输入的重复调用。DeepSeek 本次报告的输入缓存命中比例为 **{hit:.1%}**，按空闲时段费率计费；缓存命中显著降低输入费用。首页分别列出效果评测费用与重复测速费用。成本优势会随缓存命中率、输入长度和输出长度改变，不能把一种运行条件下的费用差推广到所有医疗任务。
+
+本页费用仅按收到的服务用量估算，包含可计费的失败格式响应及重试；断线未收到用量的请求费用无法核验。测速调用独立于原有分数评测，本页费用不累加到逐任务分数表的每千条费用中。分数表继续使用原有评测响应，测速响应完整保留，不择优替换答错结果。
+
+## 原始记录
+
+- [输入顺序与哈希](input_index.jsonl)，通过任务名称与记录 ID 关联各任务的 `samples.jsonl`。
+- Jev：[批次统计](jev/summary.json) · [每次请求、响应与相对计时](jev/responses.jsonl)。
+- DeepSeek：[批次统计](deepseek/summary.json) · [每次请求、响应与相对计时](deepseek/responses.jsonl)。
+- [计时程序](../../scripts/measure_batch_time.py) · [离线核验程序](../../scripts/verify_batch_time.py)。
+'''
+ (dest/'README.md').write_text(text)
+if __name__=='__main__':main()

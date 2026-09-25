@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2555,
-      "sha256": "149dddc397c112cf2dd5d0fed66350de90af473dd07b5543b20e5867c04e9fea"
+      "bytes": 15327,
+      "sha256": "a2429b12792cbed356efb2c044761c1f2286919bff4a5a06327084677dc97785"
     },
     "responses.jsonl": {
-      "bytes": 1843,
-      "sha256": "f1e88734560480a76f861be522c0dada3bf27515f1af01c21ea31c90e3471176"
+      "bytes": 9401,
+      "sha256": "0c228fa2e20cd7b9517b6a80483ba8318b36f4d2a09122dd500b7a067fe29e01"
     },
     "index.jsonl": {
-      "bytes": 1252,
-      "sha256": "0e56283c8cdffef2ea0037a7c1b06387eb036c8d1da980fe47d09624161f148a"
+      "bytes": 6594,
+      "sha256": "6c1810539765afa150e031ce14fb04fcd1a1c2dc4ec3dd4dd5f03b9e6488e29a"
     },
     "prompts.json": {
-      "bytes": 506,
-      "sha256": "98ec3ca428824cc3c85d8c005b6ca520c128d4b03dc707d77377b644cd2bdf14"
+      "bytes": 481,
+      "sha256": "bd47404dc5ad8460c1a12fe75a8bd4d4d15bbba5b2aacd90737e0e726a7d6a6c"
     },
     "example.json": {
       "bytes": 1530,
       "sha256": "d88e5ea9d07ed53a7548ad4c2c010263c1a6eb59728e53c775dbe8c652855410"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:service_route:1",
+        "expansion:service_route:2",
+        "expansion:service_route:3",
+        "expansion:service_route:4",
+        "expansion:service_route:5",
+        "expansion:service_route:6",
+        "expansion:service_route:7",
+        "expansion:service_route:8",
+        "expansion:service_route:9",
+        "expansion:service_route:10",
+        "expansion:service_route:11",
+        "expansion:service_route:12",
+        "expansion:service_route:13",
+        "expansion:service_route:14",
+        "expansion:service_route:15",
+        "expansion:service_route:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

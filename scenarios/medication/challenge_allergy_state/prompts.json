@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -14,6 +14,62 @@
       },
       "occurrences": 4,
       "example_sample_id": "allergy_state:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "confirmed": "明确过敏",
+          "denied": "明确否认",
+          "uncertain": "疑似或待排",
+          "unrecorded": "没有记录"
+        },
+        "instructions": "只判断药物甲过敏记录状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:allergy_state:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "confirmed": "明确过敏",
+          "denied": "明确否认",
+          "uncertain": "疑似或待排",
+          "unrecorded": "没有记录"
+        },
+        "instructions": "只判断药物乙过敏记录状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:allergy_state:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "confirmed": "明确过敏",
+          "denied": "明确否认",
+          "uncertain": "疑似或待排",
+          "unrecorded": "没有记录"
+        },
+        "instructions": "只判断药物丙过敏记录状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:allergy_state:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "confirmed": "明确过敏",
+          "denied": "明确否认",
+          "uncertain": "疑似或待排",
+          "unrecorded": "没有记录"
+        },
+        "instructions": "只判断药物丁过敏记录状态。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:allergy_state:13"
     }
   ]
 }

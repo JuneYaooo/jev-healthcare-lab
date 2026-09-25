@@ -7,38 +7,65 @@
   "original_shard_sha256": {
     "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
   },
-  "sample_count": 6,
-  "groups": 2,
+  "sample_count": 20,
+  "groups": 16,
   "resources": [
     {
       "resource": "ClinOCR-Bench",
       "source": "https://github.com/ClinOCR-Bench/ClinOCR-Bench",
-      "completion_note": "6类失真文档，实际Tesseract；只有2种模板内容，后续只测文档类型"
+      "completion_note": "20 张扫描文档、16 个模板；Tesseract 实际 OCR 与参考文本对照，评测文档类型"
     }
   ],
-  "adapter": "prepare_final_tasks.py",
+  "adapter": "prepare_media_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 12277,
-      "sha256": "a5521bbb47038264deccdafa08a5c3e7057357e1fb1f5c251fb6fdbf7f39049a"
+      "bytes": 47937,
+      "sha256": "128757a5ed0ce2572d85536fa795b3fc7ba34dcf0234da9686aa27c9da705eb9"
     },
     "responses.jsonl": {
-      "bytes": 3047,
-      "sha256": "1556a65dd9bc58e29b50660070a44a608f8c3e959cba1a5f0eb6a4a6bebf9b81"
+      "bytes": 10108,
+      "sha256": "e1b13df4f22751df5cbe86f9c603b3b0933f817a605f2b83cfb2e9292f2f122f"
     },
     "index.jsonl": {
-      "bytes": 1809,
-      "sha256": "7b374c66f876493ba2018a3fdf108fcd65e9d37262afd057be1dc3cbe66493bc"
+      "bytes": 6037,
+      "sha256": "ef4e38c9bcb43f85a759d5416eb44cc0b4a0f35a9e23e994a9dcca7471555b4e"
     },
     "prompts.json": {
-      "bytes": 696,
-      "sha256": "bc032a25b3f26b97dbfc79f245093e1b61d385e89b5afeacdca02e6b45f0a059"
+      "bytes": 1353,
+      "sha256": "5528c91712901a90ce721f3ad35d161bb17a36a790551c935740ea4214fec955"
     },
     "example.json": {
       "bytes": 3416,
       "sha256": "6cfbc2325ff263cb172057dd0c5db4897134c76cae3b7230dcf928517dc5e3e1"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "normal_t2_s2",
+        "normal_t3_s2",
+        "normal_t4_s2",
+        "normal_t5_s2",
+        "normal_t6_s2",
+        "normal_t7_s2",
+        "normal_t8_s2",
+        "tables_t10_s2",
+        "tables_t11_s2",
+        "tables_t12_s2",
+        "tables_t13_s2",
+        "tables_t14_s2",
+        "tables_t15_s2",
+        "tables_t16_s2"
+      ],
+      "sources": [
+        "ClinOCR-Bench official test, one additional scan for each previously unrepresented template; doc-type gold manually mapped from reference purpose"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

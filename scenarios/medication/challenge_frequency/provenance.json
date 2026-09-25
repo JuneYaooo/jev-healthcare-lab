@@ -7,32 +7,65 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2463,
-      "sha256": "b2c70a0009c51d1b039ff9fc015005fddaf47bb904b839b0801164c3da80aedf"
+      "bytes": 15205,
+      "sha256": "154f4990f247a90ca2f253a9fb1f1a58250150169892c1e9e7af4c610b425ede"
     },
     "responses.jsonl": {
-      "bytes": 1727,
-      "sha256": "fc8c8a8bdab096934c8fad7af030aa309737b6d30aaa2e5759446a72a5d718ff"
+      "bytes": 8822,
+      "sha256": "6f9907dd06128911d2e15e43cbb59f82fa4fbb2a897f2da3f806a2648a61c241"
     },
     "index.jsonl": {
-      "bytes": 1204,
-      "sha256": "77862faec40696757ac13dbe24e569534b95c9a9f5a0ffbfdac8afae9ce69f43"
+      "bytes": 6354,
+      "sha256": "cf671f20438840f4493e4f6c1a26227a01c1d946cc3a383a07ad07c2ece6eeb4"
     },
     "prompts.json": {
-      "bytes": 503,
-      "sha256": "97e2da4eaa091eb40906dead40661da60d1156431406ef2ee1545955116847fe"
+      "bytes": 2098,
+      "sha256": "90deefcdaee4a93eb19830011f7a382c7d6e15ba3973cd1b77fc4f68cfbd802e"
     },
     "example.json": {
       "bytes": 1483,
       "sha256": "7719bba05e9276ef8241ff737ec528b995cfccbadfd2bb883a612c91929770e5"
+    },
+    "attempts.jsonl": {
+      "bytes": 222,
+      "sha256": "8f543ada766872316cedba67c56341b7ca1f76c71b5a608e2b847eaa8d543a39"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:frequency:1",
+        "expansion:frequency:2",
+        "expansion:frequency:3",
+        "expansion:frequency:4",
+        "expansion:frequency:5",
+        "expansion:frequency:6",
+        "expansion:frequency:7",
+        "expansion:frequency:8",
+        "expansion:frequency:9",
+        "expansion:frequency:10",
+        "expansion:frequency:11",
+        "expansion:frequency:12",
+        "expansion:frequency:13",
+        "expansion:frequency:14",
+        "expansion:frequency:15",
+        "expansion:frequency:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

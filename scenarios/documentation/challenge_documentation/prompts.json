@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -12,6 +12,54 @@
       },
       "occurrences": 4,
       "example_sample_id": "documentation:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "documented": "已记录，明确否认也算记录",
+          "missing": "未记录/未询问"
+        },
+        "instructions": "只查过敏史是否已记录；明确否认也算已记录，待询问或空白算未记录。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:documentation:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "documented": "已记录，明确否认也算记录",
+          "missing": "未记录/未询问"
+        },
+        "instructions": "只查手术史是否已记录；明确否认也算已记录，待询问或空白算未记录。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:documentation:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "documented": "已记录，明确否认也算记录",
+          "missing": "未记录/未询问"
+        },
+        "instructions": "只查吸烟史是否已记录；明确否认也算已记录，待询问或空白算未记录。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:documentation:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "documented": "已记录，明确否认也算记录",
+          "missing": "未记录/未询问"
+        },
+        "instructions": "只查家族史是否已记录；明确否认也算已记录，待询问或空白算未记录。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:documentation:13"
     }
   ]
 }

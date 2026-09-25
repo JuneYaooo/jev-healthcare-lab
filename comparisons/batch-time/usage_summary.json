@@ -1,0 +1,30 @@
+{
+  "jev": {
+    "retry_inputs": 120,
+    "attempts": 7109,
+    "failed_inputs": 1,
+    "usage": {
+      "input_tokens": 9131937,
+      "output_tokens": 1164464
+    },
+    "reported_error_types": {
+      "URLError": 121
+    }
+  },
+  "deepseek": {
+    "retry_inputs": 132,
+    "attempts": 7121,
+    "failed_inputs": 38,
+    "usage": {
+      "completion_tokens": 188891,
+      "prompt_cache_hit_tokens": 5769849,
+      "prompt_cache_miss_tokens": 1365050,
+      "prompt_tokens": 7134899,
+      "total_tokens": 7323790
+    },
+    "reported_error_types": {
+      "URLError": 90,
+      "ValueError": 80
+    }
+  }
+}

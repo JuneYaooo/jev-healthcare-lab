@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -14,6 +14,62 @@
       },
       "occurrences": 4,
       "example_sample_id": "medication_change:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "continue": "明确继续原用药",
+          "start": "开始服用",
+          "stop": "停止服用",
+          "unknown": "尚未作出变更"
+        },
+        "instructions": "只判断药物甲的明确用药变更，不作治疗建议。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:medication_change:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "continue": "明确继续原用药",
+          "start": "开始服用",
+          "stop": "停止服用",
+          "unknown": "尚未作出变更"
+        },
+        "instructions": "只判断药物乙的明确用药变更，不作治疗建议。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:medication_change:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "continue": "明确继续原用药",
+          "start": "开始服用",
+          "stop": "停止服用",
+          "unknown": "尚未作出变更"
+        },
+        "instructions": "只判断药物丙的明确用药变更，不作治疗建议。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:medication_change:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "continue": "明确继续原用药",
+          "start": "开始服用",
+          "stop": "停止服用",
+          "unknown": "尚未作出变更"
+        },
+        "instructions": "只判断药物丁的明确用药变更，不作治疗建议。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:medication_change:13"
     }
   ]
 }

@@ -1,33 +1,33 @@
 {
-  "planned": 4,
-  "successful": 4,
+  "planned": 20,
+  "successful": 20,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 4,
-    "accuracy": 1.0,
-    "macro_f1_observed_gold_classes": 1.0,
+    "n": 20,
+    "accuracy": 0.95,
+    "macro_f1_observed_gold_classes": 0.9494949494949495,
     "per_class": {
       "appointment": {
-        "support": 1,
-        "precision": 1.0,
+        "support": 5,
+        "precision": 0.8333333333333334,
         "recall": 1.0,
-        "f1": 1.0
+        "f1": 0.9090909090909091
       },
       "imaging": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
       "lab": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0
+        "recall": 0.8,
+        "f1": 0.8888888888888888
       },
       "none": {
-        "support": 1,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -36,15 +36,27 @@
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 4,
-    "lower": 1.0,
+    "groups": 20,
+    "lower": 0.85,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.06500000000000009,
-    "multiclass_brier_sum": 0.026899999999999997,
-    "brier_n": 4,
+    "ece10_selected_probability": 0.102,
+    "multiclass_brier_sum": 0.06487,
+    "brier_n": 20,
     "bins": [
+      {
+        "lower": 0.5,
+        "n": 1,
+        "mean_selected_probability": 0.52,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.6,
+        "n": 2,
+        "mean_selected_probability": 0.635,
+        "accuracy": 1.0
+      },
       {
         "lower": 0.7,
         "n": 1,
@@ -52,54 +64,60 @@
         "accuracy": 1.0
       },
       {
+        "lower": 0.8,
+        "n": 1,
+        "mean_selected_probability": 0.85,
+        "accuracy": 1.0
+      },
+      {
         "lower": 0.9,
-        "n": 3,
-        "mean_selected_probability": 0.9899999999999999,
+        "n": 15,
+        "mean_selected_probability": 0.9726666666666667,
         "accuracy": 1.0
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 16,
+          "coverage": 0.8,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 16,
+          "coverage": 0.8,
           "accuracy": 1.0
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 3,
+          "n": 15,
           "coverage": 0.75,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 11,
+          "coverage": 0.55,
           "accuracy": 1.0
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 11,
+          "coverage": 0.55,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.75,
+          "n": 11,
+          "coverage": 0.55,
           "accuracy": 1.0
         }
       }
     }
   },
-  "input_tokens": 1517,
-  "output_tokens": 185,
-  "latency_successful_api_p50_s": 0.8740529165079352,
-  "latency_successful_api_p95_s": 0.915476625028532,
+  "input_tokens": 7673,
+  "output_tokens": 925,
+  "latency_successful_api_p50_s": 0.6098229164781515,
+  "latency_successful_api_p95_s": 1.3547243750072084,
   "per_indicator": {}
 }

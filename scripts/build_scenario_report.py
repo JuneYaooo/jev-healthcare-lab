@@ -94,7 +94,7 @@ def task_doc(scene, task, method, result):
     if notes:
         out += ['', '原始适配元数据：', ''] + ['- '+x for x in notes]
     out += ['', '原准备分片：'+ '、'.join('`'+x+'`' for x in provenance['prepared_shards'])+'。', '']
-    attachments = [('baseline.json','规则／候选基线'),('hybrid.json','BMI 参数选择与程序公式联合实验'),('source_verification.json','源数据版本与字节校验'),('hash_audit.json','历史哈希格式修正'),('upstream/manifest.json','实际上游音频／图像／转写文件及哈希'),('upstream/results.json','OCR／ASR 上游指标')]
+    attachments = [('attempts.jsonl','保留的失败调用记录'),('baseline.json','规则／候选基线'),('hybrid.json','BMI 参数选择与程序公式联合实验'),('source_verification.json','源数据版本与字节校验'),('hash_audit.json','历史哈希格式修正'),('upstream/manifest.json','实际上游音频／图像／转写文件及哈希'),('upstream/results.json','OCR／ASR 上游指标')]
     present=[(name,label) for name,label in attachments if (folder/name).exists()]
     if present:
         out += ['## 关联实验', '']+[f'- [{label}]({name})' for name,label in present]+['']
@@ -120,9 +120,10 @@ def build():
     if len(assigned)!=len(set(assigned)) or set(assigned)!=set(tasks):raise ValueError('Task coverage mismatch')
     if set(methods)!=set(tasks):raise ValueError('Task methodology coverage mismatch')
     outputs={}
+    main_rows=sum(t['successful'] for t in tasks.values())
     intro=['# Jev 医疗场景评测统计', '',
            f'**{len(scenes)} 类医疗场景 · {len(tasks)} 个主评测任务条件 · {snapshot["evaluation_rows"]:,} 条计分记录**', '',
-           '主评测包含 **72 个公开数据／材料适配任务 + 24 个自编边界挑战任务**，共 **6,586 条记录**；另有 **15 组配对扰动实验、300 条额外记录**。其中 **6,843 条有真实 API 响应，43 条无实体候选由程序输出空预测**。', '',
+           f'主评测包含 **72 个公开数据／材料适配任务 + 24 个自编边界挑战任务**，共 **{main_rows:,} 条记录**；另有 **15 组配对扰动实验、300 条额外记录**。其中 **{snapshot["successful_api_responses"]:,} 条有真实 API 响应，43 条无实体候选由程序输出空预测**。', '',
            '每个任务均有独立实验目录，保留实际测试输入、金标、完整提示词、模型响应、评分结果和方法说明。测试记录包含同一病例的多个字段或条件，不是独立患者数；Accuracy 与 micro-F1 分别列示，不混算总体准确率。', '',
            '## 场景覆盖', '', '| 医疗场景 | 数据适配任务 | 自编挑战任务 | 主评测记录 | 额外扰动记录 |', '| --- | ---: | ---: | ---: | ---: |']
     robust=load('results/ablations.json')['robustness']['tasks']
@@ -130,7 +131,7 @@ def build():
         ts=s['task_ids'];n=sum(tasks[t]['successful'] for t in ts)
         pert=sum(v['n'] for k,v in robust.items() if k.split(':')[0] in ts)
         intro.append(f'| [{s["title"]}](scenarios/{s["id"]}/README.md) | {sum(not t.startswith("challenge_") for t in ts)} | {sum(t.startswith("challenge_") for t in ts)} | {n:,} | {pert} |')
-    intro += ['| **合计** | **72** | **24** | **6,586** | **300** |', '',
+    intro += [f'| **合计** | **72** | **24** | **{main_rows:,}** | **300** |', '',
               '“覆盖”仅指下列已测文本任务与适配链路。例如语音／OCR 场景已测转写后的字段与文档类型，不能理解为已完成医学影像识别或 ECG 诊断。', '',
               '## 各场景任务与结果', '']
     for s in scenes:
@@ -168,8 +169,8 @@ def build():
               '| BMI 参数 + 公式 | 首个候选正确参数对 14/20 → Jev 17/20 | [逐病例联合结果](scenarios/calculators/bmi_weight_selection/hybrid.json) |',
               '| MedHallu 证据消融 | 无证据 Accuracy 60% → 有证据 82% | [有证据](scenarios/quality/medhallu_with_evidence/README.md) / [无证据](scenarios/quality/medhallu_without_evidence/README.md) |',
               '| PUBHEALTH 证据消融 | 仅论断 Accuracy 20% → 提供核查文章 67% | [仅论断](scenarios/evidence/pubhealth_claim_only/README.md) / [核查文章](scenarios/evidence/pubhealth_with_article/README.md) |',
-              '| ASR 误差传播 | Whisper WER 32.2%；参考字段 12/12 → ASR 字段 11/12 | [音频、转写与 Jev 实验](scenarios/multimodal/primock_asr_fields/README.md) |',
-              '| OCR 误差传播 | 参考文档类型 6/6 → OCR 文本类型 5/6 | [扫描图、识别文本与 Jev 实验](scenarios/multimodal/clinocr_ocr_doctype/README.md) |', '',
+              '| 初始单段 ASR 误差传播 | 初始子集：Whisper WER 32.2%；参考字段 12/12 → ASR 字段 11/12 | [音频、转写与 Jev 实验](scenarios/multimodal/primock_asr_fields/README.md) |',
+              '| 初始六张 OCR 误差传播 | 初始子集：参考文档类型 6/6 → OCR 文本类型 5/6 | [扫描图、识别文本与 Jev 实验](scenarios/multimodal/clinocr_ocr_doctype/README.md) |', '',
               '以上基线和配对条件已包含于主评测及关联统计，不再次累计样本。', '',
               '## 鲁棒性实验', '', '| 主任务 | 扰动 | 记录数 | 预测改变 | 原条件正确 | 扰动后正确 |', '| --- | --- | ---: | ---: | ---: | ---: |']
     owner={t:s['id'] for s in scenes for t in s['task_ids']}

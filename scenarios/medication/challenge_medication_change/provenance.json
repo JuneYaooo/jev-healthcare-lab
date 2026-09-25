@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2709,
-      "sha256": "e95257971ef8513ff2ad242d9b0d960983ec2e703b73e730391a6ff2dc81b695"
+      "bytes": 16391,
+      "sha256": "0aac92a5dc00f9df19de363282f6774bc2e46e7affabbf4a1258484cbff191a5"
     },
     "responses.jsonl": {
-      "bytes": 1831,
-      "sha256": "56de387a9a23a55e0a471417f70b514b03f7beb4b6822cb8e2fc1a67d06e2eed"
+      "bytes": 9306,
+      "sha256": "48b09f3f0c03f2cb29abc8039f2d40ab46f3120f661b174f40239dbd9ee4aa76"
     },
     "index.jsonl": {
-      "bytes": 1300,
-      "sha256": "94b5c836467bda6ff79b1c43dbb7675f4982b0d565ec1e4ff076bd0939505de4"
+      "bytes": 6834,
+      "sha256": "34ff326bb18dadc75b8d92b0cf82508ae1489214092937a1c5d6d120af6d10e5"
     },
     "prompts.json": {
-      "bytes": 536,
-      "sha256": "9c8dc16a2b34ed1805ac4d0b453882946866d162f4da85b12127c4116489e8bf"
+      "bytes": 2239,
+      "sha256": "2c1587c2c3ebcbd6ee3816fea5fff7276881c77d109418adda76f647de499fdb"
     },
     "example.json": {
       "bytes": 1557,
       "sha256": "895d561de14639d770351d29ca94a671deeb2e94c0863e85265eb880908b120d"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:medication_change:1",
+        "expansion:medication_change:2",
+        "expansion:medication_change:3",
+        "expansion:medication_change:4",
+        "expansion:medication_change:5",
+        "expansion:medication_change:6",
+        "expansion:medication_change:7",
+        "expansion:medication_change:8",
+        "expansion:medication_change:9",
+        "expansion:medication_change:10",
+        "expansion:medication_change:11",
+        "expansion:medication_change:12",
+        "expansion:medication_change:13",
+        "expansion:medication_change:14",
+        "expansion:medication_change:15",
+        "expansion:medication_change:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

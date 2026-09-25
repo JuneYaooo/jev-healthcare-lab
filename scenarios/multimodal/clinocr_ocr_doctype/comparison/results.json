@@ -2,15 +2,27 @@
   "title": "OCR 文本医疗文档类型识别",
   "scene": "multimodal",
   "synthetic": false,
-  "planned": 6,
-  "compared": 6,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 6,
-      "accuracy": 0.8333333333333334,
-      "macro_f1_observed_gold_classes": 0.8333333333333333,
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.9333333333333332,
       "per_class": {
+        "discharge": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lab": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "medication_list": {
           "support": 2,
           "precision": 1.0,
@@ -23,29 +35,47 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "referral": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "unknown": {
-          "support": 0,
-          "precision": 0.0,
-          "recall": 0,
-          "f1": 0.0
+          "support": 7,
+          "precision": 0.875,
+          "recall": 1.0,
+          "f1": 0.9333333333333333
         }
       }
     },
-    "latency_median_s": 0.6440773329813965,
-    "cost_usd": 0.00020466600000000002,
-    "cost_per_1000_usd": 0.03411100000000001
+    "latency_median_s": 0.626837499497924,
+    "cost_usd": 0.000735588,
+    "cost_per_1000_usd": 0.036779400000000004
   },
   "deepseek": {
     "quality": {
-      "n": 6,
-      "accuracy": 0.8333333333333334,
-      "macro_f1_observed_gold_classes": 0.8333333333333333,
+      "n": 20,
+      "accuracy": 0.85,
+      "macro_f1_observed_gold_classes": 0.8615384615384616,
       "per_class": {
+        "discharge": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lab": {
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "medication_list": {
           "support": 2,
-          "precision": 1.0,
+          "precision": 0.3333333333333333,
           "recall": 0.5,
-          "f1": 0.6666666666666666
+          "f1": 0.4
         },
         "radiology": {
           "support": 4,
@@ -53,17 +83,23 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "referral": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "unknown": {
-          "support": 0,
-          "precision": 0.0,
-          "recall": 0,
-          "f1": 0.0
+          "support": 7,
+          "precision": 0.8333333333333334,
+          "recall": 0.7142857142857143,
+          "f1": 0.7692307692307693
         }
       }
     },
-    "latency_median_s": 0.7207536665082444,
-    "cost_usd": 0.000440706,
-    "cost_per_1000_usd": 0.073451,
+    "latency_median_s": 0.5459481665166095,
+    "cost_usd": 0.001751532,
+    "cost_per_1000_usd": 0.0875766,
     "prior_attempts": 0
   }
 }

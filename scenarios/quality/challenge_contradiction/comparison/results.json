@@ -2,56 +2,56 @@
   "title": "边界挑战：病历矛盾",
   "scene": "quality",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "compatible": {
-          "support": 2,
+          "support": 14,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "conflict": {
-          "support": 2,
+          "support": 6,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.9010429790359922,
-    "cost_usd": 6.321e-05,
-    "cost_per_1000_usd": 0.0158025
+    "latency_median_s": 0.5770104794937652,
+    "cost_usd": 0.00031575600000000004,
+    "cost_per_1000_usd": 0.0157878
   },
   "deepseek": {
     "quality": {
-      "n": 4,
-      "accuracy": 1.0,
-      "macro_f1_observed_gold_classes": 1.0,
+      "n": 20,
+      "accuracy": 0.95,
+      "macro_f1_observed_gold_classes": 0.9430199430199431,
       "per_class": {
         "compatible": {
-          "support": 2,
+          "support": 14,
           "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0
+          "recall": 0.9285714285714286,
+          "f1": 0.9629629629629629
         },
         "conflict": {
-          "support": 2,
-          "precision": 1.0,
+          "support": 6,
+          "precision": 0.8571428571428571,
           "recall": 1.0,
-          "f1": 1.0
+          "f1": 0.9230769230769231
         }
       }
     },
-    "latency_median_s": 0.4096103125193622,
-    "cost_usd": 0.00017025,
-    "cost_per_1000_usd": 0.042562499999999996,
+    "latency_median_s": 0.5674563954817131,
+    "cost_usd": 0.00084525,
+    "cost_per_1000_usd": 0.042262499999999995,
     "prior_attempts": 0
   }
 }

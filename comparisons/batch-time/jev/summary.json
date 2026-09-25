@@ -1,0 +1,19 @@
+{
+  "provider": "jev",
+  "rows": 7032,
+  "workers": 8,
+  "socket_timeout_s": 45,
+  "max_attempts_per_input": 2,
+  "retry_delay_s": 1,
+  "batch_elapsed_s": 1328.7380150410463,
+  "counts": {
+    "ok": 7031,
+    "error": 1
+  },
+  "completed_without_abort": true,
+  "input_sha256": "3fd95353b690c03b641d824b7ef6b582fbac55a3b7dc6b8ebf543a5a7fb0d23b",
+  "cost_usd": 0.3835413540000014,
+  "cost_scope": "Separate timing replay; not included in original evaluation fee estimates.",
+  "scope": "Full batch wall time from submission through all terminal results; includes queueing, timeouts, retry delays and failures; no local response-cache reuse. One trial only.",
+  "off_peak_pricing": null
+}

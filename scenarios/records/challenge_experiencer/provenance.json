@@ -7,32 +7,61 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 2567,
-      "sha256": "d13a522f4d8182cc250c6145fcd4b22c7b4e4b8788d1f7026ea25731e4dcfccb"
+      "bytes": 15253,
+      "sha256": "26a3b895388ac774775e959a923cf99e706e248e59e45f9071e925d2d4ff5378"
     },
     "responses.jsonl": {
-      "bytes": 1783,
-      "sha256": "8b4e5443f5311777b25ab3fde0a36fccf812b460b78a5cfcda0e5c17dc1d3303"
+      "bytes": 9099,
+      "sha256": "9f796e7fb159d6d3a6a24ed53ba28fa14b85b7e46f4976d14b787d0886a380fe"
     },
     "index.jsonl": {
-      "bytes": 1228,
-      "sha256": "25dcc56de5944e2a771ee2ece0bc92b9cd1adc1fae209da0454c393fd38948ae"
+      "bytes": 6474,
+      "sha256": "051bea91983d8b4b1dfc1e586a1139045efd3129f1fa4d283287ed530608c50c"
     },
     "prompts.json": {
-      "bytes": 503,
-      "sha256": "3ff57bff19fbf244f85f6edaac63f9ba0099c6825892be1959741e79dbd1996a"
+      "bytes": 2053,
+      "sha256": "21cbbc9851bbc81c82d89004dd5bece5df7e5b8be6bc20abe02ed5123261e859"
     },
     "example.json": {
       "bytes": 1511,
       "sha256": "721cc49a802141e2647f37e0ed6dac18978b7a89ac8122f639ac9099d30834ab"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:experiencer:1",
+        "expansion:experiencer:2",
+        "expansion:experiencer:3",
+        "expansion:experiencer:4",
+        "expansion:experiencer:5",
+        "expansion:experiencer:6",
+        "expansion:experiencer:7",
+        "expansion:experiencer:8",
+        "expansion:experiencer:9",
+        "expansion:experiencer:10",
+        "expansion:experiencer:11",
+        "expansion:experiencer:12",
+        "expansion:experiencer:13",
+        "expansion:experiencer:14",
+        "expansion:experiencer:15",
+        "expansion:experiencer:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

@@ -7,8 +7,8 @@
   "original_shard_sha256": {
     "additional_prepared.jsonl": "8c9f86cd8f7d41d867a17f19fd45a538acb7e3dac82ab973ce70ea9353d6a5a7"
   },
-  "sample_count": 1,
-  "groups": 1,
+  "sample_count": 2,
+  "groups": 2,
   "resources": [
     {
       "resource": "TCM-BEST4SDT",
@@ -21,24 +21,38 @@
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 1162,
-      "sha256": "05adc3a201a23896a9fc5d26d3a89d06e83e29626f2f44eff12a15faddd9e517"
+      "bytes": 2257,
+      "sha256": "420e0c3172a2459329683920b643997a55928bcd39487ecaf76ddd9abfc0d794"
     },
     "responses.jsonl": {
-      "bytes": 433,
-      "sha256": "420bd86ea3e28b920e13874784650299602a6c91a61fe7e16857e45dd89637dc"
+      "bytes": 866,
+      "sha256": "01245eaf07501b45d3ee1fa037aa3733c6eb82814386810029d37d82a5e74256"
     },
     "index.jsonl": {
-      "bytes": 287,
-      "sha256": "e44cbdd266837cf145615d181939bc29d7f263fcacfeea7c23135519619bff3d"
+      "bytes": 574,
+      "sha256": "a745b702d85440af0e79741ee654de2ee89f672111019b749829ab687e540985"
     },
     "prompts.json": {
-      "bytes": 1023,
-      "sha256": "1181aef910e03765c96e80c78fc441f32b62aa5fa02c122d27186201d0f39db9"
+      "bytes": 1910,
+      "sha256": "51334c2dbb53769432c370dc3d06c4148e7420eba5b97cc0bb1a127af2edecd8"
     },
     "example.json": {
       "bytes": 2108,
       "sha256": "cb23f0dad9eaff5c386bbd178145ed404a7bd6fd667ed3014d2fee055b12065e"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "316"
+      ],
+      "sources": [
+        "TCM-BEST4SDT remaining published SDT cases; published answer keys; no generated gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

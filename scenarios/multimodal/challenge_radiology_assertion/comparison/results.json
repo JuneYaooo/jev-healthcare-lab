@@ -2,80 +2,80 @@
   "title": "边界挑战：影像报告断言",
   "scene": "multimodal",
   "synthetic": true,
-  "planned": 4,
-  "compared": 4,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "uncertain": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unmentioned": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.8408823540376034,
-    "cost_usd": 6.5268e-05,
-    "cost_per_1000_usd": 0.016316999999999998
+    "latency_median_s": 0.6015682914876379,
+    "cost_usd": 0.00032919599999999997,
+    "cost_per_1000_usd": 0.016459799999999997
   },
   "deepseek": {
     "quality": {
-      "n": 4,
+      "n": 20,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
         "absent": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "present": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "uncertain": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "unmentioned": {
-          "support": 1,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         }
       }
     },
-    "latency_median_s": 0.6139930415083654,
-    "cost_usd": 0.00017235,
-    "cost_per_1000_usd": 0.043087499999999994,
+    "latency_median_s": 0.566944436985068,
+    "cost_usd": 0.0008644499999999998,
+    "cost_per_1000_usd": 0.04322249999999999,
     "prior_attempts": 0
   }
 }

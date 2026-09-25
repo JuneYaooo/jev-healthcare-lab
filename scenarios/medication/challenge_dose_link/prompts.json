@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -14,6 +14,62 @@
       },
       "occurrences": 4,
       "example_sample_id": "dose_link:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1000mg": "1000 mg",
+          "250mg": "250 mg",
+          "500mg": "500 mg",
+          "unknown": "未提供"
+        },
+        "instructions": "选出药物甲每次剂量，未知不要推断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:dose_link:1"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1000mg": "1000 mg",
+          "250mg": "250 mg",
+          "500mg": "500 mg",
+          "unknown": "未提供"
+        },
+        "instructions": "选出药物乙每次剂量，未知不要推断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:dose_link:5"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1000mg": "1000 mg",
+          "250mg": "250 mg",
+          "500mg": "500 mg",
+          "unknown": "未提供"
+        },
+        "instructions": "选出药物丙每次剂量，未知不要推断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:dose_link:9"
+    },
+    {
+      "question": {
+        "criteria": {
+          "1000mg": "1000 mg",
+          "250mg": "250 mg",
+          "500mg": "500 mg",
+          "unknown": "未提供"
+        },
+        "instructions": "选出药物丁每次剂量，未知不要推断。",
+        "type": "choice"
+      },
+      "occurrences": 4,
+      "example_sample_id": "expansion:dose_link:13"
     }
   ]
 }

@@ -7,32 +7,65 @@
   "original_shard_sha256": {
     "extended_prepared.jsonl": "ffbc681720e9041cd8f3d766dc4f3f42f033f7170f8827073e9c4704278f638e"
   },
-  "sample_count": 4,
-  "groups": 4,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [],
-  "adapter": "prepare_extended.py",
+  "adapter": "prepare_expansion.py",
   "request_payload": "sample.request plus model; gold and metadata are not sent",
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 3136,
-      "sha256": "578bfb8d3816a48fd6afb7dacbd1e222aff19706e5e8ab49e76070c1ad8d2661"
+      "bytes": 18730,
+      "sha256": "a9de80fe688aa5c4d225eb52c3872551bd3381c204f2c80c1e7daf8e719761ba"
     },
     "responses.jsonl": {
-      "bytes": 1802,
-      "sha256": "057ffee090ae075c99412d655c5a99f2736180191043205df1eb9a92401d0467"
+      "bytes": 9174,
+      "sha256": "79cbb07dff4ec43ee9d2e52b4a993c77cc26c4fa546ed15271cbf50d624b7847"
     },
     "index.jsonl": {
-      "bytes": 1336,
-      "sha256": "30d63f677189a26dc61baf22ad161cd3926bcebe5114d5c84fc0d6d2e337109a"
+      "bytes": 7014,
+      "sha256": "f690a1e3ab2375269b8a185e3711b3d8947e026017bd2cf625d2f4be647ba940"
     },
     "prompts.json": {
-      "bytes": 633,
-      "sha256": "e3dd0832d8151a1c3ece6e99e7a2ce0c2334ce08a09ff175a66e075e867cc99c"
+      "bytes": 2796,
+      "sha256": "32e24de1ef9be28df18a50c457fb92563e16ebda2d31529c7304a22cbc2979d2"
     },
     "example.json": {
       "bytes": 1623,
       "sha256": "3122fd4d23e5a97dbbafbc39158c2875d5e62d0c9f19c5259a4bc16d3f697536"
+    },
+    "attempts.jsonl": {
+      "bytes": 243,
+      "sha256": "1c19cf795803482f140dbd3ce27edd78f47d01c8a976fca1ef0b0aab7c9095ee"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "expansion:urgency_given_policy:1",
+        "expansion:urgency_given_policy:2",
+        "expansion:urgency_given_policy:3",
+        "expansion:urgency_given_policy:4",
+        "expansion:urgency_given_policy:5",
+        "expansion:urgency_given_policy:6",
+        "expansion:urgency_given_policy:7",
+        "expansion:urgency_given_policy:8",
+        "expansion:urgency_given_policy:9",
+        "expansion:urgency_given_policy:10",
+        "expansion:urgency_given_policy:11",
+        "expansion:urgency_given_policy:12",
+        "expansion:urgency_given_policy:13",
+        "expansion:urgency_given_policy:14",
+        "expansion:urgency_given_policy:15",
+        "expansion:urgency_given_policy:16"
+      ],
+      "sources": [
+        "Authored controlled synthetic cases; not real patient records or physician-validated clinical gold"
+      ],
+      "preparation": [
+        "scripts/prepare_expansion.py",
+        "scripts/prepare_media_expansion.py"
+      ]
+    }
+  ]
 }

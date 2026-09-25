@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -60,6 +60,46 @@
       },
       "occurrences": 1,
       "example_sample_id": "432"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "益气养阴",
+          "B": "清气泄热",
+          "C": "和解少阳",
+          "D": "温阳散寒",
+          "E": "涩肠止泻",
+          "F": "辛凉解表",
+          "G": "化痰开窍",
+          "H": "峻下热结",
+          "I": "活血化瘀",
+          "J": "利水渗湿"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "220"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "补肾固涩",
+          "B": "滋肾柔肝",
+          "C": "温阳利水",
+          "D": "升发肝阳",
+          "E": "祛风止痒",
+          "F": "清热利湿通淋",
+          "G": "疏肝理气",
+          "H": "清肺疏风",
+          "I": "升举中气",
+          "J": "活血化瘀"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "425"
     }
   ]
 }
