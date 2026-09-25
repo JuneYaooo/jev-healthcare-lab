@@ -76,7 +76,7 @@ def main():
  for r in summary['results']:
   for p,label in [('jev','Jev'),('deepseek','DeepSeek')]:
    s=r[p];h=['—' if x is None else f'{x:.1%}' for x in s['round_cache_hit_fraction']];lines.append(f'| {label} | {r["group_size"]} | ${s["round_cost_usd"][0]*5:.4f} | ${s["round_cost_usd"][1]*5:.4f} | {h[0]} | {h[1]} |')
- lines+=['','DeepSeek 第二轮的缓存命中增加，10 项合并组的费用低于 Jev；两轮平均费用不代表所有缓存条件下的固定优势。']
+ lines+=['','DeepSeek 第二轮的缓存命中增加，三个分组的费用均低于 Jev；两轮平均费用不代表所有缓存条件下的固定优势。']
  lines+=['','## 对照方法','','- 每种配置都读取相同完整摘要、回答相同十道问题。每次 1 项需调用 10 次；5 项需调用 2 次；10 项只调用 1 次。单项配置同样保留全文，衡量的是共享上下文工作流；它不代表仅发送孤立句子的最低费用。','- 固定 20 篇新材料及原始答案后才开始调用；排除原归档中的摘要 ID 和逐句文本重合。样本从测试集前 300 篇完整摘要中，筛选 10–24 句材料并按固定哈希顺序选择，不能代表全部医疗场景。','- 每家使用独立的持久连接池，HTTP/1.1，最多 4 个连接。连接超时 10 秒、读取超时 30 秒，失败最多补试一次；有效但错误的答案不重试。连接事件及请求全过程保留在响应记录中。','- 第一轮固定随机配置顺序，第二轮反向执行；同轮各配置的材料顺序一致。没有用不同组的旧材料来替代配对，也没有按得分挑选运行。','- Jev 使用 jev-1.13.0；DeepSeek 使用 deepseek-flash、关闭思考，只输出标签。两者业务判断目标一致，原生概率输出能力不同。','- 重复调用会受到服务端缓存影响，没有强行清除缓存或声称是冷缓存实验；DeepSeek 按本次空闲时段价格及实际缓存用量计费。成本与准确率均基于完整原始响应。','- 每篇内串行处理单项请求，同时处理 4 篇；这是固定并发下的工作流比较，不是单项请求任意并发后的极限吞吐测试。只进行两轮，服务波动仍可能影响时间差，失败不删去。','','## 数据与复核','','[原始数据来源](https://github.com/Franck-Dernoncourt/pubmed-rct) · [输入、问题及金标](inputs.jsonl) · [调用前固定的实验方案](protocol.json) · [每次真实响应](responses.jsonl) · [批次计时](blocks.jsonl) · [汇总](summary.json)','','[数据准备](../../../../scripts/prepare_paired_new.py) · [实际调用](../../../../scripts/run_paired_new.py) · [离线重算与核验](../../../../scripts/analyze_paired_new.py)','','摘要文本及标注沿用原数据来源的权利条件，仓库 MIT 许可不覆盖第三方原文。','']
  (BASE/'README.md').write_text('\n'.join(lines));print(json.dumps(summary,ensure_ascii=False))
 if __name__=='__main__':main()
