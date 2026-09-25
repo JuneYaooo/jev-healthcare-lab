@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -120,6 +120,662 @@
       },
       "occurrences": 1,
       "example_sample_id": "139"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品批发企业经营范围的变更",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2394"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：拟开办药品批发企业的企业名称审核",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2394"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品批发企业《药品经营许可证》的发证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2394"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品批发企业《药品经营许可证》的换证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2394"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品批发企业《药品经营许可证》的日常监督管理",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2394"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：总件数不足5件的，逐件取样",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5793"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：5-99件，随机抽5件取样",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5793"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：100-1000件，按5%比例取样",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5793"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：超过1000件，超过部分按1%比例取样",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5793"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：贵重药材和饮片，按10%比例取样",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5793"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：变质的",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4187"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：超过有效期的",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4187"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：擅自添加香料的",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4187"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：不注明生产批号的",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4187"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：国家药品监督管理部门规定禁止使用的",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4187"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：腭裂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:6289"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：耳聋",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:6289"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：横纹肌溶解",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:6289"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：皮疹及皮肤瘙痒",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:6289"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：中毒性表皮坏死溶解症",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:6289"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：一次性使用产品应注明“一次性使用”字样",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1849"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：在使用过程中，与其它产品相互产生干扰及其可能出现的危险性",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1849"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：产品注册号",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1849"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：执行的产品标准",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1849"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：产品预定功能及可能带来的副作用",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1849"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：救死扶伤，不辱使命",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:600"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：尊重患者，平等相待",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:600"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：依法执业，质量第一",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:600"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：进德修业，珍视声誉",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:600"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：尊重同仁，密切协作",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:600"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：麻醉药品、精神药品、医疗用毒性药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3322"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：放射性药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3322"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：生物制品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3322"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：中药材、中药饮片、中成药",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3322"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：化学原料药及其制剂、抗生素原料药及其制剂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3322"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：质量方针和目标管理",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品不良反应报告的有关规定",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品仓储保管、养护和出库复核的管理",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：特殊管理药品的管理",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：不合格药品和退货药品的管理",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4136"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：含抗菌药物、激素等成分的化学药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2156"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：中西药复方制剂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2156"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：儿童用药（非维生素、矿物质类）",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2156"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：含毒性药材的口服中成药",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2156"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：经营者收集、使用消费者个人信息应当遵循合法、正当、必要的原则，明示收集、使用信息的目的、方式和范围，并经消费者同意",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1218"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：经营者不得采用格式条款提请消费者注意商品或服务质量、价款、履行期限、安全注意事项和风险警示",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1218"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：经营者向消费者提供有关商品或服务质量、性能、用途、有效期限等信息，应当真实、全面，不得作虚假或引人误解的宣传",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1218"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：经营者应当保证其提供的商品或服务符合保障人身、财产安全的要求",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1218"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：应有合法票据",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:728"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：应建立购销记录，做到票、账、货相符",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:728"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：应建立购进记录，做到票、账、货相符",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:728"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：购进票据和记录应保存至超过药品有效期一年，但不得少于两年",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:728"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：购销票据和记录应保存至超过药品有效期一年，但不得少于三年",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:728"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：有奖销售日用品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5034"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：以折扣销售药品",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5034"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：宣传中药材产地",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5034"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：公开竞争对手的保健食品经营信息",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5034"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：因歇业降价销售鱼腥草",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:5034"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：应包括预防、诊断、治疗各类疾病的药物",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3754"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：品种应根据发展和需要不断补充和修订",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3754"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：根据国情以选择价格便宜的品种为主",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3754"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：品种以国产药品为主体",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3754"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：品种数以西药为主",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3754"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：省级药品监督管理部门制定的中药饮片炮制规范",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1063"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：省级药品监督管理部门制定的药品标准",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1063"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：省级卫生行政部门制定的药品标准",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1063"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：《中华人民共和国药典》",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1063"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：国务院药品监督管理部门颁布的药品标准",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:1063"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：警告",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3840"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：责令停产停业",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3840"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：较小数额罚款",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3840"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：较大数额罚款",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3840"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：吊销许可证",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:3840"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：未在规定时限内完成药品批准证明文件和药品监督管理部门要求的研究工作，且无合理理由的，不予再注册",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2626"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品注册证书有效期届满后，但未超过6个月提出再注册申请的，予以再注册",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2626"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品经上市后评价，属于疗效不确切、不良反应大或者因其他原因危害人体健康的，不予再注册",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2626"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：药品上市许可持有人应当在药品注册证书有效期届满前3个月申请再注册",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:2626"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：对陈列的药品按月进行检查",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4192"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：对陈列的药品按季度进行检查",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4192"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：销售的中药饮片应符合炮制规范，做到计量准确",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4192"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：对陈列的药品按品种、规格、剂量或用途分类",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4192"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：购进记录保存至超过饮片有效期1年，但不得少于2年",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "cmexam:ethics:4192"
     }
   ]
 }

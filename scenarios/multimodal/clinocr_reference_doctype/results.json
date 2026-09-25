@@ -1,21 +1,21 @@
 {
-  "planned": 20,
-  "successful": 20,
+  "planned": 24,
+  "successful": 24,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 20,
-    "accuracy": 0.95,
+    "n": 24,
+    "accuracy": 0.9583333333333334,
     "macro_f1_observed_gold_classes": 0.9538461538461539,
     "per_class": {
       "discharge": {
-        "support": 1,
+        "support": 2,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
       "lab": {
-        "support": 5,
+        "support": 6,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -27,13 +27,13 @@
         "f1": 0.8
       },
       "radiology": {
-        "support": 4,
+        "support": 5,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
       },
       "referral": {
-        "support": 1,
+        "support": 2,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -49,13 +49,13 @@
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
     "groups": 16,
-    "lower": 0.8235294117647058,
+    "lower": 0.85,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.03599999999999999,
-    "multiclass_brier_sum": 0.04632000000000001,
-    "brier_n": 20,
+    "ece10_selected_probability": 0.02999999999999997,
+    "multiclass_brier_sum": 0.0386,
+    "brier_n": 24,
     "bins": [
       {
         "lower": 0.6,
@@ -65,54 +65,54 @@
       },
       {
         "lower": 0.9,
-        "n": 19,
-        "mean_selected_probability": 0.9978947368421053,
+        "n": 23,
+        "mean_selected_probability": 0.9982608695652174,
         "accuracy": 1.0
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 19,
-          "coverage": 0.95,
+          "n": 23,
+          "coverage": 0.9583333333333334,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 19,
-          "coverage": 0.95,
+          "n": 23,
+          "coverage": 0.9583333333333334,
           "accuracy": 1.0
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 19,
-          "coverage": 0.95,
+          "n": 23,
+          "coverage": 0.9583333333333334,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 19,
-          "coverage": 0.95,
+          "n": 23,
+          "coverage": 0.9583333333333334,
           "accuracy": 1.0
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 19,
-          "coverage": 0.95,
+          "n": 23,
+          "coverage": 0.9583333333333334,
           "accuracy": 1.0
         },
         "by_probability_and_api_confidence": {
-          "n": 19,
-          "coverage": 0.95,
+          "n": 23,
+          "coverage": 0.9583333333333334,
           "accuracy": 1.0
         }
       }
     }
   },
-  "input_tokens": 17896,
-  "output_tokens": 1497,
+  "input_tokens": 21552,
+  "output_tokens": 1798,
   "latency_successful_api_p50_s": 0.6112457290000748,
-  "latency_successful_api_p95_s": 0.8335917500080541,
+  "latency_successful_api_p95_s": 0.9808292089728639,
   "per_indicator": {
     "handwriting": {
       "n": 1,
@@ -123,7 +123,7 @@
       "accuracy": 1.0
     },
     "normal": {
-      "n": 8,
+      "n": 12,
       "accuracy": 1.0
     },
     "poor": {

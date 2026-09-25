@@ -100,6 +100,229 @@
       },
       "occurrences": 1,
       "example_sample_id": "425"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "中药内服",
+          "B": "中药内服加外用",
+          "C": "中药外用",
+          "D": "手术切除",
+          "E": "以上均非"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:159"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "温肾健脾，化饮利水",
+          "B": "温肾补肺，化痰利水",
+          "C": "温脾补肺，化瘀利水",
+          "D": "温肺补肾，化瘀利水",
+          "E": "补肺纳气，化瘀平喘"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:81"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清心于神，养阴除烦",
+          "B": "养阴生津，除烦宁神",
+          "C": "清火除烦，宁心安神",
+          "D": "滋阴降火，养心安神",
+          "E": "滋阴宁心，镇惊安神"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:89"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "温肺化痰，纳气平喘",
+          "B": "温肺散寒，化痰平喘",
+          "C": "温肺散寒，止咳化痰\nD，温肺化痰，散寒解表",
+          "E": "散寒温脾，化痰平喘"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:79"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "温中健脾，行气利水",
+          "B": "温补脾肾，化气行水",
+          "C": "健脾益气，化气行水",
+          "D": "理气疏肝，化瘀利水",
+          "E": "健脾渗湿，行气利水"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:105"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "调理脾胃",
+          "B": "疏肝理气",
+          "C": "抑肝扶脾",
+          "D": "泻肝和胃",
+          "E": "疏肝和胃"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:98"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "健脾和胃，宁络止血",
+          "B": "和中宁络，凉血止血",
+          "C": "益气养阴，宁络止血",
+          "D": "健脾益气，摄血止血",
+          "E": "健脾升阳，化瘀止血"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:85"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清热疏风，化痰散结",
+          "B": "清热疏风，托里透脓",
+          "C": "清热疏风，泻火解毒",
+          "D": "清热疏风，利湿消肿",
+          "E": "滋阴清热，托里透脓"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:153"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清胃化痰止呃",
+          "B": "清热化湿降逆",
+          "C": "清热化瘀止呃",
+          "D": "清胃平肝降逆",
+          "E": "清降泻热止呃"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:97"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清热除湿，化瘀止痛",
+          "B": "行气活血，化瘀止痛",
+          "C": "疏肝理气，化瘀止痛",
+          "D": "凉血活血，化瘀止痛",
+          "E": "健脾利湿，化瘀止痛"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:283"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "宣肺化饮",
+          "B": "淡渗利水",
+          "C": "温脾化饮\nO.温化寒湿",
+          "E": "逐水化饮"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:83"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清热润燥，养肺生津",
+          "B": "清热利湿，通利筋脉",
+          "C": "泻南补北，滋阴清热",
+          "D": "补益肝肾，清热滋阴",
+          "E": "补益脾气，健运升清"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:117"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清热解毒，调气行血",
+          "B": "清热化湿，理气止痛",
+          "C": "清热凉血，和胃利湿",
+          "D": "清肠和胃，利湿解毒",
+          "E": "清胃利湿，和胃通降"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:99"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "内服黄连解毒汤",
+          "B": "内服普济消毒饮",
+          "C": "内服五味消毒饮",
+          "D": "外搽青吹口油膏",
+          "E": "外搽白玉膏"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:164"
+    },
+    {
+      "question": {
+        "criteria": {
+          "A": "清肝凉血，化瘀止血",
+          "B": "清利湿热，凉血止血",
+          "C": "清热泻火，凉血止血",
+          "D": "清心泻火，宁络止血",
+          "E": "清热生津，宁络止血"
+        },
+        "instructions": "根据病例选择治则治法的最佳选项。",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:single:86"
     }
   ]
 }

@@ -7,8 +7,8 @@
   "original_shard_sha256": {
     "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
   },
-  "sample_count": 20,
-  "groups": 3,
+  "sample_count": 37,
+  "groups": 20,
   "resources": [
     {
       "resource": "PriMock57",
@@ -21,20 +21,20 @@
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 44636,
-      "sha256": "5c4faae62c41c4280951acee31b33b2eff84cf45b9e0d87826c9bb263f56447d"
+      "bytes": 65988,
+      "sha256": "6db1a3e388537051f4b2d5c427273fa6e6e7c28ee4bfd981d403b73b34b23e16"
     },
     "responses.jsonl": {
-      "bytes": 8562,
-      "sha256": "5ca821964ab7ef073465bd6131a86d5fed79a4d7b547ff63db4209dc4d017f71"
+      "bytes": 16405,
+      "sha256": "3a2357da02eeea9895a4db10abbb17e24782806f6928365fa6257fa4f47b2623"
     },
     "index.jsonl": {
-      "bytes": 6241,
-      "sha256": "048c4fa9c434379213d32beaf3f60cae182c01f47cc856c488d81cde237e0f74"
+      "bytes": 11783,
+      "sha256": "b1b1ac46e1606929b943dae77a2e77dea97843fadf2567d4016458805405840f"
     },
     "prompts.json": {
-      "bytes": 7715,
-      "sha256": "c634607c20cb25cb498d1886a99246f0775d86860b2df463c9cc50fb2faab2b3"
+      "bytes": 14990,
+      "sha256": "dbb3cba2cfc697ecff3e25fcf7917273fe4b62912a19d288aa4c1e5a5bb82cda"
     },
     "example.json": {
       "bytes": 3468,
@@ -59,6 +59,34 @@
       "preparation": [
         "scripts/prepare_expansion.py",
         "scripts/prepare_media_expansion.py"
+      ]
+    },
+    {
+      "sample_ids": [
+        "minimum20:day1_consultation04",
+        "minimum20:day1_consultation05",
+        "minimum20:day1_consultation06",
+        "minimum20:day1_consultation07",
+        "minimum20:day1_consultation08",
+        "minimum20:day1_consultation09",
+        "minimum20:day1_consultation10",
+        "minimum20:day1_consultation11",
+        "minimum20:day1_consultation12",
+        "minimum20:day1_consultation13",
+        "minimum20:day1_consultation14",
+        "minimum20:day1_consultation15",
+        "minimum20:day2_consultation01",
+        "minimum20:day2_consultation02",
+        "minimum20:day2_consultation03",
+        "minimum20:day2_consultation04",
+        "minimum20:day2_consultation05"
+      ],
+      "sources": [
+        "PriMock57 original acted consultation; aligned excerpt; manually specified field question and gold evidenced by original reference before model calls"
+      ],
+      "preparation": [
+        "scripts/prepare_minimum_audio.py",
+        "scripts/prepare_minimum_cases.py"
       ]
     }
   ]

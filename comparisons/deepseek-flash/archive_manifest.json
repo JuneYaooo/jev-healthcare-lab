@@ -361,11 +361,11 @@
   },
   {
     "path": "scenarios/multimodal/primock_asr_fields/comparison/deepseek_responses.jsonl",
-    "sha256": "ef6ea843646927b05a470432aeda26f0715a079a76aab3f3c992498759e565ef"
+    "sha256": "bc1a7530fb17ccd5f2fc5779a6b55e318eff5fbb873942a7937ddbf7e041d91b"
   },
   {
     "path": "scenarios/multimodal/primock_asr_fields/comparison/results.json",
-    "sha256": "4268327ea03c96b3c9af162ba4411953ddb3a0edb1f32af7c30ab2aa77a9b0fe"
+    "sha256": "f4e91def8791865a1cdc7a253b1c518f873b0818e18b94e3e1f6d95f9bdfb50e"
   },
   {
     "path": "scenarios/records/imcs_ner_dictionary_pipeline/comparison/deepseek_responses.jsonl",
@@ -572,6 +572,14 @@
     "sha256": "e9c1d75e253eda0501fda2ec9580abf2166cac6e3b43dee8b4117678f0fd14c1"
   },
   {
+    "path": "scenarios/tcm/tcm_best_principles/comparison/deepseek_responses.jsonl",
+    "sha256": "7bfbba85bbc8e377a074f87d945fc38a37691899eabec030f57ea6c22f790d9e"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_principles/comparison/results.json",
+    "sha256": "560b53fea90db37f1c04be46e7babab376465a1c7c611423b58eeba9dfa2178f"
+  },
+  {
     "path": "scenarios/records/bioscope_sentence_cues/comparison/deepseek_responses.jsonl",
     "sha256": "42875570c05a1d9d1fdbcff2939b522206efa055aef077f7b9473c486593bcc7"
   },
@@ -613,11 +621,11 @@
   },
   {
     "path": "scenarios/multimodal/clinocr_reference_doctype/comparison/deepseek_responses.jsonl",
-    "sha256": "b4aef30f1f2be5fe40c5adeb17faed77240388fd37791834a4530b13f7ac6d27"
+    "sha256": "19f39d535351abf92d093be40b24327fbd78e705a4d4b898830cba4ea70af17d"
   },
   {
     "path": "scenarios/multimodal/clinocr_reference_doctype/comparison/results.json",
-    "sha256": "f22ea454d37e462fe0b611294ba21b0f567337178b7fb6680cf83c0f8db60dfa"
+    "sha256": "af4d12359148bce2b78dec7267f41123a5ef465330d37079e374c3876af0e258"
   },
   {
     "path": "scenarios/knowledge/medqa_en_test/comparison/deepseek_responses.jsonl",
@@ -676,6 +684,14 @@
     "sha256": "cea38aed780d03c08a5f5dd90af8717defa78cc00fc97b2b2442a9d69c97667c"
   },
   {
+    "path": "scenarios/tcm/tcm_best_ethics_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "1dab77014018f66f16da9f0b5b1172bee1f3d1ac67d206c8b538959e0387d42f"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_ethics_multi/comparison/results.json",
+    "sha256": "70e24b4b50ff1480fb323581e4679f80c96877d77d262f09b0c6be98db3ed3a1"
+  },
+  {
     "path": "scenarios/records/medmentions_type_oracle_span/comparison/deepseek_responses.jsonl",
     "sha256": "7b3d2ba63433b2a9d7798e312060e41f916ce77bf0435424ac3700e4f592e45e"
   },
@@ -701,11 +717,11 @@
   },
   {
     "path": "scenarios/multimodal/clinocr_ocr_doctype/comparison/deepseek_responses.jsonl",
-    "sha256": "b77e49a1a8b114cc23a6594a7b986e4cd67a55a1c2fe187da9d32fb77fb53ac5"
+    "sha256": "bb76db4d0b4ad910847e4a3ff098ac2793b5d2dc8a2251631c118b6826978457"
   },
   {
     "path": "scenarios/multimodal/clinocr_ocr_doctype/comparison/results.json",
-    "sha256": "91cd71ea187c15b28944033db02d0c96142ee255b71b69d64bfdab169b9fee3d"
+    "sha256": "4f5053cc333f4fe786cf2fa941f4d46d96ca117c1e5aab32ba96c1b4ccc1fcbf"
   },
   {
     "path": "scenarios/evidence/challenge_evidence_support/comparison/deepseek_responses.jsonl",
@@ -772,12 +788,28 @@
     "sha256": "faafc3ab41f72c109b6198ce850c7c69a3ff172f9545b2b14f850579753e4552"
   },
   {
+    "path": "scenarios/multimodal/primock_reference_fields/comparison/deepseek_responses.jsonl",
+    "sha256": "a64e70e46d953b26a7e44ebb5f43b0ca08e7d76724a784e5d42ff9d6ecf5d0db"
+  },
+  {
+    "path": "scenarios/multimodal/primock_reference_fields/comparison/results.json",
+    "sha256": "09e4dc56f17ef6cb6d74efc4a07ed9fc06cb2e04161021d41b4eb13ad48e853b"
+  },
+  {
     "path": "scenarios/calculators/challenge_lab_link/comparison/deepseek_responses.jsonl",
     "sha256": "b35a976aa8aee8bbd6753dea3d2d031d8dd747aa2ab27d6c216539ad6b8693a2"
   },
   {
     "path": "scenarios/calculators/challenge_lab_link/comparison/results.json",
     "sha256": "511cfa481f24160fa53f3630a948240c345db22799432c6b3dfd667acc67bc44"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_nature_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "2cd42eb8af5958afc2e70e8dfccea176b27bc564a0cba61bc9ba9479b2fd0f3c"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_nature_multi/comparison/results.json",
+    "sha256": "4adae6ad44609d30fa76c5a4def0bf1a4f671e93c817c85fec684b0b67e13729"
   },
   {
     "path": "scenarios/records/medal_demo_disambiguation/comparison/deepseek_responses.jsonl",
@@ -848,20 +880,20 @@
     "sha256": "afc1782d27d98a5ac29f75daf212663cc4ff0707c6817094e8af6bd0bc5f4941"
   },
   {
+    "path": "scenarios/tcm/tcm_best_knowledge_multi/comparison/deepseek_responses.jsonl",
+    "sha256": "d105cb5c19daaa4357fc52e5792355ec4532ff8e6915c4545a860d5411b2dccd"
+  },
+  {
+    "path": "scenarios/tcm/tcm_best_knowledge_multi/comparison/results.json",
+    "sha256": "0ae1395ff07be226d158129e89cf8c2a6056e72331764f18acaa68edf6ebef25"
+  },
+  {
     "path": "scenarios/quality/challenge_contradiction/comparison/deepseek_responses.jsonl",
     "sha256": "5677016c73e885afeea201c6f0417c865afff4d761b8ac41b497481de85c5090"
   },
   {
     "path": "scenarios/quality/challenge_contradiction/comparison/results.json",
     "sha256": "cbc3692d69ddfbed39741ccd9742c271d52c8f99b92a0c423211f9baa318eb5c"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_principles/comparison/deepseek_responses.jsonl",
-    "sha256": "6417b5abc572b19cb51f02951f60b03c48253cfbc312949e35b4d7110fe91d25"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_principles/comparison/results.json",
-    "sha256": "d61d30046c1ba33d33539646a9fd280bcab85b65850bfdf4a00492225e72449a"
   },
   {
     "path": "scenarios/records/challenge_relative_date/comparison/deepseek_responses.jsonl",
@@ -900,14 +932,6 @@
     "sha256": "428c24c222cf987f2a4971a2bd11336f24ef3805da25c6ae8db85c5a303a750c"
   },
   {
-    "path": "scenarios/tcm/tcm_best_knowledge_multi/comparison/deepseek_responses.jsonl",
-    "sha256": "6e733b6f711eb955cb49add375e17c6266f2579a9456ce65d692da7bedad9b54"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_knowledge_multi/comparison/results.json",
-    "sha256": "c521dcedbd29114ea27f10d6e9641e45b7fa2e02cc226d5316b665b3bbee6584"
-  },
-  {
     "path": "scenarios/records/challenge_mixed_language/comparison/deepseek_responses.jsonl",
     "sha256": "3ddb2c5839b1bee0ea84ead3987d0322fa414f3cd1367b7ff699090c883b4581"
   },
@@ -922,29 +946,5 @@
   {
     "path": "scenarios/quality/challenge_phi_candidate/comparison/results.json",
     "sha256": "f6f291b62c15fd63d5bfff11b0f2498febf5890c00e8376507f08590c6d32c8b"
-  },
-  {
-    "path": "scenarios/multimodal/primock_reference_fields/comparison/deepseek_responses.jsonl",
-    "sha256": "803d469aa5d14da05ed2bcb6a64ca98e6fff85b621bb30a59344c7b03fb0263b"
-  },
-  {
-    "path": "scenarios/multimodal/primock_reference_fields/comparison/results.json",
-    "sha256": "e6fd5227a99777d3922dbeb8338e86cbec96fb85f3a75ba55ecc13ac0f87ab42"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_ethics_multi/comparison/deepseek_responses.jsonl",
-    "sha256": "6feb701980d05f52400e9c8d7417b6ebc8c5e4bb7452c078dd4b5a04b613c503"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_ethics_multi/comparison/results.json",
-    "sha256": "50c9607d6b30be7f7a30c72044be336c72eb739a85f1fb10781cb7e3897a08c5"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_nature_multi/comparison/deepseek_responses.jsonl",
-    "sha256": "b6eb1d080d29a368e08889391191a02f934469a62fed70b161b49b196a5a2c06"
-  },
-  {
-    "path": "scenarios/tcm/tcm_best_nature_multi/comparison/results.json",
-    "sha256": "edea92a4bca1d925227185d6db002fba69b1d3c1f180829209ac5abf8a525234"
   }
 ]

@@ -81,3 +81,7 @@
 - official publisher HF converted test mirrored via hf-mirror,100 paired claims; main_text is a fact-check article not independent raw evidence; explanation excluded; historical labels not current clinical guidance
 
 原准备分片：`pubhealth_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

@@ -79,3 +79,7 @@
 - adapted binary gate; 100 original unanswerable +100 original answerable; not original numerical score
 
 原准备分片：`extended_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

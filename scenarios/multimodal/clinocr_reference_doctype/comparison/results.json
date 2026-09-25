@@ -2,23 +2,23 @@
   "title": "参考文本医疗文档类型识别",
   "scene": "multimodal",
   "synthetic": false,
-  "planned": 20,
-  "compared": 20,
+  "planned": 24,
+  "compared": 24,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 20,
-      "accuracy": 0.95,
+      "n": 24,
+      "accuracy": 0.9583333333333334,
       "macro_f1_observed_gold_classes": 0.9538461538461539,
       "per_class": {
         "discharge": {
-          "support": 1,
+          "support": 2,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "lab": {
-          "support": 5,
+          "support": 6,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -30,13 +30,13 @@
           "f1": 0.8
         },
         "radiology": {
-          "support": 4,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "referral": {
-          "support": 1,
+          "support": 2,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -50,23 +50,23 @@
       }
     },
     "latency_median_s": 0.6112457290000748,
-    "cost_usd": 0.0007516320000000001,
-    "cost_per_1000_usd": 0.03758160000000001
+    "cost_usd": 0.0009051840000000002,
+    "cost_per_1000_usd": 0.037716000000000006
   },
   "deepseek": {
     "quality": {
-      "n": 20,
-      "accuracy": 0.95,
+      "n": 24,
+      "accuracy": 0.9583333333333334,
       "macro_f1_observed_gold_classes": 0.9538461538461539,
       "per_class": {
         "discharge": {
-          "support": 1,
+          "support": 2,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "lab": {
-          "support": 5,
+          "support": 6,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -78,13 +78,13 @@
           "f1": 0.8
         },
         "radiology": {
-          "support": 4,
+          "support": 5,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "referral": {
-          "support": 1,
+          "support": 2,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -97,9 +97,9 @@
         }
       }
     },
-    "latency_median_s": 0.5432824165036436,
-    "cost_usd": 0.001576572,
-    "cost_per_1000_usd": 0.0788286,
+    "latency_median_s": 0.5310063960205298,
+    "cost_usd": 0.0019555080000000003,
+    "cost_per_1000_usd": 0.08147950000000002,
     "prior_attempts": 0
   }
 }

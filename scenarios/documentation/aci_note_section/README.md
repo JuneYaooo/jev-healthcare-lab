@@ -81,3 +81,7 @@ ACI-Bench test1 参考病历中抽取 100 个已分段章节；输入章节文�
 - ACI-Bench test1 reference sections; given section boundaries; not note generation or factual quality
 
 原准备分片：`clinical_extra_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

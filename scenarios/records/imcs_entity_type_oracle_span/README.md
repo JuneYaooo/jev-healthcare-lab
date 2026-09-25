@@ -82,3 +82,7 @@
 - given_gold_span; not end-to-end extraction
 
 原准备分片：`prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

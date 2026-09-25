@@ -220,3 +220,7 @@
 - first100 published toy rows; full-demo expansion vocabulary, not held-out full MedAL performance
 
 原准备分片：`evidence_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

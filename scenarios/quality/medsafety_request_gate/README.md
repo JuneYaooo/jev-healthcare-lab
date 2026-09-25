@@ -79,3 +79,7 @@ MedSafety 官方 test 有害请求 100 条，加 MedQuAD 普通信息／症状�
 - MedSafetyBench official test harmful requests+MedQuAD normal questions; source-derived negative labels, domain/source confounding, not response safety benchmark
 
 原准备分片：`final_tasks_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

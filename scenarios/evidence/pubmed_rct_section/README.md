@@ -85,5 +85,6 @@
 
 ## 关联实验
 
+- [逐案例输入片段、成绩与来源分组](cases.md)
 - [新增材料与逐案例对照](paired-expanded/README.md)
 - [新材料逐项与多项合并处理对照](paired-new/README.md)

@@ -4,16 +4,16 @@
 
 | 记录数 | 来源 group 数 | API 响应 | 程序空预测 | 指标 | 结果 |
 | ---: | ---: | ---: | ---: | --- | ---: |
-| 20 | 16 | 20 | 0 | Accuracy | **95.0%** |
+| 24 | 16 | 24 | 0 | Accuracy | **95.8%** |
 
 ## 和 DeepSeek 同题比较
 
 | 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
 | --- | ---: | ---: |
-| Accuracy | 95.0% | 95.0% |
+| Accuracy | 95.8% | 95.8% |
 | 最终未能按要求作答 | 0 | 0 |
-| 成功请求典型等待（中位数） | 0.61 秒 | 0.54 秒 |
-| 每千条 API 费用估算 | $0.038 | $0.079 |
+| 成功请求典型等待（中位数） | 0.61 秒 | 0.53 秒 |
+| 每千条 API 费用估算 | $0.038 | $0.081 |
 
 同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
 
@@ -21,7 +21,7 @@
 
 ## Jev 如何评测
 
-共 20 张公开 ClinOCR-Bench 扫描图，覆盖 16 个文档模板：保留原来的 6 张失真样本，另从 normal/tables 官方测试分片选取此前未覆盖的 14 个模板各一张。使用 Tesseract English --psm 3 实际识别，并以参考文本作为对照。文档类型金标按参考文档主要用途人工映射；补充题明确将病理报告归入 lab、术后离院指导归入 discharge、其他病史表/临床记录归入 unknown。扫描图及参考、OCR 文本全部保留；不同扫描版本不等于独立患者。
+共 20 张公开 ClinOCR-Bench 扫描图，覆盖 16 个文档模板：保留原来的 6 张失真样本，另从 normal/tables 官方测试分片选取此前未覆盖的 14 个模板各一张。使用 Tesseract English --psm 3 实际识别，并以参考文本作为对照。文档类型金标按参考文档主要用途人工映射；补充题明确将病理报告归入 lab、术后离院指导归入 discharge、其他病史表/临床记录归入 unknown。扫描图及参考、OCR 文本全部保留；不同扫描版本不等于独立患者。 补充 4 份不同源文档，使源文档达到 20 份；同一文档的不同扫描变体不重复计为独立案例。
 
 实际模型为 `jev-1.13.0`。16 个 group 是数据源分组标识，不能直接当作独立患者数。
 
@@ -30,7 +30,7 @@
 ### 输入与问题结构
 
 - 输入字段：`完整文本字符串`。
-- 问题类型与总数：`choice` 20 个。
+- 问题类型与总数：`choice` 24 个。
 - 去重后的完整问题对象：2 种，见 [prompts.json](prompts.json)，包含原文提示词及实际选项。
 
 ### 实际提示词
@@ -57,7 +57,7 @@
 
 读取 response.answers.decision.choice，与 gold 做精确标签比较。Accuracy = 标签正确记录数 / 全部计分记录数；不同病例的多个字段或配对条件不合并成独立患者。
 
-金标分布：`discharge`：1，`lab`：5，`medication_list`：2，`radiology`：4，`referral`：1，`unknown`：7。
+金标分布：`discharge`：2，`lab`：6，`medication_list`：2，`radiology`：5，`referral`：2，`unknown`：7。
 
 ## 数据与实验记录
 
@@ -81,9 +81,14 @@
 
 原始适配元数据：
 
+- ClinOCR-Bench official distinct scan; purpose mapped from original reference
 - ClinOCR-Bench official test, one additional scan for each previously unrepresented template; doc-type gold manually mapped from reference purpose
 - one eval doc per artifact; manually derived doc-type gold from reference; not full OCR benchmark
 
 原准备分片：`final_tasks_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)
 
 配对实验与原始扫描图：[OCR 条件](../clinocr_ocr_doctype/README.md)。

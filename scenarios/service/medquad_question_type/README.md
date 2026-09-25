@@ -89,3 +89,7 @@
 - public MedQuAD question metadata; top12 types; not answer accuracy
 
 原准备分片：`clinical_extra_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

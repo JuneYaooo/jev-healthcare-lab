@@ -82,3 +82,7 @@
 - MedMCQA released cop is one answer index even when choice_type says multi; scored as published MCQ, not multiselect
 
 原准备分片：`last_datasets_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

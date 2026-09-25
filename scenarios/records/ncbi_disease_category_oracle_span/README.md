@@ -81,3 +81,7 @@ NCBI 官方 test 抽取 100 个标注实体；输入摘要和 mention，Choice �
 - NCBI Disease official test, given span; not disease detection or normalization
 
 原准备分片：`evidence_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

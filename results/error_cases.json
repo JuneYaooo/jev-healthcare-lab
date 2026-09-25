@@ -8739,6 +8739,24 @@
     "synthetic_challenge": false
   },
   {
+    "task": "primock_asr_fields",
+    "id": "minimum20:day1_consultation05",
+    "gold": "lower",
+    "prediction": "unknown",
+    "selected_probability": 1.0,
+    "confidence": 1.0,
+    "synthetic_challenge": false
+  },
+  {
+    "task": "primock_asr_fields",
+    "id": "minimum20:day1_consultation09",
+    "gold": "urinating",
+    "prediction": "unknown",
+    "selected_probability": 1.0,
+    "confidence": 1.0,
+    "synthetic_challenge": false
+  },
+  {
     "task": "pubhealth_claim_only",
     "id": "25662",
     "gold": "0",
@@ -10833,6 +10851,24 @@
     "prediction": "B",
     "selected_probability": 0.94,
     "confidence": 0.92,
+    "synthetic_challenge": false
+  },
+  {
+    "task": "tcm_best_principles",
+    "id": "tcmqa:single:153",
+    "gold": "A",
+    "prediction": "B",
+    "selected_probability": 0.92,
+    "confidence": 0.9,
+    "synthetic_challenge": false
+  },
+  {
+    "task": "tcm_best_principles",
+    "id": "tcmqa:single:86",
+    "gold": "C",
+    "prediction": "D",
+    "selected_probability": 0.95,
+    "confidence": 0.93,
     "synthetic_challenge": false
   },
   {

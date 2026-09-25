@@ -1,10 +1,10 @@
 {
   "scenarios": 12,
   "main_tasks": 96,
-  "main_rows": 7032,
+  "main_rows": 7133,
   "robustness_variants": 15,
   "robustness_rows": 300,
-  "verified_request_response_pairs": 7332,
+  "verified_request_response_pairs": 7433,
   "original_index": "results/evaluation_index.jsonl",
   "raw_scope": "Actual text inputs, labels, prompts and real model responses; selected upstream ASR audio excerpts and OCR scans. Not the full source datasets."
 }

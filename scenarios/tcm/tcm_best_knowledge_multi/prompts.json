@@ -1,5 +1,5 @@
 {
-  "origin": "Exact question objects from the archived requests; no rewritten prompts.",
+  "origin": "Exact question objects from archived requests.",
   "variants": [
     {
       "question": {
@@ -360,6 +360,366 @@
       },
       "occurrences": 1,
       "example_sample_id": "100"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：脾胃阳虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:113"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：胃阴不足",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:113"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：肝气犯胃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:113"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：肝胃郁热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:113"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：瘀阻胃络",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:113"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：语声高亢",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:36"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：呼吸微弱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:36"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：语音低怯",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:36"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：呼吸气粗",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:36"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：呼吸有力",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:36"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：心",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:18"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：肝",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:18"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：脾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:18"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：肺",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:18"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：肾",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:18"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：调节精神情志",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:55"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：促进消化吸收",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:55"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：维持气血运行",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:55"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：协助水液代谢",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:55"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：调理冲任二脉",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:55"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：湿热",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:123"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：食滞",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:123"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：寒湿",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:123"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：肾阳虚衰",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:123"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：脾胃虚弱",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:123"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：年高肾虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：情志不遂",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：饮食不节",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：病后体虚",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：跌仆损伤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:92"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：传染性强，易于流行",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:25"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：发病急骤，病情危笃",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:25"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：一气一病，症状相似",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:25"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：转化性",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:25"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：地区性",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:25"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：桂枝甘草龙骨牡蛎汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:82"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：独参汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:82"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：参附汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:82"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：真武汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:82"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：栝蒌薤白半夏汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:82"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：生脉散",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：天王补心丹",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：血府逐瘀汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：人参养营汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:88"
+    },
+    {
+      "question": {
+        "instructions": "判断该候选是否为此多选题的正确答案。 候选：瓜蒌薤白半夏汤",
+        "type": "noul"
+      },
+      "occurrences": 1,
+      "example_sample_id": "tcmqa:multi:88"
     }
   ]
 }

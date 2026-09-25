@@ -80,4 +80,8 @@
 
 原准备分片：`clinical_extra_prepared.jsonl`。
 
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)
+
 配对实验：[身高 + 体重 + BMI 公式](../bmi_weight_selection/hybrid.json)。

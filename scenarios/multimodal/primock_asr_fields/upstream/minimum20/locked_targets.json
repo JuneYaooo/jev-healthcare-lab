@@ -1,0 +1,307 @@
+[
+  {
+    "case": "day1_consultation04",
+    "question": "How long has the patient felt unwell?",
+    "choices": {
+      "four_days": "Four days",
+      "two_weeks": "Two weeks",
+      "one_month": "One month",
+      "unknown": "Not stated"
+    },
+    "gold": "four_days",
+    "gold_evidence": "past four days",
+    "excerpt_seconds": [
+      5,
+      25
+    ],
+    "reference": "Alright, so I've been feeling, I've been feeling kind of uh under the weather for the past four days. Um it started with the um, uh sore throat and runny nose, and",
+    "textgrid_sha256": "012ba2cc6ed1494913037fafc7f787d9cafa8c1420e011c7ec9ec1f2181813fc"
+  },
+  {
+    "case": "day1_consultation05",
+    "question": "Where is the abdominal pain located?",
+    "choices": {
+      "lower": "Lower abdomen below the belly button",
+      "upper": "Upper abdomen",
+      "chest": "Chest",
+      "unknown": "Not stated"
+    },
+    "gold": "lower",
+    "gold_evidence": "below my belly button",
+    "excerpt_seconds": [
+      31,
+      51
+    ],
+    "reference": "Uh, like below my belly button, it's like quite, sore when I press on it.",
+    "textgrid_sha256": "0c015d45b7dcda76580e765301064ccefabe8ea7d6850bded2d2283b76b51cbe"
+  },
+  {
+    "case": "day1_consultation06",
+    "question": "Which existing condition does the patient mention?",
+    "choices": {
+      "heart_failure": "Heart failure",
+      "asthma": "Asthma",
+      "diabetes": "Diabetes",
+      "unknown": "Not stated"
+    },
+    "gold": "heart_failure",
+    "gold_evidence": "heart failure",
+    "excerpt_seconds": [
+      55,
+      75
+    ],
+    "reference": "Um, well, I've, I've uh, I've got um, heart failure. Uh, I was told that, uh, a while ago.",
+    "textgrid_sha256": "59c6411e37bd4b2366293ef9881c037af7138d4e58d34ab060114a3187e0ab08"
+  },
+  {
+    "case": "day1_consultation07",
+    "question": "How is the cough described?",
+    "choices": {
+      "dry": "Mostly dry",
+      "productive": "Producing large amounts of sputum",
+      "absent": "No cough",
+      "unknown": "Not stated"
+    },
+    "gold": "dry",
+    "gold_evidence": "fairly dry",
+    "excerpt_seconds": [
+      51,
+      73
+    ],
+    "reference": "Uh, yeah, yeah, mean, mostly, dry it's a , you know it's a wee bit in the morning it's a bit worse uh, but , and you know it's, it's fairly, fairly dry, aye.",
+    "textgrid_sha256": "5d84b563fce8fdd9fc40691aaeaece9724612381227e1c1272e0dd2466d4a8c3"
+  },
+  {
+    "case": "day1_consultation08",
+    "question": "Where is the itchy skin mainly located?",
+    "choices": {
+      "arms_hands": "Arms and hands",
+      "legs_feet": "Legs and feet",
+      "face": "Face only",
+      "unknown": "Not stated"
+    },
+    "gold": "arms_hands",
+    "gold_evidence": "my arms",
+    "excerpt_seconds": [
+      36,
+      56
+    ],
+    "reference": "All over my arms, um, and my hands mainly. Uh, no. Never had .",
+    "textgrid_sha256": "eb5e6f5e75c738e05103efa8c1c0c6793446c0334b21c23e210a1c079023e445"
+  },
+  {
+    "case": "day1_consultation09",
+    "question": "Which action causes the reported stinging pain?",
+    "choices": {
+      "urinating": "Urinating",
+      "swallowing": "Swallowing",
+      "walking": "Walking",
+      "unknown": "Not stated"
+    },
+    "gold": "urinating",
+    "gold_evidence": "stinging kind of pain",
+    "excerpt_seconds": [
+      42,
+      62
+    ],
+    "reference": "Um, it's, it's not too bad, it's sort of like a stinging kind of pain. Um. It's not like unbearable, but uh, it's , it's definitely uh, it definitely bothers me when I pee. Um.",
+    "textgrid_sha256": "9cd4163e76fde7ccaac92dd22c4f0329a3eaf30fd6a3df90a34965fa928eb4c5"
+  },
+  {
+    "case": "day1_consultation10",
+    "question": "What is the corrected duration of the urinary symptoms?",
+    "choices": {
+      "under_week": "Just under a week",
+      "one_day": "One day",
+      "one_month": "One month",
+      "unknown": "Not stated"
+    },
+    "gold": "under_week",
+    "gold_evidence": "just under a week",
+    "excerpt_seconds": [
+      53,
+      73
+    ],
+    "reference": "Uh, yeah it's been going on for a little bit longer than three days I think actually, maybe just under a week. Um. Sorry no I  didn't explain it properly before, um yeah no I it's been going on for about just under a week.",
+    "textgrid_sha256": "52eff9121eac66bd6ae82bbde724da479b94339865f2850bc5918909fbd217b5"
+  },
+  {
+    "case": "day1_consultation11",
+    "question": "How is the stool consistency described?",
+    "choices": {
+      "watery": "Very watery",
+      "hard": "Hard",
+      "normal": "Normal formed stool",
+      "unknown": "Not stated"
+    },
+    "gold": "watery",
+    "gold_evidence": "super watery",
+    "excerpt_seconds": [
+      41,
+      66
+    ],
+    "reference": "It's all come from like, uh it's like basically I think it's diarrhoea. And it's like just coming out, like loads of it. Like I go to the toilet and it's just super watery and it",
+    "textgrid_sha256": "3c9855e84d78388cabf8baf4727ea2846520febcf5ae11918f4d35662c95e7b5"
+  },
+  {
+    "case": "day1_consultation12",
+    "question": "How often does the patient report diarrhoea?",
+    "choices": {
+      "five_six": "Five to six times a day",
+      "once_week": "Once a week",
+      "once_day": "Once a day",
+      "unknown": "Not stated"
+    },
+    "gold": "five_six",
+    "gold_evidence": "five to six times a day",
+    "excerpt_seconds": [
+      68,
+      88
+    ],
+    "reference": "Yeah, around, five to six times a day.",
+    "textgrid_sha256": "b3b7cf34b4213848c374600a067c254f9737e9ce1a2d0dcaf49bb9ff226c8bef"
+  },
+  {
+    "case": "day1_consultation13",
+    "question": "Where is the headache mainly located?",
+    "choices": {
+      "right_eye": "Around the right eye",
+      "left_eye": "Around the left eye",
+      "back": "Only the back of the head",
+      "unknown": "Not stated"
+    },
+    "gold": "right_eye",
+    "gold_evidence": "right eye",
+    "excerpt_seconds": [
+      37,
+      60
+    ],
+    "reference": "Um, it's basically like, it kind of feels all over my head, but like mainly, um, around my right eye. Um",
+    "textgrid_sha256": "5268232bd1bb8d95e88a0e0a78087c6be9b19407658af91858868e069dad627b"
+  },
+  {
+    "case": "day1_consultation14",
+    "question": "For approximately how long has the cough been present?",
+    "choices": {
+      "five_six_days": "Five or six days",
+      "one_day": "One day",
+      "one_month": "One month",
+      "unknown": "Not stated"
+    },
+    "gold": "five_six_days",
+    "gold_evidence": "five or six days",
+    "excerpt_seconds": [
+      23,
+      43
+    ],
+    "reference": "Uh I think it started like maybe, a bit less than a week ago. Like maybe, maybe five or six days ago.",
+    "textgrid_sha256": "ad5c980f169e5d48b163a09f4d955c22f3a5afb39aa1adaff49fc2dbfee9c8c8"
+  },
+  {
+    "case": "day1_consultation15",
+    "question": "Which area is most severely affected by cracked dry skin?",
+    "choices": {
+      "hands": "Hands",
+      "face": "Face",
+      "legs": "Legs",
+      "unknown": "Not stated"
+    },
+    "gold": "hands",
+    "gold_evidence": "bad in my hands",
+    "excerpt_seconds": [
+      57,
+      77
+    ],
+    "reference": "Yeah. Like it's very, it's very bad in my hands.",
+    "textgrid_sha256": "bf4918120428aadc2714a16c1eef6cd351072a6a4ac800fad5d7d0b6224c715b"
+  },
+  {
+    "case": "day2_consultation01",
+    "question": "Which ear is affected?",
+    "choices": {
+      "left": "Left ear",
+      "right": "Right ear",
+      "both": "Both ears",
+      "unknown": "Not stated"
+    },
+    "gold": "left",
+    "gold_evidence": "left ear",
+    "excerpt_seconds": [
+      60,
+      80
+    ],
+    "reference": "Um, I  occasionally get like a ringing in my left ear, uh just on the one side and um there's actually been a few times when I felt kind of a bit sick or a bit dizzy as well.",
+    "textgrid_sha256": "c116d3285d9ef632d1cd2d20aeed162978cf6416e185558a2f5a02ea07e04da1"
+  },
+  {
+    "case": "day2_consultation02",
+    "question": "Is the elbow swelling painful?",
+    "choices": {
+      "no": "No, explicitly not painful",
+      "yes": "Yes",
+      "unknown": "Not stated"
+    },
+    "gold": "no",
+    "gold_evidence": "not painful at all",
+    "excerpt_seconds": [
+      40,
+      60
+    ],
+    "reference": "It's not painful at all, or like, I  I feel fine. But it's just, just a bit, a bit weird, to see that.",
+    "textgrid_sha256": "289fba3dcbb9ce74e832a4e96eba5be7104c219178b9413c23ea596ab3155faa"
+  },
+  {
+    "case": "day2_consultation03",
+    "question": "Which side has reduced hearing?",
+    "choices": {
+      "left": "Left side",
+      "right": "Right side",
+      "both": "Both sides",
+      "unknown": "Not stated"
+    },
+    "gold": "left",
+    "gold_evidence": "left side",
+    "excerpt_seconds": [
+      54,
+      74
+    ],
+    "reference": "Just one side, just on my left side, I've noticed that the hearing's kind of gone down a bit.",
+    "textgrid_sha256": "64a0237933be893f2314534a05c4f2a5f3f39d1e606cf5b920a443460ef06de9"
+  },
+  {
+    "case": "day2_consultation04",
+    "question": "How often has the patient coughed up blood?",
+    "choices": {
+      "twice": "On two occasions",
+      "once": "Once",
+      "never": "Never",
+      "unknown": "Not stated"
+    },
+    "gold": "twice",
+    "gold_evidence": "two occasions",
+    "excerpt_seconds": [
+      64,
+      84
+    ],
+    "reference": "Um, well I've had a , I've got a bit of slight fever, um, and, and, uh, well like, I coughed up a bit of blood on, on two occasions.  what that means.",
+    "textgrid_sha256": "1b34136477b0fa6cc1bd4eb6336ef26a3adae95e89afc428d8d40576f8356ba7"
+  },
+  {
+    "case": "day2_consultation05",
+    "question": "Which hand has the reported altered sensation?",
+    "choices": {
+      "right": "Right hand",
+      "left": "Left hand",
+      "both": "Both hands",
+      "unknown": "Not stated"
+    },
+    "gold": "right",
+    "gold_evidence": "My right hand",
+    "excerpt_seconds": [
+      82,
+      102
+    ],
+    "reference": "Yeah, that's correct. My right hand. Yes.",
+    "textgrid_sha256": "9d9d829fe9a82c5f4a542bf18d653435951b44be67b9b3afe88d663b04245266"
+  }
+]

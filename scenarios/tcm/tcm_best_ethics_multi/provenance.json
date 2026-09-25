@@ -7,8 +7,8 @@
   "original_shard_sha256": {
     "additional_prepared.jsonl": "8c9f86cd8f7d41d867a17f19fd45a538acb7e3dac82ab973ce70ea9353d6a5a7"
   },
-  "sample_count": 3,
-  "groups": 3,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [
     {
       "resource": "TCM-BEST4SDT",
@@ -21,24 +21,53 @@
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 3260,
-      "sha256": "c4dc20831448af52789a45dec6b6801a497c0b7614313952a2a5095e861d4ca0"
+      "bytes": 27176,
+      "sha256": "b41943508a79baa938e06cadb34dc049dd40bb1ad273404a316b1c4282d82305"
     },
     "responses.jsonl": {
-      "bytes": 1408,
-      "sha256": "dfaaa47ebf60f22d801039ebe9ddd5187145c99bb56dd0f24bb6258d5ee27a64"
+      "bytes": 9531,
+      "sha256": "99afece20e18685ff3c96a59f8a53176d14f747316151c6eca770fca001be468"
     },
     "index.jsonl": {
-      "bytes": 861,
-      "sha256": "9ad69557540100fc6a1e5f6ec30ae86a06baeafda4c71d5a45b46783da07c148"
+      "bytes": 6246,
+      "sha256": "fbc383127d14ccac9acd3ce9d00a264b4b9d93945c6a897f4c06ce04158f4961"
     },
     "prompts.json": {
-      "bytes": 3783,
-      "sha256": "0b8e99c40a91f470c7738b267c59446faa10b7af63e1f2f56fe31a5be1288b46"
+      "bytes": 26271,
+      "sha256": "b53bc888a9e87672e65d25afb0c0c4c5bab84d4e5a206d8720347df2038cf05c"
     },
     "example.json": {
       "bytes": 2029,
       "sha256": "1ea46ae9d19ce4141dc46f4f4cc0e521f9becd9fc5fbc0df3e27f964e70f9f45"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "cmexam:ethics:2394",
+        "cmexam:ethics:5793",
+        "cmexam:ethics:4187",
+        "cmexam:ethics:6289",
+        "cmexam:ethics:1849",
+        "cmexam:ethics:600",
+        "cmexam:ethics:3322",
+        "cmexam:ethics:4136",
+        "cmexam:ethics:2156",
+        "cmexam:ethics:1218",
+        "cmexam:ethics:728",
+        "cmexam:ethics:5034",
+        "cmexam:ethics:3754",
+        "cmexam:ethics:1063",
+        "cmexam:ethics:3840",
+        "cmexam:ethics:2626",
+        "cmexam:ethics:4192"
+      ],
+      "sources": [
+        "CMExam official test; original public-health law and ethics category; published exam answer, not current legal guidance"
+      ],
+      "preparation": [
+        "scripts/prepare_minimum_cases.py"
+      ]
+    }
+  ]
 }

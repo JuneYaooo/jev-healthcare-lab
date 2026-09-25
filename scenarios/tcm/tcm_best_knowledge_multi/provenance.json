@@ -7,8 +7,8 @@
   "original_shard_sha256": {
     "additional_prepared.jsonl": "8c9f86cd8f7d41d867a17f19fd45a538acb7e3dac82ab973ce70ea9353d6a5a7"
   },
-  "sample_count": 11,
-  "groups": 11,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [
     {
       "resource": "TCM-BEST4SDT",
@@ -21,24 +21,45 @@
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 10446,
-      "sha256": "11b8643af2db356563cc97c3f33c18f9d8dafccb95bee5f6a22d685a38fbf05c"
+      "bytes": 21217,
+      "sha256": "a78c71cc5d1956fe50061b5bcc78d16910c34b2ca280c99252820a9149b6eb27"
     },
     "responses.jsonl": {
-      "bytes": 5186,
-      "sha256": "a1006d079e9afe401567a373ef281b51e95eb2d6349a41cfad2759c624e776b1"
+      "bytes": 9540,
+      "sha256": "94e0c22a868f2562db62a3f735603fc9c5f5e13461c60931b3c0435e1a650dd6"
     },
     "index.jsonl": {
-      "bytes": 3170,
-      "sha256": "b0da809719297764ab11d7f69e7ec0c1553158e724ed041c1a5edcff4634d6b2"
+      "bytes": 5982,
+      "sha256": "71141e1a78bf6cb56e24da1a861c233b077b185ce5dcdf9ce0ab2be7e702537c"
     },
     "prompts.json": {
-      "bytes": 10227,
-      "sha256": "2541b693c2dc2a4821e43f1500ca2718be6241ad53dd3328788ca17ec1a4c937"
+      "bytes": 20912,
+      "sha256": "bfcda6d37431587fd0ddd018e40ff40d2d1b7336b9ade6ece1dbce3892ab4950"
     },
     "example.json": {
       "bytes": 1957,
       "sha256": "b649c5a0e8316a2680f72cfe93ce00030f86c4e677f54250cd9aba7ac0d1571b"
     }
-  }
+  },
+  "supplements": [
+    {
+      "sample_ids": [
+        "tcmqa:multi:113",
+        "tcmqa:multi:36",
+        "tcmqa:multi:18",
+        "tcmqa:multi:55",
+        "tcmqa:multi:123",
+        "tcmqa:multi:92",
+        "tcmqa:multi:25",
+        "tcmqa:multi:82",
+        "tcmqa:multi:88"
+      ],
+      "sources": [
+        "TCM-QA original multiple-choice question and published answer"
+      ],
+      "preparation": [
+        "scripts/prepare_minimum_cases.py"
+      ]
+    }
+  ]
 }

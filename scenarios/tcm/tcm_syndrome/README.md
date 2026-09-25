@@ -226,3 +226,7 @@
 - 100 official test rows;148 fixed official labels+unknown; research only; CC BY-NC-SA4.0
 
 原准备分片：`extended_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

@@ -1,12 +1,12 @@
 {
-  "planned": 20,
-  "successful": 20,
+  "planned": 37,
+  "successful": 37,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 20,
-    "accuracy": 0.95,
-    "macro_f1_observed_gold_classes": 0.9166666666666666,
+    "n": 37,
+    "accuracy": 0.918918918918919,
+    "macro_f1_observed_gold_classes": 0.8846153846153846,
     "per_class": {
       "3": {
         "support": 1,
@@ -26,6 +26,12 @@
         "recall": 0.0,
         "f1": 0.0
       },
+      "arms_hands": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
       "before": {
         "support": 1,
         "precision": 1.0,
@@ -38,6 +44,42 @@
         "recall": 1.0,
         "f1": 1.0
       },
+      "dry": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "five_six": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "five_six_days": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "four_days": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "hands": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "heart_failure": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
       "impaired": {
         "support": 1,
         "precision": 1.0,
@@ -45,7 +87,7 @@
         "f1": 1.0
       },
       "left": {
-        "support": 2,
+        "support": 4,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -56,6 +98,12 @@
         "recall": 1.0,
         "f1": 1.0
       },
+      "lower": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
       "midday": {
         "support": 1,
         "precision": 1.0,
@@ -63,7 +111,31 @@
         "f1": 1.0
       },
       "no": {
-        "support": 5,
+        "support": 6,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "right": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "right_eye": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "twice": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "under_week": {
+        "support": 1,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -73,6 +145,18 @@
         "precision": 0.0,
         "recall": 0,
         "f1": 0.0
+      },
+      "urinating": {
+        "support": 1,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "watery": {
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
       },
       "worse": {
         "support": 1,
@@ -90,76 +174,82 @@
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 3,
-    "lower": 0.9166666666666666,
+    "groups": 20,
+    "lower": 0.8076923076923077,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.07299999999999995,
-    "multiclass_brier_sum": 0.10876000000000001,
-    "brier_n": 20,
+    "ece10_selected_probability": 0.11972972972972976,
+    "multiclass_brier_sum": 0.1872918918918919,
+    "brier_n": 37,
     "bins": [
       {
-        "lower": 0.7,
+        "lower": 0.3,
         "n": 1,
-        "mean_selected_probability": 0.7,
+        "mean_selected_probability": 0.37,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.7,
+        "n": 2,
+        "mean_selected_probability": 0.72,
         "accuracy": 1.0
       },
       {
         "lower": 0.8,
-        "n": 1,
-        "mean_selected_probability": 0.83,
+        "n": 2,
+        "mean_selected_probability": 0.86,
         "accuracy": 1.0
       },
       {
         "lower": 0.9,
-        "n": 18,
-        "mean_selected_probability": 0.9994444444444444,
-        "accuracy": 0.9444444444444444
+        "n": 32,
+        "mean_selected_probability": 0.99875,
+        "accuracy": 0.90625
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 19,
-          "coverage": 0.95,
-          "accuracy": 0.9473684210526315
+          "n": 34,
+          "coverage": 0.918918918918919,
+          "accuracy": 0.9117647058823529
         },
         "by_probability_and_api_confidence": {
-          "n": 18,
-          "coverage": 0.9,
-          "accuracy": 0.9444444444444444
+          "n": 33,
+          "coverage": 0.8918918918918919,
+          "accuracy": 0.9090909090909091
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 18,
-          "coverage": 0.9,
-          "accuracy": 0.9444444444444444
+          "n": 32,
+          "coverage": 0.8648648648648649,
+          "accuracy": 0.90625
         },
         "by_probability_and_api_confidence": {
-          "n": 18,
-          "coverage": 0.9,
-          "accuracy": 0.9444444444444444
+          "n": 32,
+          "coverage": 0.8648648648648649,
+          "accuracy": 0.90625
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 18,
-          "coverage": 0.9,
-          "accuracy": 0.9444444444444444
+          "n": 32,
+          "coverage": 0.8648648648648649,
+          "accuracy": 0.90625
         },
         "by_probability_and_api_confidence": {
-          "n": 18,
-          "coverage": 0.9,
-          "accuracy": 0.9444444444444444
+          "n": 32,
+          "coverage": 0.8648648648648649,
+          "accuracy": 0.90625
         }
       }
     }
   },
-  "input_tokens": 14524,
-  "output_tokens": 823,
-  "latency_successful_api_p50_s": 0.6003618959803134,
-  "latency_successful_api_p95_s": 0.7333486669813283,
+  "input_tokens": 21036,
+  "output_tokens": 1629,
+  "latency_successful_api_p50_s": 0.6177271250635386,
+  "latency_successful_api_p95_s": 1.583636000053957,
   "per_indicator": {}
 }

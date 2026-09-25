@@ -1,26 +1,26 @@
 {
-  "planned": 11,
-  "successful": 11,
+  "planned": 20,
+  "successful": 20,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "tp": 23,
-    "fp": 0,
-    "fn": 12,
-    "precision": 1.0,
-    "recall": 0.6571428571428571,
-    "micro_f1": 0.7931034482758621
+    "tp": 44,
+    "fp": 1,
+    "fn": 19,
+    "precision": 0.9777777777777777,
+    "recall": 0.6984126984126984,
+    "micro_f1": 0.8148148148148148
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 11,
-    "lower": 0.68,
-    "upper": 0.8787878787878788
+    "groups": 20,
+    "lower": 0.7058823529411765,
+    "upper": 0.9072164948453608
   },
   "calibration": null,
-  "input_tokens": 4739,
-  "output_tokens": 924,
-  "latency_successful_api_p50_s": 0.6331896660267375,
-  "latency_successful_api_p95_s": 3.8813013329636306,
+  "input_tokens": 8799,
+  "output_tokens": 1680,
+  "latency_successful_api_p50_s": 0.6646641669794917,
+  "latency_successful_api_p95_s": 1.6190197499818169,
   "per_indicator": {}
 }

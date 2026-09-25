@@ -79,3 +79,7 @@
 - MedErrBench official test
 
 原准备分片：`additional_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

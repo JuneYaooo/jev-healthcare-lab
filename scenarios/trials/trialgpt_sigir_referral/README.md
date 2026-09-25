@@ -80,3 +80,7 @@ SIGIR 已判定池每类 50 条，共 150；输入患者和试验描述，Choice
 - SIGIR released judged pool,50/class; direct trial classification not original TrialGPT criterion reasoning or full retrieval
 
 原准备分片：`clinical_extra_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

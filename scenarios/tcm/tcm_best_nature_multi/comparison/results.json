@@ -1,35 +1,35 @@
 {
-  "title": "中医病性多选",
+  "title": "中医病性与要素多选",
   "scene": "tcm",
   "synthetic": false,
-  "planned": 2,
-  "compared": 2,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "tp": 4,
-      "fp": 2,
-      "fn": 0,
-      "precision": 0.6666666666666666,
-      "recall": 1.0,
-      "micro_f1": 0.8
+      "tp": 35,
+      "fp": 7,
+      "fn": 5,
+      "precision": 0.8333333333333334,
+      "recall": 0.875,
+      "micro_f1": 0.8536585365853658
     },
-    "latency_median_s": 0.6153855204756837,
-    "cost_usd": 4.2504000000000005e-05,
-    "cost_per_1000_usd": 0.021252000000000004
+    "latency_median_s": 0.6040199170238338,
+    "cost_usd": 0.0004945080000000002,
+    "cost_per_1000_usd": 0.02472540000000001
   },
   "deepseek": {
     "quality": {
-      "tp": 3,
-      "fp": 2,
-      "fn": 1,
-      "precision": 0.6,
-      "recall": 0.75,
-      "micro_f1": 0.6666666666666666
+      "tp": 34,
+      "fp": 12,
+      "fn": 6,
+      "precision": 0.7391304347826086,
+      "recall": 0.85,
+      "micro_f1": 0.7906976744186046
     },
-    "latency_median_s": 0.8933412079932168,
-    "cost_usd": 0.00011813399999999999,
-    "cost_per_1000_usd": 0.059066999999999995,
+    "latency_median_s": 0.6023330625030212,
+    "cost_usd": 0.0012842099999999998,
+    "cost_per_1000_usd": 0.06421049999999999,
     "prior_attempts": 0
   }
 }

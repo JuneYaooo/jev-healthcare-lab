@@ -1,0 +1,142 @@
+{
+  "model": "Whisper.cpp tiny.en-q5_1",
+  "model_sha256": "c77c5766f1cef09b6b7d47f21b546cbddd4157886b3b5d6d4f709e91e66c7c2b",
+  "runs": [
+    {
+      "case": "day1_consultation04",
+      "elapsed_s": 0.7883453749818727,
+      "excerpt_seconds": [
+        5,
+        25
+      ]
+    },
+    {
+      "case": "day1_consultation05",
+      "elapsed_s": 1.1591705830069259,
+      "excerpt_seconds": [
+        31,
+        51
+      ]
+    },
+    {
+      "case": "day1_consultation06",
+      "elapsed_s": 0.07252670894376934,
+      "excerpt_seconds": [
+        55,
+        75
+      ]
+    },
+    {
+      "case": "day1_consultation07",
+      "elapsed_s": 0.0864685419946909,
+      "excerpt_seconds": [
+        51,
+        73
+      ]
+    },
+    {
+      "case": "day1_consultation08",
+      "elapsed_s": 0.054350457969121635,
+      "excerpt_seconds": [
+        36,
+        56
+      ]
+    },
+    {
+      "case": "day1_consultation09",
+      "elapsed_s": 0.17954699997790158,
+      "excerpt_seconds": [
+        42,
+        62
+      ]
+    },
+    {
+      "case": "day1_consultation10",
+      "elapsed_s": 0.14909029193222523,
+      "excerpt_seconds": [
+        53,
+        73
+      ]
+    },
+    {
+      "case": "day1_consultation11",
+      "elapsed_s": 0.13759133289568126,
+      "excerpt_seconds": [
+        41,
+        66
+      ]
+    },
+    {
+      "case": "day1_consultation12",
+      "elapsed_s": 0.054746792069636285,
+      "excerpt_seconds": [
+        68,
+        88
+      ]
+    },
+    {
+      "case": "day1_consultation13",
+      "elapsed_s": 0.07611270796041936,
+      "excerpt_seconds": [
+        37,
+        60
+      ]
+    },
+    {
+      "case": "day1_consultation14",
+      "elapsed_s": 0.085776082938537,
+      "excerpt_seconds": [
+        23,
+        43
+      ]
+    },
+    {
+      "case": "day1_consultation15",
+      "elapsed_s": 0.09568045800551772,
+      "excerpt_seconds": [
+        57,
+        77
+      ]
+    },
+    {
+      "case": "day2_consultation01",
+      "elapsed_s": 0.0849893749691546,
+      "excerpt_seconds": [
+        60,
+        80
+      ]
+    },
+    {
+      "case": "day2_consultation02",
+      "elapsed_s": 0.11689237493555993,
+      "excerpt_seconds": [
+        40,
+        60
+      ]
+    },
+    {
+      "case": "day2_consultation03",
+      "elapsed_s": 0.07232499995734543,
+      "excerpt_seconds": [
+        54,
+        74
+      ]
+    },
+    {
+      "case": "day2_consultation04",
+      "elapsed_s": 0.1155575830489397,
+      "excerpt_seconds": [
+        64,
+        84
+      ]
+    },
+    {
+      "case": "day2_consultation05",
+      "elapsed_s": 0.05635291594080627,
+      "excerpt_seconds": [
+        82,
+        102
+      ]
+    }
+  ]
+}

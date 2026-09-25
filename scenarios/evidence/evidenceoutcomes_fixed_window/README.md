@@ -79,3 +79,7 @@
 - 500RCT CoNLL,50positive50negative fixed8token windows; adapted classification, not official extraction F1
 
 原准备分片：`final_tasks_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

@@ -2,12 +2,12 @@
   "title": "参考转写病史字段判断",
   "scene": "multimodal",
   "synthetic": false,
-  "planned": 20,
-  "compared": 20,
+  "planned": 37,
+  "compared": 37,
   "failures": [],
   "jev": {
     "quality": {
-      "n": 20,
+      "n": 37,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
@@ -29,6 +29,12 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "arms_hands": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "before": {
           "support": 1,
           "precision": 1.0,
@@ -41,6 +47,42 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "dry": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "five_six": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "five_six_days": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "four_days": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "hands": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "heart_failure": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "impaired": {
           "support": 1,
           "precision": 1.0,
@@ -48,12 +90,18 @@
           "f1": 1.0
         },
         "left": {
-          "support": 2,
+          "support": 4,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "low": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lower": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
@@ -66,7 +114,43 @@
           "f1": 1.0
         },
         "no": {
-          "support": 5,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "right": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "right_eye": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "twice": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "under_week": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "urinating": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "watery": {
+          "support": 1,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -85,13 +169,13 @@
         }
       }
     },
-    "latency_median_s": 0.64336033348809,
-    "cost_usd": 0.0007220640000000001,
-    "cost_per_1000_usd": 0.0361032
+    "latency_median_s": 0.6606509159901179,
+    "cost_usd": 0.000993048,
+    "cost_per_1000_usd": 0.026839135135135136
   },
   "deepseek": {
     "quality": {
-      "n": 20,
+      "n": 37,
       "accuracy": 1.0,
       "macro_f1_observed_gold_classes": 1.0,
       "per_class": {
@@ -113,6 +197,12 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "arms_hands": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "before": {
           "support": 1,
           "precision": 1.0,
@@ -125,6 +215,42 @@
           "recall": 1.0,
           "f1": 1.0
         },
+        "dry": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "five_six": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "five_six_days": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "four_days": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "hands": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "heart_failure": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
         "impaired": {
           "support": 1,
           "precision": 1.0,
@@ -132,12 +258,18 @@
           "f1": 1.0
         },
         "left": {
-          "support": 2,
+          "support": 4,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
         },
         "low": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lower": {
           "support": 1,
           "precision": 1.0,
           "recall": 1.0,
@@ -150,7 +282,43 @@
           "f1": 1.0
         },
         "no": {
-          "support": 5,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "right": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "right_eye": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "twice": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "under_week": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "urinating": {
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "watery": {
+          "support": 1,
           "precision": 1.0,
           "recall": 1.0,
           "f1": 1.0
@@ -169,9 +337,9 @@
         }
       }
     },
-    "latency_median_s": 0.567727041488979,
-    "cost_usd": 0.00199683,
-    "cost_per_1000_usd": 0.09984149999999999,
+    "latency_median_s": 0.5659924999927171,
+    "cost_usd": 0.002610785999999999,
+    "cost_per_1000_usd": 0.07056178378378376,
     "prior_attempts": 0
   }
 }

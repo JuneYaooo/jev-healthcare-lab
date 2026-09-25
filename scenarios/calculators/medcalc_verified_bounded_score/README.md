@@ -91,4 +91,5 @@
 
 ## 关联实验
 
+- [逐案例输入片段、成绩与来源分组](cases.md)
 - [源数据版本与字节校验](source_verification.json)

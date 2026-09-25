@@ -81,3 +81,7 @@ BioScope 官方 abstracts XML，依据 cue 标签构造句子级类别，每类 
 - BioScope abstracts XML official public download,25/class; sentence cue presence derived from gold cue tags; NOT cue/span localization or clinical assertions
 
 原准备分片：`bioscope_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

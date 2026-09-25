@@ -9,6 +9,9 @@ def display(q):
     if not q:return '待完成'
     return f'{score(q)*100:.1f}'+('% 正确率' if 'accuracy' in q else ' 分·抽取综合分')
 def money(v):return f'${v:.3f}'
+def case_range(values):
+    lo,hi=min(values),max(values)
+    return str(lo) if lo==hi else f'{lo}–{hi}'
 
 # Highlight bounded workflows where measured quality and per-task cost support a pilot.
 PRIORITIES=[
@@ -27,6 +30,8 @@ def render():
     saving=100*(1-j['cost_per_1000_usd']/d['cost_per_1000_usd'])
     timing={p:json.loads((ROOT/f'comparisons/batch-time/{p}/summary.json').read_text()) for p in ['jev','deepseek']}
     tj,td=timing['jev'],timing['deepseek']
+    replay_total=tj['rows'];assert replay_total==td['rows']
+    inventory=json.loads((ROOT/'results/case_inventory.json').read_text())['tasks']
     suite=json.loads((ROOT/'comparisons/paired-suite/summary.json').read_text())
     expanded=suite['experiments']
     merged=[next(r for r in e['summary']['results'] if r['group_size']==10) for e in expanded]
@@ -52,11 +57,11 @@ def render():
         r=tasks[t]
         lines.append(f'| [{label}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {score(r["jev"]["quality"]):.1%} | {score(r["deepseek"]["quality"]):.1%} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
     lines += ['', '## 花多少钱，等多久？', '',
-              f'在原主评测的 {total:,} 条输入中，Jev 的模型调用费用比 DeepSeek **低约 {saving:.0f}%**；重新调用同样内容测速时，**{replay_cheaper} 的费用低约 {replay_saving:.0f}%**。具体能否节省业务成本，还取决于缓存利用、该任务的准确率和人工复核量。', '',
+              f'在目前主评测的 {total:,} 条输入中，Jev 的模型调用费用比 DeepSeek **低约 {saving:.0f}%**；此前对 {replay_total:,} 条输入整批测速时，**{replay_cheaper} 的费用低约 {replay_saving:.0f}%**。具体能否节省业务成本，还取决于缓存利用、该任务的准确率和人工复核量。', '',
               '| 对比项 | Jev | DeepSeek Flash |', '| --- | ---: | ---: |',
               f'| 效果评测：每千条输入费用 | {money(j["cost_per_1000_usd"])} | {money(d["cost_per_1000_usd"])} |',
-              f'| 重复输入测速：每千条输入费用 | {money(tj["cost_usd"]/total*1000)} | {money(td["cost_usd"]/total*1000)} |',
-              f'| 整批 {total:,} 条输入总耗时（8 并发） | {tj["batch_elapsed_s"]/60:.1f} 分钟 | {td["batch_elapsed_s"]/60:.1f} 分钟 |',
+              f'| 重复输入测速：每千条输入费用 | {money(tj["cost_usd"]/replay_total*1000)} | {money(td["cost_usd"]/replay_total*1000)} |',
+              f'| 整批 {replay_total:,} 条输入总耗时（8 并发） | {tj["batch_elapsed_s"]/60:.1f} 分钟 | {td["batch_elapsed_s"]/60:.1f} 分钟 |',
               f'| 测速最终未能作答的输入 | {failures["jev"]} 条 | {failures["deepseek"]} 条 |', '',
               '费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。重复输入可能使 DeepSeek 更多命中缓存，从而显著降价；性价比需要结合实际业务的重复程度判断。总耗时包含重试与失败等待，详见[整批测速](comparisons/batch-time/README.md)。', '',
               '### 新材料实测：逐项处理，还是合并处理？', '',
@@ -69,22 +74,22 @@ def render():
               '查看[全部新增案例与对比详情](comparisons/paired-suite/README.md)，可进入各场景查看逐案例成绩、完整测试材料和问题。[此前 20 篇摘要实验](scenarios/evidence/pubmed_rct_section/paired-new/README.md)单独保留，未并入这 140 份材料。', '',
               '## 覆盖哪些医疗场景？', '',
               '共 72 项公开数据任务和 24 项自编边界测试。点击场景可查看全部任务，点击任务可查看测试数据、方法和结果。', '',
-              '| 场景 | 具体测试数 | 输入记录数 |', '| --- | ---: | ---: |']
+              '| 场景 | 具体测试数 | 每项任务案例数 | 输入记录数 |', '| --- | ---: | ---: | ---: |']
     scenes=json.loads((ROOT/'results/scenario_manifest.json').read_text())['scenes']
     for s in scenes:
-        lines.append(f'| [{s["title"]}](scenarios/{s["id"]}/README.md) | {len(s["task_ids"])} | {sum(tasks[t]["planned"] for t in s["task_ids"]):,} |')
-    lines += [f'| **合计** | **96** | **{total:,}** |', '',
+        lines.append(f'| [{s["title"]}](scenarios/{s["id"]}/README.md) | {len(s["task_ids"])} | {case_range([inventory[t]['cases'] for t in s['task_ids']])} | {sum(tasks[t]["planned"] for t in s["task_ids"]):,} |')
+    lines += [f'| **合计** | **96** | **20–{max(v["cases"] for v in inventory.values())}** | **{total:,}** |', '',
               '## 全部任务的对比表现', '',
               '以下按场景列出全部 96 项任务。正确率表示答对比例；抽取综合分兼顾漏检和误报，满分 100。费用为每千条同类输入的美元估算。', '',
-              '测试记录可能来自同一病例的多个字段，不等于独立病例数；只有几条记录的结果仅作初步观察，不能据此判断稳定性。点击任务名称可查看具体数据与评测方法。', '']
+              '案例按来源中的病例、会话、文档、临床片段或题目计数；同一案例的多个字段不重复算案例，自编测试另有标注。点击案例数可查看逐案例成绩及来源分组，点击任务名称可查看评测方法。', '']
     methods=json.loads((ROOT/'results/task_methods.json').read_text())
     for scene in scenes:
         lines += [f'### {scene["title"]}', '',
-                  '| 任务 | 任务类型 | 测试记录 | Jev | DeepSeek | 每千条费用：Jev / DeepSeek |',
-                  '| --- | --- | ---: | ---: | ---: | ---: |']
+                  '| 任务 | 任务类型 | 案例数 | 测试记录 | Jev | DeepSeek | 每千条费用：Jev / DeepSeek |',
+                  '| --- | --- | ---: | ---: | ---: | ---: | ---: |']
         for task in scene['task_ids']:
             r=tasks[task];method=methods[task]
-            lines.append(f'| [{method["title"]}](scenarios/{scene["id"]}/{task}/README.md) | {method["task_type"]} | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
+            lines.append(f'| [{method["title"]}](scenarios/{scene["id"]}/{task}/README.md) | {method["task_type"]} | [{inventory[task]['cases']}](scenarios/{scene['id']}/{task}/cases.md) | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
         lines.append('')
     lines += ['[原始实验统计](docs/完整任务统计.md) · [对比实验详情](comparisons/deepseek-flash/README.md)', '']
     return '\n'.join(lines)

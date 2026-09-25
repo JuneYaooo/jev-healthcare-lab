@@ -73,3 +73,7 @@ EBM-NLP 专家聚合 test 标注，按 8 token 固定窗口切分并抽取 100 �
 - expert aggregated test gold, adapted 8-token-window multilabel not official token F1
 
 原准备分片：`evidence_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

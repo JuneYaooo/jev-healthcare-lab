@@ -77,4 +77,5 @@ NCBI 官方 test 固定取 100 篇，medspaCy 1.3.1 使用仅训练集词典构�
 
 ## 关联实验
 
+- [逐案例输入片段、成绩与来源分组](cases.md)
 - [规则／候选基线](baseline.json)

@@ -73,3 +73,7 @@
 - adapted multilabel fixed inventory from whole public target column; 0.5 threshold; no alias normalization; not official generative metric
 
 原准备分片：`extended_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

@@ -64,6 +64,38 @@
       },
       "occurrences": 1,
       "example_sample_id": "316"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该病性要素是否属于主要病性；可同时包含多个要素。 候选：寒性要素",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "best-elements:227"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该病性要素是否属于主要病性；可同时包含多个要素。 候选：虚性要素",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "best-elements:227"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该病性要素是否属于主要病性；可同时包含多个要素。 候选：实性要素",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "best-elements:227"
+    },
+    {
+      "question": {
+        "instructions": "根据病例判断该病性要素是否属于主要病性；可同时包含多个要素。 候选：热性要素",
+        "type": "noul"
+      },
+      "occurrences": 18,
+      "example_sample_id": "best-elements:227"
     }
   ]
 }

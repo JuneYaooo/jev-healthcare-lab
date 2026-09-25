@@ -69,3 +69,7 @@
 - [NLI4CT / SemEval 2023 Task 7](https://github.com/ai-systems/nli4ct)：按实际任务适配与抽样完成，非全数据/临床验证。
 
 原准备分片：`prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

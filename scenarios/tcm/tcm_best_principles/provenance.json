@@ -7,8 +7,8 @@
   "original_shard_sha256": {
     "additional_prepared.jsonl": "8c9f86cd8f7d41d867a17f19fd45a538acb7e3dac82ab973ce70ea9353d6a5a7"
   },
-  "sample_count": 5,
-  "groups": 5,
+  "sample_count": 20,
+  "groups": 20,
   "resources": [
     {
       "resource": "TCM-BEST4SDT",
@@ -21,20 +21,20 @@
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 4554,
-      "sha256": "0a9936ac5e300c97d6e6a90ee6648d6b9bf9ddbc3d2f4afffa48c60b987d511a"
+      "bytes": 18524,
+      "sha256": "87f7301b3dcaaf6b32b3e63962b4085644b6a69b37a808e620a85acac715a893"
     },
     "responses.jsonl": {
-      "bytes": 2369,
-      "sha256": "6f34bb436dabe7158806e37626ca1a2f647e1d0f201a36b1e928fd4a259ad363"
+      "bytes": 8848,
+      "sha256": "ec482109de4302ce4254f4b059f245404514ac2f135eea6ef25eca2fe2af327b"
     },
     "index.jsonl": {
-      "bytes": 1425,
-      "sha256": "4acd48ea04c90bd0261df481d3efab2ca0f90e09bf85d6d26144dbbba43012b0"
+      "bytes": 6072,
+      "sha256": "756913043c9ca282b6fc508abe139e6deb5658922a9e01a815971d9862a0f478"
     },
     "prompts.json": {
-      "bytes": 2807,
-      "sha256": "fdac372f1c44b7f54be8d6703ced3205bb4d1a914308b454a5d0bab0784e3a28"
+      "bytes": 9598,
+      "sha256": "727da59bf0c15b64b33d6ab57f61be015d3a389db5d6c40a662fdecf8509274e"
     },
     "example.json": {
       "bytes": 1976,
@@ -53,6 +53,31 @@
       "preparation": [
         "scripts/prepare_expansion.py",
         "scripts/prepare_media_expansion.py"
+      ]
+    },
+    {
+      "sample_ids": [
+        "tcmqa:single:159",
+        "tcmqa:single:81",
+        "tcmqa:single:89",
+        "tcmqa:single:79",
+        "tcmqa:single:105",
+        "tcmqa:single:98",
+        "tcmqa:single:85",
+        "tcmqa:single:153",
+        "tcmqa:single:97",
+        "tcmqa:single:283",
+        "tcmqa:single:83",
+        "tcmqa:single:117",
+        "tcmqa:single:99",
+        "tcmqa:single:164",
+        "tcmqa:single:86"
+      ],
+      "sources": [
+        "TCM-QA original clinical treatment-principle MCQ and published answer"
+      ],
+      "preparation": [
+        "scripts/prepare_minimum_cases.py"
       ]
     }
   ]

@@ -79,3 +79,7 @@
 - 100 fixed pqa_labeled questions, paired gold/generated answers,1000row release; published train split, no local training; paired evidence ablation
 
 原准备分片：`hallucination_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

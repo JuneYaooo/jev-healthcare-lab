@@ -80,3 +80,7 @@
 - Evidence Inference v2 official test article split; majority of distinct valid annotators; ties excluded; full untruncated article <=70000 characters
 
 原准备分片：`last_datasets_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

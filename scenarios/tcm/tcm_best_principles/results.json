@@ -1,15 +1,39 @@
 {
-  "planned": 5,
-  "successful": 5,
+  "planned": 20,
+  "successful": 20,
   "failed_or_missing": [],
   "deterministic_empty": 0,
   "quality": {
-    "n": 5,
-    "accuracy": 1.0,
-    "macro_f1_observed_gold_classes": 1.0,
+    "n": 20,
+    "accuracy": 0.9,
+    "macro_f1_observed_gold_classes": 0.9222222222222223,
     "per_class": {
+      "A": {
+        "support": 5,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8888888888888888
+      },
+      "B": {
+        "support": 2,
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1": 0.8
+      },
+      "C": {
+        "support": 3,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8
+      },
+      "D": {
+        "support": 4,
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.8888888888888888
+      },
       "E": {
-        "support": 1,
+        "support": 2,
         "precision": 1.0,
         "recall": 1.0,
         "f1": 1.0
@@ -36,15 +60,21 @@
   },
   "group_bootstrap_95ci": {
     "method": "1000 group bootstrap, percentile; exploratory pilot",
-    "groups": 5,
-    "lower": 1.0,
+    "groups": 20,
+    "lower": 0.75,
     "upper": 1.0
   },
   "calibration": {
-    "ece10_selected_probability": 0.11599999999999996,
-    "multiclass_brier_sum": 0.04423999999999999,
-    "brier_n": 5,
+    "ece10_selected_probability": 0.15500000000000003,
+    "multiclass_brier_sum": 0.21982,
+    "brier_n": 20,
     "bins": [
+      {
+        "lower": 0.4,
+        "n": 1,
+        "mean_selected_probability": 0.45,
+        "accuracy": 1.0
+      },
       {
         "lower": 0.6,
         "n": 1,
@@ -52,60 +82,66 @@
         "accuracy": 1.0
       },
       {
-        "lower": 0.8,
+        "lower": 0.7,
         "n": 1,
-        "mean_selected_probability": 0.8200000000000001,
+        "mean_selected_probability": 0.73,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.8,
+        "n": 2,
+        "mean_selected_probability": 0.855,
         "accuracy": 1.0
       },
       {
         "lower": 0.9,
-        "n": 3,
-        "mean_selected_probability": 0.9766666666666667,
-        "accuracy": 1.0
+        "n": 15,
+        "mean_selected_probability": 0.9773333333333334,
+        "accuracy": 0.8666666666666667
       }
     ],
     "exploratory_gating_not_validated_policy": {
       "0.8": {
         "by_selected_probability": {
-          "n": 4,
-          "coverage": 0.8,
-          "accuracy": 1.0
+          "n": 17,
+          "coverage": 0.85,
+          "accuracy": 0.8823529411764706
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.6,
-          "accuracy": 1.0
+          "n": 16,
+          "coverage": 0.8,
+          "accuracy": 0.875
         }
       },
       "0.9": {
         "by_selected_probability": {
-          "n": 3,
-          "coverage": 0.6,
-          "accuracy": 1.0
+          "n": 15,
+          "coverage": 0.75,
+          "accuracy": 0.8666666666666667
         },
         "by_probability_and_api_confidence": {
-          "n": 3,
-          "coverage": 0.6,
-          "accuracy": 1.0
+          "n": 15,
+          "coverage": 0.75,
+          "accuracy": 0.8666666666666667
         }
       },
       "0.95": {
         "by_selected_probability": {
-          "n": 2,
-          "coverage": 0.4,
-          "accuracy": 1.0
+          "n": 13,
+          "coverage": 0.65,
+          "accuracy": 0.9230769230769231
         },
         "by_probability_and_api_confidence": {
-          "n": 2,
-          "coverage": 0.4,
+          "n": 11,
+          "coverage": 0.55,
           "accuracy": 1.0
         }
       }
     }
   },
-  "input_tokens": 2745,
-  "output_tokens": 435,
-  "latency_successful_api_p50_s": 0.5909502500435337,
-  "latency_successful_api_p95_s": 0.6070192499901168,
+  "input_tokens": 9481,
+  "output_tokens": 1201,
+  "latency_successful_api_p50_s": 0.6187189584597945,
+  "latency_successful_api_p95_s": 2.365819541970268,
   "per_indicator": {}
 }

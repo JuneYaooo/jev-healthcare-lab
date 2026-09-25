@@ -8,7 +8,7 @@ def read(p):return [json.loads(x) for x in p.read_text().splitlines()]
 def dump(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
 def file_info(p):return {'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--input',type=Path,nargs='+',required=True);args=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('--input',type=Path,nargs='+',required=True);ap.add_argument('--preparation',nargs='+',default=['scripts/prepare_expansion.py','scripts/prepare_media_expansion.py']);args=ap.parse_args()
  scenes=json.loads((ROOT/'results/scenario_manifest.json').read_text())['scenes'];folders={t:ROOT/'scenarios'/s['id']/t for s in scenes for t in s['task_ids']}
  additions=collections.defaultdict(list)
  for p in args.input:
@@ -38,7 +38,7 @@ def main():
     key=b.sha(q);prompts.setdefault(key,{'question':q,'occurrences':0,'example_sample_id':r['id']});prompts[key]['occurrences']+=1
   dump(folder/'prompts.json',{'origin':'Exact question objects from archived requests.','variants':list(prompts.values())})
   prov=json.loads((folder/'provenance.json').read_text());prov['sample_count']=len(allrows);prov['groups']=len({r['group'] for r in allrows});prov['files']={n:file_info(folder/n) for n in prov['files']}
-  prov.setdefault('supplements',[]).append({'sample_ids':[r['id'] for r in new],'sources':sorted({r['metadata']['source'] for r in new}),'preparation':['scripts/prepare_expansion.py','scripts/prepare_media_expansion.py']})
+  prov.setdefault('supplements',[]).append({'sample_ids':[r['id'] for r in new],'sources':sorted({r['metadata']['source'] for r in new}),'preparation':args.preparation})
   dump(folder/'provenance.json',prov)
  (ROOT/'results/evaluation_index.jsonl').write_text(''.join(b.dumps(i)+'\n' for i in indices))
  allrows=[]

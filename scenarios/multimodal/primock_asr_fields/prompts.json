@@ -265,6 +265,243 @@
       },
       "occurrences": 1,
       "example_sample_id": "day1_consultation03:movement"
+    },
+    {
+      "question": {
+        "criteria": {
+          "four_days": "Four days",
+          "one_month": "One month",
+          "two_weeks": "Two weeks",
+          "unknown": "Not stated"
+        },
+        "instructions": "How long has the patient felt unwell? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation04"
+    },
+    {
+      "question": {
+        "criteria": {
+          "chest": "Chest",
+          "lower": "Lower abdomen below the belly button",
+          "unknown": "Not stated",
+          "upper": "Upper abdomen"
+        },
+        "instructions": "Where is the abdominal pain located? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation05"
+    },
+    {
+      "question": {
+        "criteria": {
+          "asthma": "Asthma",
+          "diabetes": "Diabetes",
+          "heart_failure": "Heart failure",
+          "unknown": "Not stated"
+        },
+        "instructions": "Which existing condition does the patient mention? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation06"
+    },
+    {
+      "question": {
+        "criteria": {
+          "absent": "No cough",
+          "dry": "Mostly dry",
+          "productive": "Producing large amounts of sputum",
+          "unknown": "Not stated"
+        },
+        "instructions": "How is the cough described? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation07"
+    },
+    {
+      "question": {
+        "criteria": {
+          "arms_hands": "Arms and hands",
+          "face": "Face only",
+          "legs_feet": "Legs and feet",
+          "unknown": "Not stated"
+        },
+        "instructions": "Where is the itchy skin mainly located? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation08"
+    },
+    {
+      "question": {
+        "criteria": {
+          "swallowing": "Swallowing",
+          "unknown": "Not stated",
+          "urinating": "Urinating",
+          "walking": "Walking"
+        },
+        "instructions": "Which action causes the reported stinging pain? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation09"
+    },
+    {
+      "question": {
+        "criteria": {
+          "one_day": "One day",
+          "one_month": "One month",
+          "under_week": "Just under a week",
+          "unknown": "Not stated"
+        },
+        "instructions": "What is the corrected duration of the urinary symptoms? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation10"
+    },
+    {
+      "question": {
+        "criteria": {
+          "hard": "Hard",
+          "normal": "Normal formed stool",
+          "unknown": "Not stated",
+          "watery": "Very watery"
+        },
+        "instructions": "How is the stool consistency described? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation11"
+    },
+    {
+      "question": {
+        "criteria": {
+          "five_six": "Five to six times a day",
+          "once_day": "Once a day",
+          "once_week": "Once a week",
+          "unknown": "Not stated"
+        },
+        "instructions": "How often does the patient report diarrhoea? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation12"
+    },
+    {
+      "question": {
+        "criteria": {
+          "back": "Only the back of the head",
+          "left_eye": "Around the left eye",
+          "right_eye": "Around the right eye",
+          "unknown": "Not stated"
+        },
+        "instructions": "Where is the headache mainly located? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation13"
+    },
+    {
+      "question": {
+        "criteria": {
+          "five_six_days": "Five or six days",
+          "one_day": "One day",
+          "one_month": "One month",
+          "unknown": "Not stated"
+        },
+        "instructions": "For approximately how long has the cough been present? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation14"
+    },
+    {
+      "question": {
+        "criteria": {
+          "face": "Face",
+          "hands": "Hands",
+          "legs": "Legs",
+          "unknown": "Not stated"
+        },
+        "instructions": "Which area is most severely affected by cracked dry skin? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day1_consultation15"
+    },
+    {
+      "question": {
+        "criteria": {
+          "both": "Both ears",
+          "left": "Left ear",
+          "right": "Right ear",
+          "unknown": "Not stated"
+        },
+        "instructions": "Which ear is affected? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day2_consultation01"
+    },
+    {
+      "question": {
+        "criteria": {
+          "no": "No, explicitly not painful",
+          "unknown": "Not stated",
+          "yes": "Yes"
+        },
+        "instructions": "Is the elbow swelling painful? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day2_consultation02"
+    },
+    {
+      "question": {
+        "criteria": {
+          "both": "Both sides",
+          "left": "Left side",
+          "right": "Right side",
+          "unknown": "Not stated"
+        },
+        "instructions": "Which side has reduced hearing? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day2_consultation03"
+    },
+    {
+      "question": {
+        "criteria": {
+          "never": "Never",
+          "once": "Once",
+          "twice": "On two occasions",
+          "unknown": "Not stated"
+        },
+        "instructions": "How often has the patient coughed up blood? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day2_consultation04"
+    },
+    {
+      "question": {
+        "criteria": {
+          "both": "Both hands",
+          "left": "Left hand",
+          "right": "Right hand",
+          "unknown": "Not stated"
+        },
+        "instructions": "Which hand has the reported altered sensation? Only use what this transcript says.",
+        "type": "choice"
+      },
+      "occurrences": 1,
+      "example_sample_id": "minimum20:day2_consultation05"
     }
   ]
 }

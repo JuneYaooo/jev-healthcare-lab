@@ -4,16 +4,16 @@
 
 | 记录数 | 来源 group 数 | API 响应 | 程序空预测 | 指标 | 结果 |
 | ---: | ---: | ---: | ---: | --- | ---: |
-| 20 | 3 | 20 | 0 | Accuracy | **95.0%** |
+| 37 | 20 | 37 | 0 | Accuracy | **91.9%** |
 
 ## 和 DeepSeek 同题比较
 
 | 项目 | Jev | DeepSeek V4.1 Flash（非思考） |
 | --- | ---: | ---: |
-| Accuracy | 95.0% | 95.0% |
+| Accuracy | 91.9% | 89.2% |
 | 最终未能按要求作答 | 0 | 0 |
-| 成功请求典型等待（中位数） | 0.60 秒 | 0.63 秒 |
-| 每千条 API 费用估算 | $0.031 | $0.079 |
+| 成功请求典型等待（中位数） | 0.62 秒 | 0.60 秒 |
+| 每千条 API 费用估算 | $0.024 | $0.060 |
 
 同一批输入与金标，Jev 使用历史真实响应，DeepSeek 使用本次非思考模式调用；不是同期测速。费用单位美元，含留存的重试用量；不含 OCR、语音识别和人工。
 
@@ -21,17 +21,17 @@
 
 ## Jev 如何评测
 
-共 3 个公开扮演患者病例、20 个字段问题：原病例的完整 457.92 秒患者声道保留 12 个字段，另外两个病例各使用前 90 秒患者声道、4 个字段。参考文本来自原数据集的对齐转写；ASR 文本来自 Whisper tiny.en-q5_1 的真实转写。字段金标先按参考文本人工标注并保留证据短语，再对两种输入使用相同题目与金标。20 个字段不是 20 个独立患者，新增片段也不代表完整问诊。
+共 3 个公开扮演患者病例、20 个字段问题：原病例的完整 457.92 秒患者声道保留 12 个字段，另外两个病例各使用前 90 秒患者声道、4 个字段。参考文本来自原数据集的对齐转写；ASR 文本来自 Whisper tiny.en-q5_1 的真实转写。字段金标先按参考文本人工标注并保留证据短语，再对两种输入使用相同题目与金标。20 个字段不是 20 个独立患者，新增片段也不代表完整问诊。 补充 17 段不同会话中的对齐音频片段，问题与答案依据原始人工转写在模型调用前固定。参考文本仅保留片段内完整标注区间，ASR 使用实际音频；新增片段不是整段问诊，分批成绩单独列出。
 
-实际模型为 `jev-1.13.0`。3 个 group 是数据源分组标识，不能直接当作独立患者数。
+实际模型为 `jev-1.13.0`。20 个 group 是数据源分组标识，不能直接当作独立患者数。
 
 请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。
 
 ### 输入与问题结构
 
 - 输入字段：`完整文本字符串`。
-- 问题类型与总数：`choice` 20 个。
-- 去重后的完整问题对象：20 种，见 [prompts.json](prompts.json)，包含原文提示词及实际选项。
+- 问题类型与总数：`choice` 37 个。
+- 去重后的完整问题对象：37 种，见 [prompts.json](prompts.json)，包含原文提示词及实际选项。
 
 ### 实际提示词
 
@@ -53,7 +53,7 @@
 
 读取 response.answers.decision.choice，与 gold 做精确标签比较。Accuracy = 标签正确记录数 / 全部计分记录数；不同病例的多个字段或配对条件不合并成独立患者。
 
-金标分布：`3`：1，`6_7`：1，`accountant`：1，`before`：1，`chest_hands_arms`：1，`impaired`：1，`left`：2，`low`：1，`midday`：1，`no`：5，`worse`：1，`yes`：4。
+金标分布：`3`：1，`6_7`：1，`accountant`：1，`arms_hands`：1，`before`：1，`chest_hands_arms`：1，`dry`：1，`five_six`：1，`five_six_days`：1，`four_days`：1，`hands`：1，`heart_failure`：1，`impaired`：1，`left`：4，`low`：1，`lower`：1，`midday`：1，`no`：6，`right`：1，`right_eye`：1，`twice`：1，`under_week`：1，`urinating`：1，`watery`：1，`worse`：1，`yes`：4。
 
 ## 数据与实验记录
 
@@ -77,6 +77,7 @@
 
 原始适配元数据：
 
+- PriMock57 original acted consultation; aligned excerpt; manually specified field question and gold evidenced by original reference before model calls
 - PriMock57 public acted consultation; first 90 seconds of patient channel; gold annotated from reference before model calls
 - one patient audio channel;12manually authored field gold from reference; gold reused for ASR propagation, not original published field annotations
 
@@ -84,5 +85,6 @@
 
 ## 关联实验
 
+- [逐案例输入片段、成绩与来源分组](cases.md)
 - [实际上游音频／图像／转写文件及哈希](upstream/manifest.json)
 - [OCR／ASR 上游指标](upstream/results.json)

@@ -358,5 +358,77 @@
     "source": "ClinOCR-Bench official tables test tables_t16_s2",
     "bytes": 1444,
     "sha256": "bc60057427412c009bf0fa1c1f51523666c8904e822853859a93816d1c596e7f"
+  },
+  {
+    "file": "upstream/minimum20/normal_t1_s3.jpg",
+    "source": "ClinOCR-Bench normal_t1_s3",
+    "bytes": 355218,
+    "sha256": "4bfb2b3426cb3f7b6ee83699ed1b366f759d0357d99fa33191ff49683d982a33"
+  },
+  {
+    "file": "upstream/minimum20/normal_t1_s3-reference.txt",
+    "source": "ClinOCR-Bench normal_t1_s3",
+    "bytes": 2414,
+    "sha256": "5960790fd9640261cd71428480ac04cd9cbd438de4ffda6e8df6a2b294223889"
+  },
+  {
+    "file": "upstream/minimum20/normal_t1_s3-ocr.txt",
+    "source": "ClinOCR-Bench normal_t1_s3",
+    "bytes": 2441,
+    "sha256": "92bf677ec873f414ea9b66d95f04576e319b12bffde83deefde2d141977410c9"
+  },
+  {
+    "file": "upstream/minimum20/normal_t2_s3.jpg",
+    "source": "ClinOCR-Bench normal_t2_s3",
+    "bytes": 309972,
+    "sha256": "45606f3a2a424dac4770a02f73b730331a174e9174c4a56e17165bda9735c50c"
+  },
+  {
+    "file": "upstream/minimum20/normal_t2_s3-reference.txt",
+    "source": "ClinOCR-Bench normal_t2_s3",
+    "bytes": 1899,
+    "sha256": "e51f6d894ca1add749f1ab47a7d5ddf4c0cd353723d9dc0722e0f92a8ef3a738"
+  },
+  {
+    "file": "upstream/minimum20/normal_t2_s3-ocr.txt",
+    "source": "ClinOCR-Bench normal_t2_s3",
+    "bytes": 1912,
+    "sha256": "3ea0c2722da58402efbbaee6d3edaa90e03b8081b610d86006f72d19f5101669"
+  },
+  {
+    "file": "upstream/minimum20/normal_t3_s3.jpg",
+    "source": "ClinOCR-Bench normal_t3_s3",
+    "bytes": 268766,
+    "sha256": "131f94981d99978a1c813a71750915340fc70910a035596bd0a8ccd58928a2af"
+  },
+  {
+    "file": "upstream/minimum20/normal_t3_s3-reference.txt",
+    "source": "ClinOCR-Bench normal_t3_s3",
+    "bytes": 1500,
+    "sha256": "43d5b1eefd183ce5497be1c77e78d1d709c650629f8c5c7086b67dea89c1e637"
+  },
+  {
+    "file": "upstream/minimum20/normal_t3_s3-ocr.txt",
+    "source": "ClinOCR-Bench normal_t3_s3",
+    "bytes": 1510,
+    "sha256": "70eb245a96d49e78898e9c5e744944950374e9be0ca49e301fc8bf5af2b48f08"
+  },
+  {
+    "file": "upstream/minimum20/normal_t8_s3.jpg",
+    "source": "ClinOCR-Bench normal_t8_s3",
+    "bytes": 208645,
+    "sha256": "8ac097c3a51311ec50fcece57e8b409bf4e8ddc56c6ab9833050e2e01f98f954"
+  },
+  {
+    "file": "upstream/minimum20/normal_t8_s3-reference.txt",
+    "source": "ClinOCR-Bench normal_t8_s3",
+    "bytes": 1292,
+    "sha256": "fc0905252f24fd4aa340d3a017ca70079a9e04190c7d231e9bb32f658288c308"
+  },
+  {
+    "file": "upstream/minimum20/normal_t8_s3-ocr.txt",
+    "source": "ClinOCR-Bench normal_t8_s3",
+    "bytes": 1305,
+    "sha256": "d815bfebf80de0cd28a0507d16b4ea95309cf9ca837f9fcf303da28991a96d93"
   }
 ]

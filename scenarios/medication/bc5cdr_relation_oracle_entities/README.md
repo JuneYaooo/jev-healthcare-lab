@@ -79,3 +79,7 @@ BC5CDR 官方测试集中正负类各 50；输入摘要和给定实体信息，C
 - official test;50/class; given entity IDs/mentions, not end-to-end extraction
 
 原准备分片：`clinical_extra_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

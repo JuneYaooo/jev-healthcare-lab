@@ -2,34 +2,34 @@
   "title": "中医基础知识多选",
   "scene": "tcm",
   "synthetic": false,
-  "planned": 11,
-  "compared": 11,
+  "planned": 20,
+  "compared": 20,
   "failures": [],
   "jev": {
     "quality": {
-      "tp": 23,
-      "fp": 0,
-      "fn": 12,
-      "precision": 1.0,
-      "recall": 0.6571428571428571,
-      "micro_f1": 0.7931034482758621
+      "tp": 44,
+      "fp": 1,
+      "fn": 19,
+      "precision": 0.9777777777777777,
+      "recall": 0.6984126984126984,
+      "micro_f1": 0.8148148148148148
     },
-    "latency_median_s": 0.6331896660267375,
-    "cost_usd": 0.000199038,
-    "cost_per_1000_usd": 0.018094363636363634
+    "latency_median_s": 0.6646641669794917,
+    "cost_usd": 0.0003695579999999999,
+    "cost_per_1000_usd": 0.018477899999999995
   },
   "deepseek": {
     "quality": {
-      "tp": 31,
-      "fp": 7,
-      "fn": 4,
-      "precision": 0.8157894736842105,
-      "recall": 0.8857142857142857,
-      "micro_f1": 0.8493150684931506
+      "tp": 58,
+      "fp": 11,
+      "fn": 5,
+      "precision": 0.8405797101449275,
+      "recall": 0.9206349206349206,
+      "micro_f1": 0.8787878787878788
     },
-    "latency_median_s": 0.6947539999964647,
-    "cost_usd": 0.0005100239999999999,
-    "cost_per_1000_usd": 0.04636581818181817,
+    "latency_median_s": 0.6212085625447799,
+    "cost_usd": 0.0011037239999999997,
+    "cost_per_1000_usd": 0.055186199999999984,
     "prior_attempts": 0
   }
 }

@@ -98,3 +98,7 @@ ST21pv 官方 test 中抽取 100 个给定实体；输入完整摘要及 mention
 - ST21pv official test; gold boundaries; not linking to CUIs or end-to-end NER
 
 原准备分片：`evidence_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

@@ -82,3 +82,7 @@
 - MedJourney public original options
 
 原准备分片：`pipeline_prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)

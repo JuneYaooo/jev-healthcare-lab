@@ -7,7 +7,7 @@
   "original_shard_sha256": {
     "final_tasks_prepared.jsonl": "2007a1dad0f61e6b721a2cb8877b0223471efa5f9dc9e59b10c20f06c0007025"
   },
-  "sample_count": 20,
+  "sample_count": 24,
   "groups": 16,
   "resources": [
     {
@@ -21,20 +21,20 @@
   "response_hash_format": "SHA256 of each responses.jsonl line, excluding the added line separator; identical to original response file bytes",
   "files": {
     "samples.jsonl": {
-      "bytes": 47937,
-      "sha256": "128757a5ed0ce2572d85536fa795b3fc7ba34dcf0234da9686aa27c9da705eb9"
+      "bytes": 59329,
+      "sha256": "6c90133a8bd2ccec86fb2d983ff6e49d43c2c5a7f74f3d7bf838b6fdc494ec65"
     },
     "responses.jsonl": {
-      "bytes": 10108,
-      "sha256": "e1b13df4f22751df5cbe86f9c603b3b0933f817a605f2b83cfb2e9292f2f122f"
+      "bytes": 12167,
+      "sha256": "73793efc5ff1d8c9d0c21f9031fd6a923e935915b75c42e5074dbaf0b964822c"
     },
     "index.jsonl": {
-      "bytes": 6037,
-      "sha256": "ef4e38c9bcb43f85a759d5416eb44cc0b4a0f35a9e23e994a9dcca7471555b4e"
+      "bytes": 7281,
+      "sha256": "c83e5cba2dbc03a86728ccad1e04e08846db00a6915af1b80717785f088f357e"
     },
     "prompts.json": {
       "bytes": 1353,
-      "sha256": "5528c91712901a90ce721f3ad35d161bb17a36a790551c935740ea4214fec955"
+      "sha256": "31a77dd147c8f6992d2f54e6d24672b04d0db0fb8b429585e3922b3a80a66190"
     },
     "example.json": {
       "bytes": 3416,
@@ -65,6 +65,20 @@
       "preparation": [
         "scripts/prepare_expansion.py",
         "scripts/prepare_media_expansion.py"
+      ]
+    },
+    {
+      "sample_ids": [
+        "minimum20:normal_t1_s3",
+        "minimum20:normal_t2_s3",
+        "minimum20:normal_t3_s3",
+        "minimum20:normal_t8_s3"
+      ],
+      "sources": [
+        "ClinOCR-Bench official distinct scan; purpose mapped from original reference"
+      ],
+      "preparation": [
+        "scripts/prepare_minimum_cases.py"
       ]
     }
   ]

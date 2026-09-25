@@ -80,3 +80,7 @@
 - hash-sampled labeled pool, not official held-out test; LONG_ANSWER excluded
 
 原准备分片：`prepared.jsonl`。
+
+## 关联实验
+
+- [逐案例输入片段、成绩与来源分组](cases.md)
