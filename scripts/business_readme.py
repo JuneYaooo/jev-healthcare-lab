@@ -3,24 +3,6 @@ import json
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-# Fixed representative examples chosen before the comparison completed.
-EXAMPLES=[
-('records','病历信息整理','imcs_entity_type_oracle_span','识别已圈出的症状、药品等实体类型','这里只判断类型，实体位置已给出'),
-('records','病历信息整理','imcs_ner_dictionary_pipeline','从中文句子中找出医疗实体','同时看漏检和误报'),
-('documentation','文书归档','aci_note_section','判断文本属于哪一类病历章节','章节边界已给出，不是自动写病历'),
-('service','患者咨询','medquad_question_type','判断患者在问症状、病因还是其他信息','评测问题分类，不是回复质量'),
-('quality','病历质控','medec_error_detection','发现病历中的医学错误','不能只看总体分，还要看漏错'),
-('quality','回答核查','medhallu_with_evidence','结合参考证据识别医学回答幻觉','已提供证据，不含联网检索'),
-('medication','药物信息','cdrugred_discharge_candidate_pipeline','筛选出院带药候选','不是可直接用于处方的验证'),
-('trials','临床试验','trialgpt_sigir_referral','初筛患者是否适合某个试验','还需人工逐条核对纳排标准'),
-('evidence','医学研究','ebm_pico_fixed_windows','识别研究人群、干预和结局片段','评测固定文本窗口，不是全文综述'),
-('calculators','临床评分','medcalc_verified_bounded_score','从病历判断五种量表的数值','未提供公式，不能外推所有计算器'),
-('knowledge','医学知识','medqa_zh_test','回答中文医学选择题','考试成绩不等于临床诊断能力'),
-('multimodal','语音病历','primock_asr_fields','从语音转写中判断病史字段','只有一段扮演患者音频、12 个字段'),
-('acute','病例判断','ddxplus_synthetic_primary','为合成病例选择主要诊断','合成病例，不是真实临床诊断'),
-('tcm','中医辨证','tcm_syndrome','从中医病例中选择证型','候选共 148 个证型及无法判断选项'),
-]
-
 def score(q):return q.get('accuracy',q.get('micro_f1'))
 def display(q):
     if not q:return '待完成'
@@ -55,15 +37,6 @@ def render():
     for scene,t,label in PRIORITIES:
         r=tasks[t]
         lines.append(f'| [{label}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {score(r["jev"]["quality"]):.1%} | {score(r["deepseek"]["quality"]):.1%} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
-    lines += ['', '## 其他医疗工作表现怎样？', '',
-              '下表展示各场景中的具体测试。正确率表示答对比例；抽取综合分兼顾漏检和误报，满分 100。每行代表一个任务，不能当作整个场景的平均水平。', '',
-              '| 医疗工作与测试内容 | 题数 | Jev | DeepSeek | 适用范围 |',
-              '| --- | ---: | ---: | ---: | --- |']
-    priorities={t for _,t,_ in PRIORITIES}
-    for scene,label,t,work,note in EXAMPLES:
-        if t in priorities:continue
-        r=tasks[t]
-        lines.append(f'| [{label}：{work}](scenarios/{scene}/{t}/README.md) | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {note} |')
     lines += ['', '## 花多少钱，等多久？', '',
               f'按全部测试输入合计，Jev 的模型调用费用比 DeepSeek **低约 {saving:.0f}%**。具体能否节省业务成本，还取决于该任务的准确率和人工复核量。', '',
               '| 对比项 | Jev | DeepSeek Flash |', '| --- | ---: | ---: |',
@@ -77,5 +50,17 @@ def render():
     for s in scenes:
         lines.append(f'| [{s["title"]}](scenarios/{s["id"]}/README.md) | {len(s["task_ids"])} | {sum(tasks[t]["planned"] for t in s["task_ids"]):,} |')
     lines += ['| **合计** | **96** | **6,586** |', '',
-              '[完整任务结果](docs/完整任务统计.md) · [对比实验详情](comparisons/deepseek-flash/README.md)', '']
+              '## 全部任务的对比表现', '',
+              '以下按场景列出全部 96 项任务。正确率表示答对比例；抽取综合分兼顾漏检和误报，满分 100。费用为每千条同类输入的美元估算。', '',
+              '测试记录可能来自同一病例的多个字段，不等于独立病例数；只有几条记录的结果仅作初步观察，不能据此判断稳定性。点击任务名称可查看具体数据与评测方法。', '']
+    methods=json.loads((ROOT/'results/task_methods.json').read_text())
+    for scene in scenes:
+        lines += [f'### {scene["title"]}', '',
+                  '| 任务 | 任务类型 | 测试记录 | Jev | DeepSeek | 每千条费用：Jev / DeepSeek |',
+                  '| --- | --- | ---: | ---: | ---: | ---: |']
+        for task in scene['task_ids']:
+            r=tasks[task];method=methods[task]
+            lines.append(f'| [{method["title"]}](scenarios/{scene["id"]}/{task}/README.md) | {method["task_type"]} | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
+        lines.append('')
+    lines += ['[原始实验统计](docs/完整任务统计.md) · [对比实验详情](comparisons/deepseek-flash/README.md)', '']
     return '\n'.join(lines)
