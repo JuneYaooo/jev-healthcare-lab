@@ -1,0 +1,67 @@
+{
+  "total_inputs": 7032,
+  "deterministic_empty_inputs": 43,
+  "scope": "Descriptive groups from one existing replay, not a controlled question-count experiment. Input elapsed time includes retries and terminal failures, excludes waiting before a worker starts.",
+  "groups": [
+    {
+      "label": "单项判断",
+      "inputs": 6169,
+      "question_range": [
+        1,
+        1
+      ],
+      "jev": {
+        "median_input_elapsed_s": 0.6051236250204965,
+        "failed_inputs": 1,
+        "retry_inputs": 109,
+        "cost_usd": 0.278079522
+      },
+      "deepseek": {
+        "median_input_elapsed_s": 0.5190459160367027,
+        "failed_inputs": 36,
+        "retry_inputs": 122,
+        "cost_usd": 0.23157113699999998
+      }
+    },
+    {
+      "label": "2–10 项同时判断",
+      "inputs": 468,
+      "question_range": [
+        2,
+        10
+      ],
+      "jev": {
+        "median_input_elapsed_s": 0.6055082915117964,
+        "failed_inputs": 0,
+        "retry_inputs": 6,
+        "cost_usd": 0.015731688
+      },
+      "deepseek": {
+        "median_input_elapsed_s": 0.5891703960078303,
+        "failed_inputs": 0,
+        "retry_inputs": 4,
+        "cost_usd": 0.024379002
+      }
+    },
+    {
+      "label": "11 项及以上同时判断",
+      "inputs": 352,
+      "question_range": [
+        11,
+        287
+      ],
+      "jev": {
+        "median_input_elapsed_s": 0.7866902504756581,
+        "failed_inputs": 0,
+        "retry_inputs": 5,
+        "cost_usd": 0.08973014400000001
+      },
+      "deepseek": {
+        "median_input_elapsed_s": 1.03814360400429,
+        "failed_inputs": 2,
+        "retry_inputs": 6,
+        "cost_usd": 0.07945150799999999
+      }
+    }
+  ]
+}

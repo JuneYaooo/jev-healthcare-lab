@@ -1,6 +1,7 @@
 """Plain-language homepage for healthcare readers, driven by comparison results."""
 import json
 from pathlib import Path
+from question_count_report import table as question_table
 
 ROOT=Path(__file__).resolve().parents[1]
 def score(q):return q.get('accuracy',q.get('micro_f1'))
@@ -26,6 +27,7 @@ def render():
     saving=100*(1-j['cost_per_1000_usd']/d['cost_per_1000_usd'])
     timing={p:json.loads((ROOT/f'comparisons/batch-time/{p}/summary.json').read_text()) for p in ['jev','deepseek']}
     tj,td=timing['jev'],timing['deepseek']
+    question_groups=json.loads((ROOT/'comparisons/batch-time/question_counts.json').read_text())
     replay_cheaper='Jev' if tj['cost_usd']<td['cost_usd'] else 'DeepSeek'
     replay_saving=100*(1-min(tj['cost_usd'],td['cost_usd'])/max(tj['cost_usd'],td['cost_usd']))
     failures={p:sum(v for k,v in r['counts'].items() if k!='ok') for p,r in timing.items()}
@@ -51,6 +53,11 @@ def render():
               f'| 整批 {total:,} 条输入总耗时（8 并发） | {tj["batch_elapsed_s"]/60:.1f} 分钟 | {td["batch_elapsed_s"]/60:.1f} 分钟 |',
               f'| 测速最终未能作答的输入 | {failures["jev"]} 条 | {failures["deepseek"]} 条 |', '',
               '费用为美元估算，仅含模型调用，不含文档识别、语音转写、系统接入和人工复核；一条输入不等于一份完整病历。重复输入可能使 DeepSeek 更多命中缓存，从而显著降价；性价比需要结合实际业务的重复程度判断。总耗时包含重试与失败等待，详见[整批测速](comparisons/batch-time/README.md)。', '',
+              '### 单项判断与多项同时判断', '',
+              '单项判断，例如给一段病历内容归类；多项同时判断，例如在同一份材料中核对多个候选实体。上面的 8 并发表示同时处理 8 份输入，与每份输入包含几个判断是两回事。', '',
+              *question_table(question_groups), '',
+              f'本批约 {question_groups["groups"][0]["inputs"]/total:.0%} 的输入只有一个问题。单问题组中 DeepSeek 更快，11 项及以上组中 Jev 更快。表内是单份输入的等待中位数，包含重试与最终失败；整批总耗时仍以上表为准。', '',
+              '各组材料和任务不同，以上是现有记录的分组观察，尚不能证明同一份病历合并多个判断后能加速多少。DeepSeek 使用非思考模式、只返回简短答案；重复输入缓存也会影响费用。详见[单项与多项对照](comparisons/batch-time/question_counts.md)。', '',
               '## 覆盖哪些医疗场景？', '',
               '共 72 项公开数据任务和 24 项自编边界测试。点击场景可查看全部任务，点击任务可查看测试数据、方法和结果。', '',
               '| 场景 | 具体测试数 | 输入记录数 |', '| --- | ---: | ---: |']
