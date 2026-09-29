@@ -22,7 +22,11 @@ PRIORITIES=[
 ]
 
 
-def render():
+def render_full():
+    audit=json.loads((ROOT/'results/evidence_audit.json').read_text())['tasks']
+    long_cases=audit['longhealth_full_context']['case_all_correct']['jev']
+    harmful=audit['medsafety_request_gate']['safety_events']['harmful_allowed']['jev']
+    missed=audit['medec_error_detection']['safety_events']['error_missed']['jev']
     comparison=json.loads((ROOT/'comparisons/deepseek-flash/summary.json').read_text())
     summary=comparison['summary'];tasks=comparison['tasks']
     if not summary['complete']:raise ValueError('Do not publish an incomplete comparison as final')
@@ -45,12 +49,17 @@ def render():
     lines=['# Jev 医疗场景评测', '',
            f'主评测覆盖 **12 类医疗场景、96 项任务、{total:,} 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。', '',
            '## 先看结论', '',
-           '- **信息分类是目前更值得尝试的方向。** 医疗实体类型识别、病历章节归类、患者问题分类的正确率为 96%–99%；本批效果评测中，相较 DeepSeek，分数接近或更高，模型调用费用低约 39%–56%，适合优先试用在批量整理和分流环节。',
-           '- **长病历中的指定问题回答，也显示出较好的性价比。** 在 100 道给定完整病历的选择题上，Jev 正确率为 95%，DeepSeek 为 83%；Jev 的调用费用低约 68%。这一结果对应指定问题回答，整份病历的自动总结仍需另行验证。',
-           f'- **新增 140 份材料检验批量处理。** 在摘要整理、中文问诊归类和证据句筛选三个任务中，每份合并处理 10 项判断时，Jev 在 {faster} 个任务完成整批更快。各场景的正确率、费用和完整批次时间见下表；速度优势需要与该场景的答对率一起看。',
-           '- **复杂医疗判断仍有明显短板。** 试验入组判断正确率 48%、临床量表数值判断 25%、中医证型判断 33%；这些任务即使调用便宜，也不足以支持自动决策。', '',
+           '**已完成医疗结构化组件的探索性试测，尚未证明临床部署可靠性。** Jev 适合优先验证分类、候选筛选与有证据的判断；诊疗决策、生成病历和完整工作流需要另测。归档模型为 `jev-1.13.0`，这些结果不代表后续版本。', '',
+           '- **整理分类有潜力，但输入条件要看清。** 96%–99% 的结果来自给定实体、已分段文书或问题分类，不等于从完整病历自动抽取并整理全部信息。',
+           f'- **长病历问答有优势，也有病例内错误。** {audit["longhealth_full_context"]["records"]} 道选择题正确率 {audit["longhealth_full_context"]["paired"]["jev"]:.0%}；{long_cases["total"]} 个来源病例中 {long_cases["correct"]} 个全部答对。与 DeepSeek 的配对差值及区间见下文。',
+           f'- **风险不能只看平均正确率。** 有害请求筛查漏过 {harmful["events"]}/{harmful["eligible"]} 条有害请求；医疗错误检出漏掉 {missed["events"]}/{missed["eligible"]} 条错误文本。均为标签定义的错误事件，还没有医生严重度仲裁。',
+           '- **复杂任务证据不足。** 入组预筛正确率 48%、临床量表闭集数值判断 25%、中医证型判断 33%，不支持自动决策。', '',
+           '## 从哪里开始', '',
+           '- [医疗适用性审计](docs/医疗适用性审计.md)：96 项配对区间、病例全对率、危险错误与人工复核量。',
+           '- [评测设计与权威参考](docs/EVALUATION.md)：MedHELM、HealthBench、MedBench、TRIPOD-LLM 的适用方法与当前缺口。',
+           '- [完整任务对比](docs/任务对比.md) · [逐案例材料](results/case_inventory.json) · [复现与新实验](docs/REPRODUCING.md)。', '',
            '## 哪些工作更值得优先试用？', '',
-           '以下任务兼具较好的答对率和较低的调用费用。费用按每千条同类输入估算，单位为美元。', '',
+           '以下仅作为人工辅助试点的候选。费用按归档时费率估算，单位为美元；效果需结合来源案例数量及下方配对区间判断。', '',
            '| 具体工作 | 测试题数 | Jev 正确率 | DeepSeek 正确率 | 每千条费用：Jev / DeepSeek |',
            '| --- | ---: | ---: | ---: | ---: |']
     for scene,t,label in PRIORITIES:
@@ -93,3 +102,25 @@ def render():
         lines.append('')
     lines += ['[原始实验统计](docs/完整任务统计.md) · [对比实验详情](comparisons/deepseek-flash/README.md)', '']
     return '\n'.join(lines)
+
+
+def evidence_overview():
+    audit=json.loads((ROOT/'results/evidence_audit.json').read_text())['tasks']
+    lines=['## 这些优势有多确定？', '',
+           '按来源病例配对重采样，而非把同一病例的每道题当作独立病例。差值为 Jev 减 DeepSeek，单位为百分点；区间为逐任务探索性 95% 区间，未校正多重比较。区间跨零时，当前样本不能清楚区分两者。', '',
+           '| 工作 | 来源案例 | Jev 病例全部答对 | 分数差 [95% 区间] |', '| --- | ---: | ---: | ---: |']
+    for _,task,label in PRIORITIES:
+        r=audit[task];paired=r['paired'];ci=paired['ci95']['difference'];c=r['case_all_correct']['jev']
+        lines.append(f'| {label} | {r["cases"]} | {c["correct"]}/{c["total"]} | {100*paired["difference"]:.1f} [{100*ci["lower"]:.1f}, {100*ci["upper"]:.1f}] |')
+    lines += ['', '高置信度也不能直接保证安全。[审计报告](docs/医疗适用性审计.md)给出接受后的错误、需复核数量和病例错误上界；阈值尚未在独立数据上验证。', '']
+    return '\n'.join(lines)
+
+
+def render():
+    main=render_full().split('## 全部任务的对比表现')[0]
+    return main.replace('## 花多少钱，等多久？', evidence_overview()+'\n## 花多少钱，等多久？')+'\n[查看全部 96 项任务对比](docs/任务对比.md)\n'
+
+
+def render_task_table():
+    body=render_full().split('## 全部任务的对比表现',1)[1]
+    return '# 全部任务的对比表现\n\n[首页](../README.md) · [统计与风险审计](医疗适用性审计.md)\n'+body.replace('](scenarios/', '](../scenarios/').replace('](docs/', '](').replace('](comparisons/', '](../comparisons/')

@@ -15,3 +15,17 @@ class ArchiveMetricTests(unittest.TestCase):
         self.assertFalse(same_metrics({'tp': 1000000000000}, {'tp': 1000000000001}))
         self.assertFalse(same_metrics({'accuracy': float('nan')}, {'accuracy': float('nan')}))
         self.assertFalse(same_metrics({'accuracy': 0.67}, {'accuracy': 0.67, 'n': 100}))
+
+
+class TimingCohortTests(unittest.TestCase):
+    def test_later_additions_do_not_change_frozen_cohort(self):
+        from verify_batch_time import timing_sources
+        import benchmark as b
+        row={'request': {'state': 'x', 'questions': {}}}
+        row['request_sha256']=b.sha(row['request'])
+        item={'task': 'a', 'id': '1', 'request_sha256': row['request_sha256']}
+        result=timing_sources([item], {('a','1'):row, ('a','2'):row})
+        self.assertEqual(set(result), {('a','1')})
+        with self.assertRaises(ValueError):timing_sources([item,item], {('a','1'):row})
+        with self.assertRaises(ValueError):timing_sources([{**item,'request_sha256':'changed'}], {('a','1'):row})
+        with self.assertRaises(ValueError):timing_sources([item], {})

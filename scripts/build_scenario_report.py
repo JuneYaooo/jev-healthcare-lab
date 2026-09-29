@@ -45,6 +45,7 @@ def task_doc(scene, task, method, result):
     out = [f'# {method["title"]}', '', f'任务 ID：`{task}` · 场景：[ {scene["title"]} ](../README.md)', '',
            '| 记录数 | 来源 group 数 | API 响应 | 程序空预测 | 指标 | 结果 |', '| ---: | ---: | ---: | ---: | --- | ---: |',
            f'| {len(rows)} | {groups} | {len(rows)-result["deterministic_empty"]} | {result["deterministic_empty"]} | {m} | **{v}** |', '',
+           '[病例级配对区间、风险与复核量](../../../docs/医疗适用性审计.md) · [评测设计与适用边界](../../../docs/EVALUATION.md)', '',
            '## Jev 如何评测', '', method['method'], '',
            f'实际模型为 `jev-1.13.0`。{groups} 个 group 是数据源分组标识，不能直接当作独立患者数。', '',
            '请求仅发送 `sample.request` 中的 `state` 和 `questions`，另添加模型名。`gold` 与 `metadata` 留在本地用于评分，不发送给模型。', '',
@@ -180,8 +181,9 @@ def build():
     intro += ['', '## 尚未完成的覆盖', '',
               f'另有 [90 项资源的调研与阻塞清单](docs/覆盖与阻塞账本.md)，其中 {sum(bool(r["tested_tasks"]) for r in catalog)} 项入口映射到已有实验；包含同一数据集的重叠入口和工具，不能称为 90 个已测数据集。受限数据、缺失金标、完整医学影像／ECG、其余临床计算器和真实医院流程验证未计入上述已测覆盖。', '']
     outputs[ROOT/'docs/完整任务统计.md']='\n'.join(intro).replace('](scenarios/', '](../scenarios/').replace('](docs/', '](')
-    from business_readme import render
+    from business_readme import render, render_task_table
     outputs[ROOT/'README.md']=render()
+    outputs[ROOT/'docs/任务对比.md']=render_task_table()
     outputs[ROOT/'docs/场景数据集与实验.md']='\n'.join(['# 场景数据集与实验索引','','所有实际实验均按场景和任务归档：','']+[f'- [{s["title"]}](../scenarios/{s["id"]}/README.md)：{len(s["task_ids"])} 个任务。' for s in scenes]+['','[全部资源来源与未完成项](覆盖与阻塞账本.md) · [资源元数据](../results/medical_catalog.json) · [总指标](../results/all_results.json) · [归档核验统计](../results/archive_summary.json)',''])
     return outputs
 

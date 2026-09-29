@@ -1,14 +1,26 @@
-"""Verify full-batch timing evidence against all archived evaluation inputs."""
+"""Verify full-batch timing evidence against its frozen input cohort."""
 import collections,json,math
 from pathlib import Path
 import benchmark as b
 from compare_deepseek import request_payload,normalize,load_rows
 ROOT=Path(__file__).resolve().parents[1]
 
+def timing_sources(order, sources):
+ """Later evaluation expansion must not change the frozen timing cohort."""
+ keys=[(r['task'],r['id']) for r in order]
+ if len(keys)!=len(set(keys)):raise ValueError('Duplicate timing identity')
+ if not set(keys)<=set(sources):raise ValueError('Unknown timing input')
+ for item,key in zip(order,keys):
+  row=sources[key]
+  if item['request_sha256']!=row['request_sha256'] or b.sha(row['request'])!=item['request_sha256']:
+   raise ValueError('Timing input hash differs')
+ return {key:sources[key] for key in keys}
+
+
 def verify():
  base=ROOT/'comparisons/batch-time';sources={(r['task'],r['id']):r for r in load_rows()}
  order=[json.loads(x) for x in (base/'input_index.jsonl').read_text().splitlines()]
- assert len(order)==len(sources) and {(r['task'],r['id']) for r in order}==set(sources)
+ sources=timing_sources(order,sources)
  digest=b.sha([(r['task'],r['id'],r['request_sha256']) for r in order])
  for provider in ['jev','deepseek']:
   folder=base/provider;summary=json.loads((folder/'summary.json').read_text());seen=set();counts=collections.Counter();total_cost=0

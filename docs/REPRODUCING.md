@@ -1,6 +1,6 @@
 # 实验归档与核验
 
-仓库保留原始 6,886 条计分记录，并追加 446 条两模型真实调用记录；当前共 7,032 条主任务记录及 300 条配对扰动记录。每条输入、金标、提示词和响应均有身份与哈希关联，原有记录没有被新样本替换。补充来源与数量见 [补充实验统计](../results/expansion_summary.json)。
+当前归档包含 **96 项主任务、7,133 条主评测输入**，另有 300 条配对扰动记录。逐项／合并批处理实验单独统计，不混入主任务分母。每条输入、金标、提示词和响应均可通过身份与哈希关联。
 
 ## 归档内容
 
@@ -16,6 +16,7 @@
 python3 scripts/verify_experiments.py
 python3 scripts/verify_comparison.py
 python3 scripts/verify_batch_time.py
+python3 scripts/evaluate_evidence.py --check
 python3 scripts/build_scenario_report.py --check
 python3 -m unittest discover -s tests -v
 ```
@@ -64,3 +65,19 @@ python3 -m unittest discover -s tests -v
 `scenarios/evidence/pubmed_rct_section/paired-new/` 单独保存 20 篇新摘要、200 个原始标注判断及两轮单项／合并调用。它们不混入原 7,032 条主评测统计。`inputs.jsonl` 包含完整材料、问题和金标，`protocol.json` 固定抽样、分组及顺序，`responses.jsonl` 和 `blocks.jsonl` 保留请求与整批时间。
 
 运行 `python3 scripts/analyze_paired_new.py --check` 可离线核验全部 240 次文档处理、原始模型回答、问题配对、费用与总耗时。调用程序为 `run_paired_new.py`，依赖可选的 httpx，使用连接池；重新调用时须使用新的输出目录。`prepare_paired_new.py --source <PubMed_20k_RCT/test.txt>` 使用前 300 篇完整摘要构建候选池，排除主评测重合内容；已有实验方案不会被覆盖。
+
+
+## 证据审计与报告更新
+
+新增审计完全使用归档响应，不连接 API，也不覆盖原始评分和响应文件：
+
+```sh
+python3 scripts/evaluate_evidence.py
+python3 scripts/build_scenario_report.py
+python3 scripts/evaluate_evidence.py --check
+python3 scripts/build_scenario_report.py --check
+```
+
+先生成审计，再生成首页和任务页。新审计使用案例身份重算配对区间；旧 results.json 中历史区间保留原口径，不应与新分析混用。新增指标、假设和权威参考见 [评测设计](EVALUATION.md)，结果见 [适用性审计](医疗适用性审计.md)。`--check` 会拒绝与归档不同步的输出。
+
+未来实验可用 `freeze_evaluation.py` 生成带哈希的协议、来源案例分组和不含 gold 的请求文件；示例命令及限制见 [下一轮实验协议](EVALUATION.md#下一轮实验协议)。本次新增代码与分析没有重新调用模型，不改变历史费用或模型版本。
