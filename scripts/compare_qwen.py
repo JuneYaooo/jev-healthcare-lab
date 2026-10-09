@@ -34,8 +34,10 @@ def config():
         'system_prompt': SYSTEM, 'adapter': 'compare_deepseek.normalize; no gold in request or normalization',
         'workers': 8, 'timeout_s': 120, 'max_attempts': 3,
         'retry_policy': 'Up to 3 attempts per execution. Transport-only recovery passes retain previous attempts. HTTP 429 triggers a shared 60-second cooldown. Never retry based on gold or score.',
-        'pricing': {'currency': 'CNY', 'input_per_million': 1.5, 'output_per_million': 12},
-        'pricing_note': 'China catalog snapshot in pricing_source.json; list-price estimate, no cache discount or USD conversion assumed.',
+        'pricing': {'currency': 'CNY', 'input_tier_boundary_tokens': 128000,
+                    'below_boundary': {'input_per_million': 0.5, 'output_per_million': 4},
+                    'at_or_above_boundary': {'input_per_million': 1.5, 'output_per_million': 12}},
+        'pricing_note': 'China context-tier snapshot in pricing_source.json. Each request input length selects both rates; 128k interpreted as 128000 tokens. No cache discount or USD conversion assumed.',
         'api_reference': 'https://docs.siliconflow.cn/docs/api/chat-completions-post',
         'scope': 'All 96 main tasks, 7133 input rows; historical Jev and DeepSeek references, not simultaneous timing. Empty candidate sets use zero API calls.',
     }

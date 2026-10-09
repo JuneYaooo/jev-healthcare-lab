@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 import analyze_qwen
-from compare_qwen import MODEL, request_payload
+from compare_qwen import MODEL, config, request_payload
 from compare_deepseek import request_payload as reference_payload, sha
 
 
@@ -45,9 +45,22 @@ class QwenComparisonTests(unittest.TestCase):
         self.record['prior_attempts'] = [prior]
         self.record['reported_total_tokens'] = 220
         task = self.summarize([self.record])['tasks'][self.row['task']]
-        self.assertAlmostEqual(task['cost_cny'], 2*(100*1.5+10*12)/1e6)
+        self.assertAlmostEqual(task['cost_cny'], 2*(100*0.5+10*4)/1e6)
         self.assertEqual(task['latency_median_s'], 2)
         self.assertEqual(task['prior_attempts'], 1)
+
+    def test_pricing_switches_both_rates_at_input_boundary(self):
+        for prompt, input_rate, output_rate in [(127999, 0.5, 4), (128000, 1.5, 12), (200000, 1.5, 12)]:
+            with self.subTest(prompt=prompt):
+                record = {'response': {'usage': {'prompt_tokens': prompt, 'completion_tokens': 10}}}
+                self.assertAlmostEqual(analyze_qwen.estimate_cost(record, config()['pricing']),
+                                       (prompt*input_rate + 10*output_rate)/1e6)
+
+    def test_output_length_and_missing_usage_do_not_select_high_tier(self):
+        record = {'response': {'usage': {'prompt_tokens': 100, 'completion_tokens': 128000}}}
+        self.assertAlmostEqual(analyze_qwen.estimate_cost(record, config()['pricing']),
+                               (100*0.5 + 128000*4)/1e6)
+        self.assertEqual(analyze_qwen.estimate_cost({}, config()['pricing']), 0)
 
     def test_failed_classification_stays_in_denominator(self):
         self.record.update(status='http_error', http_status=429, reported_total_tokens=0)

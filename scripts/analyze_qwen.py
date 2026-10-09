@@ -23,8 +23,11 @@ def load_records(archived=False):
 
 def estimate_cost(record, pricing):
     usage = record.get('response', {}).get('usage', {})
-    return (usage.get('prompt_tokens', 0)*pricing['input_per_million'] +
-            usage.get('completion_tokens', 0)*pricing['output_per_million']) / 1e6
+    prompt_tokens = usage.get('prompt_tokens', 0)
+    tier = 'below_boundary' if prompt_tokens < pricing['input_tier_boundary_tokens'] else 'at_or_above_boundary'
+    rates = pricing[tier]
+    return (prompt_tokens*rates['input_per_million'] +
+            usage.get('completion_tokens', 0)*rates['output_per_million']) / 1e6
 
 
 def summarize(records):
@@ -39,7 +42,7 @@ def summarize(records):
     pricing = json.loads((OUT/'pricing_source.json').read_text())
     if pricing['model_requested'] != MODEL or pricing['currency'] != 'CNY':
         raise ValueError('Pricing snapshot model or currency differs')
-    if any(pricing[k] != config()['pricing'][k] for k in ('input_per_million', 'output_per_million')):
+    if any(pricing[k] != value for k, value in config()['pricing'].items()):
         raise ValueError('Pricing snapshot differs from configuration')
     tasks = {}
     groups = defaultdict(list)
@@ -128,8 +131,10 @@ def summarize(records):
                'cost_cny': total_cost, 'cost_per_1000_cny': total_cost/len(indexed)*1000 if indexed else None,
                'prompt_tokens': sum(t['prompt_tokens'] for t in tasks.values()),
                'completion_tokens': sum(t['completion_tokens'] for t in tasks.values()),
+               'max_prompt_tokens': max((a.get('response', {}).get('usage', {}).get('prompt_tokens', 0) for a in all_attempts), default=0),
+               'high_tier_requests': sum(a.get('response', {}).get('usage', {}).get('prompt_tokens', 0) >= pricing['input_tier_boundary_tokens'] for a in all_attempts),
                'prior_attempts': len(all_attempts)-len(indexed),
-               'cost_scope': 'CNY public list-price estimate including retained retry token usage. Excludes unreported usage, setup smoke request and upstream OCR/ASR; not an invoice.',
+               'cost_scope': 'CNY public context-tier list-price estimate including retained retry token usage. Each request input length selects both input and output rates. Excludes unreported usage, setup smoke request and upstream OCR/ASR; not an invoice.',
                'latency_scope': 'Successful final full-response HTTP requests only; excludes zero-call empties and prior retries. Historical Jev/DeepSeek versus newly run Qwen, not simultaneous.'}
     return {'summary': summary, 'tasks': tasks}
 
@@ -179,7 +184,12 @@ def render_report(result):
         '- **重试透明**：单次执行最多尝试三次；首轮遇到限流后增加共享 60 秒等待，并对传输失败补跑。成功答案不重跑，格式失败不在恢复阶段额外重跑，所有早期尝试嵌入最终记录的 `prior_attempts`。不按答案正误决定重跑。',
         '- **时间口径**：8 并发；表内耗时为成功最终请求从发出到完整响应的中位时间，排除规则空集和早期重试。三家调用日期、服务端负载与接口不同，不能据此认定为同期速度排名。分阶段运行未合成为整批总时间。', '',
         '## 费用口径', '',
-        f'按[硅基流动中国站公开模型目录]({pricing["source"]})在 `{pricing["retrieved_utc"]}` 的费率快照估算：每百万输入 tokens **¥{pricing["input_per_million"]:g}**，每百万输出 tokens **¥{pricing["output_per_million"]:g}**。保留[原始费率字段](pricing_source.json)。', '',
+        f'按[硅基流动中国站价格表]({pricing["source"]})在 `{pricing["retrieved_utc"]}` 的分档费率快照估算。每次请求按其**输入长度**选择输入、输出两项费率，重试也逐次计费。保留[原始费率字段](pricing_source.json)。', '',
+        '| 单次请求输入长度 | 输入（元／百万 tokens） | 输出（元／百万 tokens） |',
+        '| --- | ---: | ---: |',
+        f'| [0, 128k) | ¥{pricing["below_boundary"]["input_per_million"]:g} | ¥{pricing["below_boundary"]["output_per_million"]:g} |',
+        f'| [128k, +∞) | ¥{pricing["at_or_above_boundary"]["input_per_million"]:g} | ¥{pricing["at_or_above_boundary"]["output_per_million"]:g} |', '',
+        f'本次含重试的最长单次输入为 **{summary["max_prompt_tokens"]:,} tokens**；适用高档费率的请求为 **{summary["high_tier_requests"]}** 次。', '',
         '计入所有有用量记录的最终调用和早期重试；不假设缓存折扣，不包含未返回用量的调用、接口连通性试跑、上游 OCR／ASR 或人工成本。该数值是公开标价估算，不是账单实付金额。Jev／DeepSeek 原表为美元，未做汇率换算。', '',
         '## 各任务结果', '',
         '| 任务 | 输入数 | 指标 | Jev | DeepSeek | Qwen | Qwen 中位耗时（秒） | Qwen 每千条（人民币） | 失败数 | 原始回答 |',
