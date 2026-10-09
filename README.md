@@ -422,22 +422,6 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 [返回领域导航](#领域导航)
 
-## 如何查看和复验 Jev 的成绩
-
-1. **找到你关心的 Jev 测试。** 在[任务目录](docs/医疗任务总目录.md)里确认输入、输出和覆盖边界，找到与你业务最接近的实验。
-2. **打开原题，检查 Jev 怎么答。** 例如[长病历问答](scenarios/records/longhealth_full_context/README.md)，可以一路查看测试材料、提示词、标准答案、模型响应和逐案例成绩。
-3. **在本地核验 Jev 的归档成绩。** 仓库保留评分和验证脚本；用自己的材料开展新实验，方法见[复现与实验说明](docs/REPRODUCING.md)。
-
-先在本地核验归档，无需 API 密钥或 GPU，使用 Git 和 Python 3.10+ 即可：
-
-```sh
-git clone https://github.com/JuneYaooo/jev-healthcare-lab.git
-cd jev-healthcare-lab
-python3 scripts/verify_experiments.py
-```
-
-成功时会核验 7,133 条主记录和 300 条扰动记录，并输出重算指标 `all matched`。这一步使用已保存的响应；重新调用模型需要相应服务账户。
-
 <details>
 <summary><strong>评测口径、模型版本与使用边界</strong></summary>
 
