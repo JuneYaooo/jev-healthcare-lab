@@ -159,7 +159,7 @@ def build():
                       '比较预测变化时恢复标签，判断扰动样本正确性时使用该样本自身的 gold；不能把 300 条扰动当作新增独立患者。', '']
                 outputs[folder/'robustness'/var/'README.md']='\n'.join(body)
         intro += table+['']
-        scene_doc=[f'# {s["title"]}', '', f'**{len(ts)} 个任务条件，{n:,} 条主评测记录。** [全部场景](../../README.md)', '',s['note'],'']+scene_table+['']
+        scene_doc=[f'# {s["title"]}', '', f'**{len(ts)} 个任务条件，{n:,} 条主评测记录。** [实验归档](../README.md) · [业务任务总目录](../../docs/医疗任务总目录.md)', '',s['note'],'']+scene_table+['']
         outputs[ROOT/'scenarios'/s['id']/'README.md']='\n'.join(scene_doc)
     intro += ['## 基线与配对实验', '',
               '| 实验 | 对照结果 | 详细实验 |', '| --- | --- | --- |',
@@ -184,7 +184,7 @@ def build():
     from business_readme import render, render_task_table
     outputs[ROOT/'README.md']=render()
     outputs[ROOT/'docs/任务对比.md']=render_task_table()
-    outputs[ROOT/'docs/场景数据集与实验.md']='\n'.join(['# 场景数据集与实验索引','','所有实际实验均按场景和任务归档：','']+[f'- [{s["title"]}](../scenarios/{s["id"]}/README.md)：{len(s["task_ids"])} 个任务。' for s in scenes]+['','[全部资源来源与未完成项](覆盖与阻塞账本.md) · [资源元数据](../results/medical_catalog.json) · [总指标](../results/all_results.json) · [归档核验统计](../results/archive_summary.json)',''])
+    outputs[ROOT/'docs/场景数据集与实验.md']='\n'.join(['# 场景数据集与实验索引','','[业务任务总目录](医疗任务总目录.md) · [逐项任务映射](医疗任务映射.md) · [归档目录](../scenarios/README.md)', '', '以下为 12 个历史实验分组。统一业务分类与覆盖状态见任务总目录：','']+[f'- [{s["title"]}](../scenarios/{s["id"]}/README.md)：{len(s["task_ids"])} 个任务。' for s in scenes]+['','[全部资源来源与未完成项](覆盖与阻塞账本.md) · [资源元数据](../results/medical_catalog.json) · [总指标](../results/all_results.json) · [归档核验统计](../results/archive_summary.json)',''])
     return outputs
 
 

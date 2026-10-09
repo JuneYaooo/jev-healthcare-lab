@@ -244,8 +244,8 @@
         66,
         67
       ],
-      "note": "语音字段测试来自 3 个扮演患者病例，OCR 类型测试来自 20 张扫描图、16 个模板。影像和 ECG 尚未运行。",
-      "headline": "ASR 字段正确 19/20；OCR 文档类型正确 19/20；影像／ECG 未测",
+      "note": "已归档 ASR／参考转写各 37 条字段判断，OCR／参考文本各 24 条文档分类，以及 20 条报告文本断言。早期病例与后续片段扩展分别说明；记录和来源分组数不等于独立患者数。医学影像和 ECG 原始输入尚未测。",
+      "headline": "ASR 字段 Accuracy 91.9%（34/37）；OCR 文档类型 Accuracy 95.8%（23/24）；医学影像／ECG 原始输入未测",
       "task_ids": [
         "primock_asr_fields",
         "primock_reference_fields",

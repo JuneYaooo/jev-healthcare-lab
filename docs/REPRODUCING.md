@@ -18,6 +18,7 @@ python3 scripts/verify_comparison.py
 python3 scripts/verify_batch_time.py
 python3 scripts/evaluate_evidence.py --check
 python3 scripts/build_scenario_report.py --check
+python3 scripts/build_task_catalog.py --check
 python3 -m unittest discover -s tests -v
 ```
 
@@ -81,3 +82,22 @@ python3 scripts/build_scenario_report.py --check
 先生成审计，再生成首页和任务页。新审计使用案例身份重算配对区间；旧 results.json 中历史区间保留原口径，不应与新分析混用。新增指标、假设和权威参考见 [评测设计](EVALUATION.md)，结果见 [适用性审计](医疗适用性审计.md)。`--check` 会拒绝与归档不同步的输出。
 
 未来实验可用 `freeze_evaluation.py` 生成带哈希的协议、来源案例分组和不含 gold 的请求文件；示例命令及限制见 [下一轮实验协议](EVALUATION.md#下一轮实验协议)。本次新增代码与分析没有重新调用模型，不改变历史费用或模型版本。
+
+## 任务目录维护
+
+`results/task_taxonomy.json` 保存业务领域、任务族、能力、边界和逐任务映射。`results/scenario_manifest.json` 继续保存历史归档路径；不要通过移动实验目录修正业务分类。新增主评测时同步更新两份清单，未测任务族只写定义及缺口，不伪造任务结果。
+
+```sh
+python3 scripts/build_task_catalog.py
+python3 scripts/build_task_catalog.py --check
+```
+
+构建器生成业务总目录、逐项映射和归档入口。检查会拒绝主任务遗漏、多余任务、重复任务族、无效分类引用和过期页面。状态由主评测与训练映射派生；有训练数据不自动升级为已测。
+
+27 类训练映射是 `medical_decisions_v05` 中文主集四个分区的统计快照，基础目录检查不依赖该独立数据包。持有数据包时，用下面的命令额外核对类型、条数和文件 SHA-256；路径可替换为实际解包位置：
+
+```sh
+python3 scripts/build_task_catalog.py --check --training-dir training/medical_decisions_v05/chinese
+```
+
+首页的 `research-extensions:start` / `research-extensions:end` 注释之间为手工维护的研究扩展导航，报告生成器保留该区域。其余首页内容仍由生成器维护；该导航不参与主评测或任务数统计。

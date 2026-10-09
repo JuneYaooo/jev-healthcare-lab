@@ -22,6 +22,19 @@ PRIORITIES=[
 ]
 
 
+def research_extensions():
+    """Preserve the explicitly maintained extension block during report rebuilds."""
+    path = ROOT / 'README.md'
+    content = path.read_text() if path.exists() else ''
+    start, end = '<!-- research-extensions:start -->', '<!-- research-extensions:end -->'
+    if start not in content and end not in content:
+        return []
+    if content.count(start) != 1 or content.count(end) != 1 or content.index(start) > content.index(end):
+        raise ValueError('README research extension markers must form one ordered pair')
+    block = content[content.index(start) + len(start):content.index(end)].strip()
+    return ['### 研究扩展', '', start, '', block, '', end, '']
+
+
 def render_full():
     audit=json.loads((ROOT/'results/evidence_audit.json').read_text())['tasks']
     long_cases=audit['longhealth_full_context']['case_all_correct']['jev']
@@ -47,7 +60,7 @@ def render_full():
     replay_saving=100*(1-min(tj['cost_usd'],td['cost_usd'])/max(tj['cost_usd'],td['cost_usd']))
     failures={p:sum(v for k,v in r['counts'].items() if k!='ok') for p,r in timing.items()}
     lines=['# Jev 医疗场景评测', '',
-           f'主评测覆盖 **12 类医疗场景、96 项任务、{total:,} 条测试输入**，了解 Jev 适合做哪些医疗工作、表现怎样、使用成本多高。DeepSeek Flash 作为同题参考。', '',
+           f'通过 **96 个任务条件、{total:,} 条测试输入**，评估 Jev 的医疗任务表现、耗时与费用。按 8 个业务领域浏览任务，实验保留 12 个历史归档分组。DeepSeek Flash 作为同题参考。', '',
            '## 先看结论', '',
            '**已完成医疗结构化组件的探索性试测，尚未证明临床部署可靠性。** Jev 适合优先验证分类、候选筛选与有证据的判断；诊疗决策、生成病历和完整工作流需要另测。归档模型为 `jev-1.13.0`，这些结果不代表后续版本。', '',
            '- **整理分类有潜力，但输入条件要看清。** 96%–99% 的结果来自给定实体、已分段文书或问题分类，不等于从完整病历自动抽取并整理全部信息。',
@@ -55,9 +68,12 @@ def render_full():
            f'- **风险不能只看平均正确率。** 有害请求筛查漏过 {harmful["events"]}/{harmful["eligible"]} 条有害请求；医疗错误检出漏掉 {missed["events"]}/{missed["eligible"]} 条错误文本。均为标签定义的错误事件，还没有医生严重度仲裁。',
            '- **复杂任务证据不足。** 入组预筛正确率 48%、临床量表闭集数值判断 25%、中医证型判断 33%，不支持自动决策。', '',
            '## 从哪里开始', '',
+           '- [医疗任务总目录](docs/医疗任务总目录.md)：按 8 个业务领域查看任务、覆盖状态和待补能力。',
+           '- [逐项任务映射](docs/医疗任务映射.md)：96 项主评测与 27 类独立训练任务的归属、输入条件和边界。',
            '- [医疗适用性审计](docs/医疗适用性审计.md)：96 项配对区间、病例全对率、危险错误与人工复核量。',
            '- [评测设计与权威参考](docs/EVALUATION.md)：MedHELM、HealthBench、MedBench、TRIPOD-LLM 的适用方法与当前缺口。',
            '- [完整任务对比](docs/任务对比.md) · [逐案例材料](results/case_inventory.json) · [复现与新实验](docs/REPRODUCING.md)。', '',
+           *research_extensions(),
            '## 哪些工作更值得优先试用？', '',
            '以下仅作为人工辅助试点的候选。费用按归档时费率估算，单位为美元；效果需结合来源案例数量及下方配对区间判断。', '',
            '| 具体工作 | 测试题数 | Jev 正确率 | DeepSeek 正确率 | 每千条费用：Jev / DeepSeek |',
@@ -81,8 +97,8 @@ def render_full():
               f'证据筛选还需要关注漏检和误报：每次合并 10 项时，Jev 的证据筛选综合分为 {evidence_f1["jev"]*100:.1f}，DeepSeek 为 {evidence_f1["deepseek"]*100:.1f}（满分 100）。整理、分类任务中的优势不能直接推广为诊疗能力。', '',
               f'证据筛选中，DeepSeek 部分答案因格式不符触发重试；按答案含义补充识别后，逐项处理的正确率为 {evidence_single["deepseek"]["semantic_review"]["accuracy"]:.1%}，证据综合分为 {evidence_single["deepseek"]["semantic_review"]["per_class"]["evidence"]["f1"]*100:.1f}。主表仍保留按指定格式完成任务的结果与实际耗时。', '',
               '查看[全部新增案例与对比详情](comparisons/paired-suite/README.md)，可进入各场景查看逐案例成绩、完整测试材料和问题。[此前 20 篇摘要实验](scenarios/evidence/pubmed_rct_section/paired-new/README.md)单独保留，未并入这 140 份材料。', '',
-              '## 覆盖哪些医疗场景？', '',
-              '共 72 项公开数据任务和 24 项自编边界测试。点击场景可查看全部任务，点击任务可查看测试数据、方法和结果。', '',
+              '## 已归档哪些评测？', '',
+              '共 72 项公开材料适配任务条件和 24 项自编边界测试。下表保留历史归档分组；按业务领域查看覆盖与缺口，请进入[医疗任务总目录](docs/医疗任务总目录.md)。任务条件数不等于独立医疗工作数。', '',
               '| 场景 | 具体测试数 | 每项任务案例数 | 输入记录数 |', '| --- | ---: | ---: | ---: |']
     scenes=json.loads((ROOT/'results/scenario_manifest.json').read_text())['scenes']
     for s in scenes:

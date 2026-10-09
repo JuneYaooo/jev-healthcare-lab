@@ -1,0 +1,1148 @@
+{
+  "schema_version": 1,
+  "domains": {
+    "service": "患者服务",
+    "records": "病历与文书",
+    "reports": "检验与报告",
+    "medication": "用药管理",
+    "clinical": "诊疗支持",
+    "followup": "出院与随访",
+    "research": "科研与循证",
+    "governance": "数据治理与运营"
+  },
+  "abilities": {
+    "classification": "分类",
+    "extraction": "抽取与定位",
+    "relation": "关联与匹配",
+    "normalization": "术语标准化",
+    "state": "时间与状态判断",
+    "evidence": "证据判断",
+    "calculation": "规则与计算",
+    "retrieval": "检索与排序",
+    "generation": "生成与沟通",
+    "execution": "流程执行",
+    "perception": "感知",
+    "optimization": "预测与优化"
+  },
+  "families": [
+    {
+      "id": "consultation_intent",
+      "domain": "service",
+      "title": "咨询意图与服务分流",
+      "abilities": [
+        "classification"
+      ],
+      "boundary": "已测话轮、问题类型与人工路由题；尚缺院内服务目录及真实工单验证。",
+      "scope": "component"
+    },
+    {
+      "id": "department_triage",
+      "domain": "service",
+      "title": "科室推荐与紧急程度",
+      "abilities": [
+        "classification",
+        "calculation"
+      ],
+      "boundary": "科室候选和给定规则题已有记录；未验证前瞻分诊、高风险漏判和人工升级流程。",
+      "scope": "component"
+    },
+    {
+      "id": "patient_dialogue",
+      "domain": "service",
+      "title": "多轮问诊、患者教育与知情沟通",
+      "abilities": [
+        "generation"
+      ],
+      "boundary": "尚缺多轮补问、通俗解释、风险沟通和患者理解度评价。",
+      "scope": "external_system"
+    },
+    {
+      "id": "appointment_execution",
+      "domain": "service",
+      "title": "预约、转诊申请与服务办理",
+      "abilities": [
+        "execution"
+      ],
+      "boundary": "尚缺接口操作、预约冲突、失败恢复及办理结果验证。",
+      "scope": "external_system"
+    },
+    {
+      "id": "entity_extraction",
+      "domain": "records",
+      "title": "实体类型与候选抽取",
+      "abilities": [
+        "classification",
+        "extraction"
+      ],
+      "boundary": "给定实体类型和词典候选管线分别评价；缺少完整病历的开放实体抽取。",
+      "scope": "component"
+    },
+    {
+      "id": "assertion_context",
+      "domain": "records",
+      "title": "事实断言、主体与社会背景",
+      "abilities": [
+        "state"
+      ],
+      "boundary": "已测肯否定、经历者和社会背景；少量边界题不能代表组合语境覆盖。",
+      "scope": "component"
+    },
+    {
+      "id": "timeline",
+      "domain": "records",
+      "title": "时间属性与患者事件时间线",
+      "abilities": [
+        "state",
+        "relation"
+      ],
+      "boundary": "已测局部时间判断；尚缺跨次就诊、跨来源的完整患者时间线。",
+      "scope": "component"
+    },
+    {
+      "id": "terminology",
+      "domain": "records",
+      "title": "术语归一化与缩写消歧",
+      "abilities": [
+        "normalization"
+      ],
+      "boundary": "已测有限候选与演示样本；尚缺真实编码词库、候选召回和跨院术语验证。",
+      "scope": "component"
+    },
+    {
+      "id": "document_structure",
+      "domain": "records",
+      "title": "文档类型、章节与转写字段",
+      "abilities": [
+        "classification",
+        "extraction"
+      ],
+      "boundary": "章节边界、OCR/参考文本、ASR/参考转写分别是输入条件；尚缺完整文书结构化链路。",
+      "scope": "component"
+    },
+    {
+      "id": "record_qa",
+      "domain": "records",
+      "title": "长病历证据问答",
+      "abilities": [
+        "evidence"
+      ],
+      "boundary": "已有虚构长病历选择题；尚缺真实跨就诊检索、缺文档和版本变化验证。",
+      "scope": "component"
+    },
+    {
+      "id": "documentation_quality",
+      "domain": "records",
+      "title": "文书完整性、矛盾与医学错误",
+      "abilities": [
+        "evidence",
+        "classification",
+        "extraction"
+      ],
+      "boundary": "缺项、冲突、错误检出及定位已测；尚缺独立医师严重度仲裁和修订收益。",
+      "scope": "component"
+    },
+    {
+      "id": "note_generation",
+      "domain": "records",
+      "title": "病历、交接摘要与出院摘要生成",
+      "abilities": [
+        "generation"
+      ],
+      "boundary": "章节分类不能代替生成评测；尚缺事实保留、遗漏、无据添加和医生修改量验证。",
+      "scope": "external_system"
+    },
+    {
+      "id": "lab_values",
+      "domain": "reports",
+      "title": "检验值关联、单位与数值趋势",
+      "abilities": [
+        "relation",
+        "calculation"
+      ],
+      "boundary": "主评测为数值关联和单位边界题；训练扩展包含趋势判断，尚缺真实检验系统链路。",
+      "scope": "component"
+    },
+    {
+      "id": "specimen_lineage",
+      "domain": "reports",
+      "title": "标本身份与来源链",
+      "abilities": [
+        "relation"
+      ],
+      "boundary": "训练扩展含同一实物与有向派生对照；尚无对应主评测和真实标本流程验证。",
+      "scope": "component"
+    },
+    {
+      "id": "report_state",
+      "domain": "reports",
+      "title": "报告阶段与文本发现断言",
+      "abilities": [
+        "state"
+      ],
+      "boundary": "主评测仅为报告文本断言；报告阶段属于训练扩展，不能视为影像读片。",
+      "scope": "component"
+    },
+    {
+      "id": "critical_result",
+      "domain": "reports",
+      "title": "危急值复核与通知闭环",
+      "abilities": [
+        "calculation",
+        "execution"
+      ],
+      "boundary": "尚缺版本化阈值、复核、通知送达与接收确认的完整测试。",
+      "scope": "external_system"
+    },
+    {
+      "id": "medication_relations",
+      "domain": "medication",
+      "title": "药物相互作用与不良事件线索",
+      "abilities": [
+        "relation"
+      ],
+      "boundary": "已测给定实体对的文本关系和过敏状态；尚缺患者特异性药学审查。",
+      "scope": "component"
+    },
+    {
+      "id": "medication_reconciliation",
+      "domain": "medication",
+      "title": "当前用药、变更与出院带药核对",
+      "abilities": [
+        "state",
+        "relation"
+      ],
+      "boundary": "候选筛选及变更边界已有实测；尚缺跨来源药单核对和完整药物清单验证。",
+      "scope": "component"
+    },
+    {
+      "id": "medication_administration",
+      "domain": "medication",
+      "title": "剂量、频次、途径与给药进度",
+      "abilities": [
+        "relation",
+        "state"
+      ],
+      "boundary": "主评测覆盖剂量关联和频次；实际途径与单次给药进度属于训练扩展。",
+      "scope": "component"
+    },
+    {
+      "id": "medication_selection",
+      "domain": "medication",
+      "title": "用药方案选择与处方审核",
+      "abilities": [
+        "classification",
+        "calculation"
+      ],
+      "boundary": "已有用药预测选择题；尚缺合并症、禁忌、剂量适配及处方审核链路。",
+      "scope": "component"
+    },
+    {
+      "id": "diagnosis",
+      "domain": "clinical",
+      "title": "诊断与辨证支持",
+      "abilities": [
+        "classification",
+        "evidence"
+      ],
+      "boundary": "已有选择题、合成病例及中医证型题；尚缺真实鉴别诊断链路和专科分层验证。",
+      "scope": "component"
+    },
+    {
+      "id": "investigation_treatment",
+      "domain": "clinical",
+      "title": "检查与治疗方案选择",
+      "abilities": [
+        "classification"
+      ],
+      "boundary": "已测检查、治疗、治则选择题；尚缺个体化方案与治疗监测验证。",
+      "scope": "component"
+    },
+    {
+      "id": "clinical_calculation",
+      "domain": "clinical",
+      "title": "临床计算与量表",
+      "abilities": [
+        "calculation"
+      ],
+      "boundary": "已测参数选择、充分性、语义分级和五种闭集评分；尚缺更多公式与真实缺失条件。",
+      "scope": "component"
+    },
+    {
+      "id": "medical_knowledge",
+      "domain": "clinical",
+      "title": "医学知识能力对照",
+      "abilities": [
+        "classification"
+      ],
+      "boundary": "中英文医学及中医考试仅作为知识对照，不代表诊疗工作流。",
+      "scope": "component"
+    },
+    {
+      "id": "procedure_progress",
+      "domain": "clinical",
+      "title": "操作进度与目标结果",
+      "abilities": [
+        "state"
+      ],
+      "boundary": "训练扩展区分流程完成与目标达成；尚缺真实操作记录和主评测。",
+      "scope": "component"
+    },
+    {
+      "id": "specialist_care",
+      "domain": "clinical",
+      "title": "护理、围术期、输血、营养与康复",
+      "abilities": [
+        "state",
+        "calculation",
+        "execution"
+      ],
+      "boundary": "尚缺护理风险、交接班、围术期记录、输血核查和康复营养专属金标及链路。",
+      "scope": "component"
+    },
+    {
+      "id": "medical_perception",
+      "domain": "clinical",
+      "title": "医学影像、病理与生理信号理解",
+      "abilities": [
+        "perception"
+      ],
+      "boundary": "当前 Jev 文本接口不能直接处理 CT/MRI、病理切片或 ECG/EEG；需外部模型并单独评测。",
+      "scope": "external_system"
+    },
+    {
+      "id": "followup_tasks",
+      "domain": "followup",
+      "title": "出院待办、随访与转诊进度",
+      "abilities": [
+        "extraction",
+        "state"
+      ],
+      "boundary": "已测人工行动识别，训练扩展含进度判断；尚缺真实纵向随访与事件对齐。",
+      "scope": "component"
+    },
+    {
+      "id": "longitudinal_care",
+      "domain": "followup",
+      "title": "慢病管理、依从性与远程监测",
+      "abilities": [
+        "state",
+        "execution"
+      ],
+      "boundary": "尚缺长期依从性、复发线索、失访与升级处置闭环。",
+      "scope": "external_system"
+    },
+    {
+      "id": "research_structure",
+      "domain": "research",
+      "title": "研究材料结构与 PICO",
+      "abilities": [
+        "extraction",
+        "classification"
+      ],
+      "boundary": "已测摘要章节和固定窗口标签；不等同原始序列抽取或全文系统综述。",
+      "scope": "component"
+    },
+    {
+      "id": "research_evidence",
+      "domain": "research",
+      "title": "研究论断、效果方向与证据定位",
+      "abilities": [
+        "evidence",
+        "extraction"
+      ],
+      "boundary": "已测给定文章/试验章节上的判断；NLI4CT 不计作患者入组匹配。",
+      "scope": "component"
+    },
+    {
+      "id": "trial_eligibility",
+      "domain": "research",
+      "title": "患者入组与科研队列预筛",
+      "abilities": [
+        "relation",
+        "calculation"
+      ],
+      "boundary": "已有患者-试验直接分类及题设规则训练题；尚缺逐条纳排、召回排序和未知条件核验。",
+      "scope": "component"
+    },
+    {
+      "id": "systematic_review",
+      "domain": "research",
+      "title": "文献检索、系统综述与证据更新",
+      "abilities": [
+        "retrieval",
+        "generation"
+      ],
+      "boundary": "尚缺检索完整性、文献去重、纳排筛选、引用时效和结论更新的整链评测。",
+      "scope": "external_system"
+    },
+    {
+      "id": "research_data",
+      "domain": "research",
+      "title": "研究数据采集、统计与登记",
+      "abilities": [
+        "extraction",
+        "calculation"
+      ],
+      "boundary": "尚缺 eCRF 填写、研究数据质疑处理、肿瘤登记与统计复核的专门评测。",
+      "scope": "component"
+    },
+    {
+      "id": "health_fact_check",
+      "domain": "research",
+      "title": "公共卫生论断核查",
+      "abilities": [
+        "evidence"
+      ],
+      "boundary": "已测历史论断有/无文章条件；不等于实时互联网核查或公共卫生监测。",
+      "scope": "component"
+    },
+    {
+      "id": "record_governance",
+      "domain": "governance",
+      "title": "身份关联、记录效力与缺失原因",
+      "abilities": [
+        "relation",
+        "state"
+      ],
+      "boundary": "训练扩展已有主体关联、作废与缺失原因；尚缺主评测和真实跨系统治理。",
+      "scope": "component"
+    },
+    {
+      "id": "coding",
+      "domain": "governance",
+      "title": "病案编码与编码证据",
+      "abilities": [
+        "normalization",
+        "evidence"
+      ],
+      "boundary": "已测自编编码证据题；尚缺完整 ICD 候选检索、多标签编码和编码员复核。",
+      "scope": "component"
+    },
+    {
+      "id": "privacy",
+      "domain": "governance",
+      "title": "隐私识别与去标识化",
+      "abilities": [
+        "classification",
+        "extraction"
+      ],
+      "boundary": "仅有隐私候选判断；尚缺完整文档脱敏召回、组合标识及重识别风险评测。",
+      "scope": "component"
+    },
+    {
+      "id": "response_safety",
+      "domain": "governance",
+      "title": "回答事实性、请求安全与伦理",
+      "abilities": [
+        "evidence",
+        "classification"
+      ],
+      "boundary": "已测幻觉、请求门控、提示注入及伦理题；不是生成回复安全率，部分标签有来源偏差。",
+      "scope": "component"
+    },
+    {
+      "id": "hospital_operations",
+      "domain": "governance",
+      "title": "医保拒付、工单与材料审核",
+      "abilities": [
+        "classification",
+        "calculation"
+      ],
+      "boundary": "尚缺院内业务标签、支付方规则和独立金标；服务路由挑战不能覆盖完整运营。",
+      "scope": "component"
+    },
+    {
+      "id": "surveillance",
+      "domain": "governance",
+      "title": "院感、不良事件与公共卫生监测",
+      "abilities": [
+        "state",
+        "calculation"
+      ],
+      "boundary": "尚缺事件定义、时间窗、真实事件金标和处置流程；论断核查不能替代监测。",
+      "scope": "component"
+    },
+    {
+      "id": "resource_planning",
+      "domain": "governance",
+      "title": "排班、床位、库存与风险预测",
+      "abilities": [
+        "optimization"
+      ],
+      "boundary": "主要依赖运筹、统计或时序模型；需专门基线与业务指标，当前没有实测。",
+      "scope": "external_system"
+    }
+  ],
+  "benchmark_tasks": {
+    "imcs_dialogue_act": {
+      "family": "consultation_intent",
+      "tags": []
+    },
+    "medquad_question_type": {
+      "family": "consultation_intent",
+      "tags": []
+    },
+    "challenge_service_route": {
+      "family": "consultation_intent",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "medjourney_departments": {
+      "family": "department_triage",
+      "tags": []
+    },
+    "challenge_urgency_given_policy": {
+      "family": "department_triage",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "imcs_entity_type_oracle_span": {
+      "family": "entity_extraction",
+      "tags": [
+        "给定实体或实体对"
+      ]
+    },
+    "imcs_ner_dictionary_pipeline": {
+      "family": "entity_extraction",
+      "tags": []
+    },
+    "ncbi_disease_category_oracle_span": {
+      "family": "entity_extraction",
+      "tags": [
+        "给定实体或实体对"
+      ]
+    },
+    "ncbi_medspacy_jev_ner": {
+      "family": "entity_extraction",
+      "tags": []
+    },
+    "medmentions_type_oracle_span": {
+      "family": "entity_extraction",
+      "tags": [
+        "给定实体或实体对"
+      ]
+    },
+    "imcs_assertion_oracle_span": {
+      "family": "assertion_context",
+      "tags": [
+        "给定实体或实体对"
+      ]
+    },
+    "bioscope_sentence_cues": {
+      "family": "assertion_context",
+      "tags": []
+    },
+    "nubes_scope_status": {
+      "family": "assertion_context",
+      "tags": []
+    },
+    "challenge_experiencer": {
+      "family": "assertion_context",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_negation": {
+      "family": "assertion_context",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_social_context": {
+      "family": "assertion_context",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_mixed_language": {
+      "family": "assertion_context",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_relative_date": {
+      "family": "timeline",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_temporality": {
+      "family": "timeline",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "imcs_normalization_top20": {
+      "family": "terminology",
+      "tags": []
+    },
+    "medal_demo_disambiguation": {
+      "family": "terminology",
+      "tags": []
+    },
+    "mts_section_classification": {
+      "family": "document_structure",
+      "tags": []
+    },
+    "aci_note_section": {
+      "family": "document_structure",
+      "tags": []
+    },
+    "challenge_document_type": {
+      "family": "document_structure",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "clinocr_ocr_doctype": {
+      "family": "document_structure",
+      "tags": [
+        "OCR文本"
+      ]
+    },
+    "clinocr_reference_doctype": {
+      "family": "document_structure",
+      "tags": [
+        "参考文本"
+      ]
+    },
+    "primock_asr_fields": {
+      "family": "document_structure",
+      "tags": [
+        "ASR文本"
+      ]
+    },
+    "primock_reference_fields": {
+      "family": "document_structure",
+      "tags": [
+        "参考转写"
+      ]
+    },
+    "longhealth_full_context": {
+      "family": "record_qa",
+      "tags": []
+    },
+    "challenge_documentation": {
+      "family": "documentation_quality",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_contradiction": {
+      "family": "documentation_quality",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "medec_error_detection": {
+      "family": "documentation_quality",
+      "tags": []
+    },
+    "medec_error_localization": {
+      "family": "documentation_quality",
+      "tags": []
+    },
+    "mederrbench_ARA": {
+      "family": "documentation_quality",
+      "tags": []
+    },
+    "mederrbench_CN": {
+      "family": "documentation_quality",
+      "tags": []
+    },
+    "mederrbench_EN": {
+      "family": "documentation_quality",
+      "tags": []
+    },
+    "challenge_lab_link": {
+      "family": "lab_values",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_unit_equivalence": {
+      "family": "lab_values",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_radiology_assertion": {
+      "family": "report_state",
+      "tags": [
+        "人工边界题",
+        "影像报告文本"
+      ]
+    },
+    "bc5cdr_relation_oracle_entities": {
+      "family": "medication_relations",
+      "tags": [
+        "给定实体或实体对"
+      ]
+    },
+    "ddi_relation_oracle_pairs": {
+      "family": "medication_relations",
+      "tags": [
+        "给定实体或实体对"
+      ]
+    },
+    "challenge_allergy_state": {
+      "family": "medication_relations",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "cdrugred_discharge_candidate_pipeline": {
+      "family": "medication_reconciliation",
+      "tags": []
+    },
+    "challenge_medication_change": {
+      "family": "medication_reconciliation",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_dose_link": {
+      "family": "medication_administration",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_frequency": {
+      "family": "medication_administration",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "medjourney_mp_mcq": {
+      "family": "medication_selection",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "medjourney_dp_mcq": {
+      "family": "diagnosis",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "ddxplus_synthetic_primary": {
+      "family": "diagnosis",
+      "tags": [
+        "合成病例"
+      ]
+    },
+    "tcm_syndrome": {
+      "family": "diagnosis",
+      "tags": [
+        "中医"
+      ]
+    },
+    "tcm_best_location": {
+      "family": "diagnosis",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_location_multi": {
+      "family": "diagnosis",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_nature": {
+      "family": "diagnosis",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_nature_multi": {
+      "family": "diagnosis",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_syndrome": {
+      "family": "diagnosis",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_syndrome_multi": {
+      "family": "diagnosis",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "medjourney_ep_mcq": {
+      "family": "investigation_treatment",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "medjourney_tp_mcq": {
+      "family": "investigation_treatment",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "tcm_best_principles": {
+      "family": "investigation_treatment",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_principles_multi": {
+      "family": "investigation_treatment",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "bmi_height_selection": {
+      "family": "clinical_calculation",
+      "tags": []
+    },
+    "bmi_weight_selection": {
+      "family": "clinical_calculation",
+      "tags": []
+    },
+    "cmedcalc_input_sufficiency": {
+      "family": "clinical_calculation",
+      "tags": []
+    },
+    "cmedcalc_semantic_grade": {
+      "family": "clinical_calculation",
+      "tags": []
+    },
+    "medcalc_verified_bounded_score": {
+      "family": "clinical_calculation",
+      "tags": []
+    },
+    "challenge_missing_parameter": {
+      "family": "clinical_calculation",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "medqa_en_test": {
+      "family": "medical_knowledge",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "medqa_zh_test": {
+      "family": "medical_knowledge",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "medmcqa_validation": {
+      "family": "medical_knowledge",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "cmexam_mcq": {
+      "family": "medical_knowledge",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "cmexam_mcq_multi": {
+      "family": "medical_knowledge",
+      "tags": [
+        "选择题对照"
+      ]
+    },
+    "tcm_best_knowledge": {
+      "family": "medical_knowledge",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_knowledge_multi": {
+      "family": "medical_knowledge",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "challenge_followup_action": {
+      "family": "followup_tasks",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "ebm_pico_fixed_windows": {
+      "family": "research_structure",
+      "tags": []
+    },
+    "evidenceoutcomes_fixed_window": {
+      "family": "research_structure",
+      "tags": []
+    },
+    "pubmed_rct_section": {
+      "family": "research_structure",
+      "tags": []
+    },
+    "evidence_inference_fulltext": {
+      "family": "research_evidence",
+      "tags": []
+    },
+    "evidencebench_sentence_selection": {
+      "family": "research_evidence",
+      "tags": []
+    },
+    "pubmedqa_evidence_qa": {
+      "family": "research_evidence",
+      "tags": []
+    },
+    "scifact_cited_abstract": {
+      "family": "research_evidence",
+      "tags": []
+    },
+    "challenge_evidence_support": {
+      "family": "research_evidence",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "nli4ct_entailment": {
+      "family": "research_evidence",
+      "tags": []
+    },
+    "nli4ct_evidence": {
+      "family": "research_evidence",
+      "tags": []
+    },
+    "trialgpt_sigir_referral": {
+      "family": "trial_eligibility",
+      "tags": []
+    },
+    "pubhealth_claim_only": {
+      "family": "health_fact_check",
+      "tags": [
+        "无外部证据条件"
+      ]
+    },
+    "pubhealth_with_article": {
+      "family": "health_fact_check",
+      "tags": [
+        "给定证据条件"
+      ]
+    },
+    "challenge_coding_evidence": {
+      "family": "coding",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "challenge_phi_candidate": {
+      "family": "privacy",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "medhallu_with_evidence": {
+      "family": "response_safety",
+      "tags": [
+        "给定证据条件"
+      ]
+    },
+    "medhallu_without_evidence": {
+      "family": "response_safety",
+      "tags": [
+        "无外部证据条件"
+      ]
+    },
+    "medsafety_request_gate": {
+      "family": "response_safety",
+      "tags": []
+    },
+    "challenge_prompt_injection": {
+      "family": "response_safety",
+      "tags": [
+        "人工边界题"
+      ]
+    },
+    "tcm_best_ethics": {
+      "family": "response_safety",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_ethics_multi": {
+      "family": "response_safety",
+      "tags": [
+        "中医",
+        "选择题对照"
+      ]
+    },
+    "tcm_best_安全问题": {
+      "family": "response_safety",
+      "tags": [
+        "中医"
+      ]
+    }
+  },
+  "training_snapshot": {
+    "package": "medical_decisions_v05",
+    "relative_path": "training/medical_decisions_v05/chinese",
+    "records": 5007,
+    "tasks": {
+      "assertion": {
+        "title": "症状断言",
+        "family": "assertion_context",
+        "records": 610
+      },
+      "experiencer": {
+        "title": "经历者",
+        "family": "assertion_context",
+        "records": 345
+      },
+      "condition_verification": {
+        "title": "诊断核实状态",
+        "family": "assertion_context",
+        "records": 27
+      },
+      "temporality": {
+        "title": "时间属性",
+        "family": "timeline",
+        "records": 332
+      },
+      "temporal_order": {
+        "title": "事件先后",
+        "family": "timeline",
+        "records": 119
+      },
+      "input_sufficiency": {
+        "title": "输入充分性",
+        "family": "documentation_quality",
+        "records": 273
+      },
+      "lab_link": {
+        "title": "检验值关联",
+        "family": "lab_values",
+        "records": 447
+      },
+      "numeric_equivalence": {
+        "title": "数值等价",
+        "family": "lab_values",
+        "records": 114
+      },
+      "range_check": {
+        "title": "给定区间比较",
+        "family": "lab_values",
+        "records": 119
+      },
+      "result_trend": {
+        "title": "数值趋势",
+        "family": "lab_values",
+        "records": 20
+      },
+      "reference_range_selection": {
+        "title": "参考区间适用条件",
+        "family": "lab_values",
+        "records": 20
+      },
+      "specimen_lineage": {
+        "title": "标本来源链",
+        "family": "specimen_lineage",
+        "records": 16
+      },
+      "report_stage": {
+        "title": "报告阶段",
+        "family": "report_state",
+        "records": 42
+      },
+      "medication_status": {
+        "title": "持续用药状态",
+        "family": "medication_reconciliation",
+        "records": 695
+      },
+      "medication_change": {
+        "title": "剂量变化",
+        "family": "medication_reconciliation",
+        "records": 130
+      },
+      "dose_link": {
+        "title": "剂量关联",
+        "family": "medication_administration",
+        "records": 343
+      },
+      "frequency_link": {
+        "title": "实际频次",
+        "family": "medication_administration",
+        "records": 125
+      },
+      "route_link": {
+        "title": "实际途径",
+        "family": "medication_administration",
+        "records": 145
+      },
+      "administration_event": {
+        "title": "单次给药进度",
+        "family": "medication_administration",
+        "records": 54
+      },
+      "procedure_status": {
+        "title": "操作进度",
+        "family": "procedure_progress",
+        "records": 133
+      },
+      "procedure_outcome": {
+        "title": "操作目标结果",
+        "family": "procedure_progress",
+        "records": 16
+      },
+      "followup_state": {
+        "title": "随访进度",
+        "family": "followup_tasks",
+        "records": 38
+      },
+      "evidence_support": {
+        "title": "证据支持",
+        "family": "research_evidence",
+        "records": 594
+      },
+      "protocol_eligibility": {
+        "title": "题设规则入组",
+        "family": "trial_eligibility",
+        "records": 121
+      },
+      "identity_resolution": {
+        "title": "身份关联",
+        "family": "record_governance",
+        "records": 21
+      },
+      "record_validity": {
+        "title": "记录有效性",
+        "family": "record_governance",
+        "records": 48
+      },
+      "missing_reason": {
+        "title": "缺失原因",
+        "family": "record_governance",
+        "records": 60
+      }
+    },
+    "description": "中文主集四个分区的任务统计快照；数据包与主评测独立，不计入主评测成绩。",
+    "split_sha256": {
+      "train": "2f3ebc1936ab5a4e7b180935f8baa0db226d189309468acd92e3a4d964fe1e3e",
+      "dev": "51b6ac3a197ae4bb531261b98e243f28f6a1714abbb9f6dce591dce81e80f180",
+      "calibration": "c85b83493eaea889ee419e25c00f2dc047db3a31fb45048c6326db4972e7c82a",
+      "test": "89e4db53d885d6da75d2287b646aa396f2a2dad3010532f06686fdc4039e587e"
+    }
+  }
+}
