@@ -14,7 +14,14 @@ def display(q):
     if not q:return '待完成'
     return f'{score(q)*100:.1f}'+('% 正确率' if 'accuracy' in q else ' 分·抽取综合分')
 def money(v):return f'${v:.3f}'
-def seconds(v):return '—' if v is None else f'{v:.2f}'
+def highlight_pair(jev, deepseek, *, digits, lower_is_better=False, suffix=''):
+    """Bold a strict winner at display precision; missing values cannot win."""
+    values = [None if v is None else float(f'{v:.{digits}f}') for v in (jev, deepseek)]
+    labels = ['—' if v is None else f'{v:.{digits}f}{suffix}' for v in values]
+    if None not in values and values[0] != values[1]:
+        winner = 0 if (values[0] < values[1]) == lower_is_better else 1
+        labels[winner] = f'**{labels[winner]}**'
+    return labels
 
 def research_extensions():
     """Preserve the explicitly maintained extension block during report rebuilds."""
@@ -81,7 +88,9 @@ def render_domain_results(taxonomy, comparison, audit, owner):
             pair = a['paired']
             if row['planned'] != a['records'] or inventory[task]['cases'] != a['cases']:
                 raise ValueError(f'Inconsistent README record/case count: {task}')
-            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {row["planned"]}／[{a["cases"]}]({folder}/cases.md) | {metric} | {pair["jev"]*100:.1f} | {seconds(row["jev"]["latency_median_s"])} | {pair["deepseek"]*100:.1f} | {seconds(row["deepseek"]["latency_median_s"])} |')
+            scores = highlight_pair(pair['jev']*100, pair['deepseek']*100, digits=1)
+            times = highlight_pair(row['jev']['latency_median_s'], row['deepseek']['latency_median_s'], digits=2, lower_is_better=True)
+            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {row["planned"]}／[{a["cases"]}]({folder}/cases.md) | {metric} | {scores[0]} | {times[0]} | {scores[1]} | {times[1]} |')
         lines += ['', '<details>', '<summary>展开详细数据：得分差值、费用、失败与原始材料</summary>', '',
                   '差值为 Jev 减 DeepSeek；费用与未作答数的顺序为 **Jev／DeepSeek**。', '',
                   '| 任务 | 得分差值［95% 区间］ | Jev 案例全对 | 每千条费用（美元） | 最终未作答（条） | 原始数据 |',
@@ -133,7 +142,9 @@ def render():
     for task, title, boundary in TASK_EXAMPLES:
         pair = audit[task]['paired']
         row = comparison['tasks'][task]
-        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {pair["jev"]:.1%} | {seconds(row["jev"]["latency_median_s"])} | {pair["deepseek"]:.1%} | {seconds(row["deepseek"]["latency_median_s"])} | {boundary} |')
+        scores = highlight_pair(pair['jev']*100, pair['deepseek']*100, digits=1, suffix='%')
+        times = highlight_pair(row['jev']['latency_median_s'], row['deepseek']['latency_median_s'], digits=2, lower_is_better=True)
+        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {scores[0]} | {times[0]} | {scores[1]} | {times[1]} | {boundary} |')
     out += [
         '',
         f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](#全部领域与任务的详细测试数据) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',

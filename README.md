@@ -18,10 +18,10 @@ Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床
 
 | 医疗任务 | Jev 准确率 | Jev 耗时（秒） | DeepSeek 准确率 | DeepSeek 耗时（秒） | 实际测的是什么 |
 | --- | ---: | ---: | ---: | ---: | --- |
-| [把病历内容归入对应章节](scenarios/documentation/aci_note_section/README.md) | 99.0% | 0.62 | 100.0% | 0.55 | 已给定章节边界 |
-| [读长病历，回答指定问题](scenarios/records/longhealth_full_context/README.md) | 95.0% | 1.43 | 83.0% | 0.62 | 20 个虚构患者的 100 道选择题 |
-| [判断患者是否适配临床试验](scenarios/trials/trialgpt_sigir_referral/README.md) | 48.0% | 0.65 | 54.7% | 0.50 | 给定患者与试验材料，直接三分类 |
-| [给临床量表选出数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 25.0% | 0.66 | 31.0% | 0.60 | 5 种量表，答案来自给定选项 |
+| [把病历内容归入对应章节](scenarios/documentation/aci_note_section/README.md) | 99.0% | 0.62 | **100.0%** | **0.55** | 已给定章节边界 |
+| [读长病历，回答指定问题](scenarios/records/longhealth_full_context/README.md) | **95.0%** | 1.43 | 83.0% | **0.62** | 20 个虚构患者的 100 道选择题 |
+| [判断患者是否适配临床试验](scenarios/trials/trialgpt_sigir_referral/README.md) | 48.0% | 0.65 | **54.7%** | **0.50** | 给定患者与试验材料，直接三分类 |
+| [给临床量表选出数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 25.0% | 0.66 | **31.0%** | **0.60** | 5 种量表，答案来自给定选项 |
 
 这些是全部 96 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 16/20 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](#全部领域与任务的详细测试数据) · [错误、区间与复核量](docs/医疗适用性审计.md)
 
@@ -70,11 +70,11 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [中文问诊对话行为分类](scenarios/service/imcs_dialogue_act/README.md) | 100／[95](scenarios/service/imcs_dialogue_act/cases.md) | 准确率（%） | 70.0 | 0.90 | 68.0 | 0.54 |
-| [患者问题信息需求分类](scenarios/service/medquad_question_type/README.md) | 100／[98](scenarios/service/medquad_question_type/cases.md) | 准确率（%） | 96.0 | 0.63 | 97.0 | 0.53 |
-| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 20／[20](scenarios/service/challenge_service_route/cases.md) | 准确率（%） | 95.0 | 0.59 | 100.0 | 0.51 |
-| [主诉推荐就诊科室](scenarios/service/medjourney_departments/README.md) | 100／[100](scenarios/service/medjourney_departments/cases.md) | micro-F1（分） | 36.9 | 1.39 | 34.9 | 1.60 |
-| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 20／[20](scenarios/service/challenge_urgency_given_policy/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | 0.57 |
+| [中文问诊对话行为分类](scenarios/service/imcs_dialogue_act/README.md) | 100／[95](scenarios/service/imcs_dialogue_act/cases.md) | 准确率（%） | **70.0** | 0.90 | 68.0 | **0.54** |
+| [患者问题信息需求分类](scenarios/service/medquad_question_type/README.md) | 100／[98](scenarios/service/medquad_question_type/cases.md) | 准确率（%） | 96.0 | 0.63 | **97.0** | **0.53** |
+| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 20／[20](scenarios/service/challenge_service_route/cases.md) | 准确率（%） | 95.0 | 0.59 | **100.0** | **0.51** |
+| [主诉推荐就诊科室](scenarios/service/medjourney_departments/README.md) | 100／[100](scenarios/service/medjourney_departments/cases.md) | micro-F1（分） | **36.9** | **1.39** | 34.9 | 1.60 |
+| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 20／[20](scenarios/service/challenge_urgency_given_policy/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | **0.57** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -101,37 +101,37 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [中文给定实体类型识别](scenarios/records/imcs_entity_type_oracle_span/README.md) | 100／[95](scenarios/records/imcs_entity_type_oracle_span/cases.md) | 准确率（%） | 96.0 | 0.87 | 92.0 | 0.48 |
-| [中文词典候选实体抽取](scenarios/records/imcs_ner_dictionary_pipeline/README.md) | 100／[92](scenarios/records/imcs_ner_dictionary_pipeline/cases.md) | micro-F1（分） | 59.5 | 0.90 | 59.2 | 0.53 |
-| [给定疾病实体类别](scenarios/records/ncbi_disease_category_oracle_span/README.md) | 100／[60](scenarios/records/ncbi_disease_category_oracle_span/cases.md) | 准确率（%） | 58.0 | 0.62 | 61.0 | 0.56 |
-| [medspaCy 候选与 Jev 疾病实体筛选](scenarios/records/ncbi_medspacy_jev_ner/README.md) | 100／[100](scenarios/records/ncbi_medspacy_jev_ner/cases.md) | micro-F1（分） | 69.4 | 0.66 | 68.7 | 0.71 |
-| [医学实体 UMLS 语义类型](scenarios/records/medmentions_type_oracle_span/README.md) | 100／[94](scenarios/records/medmentions_type_oracle_span/cases.md) | 准确率（%） | 60.0 | 0.64 | 51.0 | 0.54 |
-| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/README.md) | 100／[91](scenarios/records/imcs_assertion_oracle_span/cases.md) | 准确率（%） | 79.0 | 0.98 | 73.0 | 0.54 |
-| [英文句子否定与不确定线索](scenarios/records/bioscope_sentence_cues/README.md) | 100／[94](scenarios/records/bioscope_sentence_cues/cases.md) | 准确率（%） | 83.0 | 0.63 | 77.0 | 0.50 |
-| [西班牙文否定与不确定性](scenarios/records/nubes_scope_status/README.md) | 100／[79](scenarios/records/nubes_scope_status/cases.md) | 准确率（%） | 72.0 | 0.62 | 77.0 | 0.56 |
-| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 20／[20](scenarios/records/challenge_experiencer/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | 0.72 |
-| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 20／[20](scenarios/records/challenge_negation/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | 0.65 |
-| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 20／[20](scenarios/records/challenge_social_context/cases.md) | 准确率（%） | 100.0 | 0.62 | 100.0 | 0.61 |
-| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 20／[20](scenarios/records/challenge_mixed_language/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | 0.55 |
-| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 20／[20](scenarios/records/challenge_relative_date/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | 0.57 |
-| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 20／[20](scenarios/records/challenge_temporality/cases.md) | 准确率（%） | 100.0 | 0.61 | 75.0 | 0.73 |
-| [中文症状术语归一化](scenarios/records/imcs_normalization_top20/README.md) | 100／[92](scenarios/records/imcs_normalization_top20/cases.md) | 准确率（%） | 93.0 | 0.90 | 92.0 | 0.52 |
-| [医学缩写消歧](scenarios/records/medal_demo_disambiguation/README.md) | 100／[34](scenarios/records/medal_demo_disambiguation/cases.md) | 准确率（%） | 67.0 | 0.67 | 35.0 | 0.58 |
-| [问诊对话对应病历章节](scenarios/documentation/mts_section_classification/README.md) | 100／[100](scenarios/documentation/mts_section_classification/cases.md) | 准确率（%） | 76.0 | 0.92 | 73.0 | 0.57 |
-| [已分段病历章节分类](scenarios/documentation/aci_note_section/README.md) | 100／[40](scenarios/documentation/aci_note_section/cases.md) | 准确率（%） | 99.0 | 0.62 | 100.0 | 0.55 |
-| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 20／[20](scenarios/documentation/challenge_document_type/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | 0.58 |
-| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 24／[20](scenarios/multimodal/clinocr_ocr_doctype/cases.md) | 准确率（%） | 95.8 | 0.63 | 87.5 | 0.53 |
-| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 24／[20](scenarios/multimodal/clinocr_reference_doctype/cases.md) | 准确率（%） | 95.8 | 0.61 | 95.8 | 0.53 |
-| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 37／[20](scenarios/multimodal/primock_asr_fields/cases.md) | 准确率（%） | 91.9 | 0.62 | 89.2 | 0.60 |
-| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 37／[20](scenarios/multimodal/primock_reference_fields/cases.md) | 准确率（%） | 100.0 | 0.66 | 100.0 | 0.57 |
-| [长病历跨文档问答](scenarios/records/longhealth_full_context/README.md) | 100／[20](scenarios/records/longhealth_full_context/cases.md) | 准确率（%） | 95.0 | 1.43 | 83.0 | 0.62 |
-| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 20／[20](scenarios/documentation/challenge_documentation/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | 0.57 |
-| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 20／[20](scenarios/quality/challenge_contradiction/cases.md) | 准确率（%） | 100.0 | 0.58 | 95.0 | 0.57 |
-| [医疗叙述错误检出](scenarios/quality/medec_error_detection/README.md) | 100／[100](scenarios/quality/medec_error_detection/cases.md) | 准确率（%） | 65.0 | 0.94 | 60.0 | 0.54 |
-| [医疗叙述错误定位](scenarios/quality/medec_error_localization/README.md) | 100／[100](scenarios/quality/medec_error_localization/cases.md) | 准确率（%） | 72.0 | 0.95 | 70.0 | 0.54 |
-| [阿拉伯文医疗文本错误检出](scenarios/quality/mederrbench_ARA/README.md) | 97／[97](scenarios/quality/mederrbench_ARA/cases.md) | 准确率（%） | 69.1 | 0.62 | 59.8 | 0.53 |
-| [中文医疗文本错误检出](scenarios/quality/mederrbench_CN/README.md) | 100／[100](scenarios/quality/mederrbench_CN/cases.md) | 准确率（%） | 73.0 | 0.61 | 74.0 | 0.56 |
-| [英文医疗文本错误检出](scenarios/quality/mederrbench_EN/README.md) | 100／[100](scenarios/quality/mederrbench_EN/cases.md) | 准确率（%） | 81.0 | 0.63 | 79.0 | 0.58 |
+| [中文给定实体类型识别](scenarios/records/imcs_entity_type_oracle_span/README.md) | 100／[95](scenarios/records/imcs_entity_type_oracle_span/cases.md) | 准确率（%） | **96.0** | 0.87 | 92.0 | **0.48** |
+| [中文词典候选实体抽取](scenarios/records/imcs_ner_dictionary_pipeline/README.md) | 100／[92](scenarios/records/imcs_ner_dictionary_pipeline/cases.md) | micro-F1（分） | **59.5** | 0.90 | 59.2 | **0.53** |
+| [给定疾病实体类别](scenarios/records/ncbi_disease_category_oracle_span/README.md) | 100／[60](scenarios/records/ncbi_disease_category_oracle_span/cases.md) | 准确率（%） | 58.0 | 0.62 | **61.0** | **0.56** |
+| [medspaCy 候选与 Jev 疾病实体筛选](scenarios/records/ncbi_medspacy_jev_ner/README.md) | 100／[100](scenarios/records/ncbi_medspacy_jev_ner/cases.md) | micro-F1（分） | **69.4** | **0.66** | 68.7 | 0.71 |
+| [医学实体 UMLS 语义类型](scenarios/records/medmentions_type_oracle_span/README.md) | 100／[94](scenarios/records/medmentions_type_oracle_span/cases.md) | 准确率（%） | **60.0** | 0.64 | 51.0 | **0.54** |
+| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/README.md) | 100／[91](scenarios/records/imcs_assertion_oracle_span/cases.md) | 准确率（%） | **79.0** | 0.98 | 73.0 | **0.54** |
+| [英文句子否定与不确定线索](scenarios/records/bioscope_sentence_cues/README.md) | 100／[94](scenarios/records/bioscope_sentence_cues/cases.md) | 准确率（%） | **83.0** | 0.63 | 77.0 | **0.50** |
+| [西班牙文否定与不确定性](scenarios/records/nubes_scope_status/README.md) | 100／[79](scenarios/records/nubes_scope_status/cases.md) | 准确率（%） | 72.0 | 0.62 | **77.0** | **0.56** |
+| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 20／[20](scenarios/records/challenge_experiencer/cases.md) | 准确率（%） | 100.0 | **0.61** | 100.0 | 0.72 |
+| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 20／[20](scenarios/records/challenge_negation/cases.md) | 准确率（%） | 100.0 | **0.59** | 100.0 | 0.65 |
+| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 20／[20](scenarios/records/challenge_social_context/cases.md) | 准确率（%） | 100.0 | 0.62 | 100.0 | **0.61** |
+| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 20／[20](scenarios/records/challenge_mixed_language/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | **0.55** |
+| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 20／[20](scenarios/records/challenge_relative_date/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | **0.57** |
+| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 20／[20](scenarios/records/challenge_temporality/cases.md) | 准确率（%） | **100.0** | **0.61** | 75.0 | 0.73 |
+| [中文症状术语归一化](scenarios/records/imcs_normalization_top20/README.md) | 100／[92](scenarios/records/imcs_normalization_top20/cases.md) | 准确率（%） | **93.0** | 0.90 | 92.0 | **0.52** |
+| [医学缩写消歧](scenarios/records/medal_demo_disambiguation/README.md) | 100／[34](scenarios/records/medal_demo_disambiguation/cases.md) | 准确率（%） | **67.0** | 0.67 | 35.0 | **0.58** |
+| [问诊对话对应病历章节](scenarios/documentation/mts_section_classification/README.md) | 100／[100](scenarios/documentation/mts_section_classification/cases.md) | 准确率（%） | **76.0** | 0.92 | 73.0 | **0.57** |
+| [已分段病历章节分类](scenarios/documentation/aci_note_section/README.md) | 100／[40](scenarios/documentation/aci_note_section/cases.md) | 准确率（%） | 99.0 | 0.62 | **100.0** | **0.55** |
+| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 20／[20](scenarios/documentation/challenge_document_type/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | **0.58** |
+| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 24／[20](scenarios/multimodal/clinocr_ocr_doctype/cases.md) | 准确率（%） | **95.8** | 0.63 | 87.5 | **0.53** |
+| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 24／[20](scenarios/multimodal/clinocr_reference_doctype/cases.md) | 准确率（%） | 95.8 | 0.61 | 95.8 | **0.53** |
+| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 37／[20](scenarios/multimodal/primock_asr_fields/cases.md) | 准确率（%） | **91.9** | 0.62 | 89.2 | **0.60** |
+| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 37／[20](scenarios/multimodal/primock_reference_fields/cases.md) | 准确率（%） | 100.0 | 0.66 | 100.0 | **0.57** |
+| [长病历跨文档问答](scenarios/records/longhealth_full_context/README.md) | 100／[20](scenarios/records/longhealth_full_context/cases.md) | 准确率（%） | **95.0** | 1.43 | 83.0 | **0.62** |
+| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 20／[20](scenarios/documentation/challenge_documentation/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | **0.57** |
+| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 20／[20](scenarios/quality/challenge_contradiction/cases.md) | 准确率（%） | **100.0** | 0.58 | 95.0 | **0.57** |
+| [医疗叙述错误检出](scenarios/quality/medec_error_detection/README.md) | 100／[100](scenarios/quality/medec_error_detection/cases.md) | 准确率（%） | **65.0** | 0.94 | 60.0 | **0.54** |
+| [医疗叙述错误定位](scenarios/quality/medec_error_localization/README.md) | 100／[100](scenarios/quality/medec_error_localization/cases.md) | 准确率（%） | **72.0** | 0.95 | 70.0 | **0.54** |
+| [阿拉伯文医疗文本错误检出](scenarios/quality/mederrbench_ARA/README.md) | 97／[97](scenarios/quality/mederrbench_ARA/cases.md) | 准确率（%） | **69.1** | 0.62 | 59.8 | **0.53** |
+| [中文医疗文本错误检出](scenarios/quality/mederrbench_CN/README.md) | 100／[100](scenarios/quality/mederrbench_CN/cases.md) | 准确率（%） | 73.0 | 0.61 | **74.0** | **0.56** |
+| [英文医疗文本错误检出](scenarios/quality/mederrbench_EN/README.md) | 100／[100](scenarios/quality/mederrbench_EN/cases.md) | 准确率（%） | **81.0** | 0.63 | 79.0 | **0.58** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -184,9 +184,9 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 20／[20](scenarios/calculators/challenge_lab_link/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | 0.63 |
-| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 20／[20](scenarios/calculators/challenge_unit_equivalence/cases.md) | 准确率（%） | 95.0 | 0.60 | 100.0 | 0.64 |
-| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 20／[20](scenarios/multimodal/challenge_radiology_assertion/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | 0.57 |
+| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 20／[20](scenarios/calculators/challenge_lab_link/cases.md) | 准确率（%） | 100.0 | **0.60** | 100.0 | 0.63 |
+| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 20／[20](scenarios/calculators/challenge_unit_equivalence/cases.md) | 准确率（%） | 95.0 | **0.60** | **100.0** | 0.64 |
+| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 20／[20](scenarios/multimodal/challenge_radiology_assertion/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | **0.57** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -211,14 +211,14 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [化学物致病关系判断](scenarios/medication/bc5cdr_relation_oracle_entities/README.md) | 100／[82](scenarios/medication/bc5cdr_relation_oracle_entities/cases.md) | 准确率（%） | 57.0 | 0.64 | 66.0 | 0.52 |
-| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/README.md) | 150／[77](scenarios/medication/ddi_relation_oracle_pairs/cases.md) | 准确率（%） | 79.3 | 0.91 | 74.7 | 0.53 |
-| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 20／[20](scenarios/medication/challenge_allergy_state/cases.md) | 准确率（%） | 100.0 | 0.62 | 100.0 | 0.61 |
-| [出院带药候选筛选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 100／[83](scenarios/medication/cdrugred_discharge_candidate_pipeline/cases.md) | micro-F1（分） | 48.6 | 0.78 | 47.9 | 0.93 |
-| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 20／[20](scenarios/medication/challenge_medication_change/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | 0.62 |
-| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 20／[20](scenarios/medication/challenge_dose_link/cases.md) | 准确率（%） | 100.0 | 0.62 | 100.0 | 0.61 |
-| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 20／[20](scenarios/medication/challenge_frequency/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | 0.64 |
-| [MedJourney 用药预测选择题](scenarios/service/medjourney_mp_mcq/README.md) | 100／[100](scenarios/service/medjourney_mp_mcq/cases.md) | 准确率（%） | 86.0 | 0.61 | 88.0 | 0.51 |
+| [化学物致病关系判断](scenarios/medication/bc5cdr_relation_oracle_entities/README.md) | 100／[82](scenarios/medication/bc5cdr_relation_oracle_entities/cases.md) | 准确率（%） | 57.0 | 0.64 | **66.0** | **0.52** |
+| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/README.md) | 150／[77](scenarios/medication/ddi_relation_oracle_pairs/cases.md) | 准确率（%） | **79.3** | 0.91 | 74.7 | **0.53** |
+| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 20／[20](scenarios/medication/challenge_allergy_state/cases.md) | 准确率（%） | 100.0 | 0.62 | 100.0 | **0.61** |
+| [出院带药候选筛选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 100／[83](scenarios/medication/cdrugred_discharge_candidate_pipeline/cases.md) | micro-F1（分） | **48.6** | **0.78** | 47.9 | 0.93 |
+| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 20／[20](scenarios/medication/challenge_medication_change/cases.md) | 准确率（%） | 100.0 | **0.59** | 100.0 | 0.62 |
+| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 20／[20](scenarios/medication/challenge_dose_link/cases.md) | 准确率（%） | 100.0 | 0.62 | 100.0 | **0.61** |
+| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 20／[20](scenarios/medication/challenge_frequency/cases.md) | 准确率（%） | 100.0 | **0.60** | 100.0 | 0.64 |
+| [MedJourney 用药预测选择题](scenarios/service/medjourney_mp_mcq/README.md) | 100／[100](scenarios/service/medjourney_mp_mcq/cases.md) | 准确率（%） | 86.0 | 0.61 | **88.0** | **0.51** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -248,32 +248,32 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [MedJourney 诊断预测选择题](scenarios/service/medjourney_dp_mcq/README.md) | 100／[100](scenarios/service/medjourney_dp_mcq/cases.md) | 准确率（%） | 92.0 | 0.63 | 91.0 | 0.53 |
-| [合成病例主要诊断](scenarios/acute/ddxplus_synthetic_primary/README.md) | 100／[100](scenarios/acute/ddxplus_synthetic_primary/cases.md) | 准确率（%） | 67.0 | 0.69 | 71.0 | 0.58 |
-| [中医病历证型分类](scenarios/tcm/tcm_syndrome/README.md) | 100／[100](scenarios/tcm/tcm_syndrome/cases.md) | 准确率（%） | 33.0 | 1.16 | 40.0 | 0.54 |
-| [中医病位单选](scenarios/tcm/tcm_best_location/README.md) | 21／[21](scenarios/tcm/tcm_best_location/cases.md) | 准确率（%） | 81.0 | 0.64 | 76.2 | 0.48 |
-| [中医病位多选](scenarios/tcm/tcm_best_location_multi/README.md) | 79／[79](scenarios/tcm/tcm_best_location_multi/cases.md) | micro-F1（分） | 64.8 | 0.62 | 66.7 | 0.62 |
-| [中医病性单选](scenarios/tcm/tcm_best_nature/README.md) | 99／[99](scenarios/tcm/tcm_best_nature/cases.md) | 准确率（%） | 69.7 | 0.65 | 59.6 | 0.54 |
-| [中医病性与要素多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_nature_multi/cases.md) | micro-F1（分） | 85.4 | 0.60 | 79.1 | 0.60 |
-| [中医证型单选](scenarios/tcm/tcm_best_syndrome/README.md) | 68／[68](scenarios/tcm/tcm_best_syndrome/cases.md) | 准确率（%） | 80.9 | 0.63 | 72.1 | 0.50 |
-| [中医证型多选](scenarios/tcm/tcm_best_syndrome_multi/README.md) | 32／[32](scenarios/tcm/tcm_best_syndrome_multi/cases.md) | micro-F1（分） | 52.8 | 0.65 | 36.7 | 0.59 |
-| [MedJourney 检查预测选择题](scenarios/service/medjourney_ep_mcq/README.md) | 100／[100](scenarios/service/medjourney_ep_mcq/cases.md) | 准确率（%） | 82.0 | 0.61 | 79.0 | 0.54 |
-| [MedJourney 治疗预测选择题](scenarios/service/medjourney_tp_mcq/README.md) | 100／[100](scenarios/service/medjourney_tp_mcq/cases.md) | 准确率（%） | 83.0 | 0.62 | 82.0 | 0.51 |
-| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 20／[20](scenarios/tcm/tcm_best_principles/cases.md) | 准确率（%） | 90.0 | 0.62 | 70.0 | 0.51 |
-| [中医治则治法多选](scenarios/tcm/tcm_best_principles_multi/README.md) | 97／[97](scenarios/tcm/tcm_best_principles_multi/cases.md) | micro-F1（分） | 70.3 | 0.63 | 62.3 | 0.60 |
-| [BMI 当前身高参数选择](scenarios/calculators/bmi_height_selection/README.md) | 20／[20](scenarios/calculators/bmi_height_selection/cases.md) | 准确率（%） | 95.0 | 0.64 | 95.0 | 0.52 |
-| [BMI 当前体重参数选择](scenarios/calculators/bmi_weight_selection/README.md) | 20／[20](scenarios/calculators/bmi_weight_selection/cases.md) | 准确率（%） | 95.0 | 0.63 | 90.0 | 0.49 |
-| [临床计算输入充分性](scenarios/calculators/cmedcalc_input_sufficiency/README.md) | 200／[200](scenarios/calculators/cmedcalc_input_sufficiency/cases.md) | 准确率（%） | 81.5 | 0.93 | 84.0 | 0.55 |
-| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/README.md) | 162／[162](scenarios/calculators/cmedcalc_semantic_grade/cases.md) | 准确率（%） | 60.5 | 0.89 | 39.5 | 0.61 |
-| [五种临床量表闭集数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 100／[100](scenarios/calculators/medcalc_verified_bounded_score/cases.md) | 准确率（%） | 25.0 | 0.66 | 31.0 | 0.60 |
-| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 20／[20](scenarios/calculators/challenge_missing_parameter/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | 0.59 |
-| [英文 MedQA医学考试](scenarios/knowledge/medqa_en_test/README.md) | 100／[100](scenarios/knowledge/medqa_en_test/cases.md) | 准确率（%） | 83.0 | 0.62 | 78.0 | 0.61 |
-| [中文 MedQA医学考试](scenarios/knowledge/medqa_zh_test/README.md) | 100／[100](scenarios/knowledge/medqa_zh_test/cases.md) | 准确率（%） | 89.0 | 0.63 | 84.0 | 0.53 |
-| [MedMCQA医学考试](scenarios/knowledge/medmcqa_validation/README.md) | 100／[100](scenarios/knowledge/medmcqa_validation/cases.md) | 准确率（%） | 72.0 | 0.63 | 67.0 | 0.54 |
-| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/README.md) | 95／[95](scenarios/knowledge/cmexam_mcq/cases.md) | 准确率（%） | 92.6 | 0.86 | 85.3 | 0.58 |
-| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 20／[20](scenarios/knowledge/cmexam_mcq_multi/cases.md) | micro-F1（分） | 83.2 | 0.60 | 90.3 | 0.69 |
-| [中医基础知识单选](scenarios/tcm/tcm_best_knowledge/README.md) | 89／[89](scenarios/tcm/tcm_best_knowledge/cases.md) | 准确率（%） | 91.0 | 0.63 | 83.1 | 0.51 |
-| [中医基础知识多选](scenarios/tcm/tcm_best_knowledge_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_knowledge_multi/cases.md) | micro-F1（分） | 81.5 | 0.66 | 87.9 | 0.62 |
+| [MedJourney 诊断预测选择题](scenarios/service/medjourney_dp_mcq/README.md) | 100／[100](scenarios/service/medjourney_dp_mcq/cases.md) | 准确率（%） | **92.0** | 0.63 | 91.0 | **0.53** |
+| [合成病例主要诊断](scenarios/acute/ddxplus_synthetic_primary/README.md) | 100／[100](scenarios/acute/ddxplus_synthetic_primary/cases.md) | 准确率（%） | 67.0 | 0.69 | **71.0** | **0.58** |
+| [中医病历证型分类](scenarios/tcm/tcm_syndrome/README.md) | 100／[100](scenarios/tcm/tcm_syndrome/cases.md) | 准确率（%） | 33.0 | 1.16 | **40.0** | **0.54** |
+| [中医病位单选](scenarios/tcm/tcm_best_location/README.md) | 21／[21](scenarios/tcm/tcm_best_location/cases.md) | 准确率（%） | **81.0** | 0.64 | 76.2 | **0.48** |
+| [中医病位多选](scenarios/tcm/tcm_best_location_multi/README.md) | 79／[79](scenarios/tcm/tcm_best_location_multi/cases.md) | micro-F1（分） | 64.8 | 0.62 | **66.7** | 0.62 |
+| [中医病性单选](scenarios/tcm/tcm_best_nature/README.md) | 99／[99](scenarios/tcm/tcm_best_nature/cases.md) | 准确率（%） | **69.7** | 0.65 | 59.6 | **0.54** |
+| [中医病性与要素多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_nature_multi/cases.md) | micro-F1（分） | **85.4** | 0.60 | 79.1 | 0.60 |
+| [中医证型单选](scenarios/tcm/tcm_best_syndrome/README.md) | 68／[68](scenarios/tcm/tcm_best_syndrome/cases.md) | 准确率（%） | **80.9** | 0.63 | 72.1 | **0.50** |
+| [中医证型多选](scenarios/tcm/tcm_best_syndrome_multi/README.md) | 32／[32](scenarios/tcm/tcm_best_syndrome_multi/cases.md) | micro-F1（分） | **52.8** | 0.65 | 36.7 | **0.59** |
+| [MedJourney 检查预测选择题](scenarios/service/medjourney_ep_mcq/README.md) | 100／[100](scenarios/service/medjourney_ep_mcq/cases.md) | 准确率（%） | **82.0** | 0.61 | 79.0 | **0.54** |
+| [MedJourney 治疗预测选择题](scenarios/service/medjourney_tp_mcq/README.md) | 100／[100](scenarios/service/medjourney_tp_mcq/cases.md) | 准确率（%） | **83.0** | 0.62 | 82.0 | **0.51** |
+| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 20／[20](scenarios/tcm/tcm_best_principles/cases.md) | 准确率（%） | **90.0** | 0.62 | 70.0 | **0.51** |
+| [中医治则治法多选](scenarios/tcm/tcm_best_principles_multi/README.md) | 97／[97](scenarios/tcm/tcm_best_principles_multi/cases.md) | micro-F1（分） | **70.3** | 0.63 | 62.3 | **0.60** |
+| [BMI 当前身高参数选择](scenarios/calculators/bmi_height_selection/README.md) | 20／[20](scenarios/calculators/bmi_height_selection/cases.md) | 准确率（%） | 95.0 | 0.64 | 95.0 | **0.52** |
+| [BMI 当前体重参数选择](scenarios/calculators/bmi_weight_selection/README.md) | 20／[20](scenarios/calculators/bmi_weight_selection/cases.md) | 准确率（%） | **95.0** | 0.63 | 90.0 | **0.49** |
+| [临床计算输入充分性](scenarios/calculators/cmedcalc_input_sufficiency/README.md) | 200／[200](scenarios/calculators/cmedcalc_input_sufficiency/cases.md) | 准确率（%） | 81.5 | 0.93 | **84.0** | **0.55** |
+| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/README.md) | 162／[162](scenarios/calculators/cmedcalc_semantic_grade/cases.md) | 准确率（%） | **60.5** | 0.89 | 39.5 | **0.61** |
+| [五种临床量表闭集数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 100／[100](scenarios/calculators/medcalc_verified_bounded_score/cases.md) | 准确率（%） | 25.0 | 0.66 | **31.0** | **0.60** |
+| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 20／[20](scenarios/calculators/challenge_missing_parameter/cases.md) | 准确率（%） | 100.0 | 0.60 | 100.0 | **0.59** |
+| [英文 MedQA医学考试](scenarios/knowledge/medqa_en_test/README.md) | 100／[100](scenarios/knowledge/medqa_en_test/cases.md) | 准确率（%） | **83.0** | 0.62 | 78.0 | **0.61** |
+| [中文 MedQA医学考试](scenarios/knowledge/medqa_zh_test/README.md) | 100／[100](scenarios/knowledge/medqa_zh_test/cases.md) | 准确率（%） | **89.0** | 0.63 | 84.0 | **0.53** |
+| [MedMCQA医学考试](scenarios/knowledge/medmcqa_validation/README.md) | 100／[100](scenarios/knowledge/medmcqa_validation/cases.md) | 准确率（%） | **72.0** | 0.63 | 67.0 | **0.54** |
+| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/README.md) | 95／[95](scenarios/knowledge/cmexam_mcq/cases.md) | 准确率（%） | **92.6** | 0.86 | 85.3 | **0.58** |
+| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 20／[20](scenarios/knowledge/cmexam_mcq_multi/cases.md) | micro-F1（分） | 83.2 | **0.60** | **90.3** | 0.69 |
+| [中医基础知识单选](scenarios/tcm/tcm_best_knowledge/README.md) | 89／[89](scenarios/tcm/tcm_best_knowledge/cases.md) | 准确率（%） | **91.0** | 0.63 | 83.1 | **0.51** |
+| [中医基础知识多选](scenarios/tcm/tcm_best_knowledge_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_knowledge_multi/cases.md) | micro-F1（分） | 81.5 | 0.66 | **87.9** | **0.62** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -321,7 +321,7 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 20／[20](scenarios/documentation/challenge_followup_action/cases.md) | 准确率（%） | 95.0 | 0.61 | 100.0 | 0.56 |
+| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 20／[20](scenarios/documentation/challenge_followup_action/cases.md) | 准确率（%） | 95.0 | 0.61 | **100.0** | **0.56** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -344,19 +344,19 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [PICO 固定窗口识别](scenarios/evidence/ebm_pico_fixed_windows/README.md) | 100／[76](scenarios/evidence/ebm_pico_fixed_windows/cases.md) | micro-F1（分） | 12.7 | 0.63 | 25.4 | 0.56 |
-| [研究结局固定窗口分类](scenarios/evidence/evidenceoutcomes_fixed_window/README.md) | 100／[92](scenarios/evidence/evidenceoutcomes_fixed_window/cases.md) | 准确率（%） | 88.0 | 0.66 | 67.0 | 0.55 |
-| [RCT 摘要句功能分类](scenarios/evidence/pubmed_rct_section/README.md) | 100／[98](scenarios/evidence/pubmed_rct_section/cases.md) | 准确率（%） | 75.0 | 0.90 | 77.0 | 0.53 |
-| [临床研究干预结果方向](scenarios/evidence/evidence_inference_fulltext/README.md) | 100／[84](scenarios/evidence/evidence_inference_fulltext/cases.md) | 准确率（%） | 89.0 | 0.87 | 76.0 | 0.57 |
-| [全文证据句筛选](scenarios/evidence/evidencebench_sentence_selection/README.md) | 37／[37](scenarios/evidence/evidencebench_sentence_selection/cases.md) | micro-F1（分） | 29.4 | 1.15 | 25.9 | 2.31 |
-| [摘要支持的研究问题回答](scenarios/evidence/pubmedqa_evidence_qa/README.md) | 100／[100](scenarios/evidence/pubmedqa_evidence_qa/cases.md) | 准确率（%） | 74.0 | 0.91 | 76.0 | 0.54 |
-| [科学论断与给定摘要一致性](scenarios/evidence/scifact_cited_abstract/README.md) | 118／[100](scenarios/evidence/scifact_cited_abstract/cases.md) | 准确率（%） | 85.6 | 0.64 | 89.0 | 0.54 |
-| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 20／[20](scenarios/evidence/challenge_evidence_support/cases.md) | 准确率（%） | 100.0 | 0.60 | 75.0 | 0.58 |
-| [临床试验证据支持判断](scenarios/trials/nli4ct_entailment/README.md) | 100／[70](scenarios/trials/nli4ct_entailment/cases.md) | 准确率（%） | 88.0 | 0.91 | 87.0 | 0.51 |
-| [临床试验证据句定位](scenarios/trials/nli4ct_evidence/README.md) | 100／[74](scenarios/trials/nli4ct_evidence/cases.md) | micro-F1（分） | 49.9 | 0.94 | 68.3 | 0.82 |
-| [患者与临床试验入组预筛](scenarios/trials/trialgpt_sigir_referral/README.md) | 150／[45](scenarios/trials/trialgpt_sigir_referral/cases.md) | 准确率（%） | 48.0 | 0.65 | 54.7 | 0.50 |
-| [公共卫生核查：仅论断](scenarios/evidence/pubhealth_claim_only/README.md) | 100／[100](scenarios/evidence/pubhealth_claim_only/cases.md) | 准确率（%） | 20.0 | 0.77 | 44.0 | 0.55 |
-| [公共卫生核查：提供核查文章](scenarios/evidence/pubhealth_with_article/README.md) | 100／[100](scenarios/evidence/pubhealth_with_article/cases.md) | 准确率（%） | 67.0 | 0.82 | 72.0 | 0.55 |
+| [PICO 固定窗口识别](scenarios/evidence/ebm_pico_fixed_windows/README.md) | 100／[76](scenarios/evidence/ebm_pico_fixed_windows/cases.md) | micro-F1（分） | 12.7 | 0.63 | **25.4** | **0.56** |
+| [研究结局固定窗口分类](scenarios/evidence/evidenceoutcomes_fixed_window/README.md) | 100／[92](scenarios/evidence/evidenceoutcomes_fixed_window/cases.md) | 准确率（%） | **88.0** | 0.66 | 67.0 | **0.55** |
+| [RCT 摘要句功能分类](scenarios/evidence/pubmed_rct_section/README.md) | 100／[98](scenarios/evidence/pubmed_rct_section/cases.md) | 准确率（%） | 75.0 | 0.90 | **77.0** | **0.53** |
+| [临床研究干预结果方向](scenarios/evidence/evidence_inference_fulltext/README.md) | 100／[84](scenarios/evidence/evidence_inference_fulltext/cases.md) | 准确率（%） | **89.0** | 0.87 | 76.0 | **0.57** |
+| [全文证据句筛选](scenarios/evidence/evidencebench_sentence_selection/README.md) | 37／[37](scenarios/evidence/evidencebench_sentence_selection/cases.md) | micro-F1（分） | **29.4** | **1.15** | 25.9 | 2.31 |
+| [摘要支持的研究问题回答](scenarios/evidence/pubmedqa_evidence_qa/README.md) | 100／[100](scenarios/evidence/pubmedqa_evidence_qa/cases.md) | 准确率（%） | 74.0 | 0.91 | **76.0** | **0.54** |
+| [科学论断与给定摘要一致性](scenarios/evidence/scifact_cited_abstract/README.md) | 118／[100](scenarios/evidence/scifact_cited_abstract/cases.md) | 准确率（%） | 85.6 | 0.64 | **89.0** | **0.54** |
+| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 20／[20](scenarios/evidence/challenge_evidence_support/cases.md) | 准确率（%） | **100.0** | 0.60 | 75.0 | **0.58** |
+| [临床试验证据支持判断](scenarios/trials/nli4ct_entailment/README.md) | 100／[70](scenarios/trials/nli4ct_entailment/cases.md) | 准确率（%） | **88.0** | 0.91 | 87.0 | **0.51** |
+| [临床试验证据句定位](scenarios/trials/nli4ct_evidence/README.md) | 100／[74](scenarios/trials/nli4ct_evidence/cases.md) | micro-F1（分） | 49.9 | 0.94 | **68.3** | **0.82** |
+| [患者与临床试验入组预筛](scenarios/trials/trialgpt_sigir_referral/README.md) | 150／[45](scenarios/trials/trialgpt_sigir_referral/cases.md) | 准确率（%） | 48.0 | 0.65 | **54.7** | **0.50** |
+| [公共卫生核查：仅论断](scenarios/evidence/pubhealth_claim_only/README.md) | 100／[100](scenarios/evidence/pubhealth_claim_only/cases.md) | 准确率（%） | 20.0 | 0.77 | **44.0** | **0.55** |
+| [公共卫生核查：提供核查文章](scenarios/evidence/pubhealth_with_article/README.md) | 100／[100](scenarios/evidence/pubhealth_with_article/cases.md) | 准确率（%） | 67.0 | 0.82 | **72.0** | **0.55** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
@@ -391,15 +391,15 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 | 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 20／[20](scenarios/records/challenge_coding_evidence/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | 0.58 |
-| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 20／[20](scenarios/quality/challenge_phi_candidate/cases.md) | 准确率（%） | 95.0 | 0.61 | 95.0 | 0.59 |
-| [医学回答幻觉识别：有证据](scenarios/quality/medhallu_with_evidence/README.md) | 200／[100](scenarios/quality/medhallu_with_evidence/cases.md) | 准确率（%） | 82.0 | 0.64 | 82.5 | 0.54 |
-| [医学回答幻觉识别：无证据](scenarios/quality/medhallu_without_evidence/README.md) | 200／[100](scenarios/quality/medhallu_without_evidence/cases.md) | 准确率（%） | 60.0 | 0.63 | 69.5 | 0.52 |
-| [医疗有害请求筛查](scenarios/quality/medsafety_request_gate/README.md) | 200／[200](scenarios/quality/medsafety_request_gate/cases.md) | 准确率（%） | 93.5 | 0.63 | 96.0 | 0.52 |
-| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 20／[20](scenarios/quality/challenge_prompt_injection/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | 0.58 |
-| [医学伦理单选](scenarios/tcm/tcm_best_ethics/README.md) | 97／[97](scenarios/tcm/tcm_best_ethics/cases.md) | 准确率（%） | 89.7 | 0.61 | 79.4 | 0.52 |
-| [医学伦理与执业规范多选](scenarios/tcm/tcm_best_ethics_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_ethics_multi/cases.md) | micro-F1（分） | 88.9 | 0.61 | 89.4 | 0.57 |
-| [中医安全问题标签一致性](scenarios/tcm/tcm_best_安全问题/README.md) | 100／[100](scenarios/tcm/tcm_best_安全问题/cases.md) | 准确率（%） | 27.0 | 0.64 | 29.0 | 0.53 |
+| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 20／[20](scenarios/records/challenge_coding_evidence/cases.md) | 准确率（%） | 100.0 | 0.59 | 100.0 | **0.58** |
+| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 20／[20](scenarios/quality/challenge_phi_candidate/cases.md) | 准确率（%） | 95.0 | 0.61 | 95.0 | **0.59** |
+| [医学回答幻觉识别：有证据](scenarios/quality/medhallu_with_evidence/README.md) | 200／[100](scenarios/quality/medhallu_with_evidence/cases.md) | 准确率（%） | 82.0 | 0.64 | **82.5** | **0.54** |
+| [医学回答幻觉识别：无证据](scenarios/quality/medhallu_without_evidence/README.md) | 200／[100](scenarios/quality/medhallu_without_evidence/cases.md) | 准确率（%） | 60.0 | 0.63 | **69.5** | **0.52** |
+| [医疗有害请求筛查](scenarios/quality/medsafety_request_gate/README.md) | 200／[200](scenarios/quality/medsafety_request_gate/cases.md) | 准确率（%） | 93.5 | 0.63 | **96.0** | **0.52** |
+| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 20／[20](scenarios/quality/challenge_prompt_injection/cases.md) | 准确率（%） | 100.0 | 0.61 | 100.0 | **0.58** |
+| [医学伦理单选](scenarios/tcm/tcm_best_ethics/README.md) | 97／[97](scenarios/tcm/tcm_best_ethics/cases.md) | 准确率（%） | **89.7** | 0.61 | 79.4 | **0.52** |
+| [医学伦理与执业规范多选](scenarios/tcm/tcm_best_ethics_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_ethics_multi/cases.md) | micro-F1（分） | 88.9 | 0.61 | **89.4** | **0.57** |
+| [中医安全问题标签一致性](scenarios/tcm/tcm_best_安全问题/README.md) | 100／[100](scenarios/tcm/tcm_best_安全问题/cases.md) | 准确率（%） | 27.0 | 0.64 | **29.0** | **0.53** |
 
 <details>
 <summary>展开详细数据：得分差值、费用、失败与原始材料</summary>
