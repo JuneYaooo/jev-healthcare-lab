@@ -8,7 +8,7 @@ Jev Healthcare Lab · 医疗任务实测与原始记录
 
 **8 个业务领域 · 96 个评测条件 · 7,133 条测试输入**
 
-**[看 Jev 的完整成绩 →](docs/任务对比.md)　[看它测过哪些任务 →](docs/医疗任务总目录.md)　[查看原题与回答 →](scenarios/README.md)**
+**[看 Jev 的全部测试数据 →](#全部领域与任务的详细测试数据)　[按领域查看 →](#领域导航)　[查看原题与回答 →](scenarios/README.md)**
 
 ## Jev 的表现：章节分类 99%，量表评分 25%
 
@@ -21,7 +21,7 @@ Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床
 | [判断患者是否适配临床试验](scenarios/trials/trialgpt_sigir_referral/README.md) | 48.0% | 给定患者与试验材料，直接三分类 | 54.7% |
 | [给临床量表选出数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 25.0% | 5 种量表，答案来自给定选项 | 31.0% |
 
-这些是全部 96 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 16/20 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](docs/任务对比.md) · [错误、区间与复核量](docs/医疗适用性审计.md)
+这些是全部 96 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 16/20 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](#全部领域与任务的详细测试数据) · [错误、区间与复核量](docs/医疗适用性审计.md)
 
 ## Jev 的速度和费用怎么样
 
@@ -36,20 +36,381 @@ Jev 在主效果评测中的调用费用更低；在独立重复输入测速中�
 
 如果你的产品需要对一份材料连续做多个判断，还可以看 [140 份新材料的逐项／合并处理实验](comparisons/paired-suite/README.md)：每次处理 1 项、5 项、10 项，对比准确率、总耗时和费用。
 
-## Jev 测过哪些医疗任务
+## 领域导航
 
-| 业务领域 | Jev 的测试内容 |
-| --- | --- |
-| [患者服务 →](docs/医疗任务总目录.md#service) | 给患者提问分类、推荐科室、按规则分流 |
-| [病历与文书 →](docs/医疗任务总目录.md#records) | 整理病历、识别肯否定、统一术语、查找错误 |
-| [检验与报告 →](docs/医疗任务总目录.md#reports) | 把检验数值对上项目、读懂报告里的肯否定 |
-| [用药管理 →](docs/医疗任务总目录.md#medication) | 识别药物关系、用药变更、剂量与频次 |
-| [诊疗支持 →](docs/医疗任务总目录.md#clinical) | 比较诊断、检查、治疗、量表及中医相关题目 |
-| [出院与随访 →](docs/医疗任务总目录.md#followup) | 识别复诊、复查等后续行动 |
-| [科研与循证 →](docs/医疗任务总目录.md#research) | 筛选研究证据、整理 PICO、做患者入组预筛 |
-| [数据治理与运营 →](docs/医疗任务总目录.md#governance) | 核对编码依据、识别隐私候选和有害请求 |
+| 业务领域 | Jev 的测试内容 | 任务数 | 记录数 |
+| --- | --- | ---: | ---: |
+| [患者服务 →](#results-service) | 给患者提问分类、推荐科室、按规则分流 | 5 | 340 |
+| [病历与文书 →](#results-records) | 整理病历、识别肯否定、统一术语、查找错误 | 31 | 2,099 |
+| [检验与报告 →](#results-reports) | 把检验数值对上项目、读懂报告里的肯否定 | 3 | 60 |
+| [用药管理 →](#results-medication) | 识别药物关系、用药变更、剂量与频次 | 8 | 530 |
+| [诊疗支持 →](#results-clinical) | 比较诊断、检查、治疗、量表及中医相关题目 | 26 | 1,982 |
+| [出院与随访 →](#results-followup) | 识别复诊、复查等后续行动 | 1 | 20 |
+| [科研与循证 →](#results-research) | 筛选研究证据、整理 PICO、做患者入组预筛 | 13 | 1,225 |
+| [数据治理与运营 →](#results-governance) | 核对编码依据、识别隐私候选和有害请求 | 9 | 877 |
 
 任务目录同时标明已有实测、独立训练扩展和未测部分；训练扩展不计入 Jev 主评测成绩。中医、OCR 和 ASR 等条件也有单独标记。[查看任务与实验的对应关系](docs/医疗任务映射.md)
+
+## 全部领域与任务的详细测试数据
+
+以下按 8 个业务领域展开全部 **96 个主评测条件**。每个领域分为“效果与样本量”和“耗时、费用与原始数据”两张表。
+
+- **指标**：Accuracy 为准确率；micro-F1 为集合抽取指标，以下均按 0–100 展示，不能混算总体准确率。差值为 Jev 减 DeepSeek，单位为百分点或 F1 分。
+- **样本量与区间**：记录数／来源案例数分别列示；来源可能是病例、文档或题目，不等于独立患者。区间按来源案例配对重采样，未校正多重比较。不同任务可能复用来源，案例数不跨任务相加。
+- **时间与费用**：中位响应时间只统计成功 API 请求，是历史调用的单次耗时，不是同期测速或整批总时间。每千条费用以全部计分输入为分母，单位为美元，按归档费率估算。
+- **失败与原始材料**：未作答包括最终调用或格式失败，仍保留在评分分母；43 条无实体候选记录由规则输出空集，不计为调用失败。“题目”含输入与金标，“Jev／对照”链接两家的原始回答。
+
+<a id="results-service"></a>
+
+### 患者服务
+
+**5 项任务 · 340 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#service)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [中文问诊对话行为分类](scenarios/service/imcs_dialogue_act/README.md) | 100／[95](scenarios/service/imcs_dialogue_act/cases.md) | Accuracy | 70.0 | 68.0 | +2.0 ［-4.1, 8.2］ | 65/95 |
+| [患者问题信息需求分类](scenarios/service/medquad_question_type/README.md) | 100／[98](scenarios/service/medquad_question_type/cases.md) | Accuracy | 96.0 | 97.0 | -1.0 ［-3.1, 0.0］ | 94/98 |
+| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 20／[20](scenarios/service/challenge_service_route/cases.md) | Accuracy | 95.0 | 100.0 | -5.0 ［-15.0, 0.0］ | 19/20 |
+| [主诉推荐就诊科室](scenarios/service/medjourney_departments/README.md) | 100／[100](scenarios/service/medjourney_departments/cases.md) | micro-F1 | 36.9 | 34.9 | +2.0 ［-0.6, 4.5］ | 2/100 |
+| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 20／[20](scenarios/service/challenge_urgency_given_policy/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [中文问诊对话行为分类](scenarios/service/imcs_dialogue_act/README.md) | 0.90／0.54 | $0.033／$0.042 | 0／0 | [题目](scenarios/service/imcs_dialogue_act/samples.jsonl) · [提示词](scenarios/service/imcs_dialogue_act/prompts.json) · [Jev](scenarios/service/imcs_dialogue_act/responses.jsonl) · [对照](scenarios/service/imcs_dialogue_act/comparison/deepseek_responses.jsonl) |
+| [患者问题信息需求分类](scenarios/service/medquad_question_type/README.md) | 0.63／0.53 | $0.020／$0.034 | 0／0 | [题目](scenarios/service/medquad_question_type/samples.jsonl) · [提示词](scenarios/service/medquad_question_type/prompts.json) · [Jev](scenarios/service/medquad_question_type/responses.jsonl) · [对照](scenarios/service/medquad_question_type/comparison/deepseek_responses.jsonl) |
+| [边界挑战：服务路由](scenarios/service/challenge_service_route/README.md) | 0.59／0.51 | $0.016／$0.042 | 0／0 | [题目](scenarios/service/challenge_service_route/samples.jsonl) · [提示词](scenarios/service/challenge_service_route/prompts.json) · [Jev](scenarios/service/challenge_service_route/responses.jsonl) · [对照](scenarios/service/challenge_service_route/comparison/deepseek_responses.jsonl) |
+| [主诉推荐就诊科室](scenarios/service/medjourney_departments/README.md) | 1.39／1.60 | $0.360／$0.373 | 0／1 | [题目](scenarios/service/medjourney_departments/samples.jsonl) · [提示词](scenarios/service/medjourney_departments/prompts.json) · [Jev](scenarios/service/medjourney_departments/responses.jsonl) · [对照](scenarios/service/medjourney_departments/comparison/deepseek_responses.jsonl) |
+| [边界挑战：给定规则紧急程度](scenarios/service/challenge_urgency_given_policy/README.md) | 0.59／0.57 | $0.018／$0.031 | 0／0 | [题目](scenarios/service/challenge_urgency_given_policy/samples.jsonl) · [提示词](scenarios/service/challenge_urgency_given_policy/prompts.json) · [Jev](scenarios/service/challenge_urgency_given_policy/responses.jsonl) · [对照](scenarios/service/challenge_urgency_given_policy/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-records"></a>
+
+### 病历与文书
+
+**31 项任务 · 2,099 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#records)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [中文给定实体类型识别](scenarios/records/imcs_entity_type_oracle_span/README.md) | 100／[95](scenarios/records/imcs_entity_type_oracle_span/cases.md) | Accuracy | 96.0 | 92.0 | +4.0 ［-1.0, 10.1］ | 91/95 |
+| [中文词典候选实体抽取](scenarios/records/imcs_ner_dictionary_pipeline/README.md) | 100／[92](scenarios/records/imcs_ner_dictionary_pipeline/cases.md) | micro-F1 | 59.5 | 59.2 | +0.3 ［-15.4, 18.9］ | 57/92 |
+| [给定疾病实体类别](scenarios/records/ncbi_disease_category_oracle_span/README.md) | 100／[60](scenarios/records/ncbi_disease_category_oracle_span/cases.md) | Accuracy | 58.0 | 61.0 | -3.0 ［-8.4, 2.1］ | 28/60 |
+| [medspaCy 候选与 Jev 疾病实体筛选](scenarios/records/ncbi_medspacy_jev_ner/README.md) | 100／[100](scenarios/records/ncbi_medspacy_jev_ner/cases.md) | micro-F1 | 69.4 | 68.7 | +0.7 ［-0.9, 2.4］ | 20/100 |
+| [医学实体 UMLS 语义类型](scenarios/records/medmentions_type_oracle_span/README.md) | 100／[94](scenarios/records/medmentions_type_oracle_span/cases.md) | Accuracy | 60.0 | 51.0 | +9.0 ［1.0, 17.8］ | 55/94 |
+| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/README.md) | 100／[91](scenarios/records/imcs_assertion_oracle_span/cases.md) | Accuracy | 79.0 | 73.0 | +6.0 ［0.0, 12.5］ | 70/91 |
+| [英文句子否定与不确定线索](scenarios/records/bioscope_sentence_cues/README.md) | 100／[94](scenarios/records/bioscope_sentence_cues/cases.md) | Accuracy | 83.0 | 77.0 | +6.0 ［-2.1, 14.4］ | 77/94 |
+| [西班牙文否定与不确定性](scenarios/records/nubes_scope_status/README.md) | 100／[79](scenarios/records/nubes_scope_status/cases.md) | Accuracy | 72.0 | 77.0 | -5.0 ［-11.2, 1.1］ | 57/79 |
+| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 20／[20](scenarios/records/challenge_experiencer/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 20／[20](scenarios/records/challenge_negation/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 20／[20](scenarios/records/challenge_social_context/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 20／[20](scenarios/records/challenge_mixed_language/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 20／[20](scenarios/records/challenge_relative_date/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 20／[20](scenarios/records/challenge_temporality/cases.md) | Accuracy | 100.0 | 75.0 | +25.0 ［10.0, 45.0］ | 20/20 |
+| [中文症状术语归一化](scenarios/records/imcs_normalization_top20/README.md) | 100／[92](scenarios/records/imcs_normalization_top20/cases.md) | Accuracy | 93.0 | 92.0 | +1.0 ［-4.1, 6.1］ | 85/92 |
+| [医学缩写消歧](scenarios/records/medal_demo_disambiguation/README.md) | 100／[34](scenarios/records/medal_demo_disambiguation/cases.md) | Accuracy | 67.0 | 35.0 | +32.0 ［21.4, 44.3］ | 13/34 |
+| [问诊对话对应病历章节](scenarios/documentation/mts_section_classification/README.md) | 100／[100](scenarios/documentation/mts_section_classification/cases.md) | Accuracy | 76.0 | 73.0 | +3.0 ［-4.0, 10.0］ | 76/100 |
+| [已分段病历章节分类](scenarios/documentation/aci_note_section/README.md) | 100／[40](scenarios/documentation/aci_note_section/cases.md) | Accuracy | 99.0 | 100.0 | -1.0 ［-3.2, 0.0］ | 39/40 |
+| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 20／[20](scenarios/documentation/challenge_document_type/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 24／[20](scenarios/multimodal/clinocr_ocr_doctype/cases.md) | Accuracy | 95.8 | 87.5 | +8.3 ［0.0, 20.8］ | 19/20 |
+| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 24／[20](scenarios/multimodal/clinocr_reference_doctype/cases.md) | Accuracy | 95.8 | 95.8 | +0.0 ［0.0, 0.0］ | 19/20 |
+| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 37／[20](scenarios/multimodal/primock_asr_fields/cases.md) | Accuracy | 91.9 | 89.2 | +2.7 ［0.0, 11.5］ | 17/20 |
+| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 37／[20](scenarios/multimodal/primock_reference_fields/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [长病历跨文档问答](scenarios/records/longhealth_full_context/README.md) | 100／[20](scenarios/records/longhealth_full_context/cases.md) | Accuracy | 95.0 | 83.0 | +12.0 ［8.0, 16.0］ | 16/20 |
+| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 20／[20](scenarios/documentation/challenge_documentation/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 20／[20](scenarios/quality/challenge_contradiction/cases.md) | Accuracy | 100.0 | 95.0 | +5.0 ［0.0, 15.0］ | 20/20 |
+| [医疗叙述错误检出](scenarios/quality/medec_error_detection/README.md) | 100／[100](scenarios/quality/medec_error_detection/cases.md) | Accuracy | 65.0 | 60.0 | +5.0 ［-4.0, 14.0］ | 65/100 |
+| [医疗叙述错误定位](scenarios/quality/medec_error_localization/README.md) | 100／[100](scenarios/quality/medec_error_localization/cases.md) | Accuracy | 72.0 | 70.0 | +2.0 ［-6.0, 10.0］ | 72/100 |
+| [阿拉伯文医疗文本错误检出](scenarios/quality/mederrbench_ARA/README.md) | 97／[97](scenarios/quality/mederrbench_ARA/cases.md) | Accuracy | 69.1 | 59.8 | +9.3 ［-2.1, 20.6］ | 67/97 |
+| [中文医疗文本错误检出](scenarios/quality/mederrbench_CN/README.md) | 100／[100](scenarios/quality/mederrbench_CN/cases.md) | Accuracy | 73.0 | 74.0 | -1.0 ［-10.0, 8.0］ | 73/100 |
+| [英文医疗文本错误检出](scenarios/quality/mederrbench_EN/README.md) | 100／[100](scenarios/quality/mederrbench_EN/cases.md) | Accuracy | 81.0 | 79.0 | +2.0 ［-7.0, 11.0］ | 81/100 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [中文给定实体类型识别](scenarios/records/imcs_entity_type_oracle_span/README.md) | 0.87／0.48 | $0.019／$0.031 | 0／0 | [题目](scenarios/records/imcs_entity_type_oracle_span/samples.jsonl) · [提示词](scenarios/records/imcs_entity_type_oracle_span/prompts.json) · [Jev](scenarios/records/imcs_entity_type_oracle_span/responses.jsonl) · [对照](scenarios/records/imcs_entity_type_oracle_span/comparison/deepseek_responses.jsonl) |
+| [中文词典候选实体抽取](scenarios/records/imcs_ner_dictionary_pipeline/README.md) | 0.90／0.53 | $0.021／$0.045 | 0／1 | [题目](scenarios/records/imcs_ner_dictionary_pipeline/samples.jsonl) · [提示词](scenarios/records/imcs_ner_dictionary_pipeline/prompts.json) · [Jev](scenarios/records/imcs_ner_dictionary_pipeline/responses.jsonl) · [对照](scenarios/records/imcs_ner_dictionary_pipeline/comparison/deepseek_responses.jsonl) |
+| [给定疾病实体类别](scenarios/records/ncbi_disease_category_oracle_span/README.md) | 0.62／0.56 | $0.030／$0.058 | 0／0 | [题目](scenarios/records/ncbi_disease_category_oracle_span/samples.jsonl) · [提示词](scenarios/records/ncbi_disease_category_oracle_span/prompts.json) · [Jev](scenarios/records/ncbi_disease_category_oracle_span/responses.jsonl) · [对照](scenarios/records/ncbi_disease_category_oracle_span/comparison/deepseek_responses.jsonl) |
+| [medspaCy 候选与 Jev 疾病实体筛选](scenarios/records/ncbi_medspacy_jev_ner/README.md) | 0.66／0.71 | $0.049／$0.191 | 0／0 | [题目](scenarios/records/ncbi_medspacy_jev_ner/samples.jsonl) · [提示词](scenarios/records/ncbi_medspacy_jev_ner/prompts.json) · [Jev](scenarios/records/ncbi_medspacy_jev_ner/responses.jsonl) · [对照](scenarios/records/ncbi_medspacy_jev_ner/comparison/deepseek_responses.jsonl) |
+| [医学实体 UMLS 语义类型](scenarios/records/medmentions_type_oracle_span/README.md) | 0.64／0.54 | $0.044／$0.096 | 0／5 | [题目](scenarios/records/medmentions_type_oracle_span/samples.jsonl) · [提示词](scenarios/records/medmentions_type_oracle_span/prompts.json) · [Jev](scenarios/records/medmentions_type_oracle_span/responses.jsonl) · [对照](scenarios/records/medmentions_type_oracle_span/comparison/deepseek_responses.jsonl) |
+| [中文症状肯否定状态](scenarios/records/imcs_assertion_oracle_span/README.md) | 0.98／0.54 | $0.096／$0.209 | 0／0 | [题目](scenarios/records/imcs_assertion_oracle_span/samples.jsonl) · [提示词](scenarios/records/imcs_assertion_oracle_span/prompts.json) · [Jev](scenarios/records/imcs_assertion_oracle_span/responses.jsonl) · [对照](scenarios/records/imcs_assertion_oracle_span/comparison/deepseek_responses.jsonl) |
+| [英文句子否定与不确定线索](scenarios/records/bioscope_sentence_cues/README.md) | 0.63／0.50 | $0.018／$0.032 | 0／0 | [题目](scenarios/records/bioscope_sentence_cues/samples.jsonl) · [提示词](scenarios/records/bioscope_sentence_cues/prompts.json) · [Jev](scenarios/records/bioscope_sentence_cues/responses.jsonl) · [对照](scenarios/records/bioscope_sentence_cues/comparison/deepseek_responses.jsonl) |
+| [西班牙文否定与不确定性](scenarios/records/nubes_scope_status/README.md) | 0.62／0.56 | $0.019／$0.039 | 0／0 | [题目](scenarios/records/nubes_scope_status/samples.jsonl) · [提示词](scenarios/records/nubes_scope_status/prompts.json) · [Jev](scenarios/records/nubes_scope_status/responses.jsonl) · [对照](scenarios/records/nubes_scope_status/comparison/deepseek_responses.jsonl) |
+| [边界挑战：症状所属人](scenarios/records/challenge_experiencer/README.md) | 0.61／0.72 | $0.016／$0.041 | 0／0 | [题目](scenarios/records/challenge_experiencer/samples.jsonl) · [提示词](scenarios/records/challenge_experiencer/prompts.json) · [Jev](scenarios/records/challenge_experiencer/responses.jsonl) · [对照](scenarios/records/challenge_experiencer/comparison/deepseek_responses.jsonl) |
+| [边界挑战：否定状态](scenarios/records/challenge_negation/README.md) | 0.59／0.65 | $0.015／$0.041 | 0／0 | [题目](scenarios/records/challenge_negation/samples.jsonl) · [提示词](scenarios/records/challenge_negation/prompts.json) · [Jev](scenarios/records/challenge_negation/responses.jsonl) · [对照](scenarios/records/challenge_negation/comparison/deepseek_responses.jsonl) |
+| [边界挑战：社会背景](scenarios/records/challenge_social_context/README.md) | 0.62／0.61 | $0.016／$0.041 | 0／0 | [题目](scenarios/records/challenge_social_context/samples.jsonl) · [提示词](scenarios/records/challenge_social_context/prompts.json) · [Jev](scenarios/records/challenge_social_context/responses.jsonl) · [对照](scenarios/records/challenge_social_context/comparison/deepseek_responses.jsonl) |
+| [边界挑战：中英混合文本](scenarios/records/challenge_mixed_language/README.md) | 0.61／0.55 | $0.015／$0.039 | 0／0 | [题目](scenarios/records/challenge_mixed_language/samples.jsonl) · [提示词](scenarios/records/challenge_mixed_language/prompts.json) · [Jev](scenarios/records/challenge_mixed_language/responses.jsonl) · [对照](scenarios/records/challenge_mixed_language/comparison/deepseek_responses.jsonl) |
+| [边界挑战：相对日期](scenarios/records/challenge_relative_date/README.md) | 0.61／0.57 | $0.018／$0.030 | 0／0 | [题目](scenarios/records/challenge_relative_date/samples.jsonl) · [提示词](scenarios/records/challenge_relative_date/prompts.json) · [Jev](scenarios/records/challenge_relative_date/responses.jsonl) · [对照](scenarios/records/challenge_relative_date/comparison/deepseek_responses.jsonl) |
+| [边界挑战：事件时态](scenarios/records/challenge_temporality/README.md) | 0.61／0.73 | $0.016／$0.042 | 0／0 | [题目](scenarios/records/challenge_temporality/samples.jsonl) · [提示词](scenarios/records/challenge_temporality/prompts.json) · [Jev](scenarios/records/challenge_temporality/responses.jsonl) · [对照](scenarios/records/challenge_temporality/comparison/deepseek_responses.jsonl) |
+| [中文症状术语归一化](scenarios/records/imcs_normalization_top20/README.md) | 0.90／0.52 | $0.037／$0.049 | 0／0 | [题目](scenarios/records/imcs_normalization_top20/samples.jsonl) · [提示词](scenarios/records/imcs_normalization_top20/prompts.json) · [Jev](scenarios/records/imcs_normalization_top20/responses.jsonl) · [对照](scenarios/records/imcs_normalization_top20/comparison/deepseek_responses.jsonl) |
+| [医学缩写消歧](scenarios/records/medal_demo_disambiguation/README.md) | 0.67／0.58 | $0.116／$0.082 | 0／17 | [题目](scenarios/records/medal_demo_disambiguation/samples.jsonl) · [提示词](scenarios/records/medal_demo_disambiguation/prompts.json) · [Jev](scenarios/records/medal_demo_disambiguation/responses.jsonl) · [对照](scenarios/records/medal_demo_disambiguation/comparison/deepseek_responses.jsonl) |
+| [问诊对话对应病历章节](scenarios/documentation/mts_section_classification/README.md) | 0.92／0.57 | $0.031／$0.044 | 0／0 | [题目](scenarios/documentation/mts_section_classification/samples.jsonl) · [提示词](scenarios/documentation/mts_section_classification/prompts.json) · [Jev](scenarios/documentation/mts_section_classification/responses.jsonl) · [对照](scenarios/documentation/mts_section_classification/comparison/deepseek_responses.jsonl) |
+| [已分段病历章节分类](scenarios/documentation/aci_note_section/README.md) | 0.62／0.55 | $0.021／$0.048 | 0／0 | [题目](scenarios/documentation/aci_note_section/samples.jsonl) · [提示词](scenarios/documentation/aci_note_section/prompts.json) · [Jev](scenarios/documentation/aci_note_section/responses.jsonl) · [对照](scenarios/documentation/aci_note_section/comparison/deepseek_responses.jsonl) |
+| [边界挑战：文档类型](scenarios/documentation/challenge_document_type/README.md) | 0.59／0.58 | $0.016／$0.042 | 0／0 | [题目](scenarios/documentation/challenge_document_type/samples.jsonl) · [提示词](scenarios/documentation/challenge_document_type/prompts.json) · [Jev](scenarios/documentation/challenge_document_type/responses.jsonl) · [对照](scenarios/documentation/challenge_document_type/comparison/deepseek_responses.jsonl) |
+| [OCR 文本医疗文档类型识别](scenarios/multimodal/clinocr_ocr_doctype/README.md) | 0.63／0.53 | $0.037／$0.090 | 0／0 | [题目](scenarios/multimodal/clinocr_ocr_doctype/samples.jsonl) · [提示词](scenarios/multimodal/clinocr_ocr_doctype/prompts.json) · [Jev](scenarios/multimodal/clinocr_ocr_doctype/responses.jsonl) · [对照](scenarios/multimodal/clinocr_ocr_doctype/comparison/deepseek_responses.jsonl) |
+| [参考文本医疗文档类型识别](scenarios/multimodal/clinocr_reference_doctype/README.md) | 0.61／0.53 | $0.038／$0.081 | 0／0 | [题目](scenarios/multimodal/clinocr_reference_doctype/samples.jsonl) · [提示词](scenarios/multimodal/clinocr_reference_doctype/prompts.json) · [Jev](scenarios/multimodal/clinocr_reference_doctype/responses.jsonl) · [对照](scenarios/multimodal/clinocr_reference_doctype/comparison/deepseek_responses.jsonl) |
+| [ASR 转写病史字段判断](scenarios/multimodal/primock_asr_fields/README.md) | 0.62／0.60 | $0.024／$0.060 | 0／0 | [题目](scenarios/multimodal/primock_asr_fields/samples.jsonl) · [提示词](scenarios/multimodal/primock_asr_fields/prompts.json) · [Jev](scenarios/multimodal/primock_asr_fields/responses.jsonl) · [对照](scenarios/multimodal/primock_asr_fields/comparison/deepseek_responses.jsonl) |
+| [参考转写病史字段判断](scenarios/multimodal/primock_reference_fields/README.md) | 0.66／0.57 | $0.027／$0.071 | 0／0 | [题目](scenarios/multimodal/primock_reference_fields/samples.jsonl) · [提示词](scenarios/multimodal/primock_reference_fields/prompts.json) · [Jev](scenarios/multimodal/primock_reference_fields/responses.jsonl) · [对照](scenarios/multimodal/primock_reference_fields/comparison/deepseek_responses.jsonl) |
+| [长病历跨文档问答](scenarios/records/longhealth_full_context/README.md) | 1.43／0.62 | $0.537／$1.697 | 0／1 | [题目](scenarios/records/longhealth_full_context/samples.jsonl) · [提示词](scenarios/records/longhealth_full_context/prompts.json) · [Jev](scenarios/records/longhealth_full_context/responses.jsonl) · [对照](scenarios/records/longhealth_full_context/comparison/deepseek_responses.jsonl) |
+| [边界挑战：文书缺项](scenarios/documentation/challenge_documentation/README.md) | 0.60／0.57 | $0.016／$0.042 | 0／0 | [题目](scenarios/documentation/challenge_documentation/samples.jsonl) · [提示词](scenarios/documentation/challenge_documentation/prompts.json) · [Jev](scenarios/documentation/challenge_documentation/responses.jsonl) · [对照](scenarios/documentation/challenge_documentation/comparison/deepseek_responses.jsonl) |
+| [边界挑战：病历矛盾](scenarios/quality/challenge_contradiction/README.md) | 0.58／0.57 | $0.016／$0.042 | 0／0 | [题目](scenarios/quality/challenge_contradiction/samples.jsonl) · [提示词](scenarios/quality/challenge_contradiction/prompts.json) · [Jev](scenarios/quality/challenge_contradiction/responses.jsonl) · [对照](scenarios/quality/challenge_contradiction/comparison/deepseek_responses.jsonl) |
+| [医疗叙述错误检出](scenarios/quality/medec_error_detection/README.md) | 0.94／0.54 | $0.031／$0.077 | 0／0 | [题目](scenarios/quality/medec_error_detection/samples.jsonl) · [提示词](scenarios/quality/medec_error_detection/prompts.json) · [Jev](scenarios/quality/medec_error_detection/responses.jsonl) · [对照](scenarios/quality/medec_error_detection/comparison/deepseek_responses.jsonl) |
+| [医疗叙述错误定位](scenarios/quality/medec_error_localization/README.md) | 0.95／0.54 | $0.039／$0.089 | 0／0 | [题目](scenarios/quality/medec_error_localization/samples.jsonl) · [提示词](scenarios/quality/medec_error_localization/prompts.json) · [Jev](scenarios/quality/medec_error_localization/responses.jsonl) · [对照](scenarios/quality/medec_error_localization/comparison/deepseek_responses.jsonl) |
+| [阿拉伯文医疗文本错误检出](scenarios/quality/mederrbench_ARA/README.md) | 0.62／0.53 | $0.019／$0.035 | 0／0 | [题目](scenarios/quality/mederrbench_ARA/samples.jsonl) · [提示词](scenarios/quality/mederrbench_ARA/prompts.json) · [Jev](scenarios/quality/mederrbench_ARA/responses.jsonl) · [对照](scenarios/quality/mederrbench_ARA/comparison/deepseek_responses.jsonl) |
+| [中文医疗文本错误检出](scenarios/quality/mederrbench_CN/README.md) | 0.61／0.56 | $0.018／$0.033 | 0／0 | [题目](scenarios/quality/mederrbench_CN/samples.jsonl) · [提示词](scenarios/quality/mederrbench_CN/prompts.json) · [Jev](scenarios/quality/mederrbench_CN/responses.jsonl) · [对照](scenarios/quality/mederrbench_CN/comparison/deepseek_responses.jsonl) |
+| [英文医疗文本错误检出](scenarios/quality/mederrbench_EN/README.md) | 0.63／0.58 | $0.023／$0.049 | 0／0 | [题目](scenarios/quality/mederrbench_EN/samples.jsonl) · [提示词](scenarios/quality/mederrbench_EN/prompts.json) · [Jev](scenarios/quality/mederrbench_EN/responses.jsonl) · [对照](scenarios/quality/mederrbench_EN/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-reports"></a>
+
+### 检验与报告
+
+**3 项任务 · 60 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#reports)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 20／[20](scenarios/calculators/challenge_lab_link/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 20／[20](scenarios/calculators/challenge_unit_equivalence/cases.md) | Accuracy | 95.0 | 100.0 | -5.0 ［-15.0, 0.0］ | 19/20 |
+| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 20／[20](scenarios/multimodal/challenge_radiology_assertion/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [边界挑战：检验数值关联](scenarios/calculators/challenge_lab_link/README.md) | 0.60／0.63 | $0.017／$0.041 | 0／0 | [题目](scenarios/calculators/challenge_lab_link/samples.jsonl) · [提示词](scenarios/calculators/challenge_lab_link/prompts.json) · [Jev](scenarios/calculators/challenge_lab_link/responses.jsonl) · [对照](scenarios/calculators/challenge_lab_link/comparison/deepseek_responses.jsonl) |
+| [边界挑战：单位等价](scenarios/calculators/challenge_unit_equivalence/README.md) | 0.60／0.64 | $0.015／$0.042 | 0／0 | [题目](scenarios/calculators/challenge_unit_equivalence/samples.jsonl) · [提示词](scenarios/calculators/challenge_unit_equivalence/prompts.json) · [Jev](scenarios/calculators/challenge_unit_equivalence/responses.jsonl) · [对照](scenarios/calculators/challenge_unit_equivalence/comparison/deepseek_responses.jsonl) |
+| [边界挑战：影像报告断言](scenarios/multimodal/challenge_radiology_assertion/README.md) | 0.60／0.57 | $0.016／$0.043 | 0／0 | [题目](scenarios/multimodal/challenge_radiology_assertion/samples.jsonl) · [提示词](scenarios/multimodal/challenge_radiology_assertion/prompts.json) · [Jev](scenarios/multimodal/challenge_radiology_assertion/responses.jsonl) · [对照](scenarios/multimodal/challenge_radiology_assertion/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-medication"></a>
+
+### 用药管理
+
+**8 项任务 · 530 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#medication)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [化学物致病关系判断](scenarios/medication/bc5cdr_relation_oracle_entities/README.md) | 100／[82](scenarios/medication/bc5cdr_relation_oracle_entities/cases.md) | Accuracy | 57.0 | 66.0 | -9.0 ［-20.0, 2.1］ | 46/82 |
+| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/README.md) | 150／[77](scenarios/medication/ddi_relation_oracle_pairs/cases.md) | Accuracy | 79.3 | 74.7 | +4.7 ［1.2, 8.7］ | 59/77 |
+| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 20／[20](scenarios/medication/challenge_allergy_state/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [出院带药候选筛选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 100／[83](scenarios/medication/cdrugred_discharge_candidate_pipeline/cases.md) | micro-F1 | 48.6 | 47.9 | +0.7 ［-2.2, 3.8］ | 3/83 |
+| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 20／[20](scenarios/medication/challenge_medication_change/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 20／[20](scenarios/medication/challenge_dose_link/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 20／[20](scenarios/medication/challenge_frequency/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [MedJourney 用药预测选择题](scenarios/service/medjourney_mp_mcq/README.md) | 100／[100](scenarios/service/medjourney_mp_mcq/cases.md) | Accuracy | 86.0 | 88.0 | -2.0 ［-8.0, 3.0］ | 86/100 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [化学物致病关系判断](scenarios/medication/bc5cdr_relation_oracle_entities/README.md) | 0.64／0.52 | $0.031／$0.069 | 0／0 | [题目](scenarios/medication/bc5cdr_relation_oracle_entities/samples.jsonl) · [提示词](scenarios/medication/bc5cdr_relation_oracle_entities/prompts.json) · [Jev](scenarios/medication/bc5cdr_relation_oracle_entities/responses.jsonl) · [对照](scenarios/medication/bc5cdr_relation_oracle_entities/comparison/deepseek_responses.jsonl) |
+| [给定药物对相互作用分类](scenarios/medication/ddi_relation_oracle_pairs/README.md) | 0.91／0.53 | $0.024／$0.038 | 0／0 | [题目](scenarios/medication/ddi_relation_oracle_pairs/samples.jsonl) · [提示词](scenarios/medication/ddi_relation_oracle_pairs/prompts.json) · [Jev](scenarios/medication/ddi_relation_oracle_pairs/responses.jsonl) · [对照](scenarios/medication/ddi_relation_oracle_pairs/comparison/deepseek_responses.jsonl) |
+| [边界挑战：过敏状态](scenarios/medication/challenge_allergy_state/README.md) | 0.62／0.61 | $0.016／$0.043 | 0／0 | [题目](scenarios/medication/challenge_allergy_state/samples.jsonl) · [提示词](scenarios/medication/challenge_allergy_state/prompts.json) · [Jev](scenarios/medication/challenge_allergy_state/responses.jsonl) · [对照](scenarios/medication/challenge_allergy_state/comparison/deepseek_responses.jsonl) |
+| [出院带药候选筛选](scenarios/medication/cdrugred_discharge_candidate_pipeline/README.md) | 0.78／0.93 | $0.218／$0.587 | 0／0 | [题目](scenarios/medication/cdrugred_discharge_candidate_pipeline/samples.jsonl) · [提示词](scenarios/medication/cdrugred_discharge_candidate_pipeline/prompts.json) · [Jev](scenarios/medication/cdrugred_discharge_candidate_pipeline/responses.jsonl) · [对照](scenarios/medication/cdrugred_discharge_candidate_pipeline/comparison/deepseek_responses.jsonl) |
+| [边界挑战：用药变更](scenarios/medication/challenge_medication_change/README.md) | 0.59／0.62 | $0.016／$0.043 | 0／0 | [题目](scenarios/medication/challenge_medication_change/samples.jsonl) · [提示词](scenarios/medication/challenge_medication_change/prompts.json) · [Jev](scenarios/medication/challenge_medication_change/responses.jsonl) · [对照](scenarios/medication/challenge_medication_change/comparison/deepseek_responses.jsonl) |
+| [边界挑战：药物剂量关联](scenarios/medication/challenge_dose_link/README.md) | 0.62／0.61 | $0.016／$0.043 | 0／0 | [题目](scenarios/medication/challenge_dose_link/samples.jsonl) · [提示词](scenarios/medication/challenge_dose_link/prompts.json) · [Jev](scenarios/medication/challenge_dose_link/responses.jsonl) · [对照](scenarios/medication/challenge_dose_link/comparison/deepseek_responses.jsonl) |
+| [边界挑战：给药频次](scenarios/medication/challenge_frequency/README.md) | 0.60／0.64 | $0.016／$0.043 | 0／0 | [题目](scenarios/medication/challenge_frequency/samples.jsonl) · [提示词](scenarios/medication/challenge_frequency/prompts.json) · [Jev](scenarios/medication/challenge_frequency/responses.jsonl) · [对照](scenarios/medication/challenge_frequency/comparison/deepseek_responses.jsonl) |
+| [MedJourney 用药预测选择题](scenarios/service/medjourney_mp_mcq/README.md) | 0.61／0.51 | $0.020／$0.034 | 0／1 | [题目](scenarios/service/medjourney_mp_mcq/samples.jsonl) · [提示词](scenarios/service/medjourney_mp_mcq/prompts.json) · [Jev](scenarios/service/medjourney_mp_mcq/responses.jsonl) · [对照](scenarios/service/medjourney_mp_mcq/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-clinical"></a>
+
+### 诊疗支持
+
+**26 项任务 · 1,982 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#clinical)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [MedJourney 诊断预测选择题](scenarios/service/medjourney_dp_mcq/README.md) | 100／[100](scenarios/service/medjourney_dp_mcq/cases.md) | Accuracy | 92.0 | 91.0 | +1.0 ［-4.0, 6.0］ | 92/100 |
+| [合成病例主要诊断](scenarios/acute/ddxplus_synthetic_primary/README.md) | 100／[100](scenarios/acute/ddxplus_synthetic_primary/cases.md) | Accuracy | 67.0 | 71.0 | -4.0 ［-12.0, 5.0］ | 67/100 |
+| [中医病历证型分类](scenarios/tcm/tcm_syndrome/README.md) | 100／[100](scenarios/tcm/tcm_syndrome/cases.md) | Accuracy | 33.0 | 40.0 | -7.0 ［-16.0, 2.0］ | 33/100 |
+| [中医病位单选](scenarios/tcm/tcm_best_location/README.md) | 21／[21](scenarios/tcm/tcm_best_location/cases.md) | Accuracy | 81.0 | 76.2 | +4.8 ［-9.5, 23.8］ | 17/21 |
+| [中医病位多选](scenarios/tcm/tcm_best_location_multi/README.md) | 79／[79](scenarios/tcm/tcm_best_location_multi/cases.md) | micro-F1 | 64.8 | 66.7 | -1.8 ［-7.5, 3.3］ | 12/79 |
+| [中医病性单选](scenarios/tcm/tcm_best_nature/README.md) | 99／[99](scenarios/tcm/tcm_best_nature/cases.md) | Accuracy | 69.7 | 59.6 | +10.1 ［2.0, 19.2］ | 69/99 |
+| [中医病性与要素多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_nature_multi/cases.md) | micro-F1 | 85.4 | 79.1 | +6.3 ［-0.7, 13.5］ | 9/20 |
+| [中医证型单选](scenarios/tcm/tcm_best_syndrome/README.md) | 68／[68](scenarios/tcm/tcm_best_syndrome/cases.md) | Accuracy | 80.9 | 72.1 | +8.8 ［0.0, 19.1］ | 55/68 |
+| [中医证型多选](scenarios/tcm/tcm_best_syndrome_multi/README.md) | 32／[32](scenarios/tcm/tcm_best_syndrome_multi/cases.md) | micro-F1 | 52.8 | 36.7 | +16.1 ［5.8, 27.6］ | 0/32 |
+| [MedJourney 检查预测选择题](scenarios/service/medjourney_ep_mcq/README.md) | 100／[100](scenarios/service/medjourney_ep_mcq/cases.md) | Accuracy | 82.0 | 79.0 | +3.0 ［-3.0, 9.0］ | 82/100 |
+| [MedJourney 治疗预测选择题](scenarios/service/medjourney_tp_mcq/README.md) | 100／[100](scenarios/service/medjourney_tp_mcq/cases.md) | Accuracy | 83.0 | 82.0 | +1.0 ［-6.0, 9.0］ | 83/100 |
+| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 20／[20](scenarios/tcm/tcm_best_principles/cases.md) | Accuracy | 90.0 | 70.0 | +20.0 ［5.0, 40.0］ | 18/20 |
+| [中医治则治法多选](scenarios/tcm/tcm_best_principles_multi/README.md) | 97／[97](scenarios/tcm/tcm_best_principles_multi/cases.md) | micro-F1 | 70.3 | 62.3 | +8.0 ［3.5, 12.7］ | 23/97 |
+| [BMI 当前身高参数选择](scenarios/calculators/bmi_height_selection/README.md) | 20／[20](scenarios/calculators/bmi_height_selection/cases.md) | Accuracy | 95.0 | 95.0 | +0.0 ［0.0, 0.0］ | 19/20 |
+| [BMI 当前体重参数选择](scenarios/calculators/bmi_weight_selection/README.md) | 20／[20](scenarios/calculators/bmi_weight_selection/cases.md) | Accuracy | 95.0 | 90.0 | +5.0 ［0.0, 15.0］ | 19/20 |
+| [临床计算输入充分性](scenarios/calculators/cmedcalc_input_sufficiency/README.md) | 200／[200](scenarios/calculators/cmedcalc_input_sufficiency/cases.md) | Accuracy | 81.5 | 84.0 | -2.5 ［-7.5, 2.5］ | 163/200 |
+| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/README.md) | 162／[162](scenarios/calculators/cmedcalc_semantic_grade/cases.md) | Accuracy | 60.5 | 39.5 | +21.0 ［13.0, 29.6］ | 98/162 |
+| [五种临床量表闭集数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 100／[100](scenarios/calculators/medcalc_verified_bounded_score/cases.md) | Accuracy | 25.0 | 31.0 | -6.0 ［-17.0, 6.0］ | 25/100 |
+| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 20／[20](scenarios/calculators/challenge_missing_parameter/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [英文 MedQA医学考试](scenarios/knowledge/medqa_en_test/README.md) | 100／[100](scenarios/knowledge/medqa_en_test/cases.md) | Accuracy | 83.0 | 78.0 | +5.0 ［-2.0, 12.0］ | 83/100 |
+| [中文 MedQA医学考试](scenarios/knowledge/medqa_zh_test/README.md) | 100／[100](scenarios/knowledge/medqa_zh_test/cases.md) | Accuracy | 89.0 | 84.0 | +5.0 ［-1.0, 11.0］ | 89/100 |
+| [MedMCQA医学考试](scenarios/knowledge/medmcqa_validation/README.md) | 100／[100](scenarios/knowledge/medmcqa_validation/cases.md) | Accuracy | 72.0 | 67.0 | +5.0 ［-4.0, 15.0］ | 72/100 |
+| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/README.md) | 95／[95](scenarios/knowledge/cmexam_mcq/cases.md) | Accuracy | 92.6 | 85.3 | +7.4 ［0.0, 14.7］ | 88/95 |
+| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 20／[20](scenarios/knowledge/cmexam_mcq_multi/cases.md) | micro-F1 | 83.2 | 90.3 | -7.1 ［-16.6, 0.2］ | 9/20 |
+| [中医基础知识单选](scenarios/tcm/tcm_best_knowledge/README.md) | 89／[89](scenarios/tcm/tcm_best_knowledge/cases.md) | Accuracy | 91.0 | 83.1 | +7.9 ［0.0, 16.9］ | 81/89 |
+| [中医基础知识多选](scenarios/tcm/tcm_best_knowledge_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_knowledge_multi/cases.md) | micro-F1 | 81.5 | 87.9 | -6.4 ［-17.5, 2.2］ | 7/20 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [MedJourney 诊断预测选择题](scenarios/service/medjourney_dp_mcq/README.md) | 0.63／0.53 | $0.022／$0.037 | 0／0 | [题目](scenarios/service/medjourney_dp_mcq/samples.jsonl) · [提示词](scenarios/service/medjourney_dp_mcq/prompts.json) · [Jev](scenarios/service/medjourney_dp_mcq/responses.jsonl) · [对照](scenarios/service/medjourney_dp_mcq/comparison/deepseek_responses.jsonl) |
+| [合成病例主要诊断](scenarios/acute/ddxplus_synthetic_primary/README.md) | 0.69／0.58 | $0.072／$0.095 | 0／0 | [题目](scenarios/acute/ddxplus_synthetic_primary/samples.jsonl) · [提示词](scenarios/acute/ddxplus_synthetic_primary/prompts.json) · [Jev](scenarios/acute/ddxplus_synthetic_primary/responses.jsonl) · [对照](scenarios/acute/ddxplus_synthetic_primary/comparison/deepseek_responses.jsonl) |
+| [中医病历证型分类](scenarios/tcm/tcm_syndrome/README.md) | 1.16／0.54 | $0.170／$0.098 | 0／0 | [题目](scenarios/tcm/tcm_syndrome/samples.jsonl) · [提示词](scenarios/tcm/tcm_syndrome/prompts.json) · [Jev](scenarios/tcm/tcm_syndrome/responses.jsonl) · [对照](scenarios/tcm/tcm_syndrome/comparison/deepseek_responses.jsonl) |
+| [中医病位单选](scenarios/tcm/tcm_best_location/README.md) | 0.64／0.48 | $0.024／$0.041 | 0／0 | [题目](scenarios/tcm/tcm_best_location/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_location/prompts.json) · [Jev](scenarios/tcm/tcm_best_location/responses.jsonl) · [对照](scenarios/tcm/tcm_best_location/comparison/deepseek_responses.jsonl) |
+| [中医病位多选](scenarios/tcm/tcm_best_location_multi/README.md) | 0.62／0.62 | $0.033／$0.102 | 0／0 | [题目](scenarios/tcm/tcm_best_location_multi/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_location_multi/prompts.json) · [Jev](scenarios/tcm/tcm_best_location_multi/responses.jsonl) · [对照](scenarios/tcm/tcm_best_location_multi/comparison/deepseek_responses.jsonl) |
+| [中医病性单选](scenarios/tcm/tcm_best_nature/README.md) | 0.65／0.54 | $0.024／$0.045 | 0／0 | [题目](scenarios/tcm/tcm_best_nature/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_nature/prompts.json) · [Jev](scenarios/tcm/tcm_best_nature/responses.jsonl) · [对照](scenarios/tcm/tcm_best_nature/comparison/deepseek_responses.jsonl) |
+| [中医病性与要素多选](scenarios/tcm/tcm_best_nature_multi/README.md) | 0.60／0.60 | $0.025／$0.064 | 0／0 | [题目](scenarios/tcm/tcm_best_nature_multi/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_nature_multi/prompts.json) · [Jev](scenarios/tcm/tcm_best_nature_multi/responses.jsonl) · [对照](scenarios/tcm/tcm_best_nature_multi/comparison/deepseek_responses.jsonl) |
+| [中医证型单选](scenarios/tcm/tcm_best_syndrome/README.md) | 0.63／0.50 | $0.027／$0.051 | 0／0 | [题目](scenarios/tcm/tcm_best_syndrome/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_syndrome/prompts.json) · [Jev](scenarios/tcm/tcm_best_syndrome/responses.jsonl) · [对照](scenarios/tcm/tcm_best_syndrome/comparison/deepseek_responses.jsonl) |
+| [中医证型多选](scenarios/tcm/tcm_best_syndrome_multi/README.md) | 0.65／0.59 | $0.036／$0.110 | 0／0 | [题目](scenarios/tcm/tcm_best_syndrome_multi/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_syndrome_multi/prompts.json) · [Jev](scenarios/tcm/tcm_best_syndrome_multi/responses.jsonl) · [对照](scenarios/tcm/tcm_best_syndrome_multi/comparison/deepseek_responses.jsonl) |
+| [MedJourney 检查预测选择题](scenarios/service/medjourney_ep_mcq/README.md) | 0.61／0.54 | $0.022／$0.038 | 0／3 | [题目](scenarios/service/medjourney_ep_mcq/samples.jsonl) · [提示词](scenarios/service/medjourney_ep_mcq/prompts.json) · [Jev](scenarios/service/medjourney_ep_mcq/responses.jsonl) · [对照](scenarios/service/medjourney_ep_mcq/comparison/deepseek_responses.jsonl) |
+| [MedJourney 治疗预测选择题](scenarios/service/medjourney_tp_mcq/README.md) | 0.62／0.51 | $0.024／$0.040 | 0／0 | [题目](scenarios/service/medjourney_tp_mcq/samples.jsonl) · [提示词](scenarios/service/medjourney_tp_mcq/prompts.json) · [Jev](scenarios/service/medjourney_tp_mcq/responses.jsonl) · [对照](scenarios/service/medjourney_tp_mcq/comparison/deepseek_responses.jsonl) |
+| [中医治则治法单选](scenarios/tcm/tcm_best_principles/README.md) | 0.62／0.51 | $0.020／$0.049 | 0／0 | [题目](scenarios/tcm/tcm_best_principles/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_principles/prompts.json) · [Jev](scenarios/tcm/tcm_best_principles/responses.jsonl) · [对照](scenarios/tcm/tcm_best_principles/comparison/deepseek_responses.jsonl) |
+| [中医治则治法多选](scenarios/tcm/tcm_best_principles_multi/README.md) | 0.63／0.60 | $0.035／$0.107 | 0／0 | [题目](scenarios/tcm/tcm_best_principles_multi/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_principles_multi/prompts.json) · [Jev](scenarios/tcm/tcm_best_principles_multi/responses.jsonl) · [对照](scenarios/tcm/tcm_best_principles_multi/comparison/deepseek_responses.jsonl) |
+| [BMI 当前身高参数选择](scenarios/calculators/bmi_height_selection/README.md) | 0.64／0.52 | $0.045／$0.116 | 0／0 | [题目](scenarios/calculators/bmi_height_selection/samples.jsonl) · [提示词](scenarios/calculators/bmi_height_selection/prompts.json) · [Jev](scenarios/calculators/bmi_height_selection/responses.jsonl) · [对照](scenarios/calculators/bmi_height_selection/comparison/deepseek_responses.jsonl) |
+| [BMI 当前体重参数选择](scenarios/calculators/bmi_weight_selection/README.md) | 0.63／0.49 | $0.043／$0.111 | 0／0 | [题目](scenarios/calculators/bmi_weight_selection/samples.jsonl) · [提示词](scenarios/calculators/bmi_weight_selection/prompts.json) · [Jev](scenarios/calculators/bmi_weight_selection/responses.jsonl) · [对照](scenarios/calculators/bmi_weight_selection/comparison/deepseek_responses.jsonl) |
+| [临床计算输入充分性](scenarios/calculators/cmedcalc_input_sufficiency/README.md) | 0.93／0.55 | $0.043／$0.078 | 0／0 | [题目](scenarios/calculators/cmedcalc_input_sufficiency/samples.jsonl) · [提示词](scenarios/calculators/cmedcalc_input_sufficiency/prompts.json) · [Jev](scenarios/calculators/cmedcalc_input_sufficiency/responses.jsonl) · [对照](scenarios/calculators/cmedcalc_input_sufficiency/comparison/deepseek_responses.jsonl) |
+| [临床量表语义分级](scenarios/calculators/cmedcalc_semantic_grade/README.md) | 0.89／0.61 | $0.027／$0.046 | 0／0 | [题目](scenarios/calculators/cmedcalc_semantic_grade/samples.jsonl) · [提示词](scenarios/calculators/cmedcalc_semantic_grade/prompts.json) · [Jev](scenarios/calculators/cmedcalc_semantic_grade/responses.jsonl) · [对照](scenarios/calculators/cmedcalc_semantic_grade/comparison/deepseek_responses.jsonl) |
+| [五种临床量表闭集数值评分](scenarios/calculators/medcalc_verified_bounded_score/README.md) | 0.66／0.60 | $0.051／$0.136 | 0／0 | [题目](scenarios/calculators/medcalc_verified_bounded_score/samples.jsonl) · [提示词](scenarios/calculators/medcalc_verified_bounded_score/prompts.json) · [Jev](scenarios/calculators/medcalc_verified_bounded_score/responses.jsonl) · [对照](scenarios/calculators/medcalc_verified_bounded_score/comparison/deepseek_responses.jsonl) |
+| [边界挑战：缺失计算参数](scenarios/calculators/challenge_missing_parameter/README.md) | 0.60／0.59 | $0.016／$0.043 | 0／0 | [题目](scenarios/calculators/challenge_missing_parameter/samples.jsonl) · [提示词](scenarios/calculators/challenge_missing_parameter/prompts.json) · [Jev](scenarios/calculators/challenge_missing_parameter/responses.jsonl) · [对照](scenarios/calculators/challenge_missing_parameter/comparison/deepseek_responses.jsonl) |
+| [英文 MedQA医学考试](scenarios/knowledge/medqa_en_test/README.md) | 0.62／0.61 | $0.024／$0.053 | 0／0 | [题目](scenarios/knowledge/medqa_en_test/samples.jsonl) · [提示词](scenarios/knowledge/medqa_en_test/prompts.json) · [Jev](scenarios/knowledge/medqa_en_test/responses.jsonl) · [对照](scenarios/knowledge/medqa_en_test/comparison/deepseek_responses.jsonl) |
+| [中文 MedQA医学考试](scenarios/knowledge/medqa_zh_test/README.md) | 0.63／0.53 | $0.018／$0.034 | 0／0 | [题目](scenarios/knowledge/medqa_zh_test/samples.jsonl) · [提示词](scenarios/knowledge/medqa_zh_test/prompts.json) · [Jev](scenarios/knowledge/medqa_zh_test/responses.jsonl) · [对照](scenarios/knowledge/medqa_zh_test/comparison/deepseek_responses.jsonl) |
+| [MedMCQA医学考试](scenarios/knowledge/medmcqa_validation/README.md) | 0.63／0.54 | $0.016／$0.037 | 0／0 | [题目](scenarios/knowledge/medmcqa_validation/samples.jsonl) · [提示词](scenarios/knowledge/medmcqa_validation/prompts.json) · [Jev](scenarios/knowledge/medmcqa_validation/responses.jsonl) · [对照](scenarios/knowledge/medmcqa_validation/comparison/deepseek_responses.jsonl) |
+| [中文医学考试单选](scenarios/knowledge/cmexam_mcq/README.md) | 0.86／0.58 | $0.017／$0.039 | 0／0 | [题目](scenarios/knowledge/cmexam_mcq/samples.jsonl) · [提示词](scenarios/knowledge/cmexam_mcq/prompts.json) · [Jev](scenarios/knowledge/cmexam_mcq/responses.jsonl) · [对照](scenarios/knowledge/cmexam_mcq/comparison/deepseek_responses.jsonl) |
+| [中文医学考试多选](scenarios/knowledge/cmexam_mcq_multi/README.md) | 0.60／0.69 | $0.020／$0.061 | 0／0 | [题目](scenarios/knowledge/cmexam_mcq_multi/samples.jsonl) · [提示词](scenarios/knowledge/cmexam_mcq_multi/prompts.json) · [Jev](scenarios/knowledge/cmexam_mcq_multi/responses.jsonl) · [对照](scenarios/knowledge/cmexam_mcq_multi/comparison/deepseek_responses.jsonl) |
+| [中医基础知识单选](scenarios/tcm/tcm_best_knowledge/README.md) | 0.63／0.51 | $0.016／$0.040 | 0／0 | [题目](scenarios/tcm/tcm_best_knowledge/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_knowledge/prompts.json) · [Jev](scenarios/tcm/tcm_best_knowledge/responses.jsonl) · [对照](scenarios/tcm/tcm_best_knowledge/comparison/deepseek_responses.jsonl) |
+| [中医基础知识多选](scenarios/tcm/tcm_best_knowledge_multi/README.md) | 0.66／0.62 | $0.018／$0.055 | 0／0 | [题目](scenarios/tcm/tcm_best_knowledge_multi/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_knowledge_multi/prompts.json) · [Jev](scenarios/tcm/tcm_best_knowledge_multi/responses.jsonl) · [对照](scenarios/tcm/tcm_best_knowledge_multi/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-followup"></a>
+
+### 出院与随访
+
+**1 项任务 · 20 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#followup)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 20／[20](scenarios/documentation/challenge_followup_action/cases.md) | Accuracy | 95.0 | 100.0 | -5.0 ［-15.0, 0.0］ | 19/20 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [边界挑战：随访行动](scenarios/documentation/challenge_followup_action/README.md) | 0.61／0.56 | $0.016／$0.043 | 0／0 | [题目](scenarios/documentation/challenge_followup_action/samples.jsonl) · [提示词](scenarios/documentation/challenge_followup_action/prompts.json) · [Jev](scenarios/documentation/challenge_followup_action/responses.jsonl) · [对照](scenarios/documentation/challenge_followup_action/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-research"></a>
+
+### 科研与循证
+
+**13 项任务 · 1,225 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#research)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [PICO 固定窗口识别](scenarios/evidence/ebm_pico_fixed_windows/README.md) | 100／[76](scenarios/evidence/ebm_pico_fixed_windows/cases.md) | micro-F1 | 12.7 | 25.4 | -12.7 ［-24.4, -2.1］ | 29/76 |
+| [研究结局固定窗口分类](scenarios/evidence/evidenceoutcomes_fixed_window/README.md) | 100／[92](scenarios/evidence/evidenceoutcomes_fixed_window/cases.md) | Accuracy | 88.0 | 67.0 | +21.0 ［11.9, 30.3］ | 80/92 |
+| [RCT 摘要句功能分类](scenarios/evidence/pubmed_rct_section/README.md) | 100／[98](scenarios/evidence/pubmed_rct_section/cases.md) | Accuracy | 75.0 | 77.0 | -2.0 ［-6.1, 2.0］ | 73/98 |
+| [临床研究干预结果方向](scenarios/evidence/evidence_inference_fulltext/README.md) | 100／[84](scenarios/evidence/evidence_inference_fulltext/cases.md) | Accuracy | 89.0 | 76.0 | +13.0 ［4.2, 22.4］ | 73/84 |
+| [全文证据句筛选](scenarios/evidence/evidencebench_sentence_selection/README.md) | 37／[37](scenarios/evidence/evidencebench_sentence_selection/cases.md) | micro-F1 | 29.4 | 25.9 | +3.5 ［0.6, 6.8］ | 0/37 |
+| [摘要支持的研究问题回答](scenarios/evidence/pubmedqa_evidence_qa/README.md) | 100／[100](scenarios/evidence/pubmedqa_evidence_qa/cases.md) | Accuracy | 74.0 | 76.0 | -2.0 ［-9.0, 5.0］ | 74/100 |
+| [科学论断与给定摘要一致性](scenarios/evidence/scifact_cited_abstract/README.md) | 118／[100](scenarios/evidence/scifact_cited_abstract/cases.md) | Accuracy | 85.6 | 89.0 | -3.4 ［-8.7, 1.7］ | 83/100 |
+| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 20／[20](scenarios/evidence/challenge_evidence_support/cases.md) | Accuracy | 100.0 | 75.0 | +25.0 ［5.0, 45.0］ | 20/20 |
+| [临床试验证据支持判断](scenarios/trials/nli4ct_entailment/README.md) | 100／[70](scenarios/trials/nli4ct_entailment/cases.md) | Accuracy | 88.0 | 87.0 | +1.0 ［-4.0, 6.1］ | 58/70 |
+| [临床试验证据句定位](scenarios/trials/nli4ct_evidence/README.md) | 100／[74](scenarios/trials/nli4ct_evidence/cases.md) | micro-F1 | 49.9 | 68.3 | -18.4 ［-26.7, -8.6］ | 3/74 |
+| [患者与临床试验入组预筛](scenarios/trials/trialgpt_sigir_referral/README.md) | 150／[45](scenarios/trials/trialgpt_sigir_referral/cases.md) | Accuracy | 48.0 | 54.7 | -6.7 ［-12.1, -1.6］ | 11/45 |
+| [公共卫生核查：仅论断](scenarios/evidence/pubhealth_claim_only/README.md) | 100／[100](scenarios/evidence/pubhealth_claim_only/cases.md) | Accuracy | 20.0 | 44.0 | -24.0 ［-35.0, -13.0］ | 20/100 |
+| [公共卫生核查：提供核查文章](scenarios/evidence/pubhealth_with_article/README.md) | 100／[100](scenarios/evidence/pubhealth_with_article/cases.md) | Accuracy | 67.0 | 72.0 | -5.0 ［-14.0, 3.0］ | 67/100 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [PICO 固定窗口识别](scenarios/evidence/ebm_pico_fixed_windows/README.md) | 0.63／0.56 | $0.034／$0.084 | 0／0 | [题目](scenarios/evidence/ebm_pico_fixed_windows/samples.jsonl) · [提示词](scenarios/evidence/ebm_pico_fixed_windows/prompts.json) · [Jev](scenarios/evidence/ebm_pico_fixed_windows/responses.jsonl) · [对照](scenarios/evidence/ebm_pico_fixed_windows/comparison/deepseek_responses.jsonl) |
+| [研究结局固定窗口分类](scenarios/evidence/evidenceoutcomes_fixed_window/README.md) | 0.66／0.55 | $0.044／$0.108 | 0／0 | [题目](scenarios/evidence/evidenceoutcomes_fixed_window/samples.jsonl) · [提示词](scenarios/evidence/evidenceoutcomes_fixed_window/prompts.json) · [Jev](scenarios/evidence/evidenceoutcomes_fixed_window/responses.jsonl) · [对照](scenarios/evidence/evidenceoutcomes_fixed_window/comparison/deepseek_responses.jsonl) |
+| [RCT 摘要句功能分类](scenarios/evidence/pubmed_rct_section/README.md) | 0.90／0.53 | $0.017／$0.036 | 0／0 | [题目](scenarios/evidence/pubmed_rct_section/samples.jsonl) · [提示词](scenarios/evidence/pubmed_rct_section/prompts.json) · [Jev](scenarios/evidence/pubmed_rct_section/responses.jsonl) · [对照](scenarios/evidence/pubmed_rct_section/comparison/deepseek_responses.jsonl) |
+| [临床研究干预结果方向](scenarios/evidence/evidence_inference_fulltext/README.md) | 0.87／0.57 | $0.325／$1.041 | 0／0 | [题目](scenarios/evidence/evidence_inference_fulltext/samples.jsonl) · [提示词](scenarios/evidence/evidence_inference_fulltext/prompts.json) · [Jev](scenarios/evidence/evidence_inference_fulltext/responses.jsonl) · [对照](scenarios/evidence/evidence_inference_fulltext/comparison/deepseek_responses.jsonl) |
+| [全文证据句筛选](scenarios/evidence/evidencebench_sentence_selection/README.md) | 1.15／2.31 | $0.609／$1.927 | 0／0 | [题目](scenarios/evidence/evidencebench_sentence_selection/samples.jsonl) · [提示词](scenarios/evidence/evidencebench_sentence_selection/prompts.json) · [Jev](scenarios/evidence/evidencebench_sentence_selection/responses.jsonl) · [对照](scenarios/evidence/evidencebench_sentence_selection/comparison/deepseek_responses.jsonl) |
+| [摘要支持的研究问题回答](scenarios/evidence/pubmedqa_evidence_qa/README.md) | 0.91／0.54 | $0.030／$0.069 | 0／0 | [题目](scenarios/evidence/pubmedqa_evidence_qa/samples.jsonl) · [提示词](scenarios/evidence/pubmedqa_evidence_qa/prompts.json) · [Jev](scenarios/evidence/pubmedqa_evidence_qa/responses.jsonl) · [对照](scenarios/evidence/pubmedqa_evidence_qa/comparison/deepseek_responses.jsonl) |
+| [科学论断与给定摘要一致性](scenarios/evidence/scifact_cited_abstract/README.md) | 0.64／0.54 | $0.033／$0.077 | 0／0 | [题目](scenarios/evidence/scifact_cited_abstract/samples.jsonl) · [提示词](scenarios/evidence/scifact_cited_abstract/prompts.json) · [Jev](scenarios/evidence/scifact_cited_abstract/responses.jsonl) · [对照](scenarios/evidence/scifact_cited_abstract/comparison/deepseek_responses.jsonl) |
+| [边界挑战：证据支持](scenarios/evidence/challenge_evidence_support/README.md) | 0.60／0.58 | $0.016／$0.043 | 0／0 | [题目](scenarios/evidence/challenge_evidence_support/samples.jsonl) · [提示词](scenarios/evidence/challenge_evidence_support/prompts.json) · [Jev](scenarios/evidence/challenge_evidence_support/responses.jsonl) · [对照](scenarios/evidence/challenge_evidence_support/comparison/deepseek_responses.jsonl) |
+| [临床试验证据支持判断](scenarios/trials/nli4ct_entailment/README.md) | 0.91／0.51 | $0.040／$0.080 | 0／0 | [题目](scenarios/trials/nli4ct_entailment/samples.jsonl) · [提示词](scenarios/trials/nli4ct_entailment/prompts.json) · [Jev](scenarios/trials/nli4ct_entailment/responses.jsonl) · [对照](scenarios/trials/nli4ct_entailment/comparison/deepseek_responses.jsonl) |
+| [临床试验证据句定位](scenarios/trials/nli4ct_evidence/README.md) | 0.94／0.82 | $0.073／$0.200 | 0／0 | [题目](scenarios/trials/nli4ct_evidence/samples.jsonl) · [提示词](scenarios/trials/nli4ct_evidence/prompts.json) · [Jev](scenarios/trials/nli4ct_evidence/responses.jsonl) · [对照](scenarios/trials/nli4ct_evidence/comparison/deepseek_responses.jsonl) |
+| [患者与临床试验入组预筛](scenarios/trials/trialgpt_sigir_referral/README.md) | 0.65／0.50 | $0.038／$0.096 | 0／0 | [题目](scenarios/trials/trialgpt_sigir_referral/samples.jsonl) · [提示词](scenarios/trials/trialgpt_sigir_referral/prompts.json) · [Jev](scenarios/trials/trialgpt_sigir_referral/responses.jsonl) · [对照](scenarios/trials/trialgpt_sigir_referral/comparison/deepseek_responses.jsonl) |
+| [公共卫生核查：仅论断](scenarios/evidence/pubhealth_claim_only/README.md) | 0.77／0.55 | $0.016／$0.033 | 0／0 | [题目](scenarios/evidence/pubhealth_claim_only/samples.jsonl) · [提示词](scenarios/evidence/pubhealth_claim_only/prompts.json) · [Jev](scenarios/evidence/pubhealth_claim_only/responses.jsonl) · [对照](scenarios/evidence/pubhealth_claim_only/comparison/deepseek_responses.jsonl) |
+| [公共卫生核查：提供核查文章](scenarios/evidence/pubhealth_with_article/README.md) | 0.82／0.55 | $0.052／$0.151 | 0／0 | [题目](scenarios/evidence/pubhealth_with_article/samples.jsonl) · [提示词](scenarios/evidence/pubhealth_with_article/prompts.json) · [Jev](scenarios/evidence/pubhealth_with_article/responses.jsonl) · [对照](scenarios/evidence/pubhealth_with_article/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
+
+<a id="results-governance"></a>
+
+### 数据治理与运营
+
+**9 项任务 · 877 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#governance)
+
+**效果与样本量**
+
+| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 20／[20](scenarios/records/challenge_coding_evidence/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 20／[20](scenarios/quality/challenge_phi_candidate/cases.md) | Accuracy | 95.0 | 95.0 | +0.0 ［0.0, 0.0］ | 19/20 |
+| [医学回答幻觉识别：有证据](scenarios/quality/medhallu_with_evidence/README.md) | 200／[100](scenarios/quality/medhallu_with_evidence/cases.md) | Accuracy | 82.0 | 82.5 | -0.5 ［-5.5, 5.0］ | 67/100 |
+| [医学回答幻觉识别：无证据](scenarios/quality/medhallu_without_evidence/README.md) | 200／[100](scenarios/quality/medhallu_without_evidence/cases.md) | Accuracy | 60.0 | 69.5 | -9.5 ［-16.0, -3.0］ | 38/100 |
+| [医疗有害请求筛查](scenarios/quality/medsafety_request_gate/README.md) | 200／[200](scenarios/quality/medsafety_request_gate/cases.md) | Accuracy | 93.5 | 96.0 | -2.5 ［-5.5, 1.0］ | 187/200 |
+| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 20／[20](scenarios/quality/challenge_prompt_injection/cases.md) | Accuracy | 100.0 | 100.0 | +0.0 ［0.0, 0.0］ | 20/20 |
+| [医学伦理单选](scenarios/tcm/tcm_best_ethics/README.md) | 97／[97](scenarios/tcm/tcm_best_ethics/cases.md) | Accuracy | 89.7 | 79.4 | +10.3 ［4.1, 17.5］ | 87/97 |
+| [医学伦理与执业规范多选](scenarios/tcm/tcm_best_ethics_multi/README.md) | 20／[20](scenarios/tcm/tcm_best_ethics_multi/cases.md) | micro-F1 | 88.9 | 89.4 | -0.5 ［-10.6, 8.0］ | 12/20 |
+| [中医安全问题标签一致性](scenarios/tcm/tcm_best_安全问题/README.md) | 100／[100](scenarios/tcm/tcm_best_安全问题/cases.md) | Accuracy | 27.0 | 29.0 | -2.0 ［-9.0, 5.0］ | 27/100 |
+
+**耗时、费用与原始数据**
+
+成对数值顺序均为 **Jev／DeepSeek**。
+
+| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |
+| --- | ---: | ---: | ---: | --- |
+| [边界挑战：编码证据](scenarios/records/challenge_coding_evidence/README.md) | 0.59／0.58 | $0.016／$0.044 | 0／0 | [题目](scenarios/records/challenge_coding_evidence/samples.jsonl) · [提示词](scenarios/records/challenge_coding_evidence/prompts.json) · [Jev](scenarios/records/challenge_coding_evidence/responses.jsonl) · [对照](scenarios/records/challenge_coding_evidence/comparison/deepseek_responses.jsonl) |
+| [边界挑战：隐私信息候选](scenarios/quality/challenge_phi_candidate/README.md) | 0.61／0.59 | $0.016／$0.043 | 0／0 | [题目](scenarios/quality/challenge_phi_candidate/samples.jsonl) · [提示词](scenarios/quality/challenge_phi_candidate/prompts.json) · [Jev](scenarios/quality/challenge_phi_candidate/responses.jsonl) · [对照](scenarios/quality/challenge_phi_candidate/comparison/deepseek_responses.jsonl) |
+| [医学回答幻觉识别：有证据](scenarios/quality/medhallu_with_evidence/README.md) | 0.64／0.54 | $0.032／$0.077 | 0／0 | [题目](scenarios/quality/medhallu_with_evidence/samples.jsonl) · [提示词](scenarios/quality/medhallu_with_evidence/prompts.json) · [Jev](scenarios/quality/medhallu_with_evidence/responses.jsonl) · [对照](scenarios/quality/medhallu_with_evidence/comparison/deepseek_responses.jsonl) |
+| [医学回答幻觉识别：无证据](scenarios/quality/medhallu_without_evidence/README.md) | 0.63／0.52 | $0.017／$0.032 | 0／0 | [题目](scenarios/quality/medhallu_without_evidence/samples.jsonl) · [提示词](scenarios/quality/medhallu_without_evidence/prompts.json) · [Jev](scenarios/quality/medhallu_without_evidence/responses.jsonl) · [对照](scenarios/quality/medhallu_without_evidence/comparison/deepseek_responses.jsonl) |
+| [医疗有害请求筛查](scenarios/quality/medsafety_request_gate/README.md) | 0.63／0.52 | $0.015／$0.042 | 0／0 | [题目](scenarios/quality/medsafety_request_gate/samples.jsonl) · [提示词](scenarios/quality/medsafety_request_gate/prompts.json) · [Jev](scenarios/quality/medsafety_request_gate/responses.jsonl) · [对照](scenarios/quality/medsafety_request_gate/comparison/deepseek_responses.jsonl) |
+| [边界挑战：提示注入](scenarios/quality/challenge_prompt_injection/README.md) | 0.61／0.58 | $0.017／$0.043 | 0／0 | [题目](scenarios/quality/challenge_prompt_injection/samples.jsonl) · [提示词](scenarios/quality/challenge_prompt_injection/prompts.json) · [Jev](scenarios/quality/challenge_prompt_injection/responses.jsonl) · [对照](scenarios/quality/challenge_prompt_injection/comparison/deepseek_responses.jsonl) |
+| [医学伦理单选](scenarios/tcm/tcm_best_ethics/README.md) | 0.61／0.52 | $0.020／$0.038 | 0／0 | [题目](scenarios/tcm/tcm_best_ethics/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_ethics/prompts.json) · [Jev](scenarios/tcm/tcm_best_ethics/responses.jsonl) · [对照](scenarios/tcm/tcm_best_ethics/comparison/deepseek_responses.jsonl) |
+| [医学伦理与执业规范多选](scenarios/tcm/tcm_best_ethics_multi/README.md) | 0.61／0.57 | $0.021／$0.066 | 0／0 | [题目](scenarios/tcm/tcm_best_ethics_multi/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_ethics_multi/prompts.json) · [Jev](scenarios/tcm/tcm_best_ethics_multi/responses.jsonl) · [对照](scenarios/tcm/tcm_best_ethics_multi/comparison/deepseek_responses.jsonl) |
+| [中医安全问题标签一致性](scenarios/tcm/tcm_best_安全问题/README.md) | 0.64／0.53 | $0.019／$0.034 | 0／0 | [题目](scenarios/tcm/tcm_best_安全问题/samples.jsonl) · [提示词](scenarios/tcm/tcm_best_安全问题/prompts.json) · [Jev](scenarios/tcm/tcm_best_安全问题/responses.jsonl) · [对照](scenarios/tcm/tcm_best_安全问题/comparison/deepseek_responses.jsonl) |
+
+[返回领域导航](#领域导航)
 
 ## 如何查看和复验 Jev 的成绩
 
@@ -72,7 +433,7 @@ python3 scripts/verify_experiments.py
 
 - **测了什么**：72 项公开材料适配条件、24 项自编边界挑战。条件数不等于独立医疗工作数，输入数不等于患者数；给定实体、候选或章节边界的任务要按原条件理解。
 - **怎么比较**：Jev 为 `jev-1.13.0`；DeepSeek 请求名为 `deepseek-flash`，归档配置记为 V4.1 Flash、关闭思考模式。两者使用相同材料与判断目标；主效果评测不是同期测速。
-- **怎么计分**：首页四个例子在分析后选取，全部任务另表公开。分类报告准确率，集合抽取报告 micro-F1，不混成一个总分。失败留在分母；配对区间按来源案例聚合，属于探索性分析，未校正多重比较。
+- **怎么计分**：首页四个例子在分析后选取，全部任务在上方按领域展开。分类报告准确率，集合抽取报告 micro-F1，不混成一个总分。失败留在分母；配对区间按来源案例聚合，属于探索性分析，未校正多重比较。
 - **能得出什么**：公开材料、合成病例和小样本测试可帮助筛选下一步验证方向。当前没有真实医院的前瞻性流程验证、独立医生全量审核或患者结局证据。
 - **哪些另算**：批处理与扰动实验分别报告；27 类训练任务只作为独立扩展映射，不计入主评测成绩。
 

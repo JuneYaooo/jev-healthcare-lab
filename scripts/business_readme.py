@@ -48,6 +48,58 @@ DOMAIN_EXAMPLES = {
 }
 
 
+def render_domain_results(taxonomy, comparison, audit, owner):
+    """Show every archived condition once per results view, grouped by business domain."""
+    tasks = comparison['tasks']
+    mapping = taxonomy['benchmark_tasks']
+    if set(mapping) != set(tasks) or set(mapping) != set(audit):
+        raise ValueError('README task coverage differs from the comparison or evidence audit')
+    families = {f['id']: f for f in taxonomy['families']}
+    methods = load('results/task_methods.json')
+    inventory = load('results/case_inventory.json')['tasks']
+    lines = [
+        '## 全部领域与任务的详细测试数据', '',
+        f'以下按 {len(taxonomy["domains"])} 个业务领域展开全部 **{len(tasks)} 个主评测条件**。每个领域分为“效果与样本量”和“耗时、费用与原始数据”两张表。', '',
+        '- **指标**：Accuracy 为准确率；micro-F1 为集合抽取指标，以下均按 0–100 展示，不能混算总体准确率。差值为 Jev 减 DeepSeek，单位为百分点或 F1 分。',
+        '- **样本量与区间**：记录数／来源案例数分别列示；来源可能是病例、文档或题目，不等于独立患者。区间按来源案例配对重采样，未校正多重比较。不同任务可能复用来源，案例数不跨任务相加。',
+        '- **时间与费用**：中位响应时间只统计成功 API 请求，是历史调用的单次耗时，不是同期测速或整批总时间。每千条费用以全部计分输入为分母，单位为美元，按归档费率估算。',
+        '- **失败与原始材料**：未作答包括最终调用或格式失败，仍保留在评分分母；43 条无实体候选记录由规则输出空集，不计为调用失败。“题目”含输入与金标，“Jev／对照”链接两家的原始回答。', '',
+    ]
+    for domain, title in taxonomy['domains'].items():
+        ids = [t for t, r in mapping.items() if families[r['family']]['domain'] == domain]
+        records = sum(tasks[t]['planned'] for t in ids)
+        lines += [f'<a id="results-{domain}"></a>', '', f'### {title}', '',
+                  f'**{len(ids)} 项任务 · {records:,} 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#{domain})', '',
+                  '**效果与样本量**', '',
+                  '| 任务 | 记录／来源案例 | 指标 | Jev | DeepSeek | 差值［95% 区间］ | Jev 案例全对 |',
+                  '| --- | ---: | --- | ---: | ---: | ---: | ---: |']
+        for task in ids:
+            row = tasks[task]
+            a = audit[task]
+            folder = f'scenarios/{owner[task]}/{task}'
+            metric = 'Accuracy' if a['metric'] == 'accuracy' else 'micro-F1'
+            pair = a['paired']
+            ci = pair['ci95']['difference']
+            cases = a['case_all_correct']['jev']
+            if row['planned'] != a['records'] or inventory[task]['cases'] != a['cases']:
+                raise ValueError(f'Inconsistent README record/case count: {task}')
+            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {row["planned"]}／[{a["cases"]}]({folder}/cases.md) | {metric} | {pair["jev"]*100:.1f} | {pair["deepseek"]*100:.1f} | {pair["difference"]*100:+.1f} ［{ci["lower"]*100:.1f}, {ci["upper"]*100:.1f}］ | {cases["correct"]}/{cases["total"]} |')
+        lines += ['', '**耗时、费用与原始数据**', '',
+                  '成对数值顺序均为 **Jev／DeepSeek**。', '',
+                  '| 任务 | 中位响应（秒） | 每千条费用（美元） | 最终未作答（条） | 原始数据 |',
+                  '| --- | ---: | ---: | ---: | --- |']
+        for task in ids:
+            row = tasks[task]
+            folder = f'scenarios/{owner[task]}/{task}'
+            latency = '／'.join('—' if row[p]['latency_median_s'] is None else f'{row[p]["latency_median_s"]:.2f}' for p in ('jev', 'deepseek'))
+            cost = '／'.join(money(row[p]['cost_per_1000_usd']) for p in ('jev', 'deepseek'))
+            failures = '／'.join(str(audit[task]['failures'][p]) for p in ('jev', 'deepseek'))
+            links = f'[题目]({folder}/samples.jsonl) · [提示词]({folder}/prompts.json) · [Jev]({folder}/responses.jsonl) · [对照]({folder}/comparison/deepseek_responses.jsonl)'
+            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {latency} | {cost} | {failures} | {links} |')
+        lines += ['', '[返回领域导航](#领域导航)', '']
+    return lines
+
+
 def render():
     comparison = load('comparisons/deepseek-flash/summary.json')
     if not comparison['summary']['complete']:
@@ -70,7 +122,7 @@ def render():
         '**从病历整理到临床判断，实测 Jev 能做对多少、花多少、等多久。**', '',
         '这个仓库专门评测 Jev 在医疗文本任务中的表现：哪些任务得分高，哪些错误值得注意，调用速度和费用如何。DeepSeek 作为同题参照；每项测试都保留材料、模型回答和评分记录，可以一路查到原题。', '',
         f'**{len(taxonomy["domains"])} 个业务领域 · {n_tasks} 个评测条件 · {total:,} 条测试输入**', '',
-        '**[看 Jev 的完整成绩 →](docs/任务对比.md)　[看它测过哪些任务 →](docs/医疗任务总目录.md)　[查看原题与回答 →](scenarios/README.md)**', '',
+        '**[看 Jev 的全部测试数据 →](#全部领域与任务的详细测试数据)　[按领域查看 →](#领域导航)　[查看原题与回答 →](scenarios/README.md)**', '',
         '## Jev 的表现：章节分类 99%，量表评分 25%', '',
         'Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床量表分数时，答对 25/100。这轮测试中，Jev 在部分分类任务上得分较高，入组预筛和数值评分仍有明显短板。', '',
         '| 医疗任务 | Jev 准确率 | 实际测的是什么 | DeepSeek 同题参照 |',
@@ -81,7 +133,7 @@ def render():
         out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {pair["jev"]:.1%} | {boundary} | {pair["deepseek"]:.1%} |')
     out += [
         '',
-        f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](docs/任务对比.md) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',
+        f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](#全部领域与任务的详细测试数据) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',
         '## Jev 的速度和费用怎么样', '',
         'Jev 在主效果评测中的调用费用更低；在独立重复输入测速中，DeepSeek 的费用更低：', '',
         f'- **主效果评测**：每千条输入，Jev **{money(j["cost_per_1000_usd"])}**，DeepSeek **{money(d["cost_per_1000_usd"])}**。',
@@ -89,15 +141,19 @@ def render():
         f'以上为美元估算，按归档费率和可核验用量计算。重复输入可能提高缓存命中；两组分别为 {total:,} 条和 {replay_total:,} 条输入，费用也不含 OCR、语音转写、系统接入和人工复核。[费用、耗时与调用条件](comparisons/batch-time/README.md)', '',
         f'**速度方面**：独立测速以相同的 8 并发处理 {replay_total:,} 条输入，Jev 用时 **{timing["jev"]["batch_elapsed_s"]/60:.1f} 分钟**，DeepSeek 用时 **{timing["deepseek"]["batch_elapsed_s"]/60:.1f} 分钟**，包含重试与失败等待。', '',
         '如果你的产品需要对一份材料连续做多个判断，还可以看 [140 份新材料的逐项／合并处理实验](comparisons/paired-suite/README.md)：每次处理 1 项、5 项、10 项，对比准确率、总耗时和费用。', '',
-        '## Jev 测过哪些医疗任务', '',
-        '| 业务领域 | Jev 的测试内容 |',
-        '| --- | --- |',
+        '## 领域导航', '',
+        '| 业务领域 | Jev 的测试内容 | 任务数 | 记录数 |',
+        '| --- | --- | ---: | ---: |',
     ]
+    families = {f['id']: f for f in taxonomy['families']}
     for domain, title in taxonomy['domains'].items():
-        out.append(f'| [{title} →](docs/医疗任务总目录.md#{domain}) | {DOMAIN_EXAMPLES[domain]} |')
+        ids = [t for t, r in taxonomy['benchmark_tasks'].items() if families[r['family']]['domain'] == domain]
+        records = sum(comparison['tasks'][t]['planned'] for t in ids)
+        out.append(f'| [{title} →](#results-{domain}) | {DOMAIN_EXAMPLES[domain]} | {len(ids)} | {records:,} |')
     out += [
         '',
         '任务目录同时标明已有实测、独立训练扩展和未测部分；训练扩展不计入 Jev 主评测成绩。中医、OCR 和 ASR 等条件也有单独标记。[查看任务与实验的对应关系](docs/医疗任务映射.md)', '',
+        *render_domain_results(taxonomy, comparison, audit, owner),
         '## 如何查看和复验 Jev 的成绩', '',
         '1. **找到你关心的 Jev 测试。** 在[任务目录](docs/医疗任务总目录.md)里确认输入、输出和覆盖边界，找到与你业务最接近的实验。',
         '2. **打开原题，检查 Jev 怎么答。** 例如[长病历问答](scenarios/records/longhealth_full_context/README.md)，可以一路查看测试材料、提示词、标准答案、模型响应和逐案例成绩。',
@@ -113,7 +169,7 @@ def render():
         '<summary><strong>评测口径、模型版本与使用边界</strong></summary>', '',
         '- **测了什么**：72 项公开材料适配条件、24 项自编边界挑战。条件数不等于独立医疗工作数，输入数不等于患者数；给定实体、候选或章节边界的任务要按原条件理解。',
         '- **怎么比较**：Jev 为 `jev-1.13.0`；DeepSeek 请求名为 `deepseek-flash`，归档配置记为 V4.1 Flash、关闭思考模式。两者使用相同材料与判断目标；主效果评测不是同期测速。',
-        '- **怎么计分**：首页四个例子在分析后选取，全部任务另表公开。分类报告准确率，集合抽取报告 micro-F1，不混成一个总分。失败留在分母；配对区间按来源案例聚合，属于探索性分析，未校正多重比较。',
+        '- **怎么计分**：首页四个例子在分析后选取，全部任务在上方按领域展开。分类报告准确率，集合抽取报告 micro-F1，不混成一个总分。失败留在分母；配对区间按来源案例聚合，属于探索性分析，未校正多重比较。',
         '- **能得出什么**：公开材料、合成病例和小样本测试可帮助筛选下一步验证方向。当前没有真实医院的前瞻性流程验证、独立医生全量审核或患者结局证据。',
         '- **哪些另算**：批处理与扰动实验分别报告；27 类训练任务只作为独立扩展映射，不计入主评测成绩。', '',
         '[详细方法](docs/EVALUATION.md) · [同题对比配置](comparisons/deepseek-flash/README.md) · [来源与未完成项](docs/覆盖与阻塞账本.md)', '',
