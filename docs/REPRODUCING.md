@@ -2,6 +2,19 @@
 
 当前归档包含 **96 项主任务、7,133 条主评测输入**，另有 300 条配对扰动记录。逐项／合并批处理实验单独统计，不混入主任务分母。每条输入、金标、提示词和响应均可通过身份与哈希关联。
 
+## 运行环境与快速示例
+
+基础离线检查使用 Python 标准库，要求 Python 3.10+，无需 GPU、服务凭据或安装第三方包。通过 Git 获取仓库后即可运行；下载时间取决于网络，不包含在下表中。重新调用 API、重做 OCR/ASR 或本地模型实验需要各自依赖，不能由基础检查环境代替。
+
+2026-10-09 的实际验证环境为 macOS、Apple Silicon arm64、Python 3.13.2。以下为本地已有文件上的单次墙钟耗时，包含 Python 进程启动；不是跨设备性能保证，也不是模型推理速度。本次未独立验证其他操作系统。
+
+| 命令 | 预期输出 | 本次耗时 |
+| --- | --- | ---: |
+| `python3 scripts/build_task_catalog.py --check` | `42 families, 96 benchmark conditions, 27 training types` | 约 0.05 秒 |
+| `python3 scripts/verify_experiments.py` | 96 主任务、7,133 主记录、300 扰动记录；两类重算指标均为 `all matched` | 约 0.65 秒 |
+
+这两个命令以仓库归档作为可运行示例，不重新下载上游数据或调用服务。返回非零退出码表示检查未通过；保留错误输出，按具体文件、身份或哈希定位问题。完整的检查命令见下文。
+
 ## 归档内容
 
 实验按 `scenarios/<场景>/<任务>/` 保存。每个主任务包含 `samples.jsonl`、`responses.jsonl`、`prompts.json`、`example.json`、`results.json`、`index.jsonl`、`provenance.json` 和方法说明 `README.md`。5 个任务的额外扰动分别放在自身的 `robustness/repeat`、`rotate`、`irrelevant` 下。
