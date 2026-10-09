@@ -1,4 +1,4 @@
-"""Render a task-first project homepage and full comparison from archived evidence."""
+"""Render a Jev-focused project homepage and full comparison from archived evidence."""
 import json
 from pathlib import Path
 
@@ -65,42 +65,43 @@ def render():
         raise ValueError('Timing comparison uses different cohorts')
     long_case = audit['longhealth_full_context']['case_all_correct']['jev']
     out = [
-        '# 医疗 AI，哪些任务值得先做？', '',
-        'Jev Healthcare Lab · Jev × DeepSeek 医疗任务实测', '',
-        '**一个帮你选医疗 AI 场景、比较模型效果和成本的开源评测仓库。**', '',
-        '我们让 Jev 和 DeepSeek 回答同一批医疗题目：整理病历、识别用药变更、筛选科研证据……看它们能做对多少、花多少、等多久。测试材料、模型回答和评分脚本都在这里，做医疗产品或应用开发时可以直接查阅、复验。', '',
+        '# Jev 在医疗领域表现怎么样？', '',
+        'Jev Healthcare Lab · 医疗任务实测与原始记录', '',
+        '**从病历整理到临床判断，实测 Jev 能做对多少、花多少、等多久。**', '',
+        '这个仓库专门评测 Jev 在医疗文本任务中的表现：哪些任务得分高，哪些错误值得注意，调用速度和费用如何。DeepSeek 作为同题参照；每项测试都保留材料、模型回答和评分记录，可以一路查到原题。', '',
         f'**{len(taxonomy["domains"])} 个业务领域 · {n_tasks} 个评测条件 · {total:,} 条测试输入**', '',
-        '**[找你的场景 →](docs/医疗任务总目录.md)　[看两家成绩 →](docs/任务对比.md)　[查看测试原题 →](scenarios/README.md)**', '',
-        '## 99% 与 25%：同一个模型的两种表现', '',
-        'Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床量表分数时，答对 25/100。具体任务和输入条件，决定了成绩该怎么读。', '',
-        '| 交给 AI 的工作 | Jev 准确率 | DeepSeek 准确率 | 实际测的是什么 |',
-        '| --- | ---: | ---: | --- |',
+        '**[看 Jev 的完整成绩 →](docs/任务对比.md)　[看它测过哪些任务 →](docs/医疗任务总目录.md)　[查看原题与回答 →](scenarios/README.md)**', '',
+        '## Jev 的表现：章节分类 99%，量表评分 25%', '',
+        'Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床量表分数时，答对 25/100。这轮测试中，Jev 在部分分类任务上得分较高，入组预筛和数值评分仍有明显短板。', '',
+        '| 医疗任务 | Jev 准确率 | 实际测的是什么 | DeepSeek 同题参照 |',
+        '| --- | ---: | --- | ---: |',
     ]
     for task, title, boundary in TASK_EXAMPLES:
         pair = audit[task]['paired']
-        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {pair["jev"]:.1%} | {pair["deepseek"]:.1%} | {boundary} |')
+        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {pair["jev"]:.1%} | {boundary} | {pair["deepseek"]:.1%} |')
     out += [
         '',
-        f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。用来选场景时，还要看错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](docs/任务对比.md) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',
-        '## 从你正在做的工作开始', '',
-        '| 你关心的方向 | 仓库里可以看什么 |',
+        f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](docs/任务对比.md) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',
+        '## Jev 的速度和费用怎么样', '',
+        'Jev 在主效果评测中的调用费用更低；在独立重复输入测速中，DeepSeek 的费用更低：', '',
+        f'- **主效果评测**：每千条输入，Jev **{money(j["cost_per_1000_usd"])}**，DeepSeek **{money(d["cost_per_1000_usd"])}**。',
+        f'- **独立重复输入测速**：每千条输入，Jev **{money(timing["jev"]["cost_usd"]/replay_total*1000)}**，DeepSeek **{money(timing["deepseek"]["cost_usd"]/replay_total*1000)}**。', '',
+        f'以上为美元估算，按归档费率和可核验用量计算。重复输入可能提高缓存命中；两组分别为 {total:,} 条和 {replay_total:,} 条输入，费用也不含 OCR、语音转写、系统接入和人工复核。[费用、耗时与调用条件](comparisons/batch-time/README.md)', '',
+        f'**速度方面**：独立测速以相同的 8 并发处理 {replay_total:,} 条输入，Jev 用时 **{timing["jev"]["batch_elapsed_s"]/60:.1f} 分钟**，DeepSeek 用时 **{timing["deepseek"]["batch_elapsed_s"]/60:.1f} 分钟**，包含重试与失败等待。', '',
+        '如果你的产品需要对一份材料连续做多个判断，还可以看 [140 份新材料的逐项／合并处理实验](comparisons/paired-suite/README.md)：每次处理 1 项、5 项、10 项，对比准确率、总耗时和费用。', '',
+        '## Jev 测过哪些医疗任务', '',
+        '| 业务领域 | Jev 的测试内容 |',
         '| --- | --- |',
     ]
     for domain, title in taxonomy['domains'].items():
         out.append(f'| [{title} →](docs/医疗任务总目录.md#{domain}) | {DOMAIN_EXAMPLES[domain]} |')
     out += [
         '',
-        '每个方向都标明哪些已做有限实测、哪些只有训练扩展、哪些还没测。中医、OCR 和 ASR 等条件也有单独标记。[查看任务与实验的对应关系](docs/医疗任务映射.md)', '',
-        '## 便宜多少，也要看怎么用', '',
-        '相同模型，换一批调用条件，费用排序也会改变：', '',
-        f'- **主效果评测**：每千条输入，Jev **{money(j["cost_per_1000_usd"])}**，DeepSeek **{money(d["cost_per_1000_usd"])}**。',
-        f'- **独立重复输入测速**：每千条输入，Jev **{money(timing["jev"]["cost_usd"]/replay_total*1000)}**，DeepSeek **{money(timing["deepseek"]["cost_usd"]/replay_total*1000)}**。', '',
-        f'以上为美元估算，按归档费率和可核验用量计算。重复输入可能提高缓存命中；两组分别为 {total:,} 条和 {replay_total:,} 条输入，费用也不含 OCR、语音转写、系统接入和人工复核。[费用、耗时与调用条件](comparisons/batch-time/README.md)', '',
-        '如果你的产品需要对一份材料连续做多个判断，还可以看 [140 份新材料的逐项／合并处理实验](comparisons/paired-suite/README.md)：每次处理 1 项、5 项、10 项，对比准确率、总耗时和费用。', '',
-        '## 看完分数，可以接着做什么', '',
-        '1. **挑一个值得试的任务。** 在[任务目录](docs/医疗任务总目录.md)里确认输入、输出和覆盖边界，找到与你业务最接近的实验。',
-        '2. **打开原题，检查模型怎么答。** 例如[长病历问答](scenarios/records/longhealth_full_context/README.md)，可以一路查看测试材料、提示词、标准答案、模型响应和逐案例成绩。',
-        '3. **核验结果，再设计自己的测试。** 仓库保留评分和验证脚本；用自己的材料开展新实验，方法见[复现与实验说明](docs/REPRODUCING.md)。', '',
+        '任务目录同时标明已有实测、独立训练扩展和未测部分；训练扩展不计入 Jev 主评测成绩。中医、OCR 和 ASR 等条件也有单独标记。[查看任务与实验的对应关系](docs/医疗任务映射.md)', '',
+        '## 如何查看和复验 Jev 的成绩', '',
+        '1. **找到你关心的 Jev 测试。** 在[任务目录](docs/医疗任务总目录.md)里确认输入、输出和覆盖边界，找到与你业务最接近的实验。',
+        '2. **打开原题，检查 Jev 怎么答。** 例如[长病历问答](scenarios/records/longhealth_full_context/README.md)，可以一路查看测试材料、提示词、标准答案、模型响应和逐案例成绩。',
+        '3. **在本地核验 Jev 的归档成绩。** 仓库保留评分和验证脚本；用自己的材料开展新实验，方法见[复现与实验说明](docs/REPRODUCING.md)。', '',
         '先在本地核验归档，无需 API 密钥或 GPU，使用 Git 和 Python 3.10+ 即可：', '',
         '```sh',
         'git clone https://github.com/JuneYaooo/jev-healthcare-lab.git',
