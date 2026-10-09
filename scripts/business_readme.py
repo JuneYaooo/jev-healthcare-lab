@@ -14,14 +14,15 @@ def display(q):
     if not q:return '待完成'
     return f'{score(q)*100:.1f}'+('% 正确率' if 'accuracy' in q else ' 分·抽取综合分')
 def money(v):return f'${v:.3f}'
-def highlight_pair(jev, deepseek, *, digits, lower_is_better=False, suffix=''):
-    """Bold a strict winner at display precision; missing values cannot win."""
-    values = [None if v is None else float(f'{v:.{digits}f}') for v in (jev, deepseek)]
-    labels = ['—' if v is None else f'{v:.{digits}f}{suffix}' for v in values]
-    if None not in values and values[0] != values[1]:
-        winner = 0 if (values[0] < values[1]) == lower_is_better else 1
-        labels[winner] = f'**{labels[winner]}**'
+def highlight_values(values, *, digits, lower_is_better=False, suffix=''):
+    """Bold displayed best values; an all-way tie or missing comparison is unmarked."""
+    rounded = [None if v is None else float(f'{v:.{digits}f}') for v in values]
+    labels = ['—' if v is None else f'{v:.{digits}f}{suffix}' for v in rounded]
+    if None not in rounded and len(set(rounded)) > 1:
+        best = min(rounded) if lower_is_better else max(rounded)
+        labels = [f'**{label}**' if v == best else label for v, label in zip(rounded, labels)]
     return labels
+
 
 def research_extensions():
     """Preserve the explicitly maintained extension block during report rebuilds."""
@@ -56,30 +57,30 @@ DOMAIN_EXAMPLES = {
 }
 
 
-def render_domain_results(taxonomy, comparison, audit, owner):
+def render_domain_results(taxonomy, comparison, audit, owner, qwen):
     """Show every archived condition once per results view, grouped by business domain."""
     tasks = comparison['tasks']
     mapping = taxonomy['benchmark_tasks']
-    if set(mapping) != set(tasks) or set(mapping) != set(audit):
+    if set(mapping) != set(tasks) or set(mapping) != set(audit) or set(mapping) != set(qwen['tasks']):
         raise ValueError('README task coverage differs from the comparison or evidence audit')
     families = {f['id']: f for f in taxonomy['families']}
     methods = load('results/task_methods.json')
     inventory = load('results/case_inventory.json')['tasks']
     lines = [
         '## 全部领域与任务的详细测试数据', '',
-        f'以下按 {len(taxonomy["domains"])} 个业务领域展开全部 **{len(tasks)} 个主评测条件**。每行并排比较两家的准确率或 F1 与中位响应时间；展开领域下方的详细数据，可查看区间、费用、失败数和原始回答。', '',
+        f'以下按 {len(taxonomy["domains"])} 个业务领域展开全部 **{len(tasks)} 个主评测条件**。每行并排比较 Jev、DeepSeek 和 Qwen3.5-9B 的准确率或 F1 与中位响应时间；展开领域下方的详细数据，可查看区间、费用、失败数和原始回答。', '',
         '- **指标**：Accuracy 为准确率；micro-F1 为集合抽取指标，以下均按 0–100 展示，不能混算总体准确率。差值为 Jev 减 DeepSeek，单位为百分点或 F1 分。',
         '- **样本量与区间**：记录数／来源案例数分别列示；来源可能是病例、文档或题目，不等于独立患者。区间按来源案例配对重采样，未校正多重比较。不同任务可能复用来源，案例数不跨任务相加。',
-        '- **时间与费用**：中位响应时间只统计成功 API 请求，是历史调用的单次耗时，不是同期测速或整批总时间。每千条费用以全部计分输入为分母，单位为美元，按归档费率估算。',
-        '- **失败与原始材料**：未作答包括最终调用或格式失败，仍保留在评分分母；43 条无实体候选记录由规则输出空集，不计为调用失败。“题目”含输入与金标，“Jev／对照”链接两家的原始回答。', '',
+        '- **时间与费用**：中位响应时间只统计成功 API 请求，是历史调用的单次耗时，不是同期测速或整批总时间。每千条费用以全部计分输入为分母；Jev／DeepSeek 为美元，Qwen 为人民币，按归档费率估算，未做汇率换算。',
+        '- **失败与原始材料**：未作答包括最终调用或格式失败，仍保留在评分分母；43 条无实体候选记录由规则输出空集，不计为调用失败。“题目”含输入与金标，“Jev／DeepSeek／Qwen”链接三家的原始回答。', '',
     ]
     for domain, title in taxonomy['domains'].items():
         ids = [t for t, r in mapping.items() if families[r['family']]['domain'] == domain]
         records = sum(tasks[t]['planned'] for t in ids)
         lines += [f'<a id="results-{domain}"></a>', '', f'### {title}', '',
                   f'**{len(ids)} 项任务 · {records:,} 条测试记录** · [任务定义与覆盖边界](docs/医疗任务总目录.md#{domain})', '',
-                  '| 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） |',
-                  '| --- | ---: | --- | ---: | ---: | ---: | ---: |']
+                  '| 任务 | 记录／来源案例 | 指标 | Jev 得分 | Jev 耗时（秒） | DeepSeek 得分 | DeepSeek 耗时（秒） | Qwen 得分 | Qwen 耗时（秒） |',
+                  '| --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |']
         for task in ids:
             row = tasks[task]
             a = audit[task]
@@ -88,13 +89,16 @@ def render_domain_results(taxonomy, comparison, audit, owner):
             pair = a['paired']
             if row['planned'] != a['records'] or inventory[task]['cases'] != a['cases']:
                 raise ValueError(f'Inconsistent README record/case count: {task}')
-            scores = highlight_pair(pair['jev']*100, pair['deepseek']*100, digits=1)
-            times = highlight_pair(row['jev']['latency_median_s'], row['deepseek']['latency_median_s'], digits=2, lower_is_better=True)
-            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {row["planned"]}／[{a["cases"]}]({folder}/cases.md) | {metric} | {scores[0]} | {times[0]} | {scores[1]} | {times[1]} |')
+            q = qwen['tasks'][task]
+            if q['planned'] != row['planned'] or q['compared'] != row['planned']:
+                raise ValueError(f'Inconsistent Qwen coverage: {task}')
+            scores = highlight_values([pair['jev']*100, pair['deepseek']*100, score(q['quality'])*100], digits=1)
+            times = highlight_values([row['jev']['latency_median_s'], row['deepseek']['latency_median_s'], q['latency_median_s']], digits=2, lower_is_better=True)
+            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {row["planned"]}／[{a["cases"]}]({folder}/cases.md) | {metric} | {scores[0]} | {times[0]} | {scores[1]} | {times[1]} | {scores[2]} | {times[2]} |')
         lines += ['', '<details>', '<summary>展开详细数据：得分差值、费用、失败与原始材料</summary>', '',
-                  '差值为 Jev 减 DeepSeek；费用与未作答数的顺序为 **Jev／DeepSeek**。', '',
-                  '| 任务 | 得分差值［95% 区间］ | Jev 案例全对 | 每千条费用（美元） | 最终未作答（条） | 原始数据 |',
-                  '| --- | ---: | ---: | ---: | ---: | --- |']
+                  '差值为 Jev 减 DeepSeek；美元费用顺序为 **Jev／DeepSeek**，未作答数顺序为 **Jev／DeepSeek／Qwen**。Qwen 人民币费用另列。', '',
+                  '| 任务 | 得分差值［95% 区间］ | Jev 案例全对 | 每千条费用（美元） | Qwen 每千条（人民币） | 最终未作答（条） | 原始数据 |',
+                  '| --- | ---: | ---: | ---: | ---: | ---: | --- |']
         for task in ids:
             row = tasks[task]
             folder = f'scenarios/{owner[task]}/{task}'
@@ -103,15 +107,19 @@ def render_domain_results(taxonomy, comparison, audit, owner):
             ci = pair['ci95']['difference']
             cases = a['case_all_correct']['jev']
             cost = '／'.join(money(row[p]['cost_per_1000_usd']) for p in ('jev', 'deepseek'))
-            failures = '／'.join(str(audit[task]['failures'][p]) for p in ('jev', 'deepseek'))
-            links = f'[题目]({folder}/samples.jsonl) · [提示词]({folder}/prompts.json) · [Jev]({folder}/responses.jsonl) · [对照]({folder}/comparison/deepseek_responses.jsonl)'
-            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {pair["difference"]*100:+.1f} ［{ci["lower"]*100:.1f}, {ci["upper"]*100:.1f}］ | {cases["correct"]}/{cases["total"]} | {cost} | {failures} | {links} |')
+            q = qwen['tasks'][task]
+            failures = '／'.join([*(str(audit[task]['failures'][p]) for p in ('jev', 'deepseek')), str(len(q['failures']))])
+            links = f'[题目]({folder}/samples.jsonl) · [提示词]({folder}/prompts.json) · [Jev]({folder}/responses.jsonl) · [DeepSeek]({folder}/comparison/deepseek_responses.jsonl) · [Qwen]({folder}/comparison/qwen_responses.jsonl)'
+            lines.append(f'| [{methods[task]["title"]}]({folder}/README.md) | {pair["difference"]*100:+.1f} ［{ci["lower"]*100:.1f}, {ci["upper"]*100:.1f}］ | {cases["correct"]}/{cases["total"]} | {cost} | ¥{q["cost_per_1000_cny"]:.3f} | {failures} | {links} |')
         lines += ['', '</details>', '', '[返回领域导航](#领域导航)', '']
     return lines
 
 
 def render():
     comparison = load('comparisons/deepseek-flash/summary.json')
+    qwen = load('comparisons/qwen3.5-9b/summary.json')
+    if not qwen['summary']['complete']:
+        raise ValueError('Do not publish an incomplete Qwen comparison')
     if not comparison['summary']['complete']:
         raise ValueError('Do not publish an incomplete comparison as final')
     audit = load('results/evidence_audit.json')['tasks']
@@ -130,21 +138,22 @@ def render():
         '# Jev 在医疗领域表现怎么样？', '',
         'Jev Healthcare Lab · 医疗任务实测与原始记录', '',
         '**从病历整理到临床判断，实测 Jev 能做对多少、花多少、等多久。**', '',
-        '这个仓库专门评测 Jev 在医疗文本任务中的表现：哪些任务得分高，哪些错误值得注意，调用速度和费用如何。DeepSeek 作为同题参照；每项测试都保留材料、模型回答和评分记录，可以一路查到原题。', '',
+        '这个仓库专门评测 Jev 在医疗文本任务中的表现：哪些任务得分高，哪些错误值得注意，调用速度和费用如何。DeepSeek 与 Qwen3.5-9B 作为同题参照；每项测试都保留材料、模型回答和评分记录，可以一路查到原题。', '',
         f'**{len(taxonomy["domains"])} 个业务领域 · {n_tasks} 个评测条件 · {total:,} 条测试输入**', '',
         '**[看 Jev 的全部测试数据 →](#全部领域与任务的详细测试数据)　[按领域查看 →](#领域导航)　[查看原题与回答 →](scenarios/README.md)**', '',
         '## Jev 的表现：章节分类 99%，量表评分 25%', '',
         'Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床量表分数时，答对 25/100。这轮测试中，Jev 在部分分类任务上得分较高，入组预筛和数值评分仍有明显短板。', '',
-        '耗时为历史成功请求的中位响应时间（秒）；两家主评测并非同期测速。', '',
-        '| 医疗任务 | Jev 准确率 | Jev 耗时（秒） | DeepSeek 准确率 | DeepSeek 耗时（秒） | 实际测的是什么 |',
-        '| --- | ---: | ---: | ---: | ---: | --- |',
+        '耗时为历史成功请求的中位响应时间（秒）；三家主评测并非同期测速。', '',
+        '| 医疗任务 | Jev 准确率 | Jev 耗时（秒） | DeepSeek 准确率 | DeepSeek 耗时（秒） | Qwen 准确率 | Qwen 耗时（秒） | 实际测的是什么 |',
+        '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |',
     ]
     for task, title, boundary in TASK_EXAMPLES:
         pair = audit[task]['paired']
         row = comparison['tasks'][task]
-        scores = highlight_pair(pair['jev']*100, pair['deepseek']*100, digits=1, suffix='%')
-        times = highlight_pair(row['jev']['latency_median_s'], row['deepseek']['latency_median_s'], digits=2, lower_is_better=True)
-        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {scores[0]} | {times[0]} | {scores[1]} | {times[1]} | {boundary} |')
+        q = qwen['tasks'][task]
+        scores = highlight_values([pair['jev']*100, pair['deepseek']*100, score(q['quality'])*100], digits=1, suffix='%')
+        times = highlight_values([row['jev']['latency_median_s'], row['deepseek']['latency_median_s'], q['latency_median_s']], digits=2, lower_is_better=True)
+        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {scores[0]} | {times[0]} | {scores[1]} | {times[1]} | {scores[2]} | {times[2]} | {boundary} |')
     out += [
         '',
         f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。判断 Jev 是否适合你的业务，还要看它错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](#全部领域与任务的详细测试数据) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',
@@ -155,6 +164,7 @@ def render():
         f'以上为美元估算，按归档费率和可核验用量计算。重复输入可能提高缓存命中；两组分别为 {total:,} 条和 {replay_total:,} 条输入，费用也不含 OCR、语音转写、系统接入和人工复核。[费用、耗时与调用条件](comparisons/batch-time/README.md)', '',
         f'**速度方面**：独立测速以相同的 8 并发处理 {replay_total:,} 条输入，Jev 用时 **{timing["jev"]["batch_elapsed_s"]/60:.1f} 分钟**，DeepSeek 用时 **{timing["deepseek"]["batch_elapsed_s"]/60:.1f} 分钟**，包含重试与失败等待。', '',
         '如果你的产品需要对一份材料连续做多个判断，还可以看 [140 份新材料的逐项／合并处理实验](comparisons/paired-suite/README.md)：每次处理 1 项、5 项、10 项，对比准确率、总耗时和费用。', '',
+        f'**Qwen3.5-9B 补充对照**：通过硅基流动中国站完成同样的 {total:,} 条主评测输入，关闭思考模式。每千条输入约 **¥{qwen["summary"]["cost_per_1000_cny"]:.3f}**（人民币公开费率估算，含重试用量）；人民币与美元费用分别展示。[完整运行记录与计费口径](comparisons/qwen3.5-9b/README.md)', '',
         '## 领域导航', '',
         '| 业务领域 | Jev 的测试内容 | 任务数 | 记录数 |',
         '| --- | --- | ---: | ---: |',
@@ -167,11 +177,11 @@ def render():
     out += [
         '',
         '任务目录同时标明已有实测、独立训练扩展和未测部分；训练扩展不计入 Jev 主评测成绩。中医、OCR 和 ASR 等条件也有单独标记。[查看任务与实验的对应关系](docs/医疗任务映射.md)', '',
-        *render_domain_results(taxonomy, comparison, audit, owner),
+        *render_domain_results(taxonomy, comparison, audit, owner, qwen),
         '<details>',
         '<summary><strong>评测口径、模型版本与使用边界</strong></summary>', '',
         '- **测了什么**：72 项公开材料适配条件、24 项自编边界挑战。条件数不等于独立医疗工作数，输入数不等于患者数；给定实体、候选或章节边界的任务要按原条件理解。',
-        '- **怎么比较**：Jev 为 `jev-1.13.0`；DeepSeek 请求名为 `deepseek-flash`，归档配置记为 V4.1 Flash、关闭思考模式。两者使用相同材料与判断目标；主效果评测不是同期测速。',
+        '- **怎么比较**：Jev 为 `jev-1.13.0`；DeepSeek 请求名为 `deepseek-flash`，归档配置记为 V4.1 Flash、关闭思考模式。Qwen 为硅基流动 `Qwen/Qwen3.5-9B`、关闭思考模式。三者使用相同材料与判断目标；主效果评测不是同期测速。',
         '- **怎么计分**：首页四个例子在分析后选取，全部任务在上方按领域展开。分类报告准确率，集合抽取报告 micro-F1，不混成一个总分。失败留在分母；配对区间按来源案例聚合，属于探索性分析，未校正多重比较。',
         '- **能得出什么**：公开材料、合成病例和小样本测试可帮助筛选下一步验证方向。当前没有真实医院的前瞻性流程验证、独立医生全量审核或患者结局证据。',
         '- **哪些另算**：批处理与扰动实验分别报告；27 类训练任务只作为独立扩展映射，不计入主评测成绩。', '',
@@ -189,21 +199,24 @@ def render_task_table():
     comparison=load('comparisons/deepseek-flash/summary.json')
     if not comparison['summary']['complete']:
         raise ValueError('Do not publish an incomplete comparison as final')
+    qwen=load('comparisons/qwen3.5-9b/summary.json')
+    if not qwen['summary']['complete']:
+        raise ValueError('Do not publish an incomplete Qwen comparison')
     tasks=comparison['tasks']
     inventory=load('results/case_inventory.json')['tasks']
     scenes=load('results/scenario_manifest.json')['scenes']
     lines=['', '',
-           '以下按场景列出全部 96 项任务。正确率表示答对比例；抽取综合分兼顾漏检和误报，满分 100。费用为每千条同类输入的美元估算。', '',
+           '以下按场景列出全部 96 项任务。正确率表示答对比例；抽取综合分兼顾漏检和误报，满分 100。费用为每千条同类输入的估算：Jev／DeepSeek 使用美元，Qwen 使用人民币，不做汇率换算。三家逐任务的得分与耗时并排对比见[首页](README.md#全部领域与任务的详细测试数据)。', '',
            '案例按来源中的病例、会话、文档、临床片段或题目计数；同一案例的多个字段不重复算案例，自编测试另有标注。点击案例数可查看逐案例成绩及来源分组，点击任务名称可查看评测方法。', '']
     methods=json.loads((ROOT/'results/task_methods.json').read_text())
     for scene in scenes:
         lines += [f'### {scene["title"]}', '',
-                  '| 任务 | 任务类型 | 案例数 | 测试记录 | Jev | DeepSeek | 每千条费用：Jev / DeepSeek |',
-                  '| --- | --- | ---: | ---: | ---: | ---: | ---: |']
+                  '| 任务 | 任务类型 | 案例数 | 测试记录 | Jev | DeepSeek | Qwen3.5-9B | 每千条费用：Jev / DeepSeek（美元） | Qwen 每千条（人民币） |',
+                  '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
         for task in scene['task_ids']:
-            r=tasks[task];method=methods[task]
-            lines.append(f'| [{method["title"]}](scenarios/{scene["id"]}/{task}/README.md) | {method["task_type"]} | [{inventory[task]['cases']}](scenarios/{scene['id']}/{task}/cases.md) | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} |')
+            r=tasks[task];method=methods[task];q=qwen['tasks'][task]
+            lines.append(f'| [{method["title"]}](scenarios/{scene["id"]}/{task}/README.md) | {method["task_type"]} | [{inventory[task]['cases']}](scenarios/{scene['id']}/{task}/cases.md) | {r["planned"]} | {display(r["jev"]["quality"])} | {display(r["deepseek"]["quality"])} | {display(q["quality"])} | {money(r["jev"]["cost_per_1000_usd"])} / {money(r["deepseek"]["cost_per_1000_usd"])} | ¥{q["cost_per_1000_cny"]:.3f} |')
         lines.append('')
-    lines += ['[原始实验统计](docs/完整任务统计.md) · [对比实验详情](comparisons/deepseek-flash/README.md)', '']
+    lines += ['[原始实验统计](docs/完整任务统计.md) · [DeepSeek 对照](comparisons/deepseek-flash/README.md) · [Qwen 对照](comparisons/qwen3.5-9b/README.md)', '']
     body='\n'.join(lines)
-    return '# 全部任务的对比表现\n\n[首页](../README.md) · [统计与风险审计](医疗适用性审计.md)\n'+body.replace('](scenarios/', '](../scenarios/').replace('](docs/', '](').replace('](comparisons/', '](../comparisons/')
+    return '# 全部任务的对比表现\n\n[首页](../README.md) · [统计与风险审计](医疗适用性审计.md)\n'+body.replace('](README.md#', '](../README.md#').replace('](scenarios/', '](../scenarios/').replace('](docs/', '](').replace('](comparisons/', '](../comparisons/')

@@ -28,6 +28,7 @@
 ```sh
 python3 scripts/verify_experiments.py
 python3 scripts/verify_comparison.py
+python3 scripts/analyze_qwen.py --verify
 python3 scripts/verify_batch_time.py
 python3 scripts/evaluate_evidence.py --check
 python3 scripts/build_scenario_report.py --check
@@ -59,6 +60,12 @@ python3 -m unittest discover -s tests -v
 主任务的 `comparison/` 保留同一批输入的 DeepSeek 原始回答、适配结果和费用；失败重试记录单独保留。完整方法见 [对比实验说明](../comparisons/deepseek-flash/README.md)。`verify_comparison.py` 离线检查全部主任务的输入绑定、原始回答适配、文件哈希，并重算分数和费用，不需要 API key。
 
 如需自行重跑，`compare_deepseek.py --key-file <私有配置路径>` 读取包含 `DEEPSEEK_API_KEY` 的私有文件；默认 8 个并发，缓存位于被 Git 忽略的 `comparisons/deepseek-flash/runs/`。`--max-usd` 限制已报告用量的估算支出，在途请求可能使最终金额略超限。`--retry-errors` 只重试失败记录并保留旧尝试，不重试有效但答错的回答。中国法定节假日重跑时，应按官方规则加 `--off-peak-holiday` 使用全天空闲价；其他时间按官方 UTC 时段计算。重新调用会产生费用和新的响应。
+
+## Qwen3.5-9B 同题对比
+
+[Qwen 对照归档](../comparisons/qwen3.5-9b/README.md)使用相同的 96 项任务与 7,133 条输入，模型为硅基流动中国站的 `Qwen/Qwen3.5-9B`，关闭思考模式。每项任务的 `comparison/qwen_responses.jsonl` 保存最终回答与早期尝试；`analyze_qwen.py --verify` 离线检查输入指纹、模型、输出适配、得分、人民币费用估算和归档哈希。
+
+重新调用使用 `python3 scripts/compare_qwen.py`，从 `SILICONFLOW_API_KEY` 环境变量读取凭据，也可用 `--key-file` 指定仓库外仅含密钥的私有文件。默认 8 并发，缓存写入被 Git 忽略的 `work/qwen3.5-9b/`；`--retry-transport` 恢复限流、服务器与网络失败，保留早期尝试，不重跑有效但答错的回答。`--max-tokens` 是已报告累计用量的停止调度阈值，在途请求和未返回用量的调用不受该数值精确约束。调用完成后用 `analyze_qwen.py` 发布完整归档，再运行报告生成器；脚本拒绝发布未覆盖全量输入的结果。
 
 ## 补充实验
 

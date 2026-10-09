@@ -1,0 +1,22 @@
+{
+  "source": "https://www.siliconflow.cn/models",
+  "retrieved_utc": "2026-10-09T08:25:59.315130+00:00",
+  "model_requested": "Qwen/Qwen3.5-9B",
+  "currency": "CNY",
+  "pricing": [
+    {
+      "price": "12",
+      "specification": "completion",
+      "unitOfGood": "/ M Tokens"
+    },
+    {
+      "price": "1.5",
+      "specification": "prompt",
+      "unitOfGood": "/ M Tokens"
+    }
+  ],
+  "input_per_million": 1.5,
+  "output_per_million": 12,
+  "unit": "/ M Tokens",
+  "scope": "Public China catalog list-price estimate; not an invoice; no cache discount assumed."
+}
