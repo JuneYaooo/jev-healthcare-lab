@@ -1,6 +1,5 @@
-"""Render the research overview and full task comparison from archived evidence."""
+"""Render a task-first project homepage and full comparison from archived evidence."""
 import json
-from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,25 +28,23 @@ def research_extensions():
     return ['### 研究扩展', '', start, '', block, '', end, '']
 
 
-# Illustrative examples selected after analysis, including favorable and unfavorable results.
-RESULT_EXAMPLES = [
-    ('imcs_entity_type_oracle_span', '给定实体的类型分类'),
-    ('aci_note_section', '已分段病历章节分类'),
-    ('longhealth_full_context', '长病历选择题问答'),
-    ('medec_error_detection', '医疗文本错误检出'),
-    ('trialgpt_sigir_referral', '患者与试验入组预筛'),
-    ('medcalc_verified_bounded_score', '五种量表闭集评分'),
+# Concrete task examples; full results remain linked alongside the selection.
+TASK_EXAMPLES = [
+    ('aci_note_section', '把病历内容归入对应章节', '已给定章节边界'),
+    ('longhealth_full_context', '读长病历，回答指定问题', '20 个虚构患者的 100 道选择题'),
+    ('trialgpt_sigir_referral', '判断患者是否适配临床试验', '给定患者与试验材料，直接三分类'),
+    ('medcalc_verified_bounded_score', '给临床量表选出数值评分', '5 种量表，答案来自给定选项'),
 ]
 
 DOMAIN_EXAMPLES = {
-    'service': '咨询意图、科室推荐、规则分诊',
-    'records': '实体、断言、术语、章节、长病历问答与质控',
-    'reports': '检验值关联、单位等价、报告文本断言',
-    'medication': '药物关系、用药变更、出院带药与用药选择题',
-    'clinical': '诊断、检查与治疗选择题、临床计算、医学及中医知识',
-    'followup': '随访行动识别',
-    'research': 'PICO、研究证据、患者入组与公共卫生论断核查',
-    'governance': '编码证据、隐私候选、幻觉、请求安全与伦理',
+    'service': '给患者提问分类、推荐科室、按规则分流',
+    'records': '整理病历、识别肯否定、统一术语、查找错误',
+    'reports': '把检验数值对上项目、读懂报告里的肯否定',
+    'medication': '识别药物关系、用药变更、剂量与频次',
+    'clinical': '比较诊断、检查、治疗、量表及中医相关题目',
+    'followup': '识别复诊、复查等后续行动',
+    'research': '筛选研究证据、整理 PICO、做患者入组预筛',
+    'governance': '核对编码依据、识别隐私候选和有害请求',
 }
 
 
@@ -57,77 +54,70 @@ def render():
         raise ValueError('Do not publish an incomplete comparison as final')
     audit = load('results/evidence_audit.json')['tasks']
     taxonomy = load('results/task_taxonomy.json')
-    families = {f['id']: f for f in taxonomy['families']}
-    counts = Counter(families[r['family']]['domain'] for r in taxonomy['benchmark_tasks'].values())
     scenes = load('results/scenario_manifest.json')['scenes']
     owner = {t: s['id'] for s in scenes for t in s['task_ids']}
     total = comparison['summary']['planned_rows']
     n_tasks = len(taxonomy['benchmark_tasks'])
-    public_tasks = sum(not t.startswith('challenge_') for t in taxonomy['benchmark_tasks'])
     j, d = (comparison['summary'][provider] for provider in ('jev', 'deepseek'))
     timing = {provider: load(f'comparisons/batch-time/{provider}/summary.json') for provider in ('jev', 'deepseek')}
     replay_total = timing['jev']['rows']
     if replay_total != timing['deepseek']['rows']:
         raise ValueError('Timing comparison uses different cohorts')
     long_case = audit['longhealth_full_context']['case_all_correct']['jev']
-    harmful = audit['medsafety_request_gate']['safety_events']['harmful_allowed']['jev']
-    missed = audit['medec_error_detection']['safety_events']['error_missed']['jev']
     out = [
-        '# Jev Healthcare Lab', '',
-        '**医疗文本结构化判断的回顾性评测：任务表现、错误分析与调用成本**', '',
-        '[任务目录](docs/医疗任务总目录.md) · [完整结果](docs/任务对比.md) · [评测方法](docs/EVALUATION.md) · [复现说明](docs/REPRODUCING.md)', '',
-        '## 研究概述', '',
-        '本项目研究 Jev 在医疗文本分类、候选筛选与证据判断中的表现，并与接收相同材料和问题的 DeepSeek Flash 比较。研究使用公开评测材料、人工边界题及归档 API 响应，属于离线探索性评测。', '',
-        f'主分析包含 **{n_tasks} 个任务条件、{total:,} 条输入**。结果显示，表现取决于任务及输入条件：给定实体或章节边界的分类任务得分较高，完整抽取、入组预筛和数值评分仍有明显错误。现有证据支持进一步验证具体组件，尚未证明完整诊疗流程的可靠性或患者获益。', '',
-        '## 任务范围', '',
-        f'任务按 {len(taxonomy["domains"])} 个业务领域浏览；每个评测条件只计入一个主要领域。下表只描述已有实验，完整任务定义、未测能力和覆盖边界见[医疗任务总目录](docs/医疗任务总目录.md)。', '',
-        '| 业务领域 | 已测内容示例 | 任务条件数 |',
-        '| --- | --- | ---: |',
+        '# 医疗 AI，哪些任务值得先做？', '',
+        'Jev Healthcare Lab · Jev × DeepSeek 医疗任务实测', '',
+        '**一个帮你选医疗 AI 场景、比较模型效果和成本的开源评测仓库。**', '',
+        '我们让 Jev 和 DeepSeek 回答同一批医疗题目：整理病历、识别用药变更、筛选科研证据……看它们能做对多少、花多少、等多久。测试材料、模型回答和评分脚本都在这里，做医疗产品或应用开发时可以直接查阅、复验。', '',
+        f'**{len(taxonomy["domains"])} 个业务领域 · {n_tasks} 个评测条件 · {total:,} 条测试输入**', '',
+        '**[找你的场景 →](docs/医疗任务总目录.md)　[看两家成绩 →](docs/任务对比.md)　[查看测试原题 →](scenarios/README.md)**', '',
+        '## 99% 与 25%：同一个模型的两种表现', '',
+        'Jev 给已分段的病历归类时答对 99/100；从给定选项中选出临床量表分数时，答对 25/100。具体任务和输入条件，决定了成绩该怎么读。', '',
+        '| 交给 AI 的工作 | Jev 准确率 | DeepSeek 准确率 | 实际测的是什么 |',
+        '| --- | ---: | ---: | --- |',
+    ]
+    for task, title, boundary in TASK_EXAMPLES:
+        pair = audit[task]['paired']
+        out.append(f'| [{title}](scenarios/{owner[task]}/{task}/README.md) | {pair["jev"]:.1%} | {pair["deepseek"]:.1%} | {boundary} |')
+    out += [
+        '',
+        f'这些是全部 {n_tasks} 项中的四个例子。长病历问答虽然答对 95/100 道题，但只有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对。用来选场景时，还要看错在哪里、会漏掉什么，以及需要多少人工复核。[完整成绩](docs/任务对比.md) · [错误、区间与复核量](docs/医疗适用性审计.md)', '',
+        '## 从你正在做的工作开始', '',
+        '| 你关心的方向 | 仓库里可以看什么 |',
+        '| --- | --- |',
     ]
     for domain, title in taxonomy['domains'].items():
-        out.append(f'| [{title}](docs/医疗任务总目录.md#{domain}) | {DOMAIN_EXAMPLES[domain]} | {counts[domain]} |')
+        out.append(f'| [{title} →](docs/医疗任务总目录.md#{domain}) | {DOMAIN_EXAMPLES[domain]} |')
     out += [
         '',
-        f'{public_tasks} 项条件来自公开材料适配，{n_tasks-public_tasks} 项为自编边界挑战。有无证据、语言、选择题形式及 OCR／ASR 转写条件可分别计数，因此 **{n_tasks} 项不等于 {n_tasks} 种独立医疗工作，{total:,} 条输入也不等于独立患者数**。中医是专业标签；OCR／ASR 是输入链路，均不单列为业务领域。', '',
-        '## 研究设计', '',
-        '- **模型与对照**：Jev 使用 `jev-1.13.0` 的历史响应；对照请求模型为 `deepseek-flash`，归档配置记为 DeepSeek V4.1 Flash，关闭思考模式、temperature=0。两者接收相同材料与判断目标，通过各自接口输出答案；效果评测不是同期测速。',
-        '- **分析单位与指标**：单选判断报告准确率，集合抽取报告 micro-F1，不合并成一个“医疗总分”。同一来源病例或文档的多个字段按来源聚合；另报告病例全部正确率及错误方向。',
-        '- **统计与失败处理**：配对区间按来源案例重采样 2,000 次，报告探索性 95% 区间，未校正多重比较。失败记录保留在分母中；43 条无实体候选记录按规则输出空集，未调用 API，仍参与评分。', '',
-        '具体抽样、任务适配、提示词、评分及来源见各任务方法页；统计定义见[评测方法](docs/EVALUATION.md)，模型配置与输出适配见[同题对比方法](comparisons/deepseek-flash/README.md)。', '',
-        '## 主要结果', '',
-        '下表为分析后选取的示例，包含不同表现方向，用于说明输入条件与任务差异；不作为预先指定的主要终点或总体能力排名。全部任务见[完整结果](docs/任务对比.md)。', '',
-        '| 评测条件 | 输入数／来源案例数 | Jev 准确率 | DeepSeek 准确率 | 差值［95% 区间］ |',
-        '| --- | ---: | ---: | ---: | ---: |',
-    ]
-    for task, label in RESULT_EXAMPLES:
-        r = audit[task]
-        pair = r['paired']
-        ci = pair['ci95']['difference']
-        out.append(f'| [{label}](scenarios/{owner[task]}/{task}/README.md) | {r["records"]}／{r["cases"]} | {pair["jev"]:.1%} | {pair["deepseek"]:.1%} | {pair["difference"]*100:+.1f} ［{ci["lower"]*100:.1f}, {ci["upper"]*100:.1f}］ |')
-    out += [
-        '',
-        '差值为 Jev 减 DeepSeek，单位为百分点。来源案例可能是患者材料、文档或题目；不同任务的来源案例数不能直接相加。区间跨零时，当前样本不能清楚区分两者。', '',
-        f'**错误与风险。** 长病历问答中，Jev 有 {long_case["correct"]}/{long_case["total"]} 个来源病例的题目全部答对；请求安全筛查漏过 {harmful["events"]}/{harmful["eligible"]} 条有害请求，医疗错误检出漏掉 {missed["events"]}/{missed["eligible"]} 条错误文本。这些是按数据标签统计的事件，尚未经过医生严重度仲裁。逐类错误、置信度与人工复核量见[证据审计](docs/医疗适用性审计.md)。', '',
-        f'**成本与耗时。** 主效果评测每千条输入的费用估算为 Jev {money(j["cost_per_1000_usd"])}、DeepSeek {money(d["cost_per_1000_usd"])}；独立的 {replay_total:,} 条重复输入测速中分别为 {money(timing["jev"]["cost_usd"]/replay_total*1000)}、{money(timing["deepseek"]["cost_usd"]/replay_total*1000)}，8 并发整批耗时分别为 {timing["jev"]["batch_elapsed_s"]/60:.1f}、{timing["deepseek"]["batch_elapsed_s"]/60:.1f} 分钟。费用按归档费率估算，仅含可核验模型调用；缓存、重试和队列条件影响结果。详见[独立测速](comparisons/batch-time/README.md)。', '',
-        '另有 [140 份新材料的逐项／合并处理对照](comparisons/paired-suite/README.md)，包含 1,400 个不同判断；该实验与主分析、15 组扰动实验分别报告，不重复累计为独立病例。', '',
-        '## 局限性', '',
-        '- **代表性**：公开材料、自编题、合成病例和给定候选占有较大比重；闭源模型的预训练接触情况未知，尚缺跨机构、专科和人群的充分验证。',
-        '- **任务边界**：给定实体分类不能替代完整病历抽取；选择题不能替代临床决策；转写后文本成绩不能证明原生读图或音频理解能力。',
-        '- **证据强度**：结果为历史样本上的探索性分析；没有前瞻性医院试验、独立医生全量审核或真实工时和患者结局评估。高置信度不等于低临床风险。', '',
-        '## 快速复现', '',
-        '以下步骤核验已归档的数据与评分，不调用模型 API。需要 Git 和 Python 3.10+；这些命令仅使用 Python 标准库，无需 GPU、API 密钥或额外安装包。', '',
+        '每个方向都标明哪些已做有限实测、哪些只有训练扩展、哪些还没测。中医、OCR 和 ASR 等条件也有单独标记。[查看任务与实验的对应关系](docs/医疗任务映射.md)', '',
+        '## 便宜多少，也要看怎么用', '',
+        '相同模型，换一批调用条件，费用排序也会改变：', '',
+        f'- **主效果评测**：每千条输入，Jev **{money(j["cost_per_1000_usd"])}**，DeepSeek **{money(d["cost_per_1000_usd"])}**。',
+        f'- **独立重复输入测速**：每千条输入，Jev **{money(timing["jev"]["cost_usd"]/replay_total*1000)}**，DeepSeek **{money(timing["deepseek"]["cost_usd"]/replay_total*1000)}**。', '',
+        f'以上为美元估算，按归档费率和可核验用量计算。重复输入可能提高缓存命中；两组分别为 {total:,} 条和 {replay_total:,} 条输入，费用也不含 OCR、语音转写、系统接入和人工复核。[费用、耗时与调用条件](comparisons/batch-time/README.md)', '',
+        '如果你的产品需要对一份材料连续做多个判断，还可以看 [140 份新材料的逐项／合并处理实验](comparisons/paired-suite/README.md)：每次处理 1 项、5 项、10 项，对比准确率、总耗时和费用。', '',
+        '## 看完分数，可以接着做什么', '',
+        '1. **挑一个值得试的任务。** 在[任务目录](docs/医疗任务总目录.md)里确认输入、输出和覆盖边界，找到与你业务最接近的实验。',
+        '2. **打开原题，检查模型怎么答。** 例如[长病历问答](scenarios/records/longhealth_full_context/README.md)，可以一路查看测试材料、提示词、标准答案、模型响应和逐案例成绩。',
+        '3. **核验结果，再设计自己的测试。** 仓库保留评分和验证脚本；用自己的材料开展新实验，方法见[复现与实验说明](docs/REPRODUCING.md)。', '',
+        '先在本地核验归档，无需 API 密钥或 GPU，使用 Git 和 Python 3.10+ 即可：', '',
         '```sh',
         'git clone https://github.com/JuneYaooo/jev-healthcare-lab.git',
         'cd jev-healthcare-lab',
-        'python3 scripts/build_task_catalog.py --check',
         'python3 scripts/verify_experiments.py',
         '```', '',
-        '目录检查核对任务映射与生成页面；归档检查核验输入／响应哈希并重新计算指标。预期得到 96 个主任务、7,133 条主记录、300 条扰动记录，主指标与扰动指标均为 `all matched`。', '',
-        '完整核验、测试、环境记录和 API 重跑说明见[复现文档](docs/REPRODUCING.md)。重新调用服务需要相应账户与凭据，可能产生费用；服务版本变化也可能改变结果。', '',
-        '## 数据与代码可用性', '',
-        '**评测数据。** `scenarios/<归档分组>/<任务>/` 保存实际评测子集，包括输入、金标、提示词、模型响应、评分和来源信息；不是上游数据集的完整副本。语音与 OCR 子集另附使用的媒体和转写。索引见[实验归档](scenarios/README.md)，来源和使用条件见[第三方说明](THIRD_PARTY_NOTICES.md)。', '',
-        '**代码与版本。** 数据适配、调用、评分和核验代码位于 `scripts/`，仓库代码使用 [MIT 许可证](LICENSE)。第三方数据、标注、媒体与服务输出遵循各自许可，不随代码重新授权。复用或引用结果时应记录 Git 提交号、任务 ID 和归档模型版本。', '',
-        '**训练扩展。** [逐项映射](docs/医疗任务映射.md#训练任务统计快照)另列 v0.5 中文训练包的 27 类、5,007 条统计快照；原训练包不属于主评测归档，其样本数和其他模型审计不计入本页 Jev 成绩。', '',
+        '成功时会核验 7,133 条主记录和 300 条扰动记录，并输出重算指标 `all matched`。这一步使用已保存的响应；重新调用模型需要相应服务账户。', '',
+        '<details>',
+        '<summary><strong>评测口径、模型版本与使用边界</strong></summary>', '',
+        '- **测了什么**：72 项公开材料适配条件、24 项自编边界挑战。条件数不等于独立医疗工作数，输入数不等于患者数；给定实体、候选或章节边界的任务要按原条件理解。',
+        '- **怎么比较**：Jev 为 `jev-1.13.0`；DeepSeek 请求名为 `deepseek-flash`，归档配置记为 V4.1 Flash、关闭思考模式。两者使用相同材料与判断目标；主效果评测不是同期测速。',
+        '- **怎么计分**：首页四个例子在分析后选取，全部任务另表公开。分类报告准确率，集合抽取报告 micro-F1，不混成一个总分。失败留在分母；配对区间按来源案例聚合，属于探索性分析，未校正多重比较。',
+        '- **能得出什么**：公开材料、合成病例和小样本测试可帮助筛选下一步验证方向。当前没有真实医院的前瞻性流程验证、独立医生全量审核或患者结局证据。',
+        '- **哪些另算**：批处理与扰动实验分别报告；27 类训练任务只作为独立扩展映射，不计入主评测成绩。', '',
+        '[详细方法](docs/EVALUATION.md) · [同题对比配置](comparisons/deepseek-flash/README.md) · [来源与未完成项](docs/覆盖与阻塞账本.md)', '',
+        '</details>', '',
+        '代码使用 [MIT 许可证](LICENSE)；评测文本、标注、媒体和服务输出遵循各自的[第三方使用条件](THIRD_PARTY_NOTICES.md)。引用结果时请记录提交号、任务 ID 和模型版本。', '',
     ]
     extensions = research_extensions()
     if extensions:
