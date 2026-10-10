@@ -40,6 +40,7 @@ def trace_record(row, cards, resources, tasks, builder_sha):
     names = [provenance["resource"]]
     if provenance["locator"].get("text_resource"):
         names.append(provenance["locator"]["text_resource"])
+    names.extend(provenance["locator"].get("supporting_resources", []))
     if provenance["source_id"] == "ddxplus":
         names += ["ddxplus__release_evidences.json", "ddxplus__release_conditions.json"]
     return {"id": row["id"], "task": row["task"], "primary_scenario": row["primary_scenario"],

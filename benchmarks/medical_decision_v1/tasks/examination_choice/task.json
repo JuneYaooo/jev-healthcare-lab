@@ -5,31 +5,53 @@
   "definition": "根据病例从给定候选中选择检查。",
   "decision_mode": "knowledge",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "MedJourney 缺明确数据许可。",
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "medjourney",
-    "medmcqa"
+    "medmcqa",
+    "cmexam",
+    "mlec_qa",
+    "medxpertqa"
   ],
   "primary_scenario": "testing",
   "ability_tags": [
     "clinical"
   ],
   "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 326,
+    "unique_consistent_pool": 326,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 326,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "opd": 17,
+    "ope": 16,
+    "opa": 16,
+    "E": 3,
+    "opc": 16,
+    "B": 6,
+    "opb": 16,
+    "C": 4,
+    "D": 5,
+    "A": 1
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "cnmleqa": 81,
+    "cmb": 19
+  },
   "historical_material_matches": 0
 }

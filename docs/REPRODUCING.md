@@ -42,6 +42,6 @@ python3 scripts/medical_decision_dataset.py export --output work/requests.jsonl
 python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/scores.json
 ```
 
-默认只处理开放核心集。若使用完整 1,800 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
+默认只处理开放核心集。若使用完整 2,200 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
 
 评分规则见 [评测方法](EVALUATION.md)，来源与许可见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。

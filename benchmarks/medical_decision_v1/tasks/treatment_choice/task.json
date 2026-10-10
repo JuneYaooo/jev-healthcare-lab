@@ -5,31 +5,53 @@
   "definition": "根据病例从给定候选中选择治疗。",
   "decision_mode": "knowledge",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "MedJourney 缺明确数据许可；不生成替代金标。",
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "medjourney",
-    "medmcqa"
+    "medmcqa",
+    "cmexam",
+    "mlec_qa",
+    "medxpertqa"
   ],
   "primary_scenario": "treatment",
   "ability_tags": [
     "clinical"
   ],
   "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 427,
+    "unique_consistent_pool": 427,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 427,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
-  "historical_material_matches": 0
+  "label_counts": {
+    "B": 10,
+    "ope": 11,
+    "opa": 11,
+    "opc": 10,
+    "opd": 11,
+    "E": 8,
+    "D": 10,
+    "opb": 11,
+    "C": 10,
+    "A": 8
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "cmb": 46,
+    "cnmleqa": 54
+  },
+  "historical_material_matches": 3
 }

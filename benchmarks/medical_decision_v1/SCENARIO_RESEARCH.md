@@ -46,13 +46,61 @@
 
 [核验依据](https://physionet.org/content/mimic-iv-ed/2.2/)。
 
+### [CBLUE（KUAKE-QIC / CHIP-CTC / CHIP-CDN）](https://github.com/CBLUEbenchmark/CBLUE)
+
+材料：医疗搜索问题、试验标准及诊断术语，材料性质分任务。
+
+金标：QIC 为意图分类，CTC 为 44 类标准；CDN 为诊断归一化。公开测试通常不带答案，可研究开发集。
+
+许可：Apache-2.0（代码）；天池数据包协议待核验。
+
+状态：需官方数据条款。不能用代码许可替代数据许可；需取得官方数据包及其协议，核验开发集答案，CDN 候选术语表还需核对许可。
+
+[核验依据](https://github.com/CBLUEbenchmark/CBLUE)。
+
+### [PromptCBLUE](https://github.com/michael-wzhu/PromptCBLUE)
+
+材料：CBLUE 等任务的指令化衍生集合。
+
+金标：部分分类任务可恢复有限标签；其余为抽取/生成。
+
+许可：未核验到覆盖全部上游数据的独立分发许可。
+
+状态：衍生来源待核验。优先回到 CBLUE 原任务核验许可和划分；不把模板改写当独立来源或独立病例，不纳入生成子任务。
+
+[核验依据](https://github.com/michael-wzhu/PromptCBLUE)。
+
+### [RD-Triage](https://github.com/zhelishisongjie/RD-Triage)
+
+材料：罕见病病例报告/表型改编的初诊科室分流。
+
+金标：629 条、固定 30 科室；部分题有多个可接受科室，不能只保留其中一个。
+
+许可：MIT（仓库）；RareBench 等上游条款待核验。
+
+状态：优先核验分诊候选。优先核对上游来源许可与 PMID、单标签数量和诊断泄露；论文尚在审稿，适用范围为罕见病。
+
+[核验依据](https://github.com/zhelishisongjie/RD-Triage)。
+
+### [ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)
+
+材料：发布论文称 1,275 中文、5,804 英文多病程样本。
+
+金标：科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。
+
+许可：仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验。
+
+状态：工作流候选待核验。只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。
+
+[核验依据](https://arxiv.org/abs/2606.03157)。
+
 ## 检查与检验
 
 选择检查、关联结果并判断结果的适用性与处理需求。
 
 任务：检查检验数值关联、标本身份与来源链、数值与单位等价、参考区间适用性、检验结果趋势、危急结果与人工升级、报告阶段与效力、检查方案选择。
 
-已有题目来源：[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -76,13 +124,93 @@
 
 状态：已采用。抽样和转换见任务目录及逐题来源定位。
 
+### [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)
+
+材料：中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。
+
+金标：固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。
+
+许可：Apache-2.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)
+
+材料：中文执业医师考试整编病例题；上游有案例/知识题型标注，不是真实就诊结果。
+
+金标：只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。
+
+许可：CC-BY-4.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [CMExam](https://github.com/williamliujl/CMExam)
+
+材料：中文医考题，不是病历。
+
+金标：测试 CSV 有原答案及疾病、科室、能力等标注。
+
+许可：Apache-2.0（仓库）；README 另限学术/研究使用。
+
+状态：许可范围待澄清。Apache 标识与 README 学术/研究限制并存，先澄清数据授权范围；病例题也需筛选。
+
+[核验依据](https://github.com/williamliujl/CMExam)。
+
+### [MLEC-QA](https://github.com/Judenpech/MLEC-QA)
+
+材料：中文执业医师考试题，包含共享病例题干。
+
+金标：公开说明含题型、选项和答案；官方入口为 Google Drive。
+
+许可：MIT（代码）；下载包数据许可待核验。
+
+状态：下载包待核验。需下载官方包核对独立数据许可、测试划分和共享题干；仅收病例决策单选。
+
+[核验依据](https://github.com/Judenpech/MLEC-QA)。
+
+### [RJUA-MedDQA](https://github.com/AQ-MedAI/medDQA_benchmark)
+
+材料：泌尿科真实报告影像及专家标注，发布方声明。
+
+金标：含报告数值推理及临床推理单选，也有自由回答。
+
+许可：CC-BY-NC-SA-4.0（数据）；AGPL（代码）。
+
+状态：完整数据入口待核验。仓库目前给示例、README 仍称完整集将发布；需核验完整下载、OCR 对齐和单选金标，若采用只入非商业附加集。
+
+[核验依据](https://github.com/AQ-MedAI/medDQA_benchmark)。
+
+### [MedXpertQA](https://github.com/TsinghuaC3I/MedXpertQA)
+
+材料：专家复核的医学考试改写题；分 Text 与 MM。
+
+金标：原选项、label、medical_task、question_type 可用；Diagnosis 标签也含检查选择，需再细分。
+
+许可：MIT（数据卡）；论文另要求不在线分享题例。
+
+状态：发布条件待澄清。论文附录提出不在线分享题例；在与 MIT 数据卡的适用范围澄清前仅引用，不在本仓库再分发题目。
+
+[核验依据](https://proceedings.mlr.press/v267/zuo25a.html)。
+
+### [ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)
+
+材料：发布论文称 1,275 中文、5,804 英文多病程样本。
+
+金标：科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。
+
+许可：仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验。
+
+状态：工作流候选待核验。只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。
+
+[核验依据](https://arxiv.org/abs/2606.03157)。
+
 ## 诊断与鉴别
 
 根据已有材料判断诊断、状态和临床分级。
 
 任务：否定与不确定状态、事实时间属性、诊断核实状态、有界临床量表评分、临床语义分级、模拟病例主诊断选择、临床病例候选诊断、中医证型选择。
 
-已有题目来源：[DDXPlus](https://doi.org/10.6084/m9.figshare.20043374)、[MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench)、[NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus)、[TCM-SD](https://github.com/borororo/zy-bert)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[DDXPlus](https://doi.org/10.6084/m9.figshare.20043374)、[MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench)、[NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus)、[TCM-SD](https://github.com/borororo/zy-bert)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -96,13 +224,93 @@
 
 [核验依据](https://huggingface.co/datasets/openlifescienceai/medmcqa)。
 
+### [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)
+
+材料：中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。
+
+金标：固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。
+
+许可：Apache-2.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)
+
+材料：中文执业医师考试整编病例题；上游有案例/知识题型标注，不是真实就诊结果。
+
+金标：只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。
+
+许可：CC-BY-4.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [CMExam](https://github.com/williamliujl/CMExam)
+
+材料：中文医考题，不是病历。
+
+金标：测试 CSV 有原答案及疾病、科室、能力等标注。
+
+许可：Apache-2.0（仓库）；README 另限学术/研究使用。
+
+状态：许可范围待澄清。Apache 标识与 README 学术/研究限制并存，先澄清数据授权范围；病例题也需筛选。
+
+[核验依据](https://github.com/williamliujl/CMExam)。
+
+### [MLEC-QA](https://github.com/Judenpech/MLEC-QA)
+
+材料：中文执业医师考试题，包含共享病例题干。
+
+金标：公开说明含题型、选项和答案；官方入口为 Google Drive。
+
+许可：MIT（代码）；下载包数据许可待核验。
+
+状态：下载包待核验。需下载官方包核对独立数据许可、测试划分和共享题干；仅收病例决策单选。
+
+[核验依据](https://github.com/Judenpech/MLEC-QA)。
+
+### [RJUA-MedDQA](https://github.com/AQ-MedAI/medDQA_benchmark)
+
+材料：泌尿科真实报告影像及专家标注，发布方声明。
+
+金标：含报告数值推理及临床推理单选，也有自由回答。
+
+许可：CC-BY-NC-SA-4.0（数据）；AGPL（代码）。
+
+状态：完整数据入口待核验。仓库目前给示例、README 仍称完整集将发布；需核验完整下载、OCR 对齐和单选金标，若采用只入非商业附加集。
+
+[核验依据](https://github.com/AQ-MedAI/medDQA_benchmark)。
+
+### [MedXpertQA](https://github.com/TsinghuaC3I/MedXpertQA)
+
+材料：专家复核的医学考试改写题；分 Text 与 MM。
+
+金标：原选项、label、medical_task、question_type 可用；Diagnosis 标签也含检查选择，需再细分。
+
+许可：MIT（数据卡）；论文另要求不在线分享题例。
+
+状态：发布条件待澄清。论文附录提出不在线分享题例；在与 MIT 数据卡的适用范围澄清前仅引用，不在本仓库再分发题目。
+
+[核验依据](https://proceedings.mlr.press/v267/zuo25a.html)。
+
+### [ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)
+
+材料：发布论文称 1,275 中文、5,804 英文多病程样本。
+
+金标：科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。
+
+许可：仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验。
+
+状态：工作流候选待核验。只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。
+
+[核验依据](https://arxiv.org/abs/2606.03157)。
+
 ## 治疗与用药
 
 判断治疗选择、用药关系及患者特异性适宜性。
 
 任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测。
 
-已有题目来源：[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -138,6 +346,74 @@
 
 状态：已采用。抽样和转换见任务目录及逐题来源定位。
 
+### [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)
+
+材料：中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。
+
+金标：固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。
+
+许可：Apache-2.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)
+
+材料：中文执业医师考试整编病例题；上游有案例/知识题型标注，不是真实就诊结果。
+
+金标：只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。
+
+许可：CC-BY-4.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [CMExam](https://github.com/williamliujl/CMExam)
+
+材料：中文医考题，不是病历。
+
+金标：测试 CSV 有原答案及疾病、科室、能力等标注。
+
+许可：Apache-2.0（仓库）；README 另限学术/研究使用。
+
+状态：许可范围待澄清。Apache 标识与 README 学术/研究限制并存，先澄清数据授权范围；病例题也需筛选。
+
+[核验依据](https://github.com/williamliujl/CMExam)。
+
+### [MLEC-QA](https://github.com/Judenpech/MLEC-QA)
+
+材料：中文执业医师考试题，包含共享病例题干。
+
+金标：公开说明含题型、选项和答案；官方入口为 Google Drive。
+
+许可：MIT（代码）；下载包数据许可待核验。
+
+状态：下载包待核验。需下载官方包核对独立数据许可、测试划分和共享题干；仅收病例决策单选。
+
+[核验依据](https://github.com/Judenpech/MLEC-QA)。
+
+### [MedXpertQA](https://github.com/TsinghuaC3I/MedXpertQA)
+
+材料：专家复核的医学考试改写题；分 Text 与 MM。
+
+金标：原选项、label、medical_task、question_type 可用；Diagnosis 标签也含检查选择，需再细分。
+
+许可：MIT（数据卡）；论文另要求不在线分享题例。
+
+状态：发布条件待澄清。论文附录提出不在线分享题例；在与 MIT 数据卡的适用范围澄清前仅引用，不在本仓库再分发题目。
+
+[核验依据](https://proceedings.mlr.press/v267/zuo25a.html)。
+
+### [ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)
+
+材料：发布论文称 1,275 中文、5,804 英文多病程样本。
+
+金标：科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。
+
+许可：仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验。
+
+状态：工作流候选待核验。只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。
+
+[核验依据](https://arxiv.org/abs/2606.03157)。
+
 ## 住院与护理
 
 核对病情证据、操作执行和病情恶化风险。
@@ -169,6 +445,18 @@
 状态：受控访问。需凭证与 DUA；构建入院分诊任务时必须排除出院诊断、去向等未来信息。
 
 [核验依据](https://physionet.org/content/mimic-iv-ed/2.2/)。
+
+### [ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)
+
+材料：发布论文称 1,275 中文、5,804 英文多病程样本。
+
+金标：科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。
+
+许可：仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验。
+
+状态：工作流候选待核验。只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。
+
+[核验依据](https://arxiv.org/abs/2606.03157)。
 
 ## 出院与随访
 
@@ -202,6 +490,18 @@
 
 [核验依据](https://doi.org/10.13026/kw00-z903)。
 
+### [ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)
+
+材料：发布论文称 1,275 中文、5,804 英文多病程样本。
+
+金标：科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。
+
+许可：仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验。
+
+状态：工作流候选待核验。只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。
+
+[核验依据](https://arxiv.org/abs/2606.03157)。
+
 ## 临床试验筛选
 
 解释入排条件并判断患者转介资格。
@@ -209,6 +509,30 @@
 任务：患者与试验匹配、入排条件要素分类、入排条件限定关系、入排条件与或关系、条件上界与下界。
 
 已有题目来源：[Chia](https://doi.org/10.6084/m9.figshare.11855817)、[Clinical Trial Parser annotated test data](https://github.com/facebookresearch/Clinical-Trial-Parser)、[TrialGPT SIGIR](https://github.com/ncbi-nlp/TrialGPT)。
+
+### [CBLUE（KUAKE-QIC / CHIP-CTC / CHIP-CDN）](https://github.com/CBLUEbenchmark/CBLUE)
+
+材料：医疗搜索问题、试验标准及诊断术语，材料性质分任务。
+
+金标：QIC 为意图分类，CTC 为 44 类标准；CDN 为诊断归一化。公开测试通常不带答案，可研究开发集。
+
+许可：Apache-2.0（代码）；天池数据包协议待核验。
+
+状态：需官方数据条款。不能用代码许可替代数据许可；需取得官方数据包及其协议，核验开发集答案，CDN 候选术语表还需核对许可。
+
+[核验依据](https://github.com/CBLUEbenchmark/CBLUE)。
+
+### [PromptCBLUE](https://github.com/michael-wzhu/PromptCBLUE)
+
+材料：CBLUE 等任务的指令化衍生集合。
+
+金标：部分分类任务可恢复有限标签；其余为抽取/生成。
+
+许可：未核验到覆盖全部上游数据的独立分发许可。
+
+状态：衍生来源待核验。优先回到 CBLUE 原任务核验许可和划分；不把模板改写当独立来源或独立病例，不纳入生成子任务。
+
+[核验依据](https://github.com/michael-wzhu/PromptCBLUE)。
 
 ## 病历与医疗质量控制
 
@@ -229,3 +553,63 @@
 状态：受控访问。需凭证及 DUA；不从公开镜像绕过原始访问条件。
 
 [核验依据](https://doi.org/10.13026/C2RS98)。
+
+### [CBLUE（KUAKE-QIC / CHIP-CTC / CHIP-CDN）](https://github.com/CBLUEbenchmark/CBLUE)
+
+材料：医疗搜索问题、试验标准及诊断术语，材料性质分任务。
+
+金标：QIC 为意图分类，CTC 为 44 类标准；CDN 为诊断归一化。公开测试通常不带答案，可研究开发集。
+
+许可：Apache-2.0（代码）；天池数据包协议待核验。
+
+状态：需官方数据条款。不能用代码许可替代数据许可；需取得官方数据包及其协议，核验开发集答案，CDN 候选术语表还需核对许可。
+
+[核验依据](https://github.com/CBLUEbenchmark/CBLUE)。
+
+### [PromptCBLUE](https://github.com/michael-wzhu/PromptCBLUE)
+
+材料：CBLUE 等任务的指令化衍生集合。
+
+金标：部分分类任务可恢复有限标签；其余为抽取/生成。
+
+许可：未核验到覆盖全部上游数据的独立分发许可。
+
+状态：衍生来源待核验。优先回到 CBLUE 原任务核验许可和划分；不把模板改写当独立来源或独立病例，不纳入生成子任务。
+
+[核验依据](https://github.com/michael-wzhu/PromptCBLUE)。
+
+### [MedHallu](https://github.com/MedHallu/MedHallu)
+
+材料：论文问答上自动构造的正确/幻觉答案；不是真实临床错误。
+
+金标：二分类适配可能可行，但生成标签不等于逐条医生审核。
+
+许可：MIT（项目）；PubMedQA 等上游材料需核验。
+
+状态：数据与标签质量待核验。官方代码与论文已定位；完整数据下载及上游摘要许可待核验，只考虑错误判别，不收生成任务。
+
+[核验依据](https://github.com/MedHallu/MedHallu)。
+
+### [MedEthicEval](https://github.com/X-LANCE/MedEthicEval)
+
+材料：中文医疗伦理知识、违规场景与伦理两难。
+
+金标：违规识别可作分类；平衡两难不应强行产生唯一答案。
+
+许可：公开仓库未见明确数据许可证。
+
+状态：数据许可待明确。需明确数据再分发许可和违规类别答案，只考虑有明确标签的违规识别；不收开放伦理解释。
+
+[核验依据](https://github.com/X-LANCE/MedEthicEval)。
+
+### [CARE-MI](https://github.com/Meetyou-AI-Lab/CARE-MI)
+
+材料：母婴领域知识与题库衍生，包含自动生成的真假陈述。
+
+金标：论文有专家审核与真假题，但主要评价长回答；README 仍称完整集后续发布。
+
+许可：Apache-2.0（代码）；完整数据及上游许可待核验。
+
+状态：完整数据及许可待核验。仅研究真假判别子集及人工标签；代码样例不足以认定完整可用，不收自由生成部分。
+
+[核验依据](https://github.com/Meetyou-AI-Lab/CARE-MI)。

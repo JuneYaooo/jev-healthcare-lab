@@ -9,7 +9,10 @@
     "medquad"
   ],
   "missing_reason": "",
-  "candidate_source_ids": [],
+  "candidate_source_ids": [
+    "cblue",
+    "promptcblue"
+  ],
   "primary_scenario": "intake",
   "ability_tags": [
     "classification"

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "created": "2026-10-10",
   "seed": 20261010,
   "dimensions": [
@@ -247,7 +247,10 @@
         "medquad"
       ],
       "missing_reason": "",
-      "candidate_source_ids": [],
+      "candidate_source_ids": [
+        "cblue",
+        "promptcblue"
+      ],
       "primary_scenario": "intake",
       "ability_tags": [
         "classification"
@@ -481,7 +484,10 @@
         "chia"
       ],
       "missing_reason": "",
-      "candidate_source_ids": [],
+      "candidate_source_ids": [
+        "cblue",
+        "promptcblue"
+      ],
       "primary_scenario": "trials",
       "ability_tags": [
         "eligibility"
@@ -724,11 +730,17 @@
       "definition": "从给定诊断候选中选择最符合病例者。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney/CMExam 许可或研究使用限制需进一步澄清。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "diagnosis",
       "ability_tags": [
@@ -743,11 +755,17 @@
       "definition": "根据病例从给定候选中选择检查。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney 缺明确数据许可。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "testing",
       "ability_tags": [
@@ -762,11 +780,17 @@
       "definition": "根据病例从给定候选中选择治疗。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney 缺明确数据许可；不生成替代金标。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
@@ -781,12 +805,18 @@
       "definition": "根据病例从给定候选中选择用药。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney 缺明确数据许可；CDrugRed 下载源与许可链未完成核验。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
         "cdrugred",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
@@ -826,7 +856,9 @@
       "target_count": 100,
       "source_ids": [],
       "candidate_source_ids": [
-        "medjourney"
+        "medjourney",
+        "rd_triage",
+        "clinicalmc"
       ],
       "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。"
     },

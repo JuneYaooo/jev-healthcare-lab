@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "records": 1800,
+  "records": 2200,
   "task_definitions": 50,
   "checks": [
     "manifest hashes",
@@ -14,6 +14,6 @@
     "group cap",
     "empty-task representation",
     "primary scenario and ability tags",
-    "v0.1.0 question identity preserved"
+    "all frozen question identities preserved"
   ]
 }

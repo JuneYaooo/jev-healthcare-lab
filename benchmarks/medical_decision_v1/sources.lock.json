@@ -2064,6 +2064,62 @@
       "bytes": 1070089,
       "version": "figshare.9764942.v2/MACCROBAT2020",
       "source_id": "maccrobat"
+    },
+    {
+      "name": "cmb__CMB.zip",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/CMB/6c8ece46097dae736c6805dd3b831e1a38c08971/data/CMB.zip",
+      "version": "6c8ece46097dae736c6805dd3b831e1a38c08971",
+      "sha256": "c2e4288127fa5e6c03cc3659d893b0bbb19e699f74fdadce8e7fa10ac5bfdd94",
+      "bytes": 30740886,
+      "source_id": "cmb"
+    },
+    {
+      "name": "cmb__CMB-test-choice-answer.json",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/CMB/6c8ece46097dae736c6805dd3b831e1a38c08971/data/CMB-test-choice-answer.json",
+      "version": "6c8ece46097dae736c6805dd3b831e1a38c08971",
+      "sha256": "42130b20f7660a83dd92f3c005eb6a8ef1221c98d9b27d3351204143944b532f",
+      "bytes": 2601052,
+      "source_id": "cmb"
+    },
+    {
+      "name": "cmb__LICENSE",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/CMB/6c8ece46097dae736c6805dd3b831e1a38c08971/LICENSE",
+      "version": "6c8ece46097dae736c6805dd3b831e1a38c08971",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357,
+      "source_id": "cmb"
+    },
+    {
+      "name": "cmb__README.md",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/CMB/6c8ece46097dae736c6805dd3b831e1a38c08971/README.md",
+      "version": "6c8ece46097dae736c6805dd3b831e1a38c08971",
+      "sha256": "6758195fabacfaa4ed865ccf877249fc6783683244f0b338c878723d8c3af29c",
+      "bytes": 19578,
+      "source_id": "cmb"
+    },
+    {
+      "name": "cmb__HF_DATA_CARD.md",
+      "url": "https://huggingface.co/datasets/FreedomIntelligence/CMB/raw/935fbc09edf1303d89872b21265ff597f426ac0d/README.md",
+      "version": "935fbc09edf1303d89872b21265ff597f426ac0d",
+      "sha256": "522729bbc6721367b2093ab5092e1392cebe53eb80e2046954c30dd5333ff94d",
+      "bytes": 8713,
+      "source_id": "cmb"
+    },
+    {
+      "name": "cnmleqa__CNMLEQA-10k.json",
+      "url": "https://zenodo.org/api/records/18951465/files/CNMLEQA-10k.json/content",
+      "version": "zenodo.18951465",
+      "sha256": "c6a87366474b6ef638df7d093f4f004f726cb859d5c9d1c8784185d9d2029275",
+      "bytes": 5569226,
+      "source_id": "cnmleqa"
+    },
+    {
+      "name": "cnmleqa__README.md",
+      "url": "https://raw.githubusercontent.com/zonghui0228/CNMLEQA/55a9033072271015d27f1b4141f4abef71e11c15/README.md",
+      "version": "55a9033072271015d27f1b4141f4abef71e11c15",
+      "sha256": "5f5468ad19a41057b8db5edcd0c399c61a761a9a3ebfd07e1cdd4d9022ce4f93",
+      "bytes": 3799,
+      "source_id": "cnmleqa"
     }
   ]
 }

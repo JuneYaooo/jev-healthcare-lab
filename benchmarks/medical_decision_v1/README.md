@@ -1,10 +1,10 @@
-# Jev 医疗决策评测集 v0.2.0
+# Jev 医疗决策评测集 v0.3.0
 
 给定医疗材料、规则或候选项，评估可明确计分的分类、状态、关系、证据和方案选择。每题只有一个决策输出，使用 Jev `choice` 请求格式；不要求生成病历、建议或解释。
 
-**8 个医疗场景 · 50 个任务定义 · 18 个任务各 100 题 · 0 个不足 100 题 · 32 个留空 · 共 1,800 题。**
+**8 个医疗场景 · 50 个任务定义 · 22 个任务各 100 题 · 0 个不足 100 题 · 28 个留空 · 共 2,200 题。**
 
-开放许可核心部分 1,600 题；非商业研究附加部分 200 题。当前 7 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 1,500 题、es 100 题、zh 200 题。
+开放许可核心部分 2,000 题；非商业研究附加部分 200 题。当前 7 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 1,500 题、es 100 题、zh 600 题。
 
 [全部题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl) · [来源与许可](SOURCES.md) · [场景任务定义](taxonomy.json) · [按场景寻找数据](SCENARIO_RESEARCH.md) · [构建统计](summary.json)
 
@@ -17,9 +17,9 @@
 | 场景 | 有题任务 / 定义任务 | 题数 |
 | --- | ---: | ---: |
 | 接诊与分诊 | 1 / 6 | 100 |
-| 检查与检验 | 1 / 8 | 100 |
-| 诊断与鉴别 | 4 / 8 | 400 |
-| 治疗与用药 | 2 / 8 | 200 |
+| 检查与检验 | 2 / 8 | 200 |
+| 诊断与鉴别 | 5 / 8 | 500 |
+| 治疗与用药 | 4 / 8 | 400 |
 | 住院与护理 | 1 / 5 | 100 |
 | 出院与随访 | 0 / 3 | 0 |
 | 临床试验筛选 | 5 / 5 | 500 |
@@ -39,7 +39,7 @@
 | [医疗问题意图](tasks/query_intent/task.json) | 100 / 100 | [MedQuAD](https://github.com/abachaa/MedQuAD) | 给定医疗问题，判断其信息需求类别。 |
 | [决策资料充分性](tasks/input_sufficiency/task.json) | 0 / 0 | [CMedCalc-Bench](https://github.com/Zhihong-Zhu/CMedCalc-Bench) | CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。 |
 | [分诊紧急程度](tasks/triage_urgency/task.json) | 0 / 0 | [TRIAGE](https://github.com/NLie2/Triage)、[MIMIC-IV-ED](https://physionet.org/content/mimic-iv-ed/2.2/)、[TriageBench（Wong，一致性探针）](https://github.com/wongqihan/triagebench) | TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。 |
-| [候选科室分流](tasks/department_routing/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney) | 已有候选来源缺明确数据许可，科室分流金标亦需核对。 |
+| [候选科室分流](tasks/department_routing/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[RD-Triage](https://github.com/zhelishisongjie/RD-Triage)、[ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD) | 已有候选来源缺明确数据许可，科室分流金标亦需核对。 |
 | [患者消息紧急性比较](tasks/message_urgency_pair/task.json) | 0 / 0 | [PMR-Bench Reddit Test Pairs](https://arxiv.org/abs/2601.13178) | 已找到官方测试对与非商业许可；尚需核验消息复用、标注方案及配对抽样。 |
 
 ### 检查与检验
@@ -55,7 +55,7 @@
 | [检验结果趋势](tasks/result_trend/task.json) | 0 / 0 | 待补 | 不能将带时序数值的开放材料直接当作有审核金标的测试题。 |
 | [危急结果与人工升级](tasks/critical_result_escalation/task.json) | 0 / 0 | 待补 | 未找到具有机构阈值版本与审核标签的开放来源。 |
 | [报告阶段与效力](tasks/report_stage/task.json) | 0 / 0 | 待补 | 标准字段不代替独立真实材料与标签。 |
-| [检查方案选择](tasks/examination_choice/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[MedMCQA](https://github.com/medmcqa/medmcqa) | MedJourney 缺明确数据许可。 |
+| [检查方案选择](tasks/examination_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从给定候选中选择检查。 |
 
 ### 诊断与鉴别
 
@@ -69,7 +69,7 @@
 | [有界临床量表评分](tasks/bounded_score/task.json) | 100 / 100 | [MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench) | 根据病例选择 GCS、CURB-65、SIRS、CHA2DS2-VASc 或 FeverPAIN 的数值。 |
 | [临床语义分级](tasks/clinical_grade/task.json) | 0 / 0 | [CMedCalc-Bench](https://github.com/Zhihong-Zhu/CMedCalc-Bench) | CMedCalc 数据许可待明确。 |
 | [模拟病例主诊断选择](tasks/synthetic_diagnosis/task.json) | 100 / 100 | [DDXPlus](https://doi.org/10.6084/m9.figshare.20043374) | 给定 DDXPlus 观察到的症状与背景，从完整病种表选择模拟主诊断。 |
-| [临床病例候选诊断](tasks/diagnosis_choice/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[MedMCQA](https://github.com/medmcqa/medmcqa) | MedJourney/CMExam 许可或研究使用限制需进一步澄清。 |
+| [临床病例候选诊断](tasks/diagnosis_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 从给定诊断候选中选择最符合病例者。 |
 | [中医证型选择](tasks/tcm_syndrome/task.json) | 100 / 100 | [TCM-SD](https://github.com/borororo/zy-bert) | 根据主诉、病情和检查选择原始标准证型。 |
 
 ### 治疗与用药
@@ -83,8 +83,8 @@
 | [药物与剂量关联](tasks/dose_link/task.json) | 100 / 95 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例全文和剂量片段，从候选药物中选择原始标注关联的药物；不评价剂量是否适宜，也不覆盖频次和途径。 |
 | [患者特异性禁忌](tasks/patient_contraindication/task.json) | 0 / 0 | [openFDA drug labels](https://open.fda.gov/apis/drug/label/) | 说明书是材料来源，尚无配套患者及审核金标。 |
 | [剂量适宜性](tasks/dose_appropriateness/task.json) | 0 / 0 | 待补 | 未找到已核验、可分发的患者特异性剂量适宜性金标。 |
-| [治疗方案选择](tasks/treatment_choice/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[MedMCQA](https://github.com/medmcqa/medmcqa) | MedJourney 缺明确数据许可；不生成替代金标。 |
-| [用药方案选择](tasks/medication_choice/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[CDrugRed](https://arxiv.org/abs/2511.06230)、[MedMCQA](https://github.com/medmcqa/medmcqa) | MedJourney 缺明确数据许可；CDrugRed 下载源与许可链未完成核验。 |
+| [治疗方案选择](tasks/treatment_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从给定候选中选择治疗。 |
+| [用药方案选择](tasks/medication_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从给定候选中选择用药。 |
 | [治疗相关不良事件预测](tasks/adverse_event_prediction/task.json) | 0 / 0 | [CT-ADE-SOC / CT-ADE-PT](https://github.com/ds4dh/CT-ADE) | 已找到发布方数据；需核验版本与术语许可，并固定试验组划分。群体结局不能直接解释为个体禁忌。 |
 
 ### 住院与护理
@@ -145,9 +145,13 @@ LongHealth 对 20 个虚构患者各取五题；这些问题共享整份病历�
 
 v0.2.0 新增 MACCROBAT 的检查数值关联、药物剂量关联；检查题仅保留含数字的原始结果片段。候选项为病例中所有有效的对应类型实体，带原文位置以区分重复名称。只收原始 MODIFY 关系可唯一定位目标的题，不构造负关系、不判断处方适宜性。旧版 1,600 题的 ID、请求及金标保留，迁移基线见 [历史身份索引](history/v0.1.0_sample_identity.json)。
 
+v0.3.0 从 CMB-Exam 和 CNMLEQA-10k 补入中文病例的诊断、检查、治疗、用药四类选择题，原有 1,800 题的 ID、请求与答案保持不变，见 [v0.2.0 身份索引](history/v0.2.0_sample_identity.json)。按病例特征和问题意图规则筛选，排除纯知识题、缺图题、反向提问及不符合任务定义的题；保留原选项与金标，不生成新答案。CMB 原题与独立答案按 ID 连接，原 C 型及多选题不纳入。CNMLEQA 没有官方测试划分，使用发布语料的固定自留子集。
+
+两套中文题库按标准化题干与完整选项集合去重，答案文本冲突时全部排除；来源组由去标点后题干前 60 字的指纹近似确定，可能合并相似病例，也不能排除所有改写重复。题目中的旧术语或原始拼写按原文保留。中文新增题经过程序化适配与抽查，未独立复核其临床金标。[本轮新增来源核验](../../docs/DATASET_EXPANSION.md) 记录其他中文及英文候选。
+
 ## 训练隔离与历史使用
 
-[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；543 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。
+[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；546 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。
 
 该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。
 

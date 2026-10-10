@@ -65,6 +65,32 @@ class SamplingTests(unittest.TestCase):
 
 
 class AnnotationTests(unittest.TestCase):
+    def test_chinese_exam_filter_requires_case_and_explicit_decision(self):
+        case = "患者，男性，45岁，因胸痛三天就诊。既往无明确心脏疾病史，入院时测得血压正常，神志清楚，心肺听诊未见明显异常。"
+        self.assertEqual(module.chinese_exam_task(case + "为明确诊断，应首选的检查是"), "examination_choice")
+        self.assertEqual(module.chinese_exam_task(case + "最可能的诊断是"), "diagnosis_choice")
+        self.assertEqual(module.chinese_exam_task(case + "首选的治疗药物是"), "medication_choice")
+        self.assertEqual(module.chinese_exam_task(case + "最适宜的治疗措施是"), "treatment_choice")
+        self.assertIsNone(module.chinese_exam_task("治疗肺炎首选的抗生素是"))
+        self.assertIsNone(module.chinese_exam_task(case + "胸部CT如下。首选的检查是"))
+        self.assertIsNone(module.chinese_exam_task(case + "治疗时间为多久"))
+        self.assertIsNone(module.chinese_exam_task(case + "不应选用的药物是"))
+        self.assertIsNone(module.chinese_exam_task(case + "以下不适宜选用的降压药物是"))
+        self.assertIsNone(module.chinese_exam_task(case + "其中一项护理诊断为体温过高，请选出主要依据"))
+
+    def test_cmb_answers_join_by_id_and_preserve_original_positions(self):
+        common = dict(exam_type="医师考试", exam_class="执业医师", exam_subject="内科", question_type="单项选择题")
+        questions = [dict(common, id=3), dict(common, id=9)]
+        answers = [dict(common, id=9, answer="A"), dict(common, id=3, answer="E")]
+        joined = list(module.join_cmb_answers(questions, answers))
+        self.assertEqual([(i, j, q["id"], a["answer"]) for i, j, q, a in joined], [(0, 1, 3, "E"), (1, 0, 9, "A")])
+        with self.assertRaisesRegex(ValueError, "metadata mismatch"):
+            list(module.join_cmb_answers(questions, [answers[0], dict(answers[1], exam_subject="外科")]))
+        with self.assertRaisesRegex(ValueError, "unmatched"):
+            list(module.join_cmb_answers(questions, answers[:1]))
+        with self.assertRaisesRegex(ValueError, "Duplicate"):
+            list(module.join_cmb_answers(questions, answers + answers[:1]))
+
     def test_maccrobat_event_resolution_ambiguity_and_full_candidate_set(self):
         text = "aspirin 5mg; warfarin 2mg; INR 2.5; PT prolonged."
         entities = [("T1", "Medication", "aspirin"), ("T2", "Medication", "warfarin"),

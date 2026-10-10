@@ -1,0 +1,133 @@
+{
+  "created": "2026-03-11T06:56:56.048364+00:00",
+  "modified": "2026-04-21T02:50:22.643299+00:00",
+  "id": 18951465,
+  "conceptrecid": "18951464",
+  "doi": "10.5281/zenodo.18951465",
+  "conceptdoi": "10.5281/zenodo.18951464",
+  "doi_url": "https://doi.org/10.5281/zenodo.18951465",
+  "metadata": {
+    "title": "A Dataset for Evaluating Large Language Models on Chinese National Medical Licensing Examinations",
+    "doi": "10.5281/zenodo.18951465",
+    "publication_date": "2026-03-11",
+    "description": "<p>The dataset integrates question-answer pairs from three sources, including PubMed, GitHub, and MedExamLLM. CNMLEQA comprises two subsets: CNMLEQA-10k (9,890 questions) and CNMLEQA-3k (2,949 questions), each consisting of multiple-choice questions with five options and one correct answer. Questions are annotated with key dimensions including: (1) question type (knowledge-based or case-based), (2) auxiliary metadata such as examination year, 3) clinical scenario information across five dimensions: disease or diagnosis, surgery, medication, laboratory examination, and symptom or sign. Annotation was conducted by clinical experts.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Zong, Hui",
+        "affiliation": null,
+        "orcid": "0000-0002-9142-5017"
+      },
+      {
+        "name": "Shen, Bairong",
+        "affiliation": null,
+        "orcid": "0000-0003-2899-1531"
+      }
+    ],
+    "keywords": [
+      "Large language model",
+      "Artificial intelligence",
+      "Question answer",
+      "Medical examination"
+    ],
+    "version": "1.0",
+    "language": "cmn",
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "journal": {
+      "title": "Scientific Data"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "18951464"
+          }
+        }
+      ]
+    }
+  },
+  "title": "A Dataset for Evaluating Large Language Models on Chinese National Medical Licensing Examinations",
+  "links": {
+    "self": "https://zenodo.org/api/records/18951465",
+    "self_html": "https://zenodo.org/records/18951465",
+    "preview_html": "https://zenodo.org/records/18951465?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.18951465",
+    "self_doi": "https://doi.org/10.5281/zenodo.18951465",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18951465",
+    "reserve_doi": "https://zenodo.org/api/records/18951465/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/18951464",
+    "parent_html": "https://zenodo.org/records/18951464",
+    "parent_doi": "https://doi.org/10.5281/zenodo.18951464",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18951464",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:18951465/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:18951465/sequence/default",
+    "files": "https://zenodo.org/api/records/18951465/files",
+    "media_files": "https://zenodo.org/api/records/18951465/media-files",
+    "latest": "https://zenodo.org/api/records/18951465/versions/latest",
+    "latest_html": "https://zenodo.org/records/18951465/latest",
+    "versions": "https://zenodo.org/api/records/18951465/versions",
+    "draft": "https://zenodo.org/api/records/18951465/draft",
+    "access_links": "https://zenodo.org/api/records/18951465/access/links",
+    "access_grants": "https://zenodo.org/api/records/18951465/access/grants",
+    "access_users": "https://zenodo.org/api/records/18951465/access/users",
+    "access_request": "https://zenodo.org/api/records/18951465/access/request",
+    "access": "https://zenodo.org/api/records/18951465/access",
+    "communities": "https://zenodo.org/api/records/18951465/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/18951465/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/18951465/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/18951465/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/18951465/quota-increase",
+    "requests": "https://zenodo.org/api/records/18951465/requests"
+  },
+  "updated": "2026-04-21T02:50:22.643299+00:00",
+  "recid": "18951465",
+  "revision": 6,
+  "files": [
+    {
+      "id": "2d06f264-dfdb-44a0-9ebf-84bc010d0ee1",
+      "key": "CNMLEQA-10k.json",
+      "size": 5569226,
+      "checksum": "md5:6b921e3e7924707183afc41b382a4aec",
+      "links": {
+        "self": "https://zenodo.org/api/records/18951465/files/CNMLEQA-10k.json/content"
+      }
+    },
+    {
+      "id": "db878381-5802-4404-92e7-7d315aebff36",
+      "key": "CNMLEQA-3k.json",
+      "size": 2433802,
+      "checksum": "md5:a71d291f184170d76efeec49aea82427",
+      "links": {
+        "self": "https://zenodo.org/api/records/18951465/files/CNMLEQA-3k.json/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1571128"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 107,
+    "unique_downloads": 102,
+    "views": 191,
+    "unique_views": 183,
+    "version_downloads": 107,
+    "version_unique_downloads": 102,
+    "version_unique_views": 183,
+    "version_views": 191
+  },
+  "state": "done",
+  "submitted": true
+}

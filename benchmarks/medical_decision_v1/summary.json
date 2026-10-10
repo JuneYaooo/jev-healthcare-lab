@@ -1,22 +1,22 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "seed": 20261010,
   "total_tasks": 50,
-  "ready_tasks": 18,
+  "ready_tasks": 22,
   "partial_tasks": 0,
-  "empty_tasks": 32,
-  "records": 1800,
-  "unique_source_groups": 1544,
+  "empty_tasks": 28,
+  "records": 2200,
+  "unique_source_groups": 1938,
   "languages": {
     "es": 100,
     "en": 1500,
-    "zh": 200
+    "zh": 600
   },
   "distribution_counts": {
-    "open": 1600,
+    "open": 2000,
     "research_noncommercial": 200
   },
-  "historical_material_matches": 543,
+  "historical_material_matches": 546,
   "adapter_exclusions": {
     "aci:unmapped_or_short_section": 304,
     "medquad:outside_fixed_intent_vocabulary": 17458,
@@ -25,7 +25,12 @@
     "scifact:document_shared_with_upstream_train": 217,
     "maccrobat:ambiguous_or_unusable_lab_link": 185,
     "maccrobat:non_numeric_result": 1462,
-    "maccrobat:ambiguous_or_unusable_dose_link": 20
+    "maccrobat:ambiguous_or_unusable_dose_link": 20,
+    "cmb:out_of_scope_question_type": 1201,
+    "cnmleqa:knowledge_question": 5280,
+    "cmb:incomplete_or_outside_decision_filter": 9792,
+    "cnmleqa:incomplete_or_outside_decision_filter": 2797,
+    "cnmleqa:duplicate_or_conflicting_exam_item": 14
   },
   "shared_source_groups": {
     "maccrobat:28207542": [
@@ -528,6 +533,30 @@
     "chia:NCT00343668": [
       "criterion_boolean",
       "criterion_relation"
+    ],
+    "zh_exam_case:9d18bebd84c7bb789dc20c9d": [
+      "diagnosis_choice",
+      "medication_choice"
+    ],
+    "zh_exam_case:ab505aca1d470cda022062fc": [
+      "examination_choice",
+      "medication_choice"
+    ],
+    "zh_exam_case:6ef9a05b394bafba36b51d94": [
+      "examination_choice",
+      "treatment_choice"
+    ],
+    "zh_exam_case:2d3d5f2c49ba80657d6df73d": [
+      "examination_choice",
+      "medication_choice"
+    ],
+    "zh_exam_case:030d5b8e49fdfd03f7695c23": [
+      "examination_choice",
+      "treatment_choice"
+    ],
+    "zh_exam_case:b52e455f71eeafc2e7f606db": [
+      "medication_choice",
+      "treatment_choice"
     ]
   },
   "tasks": [
@@ -1103,7 +1132,10 @@
         "medquad"
       ],
       "missing_reason": "",
-      "candidate_source_ids": [],
+      "candidate_source_ids": [
+        "cblue",
+        "promptcblue"
+      ],
       "primary_scenario": "intake",
       "ability_tags": [
         "classification"
@@ -1643,7 +1675,10 @@
         "chia"
       ],
       "missing_reason": "",
-      "candidate_source_ids": [],
+      "candidate_source_ids": [
+        "cblue",
+        "promptcblue"
+      ],
       "primary_scenario": "trials",
       "ability_tags": [
         "eligibility"
@@ -2210,32 +2245,54 @@
       "definition": "从给定诊断候选中选择最符合病例者。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney/CMExam 许可或研究使用限制需进一步澄清。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "diagnosis",
       "ability_tags": [
         "clinical"
       ],
       "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 1132,
+        "unique_consistent_pool": 1132,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 1132,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "C": 10,
+        "opa": 10,
+        "A": 10,
+        "opb": 10,
+        "B": 10,
+        "E": 10,
+        "D": 10,
+        "opd": 10,
+        "opc": 10,
+        "ope": 10
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cmb": 50,
+        "cnmleqa": 50
+      },
       "historical_material_matches": 0
     },
     {
@@ -2245,32 +2302,54 @@
       "definition": "根据病例从给定候选中选择检查。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney 缺明确数据许可。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "testing",
       "ability_tags": [
         "clinical"
       ],
       "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 326,
+        "unique_consistent_pool": 326,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 326,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "opd": 17,
+        "ope": 16,
+        "opa": 16,
+        "E": 3,
+        "opc": 16,
+        "B": 6,
+        "opb": 16,
+        "C": 4,
+        "D": 5,
+        "A": 1
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cnmleqa": 81,
+        "cmb": 19
+      },
       "historical_material_matches": 0
     },
     {
@@ -2280,33 +2359,55 @@
       "definition": "根据病例从给定候选中选择治疗。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney 缺明确数据许可；不生成替代金标。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
         "clinical"
       ],
       "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 427,
+        "unique_consistent_pool": 427,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 427,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
-      "historical_material_matches": 0
+      "label_counts": {
+        "B": 10,
+        "ope": 11,
+        "opa": 11,
+        "opc": 10,
+        "opd": 11,
+        "E": 8,
+        "D": 10,
+        "opb": 11,
+        "C": 10,
+        "A": 8
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cmb": 46,
+        "cnmleqa": 54
+      },
+      "historical_material_matches": 3
     },
     {
       "id": "medication_choice",
@@ -2315,33 +2416,54 @@
       "definition": "根据病例从给定候选中选择用药。",
       "decision_mode": "knowledge",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "MedJourney 缺明确数据许可；CDrugRed 下载源与许可链未完成核验。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "medjourney",
         "cdrugred",
-        "medmcqa"
+        "medmcqa",
+        "cmexam",
+        "mlec_qa",
+        "medxpertqa"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
         "clinical"
       ],
       "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 121,
+        "unique_consistent_pool": 121,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 121,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "opd": 21,
+        "opa": 20,
+        "opc": 16,
+        "opb": 18,
+        "ope": 13,
+        "A": 1,
+        "C": 6,
+        "B": 4,
+        "D": 1
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cnmleqa": 88,
+        "cmb": 12
+      },
       "historical_material_matches": 0
     },
     {
@@ -2441,7 +2563,9 @@
       "target_count": 100,
       "source_ids": [],
       "candidate_source_ids": [
-        "medjourney"
+        "medjourney",
+        "rd_triage",
+        "clinicalmc"
       ],
       "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。",
       "count": 0,
@@ -2680,24 +2804,24 @@
       "title": "检查与检验",
       "scope": "选择检查、关联结果并判断结果的适用性与处理需求。",
       "defined_tasks": 8,
-      "populated_tasks": 1,
-      "records": 100
+      "populated_tasks": 2,
+      "records": 200
     },
     {
       "id": "diagnosis",
       "title": "诊断与鉴别",
       "scope": "根据已有材料判断诊断、状态和临床分级。",
       "defined_tasks": 8,
-      "populated_tasks": 4,
-      "records": 400
+      "populated_tasks": 5,
+      "records": 500
     },
     {
       "id": "treatment",
       "title": "治疗与用药",
       "scope": "判断治疗选择、用药关系及患者特异性适宜性。",
       "defined_tasks": 8,
-      "populated_tasks": 2,
-      "records": 200
+      "populated_tasks": 4,
+      "records": 400
     },
     {
       "id": "inpatient",

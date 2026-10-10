@@ -90,6 +90,51 @@ def signatures(value):
     return result
 
 
+def chinese_exam_task(question):
+    """Conservative question-intent filter, not a clinical answer generator."""
+    if len(question) < 60 or not re.search(r"患者|患儿|病人|\d+\s*岁", question):
+        return None
+    if re.search(r"如图|见图|图示|上图|下图|附图|见表|如下表|如下图|(?:CT|心电图|胸片|影像|图像).{0,6}如下", question):
+        return None
+    end = question.rstrip("。！？?\n（）() ")
+    tail = re.split(r"[。；;！？?\n]", end)[-1][-35:]
+    if re.search(r"不正确|错误|不宜|不适宜|不适合|不应|不能|不包括|不支持|不考虑|不可能|不是|不属于|最不|除外|表现|机制|疗程|时间|不良反应|原则|剂量|途径|频次|频率|治疗目标|治疗目的|多长|多少", tail):
+        return None
+    if re.search(r"药物|用药|抗生素|方剂", tail) and re.search(r"首选|选用|宜用|选择|最适宜|最合适|最佳", tail):
+        return "medication_choice"
+    if ("检查" in tail and re.search(r"首选|进一步|确诊|明确诊断|最有价值|最有助|最重要", tail)
+            and not re.search(r"检查结果|检查发现|检查示", tail)):
+        return "examination_choice"
+    if (not re.search(r"护理|依据|根据", tail)
+            and re.search(r"(?:最可能|最有可能|初步|首先考虑|应考虑|可能的).{0,8}诊断|诊断(?:是|为|应为|可能为|首先考虑)", tail)):
+        return "diagnosis_choice"
+    if (not re.search(r"护理|心理|宣教|沟通", tail) and re.search(r"治疗|处理|措施|手术", tail)
+            and re.search(r"首选|最佳|最有效|最合适|最适宜|首先|选择|采取|立即", tail)):
+        return "treatment_choice"
+    return None
+
+
+def join_cmb_answers(questions, answers):
+    """Join on original ID and verify metadata; never rely on row order."""
+    index = {}
+    for position, answer in enumerate(answers):
+        if answer["id"] in index:
+            raise ValueError("Duplicate CMB answer ID")
+        index[answer["id"]] = (position, answer)
+    seen = set()
+    for position, question in enumerate(questions):
+        uid = question["id"]
+        if uid in seen or uid not in index:
+            raise ValueError("Duplicate or unmatched CMB question ID")
+        seen.add(uid)
+        answer_position, answer = index[uid]
+        if any(question[key] != answer[key] for key in ["exam_type", "exam_class", "exam_subject", "question_type"]):
+            raise ValueError("CMB question/answer metadata mismatch")
+        yield position, answer_position, question, answer
+    if seen != set(index):
+        raise ValueError("Unmatched CMB answer ID")
+
+
 def fetch(config, cache):
     cache.mkdir(parents=True, exist_ok=True)
     lock = json.loads((config / "sources.lock.json").read_text())
@@ -512,8 +557,67 @@ class Builder:
                                  "published_corpus_no_official_split", stratum="natural_distribution",
                                  adaptation="Resolve event IDs to text anchors; unique original MODIFY link; all valid same-type entities are options.")
 
+    def chinese_exams(self):
+        file, answers_file = "cmb__CMB.zip", "cmb__CMB-test-choice-answer.json"
+        member = "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json"
+        with zipfile.ZipFile(self.path(file)) as archive:
+            questions = json.loads(archive.read(member))
+        answers = json.loads(self.path(answers_file).read_text())
+        # The archive includes C-type and multiple-answer items. Some C-type
+        # metadata was relabeled in the answer release; these are out of scope.
+        question_positions = {row["id"]: i for i, row in enumerate(questions)}
+        answer_positions = {row["id"]: i for i, row in enumerate(answers)}
+        if len(question_positions) != len(questions) or len(answer_positions) != len(answers):
+            raise ValueError("Duplicate CMB source IDs")
+        eligible_ids = {row["id"] for row in questions if row["question_type"] == "单项选择题"}
+        self.exclusions["cmb:out_of_scope_question_type"] += len(questions) - len(eligible_ids)
+        questions = [row for row in questions if row["id"] in eligible_ids]
+        answers = [row for row in answers if row["id"] in eligible_ids]
+        candidates = []
+        for i, j, row, answer in join_cmb_answers(questions, answers):
+            i, j = question_positions[row["id"]], answer_positions[row["id"]]
+            if row["question_type"] != "单项选择题" or answer["answer"] not in row["option"]:
+                self.exclusions["cmb:non_single_choice"] += 1
+                continue
+            candidates.append(("cmb", row["id"], row["question"], row["option"], answer["answer"], file,
+                {"zip_member": member, "json_index": i, "question_id": row["id"],
+                 "supporting_resources": [answers_file], "answer_json_index": j, "answer_field": "answer"},
+                "official_test", {"exam_type": row["exam_type"], "exam_class": row["exam_class"], "exam_subject": row["exam_subject"]}))
+        file = "cnmleqa__CNMLEQA-10k.json"
+        for i, row in enumerate(json.loads(self.path(file).read_text())):
+            if row["question_type"] != "案例分析":
+                self.exclusions["cnmleqa:knowledge_question"] += 1
+                continue
+            options = {key: row[key] for key in ["opa", "opb", "opc", "opd", "ope"]}
+            candidates.append(("cnmleqa", row["id"], row["question"], options, row["answer"], file,
+                {"json_index": i, "question_id": row["id"], "answer_field": "answer", "original_source": row["source"]},
+                "published_benchmark_no_official_split", {"original_source": row["source"], "exam_year": row.get("year"),
+                 "original_question_type": row["question_type"]}))
+        identities = collections.defaultdict(set)
+        for source, uid, question, options, gold, *rest in candidates:
+            key = digest([norm(question), sorted(norm(v) for v in options.values())])
+            identities[key].add(norm(options[gold]))
+        seen = set()
+        for source, uid, question, options, gold, file, locator, split, metadata in candidates:
+            task = chinese_exam_task(question)
+            if task is None or len(options) != 5 or len(set(options.values())) != 5 or any(not str(v).strip() for v in options.values()):
+                self.exclusions[source + ":incomplete_or_outside_decision_filter"] += 1
+                continue
+            key = digest([norm(question), sorted(norm(v) for v in options.values())])
+            if len(identities[key]) != 1 or key in seen:
+                self.exclusions[source + ":duplicate_or_conflicting_exam_item"] += 1
+                continue
+            seen.add(key)
+            # Keep one vocabulary per source; preserve original option order and labels.
+            self.add(task, source, uid, uid, {"clinical_question": question}, options, gold, file, locator,
+                     split, language="zh", stratum=source + ":" + gold,
+                     eligibility="case_vignette_and_explicit_decision_query_v1", **metadata)
+            # Shared case prefixes across the two exam collections are one conservative group.
+            prefix = re.sub(r"[^\w]", "", norm(question))[:60]
+            self.pools[task][-1]["group_id"] = "zh_exam_case:" + digest(prefix)[:24]
+
     def run(self):
-        for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat"]:
+        for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams"]:
             getattr(self, name)()
             print("Prepared", name, flush=True)
         return self.pools
@@ -712,6 +816,8 @@ def generate_docs(output, builder, summary):
               "LongHealth 对 20 个虚构患者各取五题；这些问题共享整份病历。TCM-SD 按原测试分布哈希抽样，不将 148 个证型强行压成每类一题。CHIA 关系题只分类原始已标注关系，不包含自动构造的负例。NUBes 只测否定/不确定。FRD 的数值已由上游替换为 @NUMBER，仅测上下界方向。MedCalc 使用固定 GitHub 测试版本，不能报告为 HF Verified 版本。\n",
               "答案来自原始发布标注及可重现的机械映射。记录经过格式、定位、映射与去重检查，尚未做本项目独立医生逐题审核。本版本属于可审计初版，不是临床验证金标准。原始训练/开发/测试划分逐题保留；没有官方测试划分的来源不冒称官方测试集。\n",
               "v0.2.0 新增 MACCROBAT 的检查数值关联、药物剂量关联；检查题仅保留含数字的原始结果片段。候选项为病例中所有有效的对应类型实体，带原文位置以区分重复名称。只收原始 MODIFY 关系可唯一定位目标的题，不构造负关系、不判断处方适宜性。旧版 1,600 题的 ID、请求及金标保留，迁移基线见 [历史身份索引](history/v0.1.0_sample_identity.json)。\n",
+              "v0.3.0 从 CMB-Exam 和 CNMLEQA-10k 补入中文病例的诊断、检查、治疗、用药四类选择题，原有 1,800 题的 ID、请求与答案保持不变，见 [v0.2.0 身份索引](history/v0.2.0_sample_identity.json)。按病例特征和问题意图规则筛选，排除纯知识题、缺图题、反向提问及不符合任务定义的题；保留原选项与金标，不生成新答案。CMB 原题与独立答案按 ID 连接，原 C 型及多选题不纳入。CNMLEQA 没有官方测试划分，使用发布语料的固定自留子集。\n",
+              "两套中文题库按标准化题干与完整选项集合去重，答案文本冲突时全部排除；来源组由去标点后题干前 60 字的指纹近似确定，可能合并相似病例，也不能排除所有改写重复。题目中的旧术语或原始拼写按原文保留。中文新增题经过程序化适配与抽查，未独立复核其临床金标。[本轮新增来源核验](../../docs/DATASET_EXPANSION.md) 记录其他中文及英文候选。\n",
               "## 训练隔离与历史使用\n",
               f"[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；{summary['historical_material_matches']} 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。\n",
               "该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。\n",
@@ -819,11 +925,12 @@ def validate(dataset):
     requests = list(read_jsonl(dataset / "requests.jsonl"))
     assert requests == [{"id": r["id"], "task": r["task"], "request": r["request"]} for r in rows]
     assert list(read_jsonl(dataset / "answers.jsonl")) == [{"id": r["id"], "gold": r["gold"], "group_id": r["group_id"]} for r in rows]
-    previous = json.loads((dataset / "history/v0.1.0_sample_identity.json").read_text())
     now = {r["id"]: {"request_sha256": r["request_sha256"], "gold": r["gold"]} for r in rows}
-    assert all(now.get(uid) == identity for uid, identity in previous.items()), "Existing frozen questions changed"
+    for baseline in sorted((dataset / "history").glob("*_sample_identity.json")):
+        previous = json.loads(baseline.read_text())
+        assert all(now.get(uid) == identity for uid, identity in previous.items()), "Existing frozen questions changed: " + baseline.name
     result = {"passed": True, "records": len(rows), "task_definitions": len(definitions),
-              "checks": ["manifest hashes", "unique IDs", "per-task counts", "label membership", "request-only export", "answer separation", "source licenses", "no training fingerprint matches", "group cap", "empty-task representation", "primary scenario and ability tags", "v0.1.0 question identity preserved"]}
+              "checks": ["manifest hashes", "unique IDs", "per-task counts", "label membership", "request-only export", "answer separation", "source licenses", "no training fingerprint matches", "group cap", "empty-task representation", "primary scenario and ability tags", "all frozen question identities preserved"]}
     write_json(dataset / "validation.json", result)
     return result
 

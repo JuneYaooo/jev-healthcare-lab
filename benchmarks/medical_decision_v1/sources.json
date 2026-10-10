@@ -761,6 +761,307 @@
         "treatment"
       ],
       "checked_on": "2026-10-10"
+    },
+    {
+      "id": "cmb",
+      "name": "CMB-Exam（中文病例单选子集）",
+      "url": "https://github.com/FreedomIntelligence/CMB",
+      "citation_url": "https://arxiv.org/abs/2308.08833",
+      "attribution": "Wang et al., CMB (NAACL 2024)",
+      "data_license": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "distribution": "open",
+      "material_kind": "medical_examination_vignettes",
+      "authenticity": "中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。",
+      "gold_provenance": "固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。",
+      "license_evidence": [
+        "sources/cmb/LICENSE",
+        "sources/cmb/README.md",
+        "sources/cmb/HF_DATA_CARD.md"
+      ],
+      "checked_on": "2026-10-10",
+      "review_status": "原题、原答案与数据卡核验完成；非独立医生复核",
+      "scenario_ids": [
+        "diagnosis",
+        "testing",
+        "treatment"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "resources": [
+        "cmb__CMB.zip",
+        "cmb__CMB-test-choice-answer.json",
+        "cmb__LICENSE",
+        "cmb__README.md",
+        "cmb__HF_DATA_CARD.md"
+      ],
+      "reviewed_repository_revision": "6c8ece46097dae736c6805dd3b831e1a38c08971"
+    },
+    {
+      "id": "cnmleqa",
+      "name": "CNMLEQA-10k（中文案例分析子集）",
+      "url": "https://doi.org/10.5281/zenodo.18951465",
+      "citation_url": "https://doi.org/10.1038/s41597-026-07261-9",
+      "attribution": "Zong et al., Scientific Data (2026)",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "medical_examination_vignettes",
+      "authenticity": "中文执业医师考试整编病例题；上游有案例/知识题型标注，不是真实就诊结果。",
+      "gold_provenance": "只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。",
+      "license_evidence": [
+        "sources/cnmleqa/zenodo-metadata.json",
+        "sources/cnmleqa/README.md"
+      ],
+      "checked_on": "2026-10-10",
+      "review_status": "Zenodo 数据许可、文件校验和及原题答案核验完成；非独立医生复核",
+      "scenario_ids": [
+        "diagnosis",
+        "testing",
+        "treatment"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "resources": [
+        "cnmleqa__CNMLEQA-10k.json",
+        "cnmleqa__README.md"
+      ],
+      "reviewed_repository_revision": "55a9033072271015d27f1b4141f4abef71e11c15"
+    },
+    {
+      "id": "cmexam",
+      "name": "CMExam",
+      "url": "https://github.com/williamliujl/CMExam",
+      "distribution": "reference_only",
+      "data_license": "Apache-2.0（仓库）；README 另限学术/研究使用",
+      "authenticity": "中文医考题，不是病历。",
+      "gold_provenance": "测试 CSV 有原答案及疾病、科室、能力等标注。",
+      "reason": "Apache 标识与 README 学术/研究限制并存，先澄清数据授权范围；病例题也需筛选。",
+      "evidence_url": "https://github.com/williamliujl/CMExam",
+      "review_status": "许可范围待澄清",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "diagnosis",
+        "testing",
+        "treatment"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "reviewed_repository_revision": "fadb22c89beb1b7115dc36460ba792eb96b7b972"
+    },
+    {
+      "id": "cblue",
+      "name": "CBLUE（KUAKE-QIC / CHIP-CTC / CHIP-CDN）",
+      "url": "https://github.com/CBLUEbenchmark/CBLUE",
+      "distribution": "reference_only",
+      "data_license": "Apache-2.0（代码）；天池数据包协议待核验",
+      "authenticity": "医疗搜索问题、试验标准及诊断术语，材料性质分任务。",
+      "gold_provenance": "QIC 为意图分类，CTC 为 44 类标准；CDN 为诊断归一化。公开测试通常不带答案，可研究开发集。",
+      "reason": "不能用代码许可替代数据许可；需取得官方数据包及其协议，核验开发集答案，CDN 候选术语表还需核对许可。",
+      "evidence_url": "https://github.com/CBLUEbenchmark/CBLUE",
+      "review_status": "需官方数据条款",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "intake",
+        "trials",
+        "quality"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "reviewed_repository_revision": "6a2c54f6a69265a33181c752a5350277149b8883"
+    },
+    {
+      "id": "promptcblue",
+      "name": "PromptCBLUE",
+      "url": "https://github.com/michael-wzhu/PromptCBLUE",
+      "distribution": "reference_only",
+      "data_license": "未核验到覆盖全部上游数据的独立分发许可",
+      "authenticity": "CBLUE 等任务的指令化衍生集合。",
+      "gold_provenance": "部分分类任务可恢复有限标签；其余为抽取/生成。",
+      "reason": "优先回到 CBLUE 原任务核验许可和划分；不把模板改写当独立来源或独立病例，不纳入生成子任务。",
+      "evidence_url": "https://github.com/michael-wzhu/PromptCBLUE",
+      "review_status": "衍生来源待核验",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "intake",
+        "trials",
+        "quality"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "reviewed_repository_revision": "b0753a61a7c1f4e1ae171109f8a59037ff0a5543"
+    },
+    {
+      "id": "mlec_qa",
+      "name": "MLEC-QA",
+      "url": "https://github.com/Judenpech/MLEC-QA",
+      "distribution": "reference_only",
+      "data_license": "MIT（代码）；下载包数据许可待核验",
+      "authenticity": "中文执业医师考试题，包含共享病例题干。",
+      "gold_provenance": "公开说明含题型、选项和答案；官方入口为 Google Drive。",
+      "reason": "需下载官方包核对独立数据许可、测试划分和共享题干；仅收病例决策单选。",
+      "evidence_url": "https://github.com/Judenpech/MLEC-QA",
+      "review_status": "下载包待核验",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "diagnosis",
+        "testing",
+        "treatment"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "reviewed_repository_revision": "69091283f713529b2684089df9ce3a4dba88049f"
+    },
+    {
+      "id": "rjua_meddqa",
+      "name": "RJUA-MedDQA",
+      "url": "https://github.com/AQ-MedAI/medDQA_benchmark",
+      "distribution": "reference_only",
+      "data_license": "CC-BY-NC-SA-4.0（数据）；AGPL（代码）",
+      "authenticity": "泌尿科真实报告影像及专家标注，发布方声明。",
+      "gold_provenance": "含报告数值推理及临床推理单选，也有自由回答。",
+      "reason": "仓库目前给示例、README 仍称完整集将发布；需核验完整下载、OCR 对齐和单选金标，若采用只入非商业附加集。",
+      "evidence_url": "https://github.com/AQ-MedAI/medDQA_benchmark",
+      "review_status": "完整数据入口待核验",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "testing",
+        "diagnosis"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "reviewed_repository_revision": "80cfa742c5dfa1dd01aece5142fee366d376ac86"
+    },
+    {
+      "id": "medxpertqa",
+      "name": "MedXpertQA",
+      "url": "https://github.com/TsinghuaC3I/MedXpertQA",
+      "distribution": "reference_only",
+      "data_license": "MIT（数据卡）；论文另要求不在线分享题例",
+      "authenticity": "专家复核的医学考试改写题；分 Text 与 MM。",
+      "gold_provenance": "原选项、label、medical_task、question_type 可用；Diagnosis 标签也含检查选择，需再细分。",
+      "reason": "论文附录提出不在线分享题例；在与 MIT 数据卡的适用范围澄清前仅引用，不在本仓库再分发题目。",
+      "evidence_url": "https://proceedings.mlr.press/v267/zuo25a.html",
+      "review_status": "发布条件待澄清",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "diagnosis",
+        "testing",
+        "treatment"
+      ],
+      "languages": [
+        "en"
+      ],
+      "reviewed_repository_revision": "5f1db162d0d2b03d62da2d4fe086076a36105e18"
+    },
+    {
+      "id": "medhallu",
+      "name": "MedHallu",
+      "url": "https://github.com/MedHallu/MedHallu",
+      "distribution": "reference_only",
+      "data_license": "MIT（项目）；PubMedQA 等上游材料需核验",
+      "authenticity": "论文问答上自动构造的正确/幻觉答案；不是真实临床错误。",
+      "gold_provenance": "二分类适配可能可行，但生成标签不等于逐条医生审核。",
+      "reason": "官方代码与论文已定位；完整数据下载及上游摘要许可待核验，只考虑错误判别，不收生成任务。",
+      "evidence_url": "https://github.com/MedHallu/MedHallu",
+      "review_status": "数据与标签质量待核验",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "quality"
+      ],
+      "languages": [
+        "en"
+      ],
+      "reviewed_repository_revision": "3c49c8ba80e47720333e508821967167ba048d49"
+    },
+    {
+      "id": "medethiceval",
+      "name": "MedEthicEval",
+      "url": "https://github.com/X-LANCE/MedEthicEval",
+      "distribution": "reference_only",
+      "data_license": "公开仓库未见明确数据许可证",
+      "authenticity": "中文医疗伦理知识、违规场景与伦理两难。",
+      "gold_provenance": "违规识别可作分类；平衡两难不应强行产生唯一答案。",
+      "reason": "需明确数据再分发许可和违规类别答案，只考虑有明确标签的违规识别；不收开放伦理解释。",
+      "evidence_url": "https://github.com/X-LANCE/MedEthicEval",
+      "review_status": "数据许可待明确",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "quality"
+      ],
+      "languages": [
+        "zh"
+      ]
+    },
+    {
+      "id": "rd_triage",
+      "name": "RD-Triage",
+      "url": "https://github.com/zhelishisongjie/RD-Triage",
+      "distribution": "reference_only",
+      "data_license": "MIT（仓库）；RareBench 等上游条款待核验",
+      "authenticity": "罕见病病例报告/表型改编的初诊科室分流。",
+      "gold_provenance": "629 条、固定 30 科室；部分题有多个可接受科室，不能只保留其中一个。",
+      "reason": "优先核对上游来源许可与 PMID、单标签数量和诊断泄露；论文尚在审稿，适用范围为罕见病。",
+      "evidence_url": "https://github.com/zhelishisongjie/RD-Triage",
+      "review_status": "优先核验分诊候选",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "intake"
+      ],
+      "languages": [
+        "und"
+      ]
+    },
+    {
+      "id": "clinicalmc",
+      "name": "ClinicalMC / ClinicalMPD",
+      "url": "https://github.com/hzyuezh/ClinicalMPD",
+      "distribution": "reference_only",
+      "data_license": "仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验",
+      "authenticity": "发布论文称 1,275 中文、5,804 英文多病程样本。",
+      "gold_provenance": "科室分流可作有限选择；检查、诊断、治疗等多为开放生成和评判。",
+      "reason": "只研究可封闭计分的子任务，需核验发布数据、许可及逐时点信息边界，不能把完整住院信息泄漏给早期决策。",
+      "evidence_url": "https://arxiv.org/abs/2606.03157",
+      "review_status": "工作流候选待核验",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "intake",
+        "testing",
+        "diagnosis",
+        "treatment",
+        "inpatient",
+        "followup"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ]
+    },
+    {
+      "id": "care_mi",
+      "name": "CARE-MI",
+      "url": "https://github.com/Meetyou-AI-Lab/CARE-MI",
+      "distribution": "reference_only",
+      "data_license": "Apache-2.0（代码）；完整数据及上游许可待核验",
+      "authenticity": "母婴领域知识与题库衍生，包含自动生成的真假陈述。",
+      "gold_provenance": "论文有专家审核与真假题，但主要评价长回答；README 仍称完整集后续发布。",
+      "reason": "仅研究真假判别子集及人工标签；代码样例不足以认定完整可用，不收自由生成部分。",
+      "evidence_url": "https://github.com/Meetyou-AI-Lab/CARE-MI",
+      "review_status": "完整数据及许可待核验",
+      "checked_on": "2026-10-10",
+      "scenario_ids": [
+        "quality"
+      ],
+      "languages": [
+        "zh"
+      ]
     }
   ]
 }

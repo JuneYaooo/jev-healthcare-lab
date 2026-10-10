@@ -82,6 +82,14 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Unsafe"):
                 release.checked_path(self.root, name)
 
+    def test_cmb_trace_includes_separate_official_answer_resource(self):
+        rows = [json.loads(line) for line in self.files["samples.jsonl"].splitlines()]
+        row = next(r for r in rows if r["provenance"]["source_id"] == "cmb")
+        traced = release.trace(self.root, row["id"])
+        self.assertEqual({r["name"] for r in traced["resources"]},
+                         {"cmb__CMB.zip", "cmb__CMB-test-choice-answer.json"})
+        self.assertIn("answer_json_index", traced["provenance"]["locator"])
+
     def test_source_fetch_rejects_wrong_upstream_bytes(self):
         uid = json.loads(self.files["provenance.jsonl"].splitlines()[0])["id"]
         with patch.object(release.urllib.request, "urlopen") as fetch:

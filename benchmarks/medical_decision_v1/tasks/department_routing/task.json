@@ -12,7 +12,9 @@
   "target_count": 100,
   "source_ids": [],
   "candidate_source_ids": [
-    "medjourney"
+    "medjourney",
+    "rd_triage",
+    "clinicalmc"
   ],
   "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。",
   "count": 0,
