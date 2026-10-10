@@ -1,12 +1,14 @@
 {
   "id": "experiencer",
-  "dimension": "facts",
   "title": "事实主体归属",
-  "definition": "判断症状或事件属于患者、家属还是其他人。",
+  "definition": "给定试验文本及主体片段，选择原标注角色：患者、家属或其他人。只评价文本角色。",
+  "dimension": "facts",
   "decision_mode": "material",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "未找到同时满足公开分发与原始主体金标的已核验来源。",
+  "source_ids": [
+    "ct_ebm_sp"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "n2c2"
   ],
@@ -15,20 +17,28 @@
     "facts"
   ],
   "decision_stage": "material_judgment",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 1507,
+    "unique_consistent_pool": 1507,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 1507,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "Patient": 48,
+    "Other": 40,
+    "Family_member": 12
+  },
+  "language_counts": {
+    "es": 100
+  },
+  "source_counts": {
+    "ct_ebm_sp": 100
+  },
   "historical_material_matches": 0
 }

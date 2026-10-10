@@ -1,12 +1,15 @@
 {
   "id": "clinical_grade",
+  "title": "临床分级与分期选择",
+  "definition": "根据病例从原选项中选择疾病分期、严重程度分度或功能分级。",
   "dimension": "rules",
-  "title": "临床语义分级",
-  "definition": "根据病例和指定分级体系选择等级。",
-  "decision_mode": "knowledge",
+  "decision_mode": "clinical",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "CMedCalc 数据许可待明确。",
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "cmedcalc"
   ],
@@ -15,20 +18,36 @@
     "rules"
   ],
   "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 99,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 103,
+    "unique_consistent_pool": 103,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 103,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "C": 23,
+    "opc": 5,
+    "D": 23,
+    "B": 11,
+    "opd": 9,
+    "E": 8,
+    "opb": 6,
+    "opa": 5,
+    "A": 5,
+    "ope": 5
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "cmb": 70,
+    "cnmleqa": 30
+  },
   "historical_material_matches": 0
 }

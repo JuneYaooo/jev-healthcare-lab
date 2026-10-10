@@ -1,0 +1,48 @@
+{
+  "id": "fluid_plan",
+  "title": "补液方案选择",
+  "definition": "根据病例从原选项中选择补液量、溶液或补液方案。",
+  "dimension": "rules",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "rules"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 16,
+  "groups": 15,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 16,
+    "unique_consistent_pool": 16,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 16,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "A": 1,
+    "E": 6,
+    "opb": 1,
+    "opd": 3,
+    "D": 2,
+    "opc": 1,
+    "opa": 2
+  },
+  "language_counts": {
+    "zh": 16
+  },
+  "source_counts": {
+    "cmb": 9,
+    "cnmleqa": 7
+  },
+  "historical_material_matches": 0
+}

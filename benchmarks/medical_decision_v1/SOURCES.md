@@ -308,20 +308,6 @@
 
 答案依据：基于挑战定义的 SepsisLabel；官方隐藏测试不能假称已取得。
 
-## UCI Diabetes 130-US Hospitals
-
-来源：[发布方](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008)。
-
-状态：仅引用，未收录题目。按 patient_nbr 隔离；排除不适用出院情况；仅使用出院时已知特征，报告人群和年代限制。
-
-核验日期：2026-10-10；结论：需预测协议。
-
-[发布证据](https://doi.org/10.24432/C5230J)；许可：CC-BY-4.0。
-
-材料性质：1999—2008 年美国医院糖尿病住院结构化记录。
-
-答案依据：readmitted 表示实际再入院结果，不是最优随访行动标签。
-
 ## CLIP 出院行动标注
 
 来源：[发布方](https://physionet.org/content/mimic-iii-clinical-action/1.0.0/)。
@@ -402,7 +388,7 @@
 
 材料性质：中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。
 
-答案依据：固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。
+答案依据：固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。 v0.4.0 新任务另使用官方验证和训练文件；上游训练划分明确标记为本地评测保留子集，不冒称官方测试。
 
 许可与来源快照：[LICENSE](sources/cmb/LICENSE)、[README.md](sources/cmb/README.md)、[HF_DATA_CARD.md](sources/cmb/HF_DATA_CARD.md)。
 
@@ -416,7 +402,7 @@
 
 材料性质：中文执业医师考试整编病例题；上游有案例/知识题型标注，不是真实就诊结果。
 
-答案依据：只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。
+答案依据：只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。 v0.4.0 增加病例分期、病因、并发症、禁忌、护理和补液相关单选子集；沿用原答案，不把生成任务转换为自造金标。
 
 许可与来源快照：[zenodo-metadata.json](sources/cnmleqa/zenodo-metadata.json)、[README.md](sources/cnmleqa/README.md)。
 
@@ -573,3 +559,117 @@
 材料性质：母婴领域知识与题库衍生，包含自动生成的真假陈述。
 
 答案依据：论文有专家审核与真假题，但主要评价长回答；README 仍称完整集后续发布。
+
+## CT-EBM-SP v3
+
+来源：[发布方](https://github.com/lcampillos/ct-ebm-sp-v3)。
+
+引用：Campillos-Llanos et al.; CSIC，[论文/项目](https://github.com/lcampillos/ct-ebm-sp-v3)。
+
+数据许可：[CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)；分发类别：`research_noncommercial`。
+
+材料性质：西班牙语试验注册文本与期刊摘要；不是患者就诊记录。
+
+答案依据：使用 brat/test 原始人工属性和关系；频次与剂型关联另外使用 brat/dev，逐题保留划分。实体片段或关联目标有限选择；不导出 UMLS 术语库，不构造未标注负例。
+
+许可与来源快照：[README.md](sources/ct_ebm_sp/README.md)、[LICENSE](sources/ct_ebm_sp/LICENSE)、[annotation.conf](sources/ct_ebm_sp/annotation.conf)。
+
+## E3C English Layer 1
+
+来源：[发布方](https://github.com/hltfbk/E3C-Corpus)。
+
+引用：Magnini et al.; Fondazione Bruno Kessler，[论文/项目](https://e3c.fbk.eu/home)。
+
+数据许可：[CC-BY-NC (publisher does not specify version)](https://github.com/hltfbk/E3C-Corpus/blob/8196181eacd5d65828d324dcc63970c503aff5e9/README.md)；分发类别：`research_noncommercial`。
+
+材料性质：公开病例报道；Layer 1 人工事件与时间标注。保留各文献原作者、DOI、原文许可。
+
+答案依据：仅官方英文测试文档；原 docTimeRel、permanence、TIMEX3 类型及 timexLink 唯一目标机械适配，不使用自动标注层。
+
+许可与来源快照：[README.md](sources/e3c/README.md)、[train_test_split.txt](sources/e3c/train_test_split.txt)。
+
+## CARE-Bench
+
+来源：[发布方](https://github.com/ningkko/CARE-bench)。
+
+引用：CARE-Bench authors / ningkko，[论文/项目](https://arxiv.org/abs/2608.03731)。
+
+数据许可：[CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/)；分发类别：`research_noncommercial`。
+
+材料性质：来源约束的重构咨询轨迹；GPT-5.5 辅助构建后人工审核（发布方说明），不是原始真实分诊记录。
+
+答案依据：只用 public_test_1 的四类 gold_label；只给当前已披露患者消息，不给后续轮次、参考回复、信息充分性和构造标签。
+
+许可与来源快照：[README.md](sources/care_bench/README.md)。
+
+## Diabetes 130-US Hospitals for Years 1999-2008
+
+来源：[发布方](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008)。
+
+引用：John Clore, Krzysztof Cios, Jon DeShazo, Beata Strack，[论文/项目](https://doi.org/10.24432/C5230J)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：The dataset represents ten years (1999-2008) of clinical care at 130 US hospitals and integrated delivery networks. Each row concerns hospital records of patients diagnosed with diabetes, who underwent laboratory, medications, and stayed up to 14 days. The goal is to determine the early readmission of the patient within 30 days of discharge.
+The problem is important for the following reasons. Despite high-quality evidence showing improved clinical outcomes for diabetic patients who receive various preventive and therapeutic interventions, many patients do not receive them. This can be partially attributed to arbitrary diabetes management in hospital environments, which fail to attend to glycemic control. Failure to provide proper diabetes care not only increases the managing costs for the hospitals (as the patients are readmitted) but also impacts the morbidity and mortality of the patients, who may face complications associated with diabetes.
+
+
+答案依据：按患者取首个合格住院；出院去向只保留回家 (1)；readmitted <30 为阳性，其他为未观察到 30 日内再入院。输入移除患者 ID、住院 ID 和再入院标签。
+
+许可与来源快照：[metadata.json](sources/uci_diabetes/metadata.json)、[source-page.html](sources/uci_diabetes/source-page.html)。
+
+## Post-Operative Patient
+
+来源：[发布方](https://archive.ics.uci.edu/dataset/82/post+operative+patient)。
+
+引用：Sharon Summers, Linda Woolery，[论文/项目](https://doi.org/10.24432/C5DG6Q)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：Dataset of patient features
+
+答案依据：ADM-DECS 原术后去向标签；相同输入冲突全部排除，无患者 ID，不冒称患者独立。
+
+许可与来源快照：[metadata.json](sources/uci_postoperative/metadata.json)、[source-page.html](sources/uci_postoperative/source-page.html)。
+
+## Heart Failure Clinical Records
+
+来源：[发布方](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records)。
+
+引用：Ahmad et al.; Chicco and Jurman; UCI，[论文/项目](https://doi.org/10.24432/C5Z89R)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：This dataset contains the medical records of 299 patients who had heart failure, collected during their follow-up period, where each patient profile has 13 clinical features.
+
+答案依据：90 日死亡：time<=90 且 DEATH_EVENT=1 为阳性；time>=90 且无此前死亡为阴性；90 日前删失排除。time 与死亡标签不输入。
+
+许可与来源快照：[metadata.json](sources/uci_heart_failure/metadata.json)、[source-page.html](sources/uci_heart_failure/source-page.html)。
+
+## Maternal Health Risk
+
+来源：[发布方](https://archive.ics.uci.edu/dataset/863/maternal+health+risk)。
+
+引用：Marzia Ahmed，[论文/项目](https://doi.org/10.24432/C5DP5D)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：Data has been collected from different hospitals, community clinics, maternal health cares from the rural areas of Bangladesh through the IoT based risk monitoring system.
+
+答案依据：沿用原 RiskLevel，不能当成独立结局随访；完全相同特征冲突全部排除，无患者 ID。
+
+许可与来源快照：[metadata.json](sources/uci_maternal/metadata.json)、[source-page.html](sources/uci_maternal/source-page.html)。
+
+## MTCMB
+
+来源：[发布方](https://github.com/Wayyuanyuan/MTCMB)。
+
+状态：仅引用，未收录题目。主体包含病历/处方/解释生成和实体抽取；不把这些任务计入决策任务数。考试选择题与已有任务同型；病例来源和原始分发条款待进一步核对。
+
+核验日期：2026-10-10；结论：scope_and_upstream_terms_pending。
+
+[发布证据](https://github.com/Wayyuanyuan/MTCMB/blob/faffd813c67fe012cef74277a23270d5dd6db9b8/ReadMe_cn.md)；许可：CC-BY-4.0（发布方 Zenodo 数据声明）；各上游来源仍需核对。
+
+材料性质：教材、医考题库、古籍、专家医案及 CCL/Tianchi 衍生；不能统称自然发生的临床记录。
+
+答案依据：部分为选择题、部分为自由文本或多字段答案；未转换为本次评测题。

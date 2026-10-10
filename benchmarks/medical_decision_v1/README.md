@@ -1,10 +1,10 @@
-# Jev 医疗决策评测集 v0.3.0
+# Jev 医疗决策评测集 v0.4.0
 
 给定医疗材料、规则或候选项，评估可明确计分的分类、状态、关系、证据和方案选择。每题只有一个决策输出，使用 Jev `choice` 请求格式；不要求生成病历、建议或解释。
 
-**8 个医疗场景 · 50 个任务定义 · 22 个任务各 100 题 · 0 个不足 100 题 · 28 个留空 · 共 2,200 题。**
+**8 个医疗场景 · 73 个任务定义 · 46 个任务各 100 题 · 6 个不足 100 题 · 21 个留空 · 共 4,938 题。**
 
-开放许可核心部分 2,000 题；非商业研究附加部分 200 题。当前 7 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 1,500 题、es 100 题、zh 600 题。
+开放许可核心部分 3,395 题；非商业研究附加部分 1,543 题。当前 8 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 2,968 题、es 958 题、zh 1,012 题。
 
 [全部题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl) · [来源与许可](SOURCES.md) · [场景任务定义](taxonomy.json) · [按场景寻找数据](SCENARIO_RESEARCH.md) · [构建统计](summary.json)
 
@@ -16,14 +16,14 @@
 
 | 场景 | 有题任务 / 定义任务 | 题数 |
 | --- | ---: | ---: |
-| 接诊与分诊 | 1 / 6 | 100 |
-| 检查与检验 | 2 / 8 | 200 |
-| 诊断与鉴别 | 5 / 8 | 500 |
-| 治疗与用药 | 4 / 8 | 400 |
-| 住院与护理 | 1 / 5 | 100 |
-| 出院与随访 | 0 / 3 | 0 |
-| 临床试验筛选 | 5 / 5 | 500 |
-| 病历与医疗质量控制 | 4 / 7 | 400 |
+| 接诊与分诊 | 4 / 7 | 400 |
+| 检查与检验 | 3 / 8 | 300 |
+| 诊断与鉴别 | 12 / 13 | 1200 |
+| 治疗与用药 | 9 / 12 | 728 |
+| 住院与护理 | 6 / 10 | 510 |
+| 出院与随访 | 2 / 4 | 200 |
+| 临床试验筛选 | 8 / 8 | 800 |
+| 病历与医疗质量控制 | 8 / 11 | 800 |
 
 ## 任务目录
 
@@ -35,12 +35,13 @@
 
 | 任务 | 题数 / 来源组 | 来源 | 状态与边界 |
 | --- | ---: | --- | --- |
-| [事实主体归属](tasks/experiencer/task.json) | 0 / 0 | [n2c2/i2b2](https://n2c2.dbmi.hms.harvard.edu/data-sets) | 未找到同时满足公开分发与原始主体金标的已核验来源。 |
+| [事实主体归属](tasks/experiencer/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及主体片段，选择原标注角色：患者、家属或其他人。只评价文本角色。 |
 | [医疗问题意图](tasks/query_intent/task.json) | 100 / 100 | [MedQuAD](https://github.com/abachaa/MedQuAD) | 给定医疗问题，判断其信息需求类别。 |
 | [决策资料充分性](tasks/input_sufficiency/task.json) | 0 / 0 | [CMedCalc-Bench](https://github.com/Zhihong-Zhu/CMedCalc-Bench) | CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。 |
-| [分诊紧急程度](tasks/triage_urgency/task.json) | 0 / 0 | [TRIAGE](https://github.com/NLie2/Triage)、[MIMIC-IV-ED](https://physionet.org/content/mimic-iv-ed/2.2/)、[TriageBench（Wong，一致性探针）](https://github.com/wongqihan/triagebench) | TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。 |
+| [当前分诊与升级行动](tasks/triage_urgency/task.json) | 100 / 62 | [CARE-Bench](https://github.com/ningkko/CARE-bench) | 仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。 |
 | [候选科室分流](tasks/department_routing/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[RD-Triage](https://github.com/zhelishisongjie/RD-Triage)、[ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD) | 已有候选来源缺明确数据许可，科室分流金标亦需核对。 |
 | [患者消息紧急性比较](tasks/message_urgency_pair/task.json) | 0 / 0 | [PMR-Bench Reddit Test Pairs](https://arxiv.org/abs/2601.13178) | 已找到官方测试对与非商业许可；尚需核验消息复用、标注方案及配对抽样。 |
+| [孕产风险等级识别](tasks/maternal_risk/task.json) | 100 / 100 | [Maternal Health Risk](https://archive.ics.uci.edu/dataset/863/maternal+health+risk) | 根据孕产记录的年龄与生命体征，选择发布数据标注的低、中、高风险；不等同经过验证的母婴结局预测。 |
 
 ### 检查与检验
 
@@ -52,7 +53,7 @@
 | [标本身份与来源链](tasks/specimen_lineage/task.json) | 0 / 0 | 待补 | FHIR 是标准参考，不能代替有答案的数据集。 |
 | [数值与单位等价](tasks/unit_equivalence/task.json) | 0 / 0 | 待补 | 现有独立金标均为自编题，暂不填充。 |
 | [参考区间适用性](tasks/reference_range/task.json) | 0 / 0 | 待补 | 尚无已核验的开放题目与金标。 |
-| [检验结果趋势](tasks/result_trend/task.json) | 0 / 0 | 待补 | 不能将带时序数值的开放材料直接当作有审核金标的测试题。 |
+| [临床事件变化趋势](tasks/result_trend/task.json) | 100 / 71 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例及事件片段，选择原 TREND 标注的增加、减少或改变；只判断原文描述，不预测未来。 |
 | [危急结果与人工升级](tasks/critical_result_escalation/task.json) | 0 / 0 | 待补 | 未找到具有机构阈值版本与审核标签的开放来源。 |
 | [报告阶段与效力](tasks/report_stage/task.json) | 0 / 0 | 待补 | 标准字段不代替独立真实材料与标签。 |
 | [检查方案选择](tasks/examination_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从给定候选中选择检查。 |
@@ -64,13 +65,18 @@
 | 任务 | 题数 / 来源组 | 来源 | 状态与边界 |
 | --- | ---: | --- | --- |
 | [否定与不确定状态](tasks/assertion_scope/task.json) | 100 / 100 | [NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus) | 给定临床句子与标注目标，区分否定和不确定；本任务不覆盖肯定类。 |
-| [事实时间属性](tasks/temporality/task.json) | 0 / 0 | [THYME](https://github.com/stylerw/thymedata) | 现有自编题不纳入；THYME 临床原文需访问协议。 |
+| [事件与文档时间关系](tasks/temporality/task.json) | 100 / 48 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例原文、文档时间和事件片段，选择原 E3C docTimeRel 时间关系。 |
 | [诊断核实状态](tasks/diagnosis_verification/task.json) | 0 / 0 | 待补 | 尚无核验完成的开放独立金标。 |
 | [有界临床量表评分](tasks/bounded_score/task.json) | 100 / 100 | [MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench) | 根据病例选择 GCS、CURB-65、SIRS、CHA2DS2-VASc 或 FeverPAIN 的数值。 |
-| [临床语义分级](tasks/clinical_grade/task.json) | 0 / 0 | [CMedCalc-Bench](https://github.com/Zhihong-Zhu/CMedCalc-Bench) | CMedCalc 数据许可待明确。 |
+| [临床分级与分期选择](tasks/clinical_grade/task.json) | 100 / 99 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从原选项中选择疾病分期、严重程度分度或功能分级。 |
 | [模拟病例主诊断选择](tasks/synthetic_diagnosis/task.json) | 100 / 100 | [DDXPlus](https://doi.org/10.6084/m9.figshare.20043374) | 给定 DDXPlus 观察到的症状与背景，从完整病种表选择模拟主诊断。 |
 | [临床病例候选诊断](tasks/diagnosis_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 从给定诊断候选中选择最符合病例者。 |
 | [中医证型选择](tasks/tcm_syndrome/task.json) | 100 / 100 | [TCM-SD](https://github.com/borororo/zy-bert) | 根据主诉、病情和检查选择原始标准证型。 |
+| [临床事件先后关系](tasks/event_temporal_order/task.json) | 100 / 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例和两个事件，选择第一个相对第二个的原始先于、晚于或重叠关系。 |
+| [临床事件与解剖部位关联](tasks/anatomical_site_link/task.json) | 100 / 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例和临床事件，从原文解剖部位候选中选择原 MODIFY 关系唯一关联的部位。 |
+| [严重程度与临床事件关联](tasks/severity_link/task.json) | 100 / 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例和严重程度片段，从原文事件候选中选择其唯一修饰的事件。 |
+| [事件与时间表达关联](tasks/event_date_link/task.json) | 100 / 47 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例和时间表达，从原文事件候选中选择原时间关联标注的唯一目标；若提供关系类型，按该方向解释。 |
+| [病例病因与原因判断](tasks/case_etiology/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从原选项中选择导致所述疾病、症状或事件的最可能原因。 |
 
 ### 治疗与用药
 
@@ -81,11 +87,15 @@
 | [用药状态与变更](tasks/medication_status/task.json) | 0 / 0 | [n2c2/i2b2](https://n2c2.dbmi.hms.harvard.edu/data-sets) | 未找到可直接公开分发的临床用药状态金标。 |
 | [药物相互作用关系](tasks/drug_interaction/task.json) | 100 / 100 | [DDI Corpus 2013](https://github.com/isegura/DDICorpus) | 给定药物对，判断无关系或原文标注的相互作用类型。 |
 | [药物与剂量关联](tasks/dose_link/task.json) | 100 / 95 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例全文和剂量片段，从候选药物中选择原始标注关联的药物；不评价剂量是否适宜，也不覆盖频次和途径。 |
-| [患者特异性禁忌](tasks/patient_contraindication/task.json) | 0 / 0 | [openFDA drug labels](https://open.fda.gov/apis/drug/label/) | 说明书是材料来源，尚无配套患者及审核金标。 |
+| [患者特异性禁忌选择](tasks/patient_contraindication/task.json) | 54 / 53 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 | [剂量适宜性](tasks/dose_appropriateness/task.json) | 0 / 0 | 待补 | 未找到已核验、可分发的患者特异性剂量适宜性金标。 |
 | [治疗方案选择](tasks/treatment_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从给定候选中选择治疗。 |
 | [用药方案选择](tasks/medication_choice/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从给定候选中选择用药。 |
 | [治疗相关不良事件预测](tasks/adverse_event_prediction/task.json) | 0 / 0 | [CT-ADE-SOC / CT-ADE-PT](https://github.com/ds4dh/CT-ADE) | 已找到发布方数据；需核验版本与术语许可，并固定试验组划分。群体结局不能直接解释为个体禁忌。 |
+| [给药途径关联](tasks/route_link/task.json) | 100 / 74 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本和给药途径片段，从原文药物或操作候选中选择原关系唯一关联的目标。 |
+| [用药或操作频次关联](tasks/frequency_link/task.json) | 81 / 55 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [药物剂型关联](tasks/drug_form_link/task.json) | 77 / 39 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [补液方案选择](tasks/fluid_plan/task.json) | 16 / 15 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 住院与护理
 
@@ -98,6 +108,11 @@
 | [医疗操作进度](tasks/procedure_progress/task.json) | 0 / 0 | 待补 | 现有训练题为自编，未核验外部测试来源。 |
 | [单次给药执行状态](tasks/administration_status/task.json) | 0 / 0 | 待补 | 未取得可分发的执行记录及金标。 |
 | [脓毒症提前预警](tasks/deterioration_prediction/task.json) | 0 / 0 | [PhysioNet Challenge 2019](https://physionet.org/content/challenge-2019/1.0.0/) | 开放数据已核验；预测窗口、患者划分及类别先验尚未固定，不直接将整段住院结果转成题目。 |
+| [术后转归去向选择](tasks/postoperative_disposition/task.json) | 68 / 68 | [Post-Operative Patient](https://archive.ics.uci.edu/dataset/82/post+operative+patient) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [子操作与所属操作关联](tasks/procedure_component_link/task.json) | 100 / 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例和子操作片段，从原文操作候选中选择原 SUB_PROCEDURE 唯一关联的所属操作。 |
+| [临床事件持续性](tasks/event_permanence/task.json) | 100 / 48 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。 |
+| [病例并发症判断](tasks/case_complication/task.json) | 100 / 96 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从原选项中选择最可能的并发症；不是主诊断任务。 |
+| [护理措施选择](tasks/nursing_priority/task.json) | 42 / 42 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 出院与随访
 
@@ -106,8 +121,9 @@
 | 任务 | 题数 / 来源组 | 来源 | 状态与边界 |
 | --- | ---: | --- | --- |
 | [随访行动与完成状态](tasks/followup_action/task.json) | 0 / 0 | 待补 | 现有评测为自编题，暂留空。 |
-| [出院后 30 天内再入院预测](tasks/readmission_30d/task.json) | 0 / 0 | [UCI Diabetes 130-US Hospitals](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) | 开放结局数据已核验；需按患者划分，排除死亡等不适用出院并固定特征和基线。 |
+| [出院后 30 天内再入院预测](tasks/readmission_30d/task.json) | 100 / 100 | [Diabetes 130-US Hospitals for Years 1999-2008](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) | 根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。 |
 | [出院待办行动类别](tasks/followup_item_type/task.json) | 0 / 0 | [CLIP 出院行动标注](https://physionet.org/content/mimic-iii-clinical-action/1.0.0/) | CLIP 有医生标注，但原文受 PhysioNet 凭证与协议限制，不打包进开放主集。 |
+| [90 日死亡结局预测](tasks/mortality_90d/task.json) | 100 / 100 | [Heart Failure Clinical Records](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records) | 根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。 |
 
 ### 临床试验筛选
 
@@ -120,6 +136,9 @@
 | [入排条件限定关系](tasks/criterion_relation/task.json) | 100 / 100 | [Chia](https://doi.org/10.6084/m9.figshare.11855817) | 给定已标注关联的两个要素，判断数值、时间、限定等关系类型。 |
 | [入排条件与或关系](tasks/criterion_boolean/task.json) | 100 / 100 | [Chia](https://doi.org/10.6084/m9.figshare.11855817) | 给定条件中的两个标注要素，判断原文要求 AND 还是 OR。 |
 | [条件上界与下界](tasks/criterion_bound/task.json) | 100 / 100 | [Clinical Trial Parser annotated test data](https://github.com/facebookresearch/Clinical-Trial-Parser) | 给定条件与数值限制片段，判断该限制是上界还是下界。 |
+| [病程与疗程时长关联](tasks/duration_link/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本和持续时长片段，从原文候选中选择原 Has_Duration_or_Interval 唯一关联的临床对象。 |
+| [联合干预对象关联](tasks/combination_link/task.json) | 100 / 61 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本和干预片段，从原文候选中选择原 Combined_with 唯一关联的联合对象。 |
+| [干预用途关联](tasks/indication_link/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及干预片段，从原文候选中选择原 Used_for 唯一关联的用途；不评价个体适宜性。 |
 
 ### 病历与医疗质量控制
 
@@ -134,6 +153,10 @@
 | [研究论断证据关系](tasks/claim_support/task.json) | 100 / 100 | [SciFact](https://github.com/allenai/scifact) | 给定论断与被引摘要，判断支持、反驳或证据不足。 |
 | [医疗材料隐私候选](tasks/privacy_candidate/task.json) | 0 / 0 | [n2c2/i2b2](https://n2c2.dbmi.hms.harvard.edu/data-sets) | 现有自编题不进入；临床脱敏语料多需协议。 |
 | [病历论断支持关系](tasks/clinical_statement_support/task.json) | 0 / 0 | [MedNLI](https://physionet.org/content/mednli/1.0.0/) | MedNLI 有临床医生标注，但材料来自受控 MIMIC-III，需访问协议。 |
+| [同一临床事件指代关联](tasks/event_coreference/task.json) | 100 / 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例中的目标事件，从原文事件候选中选择原 IDENTICAL 标注唯一关联的同一事件提及。 |
+| [文本因果结果关联](tasks/cause_effect_link/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及原因片段，从原文候选中选择原 Causes 唯一关联的结果；不推断未标注因果，也不认定患者级药物因果。 |
+| [否定或推测线索作用对象](tasks/assertion_cue_target/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及否定或推测线索，从原文候选中选择原 Negation/Speculation 唯一关联的对象。 |
+| [临床时间表达类别](tasks/clinical_time_type/task.json) | 100 / 41 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。 |
 
 ## 版本、抽样和答案
 
@@ -148,6 +171,12 @@ v0.2.0 新增 MACCROBAT 的检查数值关联、药物剂量关联；检查题�
 v0.3.0 从 CMB-Exam 和 CNMLEQA-10k 补入中文病例的诊断、检查、治疗、用药四类选择题，原有 1,800 题的 ID、请求与答案保持不变，见 [v0.2.0 身份索引](history/v0.2.0_sample_identity.json)。按病例特征和问题意图规则筛选，排除纯知识题、缺图题、反向提问及不符合任务定义的题；保留原选项与金标，不生成新答案。CMB 原题与独立答案按 ID 连接，原 C 型及多选题不纳入。CNMLEQA 没有官方测试划分，使用发布语料的固定自留子集。
 
 两套中文题库按标准化题干与完整选项集合去重，答案文本冲突时全部排除；来源组由去标点后题干前 60 字的指纹近似确定，可能合并相似病例，也不能排除所有改写重复。题目中的旧术语或原始拼写按原文保留。中文新增题经过程序化适配与抽查，未独立复核其临床金标。[本轮新增来源核验](../../docs/DATASET_EXPANSION.md) 记录其他中文及英文候选。
+
+v0.4.0 增加 E3C、CT-EBM-SP、CARE-Bench 及 UCI 结构化来源，并扩展原 MACCROBAT 和中文病例题。每任务目标 100 题；不足部分保留实际数量，不填充。E3C/CT-EBM-SP 为材料属性或关系判断，CARE-Bench 为来源约束的重构分诊任务，UCI 结局预测与行动标签分别报告，不能将它们全部解释为诊疗方案能力。
+
+新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。
+
+[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。
 
 ## 训练隔离与历史使用
 

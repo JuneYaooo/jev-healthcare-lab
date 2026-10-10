@@ -1,12 +1,14 @@
 {
   "id": "triage_urgency",
+  "title": "当前分诊与升级行动",
+  "definition": "仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。",
   "dimension": "risk",
-  "title": "分诊紧急程度",
-  "definition": "根据症状和指定分诊规则选择紧急等级。",
-  "decision_mode": "rule",
+  "decision_mode": "clinical",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。",
+  "source_ids": [
+    "care_bench"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "triage",
     "mimic_iv_ed",
@@ -14,25 +16,32 @@
   ],
   "primary_scenario": "intake",
   "ability_tags": [
-    "risk",
-    "rules",
-    "evidence"
+    "risk"
   ],
-  "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "decision_stage": "clinical_action",
+  "count": 100,
+  "groups": 62,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 135,
+    "unique_consistent_pool": 135,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 135,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "1A_ESCALATION_NONURGENT_CARE": 30,
+    "1B_ESCALATION_URGENT_CARE": 20,
+    "0A_NO_ESCALATION_INFO_NEEDED": 30,
+    "0B_NO_ESCALATION_SELF_CARE_MONITOR": 20
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "care_bench": 100
+  },
   "historical_material_matches": 0
 }

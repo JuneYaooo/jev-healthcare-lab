@@ -1,0 +1,44 @@
+{
+  "id": "clinical_time_type",
+  "title": "临床时间表达类别",
+  "definition": "给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。",
+  "dimension": "classification",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "e3c"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "quality",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 41,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 203,
+    "unique_consistent_pool": 203,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 203,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "PREPOSTEXP": 21,
+    "DURATION": 35,
+    "QUANTIFIER": 5,
+    "DATE": 28,
+    "SET": 11
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "e3c": 100
+  },
+  "historical_material_matches": 0
+}

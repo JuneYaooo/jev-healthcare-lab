@@ -1,34 +1,43 @@
 {
   "id": "readmission_30d",
   "title": "出院后 30 天内再入院预测",
-  "primary_scenario": "followup",
+  "definition": "根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。",
   "dimension": "risk",
-  "ability_tags": [
-    "risk"
-  ],
   "decision_mode": "prediction",
-  "decision_stage": "outcome_prediction",
-  "definition": "只根据出院时可得信息，预测是否在 30 天内再次住院。",
   "target_count": 100,
-  "source_ids": [],
+  "source_ids": [
+    "uci_diabetes"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "uci_diabetes"
   ],
-  "missing_reason": "开放结局数据已核验；需按患者划分，排除死亡等不适用出院并固定特征和基线。",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "primary_scenario": "followup",
+  "ability_tags": [
+    "risk"
+  ],
+  "decision_stage": "outcome_prediction",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 46979,
+    "unique_consistent_pool": 46979,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 46979,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "yes": 7,
+    "no": 93
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "uci_diabetes": 100
+  },
   "historical_material_matches": 0
 }

@@ -1,0 +1,76 @@
+{
+  "id": "route_link",
+  "title": "给药途径关联",
+  "definition": "给定试验文本和给药途径片段，从原文药物或操作候选中选择原关系唯一关联的目标。",
+  "dimension": "relations",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "ct_ebm_sp"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "relations"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 74,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 179,
+    "unique_consistent_pool": 179,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 179,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "T1": 7,
+    "T6": 5,
+    "T44": 1,
+    "T25": 4,
+    "T29": 2,
+    "T18": 1,
+    "T32": 3,
+    "T9": 4,
+    "T21": 4,
+    "T7": 3,
+    "T23": 4,
+    "T5": 5,
+    "T27": 4,
+    "T15": 7,
+    "T14": 2,
+    "T8": 1,
+    "T4": 4,
+    "T2": 7,
+    "T34": 2,
+    "T36": 1,
+    "T30": 2,
+    "T26": 1,
+    "T16": 1,
+    "T10": 2,
+    "T3": 3,
+    "T11": 3,
+    "T12": 1,
+    "T13": 3,
+    "T35": 1,
+    "T56": 1,
+    "T17": 3,
+    "T19": 2,
+    "T48": 1,
+    "T22": 2,
+    "T28": 1,
+    "T37": 1,
+    "T20": 1
+  },
+  "language_counts": {
+    "es": 100
+  },
+  "source_counts": {
+    "ct_ebm_sp": 100
+  },
+  "historical_material_matches": 0
+}

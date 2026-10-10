@@ -1,0 +1,81 @@
+{
+  "id": "drug_form_link",
+  "title": "药物剂型关联",
+  "definition": "给定试验文本和剂型片段，从原文药物或干预候选中选择原 Has_Drug_Form 唯一关联的目标。",
+  "dimension": "relations",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "ct_ebm_sp"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "relations"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 77,
+  "groups": 39,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 80,
+    "unique_consistent_pool": 80,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 80,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "T9": 5,
+    "T1": 3,
+    "T17": 3,
+    "T24": 2,
+    "T49": 1,
+    "T57": 1,
+    "T8": 4,
+    "T15": 3,
+    "T44": 1,
+    "T4": 2,
+    "T20": 4,
+    "T50": 1,
+    "T35": 1,
+    "T37": 2,
+    "T21": 2,
+    "T38": 2,
+    "T7": 2,
+    "T12": 5,
+    "T13": 2,
+    "T14": 3,
+    "T10": 1,
+    "T23": 2,
+    "T3": 3,
+    "T41": 1,
+    "T30": 1,
+    "T2": 3,
+    "T6": 1,
+    "T19": 1,
+    "T27": 1,
+    "T45": 1,
+    "T85": 1,
+    "T31": 1,
+    "T29": 1,
+    "T54": 2,
+    "T43": 1,
+    "T28": 1,
+    "T42": 1,
+    "T47": 1,
+    "T22": 1,
+    "T11": 1,
+    "T33": 1,
+    "T36": 1
+  },
+  "language_counts": {
+    "es": 77
+  },
+  "source_counts": {
+    "ct_ebm_sp": 77
+  },
+  "historical_material_matches": 0
+}

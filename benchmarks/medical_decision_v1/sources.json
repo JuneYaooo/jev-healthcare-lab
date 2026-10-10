@@ -528,7 +528,8 @@
       "url": "https://github.com/lemuria-wchen/imcs21",
       "distribution": "reference_only",
       "reason": "未发现明确数据许可",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "medal",
@@ -536,7 +537,8 @@
       "url": "https://github.com/McGill-NLP/medal",
       "distribution": "reference_only",
       "reason": "旧用例只有演示数据，尚未构建独立公开测试子集",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "cmedcalc",
@@ -544,7 +546,8 @@
       "url": "https://github.com/Zhihong-Zhu/CMedCalc-Bench",
       "distribution": "reference_only",
       "reason": "公开仓库未见明确数据许可；原文与合成混合",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "medjourney",
@@ -552,7 +555,8 @@
       "url": "https://github.com/Medical-AI-Learning/MedJourney",
       "distribution": "reference_only",
       "reason": "未见明确数据许可；部分任务共用 CMB/CMExam 上游",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "cdrugred",
@@ -560,7 +564,8 @@
       "url": "https://arxiv.org/abs/2511.06230",
       "distribution": "reference_only",
       "reason": "下载入口与官方数据包许可链待核验",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "triage",
@@ -568,7 +573,8 @@
       "url": "https://github.com/NLie2/Triage",
       "distribution": "reference_only",
       "reason": "公开数据未见明确许可，87病例的提示变体不当作独立病例",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "thyme",
@@ -576,7 +582,8 @@
       "url": "https://github.com/stylerw/thymedata",
       "distribution": "reference_only",
       "reason": "标注公开不等于临床原文开放，原文需数据协议",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "n2c2",
@@ -584,7 +591,8 @@
       "url": "https://n2c2.dbmi.hms.harvard.edu/data-sets",
       "distribution": "reference_only",
       "reason": "需要相应数据使用协议，不纳入公开题目",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "openfda",
@@ -592,7 +600,8 @@
       "url": "https://open.fda.gov/apis/drug/label/",
       "distribution": "reference_only",
       "reason": "可作规则材料，尚无对应患者判断题与金标",
-      "checked_date": "2026-10-10"
+      "checked_date": "2026-10-10",
+      "resources": []
     },
     {
       "id": "medmcqa",
@@ -610,7 +619,8 @@
         "diagnosis",
         "testing",
         "treatment"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "pmr_bench",
@@ -626,7 +636,8 @@
       "checked_on": "2026-10-10",
       "scenario_ids": [
         "intake"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "triagebench_wong",
@@ -642,7 +653,8 @@
       "checked_on": "2026-10-10",
       "scenario_ids": [
         "intake"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "sepsis2019",
@@ -658,23 +670,8 @@
       "checked_on": "2026-10-10",
       "scenario_ids": [
         "inpatient"
-      ]
-    },
-    {
-      "id": "uci_diabetes",
-      "name": "UCI Diabetes 130-US Hospitals",
-      "url": "https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008",
-      "distribution": "reference_only",
-      "reason": "按 patient_nbr 隔离；排除不适用出院情况；仅使用出院时已知特征，报告人群和年代限制。",
-      "data_license": "CC-BY-4.0",
-      "authenticity": "1999—2008 年美国医院糖尿病住院结构化记录。",
-      "gold_provenance": "readmitted 表示实际再入院结果，不是最优随访行动标签。",
-      "evidence_url": "https://doi.org/10.24432/C5230J",
-      "review_status": "需预测协议",
-      "checked_on": "2026-10-10",
-      "scenario_ids": [
-        "followup"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "clip",
@@ -690,7 +687,8 @@
       "checked_on": "2026-10-10",
       "scenario_ids": [
         "followup"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "mimic_iv_ed",
@@ -707,7 +705,8 @@
       "scenario_ids": [
         "intake",
         "inpatient"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "mednli",
@@ -723,7 +722,8 @@
       "checked_on": "2026-10-10",
       "scenario_ids": [
         "quality"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "ct_ade",
@@ -739,7 +739,8 @@
       "checked_on": "2026-10-10",
       "scenario_ids": [
         "treatment"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "maccrobat",
@@ -760,7 +761,8 @@
         "testing",
         "treatment"
       ],
-      "checked_on": "2026-10-10"
+      "checked_on": "2026-10-10",
+      "resources": []
     },
     {
       "id": "cmb",
@@ -773,7 +775,7 @@
       "distribution": "open",
       "material_kind": "medical_examination_vignettes",
       "authenticity": "中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。",
-      "gold_provenance": "固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。",
+      "gold_provenance": "固定 GitHub 测试题与公开更正版答案按 id 连接，并核对考试类别、科目和题型；完整保留原选项及答案。任务归属按公开规则筛选，不新增临床金标。 v0.4.0 新任务另使用官方验证和训练文件；上游训练划分明确标记为本地评测保留子集，不冒称官方测试。",
       "license_evidence": [
         "sources/cmb/LICENSE",
         "sources/cmb/README.md",
@@ -809,7 +811,7 @@
       "distribution": "open",
       "material_kind": "medical_examination_vignettes",
       "authenticity": "中文执业医师考试整编病例题；上游有案例/知识题型标注，不是真实就诊结果。",
-      "gold_provenance": "只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。",
+      "gold_provenance": "只选原 question_type=案例分析的记录；沿用 opa—ope 和 answer，保留每题 source、年份与原始 UUID；没有官方训练/测试划分，不冒称官方测试。 v0.4.0 增加病例分期、病因、并发症、禁忌、护理和补液相关单选子集；沿用原答案，不把生成任务转换为自造金标。",
       "license_evidence": [
         "sources/cnmleqa/zenodo-metadata.json",
         "sources/cnmleqa/README.md"
@@ -850,7 +852,8 @@
       "languages": [
         "zh"
       ],
-      "reviewed_repository_revision": "fadb22c89beb1b7115dc36460ba792eb96b7b972"
+      "reviewed_repository_revision": "fadb22c89beb1b7115dc36460ba792eb96b7b972",
+      "resources": []
     },
     {
       "id": "cblue",
@@ -872,7 +875,8 @@
       "languages": [
         "zh"
       ],
-      "reviewed_repository_revision": "6a2c54f6a69265a33181c752a5350277149b8883"
+      "reviewed_repository_revision": "6a2c54f6a69265a33181c752a5350277149b8883",
+      "resources": []
     },
     {
       "id": "promptcblue",
@@ -894,7 +898,8 @@
       "languages": [
         "zh"
       ],
-      "reviewed_repository_revision": "b0753a61a7c1f4e1ae171109f8a59037ff0a5543"
+      "reviewed_repository_revision": "b0753a61a7c1f4e1ae171109f8a59037ff0a5543",
+      "resources": []
     },
     {
       "id": "mlec_qa",
@@ -916,7 +921,8 @@
       "languages": [
         "zh"
       ],
-      "reviewed_repository_revision": "69091283f713529b2684089df9ce3a4dba88049f"
+      "reviewed_repository_revision": "69091283f713529b2684089df9ce3a4dba88049f",
+      "resources": []
     },
     {
       "id": "rjua_meddqa",
@@ -937,7 +943,8 @@
       "languages": [
         "zh"
       ],
-      "reviewed_repository_revision": "80cfa742c5dfa1dd01aece5142fee366d376ac86"
+      "reviewed_repository_revision": "80cfa742c5dfa1dd01aece5142fee366d376ac86",
+      "resources": []
     },
     {
       "id": "medxpertqa",
@@ -959,7 +966,8 @@
       "languages": [
         "en"
       ],
-      "reviewed_repository_revision": "5f1db162d0d2b03d62da2d4fe086076a36105e18"
+      "reviewed_repository_revision": "5f1db162d0d2b03d62da2d4fe086076a36105e18",
+      "resources": []
     },
     {
       "id": "medhallu",
@@ -979,7 +987,8 @@
       "languages": [
         "en"
       ],
-      "reviewed_repository_revision": "3c49c8ba80e47720333e508821967167ba048d49"
+      "reviewed_repository_revision": "3c49c8ba80e47720333e508821967167ba048d49",
+      "resources": []
     },
     {
       "id": "medethiceval",
@@ -998,7 +1007,8 @@
       ],
       "languages": [
         "zh"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "rd_triage",
@@ -1017,7 +1027,8 @@
       ],
       "languages": [
         "und"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "clinicalmc",
@@ -1042,7 +1053,8 @@
       "languages": [
         "zh",
         "en"
-      ]
+      ],
+      "resources": []
     },
     {
       "id": "care_mi",
@@ -1061,7 +1073,270 @@
       ],
       "languages": [
         "zh"
+      ],
+      "resources": []
+    },
+    {
+      "id": "ct_ebm_sp",
+      "name": "CT-EBM-SP v3",
+      "url": "https://github.com/lcampillos/ct-ebm-sp-v3",
+      "citation_url": "https://github.com/lcampillos/ct-ebm-sp-v3",
+      "attribution": "Campillos-Llanos et al.; CSIC",
+      "data_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "distribution": "research_noncommercial",
+      "material_kind": "clinical_trial_text_annotations",
+      "authenticity": "西班牙语试验注册文本与期刊摘要；不是患者就诊记录。",
+      "gold_provenance": "使用 brat/test 原始人工属性和关系；频次与剂型关联另外使用 brat/dev，逐题保留划分。实体片段或关联目标有限选择；不导出 UMLS 术语库，不构造未标注负例。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "ct_ebm_sp__README.md",
+        "ct_ebm_sp__corpus.zip",
+        "ct_ebm_sp__LICENSE",
+        "ct_ebm_sp__annotation.conf"
+      ],
+      "license_evidence": [
+        "sources/ct_ebm_sp/README.md",
+        "sources/ct_ebm_sp/LICENSE",
+        "sources/ct_ebm_sp/annotation.conf"
+      ],
+      "scenario_ids": [
+        "intake",
+        "diagnosis",
+        "treatment",
+        "trials"
       ]
+    },
+    {
+      "id": "e3c",
+      "name": "E3C English Layer 1",
+      "url": "https://github.com/hltfbk/E3C-Corpus",
+      "citation_url": "https://e3c.fbk.eu/home",
+      "attribution": "Magnini et al.; Fondazione Bruno Kessler",
+      "data_license": "CC-BY-NC (publisher does not specify version)",
+      "license_url": "https://github.com/hltfbk/E3C-Corpus/blob/8196181eacd5d65828d324dcc63970c503aff5e9/README.md",
+      "distribution": "research_noncommercial",
+      "material_kind": "published_clinical_case_reports",
+      "authenticity": "公开病例报道；Layer 1 人工事件与时间标注。保留各文献原作者、DOI、原文许可。",
+      "gold_provenance": "仅官方英文测试文档；原 docTimeRel、permanence、TIMEX3 类型及 timexLink 唯一目标机械适配，不使用自动标注层。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "e3c__README.md",
+        "e3c__train_test_split.txt",
+        "e3c__EN100046.xml",
+        "e3c__EN100067.xml",
+        "e3c__EN100068.xml",
+        "e3c__EN100075.xml",
+        "e3c__EN100114.xml",
+        "e3c__EN100123.xml",
+        "e3c__EN100129.xml",
+        "e3c__EN100247.xml",
+        "e3c__EN100275.xml",
+        "e3c__EN100315.xml",
+        "e3c__EN100339.xml",
+        "e3c__EN100340.xml",
+        "e3c__EN100345.xml",
+        "e3c__EN100372.xml",
+        "e3c__EN100376.xml",
+        "e3c__EN100383.xml",
+        "e3c__EN100385.xml",
+        "e3c__EN100437.xml",
+        "e3c__EN100453.xml",
+        "e3c__EN100490.xml",
+        "e3c__EN100506.xml",
+        "e3c__EN100508.xml",
+        "e3c__EN100543.xml",
+        "e3c__EN100600.xml",
+        "e3c__EN100606.xml",
+        "e3c__EN100653.xml",
+        "e3c__EN100658.xml",
+        "e3c__EN100668.xml",
+        "e3c__EN100682.xml",
+        "e3c__EN101114.xml",
+        "e3c__EN101318.xml",
+        "e3c__EN101783.xml",
+        "e3c__EN102305.xml",
+        "e3c__EN103589.xml",
+        "e3c__EN104179.xml",
+        "e3c__EN104263.xml",
+        "e3c__EN105023.xml",
+        "e3c__EN105094.xml",
+        "e3c__EN105114.xml",
+        "e3c__EN105551.xml",
+        "e3c__EN106233.xml",
+        "e3c__EN106841.xml",
+        "e3c__EN107021.xml",
+        "e3c__EN107423.xml",
+        "e3c__EN107465.xml",
+        "e3c__EN107559.xml",
+        "e3c__EN108055.xml",
+        "e3c__EN108139.xml"
+      ],
+      "license_evidence": [
+        "sources/e3c/README.md",
+        "sources/e3c/train_test_split.txt"
+      ],
+      "scenario_ids": [
+        "diagnosis",
+        "inpatient",
+        "quality"
+      ]
+    },
+    {
+      "id": "care_bench",
+      "name": "CARE-Bench",
+      "url": "https://github.com/ningkko/CARE-bench",
+      "citation_url": "https://arxiv.org/abs/2608.03731",
+      "attribution": "CARE-Bench authors / ningkko",
+      "data_license": "CC-BY-NC-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "distribution": "research_noncommercial",
+      "material_kind": "source_grounded_model_assisted_reconstructed",
+      "authenticity": "来源约束的重构咨询轨迹；GPT-5.5 辅助构建后人工审核（发布方说明），不是原始真实分诊记录。",
+      "gold_provenance": "只用 public_test_1 的四类 gold_label；只给当前已披露患者消息，不给后续轮次、参考回复、信息充分性和构造标签。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "care_bench__README.md",
+        "care_bench__cases_public.jsonl",
+        "care_bench__evaluation_prefixes_public.jsonl"
+      ],
+      "license_evidence": [
+        "sources/care_bench/README.md"
+      ],
+      "scenario_ids": [
+        "intake"
+      ]
+    },
+    {
+      "id": "uci_diabetes",
+      "name": "Diabetes 130-US Hospitals for Years 1999-2008",
+      "url": "https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008",
+      "citation_url": "https://doi.org/10.24432/C5230J",
+      "attribution": "John Clore, Krzysztof Cios, Jon DeShazo, Beata Strack",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "structured_clinical_observations",
+      "authenticity": "The dataset represents ten years (1999-2008) of clinical care at 130 US hospitals and integrated delivery networks. Each row concerns hospital records of patients diagnosed with diabetes, who underwent laboratory, medications, and stayed up to 14 days. The goal is to determine the early readmission of the patient within 30 days of discharge.\nThe problem is important for the following reasons. Despite high-quality evidence showing improved clinical outcomes for diabetic patients who receive various preventive and therapeutic interventions, many patients do not receive them. This can be partially attributed to arbitrary diabetes management in hospital environments, which fail to attend to glycemic control. Failure to provide proper diabetes care not only increases the managing costs for the hospitals (as the patients are readmitted) but also impacts the morbidity and mortality of the patients, who may face complications associated with diabetes.\n",
+      "gold_provenance": "按患者取首个合格住院；出院去向只保留回家 (1)；readmitted <30 为阳性，其他为未观察到 30 日内再入院。输入移除患者 ID、住院 ID 和再入院标签。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "uci_diabetes__data.zip",
+        "uci_diabetes__metadata.json"
+      ],
+      "license_evidence": [
+        "sources/uci_diabetes/metadata.json",
+        "sources/uci_diabetes/source-page.html"
+      ],
+      "scenario_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "uci_postoperative",
+      "name": "Post-Operative Patient",
+      "url": "https://archive.ics.uci.edu/dataset/82/post+operative+patient",
+      "citation_url": "https://doi.org/10.24432/C5DG6Q",
+      "attribution": "Sharon Summers, Linda Woolery",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "structured_clinical_observations",
+      "authenticity": "Dataset of patient features",
+      "gold_provenance": "ADM-DECS 原术后去向标签；相同输入冲突全部排除，无患者 ID，不冒称患者独立。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "uci_postoperative__data.zip",
+        "uci_postoperative__metadata.json"
+      ],
+      "license_evidence": [
+        "sources/uci_postoperative/metadata.json",
+        "sources/uci_postoperative/source-page.html"
+      ],
+      "scenario_ids": [
+        "inpatient"
+      ]
+    },
+    {
+      "id": "uci_heart_failure",
+      "name": "Heart Failure Clinical Records",
+      "url": "https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records",
+      "citation_url": "https://doi.org/10.24432/C5Z89R",
+      "attribution": "Ahmad et al.; Chicco and Jurman; UCI",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "structured_clinical_observations",
+      "authenticity": "This dataset contains the medical records of 299 patients who had heart failure, collected during their follow-up period, where each patient profile has 13 clinical features.",
+      "gold_provenance": "90 日死亡：time<=90 且 DEATH_EVENT=1 为阳性；time>=90 且无此前死亡为阴性；90 日前删失排除。time 与死亡标签不输入。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "uci_heart_failure__data.zip",
+        "uci_heart_failure__metadata.json"
+      ],
+      "license_evidence": [
+        "sources/uci_heart_failure/metadata.json",
+        "sources/uci_heart_failure/source-page.html"
+      ],
+      "scenario_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "uci_maternal",
+      "name": "Maternal Health Risk",
+      "url": "https://archive.ics.uci.edu/dataset/863/maternal+health+risk",
+      "citation_url": "https://doi.org/10.24432/C5DP5D",
+      "attribution": "Marzia Ahmed",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "structured_clinical_observations",
+      "authenticity": "Data has been collected from different hospitals, community clinics, maternal health cares from the rural areas of Bangladesh through the IoT based risk monitoring system.",
+      "gold_provenance": "沿用原 RiskLevel，不能当成独立结局随访；完全相同特征冲突全部排除，无患者 ID。",
+      "checked_date": "2026-10-10",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "uci_maternal__data.zip",
+        "uci_maternal__metadata.json"
+      ],
+      "license_evidence": [
+        "sources/uci_maternal/metadata.json",
+        "sources/uci_maternal/source-page.html"
+      ],
+      "scenario_ids": [
+        "intake"
+      ]
+    },
+    {
+      "id": "mtcmb",
+      "name": "MTCMB",
+      "url": "https://github.com/Wayyuanyuan/MTCMB",
+      "citation_url": "https://github.com/Wayyuanyuan/MTCMB",
+      "data_license": "CC-BY-4.0（发布方 Zenodo 数据声明）；各上游来源仍需核对",
+      "distribution": "reference_only",
+      "reason": "主体包含病历/处方/解释生成和实体抽取；不把这些任务计入决策任务数。考试选择题与已有任务同型；病例来源和原始分发条款待进一步核对。",
+      "authenticity": "教材、医考题库、古籍、专家医案及 CCL/Tianchi 衍生；不能统称自然发生的临床记录。",
+      "gold_provenance": "部分为选择题、部分为自由文本或多字段答案；未转换为本次评测题。",
+      "checked_date": "2026-10-10",
+      "review_status": "scope_and_upstream_terms_pending",
+      "evidence_url": "https://github.com/Wayyuanyuan/MTCMB/blob/faffd813c67fe012cef74277a23270d5dd6db9b8/ReadMe_cn.md",
+      "reviewed_repository_revision": "faffd813c67fe012cef74277a23270d5dd6db9b8",
+      "scenario_ids": [
+        "diagnosis",
+        "treatment",
+        "quality"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "checked_on": "2026-10-10"
     }
   ]
 }

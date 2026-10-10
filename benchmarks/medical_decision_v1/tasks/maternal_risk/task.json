@@ -1,0 +1,42 @@
+{
+  "id": "maternal_risk",
+  "title": "孕产风险等级识别",
+  "definition": "根据孕产记录的年龄与生命体征，选择发布数据标注的低、中、高风险；不等同经过验证的母婴结局预测。",
+  "dimension": "risk",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "uci_maternal"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "intake",
+  "ability_tags": [
+    "risk"
+  ],
+  "decision_stage": "risk_classification",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 1014,
+    "unique_consistent_pool": 381,
+    "conflicting_rows_removed": 215,
+    "duplicate_requests_removed": 418,
+    "group_cap": 5,
+    "upstream_adapter_pool": 1014,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "mid risk": 20,
+    "high risk": 31,
+    "low risk": 49
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "uci_maternal": 100
+  },
+  "historical_material_matches": 0
+}

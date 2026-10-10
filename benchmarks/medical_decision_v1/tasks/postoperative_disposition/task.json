@@ -1,0 +1,42 @@
+{
+  "id": "postoperative_disposition",
+  "title": "术后转归去向选择",
+  "definition": "给定术后恢复指标，选择原记录的 ICU、普通病房或回家去向。历史记录选择不等于临床最优决策。",
+  "dimension": "workflow",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "uci_postoperative"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "workflow"
+  ],
+  "decision_stage": "clinical_action",
+  "count": 68,
+  "groups": 68,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 90,
+    "unique_consistent_pool": 68,
+    "conflicting_rows_removed": 14,
+    "duplicate_requests_removed": 8,
+    "group_cap": 5,
+    "upstream_adapter_pool": 90,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "A": 48,
+    "S": 18,
+    "I": 2
+  },
+  "language_counts": {
+    "en": 68
+  },
+  "source_counts": {
+    "uci_postoperative": 68
+  },
+  "historical_material_matches": 0
+}

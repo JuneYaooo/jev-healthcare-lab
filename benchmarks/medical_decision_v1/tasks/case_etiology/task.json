@@ -1,0 +1,51 @@
+{
+  "id": "case_etiology",
+  "title": "病例病因与原因判断",
+  "definition": "根据病例从原选项中选择导致所述疾病、症状或事件的最可能原因。",
+  "dimension": "clinical",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "diagnosis",
+  "ability_tags": [
+    "clinical"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 611,
+    "unique_consistent_pool": 611,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 611,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "opb": 10,
+    "D": 10,
+    "E": 10,
+    "A": 10,
+    "opc": 10,
+    "opd": 10,
+    "ope": 10,
+    "C": 10,
+    "B": 10,
+    "opa": 10
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "cnmleqa": 50,
+    "cmb": 50
+  },
+  "historical_material_matches": 0
+}

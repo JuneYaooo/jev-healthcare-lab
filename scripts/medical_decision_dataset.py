@@ -135,6 +135,47 @@ def join_cmb_answers(questions, answers):
         raise ValueError("Unmatched CMB answer ID")
 
 
+def mortality_at_horizon(row, horizon):
+    """Do not silently turn right-censored observations into negatives."""
+    time, died = float(row['time']), int(row['DEATH_EVENT'])
+    if died and time <= horizon:
+        return 'yes'
+    if time >= horizon:
+        return 'no'
+    return None
+
+
+def expanded_chinese_task(question):
+    if len(question) < 60 or not re.search(r'患者|患儿|病人|\d+\s*岁', question):
+        return None
+    if re.search(r'如图|见图|图示|上图|下图|附图|见表|如下表|如下图|(?:CT|心电图|胸片|影像|图像).{0,6}如下', question):
+        return None
+    if re.search(r'(?:白细|红细|血红|肌酐|血钠|血钾)[1-9][．、]', question):
+        return None
+    end = question.rstrip('。！？?\n（）() ：: ')
+    tail = re.split(r'[。；;！？?\n，,]', end)[-1][-55:]
+    if re.search(r'不属于|不常见|不正确|错误|不包括|不是|除外|最不|不足以|目的|理由|保存|放入|发生在|何时', tail):
+        return None
+    if re.search(r'禁忌|不宜|不应使用|不应选用|不适宜选用', tail) and re.search(r'药|治疗|检查|检査|手术|使用|选用', tail):
+        return 'patient_contraindication'
+    if re.search(r'不应|不能', tail):
+        return None
+    if re.search(r'分期|分级|分度', tail) and re.search(r'为|是|属|判断|评估', tail) and not re.search(r'治疗|药物|手术|措施', tail):
+        return 'clinical_grade'
+    if ('并发症' in tail and re.search(r'可能|首先考虑|易发生|易出现|常见|应警惕|并发症.{0,8}(?:是|为|有)', tail)
+            and not re.search(r'预防|避免|处理|治疗|护理|原因|病因|机制', tail)):
+        return 'case_complication'
+    if (re.search(r'(?:病因|致病原因|发病原因|致病因素).{0,10}(?:为|是|考虑|缺乏)|(?:最可能|主要|最常见).{0,6}原因|原因.{0,6}(?:是|为|考虑)', tail)
+            and not re.search(r'检查|检査|治疗|措施|诊断依据|最有意义|代谢障碍|病因不明|结论', tail)):
+        return 'case_etiology'
+    if (re.search(r'护理措施|护理干预|护理方法|护士', tail) and re.search(r'首要|首先|优先|最重要|最适宜|最合适|正确|应采取', tail)
+            and not re.search(r'诊断|问题|依据|目的|目标|原则|解释|讲解|考虑|发生|工作|记录|沟通', tail)):
+        return 'nursing_priority'
+    if re.search(r'补液|补充液体|输液量', tail) and re.search(r'应|是|为|选择|首选|宜', tail) and not re.search(r'诊断|原因|指标|效果|张力', tail):
+        return 'fluid_plan'
+    return None
+
+
 def fetch(config, cache):
     cache.mkdir(parents=True, exist_ok=True)
     lock = json.loads((config / "sources.lock.json").read_text())
@@ -616,8 +657,376 @@ class Builder:
             prefix = re.sub(r"[^\w]", "", norm(question))[:60]
             self.pools[task][-1]["group_id"] = "zh_exam_case:" + digest(prefix)[:24]
 
+    def relation_expansion(self):
+        """Closed candidate selection from positive, explicit source relations."""
+        for sid, file in [('maccrobat', 'maccrobat__MACCROBAT2020.zip'), ('ct_ebm_sp', 'ct_ebm_sp__corpus.zip')]:
+            with zipfile.ZipFile(self.path(file)) as archive:
+                for member in sorted(archive.namelist()):
+                    if not member.endswith('.ann') or member.startswith('__MACOSX'):
+                        continue
+                    if sid == 'ct_ebm_sp' and not any('/brat/' + part + '/' in member for part in ['test', 'dev']):
+                        continue
+                    text = archive.read(member[:-4] + '.txt').decode('utf-8-sig')
+                    annotation = archive.read(member).decode('utf-8-sig')
+                    entities, relations = brat(annotation)
+                    entities = {k: v for k, v in entities.items() if valid_span(text, v)}
+                    events, attributes, overlaps = {}, [], []
+                    for line in annotation.splitlines():
+                        bits = line.split('\t')
+                        if line.startswith('E') and len(bits) > 1:
+                            events[bits[0]] = bits[1].split()[0].split(':', 1)[1]
+                        elif line.startswith('A') and len(bits) > 1:
+                            body = bits[1].split()
+                            if len(body) == 3:
+                                attributes.append((bits[0], *body))
+                        elif line.startswith('*\tOVERLAP '):
+                            overlaps.append(bits[1].split()[1:])
+                    resolved = [(rid, kind, events.get(a, a), events.get(b, b)) for rid, kind, a, b in relations]
+                    resolved = [r for r in resolved if r[2] in entities and r[3] in entities and r[2] != r[3]]
+                    group = Path(member).stem
+                    split = ('official_test' if '/brat/test/' in member else 'official_dev') if sid == 'ct_ebm_sp' else 'published_corpus_no_official_split'
+                    language = 'es' if sid == 'ct_ebm_sp' else 'en'
+                    common = dict(file=file, split=split, language=language)
+                    def add(task, uid, state, options, gold, locator, **extra):
+                        self.add(task, sid, member + ':' + uid, group, state, options, gold,
+                                 locator={'zip_member': member, **locator}, **common, **extra)
+                    def mention(eid):
+                        return {k: entities[eid][k] for k in ['text', 'start', 'end']}
+                    if sid == 'maccrobat':
+                        for aid, kind, target, value in attributes:
+                            target = events.get(target, target)
+                            if kind == 'TREND' and target in entities and value in {'INC', 'DEC', 'CHANGE'}:
+                                add('result_trend', aid, {'case_report': text, 'target': mention(target)},
+                                    {'INC': 'Increasing', 'DEC': 'Decreasing', 'CHANGE': 'Changed'}, value,
+                                    {'attribute_id': aid, 'target_id': target})
+                        temporal = collections.defaultdict(set)
+                        for rid, kind, a, b in resolved:
+                            if kind in {'BEFORE', 'AFTER'}:
+                                temporal[a, b].add(kind)
+                        for group_ids in overlaps:
+                            # Every pair is explicitly in the source OVERLAP set;
+                            # use adjacent pairs to avoid expanding quadratic cliques.
+                            ids = [events.get(x, x) for x in group_ids]
+                            for a, b in zip(ids, ids[1:]):
+                                if a in entities and b in entities and a != b:
+                                    temporal[a, b].add('OVERLAP')
+                        for (a, b), labels in temporal.items():
+                            if len(labels) != 1:
+                                continue
+                            add('event_temporal_order', a + ':' + b,
+                                {'case_report': text, 'event_1': mention(a), 'event_2': mention(b)},
+                                {'BEFORE': 'Before', 'AFTER': 'After', 'OVERLAP': 'Overlaps'}, next(iter(labels)),
+                                {'event_1': a, 'event_2': b, 'annotation_kind': 'BEFORE/AFTER relation or explicit OVERLAP set'})
+                        event_types = {'Diagnostic_procedure', 'Sign_symptom', 'Disease_disorder', 'Medication',
+                                       'Therapeutic_procedure', 'Clinical_event', 'Outcome', 'Activity', 'Other_event', 'Coreference'}
+                        configs = [
+                            ('event_coreference', {'IDENTICAL'}, False, None, event_types),
+                            ('anatomical_site_link', {'MODIFY'}, True, event_types, {'Biological_structure'}),
+                            ('severity_link', {'MODIFY'}, False, {'Severity'}, event_types),
+                            ('event_date_link', {'MODIFY'}, False, {'Date', 'Time'}, event_types),
+                            ('procedure_component_link', {'SUB_PROCEDURE'}, False,
+                             {'Diagnostic_procedure', 'Therapeutic_procedure'}, {'Diagnostic_procedure', 'Therapeutic_procedure'}),
+                        ]
+                    else:
+                        for aid, kind, target, value in attributes:
+                            if split == 'official_test' and kind == 'Experiencer' and target in entities and value in {'Patient', 'Family_member', 'Other'}:
+                                add('experiencer', aid, {'trial_text': text, 'target': mention(target)},
+                                    {'Patient': 'Patient / participant', 'Family_member': 'Family member', 'Other': 'Other'}, value,
+                                    {'attribute_id': aid, 'target_id': target})
+                        configs = [
+                            ('route_link', {'Has_Route_or_Mode'}, True, {'Route'}, {'CHEM', 'CONC', 'DEVI', 'PHYS', 'PROC'}),
+                            ('frequency_link', {'Has_Frequency'}, True, {'Frequency'}, {'CHEM', 'CONC', 'DISO', 'Food', 'PHYS', 'PROC'}),
+                            ('duration_link', {'Has_Duration_or_Interval'}, True, {'Duration'},
+                             {'CHEM', 'CONC', 'DEVI', 'DISO', 'Food', 'LIVB', 'Observation', 'PHYS', 'PROC', 'Quantifier_or_Qualifier'}),
+                            ('drug_form_link', {'Has_Drug_Form'}, True, {'Form'}, {'CHEM', 'CONC', 'PROC'}),
+                            ('cause_effect_link', {'Causes'}, False, None, {'CONC', 'DISO', 'Observation', 'PHYS', 'PROC'}),
+                            ('combination_link', {'Combined_with'}, False, None, {'CHEM', 'DEVI', 'Food', 'LIVB', 'PROC', 'Route'}),
+                            ('indication_link', {'Used_for'}, False, None, None),
+                            ('assertion_cue_target', {'Negation', 'Speculation'}, False, {'Neg_cue', 'Spec_cue'},
+                             set(entities[e]['type'] for e in entities) - {'Neg_cue', 'Spec_cue'}),
+                        ]
+                    for task, kinds, reverse, query_types, candidate_types in configs:
+                        if split == 'official_dev' and task not in {'frequency_link', 'drug_form_link'}:
+                            continue
+                        links = collections.defaultdict(set)
+                        relation_ids = collections.defaultdict(list)
+                        for rid, kind, a, b in resolved:
+                            if kind not in kinds:
+                                continue
+                            if reverse:
+                                a, b = b, a
+                            if query_types is not None and entities[a]['type'] not in query_types:
+                                continue
+                            links[a].add(b)
+                            relation_ids[a, b].append(rid)
+                        for a, targets in links.items():
+                            # Ambiguous annotations remain excluded, even if one
+                            # target falls outside the permitted candidate types.
+                            if len(targets) != 1:
+                                self.exclusions[sid + ':' + task + ':nonunique_target'] += 1
+                                continue
+                            candidates = {eid: ent for eid, ent in entities.items() if eid != a and
+                                          (candidate_types is None or ent['type'] in candidate_types)}
+                            gold = next(iter(targets))
+                            if gold not in candidates or len(candidates) < 2:
+                                continue
+                            options = {eid: f"{ent['text']} [characters {ent['start']}:{ent['end']}]"
+                                       for eid, ent in sorted(candidates.items())}
+                            add(task, a, {'clinical_text': text, 'target': mention(a)}, options, gold,
+                                {'query_entity_id': a, 'answer_entity_id': gold, 'relation_ids': relation_ids[a, gold],
+                                 'direction_reversed': reverse}, stratum='natural_distribution',
+                                adaptation='All valid entities of prespecified candidate types; unique explicit relation; no invented negatives.')
+
+    def e3c_attributes(self):
+        split_file = 'e3c__train_test_split.txt'
+        train_ids = set(re.findall(r"'([^']+)'", self.path(split_file).read_text()))
+        specs = [
+            ('temporality', 'EVENT', 'docTimeRel', {'BEFORE': 'Before document time', 'AFTER': 'After document time',
+                'CONTAINS': 'Contains document time', 'IS-CONTAINED': 'Contained in document time', 'OVERLAP': 'Overlaps document time'}),
+            ('event_permanence', 'EVENT', 'permanence', {'FINITE': 'Finite', 'PERMANENT': 'Permanent'}),
+            ('clinical_time_type', 'TIMEX3', 'timex3Class', {'DURATION': 'Duration', 'SET': 'Recurring time set',
+                'DATE': 'Date', 'QUANTIFIER': 'Time quantity', 'PREPOSTEXP': 'Before/after expression'}),
+        ]
+        for file in sorted(self.lock):
+            if not re.fullmatch(r'e3c__EN\d+\.xml', file):
+                continue
+            docid = file[5:-4]
+            assert docid not in train_ids
+            root = ET.fromstring(self.path(file).read_bytes())
+            sofa = next(x for x in root if x.tag.endswith('}Sofa'))
+            text = sofa.attrib['sofaString']
+            meta = next(x for x in root if x.tag.endswith('}METADATA')).attrib
+            nodes = {x.attrib.get('{http://www.omg.org/XMI}id'): x for x in root}
+            event_nodes = {key: x for key, x in nodes.items() if x.tag.endswith('}EVENT')}
+            def span(node):
+                start, end = int(node.get('begin')), int(node.get('end'))
+                prefix = text.encode('utf-16-le')[:start * 2].decode('utf-16-le')
+                value = text.encode('utf-16-le')[start * 2:end * 2].decode('utf-16-le')
+                return {'text': value, 'start': len(prefix), 'end': len(prefix) + len(value)}
+            for uid, node in nodes.items():
+                if not node.tag.endswith('}TIMEX3') or not node.get('timexLink'):
+                    continue
+                links = [nodes[key] for key in node.get('timexLink').split()]
+                targets = {x.get('target') for x in links}
+                if len(targets) != 1 or not targets <= event_nodes.keys() or len(event_nodes) < 2:
+                    continue
+                options = {key: f"{span(x)['text']} [characters {span(x)['start']}:{span(x)['end']}]"
+                           for key, x in sorted(event_nodes.items())}
+                self.add('event_date_link', 'e3c', docid + ':' + uid, docid,
+                         {'case_report': text, 'target': span(node), 'annotated_relation_types': sorted({x.get('role') for x in links})},
+                         options, next(iter(targets)), file,
+                         {'xmi_id': uid, 'relation_attribute': 'timexLink', 'target_xmi_id': next(iter(targets)),
+                          'supporting_resources': [split_file]}, 'official_test', stratum='natural_distribution',
+                         original_document={k: meta.get(k) for k in ['docDOI', 'docAuthor', 'docLicense', 'docUrl']})
+            for task, tag, attr, options in specs:
+                for node in root:
+                    if not node.tag.endswith('}' + tag) or node.get(attr) not in options:
+                        continue
+                    start, end = int(node.get('begin')), int(node.get('end'))
+                    # UIMA offsets are UTF-16 code units, not Python code points.
+                    prefix = text.encode('utf-16-le')[:start * 2].decode('utf-16-le')
+                    target = text.encode('utf-16-le')[start * 2:end * 2].decode('utf-16-le')
+                    if not target.strip():
+                        continue
+                    uid = node.attrib['{http://www.omg.org/XMI}id']
+                    state = {'case_report': text, 'target': {'text': target, 'start': len(prefix), 'end': len(prefix) + len(target)}}
+                    if task == 'temporality':
+                        state['document_time'] = meta.get('docTime')
+                    self.add(task, 'e3c', docid + ':' + uid, docid, state, options, node.get(attr), file,
+                             {'xmi_id': uid, 'attribute': attr, 'utf16_begin': start, 'utf16_end': end,
+                              'supporting_resources': [split_file]}, 'official_test',
+                             original_document={k: meta.get(k) for k in ['docDOI', 'docAuthor', 'docLicense', 'docUrl']})
+
+    def care_triage(self):
+        file, cases_file = 'care_bench__evaluation_prefixes_public.jsonl', 'care_bench__cases_public.jsonl'
+        cases = {x['case_id']: x for x in read_jsonl(self.path(cases_file))}
+        options = {'0A_NO_ESCALATION_INFO_NEEDED': 'Ask for necessary clarification',
+                   '0B_NO_ESCALATION_SELF_CARE_MONITOR': 'Self-care or monitoring',
+                   '1A_ESCALATION_NONURGENT_CARE': 'Nonurgent professional care',
+                   '1B_ESCALATION_URGENT_CARE': 'Urgent or emergency care'}
+        for i, row in enumerate(read_jsonl(self.path(file))):
+            if row['split'] != 'public_test_1':
+                continue
+            case = cases[row['case_id']]
+            turns = [r['patient_text'] for r in case['extended_conversation'] if r['round_id'] <= row['round_id']]
+            assert turns == row['input_patient_turns']
+            self.add('triage_urgency', 'care_bench', row['prefix_id'], row['case_id'],
+                     {'patient_messages_so_far': turns}, options, row['gold_label'], file,
+                     {'jsonl_line': i + 1, 'prefix_id': row['prefix_id'], 'case_id': row['case_id'],
+                      'supporting_resources': [cases_file]}, 'official_public_test_1',
+                     original_source=case['original_source'], original_source_dataset=row['source_dataset'],
+                     adaptation='Only disclosed patient turns; no reference response, future turns, or construction metadata.')
+
+    def clinical_outcomes(self):
+        for sid, task in [('uci_diabetes', 'readmission_30d'), ('uci_heart_failure', 'mortality_90d'),
+                          ('uci_postoperative', 'postoperative_disposition'), ('uci_maternal', 'maternal_risk')]:
+            file = sid + '__data.zip'
+            definitions_file = sid + '__metadata.json'
+            definitions = json.loads(self.path(definitions_file).read_text())['data']['variables']
+            with zipfile.ZipFile(self.path(file)) as archive:
+                if sid == 'uci_postoperative':
+                    member = 'post-operative.data'
+                    keys = ['L-CORE', 'L-SURF', 'L-O2', 'L-BP', 'SURF-STBL', 'CORE-STBL', 'BP-STBL', 'COMFORT', 'ADM-DECS']
+                    rows = list(csv.DictReader(io.StringIO(archive.read(member).decode()), fieldnames=keys))
+                else:
+                    member = next(n for n in archive.namelist() if n.lower().endswith('.csv') and n != 'IDS_mapping.csv')
+                    rows = list(csv.DictReader(io.StringIO(archive.read(member).decode('utf-8-sig'))))
+                mapping = {}
+                if sid == 'uci_diabetes':
+                    name = None
+                    for line in csv.reader(io.StringIO(archive.read('IDS_mapping.csv').decode())):
+                        if not line or not line[0]:
+                            continue
+                        if line[0].endswith('_id'):
+                            name = line[0]; mapping[name] = {}
+                        elif name and line[0].strip().isdigit():
+                            mapping[name][line[0]] = line[1]
+            seen_patients = set()
+            for i, original in enumerate(rows):
+                row = {k: v.strip() for k, v in original.items()}
+                metadata = {}
+                if sid == 'uci_diabetes':
+                    if row['discharge_disposition_id'] != '1':
+                        continue
+                    group = digest(row['patient_nbr'])
+                    if group in seen_patients:
+                        continue
+                    seen_patients.add(group)
+                    state = {k: v for k, v in row.items() if k not in {'readmitted', 'encounter_id', 'patient_nbr'}}
+                    for k, values in mapping.items():
+                        if k in state:
+                            state[k] = values.get(state[k], state[k])
+                    options = {'yes': 'Recorded readmission within 30 days', 'no': 'No recorded readmission within 30 days'}
+                    gold = 'yes' if row['readmitted'] == '<30' else 'no'
+                    metadata = {'prediction_time': 'discharge_to_home', 'patient_key_sha256': group,
+                                'cohort': 'First eligible row per patient in source file; discharge_disposition_id=1'}
+                elif sid == 'uci_heart_failure':
+                    target = mortality_at_horizon(row, 90)
+                    if target is None:
+                        self.exclusions['uci_heart_failure:censored_before_90_days'] += 1
+                        continue
+                    state = {k: v for k, v in row.items() if k not in {'time', 'DEATH_EVENT'}}
+                    options = {'yes': 'Death by day 90', 'no': 'Observed alive through day 90'}
+                    gold = target
+                    group = digest(state)
+                    metadata = {'prediction_time': 'baseline', 'horizon_days': 90,
+                                'gold_mapping': 'DEATH_EVENT=1 and time<=90; negative if followup>=90 and no death by 90; earlier censoring excluded'}
+                elif sid == 'uci_postoperative':
+                    gold = row['ADM-DECS']
+                    if gold not in {'I', 'S', 'A'}:
+                        continue
+                    state = {k: v for k, v in row.items() if k != 'ADM-DECS'}
+                    options = {'I': 'Intensive care unit', 'S': 'Prepared to go home', 'A': 'General hospital floor'}
+                    group = digest(state)
+                    metadata = {'prediction_time': 'postoperative_recovery', 'patient_id_unavailable': True}
+                else:
+                    gold = row['RiskLevel']
+                    state = {k: v for k, v in row.items() if k != 'RiskLevel'}
+                    options = {'low risk': 'Low risk', 'mid risk': 'Intermediate risk', 'high risk': 'High risk'}
+                    group = digest(state)
+                    metadata = {'prediction_time': 'cross_sectional', 'patient_id_unavailable': True,
+                                'label_caveat': 'Published risk class, not independently observed maternal outcome'}
+                state = {k: None if v == '?' else v for k, v in state.items()}
+                # Natural prevalence for observational predictions; balancing
+                # would make this tiny sample unsuitable for prevalence claims.
+                codebook = {x['name']: {k: x.get(k) for k in ['description', 'units']}
+                            for x in definitions if x['name'] in state and x['role'] == 'Feature'}
+                self.add(task, sid, str(i + 1), group, {'clinical_features': state, 'feature_definitions': codebook}, options, gold, file,
+                         {'zip_member': member, 'csv_row': i + (1 if sid == 'uci_postoperative' else 2),
+                          'supporting_resources': [definitions_file]},
+                         'published_corpus_no_official_split', stratum='natural_distribution', **metadata)
+
+    def chinese_decision_expansion(self):
+        file = 'cmb__CMB.zip'
+        test_member = 'CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json'
+        answer_file = 'cmb__CMB-test-choice-answer.json'
+        answer_rows = json.loads(self.path(answer_file).read_text())
+        answers = {r['id']: r for r in answer_rows}
+        answer_positions = {r['id']: i for i, r in enumerate(answer_rows)}
+        candidates = []
+        with zipfile.ZipFile(self.path(file)) as archive:
+            for split, member in [('official_test', test_member),
+                                  ('official_validation', 'CMB/CMB-Exam/CMB-val/CMB-val-merge.json'),
+                                  ('upstream_train_reserved_for_local_evaluation', 'CMB/CMB-Exam/CMB-train/CMB-train-merge.json')]:
+                for i, row in enumerate(json.loads(archive.read(member))):
+                    if row['question_type'] != '单项选择题':
+                        continue
+                    question = row['question']
+                    task = expanded_chinese_task(question)
+                    if not task:
+                        continue
+                    options = row['option']
+                    answer = answers[row['id']]['answer'] if split == 'official_test' else row['answer']
+                    if (len(options) not in {4, 5} or answer not in options or any(not x.strip() for x in options.values())
+                            or len({norm(x) for x in options.values()}) != len(options)):
+                        continue
+                    candidates.append((task, split, member, i, row, answer))
+        by_question = collections.defaultdict(list)
+        for item in candidates:
+            by_question[digest([re.sub(r'[^\w]', '', norm(item[4]['question'])), sorted(re.sub(r'[^\w]', '', norm(v)) for v in item[4]['option'].values())])].append(item)
+        previous_questions = {norm(r['request']['state']['clinical_question'])
+                              for r in read_jsonl(self.config / 'samples.jsonl')
+                              if 'clinical_question' in r['request']['state'] and r['task'] in
+                              {'diagnosis_choice', 'examination_choice', 'treatment_choice', 'medication_choice'}}
+        for versions in by_question.values():
+            if len({norm(x[4]['option'][x[5]]) for x in versions}) != 1:
+                self.exclusions['cmb:expanded_conflicting_gold'] += len(versions)
+                continue
+            task, split, member, i, row, gold = versions[0]
+            if norm(row['question']) in previous_questions:
+                continue
+            locator = {'zip_member': member, 'json_index': i, 'answer_field': 'answer'}
+            if split == 'official_test':
+                locator.update(question_id=row['id'], answer_json_index=answer_positions[row['id']], supporting_resources=[answer_file])
+                assert all(row[k] == answers[row['id']][k] for k in ['exam_type', 'exam_class', 'exam_subject', 'question_type'])
+            uid = split + ':' + str(i)
+            self.add(task, 'cmb', uid, digest(re.sub(r'[^\w]', '', norm(row['question']))[:60])[:24],
+                     {'clinical_question': row['question']}, row['option'], gold, file, locator, split,
+                     language='zh', stratum=gold, eligibility='case_and_explicit_new_decision_intent_v1',
+                     exam_type=row['exam_type'], exam_class=row['exam_class'], exam_subject=row['exam_subject'],
+                     upstream_training_partition=(split == 'upstream_train_reserved_for_local_evaluation'))
+            self.pools[task][-1]['group_id'] = 'zh_exam_case:' + digest(re.sub(r'[^\w]', '', norm(row['question']))[:60])[:24]
+
+    def cnmle_decision_expansion(self):
+        file = 'cnmleqa__CNMLEQA-10k.json'
+        new_tasks = {'patient_contraindication', 'clinical_grade', 'case_etiology', 'case_complication', 'nursing_priority', 'fluid_plan'}
+        old_questions = {norm(r['request']['state']['clinical_question'])
+                         for r in read_jsonl(self.config / 'samples.jsonl')
+                         if r['task'] in {'diagnosis_choice', 'examination_choice', 'treatment_choice', 'medication_choice'}}
+        for i, row in enumerate(json.loads(self.path(file).read_text())):
+            if row['question_type'] != '案例分析' or norm(row['question']) in old_questions:
+                continue
+            task = expanded_chinese_task(row['question'])
+            if task not in new_tasks:
+                continue
+            options = {key: row[key] for key in ['opa', 'opb', 'opc', 'opd', 'ope']}
+            if len({norm(v) for v in options.values()}) != 5 or any(not v.strip() for v in options.values()):
+                continue
+            self.add(task, 'cnmleqa', row['id'], row['id'], {'clinical_question': row['question']}, options, row['answer'], file,
+                     {'json_index': i, 'question_id': row['id'], 'answer_field': 'answer', 'original_source': row['source']},
+                     'published_benchmark_no_official_split', language='zh', stratum='cnmleqa:' + row['answer'],
+                     original_source=row['source'], exam_year=row.get('year'), original_question_type=row['question_type'],
+                     eligibility='case_and_explicit_new_decision_intent_v1', upstream_training_partition=False)
+            self.pools[task][-1]['group_id'] = 'zh_exam_case:' + digest(re.sub(r'[^\w]', '', norm(row['question']))[:60])[:24]
+        priority = {'official_test': 0, 'official_validation': 1, 'published_benchmark_no_official_split': 2,
+                    'upstream_train_reserved_for_local_evaluation': 3}
+        for task in new_tasks:
+            items = collections.defaultdict(list)
+            for row in self.pools[task]:
+                request = row['request']
+                key = digest([re.sub(r'[^\w]', '', norm(request['state']['clinical_question'])),
+                              sorted(re.sub(r'[^\w]', '', norm(v)) for v in request['questions']['decision']['criteria'].values())])
+                items[key].append(row)
+            unique = []
+            for versions in items.values():
+                if len({norm(r['request']['questions']['decision']['criteria'][r['gold']]) for r in versions}) != 1:
+                    self.exclusions['zh_expansion:conflicting_gold'] += len(versions)
+                    continue
+                unique.append(min(versions, key=lambda r: (priority[r['provenance']['split']], r['id'])))
+            self.pools[task] = unique
+
     def run(self):
-        for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams"]:
+        for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams", "relation_expansion", "e3c_attributes", "care_triage", "clinical_outcomes", "chinese_decision_expansion", "cnmle_decision_expansion"]:
             getattr(self, name)()
             print("Prepared", name, flush=True)
         return self.pools
@@ -818,6 +1227,9 @@ def generate_docs(output, builder, summary):
               "v0.2.0 新增 MACCROBAT 的检查数值关联、药物剂量关联；检查题仅保留含数字的原始结果片段。候选项为病例中所有有效的对应类型实体，带原文位置以区分重复名称。只收原始 MODIFY 关系可唯一定位目标的题，不构造负关系、不判断处方适宜性。旧版 1,600 题的 ID、请求及金标保留，迁移基线见 [历史身份索引](history/v0.1.0_sample_identity.json)。\n",
               "v0.3.0 从 CMB-Exam 和 CNMLEQA-10k 补入中文病例的诊断、检查、治疗、用药四类选择题，原有 1,800 题的 ID、请求与答案保持不变，见 [v0.2.0 身份索引](history/v0.2.0_sample_identity.json)。按病例特征和问题意图规则筛选，排除纯知识题、缺图题、反向提问及不符合任务定义的题；保留原选项与金标，不生成新答案。CMB 原题与独立答案按 ID 连接，原 C 型及多选题不纳入。CNMLEQA 没有官方测试划分，使用发布语料的固定自留子集。\n",
               "两套中文题库按标准化题干与完整选项集合去重，答案文本冲突时全部排除；来源组由去标点后题干前 60 字的指纹近似确定，可能合并相似病例，也不能排除所有改写重复。题目中的旧术语或原始拼写按原文保留。中文新增题经过程序化适配与抽查，未独立复核其临床金标。[本轮新增来源核验](../../docs/DATASET_EXPANSION.md) 记录其他中文及英文候选。\n",
+              "v0.4.0 增加 E3C、CT-EBM-SP、CARE-Bench 及 UCI 结构化来源，并扩展原 MACCROBAT 和中文病例题。每任务目标 100 题；不足部分保留实际数量，不填充。E3C/CT-EBM-SP 为材料属性或关系判断，CARE-Bench 为来源约束的重构分诊任务，UCI 结局预测与行动标签分别报告，不能将它们全部解释为诊疗方案能力。\n",
+              "新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。\n",
+              "[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。\n",
               "## 训练隔离与历史使用\n",
               f"[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；{summary['historical_material_matches']} 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。\n",
               "该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。\n",
@@ -994,6 +1406,8 @@ def score(dataset, prediction_path, include_research=False):
                       ("dimension", lambda r: r["dimension"]), ("decision_mode", lambda r: r["decision_mode"]),
                       ("material_kind", lambda r: r["provenance"]["material_kind"]), ("language", lambda r: r["language"]),
                       ("distribution", lambda r: r["provenance"]["distribution"]),
+                      ("upstream_split", lambda r: r["provenance"].get("split", "unspecified")),
+                      ("sample_completeness", lambda r: "at_least_100" if len(tasks[r["task"]]) >= 100 else "below_100"),
                       ("historical_material_match", lambda r: str(r["exposure"]["historical_material_signature_match"]).lower())]:
         parts = collections.defaultdict(lambda: collections.defaultdict(list))
         for row in rows:

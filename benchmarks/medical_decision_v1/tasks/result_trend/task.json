@@ -1,32 +1,41 @@
 {
   "id": "result_trend",
-  "dimension": "rules",
-  "title": "检验结果趋势",
-  "definition": "给定可比性条件，判断结果上升、下降、稳定或不可比较。",
-  "decision_mode": "rule",
+  "title": "临床事件变化趋势",
+  "definition": "给定病例及事件片段，选择原 TREND 标注的增加、减少或改变；只判断原文描述，不预测未来。",
+  "dimension": "facts",
+  "decision_mode": "material",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "不能将带时序数值的开放材料直接当作有审核金标的测试题。",
+  "source_ids": [
+    "maccrobat"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [],
   "primary_scenario": "testing",
   "ability_tags": [
-    "rules"
+    "facts"
   ],
-  "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 71,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 124,
+    "unique_consistent_pool": 124,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 124,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "INC": 53,
+    "DEC": 47
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "maccrobat": 100
+  },
   "historical_material_matches": 0
 }

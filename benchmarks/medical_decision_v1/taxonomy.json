@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "created": "2026-10-10",
   "seed": 20261010,
   "dimensions": [
@@ -62,13 +62,15 @@
     },
     {
       "id": "experiencer",
-      "dimension": "facts",
       "title": "事实主体归属",
-      "definition": "判断症状或事件属于患者、家属还是其他人。",
+      "definition": "给定试验文本及主体片段，选择原标注角色：患者、家属或其他人。只评价文本角色。",
+      "dimension": "facts",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "未找到同时满足公开分发与原始主体金标的已核验来源。",
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "n2c2"
       ],
@@ -80,13 +82,15 @@
     },
     {
       "id": "temporality",
+      "title": "事件与文档时间关系",
+      "definition": "给定病例原文、文档时间和事件片段，选择原 E3C docTimeRel 时间关系。",
       "dimension": "facts",
-      "title": "事实时间属性",
-      "definition": "判断当前、既往、未来或时间不明。",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "现有自编题不纳入；THYME 临床原文需访问协议。",
+      "source_ids": [
+        "e3c"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "thyme"
       ],
@@ -315,13 +319,16 @@
     },
     {
       "id": "clinical_grade",
+      "title": "临床分级与分期选择",
+      "definition": "根据病例从原选项中选择疾病分期、严重程度分度或功能分级。",
       "dimension": "rules",
-      "title": "临床语义分级",
-      "definition": "根据病例和指定分级体系选择等级。",
-      "decision_mode": "knowledge",
+      "decision_mode": "clinical",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "CMedCalc 数据许可待明确。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "cmedcalc"
       ],
@@ -365,19 +372,21 @@
     },
     {
       "id": "result_trend",
-      "dimension": "rules",
-      "title": "检验结果趋势",
-      "definition": "给定可比性条件，判断结果上升、下降、稳定或不可比较。",
-      "decision_mode": "rule",
+      "title": "临床事件变化趋势",
+      "definition": "给定病例及事件片段，选择原 TREND 标注的增加、减少或改变；只判断原文描述，不预测未来。",
+      "dimension": "facts",
+      "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "不能将带时序数值的开放材料直接当作有审核金标的测试题。",
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [],
       "primary_scenario": "testing",
       "ability_tags": [
-        "rules"
+        "facts"
       ],
-      "decision_stage": "clinical_choice"
+      "decision_stage": "material_judgment"
     },
     {
       "id": "long_record_evidence",
@@ -551,21 +560,22 @@
     },
     {
       "id": "patient_contraindication",
+      "title": "患者特异性禁忌选择",
+      "definition": "根据病例从原选项中选择不宜使用或禁忌的药物、检查或治疗方案。",
       "dimension": "eligibility",
-      "title": "患者特异性禁忌",
-      "definition": "依据患者资料和给定药品说明条件，判断禁忌是否成立。",
-      "decision_mode": "rule",
+      "decision_mode": "clinical",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "说明书是材料来源，尚无配套患者及审核金标。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "openfda"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
-        "eligibility",
-        "rules",
-        "evidence"
+        "eligibility"
       ],
       "decision_stage": "clinical_choice"
     },
@@ -587,13 +597,15 @@
     },
     {
       "id": "triage_urgency",
+      "title": "当前分诊与升级行动",
+      "definition": "仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。",
       "dimension": "risk",
-      "title": "分诊紧急程度",
-      "definition": "根据症状和指定分诊规则选择紧急等级。",
-      "decision_mode": "rule",
+      "decision_mode": "clinical",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。",
+      "source_ids": [
+        "care_bench"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "triage",
         "mimic_iv_ed",
@@ -601,11 +613,9 @@
       ],
       "primary_scenario": "intake",
       "ability_tags": [
-        "risk",
-        "rules",
-        "evidence"
+        "risk"
       ],
-      "decision_stage": "clinical_choice"
+      "decision_stage": "clinical_action"
     },
     {
       "id": "critical_result_escalation",
@@ -901,20 +911,22 @@
     {
       "id": "readmission_30d",
       "title": "出院后 30 天内再入院预测",
-      "primary_scenario": "followup",
+      "definition": "根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。",
       "dimension": "risk",
-      "ability_tags": [
-        "risk"
-      ],
       "decision_mode": "prediction",
-      "decision_stage": "outcome_prediction",
-      "definition": "只根据出院时可得信息，预测是否在 30 天内再次住院。",
       "target_count": 100,
-      "source_ids": [],
+      "source_ids": [
+        "uci_diabetes"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "uci_diabetes"
       ],
-      "missing_reason": "开放结局数据已核验；需按患者划分，排除死亡等不适用出院并固定特征和基线。"
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "outcome_prediction"
     },
     {
       "id": "followup_item_type",
@@ -969,6 +981,425 @@
         "mednli"
       ],
       "missing_reason": "MedNLI 有临床医生标注，但材料来自受控 MIMIC-III，需访问协议。"
+    },
+    {
+      "id": "mortality_90d",
+      "title": "90 日死亡结局预测",
+      "definition": "根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。",
+      "dimension": "risk",
+      "decision_mode": "prediction",
+      "target_count": 100,
+      "source_ids": [
+        "uci_heart_failure"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "outcome_prediction"
+    },
+    {
+      "id": "postoperative_disposition",
+      "title": "术后转归去向选择",
+      "definition": "给定术后恢复指标，选择原记录的 ICU、普通病房或回家去向。历史记录选择不等于临床最优决策。",
+      "dimension": "workflow",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "uci_postoperative"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "clinical_action"
+    },
+    {
+      "id": "maternal_risk",
+      "title": "孕产风险等级识别",
+      "definition": "根据孕产记录的年龄与生命体征，选择发布数据标注的低、中、高风险；不等同经过验证的母婴结局预测。",
+      "dimension": "risk",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "uci_maternal"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "risk_classification"
+    },
+    {
+      "id": "event_temporal_order",
+      "title": "临床事件先后关系",
+      "definition": "给定病例和两个事件，选择第一个相对第二个的原始先于、晚于或重叠关系。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "event_coreference",
+      "title": "同一临床事件指代关联",
+      "definition": "给定病例中的目标事件，从原文事件候选中选择原 IDENTICAL 标注唯一关联的同一事件提及。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "anatomical_site_link",
+      "title": "临床事件与解剖部位关联",
+      "definition": "给定病例和临床事件，从原文解剖部位候选中选择原 MODIFY 关系唯一关联的部位。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "severity_link",
+      "title": "严重程度与临床事件关联",
+      "definition": "给定病例和严重程度片段，从原文事件候选中选择其唯一修饰的事件。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "route_link",
+      "title": "给药途径关联",
+      "definition": "给定试验文本和给药途径片段，从原文药物或操作候选中选择原关系唯一关联的目标。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "frequency_link",
+      "title": "用药或操作频次关联",
+      "definition": "给定试验文本和频次片段，从原文候选中选择原 Has_Frequency 唯一关联的药物或事件。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "duration_link",
+      "title": "病程与疗程时长关联",
+      "definition": "给定试验文本和持续时长片段，从原文候选中选择原 Has_Duration_or_Interval 唯一关联的临床对象。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "drug_form_link",
+      "title": "药物剂型关联",
+      "definition": "给定试验文本和剂型片段，从原文药物或干预候选中选择原 Has_Drug_Form 唯一关联的目标。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "cause_effect_link",
+      "title": "文本因果结果关联",
+      "definition": "给定试验文本及原因片段，从原文候选中选择原 Causes 唯一关联的结果；不推断未标注因果，也不认定患者级药物因果。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "combination_link",
+      "title": "联合干预对象关联",
+      "definition": "给定试验文本和干预片段，从原文候选中选择原 Combined_with 唯一关联的联合对象。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "indication_link",
+      "title": "干预用途关联",
+      "definition": "给定试验文本及干预片段，从原文候选中选择原 Used_for 唯一关联的用途；不评价个体适宜性。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "assertion_cue_target",
+      "title": "否定或推测线索作用对象",
+      "definition": "给定试验文本及否定或推测线索，从原文候选中选择原 Negation/Speculation 唯一关联的对象。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "event_date_link",
+      "title": "事件与时间表达关联",
+      "definition": "给定病例和时间表达，从原文事件候选中选择原时间关联标注的唯一目标；若提供关系类型，按该方向解释。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat",
+        "e3c"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "procedure_component_link",
+      "title": "子操作与所属操作关联",
+      "definition": "给定病例和子操作片段，从原文操作候选中选择原 SUB_PROCEDURE 唯一关联的所属操作。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "event_permanence",
+      "title": "临床事件持续性",
+      "definition": "给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。",
+      "dimension": "facts",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "e3c"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "clinical_time_type",
+      "title": "临床时间表达类别",
+      "definition": "给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。",
+      "dimension": "classification",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "e3c"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "case_etiology",
+      "title": "病例病因与原因判断",
+      "definition": "根据病例从原选项中选择导致所述疾病、症状或事件的最可能原因。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "case_complication",
+      "title": "病例并发症判断",
+      "definition": "根据病例从原选项中选择最可能的并发症；不是主诊断任务。",
+      "dimension": "risk",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "nursing_priority",
+      "title": "护理措施选择",
+      "definition": "根据病例从原选项中选择正确、首要或最合适的护理措施；不生成护理文书。",
+      "dimension": "workflow",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "fluid_plan",
+      "title": "补液方案选择",
+      "definition": "根据病例从原选项中选择补液量、溶液或补液方案。",
+      "dimension": "rules",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice"
     }
   ],
   "organization": "primary_scenario_then_task_with_ability_tags",

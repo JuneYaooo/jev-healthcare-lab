@@ -2120,6 +2120,526 @@
       "sha256": "5f5468ad19a41057b8db5edcd0c399c61a761a9a3ebfd07e1cdd4d9022ce4f93",
       "bytes": 3799,
       "source_id": "cnmleqa"
+    },
+    {
+      "source": "ct_ebm_sp",
+      "name": "ct_ebm_sp__README.md",
+      "url": "https://raw.githubusercontent.com/lcampillos/ct-ebm-sp-v3/6dc68edd2fca44654cbecd3cb42586bb0e67e6fa/README.md",
+      "version": "6dc68edd2fca44654cbecd3cb42586bb0e67e6fa",
+      "sha256": "5284fec8e255eec1b3c8db201205fce64b06c92347b0935c04d5b55eb4f36982",
+      "bytes": 2058
+    },
+    {
+      "source": "ct_ebm_sp",
+      "name": "ct_ebm_sp__corpus.zip",
+      "url": "https://codeload.github.com/lcampillos/ct-ebm-sp-v3/zip/6dc68edd2fca44654cbecd3cb42586bb0e67e6fa",
+      "version": "6dc68edd2fca44654cbecd3cb42586bb0e67e6fa",
+      "sha256": "15e2d7db735f18cb6726bb8316e2621154e96c7c460249e7a7134c12d8430bfe",
+      "bytes": 22042170
+    },
+    {
+      "source": "ct_ebm_sp",
+      "name": "ct_ebm_sp__LICENSE",
+      "url": "https://raw.githubusercontent.com/lcampillos/ct-ebm-sp-v3/6dc68edd2fca44654cbecd3cb42586bb0e67e6fa/LICENSE",
+      "version": "6dc68edd2fca44654cbecd3cb42586bb0e67e6fa",
+      "sha256": "c6efc9af08f1b50ca5e7dc1345f657074f886e33d7a67c29c07e03ee726be9b5",
+      "bytes": 18758
+    },
+    {
+      "source": "ct_ebm_sp",
+      "name": "ct_ebm_sp__annotation.conf",
+      "url": "https://raw.githubusercontent.com/lcampillos/ct-ebm-sp-v3/6dc68edd2fca44654cbecd3cb42586bb0e67e6fa/brat/annotation.conf",
+      "version": "6dc68edd2fca44654cbecd3cb42586bb0e67e6fa",
+      "sha256": "3c69a0e034485fad826f6be79106706a9d484fd6ac341669b495e1a9feeba6b7",
+      "bytes": 6584
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__README.md",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/README.md",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "93f739057e62731f6df3e3b45b6b6a531758915db6d47b580ffd29ca9ce5014a",
+      "bytes": 16832
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__train_test_split.txt",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/documentation/train_test_split.txt",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "eddbed674514c9ab20db0a8977ee53b81e2f469c3f9e81963c7ab08b178632a7",
+      "bytes": 2716
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100046.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100046.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "e757eb1b36a97e847dcce5b89ac9c45e15d5d42b1bef6a2210ddb4b1dbaf7ba6",
+      "bytes": 63361
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100067.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100067.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "6f2c5a20931016441b50fdd98aba3141cd12440b6d5aa32812addab677bc8bb0",
+      "bytes": 76088
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100068.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100068.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "c736ec06a5267ba0587c027cc7e15eb9d2e00295a87bd21f20b00599601b081c",
+      "bytes": 96090
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100075.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100075.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "816be11ccb62717a3b329d737b0320422e682d8d8307d5bbe8c2f1961d38a32d",
+      "bytes": 87255
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100114.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100114.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "cf3e7f5fbc95b1d82c9243898e76144420d464cb72673994acbc7db984f26da7",
+      "bytes": 101365
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100123.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100123.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "83d1a5c01957f2d8ca508ddbe4b85a9e82057192be128cb9ece492bdd8790b4f",
+      "bytes": 105064
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100129.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100129.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "ce222735cdef1ef1c4dd923677bcea8793a9ae681417c56709f7da6a25b453f8",
+      "bytes": 94850
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100247.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100247.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "2d3210ae94d821bca361b200454724ae5a1e0b62aaced5c3f97088f01d623d86",
+      "bytes": 59089
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100275.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100275.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "f71457bea81420c9eff549e0868ea9f8d2cfbc511ab5b4bed433cd693dc51ef8",
+      "bytes": 73727
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100315.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100315.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "37bc05daef05f6f6e22e049b556a16e3c8face4efe12e28ab757e865a2d08fb2",
+      "bytes": 45658
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100339.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100339.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "e8d579794f19e4f070b0b44c8ecc8de8ca17d926033fd7394a77caee8539cddf",
+      "bytes": 57400
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100340.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100340.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "a758b74a115ded2ee34a0177600347299cc2f4e3659fa8e3f8b4798677dbaee1",
+      "bytes": 59617
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100345.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100345.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "b375a85072c024e1144df511d76e47b2979a9bca82cda16893b753a559d34997",
+      "bytes": 38358
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100372.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100372.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "fadcf19e5937a3a2fa27632c703406256a20e5e6b010f091c04bd8909b718c5e",
+      "bytes": 104534
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100376.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100376.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "af43507879532650998c7183598a8f78ec086081b8007d19446627a807f7e6a4",
+      "bytes": 97955
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100383.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100383.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "3e599f167e65b664ad7b95601ee70cf7fafe37fe8434bb2c8d9aa0605b746c9f",
+      "bytes": 83383
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100385.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100385.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "505be1d15e98e4e0dcf210e08754e8544afaa518621690b33d8dc90ba8ac6d44",
+      "bytes": 56709
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100437.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100437.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "1807dbbbdfdcf5b4a7663ffe8a662bc3cef26204ffe5a0cb7fb061af927a8c5d",
+      "bytes": 65253
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100453.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100453.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "27360ef46751d3337154c5d2369d223191ddb67321a6c269d7ce7c87d83b58f6",
+      "bytes": 54279
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100490.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100490.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "1479f91fe3463d54897a0d76c660afbb31c86527100e74493176a396374da1b9",
+      "bytes": 94093
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100506.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100506.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "b8fd3a6335ec9d9db0ca20d53e0384f1e9d3e4db9093774ecdc3bedbb0e93e97",
+      "bytes": 63576
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100508.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100508.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "b57f5450d1f0faf6c1ff0a35a46b015df3c4ec6980b57c1e369e109379158623",
+      "bytes": 55638
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100543.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100543.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "edc76f15b7d43be474310ff5f7eb8e626582c4395f025ba7eff3c254a99b4622",
+      "bytes": 110528
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100600.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100600.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "772ce4ed5198d1a7aa9586edf7d202bcee02924136585dc74ef7713582784a31",
+      "bytes": 59741
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100606.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100606.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "7b0adb0eb9a78ebcd1e3afae151fd8719eba13d8d58a3ab441e028551c64db3f",
+      "bytes": 98546
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100653.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100653.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "ef61a1ba3f5957b4f6898821f863657614694543f417a35db3ccaa41cd285552",
+      "bytes": 116577
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100658.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100658.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "7d4ee0c1c892f243974b97a2ed0a348b1c5fd7aee87f287e47b293b58b89e684",
+      "bytes": 99037
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100668.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100668.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "8f3ad10f4601c8b9e9d17765e26452a07f2297025176f3ca44815547f719b182",
+      "bytes": 74065
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN100682.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN100682.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "7a44c744f01df2d05d6c8eb8b9e756d3c4b6168087975cba3da51d899aa8abf4",
+      "bytes": 65630
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN101114.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN101114.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "25e0591610b3ee2317227755635b38ef310a0a8f6198a9692db0809fe47710b8",
+      "bytes": 23425
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN101318.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN101318.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "a09ff7917251daf1bcecde057bfca22a941dfc869a5d7692fa4e812b9dcee2b4",
+      "bytes": 18427
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN101783.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN101783.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "c22eed3be9cd707f0f59020b1177d16d6562f0b47c70305501576ea05d2fbf5d",
+      "bytes": 24565
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN102305.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN102305.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "cd08717bdd5cacbd00be75a7c24732f1d59a273b41a6465018d1d9a4130bcecc",
+      "bytes": 24080
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN103589.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN103589.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "734b30d24ce17b04ab8b9bbad54672a4e0a421a70afd4ab62c135d0556bf2105",
+      "bytes": 28114
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN104179.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN104179.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "3c15b8b058b839501a593f89ede63ac8f44b22dfd620ba7215aee86d93b7574b",
+      "bytes": 27286
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN104263.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN104263.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "e38696fd3ee93675e1359b35f4d8422165eab1aa03c7ddb4c778d3af4812fb21",
+      "bytes": 20389
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN105023.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN105023.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "a4f5da16d40075a383934e7afdc81f7651ce1c98dd6620b70539ce131adab122",
+      "bytes": 32037
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN105094.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN105094.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "f2bffebfc3e91f05125afe34a29760eb647fd2f371ceac31977d840c9afc6e9f",
+      "bytes": 22112
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN105114.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN105114.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "f8acffc84e9a34cc46403c17c0bcba237f4ceb385d42379aa5645d16188f379c",
+      "bytes": 48279
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN105551.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN105551.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "e3aef90a33fd4cf23a1f141a837d128e9f789dfa6e3a09671862f38fe2e9a14d",
+      "bytes": 21443
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN106233.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN106233.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "3a9effb5529fc7043a3b18cadb4cc50f9702f2f56f42e0a1858be8b0729f5878",
+      "bytes": 27716
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN106841.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN106841.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "1241ac84a907855d7ba9bd2dfb42c10240656b691b6ac345738e6d0075b8a120",
+      "bytes": 24732
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN107021.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN107021.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "9cd6b73e1ca5dc1c90d94fdabd186a18d6da20dc330ba3ca8bda68e0bed6b9f0",
+      "bytes": 39516
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN107423.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN107423.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "52358b98869a9386d5bd896eeae7c721f5f3a7e2216c4070297a5c2cf7482eda",
+      "bytes": 19979
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN107465.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN107465.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "b616b58a1d3885ed83c2e025c20f4e6626c2e6d0589e172678da8dd852448d8a",
+      "bytes": 35360
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN107559.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN107559.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "008ecdcc231462b545824f681d8b88b27f6ad17c5df3a099d04292d8a590a0a7",
+      "bytes": 22984
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN108055.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN108055.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "eec2eebb73288ca1dd44263c2d62744b1e9729106b140166ba41058e8b2433ee",
+      "bytes": 20897
+    },
+    {
+      "source": "e3c",
+      "name": "e3c__EN108139.xml",
+      "url": "https://raw.githubusercontent.com/hltfbk/E3C-Corpus/8196181eacd5d65828d324dcc63970c503aff5e9/data_annotation/English/layer1/EN108139.xml",
+      "version": "8196181eacd5d65828d324dcc63970c503aff5e9",
+      "sha256": "381684048d79731bd1de0849a2da1d77e732d80ccb7e9e4fb76e49f23877d2ee",
+      "bytes": 49403
+    },
+    {
+      "source": "care_bench",
+      "name": "care_bench__README.md",
+      "url": "https://raw.githubusercontent.com/ningkko/CARE-bench/090e84167f23c72d29c3a4d9c4f73e857afe0458/README.md",
+      "version": "090e84167f23c72d29c3a4d9c4f73e857afe0458",
+      "sha256": "31d4b4a674bae38f41b67925715c89a42bd3f463ced48cdd9c6de99be8fcd06d",
+      "bytes": 11774
+    },
+    {
+      "source": "care_bench",
+      "name": "care_bench__cases_public.jsonl",
+      "url": "https://raw.githubusercontent.com/ningkko/CARE-bench/090e84167f23c72d29c3a4d9c4f73e857afe0458/data/public/cases_public.jsonl",
+      "version": "090e84167f23c72d29c3a4d9c4f73e857afe0458",
+      "sha256": "510dba567dbc8cb338d91f6c9412ff326be8a6a6bdd1ece241926e5315fe9463",
+      "bytes": 1331345
+    },
+    {
+      "source": "care_bench",
+      "name": "care_bench__evaluation_prefixes_public.jsonl",
+      "url": "https://raw.githubusercontent.com/ningkko/CARE-bench/090e84167f23c72d29c3a4d9c4f73e857afe0458/data/public/evaluation_prefixes_public.jsonl",
+      "version": "090e84167f23c72d29c3a4d9c4f73e857afe0458",
+      "sha256": "6d2850f303d05b8f92035c31a11233f41a965e77b3e878e1425f956a00cff534",
+      "bytes": 1255231
+    },
+    {
+      "source": "uci_diabetes",
+      "name": "uci_diabetes__data.zip",
+      "url": "https://archive.ics.uci.edu/static/public/296/diabetes+130-us+hospitals+for+years+1999-2008.zip",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "f82ac129da2ddd2299391ff6fbae3a6a58b3edcf59ac9d7bd480c00fe453112a",
+      "bytes": 3170254
+    },
+    {
+      "source": "uci_diabetes",
+      "name": "uci_diabetes__metadata.json",
+      "url": "https://archive.ics.uci.edu/api/dataset?id=296",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "6e6e0934d175afe24f54f2199f9895eab21844205fe46be7970c106a104725e9",
+      "bytes": 19603
+    },
+    {
+      "source": "uci_postoperative",
+      "name": "uci_postoperative__data.zip",
+      "url": "https://archive.ics.uci.edu/static/public/82/post+operative+patient.zip",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "eed2652e7d4b2c2653b94e383d991dd1806631a1566ea07ea2cdfb0c1cc16f25",
+      "bytes": 2171
+    },
+    {
+      "source": "uci_postoperative",
+      "name": "uci_postoperative__metadata.json",
+      "url": "https://archive.ics.uci.edu/api/dataset?id=82",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "e490f208d56582f80f107d5341ed5bc55a091e208d79136506c5405fa111a37d",
+      "bytes": 4054
+    },
+    {
+      "source": "uci_heart_failure",
+      "name": "uci_heart_failure__data.zip",
+      "url": "https://archive.ics.uci.edu/static/public/519/heart+failure+clinical+records.zip",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "f0739603e2f9573ffc7d509573cbf9bcb4cc889e4eea0f35a75bec68fc9163d7",
+      "bytes": 12421
+    },
+    {
+      "source": "uci_heart_failure",
+      "name": "uci_heart_failure__metadata.json",
+      "url": "https://archive.ics.uci.edu/api/dataset?id=519",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "abb8ed505b926e5033e1adc6bbe5ab6658041ee065d8c181bf1dc16558264338",
+      "bytes": 5202
+    },
+    {
+      "source": "uci_maternal",
+      "name": "uci_maternal__data.zip",
+      "url": "https://archive.ics.uci.edu/static/public/863/maternal+health+risk.zip",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "84f0de0d647bb217ff7224ff265afadf27eb65c5483baaf1cfcc59abadeb75b1",
+      "bytes": 3342
+    },
+    {
+      "source": "uci_maternal",
+      "name": "uci_maternal__metadata.json",
+      "url": "https://archive.ics.uci.edu/api/dataset?id=863",
+      "version": "UCI snapshot 2026-10-10; SHA-256 locked",
+      "sha256": "d808e8d35745c61b914853212482729ba81c41ea6be37f73570f946cfe92d2a3",
+      "bytes": 3093
     }
   ]
 }

@@ -1,0 +1,41 @@
+{
+  "id": "mortality_90d",
+  "title": "90 日死亡结局预测",
+  "definition": "根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。",
+  "dimension": "risk",
+  "decision_mode": "prediction",
+  "target_count": 100,
+  "source_ids": [
+    "uci_heart_failure"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "followup",
+  "ability_tags": [
+    "risk"
+  ],
+  "decision_stage": "outcome_prediction",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 256,
+    "unique_consistent_pool": 256,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 256,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "no": 78,
+    "yes": 22
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "uci_heart_failure": 100
+  },
+  "historical_material_matches": 0
+}

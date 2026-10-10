@@ -1,20 +1,20 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "seed": 20261010,
-  "total_tasks": 50,
-  "ready_tasks": 22,
-  "partial_tasks": 0,
-  "empty_tasks": 28,
-  "records": 2200,
-  "unique_source_groups": 1938,
+  "total_tasks": 73,
+  "ready_tasks": 46,
+  "partial_tasks": 6,
+  "empty_tasks": 21,
+  "records": 4938,
+  "unique_source_groups": 3142,
   "languages": {
-    "es": 100,
-    "en": 1500,
-    "zh": 600
+    "es": 958,
+    "en": 2968,
+    "zh": 1012
   },
   "distribution_counts": {
-    "open": 2000,
-    "research_noncommercial": 200
+    "open": 3395,
+    "research_noncommercial": 1543
   },
   "historical_material_matches": 546,
   "adapter_exclusions": {
@@ -30,256 +30,1772 @@
     "cnmleqa:knowledge_question": 5280,
     "cmb:incomplete_or_outside_decision_filter": 9792,
     "cnmleqa:incomplete_or_outside_decision_filter": 2797,
-    "cnmleqa:duplicate_or_conflicting_exam_item": 14
+    "cnmleqa:duplicate_or_conflicting_exam_item": 14,
+    "maccrobat:anatomical_site_link:nonunique_target": 2342,
+    "maccrobat:event_coreference:nonunique_target": 6,
+    "maccrobat:procedure_component_link:nonunique_target": 2,
+    "maccrobat:severity_link:nonunique_target": 5,
+    "maccrobat:event_date_link:nonunique_target": 2,
+    "ct_ebm_sp:frequency_link:nonunique_target": 37,
+    "ct_ebm_sp:drug_form_link:nonunique_target": 15,
+    "ct_ebm_sp:cause_effect_link:nonunique_target": 87,
+    "ct_ebm_sp:indication_link:nonunique_target": 76,
+    "ct_ebm_sp:assertion_cue_target:nonunique_target": 143,
+    "ct_ebm_sp:combination_link:nonunique_target": 21,
+    "ct_ebm_sp:duration_link:nonunique_target": 45,
+    "ct_ebm_sp:route_link:nonunique_target": 35,
+    "uci_heart_failure:censored_before_90_days": 43
   },
   "shared_source_groups": {
+    "ct_ebm_sp:2015-003856-31": [
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0185-106317300069": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2020-001442-19": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S1729-519X2007000200009": [
+      "duration_link",
+      "experiencer",
+      "frequency_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0009-741115001620": [
+      "assertion_cue_target",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S2448-87712016000200022": [
+      "combination_link",
+      "drug_form_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2017-001848-35": [
+      "duration_link",
+      "experiencer",
+      "frequency_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2014-001971-30": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2020-001453-49": [
+      "cause_effect_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2016-004585-25": [
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2014-003855-76": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0370-41062001000100006": [
+      "assertion_cue_target",
+      "experiencer",
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2019-000266-37": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2017-002464-40": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S1698-69462006000200018": [
+      "assertion_cue_target",
+      "drug_form_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2018-004253-24": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2011-002009-31": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2015-000149-22": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2020-001995-13": [
+      "duration_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0325-00752014000400004": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1130-01082015001100006": [
+      "cause_effect_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2020-002193-27": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S1130-63432016000100006": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "drug_form_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2012-004053-88": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2016-003046-87": [
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2013-002362-39": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2018-003253-24": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2016-003084-19": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0211-69952011000200009": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2013-003228-35": [
+      "drug_form_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-70942011000500004": [
+      "assertion_cue_target",
+      "combination_link",
+      "drug_form_link",
+      "duration_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2014-001249-26": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2013-004973-29": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2016-004978-17": [
+      "cause_effect_link",
+      "drug_form_link",
+      "duration_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0365-66912007000900007": [
+      "combination_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0034-70942012000300003": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2013-000309-21": [
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2011-006287-50": [
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2016-000347-14": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2012-004413-14": [
+      "assertion_cue_target",
+      "combination_link",
+      "duration_link",
+      "experiencer",
+      "frequency_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0370-41062016000500009": [
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2018-001710-15": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2015-001812-36": [
+      "assertion_cue_target",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0104-11692001000600009": [
+      "cause_effect_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:0211-699500012506": [
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "experiencer",
+      "frequency_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2020-001960-28": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0121-07932007000300002": [
+      "cause_effect_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2019-002224-32": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:2016-002095-26": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S1134-80462018000400222": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "frequency_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0716-10182009000500008": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0210-48062010001000009": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:2013-003032-77": [
+      "combination_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2019-004109-28": [
+      "assertion_cue_target",
+      "combination_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0210-48062003001000005": [
+      "assertion_cue_target",
+      "drug_form_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2015-005519-34": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0211-69952012000600007": [
+      "assertion_cue_target",
+      "experiencer",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:2017-002297-39": [
+      "combination_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2019-002195-14": [
+      "duration_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2017-004692-31": [
+      "assertion_cue_target",
+      "combination_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2016-002977-37": [
+      "combination_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0212-656715000372": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0120-41572014000100011": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:2019-003098-24": [
+      "assertion_cue_target",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0185-106317300264": [
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2013-003214-41": [
+      "combination_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2018-002319-86": [
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2015-005170-38": [
+      "duration_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2011-002605-29": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0121-03192018000200033": [
+      "cause_effect_link",
+      "experiencer",
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2013-000846-20": [
+      "cause_effect_link",
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2020-001511-25": [
+      "drug_form_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2018-002510-13": [
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2012-003032-22": [
+      "assertion_cue_target",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S1665-11462007000100007": [
+      "drug_form_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2014-001433-83": [
+      "duration_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0004-06142007000600004": [
+      "assertion_cue_target",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0211-69952011000600008": [
+      "assertion_cue_target",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0375-09061500083X": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "experiencer",
+      "route_link"
+    ],
+    "ct_ebm_sp:2020-000842-32": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2017-001406-15": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0120-99572019000200144": [
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2016-004114-99": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2013-004655-21": [
+      "experiencer",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0212-65671500181X": [
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:2020-001722-66": [
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0211-69952011000100009": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "experiencer",
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2014-000473-39": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2013-003778-29": [
+      "cause_effect_link",
+      "duration_link",
+      "experiencer"
+    ],
+    "ct_ebm_sp:S0212-16112016000200036": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "experiencer",
+      "indication_link"
+    ],
+    "e3c:EN100453": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100372": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN103589": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100275": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN107465": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100340": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100075": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN108055": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100490": [
+      "clinical_time_type",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN104263": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100543": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100668": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN107559": [
+      "clinical_time_type",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100129": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100600": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100383": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN102305": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100114": [
+      "clinical_time_type",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100123": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100067": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100046": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100385": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN107423": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN101783": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN105114": [
+      "clinical_time_type",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100653": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN106233": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100606": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN108139": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN105551": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN105023": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN104179": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN101114": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100339": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN101318": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100247": [
+      "clinical_time_type",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100315": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100506": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100508": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100682": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100437": [
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN106841": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100345": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN107021": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100068": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN105094": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100658": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
+    "e3c:EN100376": [
+      "clinical_time_type",
+      "event_date_link",
+      "event_permanence",
+      "temporality"
+    ],
     "maccrobat:28207542": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:19860007": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:27218632": [
+      "lab_link",
+      "result_trend"
     ],
     "maccrobat:25743872": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28090049": [
       "dose_link",
+      "event_temporal_order",
       "lab_link"
     ],
     "maccrobat:28173879": [
       "dose_link",
       "lab_link"
     ],
+    "maccrobat:23468586": [
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
+    ],
     "maccrobat:22514576": [
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:27130218": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:27980272": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:27928148": [
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:27998312": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:27100441": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:25721834": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:21477357": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28403092": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:25934795": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:28202865": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
+    ],
+    "maccrobat:27842595": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:23678274": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:24781756": [
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:26523273": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28272214": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:26361431": [
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:23076693": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_date_link",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:27004009": [
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:28216610": [
+      "anatomical_site_link",
       "dose_link",
       "lab_link"
     ],
     "maccrobat:28115731": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:28100235": [
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:22719160": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28321073": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_date_link",
+      "lab_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:27741115": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28403099": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:26228535": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:22781096": [
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:18416479": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:26675562": [
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:28154700": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:25293719": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:22791498": [
+      "anatomical_site_link",
+      "lab_link",
+      "result_trend"
+    ],
+    "maccrobat:28353569": [
+      "anatomical_site_link",
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:28079821": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:26257516": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:20671919": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:25858931": [
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:26309459": [
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:27064109": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:26714786": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_date_link",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28320420": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
+    ],
+    "maccrobat:21672201": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:27990013": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:21923918": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:26584481": [
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:28239141": [
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:26457578": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "result_trend"
     ],
     "maccrobat:26336183": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:26264228": [
+      "anatomical_site_link",
+      "lab_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:18787726": [
+      "anatomical_site_link",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:27773410": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:28154287": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:26670309": [
       "dose_link",
+      "event_temporal_order",
       "lab_link"
     ],
     "maccrobat:28103924": [
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "result_trend"
+    ],
+    "maccrobat:21308977": [
+      "anatomical_site_link",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:22814979": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28353613": [
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:25572898": [
+      "anatomical_site_link",
       "dose_link",
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:28151882": [
+      "event_coreference",
       "lab_link"
     ],
     "maccrobat:18561524": [
       "dose_link",
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:26106249": [
+      "anatomical_site_link",
+      "event_coreference",
       "lab_link"
     ],
     "maccrobat:26474553": [
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "result_trend"
+    ],
+    "maccrobat:27196481": [
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:24518095": [
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "result_trend"
     ],
     "maccrobat:26395443": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:28057913": [
+      "anatomical_site_link",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28383413": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:20146086": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:27846860": [
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28321071": [
+      "anatomical_site_link",
+      "lab_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:19307547": [
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:28353561": [
+      "anatomical_site_link",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:25759562": [
+      "anatomical_site_link",
+      "event_coreference",
+      "lab_link",
+      "result_trend"
     ],
     "maccrobat:26313770": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:26683938": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:23035161": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:23312850": [
       "dose_link",
-      "lab_link"
+      "lab_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:28202862": [
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:25884600": [
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:28100279": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:27842605": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:28033278": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "severity_link"
     ],
     "maccrobat:28202869": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:25023062": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "lab_link",
+      "result_trend",
+      "severity_link"
     ],
     "maccrobat:25661749": [
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
     ],
     "maccrobat:28353556": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_coreference",
+      "event_temporal_order",
+      "lab_link",
+      "procedure_component_link"
     ],
     "maccrobat:27821134": [
+      "anatomical_site_link",
       "dose_link",
-      "lab_link"
+      "event_temporal_order",
+      "lab_link",
+      "severity_link"
     ],
     "maccrobat:28353604": [
+      "anatomical_site_link",
       "dose_link",
+      "event_coreference",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:26361640": [
+      "event_temporal_order",
       "lab_link"
+    ],
+    "maccrobat:27974938": [
+      "anatomical_site_link",
+      "lab_link",
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:28422883": [
+      "anatomical_site_link",
+      "dose_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:27661040": [
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28248891": [
+      "dose_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:28196820": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "result_trend"
+    ],
+    "maccrobat:25295501": [
+      "anatomical_site_link",
+      "dose_link"
+    ],
+    "maccrobat:27980261": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order"
+    ],
+    "maccrobat:23124805": [
+      "dose_link",
+      "result_trend"
+    ],
+    "maccrobat:28190872": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_date_link",
+      "event_temporal_order",
+      "result_trend"
+    ],
+    "maccrobat:28250304": [
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:25024632": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "severity_link"
+    ],
+    "maccrobat:28538413": [
+      "dose_link",
+      "event_date_link",
+      "event_temporal_order",
+      "procedure_component_link"
+    ],
+    "maccrobat:20977862": [
+      "anatomical_site_link",
+      "dose_link"
+    ],
+    "maccrobat:26175648": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28154281": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:18236639": [
+      "dose_link",
+      "event_coreference",
+      "severity_link"
+    ],
+    "maccrobat:18258107": [
+      "dose_link",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:24957905": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_temporal_order",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:19009665": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "severity_link"
+    ],
+    "maccrobat:26285706": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_temporal_order",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:21067996": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "severity_link"
+    ],
+    "maccrobat:23033875": [
+      "dose_link",
+      "event_coreference",
+      "procedure_component_link"
+    ],
+    "maccrobat:28353558": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference"
+    ],
+    "maccrobat:25370695": [
+      "anatomical_site_link",
+      "dose_link",
+      "severity_link"
+    ],
+    "maccrobat:21254744": [
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link"
+    ],
+    "maccrobat:17803823": [
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:28321070": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference"
+    ],
+    "maccrobat:23155491": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference"
+    ],
+    "maccrobat:28248858": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_temporal_order",
+      "procedure_component_link"
+    ],
+    "maccrobat:28121940": [
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:22218279": [
+      "anatomical_site_link",
+      "dose_link",
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:28403086": [
+      "dose_link",
+      "event_coreference",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:28353596": [
+      "anatomical_site_link",
+      "dose_link",
+      "event_coreference",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "zh_exam_case:70533eccc0c8ddc7c0a259cd": [
+      "case_etiology",
+      "clinical_grade"
+    ],
+    "zh_exam_case:02970cd9936b45247c500ed9": [
+      "clinical_grade",
+      "examination_choice"
+    ],
+    "maccrobat:24526194": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "result_trend"
+    ],
+    "maccrobat:21720478": [
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:25793030": [
+      "anatomical_site_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:27683825": [
+      "anatomical_site_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:25246819": [
+      "event_coreference",
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28265107": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "result_trend"
+    ],
+    "maccrobat:23864579": [
+      "anatomical_site_link",
+      "event_coreference",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:25410034": [
+      "event_coreference",
+      "event_temporal_order",
+      "result_trend"
+    ],
+    "maccrobat:24161539": [
+      "event_coreference",
+      "result_trend"
+    ],
+    "maccrobat:28272235": [
+      "procedure_component_link",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:28559815": [
+      "anatomical_site_link",
+      "event_date_link",
+      "result_trend"
+    ],
+    "maccrobat:21527041": [
+      "procedure_component_link",
+      "result_trend"
+    ],
+    "maccrobat:27793101": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:24654246": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "result_trend",
+      "severity_link"
+    ],
+    "maccrobat:25853982": [
+      "event_coreference",
+      "result_trend"
     ],
     "medec:ms-test-19": [
       "clinical_error_detection",
@@ -534,6 +2050,10 @@
       "criterion_boolean",
       "criterion_relation"
     ],
+    "zh_exam_case:7133a85da00bade37076a060": [
+      "medication_choice",
+      "patient_contraindication"
+    ],
     "zh_exam_case:9d18bebd84c7bb789dc20c9d": [
       "diagnosis_choice",
       "medication_choice"
@@ -546,6 +2066,10 @@
       "examination_choice",
       "treatment_choice"
     ],
+    "zh_exam_case:cec815fa86749859a4666981": [
+      "case_complication",
+      "examination_choice"
+    ],
     "zh_exam_case:2d3d5f2c49ba80657d6df73d": [
       "examination_choice",
       "medication_choice"
@@ -557,6 +2081,718 @@
     "zh_exam_case:b52e455f71eeafc2e7f606db": [
       "medication_choice",
       "treatment_choice"
+    ],
+    "zh_exam_case:fdbd8c1c512b4be717455379": [
+      "case_complication",
+      "treatment_choice"
+    ],
+    "zh_exam_case:be689d9ae8d85014de6ef950": [
+      "case_etiology",
+      "treatment_choice"
+    ],
+    "zh_exam_case:55d95f13673dc8e9dbd15fd7": [
+      "case_complication",
+      "medication_choice"
+    ],
+    "maccrobat:28151860": [
+      "anatomical_site_link",
+      "event_temporal_order"
+    ],
+    "maccrobat:19610147": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:28595573": [
+      "event_coreference",
+      "event_date_link",
+      "event_temporal_order"
+    ],
+    "maccrobat:27749582": [
+      "anatomical_site_link",
+      "event_date_link",
+      "event_temporal_order",
+      "procedure_component_link"
+    ],
+    "maccrobat:15939911": [
+      "anatomical_site_link",
+      "event_temporal_order"
+    ],
+    "maccrobat:26469535": [
+      "event_date_link",
+      "event_temporal_order"
+    ],
+    "maccrobat:25139918": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:28250406": [
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link"
+    ],
+    "maccrobat:28193213": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order"
+    ],
+    "maccrobat:19816630": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_date_link",
+      "event_temporal_order"
+    ],
+    "maccrobat:26350418": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "procedure_component_link"
+    ],
+    "maccrobat:18815636": [
+      "event_temporal_order",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:27906105": [
+      "event_coreference",
+      "event_temporal_order"
+    ],
+    "maccrobat:26629302": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:26216058": [
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:27904130": [
+      "event_coreference",
+      "event_temporal_order"
+    ],
+    "maccrobat:24043987": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:26664317": [
+      "anatomical_site_link",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:27059701": [
+      "event_coreference",
+      "event_temporal_order",
+      "severity_link"
+    ],
+    "maccrobat:19214295": [
+      "anatomical_site_link",
+      "event_coreference",
+      "event_temporal_order",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:22515939": [
+      "event_coreference",
+      "event_temporal_order"
+    ],
+    "maccrobat:27057898": [
+      "event_coreference",
+      "severity_link"
+    ],
+    "maccrobat:28767567": [
+      "event_coreference",
+      "procedure_component_link"
+    ],
+    "maccrobat:28120581": [
+      "event_coreference",
+      "severity_link"
+    ],
+    "maccrobat:23242090": [
+      "event_coreference",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:16778410": [
+      "event_coreference",
+      "procedure_component_link"
+    ],
+    "maccrobat:28353588": [
+      "event_coreference",
+      "procedure_component_link"
+    ],
+    "maccrobat:25926582": [
+      "anatomical_site_link",
+      "event_coreference"
+    ],
+    "maccrobat:18666334": [
+      "anatomical_site_link",
+      "event_coreference"
+    ],
+    "maccrobat:19860006": [
+      "event_coreference",
+      "procedure_component_link"
+    ],
+    "maccrobat:25210224": [
+      "anatomical_site_link",
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "maccrobat:28296775": [
+      "anatomical_site_link",
+      "severity_link"
+    ],
+    "maccrobat:21129213": [
+      "anatomical_site_link",
+      "procedure_component_link"
+    ],
+    "maccrobat:28154669": [
+      "event_date_link",
+      "severity_link"
+    ],
+    "maccrobat:22520024": [
+      "procedure_component_link",
+      "severity_link"
+    ],
+    "ct_ebm_sp:S0034-70942007000400002": [
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S1699-65852003000100005": [
+      "combination_link",
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2013-001229-15": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-70942014000600425": [
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0004-06142009000500003": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-74932001000400010": [
+      "cause_effect_link",
+      "combination_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0212-16112017000400004": [
+      "cause_effect_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2015-004738-90": [
+      "cause_effect_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-70942014000300177": [
+      "cause_effect_link",
+      "combination_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2013-000577-77": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2010-019912-18": [
+      "cause_effect_link",
+      "duration_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0375-0906_PMID30591198": [
+      "cause_effect_link",
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S1130-01082004000400004": [
+      "drug_form_link",
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2018-000039-28": [
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "frequency_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0211-69952012000700007": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-70942015000300191": [
+      "assertion_cue_target",
+      "combination_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S1130-01082007000500004": [
+      "duration_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0365-66912005000100004": [
+      "assertion_cue_target",
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2012-001984-66": [
+      "combination_link",
+      "duration_link",
+      "frequency_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-70942014000300173": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0036-36342002000100003": [
+      "duration_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-75312013000200007": [
+      "combination_link",
+      "duration_link",
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2016-002915-17": [
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2017-004159-22": [
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2014-000565-47": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2012-001610-42": [
+      "assertion_cue_target",
+      "combination_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2020-001634-36": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0211-69952012000600021": [
+      "assertion_cue_target",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2015-003636-13": [
+      "duration_link",
+      "frequency_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2020-001541-39": [
+      "cause_effect_link",
+      "duration_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2010-020803-63": [
+      "frequency_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0716-10182013000400003": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2014-004696-24": [
+      "combination_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2016-001170-15": [
+      "assertion_cue_target",
+      "combination_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2012-001505-24": [
+      "duration_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0034-70942010000200002": [
+      "assertion_cue_target",
+      "drug_form_link",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:2014-005097-11": [
+      "assertion_cue_target",
+      "indication_link",
+      "route_link"
+    ],
+    "ct_ebm_sp:S0210-48062005000400009": [
+      "duration_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0716-10182016000300021": [
+      "drug_form_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0365-66912009000100004": [
+      "combination_link",
+      "duration_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0211-69952009000500007": [
+      "combination_link",
+      "duration_link",
+      "frequency_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1130-05582016000400188": [
+      "duration_link",
+      "frequency_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0365-66912006000200008": [
+      "drug_form_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:2013-001695-38": [
+      "assertion_cue_target",
+      "duration_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0370-41062014000300006": [
+      "drug_form_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S1134-928X2010000300006": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "frequency_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0034-70942014000600406": [
+      "cause_effect_link",
+      "duration_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0025-76802003000400004": [
+      "assertion_cue_target",
+      "combination_link",
+      "frequency_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0213-12852004000100005": [
+      "drug_form_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0211-69952012000800013": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:S0120-41572006000500017": [
+      "cause_effect_link",
+      "combination_link",
+      "frequency_link"
+    ],
+    "ct_ebm_sp:2018-002465-18": [
+      "cause_effect_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2018-000191-15": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0365-66912004001200008": [
+      "drug_form_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2014-001675-32": [
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1134-80462009000600003": [
+      "cause_effect_link",
+      "combination_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2012-002934-35": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:S0034-70942010000200004": [
+      "combination_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2018-001867-22": [
+      "assertion_cue_target",
+      "combination_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0716-10182014000300004": [
+      "assertion_cue_target",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2013-001835-33": [
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2013-000821-30": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:S0716-10182005000300001": [
+      "combination_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:0211-699502014623": [
+      "combination_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:S0210-56912007000400001": [
+      "assertion_cue_target",
+      "combination_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1683-98032016000100007": [
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:S0211-69952017000100068": [
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2013-002243-29": [
+      "combination_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0370-41062015000400003": [
+      "cause_effect_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2020-001717-20": [
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:S0365-66912009000400004": [
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2014-001496-31": [
+      "combination_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2020-001971-33": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:S0066-782X2010001600003": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2020-001659-42": [
+      "cause_effect_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2014-002294-11": [
+      "cause_effect_link",
+      "combination_link",
+      "drug_form_link",
+      "duration_link"
+    ],
+    "ct_ebm_sp:2012-005480-28": [
+      "cause_effect_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2011-005698-21": [
+      "cause_effect_link",
+      "duration_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0034-75072007000400001": [
+      "drug_form_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2019-002562-12": [
+      "assertion_cue_target",
+      "combination_link",
+      "drug_form_link"
+    ],
+    "ct_ebm_sp:S0212-16112014000300013": [
+      "cause_effect_link",
+      "drug_form_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0025-76802012000300002": [
+      "assertion_cue_target",
+      "drug_form_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2020-001440-26": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:2013-003588-73": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:0211-699500012698": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:2020-001587-29": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2012-004779-38": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2020-001929-31": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:2020-002274-28": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:S0212-16112015000900013": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2016-000740-34": [
+      "cause_effect_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1022-51292003000300003": [
+      "assertion_cue_target",
+      "cause_effect_link",
+      "combination_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0210-12382018292": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:S1726-46342013000400010": [
+      "cause_effect_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2013-005426-30": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:2019-004089-16": [
+      "assertion_cue_target",
+      "cause_effect_link"
+    ],
+    "ct_ebm_sp:S0185-106317300094": [
+      "cause_effect_link",
+      "combination_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2013-001526-26": [
+      "assertion_cue_target",
+      "combination_link"
+    ],
+    "ct_ebm_sp:2012-000797-35": [
+      "assertion_cue_target",
+      "combination_link"
+    ],
+    "ct_ebm_sp:2018-000416-21": [
+      "combination_link",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S0365-66912007000600004": [
+      "assertion_cue_target",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2018-002997-29": [
+      "assertion_cue_target",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1131-57682002000500006": [
+      "assertion_cue_target",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2019-002729-31": [
+      "assertion_cue_target",
+      "indication_link"
+    ],
+    "ct_ebm_sp:2020-001827-15": [
+      "assertion_cue_target",
+      "indication_link"
+    ],
+    "ct_ebm_sp:S1134-00961400196X": [
+      "assertion_cue_target",
+      "indication_link"
     ]
   },
   "tasks": [
@@ -603,13 +2839,15 @@
     },
     {
       "id": "experiencer",
-      "dimension": "facts",
       "title": "事实主体归属",
-      "definition": "判断症状或事件属于患者、家属还是其他人。",
+      "definition": "给定试验文本及主体片段，选择原标注角色：患者、家属或其他人。只评价文本角色。",
+      "dimension": "facts",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "未找到同时满足公开分发与原始主体金标的已核验来源。",
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "n2c2"
       ],
@@ -618,32 +2856,42 @@
         "facts"
       ],
       "decision_stage": "material_judgment",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 1507,
+        "unique_consistent_pool": 1507,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 1507,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "Patient": 48,
+        "Other": 40,
+        "Family_member": 12
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
       "historical_material_matches": 0
     },
     {
       "id": "temporality",
+      "title": "事件与文档时间关系",
+      "definition": "给定病例原文、文档时间和事件片段，选择原 E3C docTimeRel 时间关系。",
       "dimension": "facts",
-      "title": "事实时间属性",
-      "definition": "判断当前、既往、未来或时间不明。",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "现有自编题不纳入；THYME 临床原文需访问协议。",
+      "source_ids": [
+        "e3c"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "thyme"
       ],
@@ -652,21 +2900,31 @@
         "facts"
       ],
       "decision_stage": "material_judgment",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 48,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 2843,
+        "unique_consistent_pool": 2843,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 2843,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "CONTAINS": 25,
+        "IS-CONTAINED": 17,
+        "OVERLAP": 16,
+        "BEFORE": 35,
+        "AFTER": 7
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "e3c": 100
+      },
       "historical_material_matches": 0
     },
     {
@@ -1300,13 +3558,16 @@
     },
     {
       "id": "clinical_grade",
+      "title": "临床分级与分期选择",
+      "definition": "根据病例从原选项中选择疾病分期、严重程度分度或功能分级。",
       "dimension": "rules",
-      "title": "临床语义分级",
-      "definition": "根据病例和指定分级体系选择等级。",
-      "decision_mode": "knowledge",
+      "decision_mode": "clinical",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "CMedCalc 数据许可待明确。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "cmedcalc"
       ],
@@ -1315,21 +3576,37 @@
         "rules"
       ],
       "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 99,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 103,
+        "unique_consistent_pool": 103,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 103,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "C": 23,
+        "opc": 5,
+        "D": 23,
+        "B": 11,
+        "opd": 9,
+        "E": 8,
+        "opb": 6,
+        "opa": 5,
+        "A": 5,
+        "ope": 5
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cmb": 70,
+        "cnmleqa": 30
+      },
       "historical_material_matches": 0
     },
     {
@@ -1398,34 +3675,43 @@
     },
     {
       "id": "result_trend",
-      "dimension": "rules",
-      "title": "检验结果趋势",
-      "definition": "给定可比性条件，判断结果上升、下降、稳定或不可比较。",
-      "decision_mode": "rule",
+      "title": "临床事件变化趋势",
+      "definition": "给定病例及事件片段，选择原 TREND 标注的增加、减少或改变；只判断原文描述，不预测未来。",
+      "dimension": "facts",
+      "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "不能将带时序数值的开放材料直接当作有审核金标的测试题。",
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [],
       "primary_scenario": "testing",
       "ability_tags": [
-        "rules"
+        "facts"
       ],
-      "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 71,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 124,
+        "unique_consistent_pool": 124,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 124,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "INC": 53,
+        "DEC": 47
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
       "historical_material_matches": 0
     },
     {
@@ -1854,38 +4140,55 @@
     },
     {
       "id": "patient_contraindication",
+      "title": "患者特异性禁忌选择",
+      "definition": "根据病例从原选项中选择不宜使用或禁忌的药物、检查或治疗方案。",
       "dimension": "eligibility",
-      "title": "患者特异性禁忌",
-      "definition": "依据患者资料和给定药品说明条件，判断禁忌是否成立。",
-      "decision_mode": "rule",
+      "decision_mode": "clinical",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "说明书是材料来源，尚无配套患者及审核金标。",
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
       "candidate_source_ids": [
         "openfda"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
-        "eligibility",
-        "rules",
-        "evidence"
+        "eligibility"
       ],
       "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 54,
+      "groups": 53,
+      "status": "partial",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 54,
+        "unique_consistent_pool": 54,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 54,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "opa": 5,
+        "C": 8,
+        "opd": 5,
+        "B": 6,
+        "E": 9,
+        "D": 5,
+        "ope": 6,
+        "opc": 3,
+        "A": 5,
+        "opb": 2
+      },
+      "language_counts": {
+        "zh": 54
+      },
+      "source_counts": {
+        "cnmleqa": 21,
+        "cmb": 33
+      },
       "historical_material_matches": 0
     },
     {
@@ -1922,13 +4225,15 @@
     },
     {
       "id": "triage_urgency",
+      "title": "当前分诊与升级行动",
+      "definition": "仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。",
       "dimension": "risk",
-      "title": "分诊紧急程度",
-      "definition": "根据症状和指定分诊规则选择紧急等级。",
-      "decision_mode": "rule",
+      "decision_mode": "clinical",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。",
+      "source_ids": [
+        "care_bench"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "triage",
         "mimic_iv_ed",
@@ -1936,26 +4241,33 @@
       ],
       "primary_scenario": "intake",
       "ability_tags": [
-        "risk",
-        "rules",
-        "evidence"
+        "risk"
       ],
-      "decision_stage": "clinical_choice",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "decision_stage": "clinical_action",
+      "count": 100,
+      "groups": 62,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 135,
+        "unique_consistent_pool": 135,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 135,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "1A_ESCALATION_NONURGENT_CARE": 30,
+        "1B_ESCALATION_URGENT_CARE": 20,
+        "0A_NO_ESCALATION_INFO_NEEDED": 30,
+        "0B_NO_ESCALATION_SELF_CARE_MONITOR": 20
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "care_bench": 100
+      },
       "historical_material_matches": 0
     },
     {
@@ -2656,35 +4968,44 @@
     {
       "id": "readmission_30d",
       "title": "出院后 30 天内再入院预测",
-      "primary_scenario": "followup",
+      "definition": "根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。",
       "dimension": "risk",
-      "ability_tags": [
-        "risk"
-      ],
       "decision_mode": "prediction",
-      "decision_stage": "outcome_prediction",
-      "definition": "只根据出院时可得信息，预测是否在 30 天内再次住院。",
       "target_count": 100,
-      "source_ids": [],
+      "source_ids": [
+        "uci_diabetes"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "uci_diabetes"
       ],
-      "missing_reason": "开放结局数据已核验；需按患者划分，排除死亡等不适用出院并固定特征和基线。",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "outcome_prediction",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 46979,
+        "unique_consistent_pool": 46979,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 46979,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "yes": 7,
+        "no": 93
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "uci_diabetes": 100
+      },
       "historical_material_matches": 0
     },
     {
@@ -2788,6 +5109,1754 @@
       "language_counts": {},
       "source_counts": {},
       "historical_material_matches": 0
+    },
+    {
+      "id": "mortality_90d",
+      "title": "90 日死亡结局预测",
+      "definition": "根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。",
+      "dimension": "risk",
+      "decision_mode": "prediction",
+      "target_count": 100,
+      "source_ids": [
+        "uci_heart_failure"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "outcome_prediction",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 256,
+        "unique_consistent_pool": 256,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 256,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "no": 78,
+        "yes": 22
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "uci_heart_failure": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "postoperative_disposition",
+      "title": "术后转归去向选择",
+      "definition": "给定术后恢复指标，选择原记录的 ICU、普通病房或回家去向。历史记录选择不等于临床最优决策。",
+      "dimension": "workflow",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "uci_postoperative"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "clinical_action",
+      "count": 68,
+      "groups": 68,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 90,
+        "unique_consistent_pool": 68,
+        "conflicting_rows_removed": 14,
+        "duplicate_requests_removed": 8,
+        "group_cap": 5,
+        "upstream_adapter_pool": 90,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "A": 48,
+        "S": 18,
+        "I": 2
+      },
+      "language_counts": {
+        "en": 68
+      },
+      "source_counts": {
+        "uci_postoperative": 68
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "maternal_risk",
+      "title": "孕产风险等级识别",
+      "definition": "根据孕产记录的年龄与生命体征，选择发布数据标注的低、中、高风险；不等同经过验证的母婴结局预测。",
+      "dimension": "risk",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "uci_maternal"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "risk_classification",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 1014,
+        "unique_consistent_pool": 381,
+        "conflicting_rows_removed": 215,
+        "duplicate_requests_removed": 418,
+        "group_cap": 5,
+        "upstream_adapter_pool": 1014,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "mid risk": 20,
+        "high risk": 31,
+        "low risk": 49
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "uci_maternal": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "event_temporal_order",
+      "title": "临床事件先后关系",
+      "definition": "给定病例和两个事件，选择第一个相对第二个的原始先于、晚于或重叠关系。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 11102,
+        "unique_consistent_pool": 11102,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 11102,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "AFTER": 34,
+        "BEFORE": 33,
+        "OVERLAP": 33
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "event_coreference",
+      "title": "同一临床事件指代关联",
+      "definition": "给定病例中的目标事件，从原文事件候选中选择原 IDENTICAL 标注唯一关联的同一事件提及。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 713,
+        "unique_consistent_pool": 713,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 713,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T72": 3,
+        "T5": 3,
+        "T57": 4,
+        "T25": 2,
+        "T87": 1,
+        "T80": 3,
+        "T137": 1,
+        "T150": 1,
+        "T22": 3,
+        "T112": 1,
+        "T89": 2,
+        "T145": 1,
+        "T10": 1,
+        "T20": 2,
+        "T76": 1,
+        "T39": 1,
+        "T8": 1,
+        "T62": 2,
+        "T44": 3,
+        "T92": 1,
+        "T15": 1,
+        "T33": 2,
+        "T3": 3,
+        "T71": 1,
+        "T41": 1,
+        "T61": 2,
+        "T122": 1,
+        "T79": 1,
+        "T94": 2,
+        "T75": 1,
+        "T73": 3,
+        "T67": 2,
+        "T42": 1,
+        "T47": 2,
+        "T50": 1,
+        "T96": 1,
+        "T77": 1,
+        "T103": 1,
+        "T104": 1,
+        "T159": 1,
+        "T81": 1,
+        "T26": 1,
+        "T102": 2,
+        "T46": 1,
+        "T30": 2,
+        "T65": 1,
+        "T19": 1,
+        "T90": 1,
+        "T100": 1,
+        "T70": 1,
+        "T9": 1,
+        "T64": 1,
+        "T32": 1,
+        "T27": 1,
+        "T175": 1,
+        "T69": 2,
+        "T82": 1,
+        "T54": 1,
+        "T40": 1,
+        "T107": 1,
+        "T7": 1,
+        "T37": 1,
+        "T167": 1,
+        "T45": 1,
+        "T29": 1,
+        "T36": 1,
+        "T66": 1,
+        "T12": 1,
+        "T16": 1,
+        "T21": 1,
+        "T11": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "anatomical_site_link",
+      "title": "临床事件与解剖部位关联",
+      "definition": "给定病例和临床事件，从原文解剖部位候选中选择原 MODIFY 关系唯一关联的部位。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 1087,
+        "unique_consistent_pool": 1086,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 1,
+        "group_cap": 5,
+        "upstream_adapter_pool": 1087,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T7": 3,
+        "T70": 1,
+        "T68": 3,
+        "T94": 1,
+        "T24": 2,
+        "T15": 2,
+        "T43": 1,
+        "T126": 4,
+        "T160": 1,
+        "T39": 2,
+        "T36": 2,
+        "T60": 2,
+        "T108": 1,
+        "T29": 2,
+        "T26": 3,
+        "T215": 1,
+        "T213": 1,
+        "T38": 1,
+        "T44": 4,
+        "T118": 3,
+        "T16": 3,
+        "T99": 1,
+        "T127": 2,
+        "T73": 2,
+        "T178": 1,
+        "T56": 1,
+        "T192": 1,
+        "T28": 3,
+        "T93": 1,
+        "T81": 1,
+        "T74": 1,
+        "T87": 1,
+        "T67": 1,
+        "T31": 1,
+        "T107": 3,
+        "T65": 1,
+        "T63": 2,
+        "T97": 1,
+        "T89": 1,
+        "T47": 1,
+        "T27": 1,
+        "T14": 1,
+        "T90": 1,
+        "T119": 2,
+        "T22": 1,
+        "T110": 1,
+        "T20": 1,
+        "T154": 1,
+        "T106": 1,
+        "T21": 1,
+        "T25": 1,
+        "T103": 1,
+        "T169": 1,
+        "T88": 1,
+        "T111": 1,
+        "T50": 1,
+        "T77": 1,
+        "T115": 1,
+        "T75": 1,
+        "T156": 1,
+        "T124": 1,
+        "T131": 2,
+        "T123": 1,
+        "T72": 1,
+        "T57": 1,
+        "T137": 1,
+        "T135": 1,
+        "T4": 1,
+        "T100": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "severity_link",
+      "title": "严重程度与临床事件关联",
+      "definition": "给定病例和严重程度片段，从原文事件候选中选择其唯一修饰的事件。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 349,
+        "unique_consistent_pool": 349,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 349,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T79": 2,
+        "T31": 1,
+        "T50": 2,
+        "T155": 1,
+        "T15": 1,
+        "T103": 1,
+        "T107": 2,
+        "T209": 1,
+        "T63": 2,
+        "T57": 1,
+        "T120": 1,
+        "T20": 1,
+        "T191": 1,
+        "T6": 1,
+        "T37": 2,
+        "T75": 2,
+        "T45": 1,
+        "T49": 1,
+        "T117": 1,
+        "T67": 1,
+        "T78": 1,
+        "T98": 1,
+        "T72": 2,
+        "T11": 2,
+        "T87": 1,
+        "T17": 1,
+        "T133": 1,
+        "T53": 1,
+        "T115": 1,
+        "T114": 1,
+        "T36": 2,
+        "T73": 1,
+        "T70": 1,
+        "T148": 1,
+        "T81": 1,
+        "T104": 1,
+        "T99": 1,
+        "T48": 3,
+        "T124": 1,
+        "T89": 1,
+        "T34": 1,
+        "T46": 1,
+        "T84": 1,
+        "T85": 1,
+        "T23": 1,
+        "T154": 1,
+        "T64": 2,
+        "T93": 1,
+        "T74": 2,
+        "T76": 2,
+        "T83": 1,
+        "T86": 1,
+        "T141": 1,
+        "T9": 1,
+        "T47": 1,
+        "T44": 1,
+        "T92": 1,
+        "T106": 1,
+        "T95": 1,
+        "T60": 1,
+        "T69": 1,
+        "T77": 1,
+        "T113": 1,
+        "T30": 1,
+        "T32": 2,
+        "T59": 1,
+        "T58": 1,
+        "T38": 1,
+        "T40": 1,
+        "T129": 1,
+        "T35": 2,
+        "T21": 1,
+        "T56": 1,
+        "T142": 1,
+        "T3": 1,
+        "T177": 1,
+        "T149": 1,
+        "T109": 1,
+        "T132": 1,
+        "T25": 1,
+        "T181": 1,
+        "T54": 1,
+        "T91": 1,
+        "T24": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "route_link",
+      "title": "给药途径关联",
+      "definition": "给定试验文本和给药途径片段，从原文药物或操作候选中选择原关系唯一关联的目标。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 74,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 179,
+        "unique_consistent_pool": 179,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 179,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T1": 7,
+        "T6": 5,
+        "T44": 1,
+        "T25": 4,
+        "T29": 2,
+        "T18": 1,
+        "T32": 3,
+        "T9": 4,
+        "T21": 4,
+        "T7": 3,
+        "T23": 4,
+        "T5": 5,
+        "T27": 4,
+        "T15": 7,
+        "T14": 2,
+        "T8": 1,
+        "T4": 4,
+        "T2": 7,
+        "T34": 2,
+        "T36": 1,
+        "T30": 2,
+        "T26": 1,
+        "T16": 1,
+        "T10": 2,
+        "T3": 3,
+        "T11": 3,
+        "T12": 1,
+        "T13": 3,
+        "T35": 1,
+        "T56": 1,
+        "T17": 3,
+        "T19": 2,
+        "T48": 1,
+        "T22": 2,
+        "T28": 1,
+        "T37": 1,
+        "T20": 1
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "frequency_link",
+      "title": "用药或操作频次关联",
+      "definition": "给定试验文本和频次片段，从原文候选中选择原 Has_Frequency 唯一关联的药物或事件。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 81,
+      "groups": 55,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 83,
+        "unique_consistent_pool": 83,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 83,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T18": 3,
+        "T25": 1,
+        "T14": 2,
+        "T10": 3,
+        "T32": 1,
+        "T56": 1,
+        "T26": 1,
+        "T51": 1,
+        "T9": 2,
+        "T28": 2,
+        "T54": 2,
+        "T47": 1,
+        "T23": 3,
+        "T68": 1,
+        "T13": 3,
+        "T74": 2,
+        "T12": 2,
+        "T21": 4,
+        "T33": 1,
+        "T20": 4,
+        "T11": 1,
+        "T24": 1,
+        "T49": 1,
+        "T39": 1,
+        "T16": 6,
+        "T8": 3,
+        "T2": 2,
+        "T111": 1,
+        "T50": 1,
+        "T53": 1,
+        "T67": 1,
+        "T19": 2,
+        "T45": 1,
+        "T38": 1,
+        "T98": 1,
+        "T29": 1,
+        "T7": 2,
+        "T69": 1,
+        "T36": 1,
+        "T31": 1,
+        "T27": 1,
+        "T15": 2,
+        "T40": 1,
+        "T5": 1,
+        "T3": 2,
+        "T34": 1,
+        "T35": 1,
+        "T104": 1,
+        "T17": 1
+      },
+      "language_counts": {
+        "es": 81
+      },
+      "source_counts": {
+        "ct_ebm_sp": 81
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "duration_link",
+      "title": "病程与疗程时长关联",
+      "definition": "给定试验文本和持续时长片段，从原文候选中选择原 Has_Duration_or_Interval 唯一关联的临床对象。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 380,
+        "unique_consistent_pool": 380,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 380,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T44": 1,
+        "T37": 2,
+        "T15": 3,
+        "T3": 5,
+        "T7": 3,
+        "T23": 4,
+        "T30": 2,
+        "T42": 1,
+        "T33": 1,
+        "T6": 4,
+        "T68": 2,
+        "T14": 2,
+        "T16": 3,
+        "T11": 4,
+        "T100": 2,
+        "T27": 2,
+        "T5": 1,
+        "T54": 1,
+        "T38": 3,
+        "T18": 2,
+        "T47": 2,
+        "T43": 1,
+        "T17": 2,
+        "T34": 1,
+        "T12": 4,
+        "T4": 3,
+        "T25": 1,
+        "T46": 2,
+        "T24": 2,
+        "T49": 1,
+        "T19": 3,
+        "T9": 1,
+        "T64": 1,
+        "T13": 3,
+        "T8": 3,
+        "T20": 1,
+        "T78": 1,
+        "T29": 1,
+        "T56": 1,
+        "T84": 1,
+        "T10": 2,
+        "T26": 2,
+        "T31": 2,
+        "T28": 1,
+        "T103": 1,
+        "T55": 1,
+        "T61": 1,
+        "T2": 1,
+        "T62": 1,
+        "T81": 1,
+        "T22": 1,
+        "T72": 1,
+        "T1": 1,
+        "T50": 1
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "drug_form_link",
+      "title": "药物剂型关联",
+      "definition": "给定试验文本和剂型片段，从原文药物或干预候选中选择原 Has_Drug_Form 唯一关联的目标。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 77,
+      "groups": 39,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 80,
+        "unique_consistent_pool": 80,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 80,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T9": 5,
+        "T1": 3,
+        "T17": 3,
+        "T24": 2,
+        "T49": 1,
+        "T57": 1,
+        "T8": 4,
+        "T15": 3,
+        "T44": 1,
+        "T4": 2,
+        "T20": 4,
+        "T50": 1,
+        "T35": 1,
+        "T37": 2,
+        "T21": 2,
+        "T38": 2,
+        "T7": 2,
+        "T12": 5,
+        "T13": 2,
+        "T14": 3,
+        "T10": 1,
+        "T23": 2,
+        "T3": 3,
+        "T41": 1,
+        "T30": 1,
+        "T2": 3,
+        "T6": 1,
+        "T19": 1,
+        "T27": 1,
+        "T45": 1,
+        "T85": 1,
+        "T31": 1,
+        "T29": 1,
+        "T54": 2,
+        "T43": 1,
+        "T28": 1,
+        "T42": 1,
+        "T47": 1,
+        "T22": 1,
+        "T11": 1,
+        "T33": 1,
+        "T36": 1
+      },
+      "language_counts": {
+        "es": 77
+      },
+      "source_counts": {
+        "ct_ebm_sp": 77
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "cause_effect_link",
+      "title": "文本因果结果关联",
+      "definition": "给定试验文本及原因片段，从原文候选中选择原 Causes 唯一关联的结果；不推断未标注因果，也不认定患者级药物因果。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 492,
+        "unique_consistent_pool": 492,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 492,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T17": 1,
+        "T27": 3,
+        "T5": 4,
+        "T32": 1,
+        "T10": 5,
+        "T94": 1,
+        "T31": 1,
+        "T76": 1,
+        "T73": 1,
+        "T23": 5,
+        "T11": 1,
+        "T42": 1,
+        "T22": 3,
+        "T13": 1,
+        "T14": 4,
+        "T43": 1,
+        "T57": 1,
+        "T92": 2,
+        "T20": 3,
+        "T3": 1,
+        "T68": 2,
+        "T40": 1,
+        "T86": 1,
+        "T26": 2,
+        "T100": 1,
+        "T21": 4,
+        "T95": 1,
+        "T59": 1,
+        "T6": 3,
+        "T88": 1,
+        "T7": 2,
+        "T126": 1,
+        "T69": 1,
+        "T74": 1,
+        "T18": 2,
+        "T65": 1,
+        "T56": 1,
+        "T39": 3,
+        "T112": 1,
+        "T15": 1,
+        "T33": 2,
+        "T47": 2,
+        "T44": 1,
+        "T24": 4,
+        "T87": 1,
+        "T28": 2,
+        "T61": 2,
+        "T64": 1,
+        "T66": 1,
+        "T29": 1,
+        "T62": 1,
+        "T80": 1,
+        "T35": 1,
+        "T54": 1,
+        "T79": 1,
+        "T4": 2,
+        "T93": 1,
+        "T12": 2,
+        "T25": 1
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "combination_link",
+      "title": "联合干预对象关联",
+      "definition": "给定试验文本和干预片段，从原文候选中选择原 Combined_with 唯一关联的联合对象。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 61,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 201,
+        "unique_consistent_pool": 201,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 201,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T24": 3,
+        "T2": 8,
+        "T3": 5,
+        "T30": 3,
+        "T25": 1,
+        "T15": 3,
+        "T8": 1,
+        "T9": 6,
+        "T12": 2,
+        "T20": 2,
+        "T14": 2,
+        "T6": 2,
+        "T18": 1,
+        "T4": 6,
+        "T57": 1,
+        "T23": 2,
+        "T21": 2,
+        "T43": 1,
+        "T5": 4,
+        "T78": 1,
+        "T16": 2,
+        "T45": 1,
+        "T53": 1,
+        "T11": 5,
+        "T29": 3,
+        "T7": 2,
+        "T50": 1,
+        "T32": 1,
+        "T54": 1,
+        "T26": 1,
+        "T10": 2,
+        "T17": 2,
+        "T19": 5,
+        "T67": 1,
+        "T55": 1,
+        "T39": 1,
+        "T41": 2,
+        "T27": 2,
+        "T42": 2,
+        "T28": 1,
+        "T13": 2,
+        "T52": 1,
+        "T56": 1,
+        "T38": 1,
+        "T49": 1,
+        "T35": 1
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "indication_link",
+      "title": "干预用途关联",
+      "definition": "给定试验文本及干预片段，从原文候选中选择原 Used_for 唯一关联的用途；不评价个体适宜性。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 756,
+        "unique_consistent_pool": 756,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 756,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T2": 4,
+        "T9": 2,
+        "T36": 2,
+        "T17": 3,
+        "T11": 3,
+        "T13": 3,
+        "T29": 3,
+        "T15": 3,
+        "T8": 3,
+        "T5": 5,
+        "T12": 3,
+        "T31": 1,
+        "T33": 1,
+        "T37": 1,
+        "T34": 3,
+        "T28": 4,
+        "T43": 5,
+        "T23": 1,
+        "T24": 2,
+        "T52": 1,
+        "T4": 3,
+        "T1": 5,
+        "T27": 3,
+        "T21": 2,
+        "T7": 1,
+        "T25": 2,
+        "T6": 1,
+        "T10": 1,
+        "T47": 1,
+        "T38": 1,
+        "T3": 3,
+        "T41": 3,
+        "T70": 1,
+        "T19": 2,
+        "T60": 1,
+        "T67": 1,
+        "T45": 1,
+        "T53": 1,
+        "T49": 1,
+        "T39": 1,
+        "T77": 1,
+        "T72": 1,
+        "T16": 1,
+        "T18": 1,
+        "T44": 2,
+        "T55": 1,
+        "T56": 1,
+        "T30": 2,
+        "T20": 1,
+        "T62": 1
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "assertion_cue_target",
+      "title": "否定或推测线索作用对象",
+      "definition": "给定试验文本及否定或推测线索，从原文候选中选择原 Negation/Speculation 唯一关联的对象。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ct_ebm_sp"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 546,
+        "unique_consistent_pool": 546,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 546,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T35": 2,
+        "T64": 2,
+        "T16": 2,
+        "T62": 2,
+        "T61": 2,
+        "T96": 1,
+        "T46": 2,
+        "T15": 4,
+        "T67": 1,
+        "T10": 1,
+        "T59": 3,
+        "T52": 4,
+        "T66": 1,
+        "T72": 5,
+        "T63": 2,
+        "T14": 3,
+        "T32": 1,
+        "T26": 1,
+        "T18": 3,
+        "T79": 2,
+        "T76": 1,
+        "T57": 1,
+        "T11": 1,
+        "T40": 1,
+        "T68": 2,
+        "T71": 1,
+        "T21": 1,
+        "T80": 1,
+        "T47": 2,
+        "T39": 2,
+        "T24": 2,
+        "T25": 1,
+        "T78": 1,
+        "T60": 1,
+        "T27": 1,
+        "T8": 1,
+        "T58": 2,
+        "T54": 3,
+        "T91": 1,
+        "T19": 2,
+        "T104": 1,
+        "T28": 1,
+        "T38": 1,
+        "T92": 1,
+        "T49": 1,
+        "T73": 1,
+        "T37": 1,
+        "T50": 1,
+        "T53": 1,
+        "T51": 2,
+        "T22": 1,
+        "T102": 1,
+        "T20": 1,
+        "T56": 3,
+        "T74": 1,
+        "T45": 1,
+        "T12": 1,
+        "T70": 1,
+        "T99": 1,
+        "T17": 2,
+        "T30": 1,
+        "T44": 1,
+        "T87": 1,
+        "T31": 1
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "ct_ebm_sp": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "event_date_link",
+      "title": "事件与时间表达关联",
+      "definition": "给定病例和时间表达，从原文事件候选中选择原时间关联标注的唯一目标；若提供关系类型，按该方向解释。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat",
+        "e3c"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 47,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 107,
+        "unique_consistent_pool": 107,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 107,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "8600": 1,
+        "T68": 1,
+        "5292": 1,
+        "1934": 1,
+        "6826": 2,
+        "9523": 1,
+        "6781": 1,
+        "5656": 1,
+        "8925": 1,
+        "7644": 1,
+        "8081": 1,
+        "8389": 1,
+        "T35": 1,
+        "5337": 1,
+        "3980": 1,
+        "T51": 1,
+        "T10": 1,
+        "4205": 1,
+        "8505": 1,
+        "3920": 1,
+        "9064": 1,
+        "6841": 1,
+        "5250": 1,
+        "2472": 1,
+        "T5": 1,
+        "6920": 1,
+        "8550": 1,
+        "T14": 1,
+        "8926": 1,
+        "2068": 1,
+        "2830": 1,
+        "8059": 1,
+        "8535": 1,
+        "8014": 1,
+        "5267": 1,
+        "9253": 1,
+        "10603": 1,
+        "7849": 1,
+        "5941": 1,
+        "1914": 1,
+        "1644": 1,
+        "9538": 1,
+        "8941": 1,
+        "8758": 1,
+        "5074": 1,
+        "T122": 2,
+        "8713": 1,
+        "5041": 1,
+        "1889": 1,
+        "9990": 1,
+        "3294": 2,
+        "4310": 1,
+        "9259": 1,
+        "4984": 1,
+        "2680": 1,
+        "1979": 1,
+        "5493": 1,
+        "T115": 1,
+        "T50": 2,
+        "7807": 1,
+        "10344": 1,
+        "10734": 1,
+        "1659": 1,
+        "8959": 1,
+        "9133": 1,
+        "8719": 1,
+        "T63": 1,
+        "1888": 1,
+        "1852": 1,
+        "5796": 1,
+        "5277": 1,
+        "2309": 1,
+        "T41": 1,
+        "8945": 1,
+        "T60": 1,
+        "7419": 1,
+        "3219": 1,
+        "9556": 1,
+        "10374": 1,
+        "2652": 1,
+        "4340": 1,
+        "4639": 1,
+        "8021": 1,
+        "7546": 1,
+        "7687": 1,
+        "7569": 1,
+        "2757": 1,
+        "T19": 1,
+        "5956": 1,
+        "2039": 1,
+        "4445": 1,
+        "1777": 1,
+        "3553": 1,
+        "4325": 1,
+        "8779": 1,
+        "9529": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "e3c": 85,
+        "maccrobat": 15
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "procedure_component_link",
+      "title": "子操作与所属操作关联",
+      "definition": "给定病例和子操作片段，从原文操作候选中选择原 SUB_PROCEDURE 唯一关联的所属操作。",
+      "dimension": "relations",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 1125,
+        "unique_consistent_pool": 1125,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 1125,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T74": 3,
+        "T91": 1,
+        "T93": 4,
+        "T26": 3,
+        "T57": 3,
+        "T166": 1,
+        "T37": 2,
+        "T20": 2,
+        "T31": 1,
+        "T188": 1,
+        "T53": 3,
+        "T27": 1,
+        "T81": 1,
+        "T73": 1,
+        "T118": 1,
+        "T33": 2,
+        "T97": 3,
+        "T82": 1,
+        "T28": 1,
+        "T90": 1,
+        "T64": 1,
+        "T45": 1,
+        "T30": 2,
+        "T114": 1,
+        "T113": 1,
+        "T43": 2,
+        "T111": 1,
+        "T142": 1,
+        "T22": 2,
+        "T107": 1,
+        "T61": 2,
+        "T79": 1,
+        "T99": 2,
+        "T21": 1,
+        "T84": 2,
+        "T116": 1,
+        "T71": 1,
+        "T49": 1,
+        "T35": 1,
+        "T66": 2,
+        "T68": 1,
+        "T98": 2,
+        "T5": 1,
+        "T42": 2,
+        "T78": 1,
+        "T87": 1,
+        "T94": 1,
+        "T115": 1,
+        "T153": 1,
+        "T65": 1,
+        "T51": 3,
+        "T150": 1,
+        "T105": 1,
+        "T80": 1,
+        "T44": 1,
+        "T88": 1,
+        "T15": 1,
+        "T72": 1,
+        "T152": 1,
+        "T110": 1,
+        "T58": 1,
+        "T63": 2,
+        "T48": 1,
+        "T76": 1,
+        "T92": 2,
+        "T36": 1,
+        "T52": 1,
+        "T70": 1,
+        "T85": 1,
+        "T126": 1,
+        "T77": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "event_permanence",
+      "title": "临床事件持续性",
+      "definition": "给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。",
+      "dimension": "facts",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "e3c"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 48,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 2842,
+        "unique_consistent_pool": 2842,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 2842,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "PERMANENT": 24,
+        "FINITE": 76
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "e3c": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "clinical_time_type",
+      "title": "临床时间表达类别",
+      "definition": "给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。",
+      "dimension": "classification",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "e3c"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 41,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 203,
+        "unique_consistent_pool": 203,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 203,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "PREPOSTEXP": 21,
+        "DURATION": 35,
+        "QUANTIFIER": 5,
+        "DATE": 28,
+        "SET": 11
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "e3c": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "case_etiology",
+      "title": "病例病因与原因判断",
+      "definition": "根据病例从原选项中选择导致所述疾病、症状或事件的最可能原因。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 611,
+        "unique_consistent_pool": 611,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 611,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "opb": 10,
+        "D": 10,
+        "E": 10,
+        "A": 10,
+        "opc": 10,
+        "opd": 10,
+        "ope": 10,
+        "C": 10,
+        "B": 10,
+        "opa": 10
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cnmleqa": 50,
+        "cmb": 50
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "case_complication",
+      "title": "病例并发症判断",
+      "definition": "根据病例从原选项中选择最可能的并发症；不是主诊断任务。",
+      "dimension": "risk",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 96,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 101,
+        "unique_consistent_pool": 101,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 101,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "opa": 5,
+        "B": 13,
+        "D": 19,
+        "C": 14,
+        "E": 11,
+        "ope": 8,
+        "A": 7,
+        "opd": 10,
+        "opc": 9,
+        "opb": 4
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "cnmleqa": 36,
+        "cmb": 64
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "nursing_priority",
+      "title": "护理措施选择",
+      "definition": "根据病例从原选项中选择正确、首要或最合适的护理措施；不生成护理文书。",
+      "dimension": "workflow",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 42,
+      "groups": 42,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 42,
+        "unique_consistent_pool": 42,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 42,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "D": 11,
+        "B": 14,
+        "C": 5,
+        "A": 4,
+        "E": 8
+      },
+      "language_counts": {
+        "zh": 42
+      },
+      "source_counts": {
+        "cmb": 42
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "fluid_plan",
+      "title": "补液方案选择",
+      "definition": "根据病例从原选项中选择补液量、溶液或补液方案。",
+      "dimension": "rules",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 16,
+      "groups": 15,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 16,
+        "unique_consistent_pool": 16,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 16,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "A": 1,
+        "E": 6,
+        "opb": 1,
+        "opd": 3,
+        "D": 2,
+        "opc": 1,
+        "opa": 2
+      },
+      "language_counts": {
+        "zh": 16
+      },
+      "source_counts": {
+        "cmb": 9,
+        "cnmleqa": 7
+      },
+      "historical_material_matches": 0
     }
   ],
   "scenarios": [
@@ -2795,65 +6864,65 @@
       "id": "intake",
       "title": "接诊与分诊",
       "scope": "识别就诊诉求、资料缺口及处理优先级。",
-      "defined_tasks": 6,
-      "populated_tasks": 1,
-      "records": 100
+      "defined_tasks": 7,
+      "populated_tasks": 4,
+      "records": 400
     },
     {
       "id": "testing",
       "title": "检查与检验",
       "scope": "选择检查、关联结果并判断结果的适用性与处理需求。",
       "defined_tasks": 8,
-      "populated_tasks": 2,
-      "records": 200
+      "populated_tasks": 3,
+      "records": 300
     },
     {
       "id": "diagnosis",
       "title": "诊断与鉴别",
       "scope": "根据已有材料判断诊断、状态和临床分级。",
-      "defined_tasks": 8,
-      "populated_tasks": 5,
-      "records": 500
+      "defined_tasks": 13,
+      "populated_tasks": 12,
+      "records": 1200
     },
     {
       "id": "treatment",
       "title": "治疗与用药",
       "scope": "判断治疗选择、用药关系及患者特异性适宜性。",
-      "defined_tasks": 8,
-      "populated_tasks": 4,
-      "records": 400
+      "defined_tasks": 12,
+      "populated_tasks": 9,
+      "records": 728
     },
     {
       "id": "inpatient",
       "title": "住院与护理",
       "scope": "核对病情证据、操作执行和病情恶化风险。",
-      "defined_tasks": 5,
-      "populated_tasks": 1,
-      "records": 100
+      "defined_tasks": 10,
+      "populated_tasks": 6,
+      "records": 510
     },
     {
       "id": "followup",
       "title": "出院与随访",
       "scope": "识别后续行动、完成状态和出院后的风险。",
-      "defined_tasks": 3,
-      "populated_tasks": 0,
-      "records": 0
+      "defined_tasks": 4,
+      "populated_tasks": 2,
+      "records": 200
     },
     {
       "id": "trials",
       "title": "临床试验筛选",
       "scope": "解释入排条件并判断患者转介资格。",
-      "defined_tasks": 5,
-      "populated_tasks": 5,
-      "records": 500
+      "defined_tasks": 8,
+      "populated_tasks": 8,
+      "records": 800
     },
     {
       "id": "quality",
       "title": "病历与医疗质量控制",
       "scope": "识别文书类别、错误、隐私与证据不一致。",
-      "defined_tasks": 7,
-      "populated_tasks": 4,
-      "records": 400
+      "defined_tasks": 11,
+      "populated_tasks": 8,
+      "records": 800
     }
   ]
 }

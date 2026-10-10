@@ -1,0 +1,41 @@
+{
+  "id": "event_permanence",
+  "title": "临床事件持续性",
+  "definition": "给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。",
+  "dimension": "facts",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "e3c"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "facts"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 48,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 2842,
+    "unique_consistent_pool": 2842,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 2842,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "PERMANENT": 24,
+    "FINITE": 76
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "e3c": 100
+  },
+  "historical_material_matches": 0
+}

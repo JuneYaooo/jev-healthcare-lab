@@ -1,0 +1,42 @@
+{
+  "id": "event_temporal_order",
+  "title": "临床事件先后关系",
+  "definition": "给定病例和两个事件，选择第一个相对第二个的原始先于、晚于或重叠关系。",
+  "dimension": "relations",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "maccrobat"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "diagnosis",
+  "ability_tags": [
+    "relations"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 11102,
+    "unique_consistent_pool": 11102,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 11102,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "AFTER": 34,
+    "BEFORE": 33,
+    "OVERLAP": 33
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "maccrobat": 100
+  },
+  "historical_material_matches": 0
+}

@@ -1,12 +1,14 @@
 {
   "id": "temporality",
+  "title": "事件与文档时间关系",
+  "definition": "给定病例原文、文档时间和事件片段，选择原 E3C docTimeRel 时间关系。",
   "dimension": "facts",
-  "title": "事实时间属性",
-  "definition": "判断当前、既往、未来或时间不明。",
   "decision_mode": "material",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "现有自编题不纳入；THYME 临床原文需访问协议。",
+  "source_ids": [
+    "e3c"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "thyme"
   ],
@@ -15,20 +17,30 @@
     "facts"
   ],
   "decision_stage": "material_judgment",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 48,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 2843,
+    "unique_consistent_pool": 2843,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 2843,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "CONTAINS": 25,
+    "IS-CONTAINED": 17,
+    "OVERLAP": 16,
+    "BEFORE": 35,
+    "AFTER": 7
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "e3c": 100
+  },
   "historical_material_matches": 0
 }

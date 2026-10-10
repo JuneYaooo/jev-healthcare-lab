@@ -1,0 +1,51 @@
+{
+  "id": "case_complication",
+  "title": "病例并发症判断",
+  "definition": "根据病例从原选项中选择最可能的并发症；不是主诊断任务。",
+  "dimension": "risk",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "risk"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 96,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 101,
+    "unique_consistent_pool": 101,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 101,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "opa": 5,
+    "B": 13,
+    "D": 19,
+    "C": 14,
+    "E": 11,
+    "ope": 8,
+    "A": 7,
+    "opd": 10,
+    "opc": 9,
+    "opb": 4
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "cnmleqa": 36,
+    "cmb": 64
+  },
+  "historical_material_matches": 0
+}

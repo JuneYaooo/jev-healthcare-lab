@@ -78,6 +78,21 @@ class AnnotationTests(unittest.TestCase):
         self.assertIsNone(module.chinese_exam_task(case + "以下不适宜选用的降压药物是"))
         self.assertIsNone(module.chinese_exam_task(case + "其中一项护理诊断为体温过高，请选出主要依据"))
 
+    def test_expanded_chinese_filter_uses_question_intent_not_case_keywords(self):
+        case = "患者，男性，45岁，因胸痛三天就诊。既往无明确心脏疾病史，入院时测得血压正常，神志清楚，心肺听诊未见明显异常。"
+        self.assertEqual(module.expanded_chinese_task(case + "该患者临床分期为"), "clinical_grade")
+        self.assertEqual(module.expanded_chinese_task(case + "该患者不宜选用的药物是"), "patient_contraindication")
+        self.assertEqual(module.expanded_chinese_task(case + "症状最可能的原因是"), "case_etiology")
+        self.assertEqual(module.expanded_chinese_task(case + "护士首先应采取的护理措施是"), "nursing_priority")
+        for query in ["为明确病因，检査首选", "下列不属于手术禁忌证的是", "该病不常见的并发症是",
+                      "经过一般补液治疗后，最可能的诊断是", "不宜使用碱性药物，其目的是", "推测致病因素发生在"]:
+            self.assertIsNone(module.expanded_chinese_task(case + query), query)
+
+    def test_mortality_horizon_excludes_early_censoring(self):
+        for days, event, expected in [(89, 0, None), (90, 0, "no"), (91, 0, "no"),
+                                      (89, 1, "yes"), (90, 1, "yes"), (91, 1, "no")]:
+            self.assertEqual(module.mortality_at_horizon({"time": str(days), "DEATH_EVENT": str(event)}, 90), expected)
+
     def test_cmb_answers_join_by_id_and_preserve_original_positions(self):
         common = dict(exam_type="医师考试", exam_class="执业医师", exam_subject="内科", question_type="单项选择题")
         questions = [dict(common, id=3), dict(common, id=9)]

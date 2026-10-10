@@ -1,0 +1,45 @@
+{
+  "id": "nursing_priority",
+  "title": "护理措施选择",
+  "definition": "根据病例从原选项中选择正确、首要或最合适的护理措施；不生成护理文书。",
+  "dimension": "workflow",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "workflow"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 42,
+  "groups": 42,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 42,
+    "unique_consistent_pool": 42,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 42,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "D": 11,
+    "B": 14,
+    "C": 5,
+    "A": 4,
+    "E": 8
+  },
+  "language_counts": {
+    "zh": 42
+  },
+  "source_counts": {
+    "cmb": 42
+  },
+  "historical_material_matches": 0
+}

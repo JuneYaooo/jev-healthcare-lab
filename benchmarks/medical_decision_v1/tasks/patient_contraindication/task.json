@@ -1,36 +1,53 @@
 {
   "id": "patient_contraindication",
+  "title": "患者特异性禁忌选择",
+  "definition": "根据病例从原选项中选择不宜使用或禁忌的药物、检查或治疗方案。",
   "dimension": "eligibility",
-  "title": "患者特异性禁忌",
-  "definition": "依据患者资料和给定药品说明条件，判断禁忌是否成立。",
-  "decision_mode": "rule",
+  "decision_mode": "clinical",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "说明书是材料来源，尚无配套患者及审核金标。",
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
   "candidate_source_ids": [
     "openfda"
   ],
   "primary_scenario": "treatment",
   "ability_tags": [
-    "eligibility",
-    "rules",
-    "evidence"
+    "eligibility"
   ],
   "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 54,
+  "groups": 53,
+  "status": "partial",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 54,
+    "unique_consistent_pool": 54,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 54,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "opa": 5,
+    "C": 8,
+    "opd": 5,
+    "B": 6,
+    "E": 9,
+    "D": 5,
+    "ope": 6,
+    "opc": 3,
+    "A": 5,
+    "opb": 2
+  },
+  "language_counts": {
+    "zh": 54
+  },
+  "source_counts": {
+    "cnmleqa": 21,
+    "cmb": 33
+  },
   "historical_material_matches": 0
 }

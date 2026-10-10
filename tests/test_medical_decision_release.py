@@ -39,7 +39,7 @@ class ReleaseTests(unittest.TestCase):
         core = [json.loads(line) for line in self.files["samples.jsonl"].splitlines()]
         nc = [json.loads(line) for line in self.nc_files["samples.jsonl"].splitlines()]
         self.assertEqual({r["provenance"]["distribution"] for r in core}, {"open"})
-        self.assertEqual({r["provenance"]["source_id"] for r in nc}, {"ddi", "tcm_sd"})
+        self.assertEqual({r["provenance"]["source_id"] for r in nc}, {"ddi", "tcm_sd", "e3c", "ct_ebm_sp", "care_bench"})
         self.assertFalse({r["id"] for r in core} & {r["id"] for r in nc})
         original = {r["id"]: r for r in release.data.read_jsonl(release.data.DEFAULT / "samples.jsonl")}
         self.assertEqual({r["id"]: r for r in core + nc}, original)
@@ -84,7 +84,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_cmb_trace_includes_separate_official_answer_resource(self):
         rows = [json.loads(line) for line in self.files["samples.jsonl"].splitlines()]
-        row = next(r for r in rows if r["provenance"]["source_id"] == "cmb")
+        row = next(r for r in rows if r["provenance"]["source_id"] == "cmb" and r["provenance"]["split"] == "official_test")
         traced = release.trace(self.root, row["id"])
         self.assertEqual({r["name"] for r in traced["resources"]},
                          {"cmb__CMB.zip", "cmb__CMB-test-choice-answer.json"})
