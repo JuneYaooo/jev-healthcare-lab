@@ -1,0 +1,43 @@
+{
+  "id": "trial_referral",
+  "dimension": "eligibility",
+  "title": "患者与试验匹配",
+  "definition": "根据患者和试验材料，判断不相关、可能适合或很可能适合转介。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "trialgpt"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "trials",
+  "ability_tags": [
+    "eligibility",
+    "evidence"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 58,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 3141,
+    "unique_consistent_pool": 3141,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 3141,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "1": 33,
+    "2": 33,
+    "0": 34
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "trialgpt": 100
+  },
+  "historical_material_matches": 82
+}

@@ -1,0 +1,41 @@
+{
+  "id": "criterion_bound",
+  "dimension": "eligibility",
+  "title": "条件上界与下界",
+  "definition": "给定条件与数值限制片段，判断该限制是上界还是下界。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "frd"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "trials",
+  "ability_tags": [
+    "eligibility"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 2615,
+    "unique_consistent_pool": 2545,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 70,
+    "group_cap": 5,
+    "upstream_adapter_pool": 2615,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "upper_bound": 50,
+    "lower_bound": 50
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "frd": 100
+  },
+  "historical_material_matches": 0
+}

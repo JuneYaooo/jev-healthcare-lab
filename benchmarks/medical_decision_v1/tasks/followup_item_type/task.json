@@ -1,0 +1,34 @@
+{
+  "id": "followup_item_type",
+  "title": "出院待办行动类别",
+  "primary_scenario": "followup",
+  "dimension": "classification",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_mode": "material",
+  "decision_stage": "material_judgment",
+  "definition": "给定出院文书片段，判断是否有待办及所属复诊、检验、影像、用药等类别。",
+  "target_count": 100,
+  "source_ids": [],
+  "candidate_source_ids": [
+    "clip"
+  ],
+  "missing_reason": "CLIP 有医生标注，但原文受 PhysioNet 凭证与协议限制，不打包进开放主集。",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

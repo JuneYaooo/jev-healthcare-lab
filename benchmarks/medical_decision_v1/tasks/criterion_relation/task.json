@@ -1,0 +1,48 @@
+{
+  "id": "criterion_relation",
+  "dimension": "eligibility",
+  "title": "入排条件限定关系",
+  "definition": "给定已标注关联的两个要素，判断数值、时间、限定等关系类型。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "chia"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "trials",
+  "ability_tags": [
+    "eligibility"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 14873,
+    "unique_consistent_pool": 14823,
+    "conflicting_rows_removed": 2,
+    "duplicate_requests_removed": 48,
+    "group_cap": 5,
+    "upstream_adapter_pool": 14873,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "Has_value": 11,
+    "Has_negation": 11,
+    "Has_temporal": 11,
+    "Has_qualifier": 12,
+    "Has_context": 11,
+    "Has_multiplier": 11,
+    "Has_mood": 11,
+    "Has_index": 11,
+    "Subsumes": 11
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "chia": 100
+  },
+  "historical_material_matches": 0
+}

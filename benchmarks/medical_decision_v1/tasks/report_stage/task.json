@@ -1,0 +1,32 @@
+{
+  "id": "report_stage",
+  "dimension": "workflow",
+  "title": "报告阶段与效力",
+  "definition": "区分初步、最终、补充、更正及作废报告。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "标准字段不代替独立真实材料与标签。",
+  "candidate_source_ids": [],
+  "primary_scenario": "testing",
+  "ability_tags": [
+    "workflow"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

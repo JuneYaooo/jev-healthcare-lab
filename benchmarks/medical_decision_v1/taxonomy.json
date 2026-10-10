@@ -1,0 +1,985 @@
+{
+  "schema_version": 2,
+  "version": "0.2.0",
+  "created": "2026-10-10",
+  "seed": 20261010,
+  "dimensions": [
+    {
+      "id": "facts",
+      "title": "事实与状态"
+    },
+    {
+      "id": "relations",
+      "title": "关联与匹配"
+    },
+    {
+      "id": "classification",
+      "title": "分类与标准化"
+    },
+    {
+      "id": "rules",
+      "title": "规则与数值"
+    },
+    {
+      "id": "evidence",
+      "title": "证据与一致性"
+    },
+    {
+      "id": "eligibility",
+      "title": "资格与适宜性"
+    },
+    {
+      "id": "risk",
+      "title": "风险与升级"
+    },
+    {
+      "id": "workflow",
+      "title": "流程与下一步行动"
+    },
+    {
+      "id": "clinical",
+      "title": "临床候选方案"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "assertion_scope",
+      "dimension": "facts",
+      "title": "否定与不确定状态",
+      "definition": "给定临床句子与标注目标，区分否定和不确定；本任务不覆盖肯定类。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "nubes"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "experiencer",
+      "dimension": "facts",
+      "title": "事实主体归属",
+      "definition": "判断症状或事件属于患者、家属还是其他人。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到同时满足公开分发与原始主体金标的已核验来源。",
+      "candidate_source_ids": [
+        "n2c2"
+      ],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "temporality",
+      "dimension": "facts",
+      "title": "事实时间属性",
+      "definition": "判断当前、既往、未来或时间不明。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有自编题不纳入；THYME 临床原文需访问协议。",
+      "candidate_source_ids": [
+        "thyme"
+      ],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "diagnosis_verification",
+      "dimension": "facts",
+      "title": "诊断核实状态",
+      "definition": "区分疑似、确诊、排除与未明确。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "尚无核验完成的开放独立金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "medication_status",
+      "dimension": "facts",
+      "title": "用药状态与变更",
+      "definition": "区分当前、既往、计划、暂停、停用及不明状态。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到可直接公开分发的临床用药状态金标。",
+      "candidate_source_ids": [
+        "n2c2"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "drug_interaction",
+      "dimension": "relations",
+      "title": "药物相互作用关系",
+      "definition": "给定药物对，判断无关系或原文标注的相互作用类型。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ddi"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "lab_link",
+      "dimension": "relations",
+      "title": "检查检验数值关联",
+      "definition": "给定病例全文和已标注的数值结果片段，从候选检查/评估中选择原始标注关联的项目；包含量表，不判断结果是否异常。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "relations",
+        "evidence"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "dose_link",
+      "dimension": "relations",
+      "title": "药物与剂量关联",
+      "definition": "给定病例全文和剂量片段，从候选药物中选择原始标注关联的药物；不评价剂量是否适宜，也不覆盖频次和途径。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations",
+        "evidence"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "patient_identity",
+      "dimension": "relations",
+      "title": "患者与记录身份匹配",
+      "definition": "判断两条材料是否属于同一患者及身份是否可确定。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未取得合适的可分发配对金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "specimen_lineage",
+      "dimension": "relations",
+      "title": "标本身份与来源链",
+      "definition": "区分同一实物、派生关系、无关系和信息不足。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "FHIR 是标准参考，不能代替有答案的数据集。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "note_section",
+      "dimension": "classification",
+      "title": "病历章节类别",
+      "definition": "给定去除章节标题的原文片段，选择原始章节类别。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "aci_bench"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "query_intent",
+      "dimension": "classification",
+      "title": "医疗问题意图",
+      "definition": "给定医疗问题，判断其信息需求类别。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "medquad"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "terminology",
+      "dimension": "classification",
+      "title": "医学术语归一化",
+      "definition": "从固定术语表选择对应标准术语或不确定。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "IMCS 数据许可未明确；MeDAL 旧样本为演示数据。",
+      "candidate_source_ids": [
+        "imcs21",
+        "medal"
+      ],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "bounded_score",
+      "dimension": "rules",
+      "title": "有界临床量表评分",
+      "definition": "根据病例选择 GCS、CURB-65、SIRS、CHA2DS2-VASc 或 FeverPAIN 的数值。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "medcalc"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "rules",
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "input_sufficiency",
+      "dimension": "rules",
+      "title": "决策资料充分性",
+      "definition": "判断计算或决策所需信息是否充分且无未解决冲突。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。",
+      "candidate_source_ids": [
+        "cmedcalc"
+      ],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "clinical_grade",
+      "dimension": "rules",
+      "title": "临床语义分级",
+      "definition": "根据病例和指定分级体系选择等级。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "CMedCalc 数据许可待明确。",
+      "candidate_source_ids": [
+        "cmedcalc"
+      ],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "unit_equivalence",
+      "dimension": "rules",
+      "title": "数值与单位等价",
+      "definition": "给定换算规则，判断数值表达是否等价。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有独立金标均为自编题，暂不填充。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "reference_range",
+      "dimension": "rules",
+      "title": "参考区间适用性",
+      "definition": "给定区间及人群、方法条件，选择适用区间或不确定。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "尚无已核验的开放题目与金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "result_trend",
+      "dimension": "rules",
+      "title": "检验结果趋势",
+      "definition": "给定可比性条件，判断结果上升、下降、稳定或不可比较。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "不能将带时序数值的开放材料直接当作有审核金标的测试题。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "long_record_evidence",
+      "dimension": "evidence",
+      "title": "长病历证据选择",
+      "definition": "根据完整病例文书，在原始选项中选择有依据的答案。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "longhealth"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "clinical_error_detection",
+      "dimension": "evidence",
+      "title": "医疗叙述错误检出",
+      "definition": "判断给定病例文本是否含原数据标注的医学错误。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "medec",
+        "mederr"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "evidence",
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "clinical_error_location",
+      "dimension": "evidence",
+      "title": "医疗叙述错误定位",
+      "definition": "在明确含错误的病例中，选择原始标注的错误句。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "medec",
+        "mederr"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "claim_support",
+      "dimension": "evidence",
+      "title": "研究论断证据关系",
+      "definition": "给定论断与被引摘要，判断支持、反驳或证据不足。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "scifact"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "trial_referral",
+      "dimension": "eligibility",
+      "title": "患者与试验匹配",
+      "definition": "根据患者和试验材料，判断不相关、可能适合或很可能适合转介。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "trialgpt"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility",
+        "evidence"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "criterion_entity_type",
+      "dimension": "eligibility",
+      "title": "入排条件要素分类",
+      "definition": "给定条件原文与目标实体，判断原标注的要素类别。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "chia"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "criterion_relation",
+      "dimension": "eligibility",
+      "title": "入排条件限定关系",
+      "definition": "给定已标注关联的两个要素，判断数值、时间、限定等关系类型。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "chia"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "criterion_boolean",
+      "dimension": "eligibility",
+      "title": "入排条件与或关系",
+      "definition": "给定条件中的两个标注要素，判断原文要求 AND 还是 OR。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "chia"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility",
+        "rules"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "criterion_bound",
+      "dimension": "eligibility",
+      "title": "条件上界与下界",
+      "definition": "给定条件与数值限制片段，判断该限制是上界还是下界。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "frd"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "patient_contraindication",
+      "dimension": "eligibility",
+      "title": "患者特异性禁忌",
+      "definition": "依据患者资料和给定药品说明条件，判断禁忌是否成立。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "说明书是材料来源，尚无配套患者及审核金标。",
+      "candidate_source_ids": [
+        "openfda"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "eligibility",
+        "rules",
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "dose_appropriateness",
+      "dimension": "eligibility",
+      "title": "剂量适宜性",
+      "definition": "给定药品规则及患者肝肾功能等，判断剂量是否适宜。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到已核验、可分发的患者特异性剂量适宜性金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "triage_urgency",
+      "dimension": "risk",
+      "title": "分诊紧急程度",
+      "definition": "根据症状和指定分诊规则选择紧急等级。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。",
+      "candidate_source_ids": [
+        "triage",
+        "mimic_iv_ed",
+        "triagebench_wong"
+      ],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "risk",
+        "rules",
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "critical_result_escalation",
+      "dimension": "risk",
+      "title": "危急结果与人工升级",
+      "definition": "根据明确规则选择无需升级、复核或立即升级。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到具有机构阈值版本与审核标签的开放来源。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "privacy_candidate",
+      "dimension": "risk",
+      "title": "医疗材料隐私候选",
+      "definition": "给定目标片段，判断是否属于需处理的个人标识。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有自编题不进入；临床脱敏语料多需协议。",
+      "candidate_source_ids": [
+        "n2c2"
+      ],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "procedure_progress",
+      "dimension": "workflow",
+      "title": "医疗操作进度",
+      "definition": "区分计划、进行、完成、取消及目标未达成。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有训练题为自编，未核验外部测试来源。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "administration_status",
+      "dimension": "workflow",
+      "title": "单次给药执行状态",
+      "definition": "判断已开医嘱、已配药、已给入或未执行。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未取得可分发的执行记录及金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "followup_action",
+      "dimension": "workflow",
+      "title": "随访行动与完成状态",
+      "definition": "从固定候选中选择待办行动并判断是否完成或逾期。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有评测为自编题，暂留空。",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "report_stage",
+      "dimension": "workflow",
+      "title": "报告阶段与效力",
+      "definition": "区分初步、最终、补充、更正及作废报告。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "标准字段不代替独立真实材料与标签。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "synthetic_diagnosis",
+      "dimension": "clinical",
+      "title": "模拟病例主诊断选择",
+      "definition": "给定 DDXPlus 观察到的症状与背景，从完整病种表选择模拟主诊断。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "ddxplus"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "diagnosis_choice",
+      "dimension": "clinical",
+      "title": "临床病例候选诊断",
+      "definition": "从给定诊断候选中选择最符合病例者。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney/CMExam 许可或研究使用限制需进一步澄清。",
+      "candidate_source_ids": [
+        "medjourney",
+        "medmcqa"
+      ],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "examination_choice",
+      "dimension": "clinical",
+      "title": "检查方案选择",
+      "definition": "根据病例从给定候选中选择检查。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney 缺明确数据许可。",
+      "candidate_source_ids": [
+        "medjourney",
+        "medmcqa"
+      ],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "treatment_choice",
+      "dimension": "clinical",
+      "title": "治疗方案选择",
+      "definition": "根据病例从给定候选中选择治疗。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney 缺明确数据许可；不生成替代金标。",
+      "candidate_source_ids": [
+        "medjourney",
+        "medmcqa"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "medication_choice",
+      "dimension": "clinical",
+      "title": "用药方案选择",
+      "definition": "根据病例从给定候选中选择用药。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney 缺明确数据许可；CDrugRed 下载源与许可链未完成核验。",
+      "candidate_source_ids": [
+        "medjourney",
+        "cdrugred",
+        "medmcqa"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "tcm_syndrome",
+      "dimension": "clinical",
+      "title": "中医证型选择",
+      "definition": "根据主诉、病情和检查选择原始标准证型。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "tcm_sd"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "department_routing",
+      "title": "候选科室分流",
+      "primary_scenario": "intake",
+      "dimension": "clinical",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_mode": "knowledge",
+      "decision_stage": "clinical_choice",
+      "definition": "根据就诊主诉从固定科室表选择适合的首诊科室。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "medjourney"
+      ],
+      "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。"
+    },
+    {
+      "id": "message_urgency_pair",
+      "title": "患者消息紧急性比较",
+      "primary_scenario": "intake",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "material",
+      "decision_stage": "material_judgment",
+      "definition": "给定两条患者消息，选择需要更优先处理的一条。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "pmr_bench"
+      ],
+      "missing_reason": "已找到官方测试对与非商业许可；尚需核验消息复用、标注方案及配对抽样。"
+    },
+    {
+      "id": "deterioration_prediction",
+      "title": "脓毒症提前预警",
+      "primary_scenario": "inpatient",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "prediction",
+      "decision_stage": "outcome_prediction",
+      "definition": "仅使用指定预测时点之前的生命体征和检验记录，预测近期脓毒症风险。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "sepsis2019"
+      ],
+      "missing_reason": "开放数据已核验；预测窗口、患者划分及类别先验尚未固定，不直接将整段住院结果转成题目。"
+    },
+    {
+      "id": "readmission_30d",
+      "title": "出院后 30 天内再入院预测",
+      "primary_scenario": "followup",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "prediction",
+      "decision_stage": "outcome_prediction",
+      "definition": "只根据出院时可得信息，预测是否在 30 天内再次住院。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "uci_diabetes"
+      ],
+      "missing_reason": "开放结局数据已核验；需按患者划分，排除死亡等不适用出院并固定特征和基线。"
+    },
+    {
+      "id": "followup_item_type",
+      "title": "出院待办行动类别",
+      "primary_scenario": "followup",
+      "dimension": "classification",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_mode": "material",
+      "decision_stage": "material_judgment",
+      "definition": "给定出院文书片段，判断是否有待办及所属复诊、检验、影像、用药等类别。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "clip"
+      ],
+      "missing_reason": "CLIP 有医生标注，但原文受 PhysioNet 凭证与协议限制，不打包进开放主集。"
+    },
+    {
+      "id": "adverse_event_prediction",
+      "title": "治疗相关不良事件预测",
+      "primary_scenario": "treatment",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "prediction",
+      "decision_stage": "outcome_prediction",
+      "definition": "给定试验人群和单药方案，判断指定不良事件类别是否会在该组出现。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "ct_ade"
+      ],
+      "missing_reason": "已找到发布方数据；需核验版本与术语许可，并固定试验组划分。群体结局不能直接解释为个体禁忌。"
+    },
+    {
+      "id": "clinical_statement_support",
+      "title": "病历论断支持关系",
+      "primary_scenario": "quality",
+      "dimension": "evidence",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_mode": "material",
+      "decision_stage": "material_judgment",
+      "definition": "给定临床记录和论断，判断支持、矛盾或无法确定。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "mednli"
+      ],
+      "missing_reason": "MedNLI 有临床医生标注，但材料来自受控 MIMIC-III，需访问协议。"
+    }
+  ],
+  "organization": "primary_scenario_then_task_with_ability_tags",
+  "scenarios": [
+    {
+      "id": "intake",
+      "title": "接诊与分诊",
+      "scope": "识别就诊诉求、资料缺口及处理优先级。"
+    },
+    {
+      "id": "testing",
+      "title": "检查与检验",
+      "scope": "选择检查、关联结果并判断结果的适用性与处理需求。"
+    },
+    {
+      "id": "diagnosis",
+      "title": "诊断与鉴别",
+      "scope": "根据已有材料判断诊断、状态和临床分级。"
+    },
+    {
+      "id": "treatment",
+      "title": "治疗与用药",
+      "scope": "判断治疗选择、用药关系及患者特异性适宜性。"
+    },
+    {
+      "id": "inpatient",
+      "title": "住院与护理",
+      "scope": "核对病情证据、操作执行和病情恶化风险。"
+    },
+    {
+      "id": "followup",
+      "title": "出院与随访",
+      "scope": "识别后续行动、完成状态和出院后的风险。"
+    },
+    {
+      "id": "trials",
+      "title": "临床试验筛选",
+      "scope": "解释入排条件并判断患者转介资格。"
+    },
+    {
+      "id": "quality",
+      "title": "病历与医疗质量控制",
+      "scope": "识别文书类别、错误、隐私与证据不一致。"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "input_sufficiency",
+  "dimension": "rules",
+  "title": "决策资料充分性",
+  "definition": "判断计算或决策所需信息是否充分且无未解决冲突。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。",
+  "candidate_source_ids": [
+    "cmedcalc"
+  ],
+  "primary_scenario": "intake",
+  "ability_tags": [
+    "rules"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

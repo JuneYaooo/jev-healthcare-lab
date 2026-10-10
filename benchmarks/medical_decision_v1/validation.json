@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "records": 1800,
+  "task_definitions": 50,
+  "checks": [
+    "manifest hashes",
+    "unique IDs",
+    "per-task counts",
+    "label membership",
+    "request-only export",
+    "answer separation",
+    "source licenses",
+    "no training fingerprint matches",
+    "group cap",
+    "empty-task representation",
+    "primary scenario and ability tags",
+    "v0.1.0 question identity preserved"
+  ]
+}

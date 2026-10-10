@@ -1,0 +1,62 @@
+{
+  "id": "clinical_error_location",
+  "dimension": "evidence",
+  "title": "医疗叙述错误定位",
+  "definition": "在明确含错误的病例中，选择原始标注的错误句。",
+  "decision_mode": "knowledge",
+  "target_count": 100,
+  "source_ids": [
+    "medec",
+    "mederr"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "quality",
+  "ability_tags": [
+    "evidence"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 411,
+    "unique_consistent_pool": 411,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 411,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "8": 7,
+    "1": 11,
+    "6": 7,
+    "2": 16,
+    "4": 9,
+    "18": 1,
+    "3": 16,
+    "5": 10,
+    "13": 4,
+    "9": 4,
+    "7": 3,
+    "10": 3,
+    "15": 1,
+    "23": 1,
+    "12": 1,
+    "14": 1,
+    "11": 1,
+    "20": 1,
+    "16": 2,
+    "21": 1
+  },
+  "language_counts": {
+    "en": 50,
+    "zh": 50
+  },
+  "source_counts": {
+    "medec": 50,
+    "mederr": 50
+  },
+  "historical_material_matches": 27
+}

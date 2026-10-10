@@ -1,0 +1,32 @@
+{
+  "id": "specimen_lineage",
+  "dimension": "relations",
+  "title": "标本身份与来源链",
+  "definition": "区分同一实物、派生关系、无关系和信息不足。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "FHIR 是标准参考，不能代替有答案的数据集。",
+  "candidate_source_ids": [],
+  "primary_scenario": "testing",
+  "ability_tags": [
+    "relations"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

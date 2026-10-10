@@ -1,0 +1,42 @@
+{
+  "id": "claim_support",
+  "dimension": "evidence",
+  "title": "研究论断证据关系",
+  "definition": "给定论断与被引摘要，判断支持、反驳或证据不足。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "scifact"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "quality",
+  "ability_tags": [
+    "evidence"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 123,
+    "unique_consistent_pool": 123,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 123,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "SUPPORT": 41,
+    "CONTRADICT": 20,
+    "NOT_ENOUGH_INFO": 39
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "scifact": 100
+  },
+  "historical_material_matches": 31
+}

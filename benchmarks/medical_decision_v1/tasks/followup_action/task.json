@@ -1,0 +1,32 @@
+{
+  "id": "followup_action",
+  "dimension": "workflow",
+  "title": "随访行动与完成状态",
+  "definition": "从固定候选中选择待办行动并判断是否完成或逾期。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "现有评测为自编题，暂留空。",
+  "candidate_source_ids": [],
+  "primary_scenario": "followup",
+  "ability_tags": [
+    "workflow"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

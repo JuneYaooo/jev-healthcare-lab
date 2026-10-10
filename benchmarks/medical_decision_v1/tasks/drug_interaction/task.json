@@ -1,0 +1,44 @@
+{
+  "id": "drug_interaction",
+  "dimension": "relations",
+  "title": "药物相互作用关系",
+  "definition": "给定药物对，判断无关系或原文标注的相互作用类型。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "ddi"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "relations"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 5716,
+    "unique_consistent_pool": 5040,
+    "conflicting_rows_removed": 326,
+    "duplicate_requests_removed": 350,
+    "group_cap": 5,
+    "upstream_adapter_pool": 5716,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "mechanism": 22,
+    "int": 15,
+    "effect": 21,
+    "advise": 21,
+    "none": 21
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "ddi": 100
+  },
+  "historical_material_matches": 28
+}

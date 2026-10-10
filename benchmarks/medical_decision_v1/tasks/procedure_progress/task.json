@@ -1,0 +1,32 @@
+{
+  "id": "procedure_progress",
+  "dimension": "workflow",
+  "title": "医疗操作进度",
+  "definition": "区分计划、进行、完成、取消及目标未达成。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "现有训练题为自编，未核验外部测试来源。",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "workflow"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

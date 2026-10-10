@@ -1,0 +1,32 @@
+{
+  "id": "result_trend",
+  "dimension": "rules",
+  "title": "检验结果趋势",
+  "definition": "给定可比性条件，判断结果上升、下降、稳定或不可比较。",
+  "decision_mode": "rule",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "不能将带时序数值的开放材料直接当作有审核金标的测试题。",
+  "candidate_source_ids": [],
+  "primary_scenario": "testing",
+  "ability_tags": [
+    "rules"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

@@ -1,0 +1,51 @@
+{
+  "id": "query_intent",
+  "dimension": "classification",
+  "title": "医疗问题意图",
+  "definition": "给定医疗问题，判断其信息需求类别。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "medquad"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "intake",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 29886,
+    "unique_consistent_pool": 27383,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 2503,
+    "group_cap": 5,
+    "upstream_adapter_pool": 29983,
+    "local_training_matches_excluded": 97
+  },
+  "label_counts": {
+    "treatment": 8,
+    "inheritance": 9,
+    "susceptibility": 8,
+    "symptoms": 8,
+    "information": 8,
+    "complications": 8,
+    "prevention": 8,
+    "exams and tests": 8,
+    "outlook": 8,
+    "causes": 9,
+    "frequency": 9,
+    "research": 9
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "medquad": 100
+  },
+  "historical_material_matches": 2
+}

@@ -1,0 +1,34 @@
+{
+  "id": "experiencer",
+  "dimension": "facts",
+  "title": "事实主体归属",
+  "definition": "判断症状或事件属于患者、家属还是其他人。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "未找到同时满足公开分发与原始主体金标的已核验来源。",
+  "candidate_source_ids": [
+    "n2c2"
+  ],
+  "primary_scenario": "intake",
+  "ability_tags": [
+    "facts"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

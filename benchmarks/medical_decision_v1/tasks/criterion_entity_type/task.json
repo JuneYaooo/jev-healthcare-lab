@@ -1,0 +1,54 @@
+{
+  "id": "criterion_entity_type",
+  "dimension": "eligibility",
+  "title": "入排条件要素分类",
+  "definition": "给定条件原文与目标实体，判断原标注的要素类别。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "chia"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "trials",
+  "ability_tags": [
+    "eligibility"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 39184,
+    "unique_consistent_pool": 38702,
+    "conflicting_rows_removed": 330,
+    "duplicate_requests_removed": 152,
+    "group_cap": 5,
+    "upstream_adapter_pool": 39184,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "Visit": 6,
+    "Multiplier": 7,
+    "Device": 7,
+    "Drug": 7,
+    "Temporal": 7,
+    "Reference_point": 7,
+    "Procedure": 7,
+    "Value": 6,
+    "Qualifier": 7,
+    "Condition": 7,
+    "Person": 6,
+    "Observation": 7,
+    "Negation": 6,
+    "Mood": 7,
+    "Measurement": 6
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "chia": 100
+  },
+  "historical_material_matches": 0
+}

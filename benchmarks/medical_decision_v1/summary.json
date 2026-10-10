@@ -1,0 +1,2735 @@
+{
+  "version": "0.2.0",
+  "seed": 20261010,
+  "total_tasks": 50,
+  "ready_tasks": 18,
+  "partial_tasks": 0,
+  "empty_tasks": 32,
+  "records": 1800,
+  "unique_source_groups": 1544,
+  "languages": {
+    "es": 100,
+    "en": 1500,
+    "zh": 200
+  },
+  "distribution_counts": {
+    "open": 1600,
+    "research_noncommercial": 200
+  },
+  "historical_material_matches": 543,
+  "adapter_exclusions": {
+    "aci:unmapped_or_short_section": 304,
+    "medquad:outside_fixed_intent_vocabulary": 17458,
+    "medec:missing_error_gold": 328,
+    "longhealth:nonunique_correct_option": 2,
+    "scifact:document_shared_with_upstream_train": 217,
+    "maccrobat:ambiguous_or_unusable_lab_link": 185,
+    "maccrobat:non_numeric_result": 1462,
+    "maccrobat:ambiguous_or_unusable_dose_link": 20
+  },
+  "shared_source_groups": {
+    "maccrobat:28207542": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:19860007": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25743872": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28090049": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28173879": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:22514576": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27130218": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27980272": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27100441": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25721834": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28403092": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28202865": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:24781756": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26523273": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28272214": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:23076693": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28216610": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28115731": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:22719160": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28321073": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27741115": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28403099": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26228535": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:18416479": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25293719": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28079821": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26257516": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25858931": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26309459": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27064109": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26714786": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27990013": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:21923918": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28239141": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26457578": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26336183": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27773410": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28154287": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26670309": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28103924": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:22814979": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28353613": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25572898": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:18561524": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26474553": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:24518095": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26395443": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:20146086": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26313770": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:26683938": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:23035161": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:23312850": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28202862": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28100279": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27842605": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28033278": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28202869": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25023062": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:25661749": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28353556": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:27821134": [
+      "dose_link",
+      "lab_link"
+    ],
+    "maccrobat:28353604": [
+      "dose_link",
+      "lab_link"
+    ],
+    "medec:ms-test-19": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-57": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-169": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-121": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-37": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-196": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-195": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "medec:ms-test-364": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "medec:ms-test-53": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-59": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "medec:ms-test-267": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-73": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-191": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "medec:ms-test-375": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "mederr:cn-test-75": [
+      "clinical_error_detection",
+      "clinical_error_location"
+    ],
+    "chia:NCT01997112": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03479502": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT00730301": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03231982": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02701777": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02687724": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT02456532": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT01803438": [
+      "criterion_boolean",
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02664558": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03120533": [
+      "criterion_boolean",
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02201316": [
+      "criterion_boolean",
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02068365": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT03338296": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02205931": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02531724": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT00639795": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT03589105": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03366779": [
+      "criterion_boolean",
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02443623": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT02735902": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02348918": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02563535": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT00050349": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT02579928": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03519568": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT03404804": [
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02969187": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT01735955": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT02219880": [
+      "criterion_boolean",
+      "criterion_entity_type",
+      "criterion_relation"
+    ],
+    "chia:NCT02301962": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT02431559": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03350659": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT03360981": [
+      "criterion_boolean",
+      "criterion_entity_type"
+    ],
+    "chia:NCT02804646": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02209545": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT03083197": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT01117181": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT03119766": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02763007": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02950558": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT03225469": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02884401": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02531971": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02748330": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT03120728": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT02890719": [
+      "criterion_boolean",
+      "criterion_relation"
+    ],
+    "chia:NCT00343668": [
+      "criterion_boolean",
+      "criterion_relation"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "assertion_scope",
+      "dimension": "facts",
+      "title": "否定与不确定状态",
+      "definition": "给定临床句子与标注目标，区分否定和不确定；本任务不覆盖肯定类。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "nubes"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 890,
+        "unique_consistent_pool": 889,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 1,
+        "group_cap": 5,
+        "upstream_adapter_pool": 890,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "uncertain": 50,
+        "negative": 50
+      },
+      "language_counts": {
+        "es": 100
+      },
+      "source_counts": {
+        "nubes": 100
+      },
+      "historical_material_matches": 1
+    },
+    {
+      "id": "experiencer",
+      "dimension": "facts",
+      "title": "事实主体归属",
+      "definition": "判断症状或事件属于患者、家属还是其他人。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到同时满足公开分发与原始主体金标的已核验来源。",
+      "candidate_source_ids": [
+        "n2c2"
+      ],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "temporality",
+      "dimension": "facts",
+      "title": "事实时间属性",
+      "definition": "判断当前、既往、未来或时间不明。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有自编题不纳入；THYME 临床原文需访问协议。",
+      "candidate_source_ids": [
+        "thyme"
+      ],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "diagnosis_verification",
+      "dimension": "facts",
+      "title": "诊断核实状态",
+      "definition": "区分疑似、确诊、排除与未明确。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "尚无核验完成的开放独立金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "medication_status",
+      "dimension": "facts",
+      "title": "用药状态与变更",
+      "definition": "区分当前、既往、计划、暂停、停用及不明状态。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到可直接公开分发的临床用药状态金标。",
+      "candidate_source_ids": [
+        "n2c2"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "facts"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "drug_interaction",
+      "dimension": "relations",
+      "title": "药物相互作用关系",
+      "definition": "给定药物对，判断无关系或原文标注的相互作用类型。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "ddi"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 5716,
+        "unique_consistent_pool": 5040,
+        "conflicting_rows_removed": 326,
+        "duplicate_requests_removed": 350,
+        "group_cap": 5,
+        "upstream_adapter_pool": 5716,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "mechanism": 22,
+        "int": 15,
+        "effect": 21,
+        "advise": 21,
+        "none": 21
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "ddi": 100
+      },
+      "historical_material_matches": 28
+    },
+    {
+      "id": "lab_link",
+      "dimension": "relations",
+      "title": "检查检验数值关联",
+      "definition": "给定病例全文和已标注的数值结果片段，从候选检查/评估中选择原始标注关联的项目；包含量表，不判断结果是否异常。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "relations",
+        "evidence"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 1167,
+        "unique_consistent_pool": 1167,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 1167,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T75": 1,
+        "T66": 1,
+        "T81": 1,
+        "T31": 3,
+        "T38": 2,
+        "T42": 2,
+        "T19": 1,
+        "T68": 2,
+        "T99": 2,
+        "T202": 1,
+        "T41": 1,
+        "T25": 2,
+        "T117": 2,
+        "T29": 1,
+        "T64": 2,
+        "T56": 1,
+        "T77": 2,
+        "T17": 1,
+        "T109": 1,
+        "T46": 4,
+        "T23": 1,
+        "T28": 2,
+        "T34": 2,
+        "T52": 1,
+        "T100": 2,
+        "T65": 1,
+        "T69": 1,
+        "T87": 1,
+        "T72": 1,
+        "T167": 1,
+        "T53": 3,
+        "T45": 1,
+        "T44": 4,
+        "T118": 1,
+        "T105": 1,
+        "T54": 3,
+        "T32": 1,
+        "T83": 1,
+        "T51": 3,
+        "T123": 1,
+        "T125": 1,
+        "T26": 1,
+        "T108": 1,
+        "T116": 1,
+        "T37": 1,
+        "T79": 1,
+        "T113": 1,
+        "T57": 1,
+        "T146": 1,
+        "T103": 1,
+        "T110": 1,
+        "T20": 1,
+        "T94": 1,
+        "T184": 1,
+        "T24": 1,
+        "T133": 1,
+        "T165": 1,
+        "T104": 1,
+        "T36": 1,
+        "T49": 1,
+        "T55": 1,
+        "T166": 1,
+        "T59": 1,
+        "T16": 1,
+        "T63": 1,
+        "T85": 1,
+        "T95": 1,
+        "T39": 1,
+        "T33": 1,
+        "T76": 1,
+        "T48": 1,
+        "T121": 1,
+        "T154": 1,
+        "T12": 1,
+        "T185": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "dose_link",
+      "dimension": "relations",
+      "title": "药物与剂量关联",
+      "definition": "给定病例全文和剂量片段，从候选药物中选择原始标注关联的药物；不评价剂量是否适宜，也不覆盖频次和途径。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "maccrobat"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "relations",
+        "evidence"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 95,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 330,
+        "unique_consistent_pool": 330,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 330,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "T26": 1,
+        "T104": 1,
+        "T54": 2,
+        "T186": 1,
+        "T92": 1,
+        "T59": 1,
+        "T40": 2,
+        "T132": 1,
+        "T27": 2,
+        "T78": 1,
+        "T95": 2,
+        "T62": 3,
+        "T20": 2,
+        "T63": 3,
+        "T28": 1,
+        "T122": 1,
+        "T101": 1,
+        "T48": 1,
+        "T49": 1,
+        "T147": 1,
+        "T44": 1,
+        "T173": 1,
+        "T112": 1,
+        "T38": 3,
+        "T66": 1,
+        "T121": 1,
+        "T175": 1,
+        "T144": 1,
+        "T89": 2,
+        "T125": 2,
+        "T129": 2,
+        "T43": 2,
+        "T72": 1,
+        "T120": 1,
+        "T83": 1,
+        "T10": 1,
+        "T139": 1,
+        "T102": 1,
+        "T153": 1,
+        "T51": 1,
+        "T30": 1,
+        "T64": 1,
+        "T110": 1,
+        "T84": 2,
+        "T76": 1,
+        "T127": 1,
+        "T18": 1,
+        "T87": 1,
+        "T60": 1,
+        "T88": 2,
+        "T36": 1,
+        "T37": 2,
+        "T118": 1,
+        "T35": 1,
+        "T45": 1,
+        "T13": 1,
+        "T11": 2,
+        "T74": 1,
+        "T9": 1,
+        "T71": 1,
+        "T117": 1,
+        "T55": 1,
+        "T67": 1,
+        "T179": 1,
+        "T103": 1,
+        "T100": 1,
+        "T85": 2,
+        "T177": 1,
+        "T79": 1,
+        "T14": 1,
+        "T200": 1,
+        "T105": 1,
+        "T61": 1,
+        "T53": 1,
+        "T23": 1,
+        "T131": 1,
+        "T4": 1,
+        "T50": 1,
+        "T135": 1,
+        "T134": 1
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "maccrobat": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "patient_identity",
+      "dimension": "relations",
+      "title": "患者与记录身份匹配",
+      "definition": "判断两条材料是否属于同一患者及身份是否可确定。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未取得合适的可分发配对金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "specimen_lineage",
+      "dimension": "relations",
+      "title": "标本身份与来源链",
+      "definition": "区分同一实物、派生关系、无关系和信息不足。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "FHIR 是标准参考，不能代替有答案的数据集。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "relations"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "note_section",
+      "dimension": "classification",
+      "title": "病历章节类别",
+      "definition": "给定去除章节标题的原文片段，选择原始章节类别。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "aci_bench"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 667,
+        "unique_consistent_pool": 665,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 2,
+        "group_cap": 5,
+        "upstream_adapter_pool": 667,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "assessment_plan": 25,
+        "results": 25,
+        "exam": 25,
+        "history": 25
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "aci_bench": 100
+      },
+      "historical_material_matches": 18
+    },
+    {
+      "id": "query_intent",
+      "dimension": "classification",
+      "title": "医疗问题意图",
+      "definition": "给定医疗问题，判断其信息需求类别。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "medquad"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 29886,
+        "unique_consistent_pool": 27383,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 2503,
+        "group_cap": 5,
+        "upstream_adapter_pool": 29983,
+        "local_training_matches_excluded": 97
+      },
+      "label_counts": {
+        "treatment": 8,
+        "inheritance": 9,
+        "susceptibility": 8,
+        "symptoms": 8,
+        "information": 8,
+        "complications": 8,
+        "prevention": 8,
+        "exams and tests": 8,
+        "outlook": 8,
+        "causes": 9,
+        "frequency": 9,
+        "research": 9
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "medquad": 100
+      },
+      "historical_material_matches": 2
+    },
+    {
+      "id": "terminology",
+      "dimension": "classification",
+      "title": "医学术语归一化",
+      "definition": "从固定术语表选择对应标准术语或不确定。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "IMCS 数据许可未明确；MeDAL 旧样本为演示数据。",
+      "candidate_source_ids": [
+        "imcs21",
+        "medal"
+      ],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "bounded_score",
+      "dimension": "rules",
+      "title": "有界临床量表评分",
+      "definition": "根据病例选择 GCS、CURB-65、SIRS、CHA2DS2-VASc 或 FeverPAIN 的数值。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "medcalc"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "rules",
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 100,
+        "unique_consistent_pool": 100,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 100,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "4": 10,
+        "2": 19,
+        "3": 20,
+        "12": 2,
+        "9": 5,
+        "11": 1,
+        "1": 17,
+        "7": 3,
+        "6": 4,
+        "0": 7,
+        "10": 3,
+        "8": 2,
+        "5": 5,
+        "15": 2
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "medcalc": 100
+      },
+      "historical_material_matches": 100
+    },
+    {
+      "id": "input_sufficiency",
+      "dimension": "rules",
+      "title": "决策资料充分性",
+      "definition": "判断计算或决策所需信息是否充分且无未解决冲突。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。",
+      "candidate_source_ids": [
+        "cmedcalc"
+      ],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "clinical_grade",
+      "dimension": "rules",
+      "title": "临床语义分级",
+      "definition": "根据病例和指定分级体系选择等级。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "CMedCalc 数据许可待明确。",
+      "candidate_source_ids": [
+        "cmedcalc"
+      ],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "unit_equivalence",
+      "dimension": "rules",
+      "title": "数值与单位等价",
+      "definition": "给定换算规则，判断数值表达是否等价。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有独立金标均为自编题，暂不填充。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "reference_range",
+      "dimension": "rules",
+      "title": "参考区间适用性",
+      "definition": "给定区间及人群、方法条件，选择适用区间或不确定。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "尚无已核验的开放题目与金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "result_trend",
+      "dimension": "rules",
+      "title": "检验结果趋势",
+      "definition": "给定可比性条件，判断结果上升、下降、稳定或不可比较。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "不能将带时序数值的开放材料直接当作有审核金标的测试题。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "long_record_evidence",
+      "dimension": "evidence",
+      "title": "长病历证据选择",
+      "definition": "根据完整病例文书，在原始选项中选择有依据的答案。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "longhealth"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 20,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 398,
+        "unique_consistent_pool": 398,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 398,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "d": 21,
+        "c": 35,
+        "b": 23,
+        "e": 6,
+        "a": 15
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "longhealth": 100
+      },
+      "historical_material_matches": 100
+    },
+    {
+      "id": "clinical_error_detection",
+      "dimension": "evidence",
+      "title": "医疗叙述错误检出",
+      "definition": "判断给定病例文本是否含原数据标注的医学错误。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "medec",
+        "mederr"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "evidence",
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 797,
+        "unique_consistent_pool": 797,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 797,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "1": 50,
+        "0": 50
+      },
+      "language_counts": {
+        "en": 50,
+        "zh": 50
+      },
+      "source_counts": {
+        "medec": 50,
+        "mederr": 50
+      },
+      "historical_material_matches": 21
+    },
+    {
+      "id": "clinical_error_location",
+      "dimension": "evidence",
+      "title": "医疗叙述错误定位",
+      "definition": "在明确含错误的病例中，选择原始标注的错误句。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "medec",
+        "mederr"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 411,
+        "unique_consistent_pool": 411,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 411,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "8": 7,
+        "1": 11,
+        "6": 7,
+        "2": 16,
+        "4": 9,
+        "18": 1,
+        "3": 16,
+        "5": 10,
+        "13": 4,
+        "9": 4,
+        "7": 3,
+        "10": 3,
+        "15": 1,
+        "23": 1,
+        "12": 1,
+        "14": 1,
+        "11": 1,
+        "20": 1,
+        "16": 2,
+        "21": 1
+      },
+      "language_counts": {
+        "en": 50,
+        "zh": 50
+      },
+      "source_counts": {
+        "medec": 50,
+        "mederr": 50
+      },
+      "historical_material_matches": 27
+    },
+    {
+      "id": "claim_support",
+      "dimension": "evidence",
+      "title": "研究论断证据关系",
+      "definition": "给定论断与被引摘要，判断支持、反驳或证据不足。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "scifact"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 123,
+        "unique_consistent_pool": 123,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 123,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "SUPPORT": 41,
+        "CONTRADICT": 20,
+        "NOT_ENOUGH_INFO": 39
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "scifact": 100
+      },
+      "historical_material_matches": 31
+    },
+    {
+      "id": "trial_referral",
+      "dimension": "eligibility",
+      "title": "患者与试验匹配",
+      "definition": "根据患者和试验材料，判断不相关、可能适合或很可能适合转介。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "trialgpt"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility",
+        "evidence"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 58,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 3141,
+        "unique_consistent_pool": 3141,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 3141,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "1": 33,
+        "2": 33,
+        "0": 34
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "trialgpt": 100
+      },
+      "historical_material_matches": 82
+    },
+    {
+      "id": "criterion_entity_type",
+      "dimension": "eligibility",
+      "title": "入排条件要素分类",
+      "definition": "给定条件原文与目标实体，判断原标注的要素类别。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "chia"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 39184,
+        "unique_consistent_pool": 38702,
+        "conflicting_rows_removed": 330,
+        "duplicate_requests_removed": 152,
+        "group_cap": 5,
+        "upstream_adapter_pool": 39184,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "Visit": 6,
+        "Multiplier": 7,
+        "Device": 7,
+        "Drug": 7,
+        "Temporal": 7,
+        "Reference_point": 7,
+        "Procedure": 7,
+        "Value": 6,
+        "Qualifier": 7,
+        "Condition": 7,
+        "Person": 6,
+        "Observation": 7,
+        "Negation": 6,
+        "Mood": 7,
+        "Measurement": 6
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "chia": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "criterion_relation",
+      "dimension": "eligibility",
+      "title": "入排条件限定关系",
+      "definition": "给定已标注关联的两个要素，判断数值、时间、限定等关系类型。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "chia"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 14873,
+        "unique_consistent_pool": 14823,
+        "conflicting_rows_removed": 2,
+        "duplicate_requests_removed": 48,
+        "group_cap": 5,
+        "upstream_adapter_pool": 14873,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "Has_value": 11,
+        "Has_negation": 11,
+        "Has_temporal": 11,
+        "Has_qualifier": 12,
+        "Has_context": 11,
+        "Has_multiplier": 11,
+        "Has_mood": 11,
+        "Has_index": 11,
+        "Subsumes": 11
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "chia": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "criterion_boolean",
+      "dimension": "eligibility",
+      "title": "入排条件与或关系",
+      "definition": "给定条件中的两个标注要素，判断原文要求 AND 还是 OR。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "chia"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility",
+        "rules"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 16196,
+        "unique_consistent_pool": 16138,
+        "conflicting_rows_removed": 4,
+        "duplicate_requests_removed": 54,
+        "group_cap": 5,
+        "upstream_adapter_pool": 16196,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "OR": 50,
+        "AND": 50
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "chia": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "criterion_bound",
+      "dimension": "eligibility",
+      "title": "条件上界与下界",
+      "definition": "给定条件与数值限制片段，判断该限制是上界还是下界。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "frd"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "trials",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 2615,
+        "unique_consistent_pool": 2545,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 70,
+        "group_cap": 5,
+        "upstream_adapter_pool": 2615,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "upper_bound": 50,
+        "lower_bound": 50
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "frd": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "patient_contraindication",
+      "dimension": "eligibility",
+      "title": "患者特异性禁忌",
+      "definition": "依据患者资料和给定药品说明条件，判断禁忌是否成立。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "说明书是材料来源，尚无配套患者及审核金标。",
+      "candidate_source_ids": [
+        "openfda"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "eligibility",
+        "rules",
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "dose_appropriateness",
+      "dimension": "eligibility",
+      "title": "剂量适宜性",
+      "definition": "给定药品规则及患者肝肾功能等，判断剂量是否适宜。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到已核验、可分发的患者特异性剂量适宜性金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "triage_urgency",
+      "dimension": "risk",
+      "title": "分诊紧急程度",
+      "definition": "根据症状和指定分诊规则选择紧急等级。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "TRIAGE 发布数据未见明确许可证；不将提示变体当独立病例凑数。",
+      "candidate_source_ids": [
+        "triage",
+        "mimic_iv_ed",
+        "triagebench_wong"
+      ],
+      "primary_scenario": "intake",
+      "ability_tags": [
+        "risk",
+        "rules",
+        "evidence"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "critical_result_escalation",
+      "dimension": "risk",
+      "title": "危急结果与人工升级",
+      "definition": "根据明确规则选择无需升级、复核或立即升级。",
+      "decision_mode": "rule",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未找到具有机构阈值版本与审核标签的开放来源。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "privacy_candidate",
+      "dimension": "risk",
+      "title": "医疗材料隐私候选",
+      "definition": "给定目标片段，判断是否属于需处理的个人标识。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有自编题不进入；临床脱敏语料多需协议。",
+      "candidate_source_ids": [
+        "n2c2"
+      ],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "procedure_progress",
+      "dimension": "workflow",
+      "title": "医疗操作进度",
+      "definition": "区分计划、进行、完成、取消及目标未达成。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有训练题为自编，未核验外部测试来源。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "administration_status",
+      "dimension": "workflow",
+      "title": "单次给药执行状态",
+      "definition": "判断已开医嘱、已配药、已给入或未执行。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "未取得可分发的执行记录及金标。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "followup_action",
+      "dimension": "workflow",
+      "title": "随访行动与完成状态",
+      "definition": "从固定候选中选择待办行动并判断是否完成或逾期。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "现有评测为自编题，暂留空。",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "report_stage",
+      "dimension": "workflow",
+      "title": "报告阶段与效力",
+      "definition": "区分初步、最终、补充、更正及作废报告。",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "标准字段不代替独立真实材料与标签。",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "workflow"
+      ],
+      "decision_stage": "material_judgment",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "synthetic_diagnosis",
+      "dimension": "clinical",
+      "title": "模拟病例主诊断选择",
+      "definition": "给定 DDXPlus 观察到的症状与背景，从完整病种表选择模拟主诊断。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "ddxplus"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 1000,
+        "unique_consistent_pool": 1000,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 1000,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "d45": 2,
+        "d20": 2,
+        "d42": 2,
+        "d6": 2,
+        "d23": 2,
+        "d4": 2,
+        "d22": 2,
+        "d44": 2,
+        "d28": 2,
+        "d35": 2,
+        "d27": 2,
+        "d48": 2,
+        "d47": 3,
+        "d1": 2,
+        "d33": 3,
+        "d7": 2,
+        "d25": 2,
+        "d8": 2,
+        "d29": 2,
+        "d11": 2,
+        "d18": 2,
+        "d41": 2,
+        "d39": 2,
+        "d46": 3,
+        "d5": 2,
+        "d36": 2,
+        "d34": 2,
+        "d43": 2,
+        "d26": 2,
+        "d9": 2,
+        "d24": 2,
+        "d10": 2,
+        "d15": 2,
+        "d31": 2,
+        "d16": 3,
+        "d17": 2,
+        "d21": 2,
+        "d14": 2,
+        "d38": 2,
+        "d40": 2,
+        "d32": 2,
+        "d2": 2,
+        "d0": 2,
+        "d30": 2,
+        "d3": 3,
+        "d13": 3,
+        "d37": 2
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "ddxplus": 100
+      },
+      "historical_material_matches": 100
+    },
+    {
+      "id": "diagnosis_choice",
+      "dimension": "clinical",
+      "title": "临床病例候选诊断",
+      "definition": "从给定诊断候选中选择最符合病例者。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney/CMExam 许可或研究使用限制需进一步澄清。",
+      "candidate_source_ids": [
+        "medjourney",
+        "medmcqa"
+      ],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "examination_choice",
+      "dimension": "clinical",
+      "title": "检查方案选择",
+      "definition": "根据病例从给定候选中选择检查。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney 缺明确数据许可。",
+      "candidate_source_ids": [
+        "medjourney",
+        "medmcqa"
+      ],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "treatment_choice",
+      "dimension": "clinical",
+      "title": "治疗方案选择",
+      "definition": "根据病例从给定候选中选择治疗。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney 缺明确数据许可；不生成替代金标。",
+      "candidate_source_ids": [
+        "medjourney",
+        "medmcqa"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "medication_choice",
+      "dimension": "clinical",
+      "title": "用药方案选择",
+      "definition": "根据病例从给定候选中选择用药。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [],
+      "missing_reason": "MedJourney 缺明确数据许可；CDrugRed 下载源与许可链未完成核验。",
+      "candidate_source_ids": [
+        "medjourney",
+        "cdrugred",
+        "medmcqa"
+      ],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "tcm_syndrome",
+      "dimension": "clinical",
+      "title": "中医证型选择",
+      "definition": "根据主诉、病情和检查选择原始标准证型。",
+      "decision_mode": "knowledge",
+      "target_count": 100,
+      "source_ids": [
+        "tcm_sd"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 100,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 5486,
+        "unique_consistent_pool": 5144,
+        "conflicting_rows_removed": 28,
+        "duplicate_requests_removed": 314,
+        "group_cap": 5,
+        "upstream_adapter_pool": 5486,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "脾胃虚弱证": 1,
+        "气虚血瘀证": 11,
+        "湿热下注证": 13,
+        "风痰瘀阻证": 8,
+        "脾肾两虚证": 4,
+        "气滞血瘀证": 6,
+        "肾虚证": 2,
+        "痰湿蕴肺证": 3,
+        "肝胃郁热证": 5,
+        "痰瘀痹阻证": 3,
+        "湿热瘀阻证": 1,
+        "正虚瘀结证": 4,
+        "脾胃湿热证": 1,
+        "痰湿蒙窍证": 1,
+        "风寒阻络证": 1,
+        "心脉痹阻证": 1,
+        "肝胃不和证": 3,
+        "大肠湿热证": 1,
+        "阴虚阳亢证": 1,
+        "热毒蕴结证": 2,
+        "痰浊蒙窍证": 1,
+        "肝郁血瘀证": 1,
+        "风寒外袭证": 1,
+        "肺卫不固证": 1,
+        "脾肾阳虚证": 1,
+        "痰湿内阻证": 1,
+        "阴虚血瘀证": 2,
+        "风痰入络证": 2,
+        "风痰上扰证": 1,
+        "肝肾亏虚证": 3,
+        "痰热壅肺证": 1,
+        "湿热瘀滞证": 1,
+        "风热犯肺证": 1,
+        "脾气虚证": 1,
+        "肝阳上亢证": 1,
+        "阴虚火旺证": 1,
+        "脾胃虚寒证": 1,
+        "湿热蕴结证": 1,
+        "风热外袭证": 1,
+        "湿热内蕴证": 1,
+        "湿热蕴毒证": 1,
+        "肝肾阴虚证": 1,
+        "阳虚水泛证": 1,
+        "气虚痰结证": 1
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "tcm_sd": 100
+      },
+      "historical_material_matches": 33
+    },
+    {
+      "id": "department_routing",
+      "title": "候选科室分流",
+      "primary_scenario": "intake",
+      "dimension": "clinical",
+      "ability_tags": [
+        "clinical"
+      ],
+      "decision_mode": "knowledge",
+      "decision_stage": "clinical_choice",
+      "definition": "根据就诊主诉从固定科室表选择适合的首诊科室。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "medjourney"
+      ],
+      "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "message_urgency_pair",
+      "title": "患者消息紧急性比较",
+      "primary_scenario": "intake",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "material",
+      "decision_stage": "material_judgment",
+      "definition": "给定两条患者消息，选择需要更优先处理的一条。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "pmr_bench"
+      ],
+      "missing_reason": "已找到官方测试对与非商业许可；尚需核验消息复用、标注方案及配对抽样。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "deterioration_prediction",
+      "title": "脓毒症提前预警",
+      "primary_scenario": "inpatient",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "prediction",
+      "decision_stage": "outcome_prediction",
+      "definition": "仅使用指定预测时点之前的生命体征和检验记录，预测近期脓毒症风险。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "sepsis2019"
+      ],
+      "missing_reason": "开放数据已核验；预测窗口、患者划分及类别先验尚未固定，不直接将整段住院结果转成题目。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "readmission_30d",
+      "title": "出院后 30 天内再入院预测",
+      "primary_scenario": "followup",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "prediction",
+      "decision_stage": "outcome_prediction",
+      "definition": "只根据出院时可得信息，预测是否在 30 天内再次住院。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "uci_diabetes"
+      ],
+      "missing_reason": "开放结局数据已核验；需按患者划分，排除死亡等不适用出院并固定特征和基线。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "followup_item_type",
+      "title": "出院待办行动类别",
+      "primary_scenario": "followup",
+      "dimension": "classification",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_mode": "material",
+      "decision_stage": "material_judgment",
+      "definition": "给定出院文书片段，判断是否有待办及所属复诊、检验、影像、用药等类别。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "clip"
+      ],
+      "missing_reason": "CLIP 有医生标注，但原文受 PhysioNet 凭证与协议限制，不打包进开放主集。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "adverse_event_prediction",
+      "title": "治疗相关不良事件预测",
+      "primary_scenario": "treatment",
+      "dimension": "risk",
+      "ability_tags": [
+        "risk"
+      ],
+      "decision_mode": "prediction",
+      "decision_stage": "outcome_prediction",
+      "definition": "给定试验人群和单药方案，判断指定不良事件类别是否会在该组出现。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "ct_ade"
+      ],
+      "missing_reason": "已找到发布方数据；需核验版本与术语许可，并固定试验组划分。群体结局不能直接解释为个体禁忌。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    },
+    {
+      "id": "clinical_statement_support",
+      "title": "病历论断支持关系",
+      "primary_scenario": "quality",
+      "dimension": "evidence",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_mode": "material",
+      "decision_stage": "material_judgment",
+      "definition": "给定临床记录和论断，判断支持、矛盾或无法确定。",
+      "target_count": 100,
+      "source_ids": [],
+      "candidate_source_ids": [
+        "mednli"
+      ],
+      "missing_reason": "MedNLI 有临床医生标注，但材料来自受控 MIMIC-III，需访问协议。",
+      "count": 0,
+      "groups": 0,
+      "status": "empty",
+      "sampling": {
+        "raw_pool": 0,
+        "unique_consistent_pool": 0,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 0,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {},
+      "language_counts": {},
+      "source_counts": {},
+      "historical_material_matches": 0
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "intake",
+      "title": "接诊与分诊",
+      "scope": "识别就诊诉求、资料缺口及处理优先级。",
+      "defined_tasks": 6,
+      "populated_tasks": 1,
+      "records": 100
+    },
+    {
+      "id": "testing",
+      "title": "检查与检验",
+      "scope": "选择检查、关联结果并判断结果的适用性与处理需求。",
+      "defined_tasks": 8,
+      "populated_tasks": 1,
+      "records": 100
+    },
+    {
+      "id": "diagnosis",
+      "title": "诊断与鉴别",
+      "scope": "根据已有材料判断诊断、状态和临床分级。",
+      "defined_tasks": 8,
+      "populated_tasks": 4,
+      "records": 400
+    },
+    {
+      "id": "treatment",
+      "title": "治疗与用药",
+      "scope": "判断治疗选择、用药关系及患者特异性适宜性。",
+      "defined_tasks": 8,
+      "populated_tasks": 2,
+      "records": 200
+    },
+    {
+      "id": "inpatient",
+      "title": "住院与护理",
+      "scope": "核对病情证据、操作执行和病情恶化风险。",
+      "defined_tasks": 5,
+      "populated_tasks": 1,
+      "records": 100
+    },
+    {
+      "id": "followup",
+      "title": "出院与随访",
+      "scope": "识别后续行动、完成状态和出院后的风险。",
+      "defined_tasks": 3,
+      "populated_tasks": 0,
+      "records": 0
+    },
+    {
+      "id": "trials",
+      "title": "临床试验筛选",
+      "scope": "解释入排条件并判断患者转介资格。",
+      "defined_tasks": 5,
+      "populated_tasks": 5,
+      "records": 500
+    },
+    {
+      "id": "quality",
+      "title": "病历与医疗质量控制",
+      "scope": "识别文书类别、错误、隐私与证据不一致。",
+      "defined_tasks": 7,
+      "populated_tasks": 4,
+      "records": 400
+    }
+  ]
+}

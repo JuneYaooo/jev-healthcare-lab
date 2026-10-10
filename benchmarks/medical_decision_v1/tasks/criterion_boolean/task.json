@@ -1,0 +1,42 @@
+{
+  "id": "criterion_boolean",
+  "dimension": "eligibility",
+  "title": "入排条件与或关系",
+  "definition": "给定条件中的两个标注要素，判断原文要求 AND 还是 OR。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "chia"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "trials",
+  "ability_tags": [
+    "eligibility",
+    "rules"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 16196,
+    "unique_consistent_pool": 16138,
+    "conflicting_rows_removed": 4,
+    "duplicate_requests_removed": 54,
+    "group_cap": 5,
+    "upstream_adapter_pool": 16196,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "OR": 50,
+    "AND": 50
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "chia": 100
+  },
+  "historical_material_matches": 0
+}

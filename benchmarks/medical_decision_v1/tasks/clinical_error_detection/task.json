@@ -1,0 +1,45 @@
+{
+  "id": "clinical_error_detection",
+  "dimension": "evidence",
+  "title": "医疗叙述错误检出",
+  "definition": "判断给定病例文本是否含原数据标注的医学错误。",
+  "decision_mode": "knowledge",
+  "target_count": 100,
+  "source_ids": [
+    "medec",
+    "mederr"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "quality",
+  "ability_tags": [
+    "evidence",
+    "clinical"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 797,
+    "unique_consistent_pool": 797,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 797,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "1": 50,
+    "0": 50
+  },
+  "language_counts": {
+    "en": 50,
+    "zh": 50
+  },
+  "source_counts": {
+    "medec": 50,
+    "mederr": 50
+  },
+  "historical_material_matches": 21
+}

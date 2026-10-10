@@ -1,0 +1,43 @@
+{
+  "id": "note_section",
+  "dimension": "classification",
+  "title": "病历章节类别",
+  "definition": "给定去除章节标题的原文片段，选择原始章节类别。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "aci_bench"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "quality",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 667,
+    "unique_consistent_pool": 665,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 2,
+    "group_cap": 5,
+    "upstream_adapter_pool": 667,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "assessment_plan": 25,
+    "results": 25,
+    "exam": 25,
+    "history": 25
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "aci_bench": 100
+  },
+  "historical_material_matches": 18
+}

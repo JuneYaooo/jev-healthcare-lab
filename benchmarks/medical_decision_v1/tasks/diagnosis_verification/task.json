@@ -1,0 +1,32 @@
+{
+  "id": "diagnosis_verification",
+  "dimension": "facts",
+  "title": "诊断核实状态",
+  "definition": "区分疑似、确诊、排除与未明确。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [],
+  "missing_reason": "尚无核验完成的开放独立金标。",
+  "candidate_source_ids": [],
+  "primary_scenario": "diagnosis",
+  "ability_tags": [
+    "facts"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 0,
+  "groups": 0,
+  "status": "empty",
+  "sampling": {
+    "raw_pool": 0,
+    "unique_consistent_pool": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 0,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {},
+  "language_counts": {},
+  "source_counts": {},
+  "historical_material_matches": 0
+}

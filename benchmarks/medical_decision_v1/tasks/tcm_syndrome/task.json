@@ -1,0 +1,83 @@
+{
+  "id": "tcm_syndrome",
+  "dimension": "clinical",
+  "title": "中医证型选择",
+  "definition": "根据主诉、病情和检查选择原始标准证型。",
+  "decision_mode": "knowledge",
+  "target_count": 100,
+  "source_ids": [
+    "tcm_sd"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "diagnosis",
+  "ability_tags": [
+    "clinical"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 5486,
+    "unique_consistent_pool": 5144,
+    "conflicting_rows_removed": 28,
+    "duplicate_requests_removed": 314,
+    "group_cap": 5,
+    "upstream_adapter_pool": 5486,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "脾胃虚弱证": 1,
+    "气虚血瘀证": 11,
+    "湿热下注证": 13,
+    "风痰瘀阻证": 8,
+    "脾肾两虚证": 4,
+    "气滞血瘀证": 6,
+    "肾虚证": 2,
+    "痰湿蕴肺证": 3,
+    "肝胃郁热证": 5,
+    "痰瘀痹阻证": 3,
+    "湿热瘀阻证": 1,
+    "正虚瘀结证": 4,
+    "脾胃湿热证": 1,
+    "痰湿蒙窍证": 1,
+    "风寒阻络证": 1,
+    "心脉痹阻证": 1,
+    "肝胃不和证": 3,
+    "大肠湿热证": 1,
+    "阴虚阳亢证": 1,
+    "热毒蕴结证": 2,
+    "痰浊蒙窍证": 1,
+    "肝郁血瘀证": 1,
+    "风寒外袭证": 1,
+    "肺卫不固证": 1,
+    "脾肾阳虚证": 1,
+    "痰湿内阻证": 1,
+    "阴虚血瘀证": 2,
+    "风痰入络证": 2,
+    "风痰上扰证": 1,
+    "肝肾亏虚证": 3,
+    "痰热壅肺证": 1,
+    "湿热瘀滞证": 1,
+    "风热犯肺证": 1,
+    "脾气虚证": 1,
+    "肝阳上亢证": 1,
+    "阴虚火旺证": 1,
+    "脾胃虚寒证": 1,
+    "湿热蕴结证": 1,
+    "风热外袭证": 1,
+    "湿热内蕴证": 1,
+    "湿热蕴毒证": 1,
+    "肝肾阴虚证": 1,
+    "阳虚水泛证": 1,
+    "气虚痰结证": 1
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "tcm_sd": 100
+  },
+  "historical_material_matches": 33
+}

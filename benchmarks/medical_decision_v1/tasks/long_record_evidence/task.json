@@ -1,0 +1,44 @@
+{
+  "id": "long_record_evidence",
+  "dimension": "evidence",
+  "title": "长病历证据选择",
+  "definition": "根据完整病例文书，在原始选项中选择有依据的答案。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "longhealth"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "evidence"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 20,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 398,
+    "unique_consistent_pool": 398,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 398,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "d": 21,
+    "c": 35,
+    "b": 23,
+    "e": 6,
+    "a": 15
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "longhealth": 100
+  },
+  "historical_material_matches": 100
+}

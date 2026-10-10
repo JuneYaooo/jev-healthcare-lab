@@ -1,0 +1,41 @@
+{
+  "id": "assertion_scope",
+  "dimension": "facts",
+  "title": "否定与不确定状态",
+  "definition": "给定临床句子与标注目标，区分否定和不确定；本任务不覆盖肯定类。",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "nubes"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "diagnosis",
+  "ability_tags": [
+    "facts"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 890,
+    "unique_consistent_pool": 889,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 1,
+    "group_cap": 5,
+    "upstream_adapter_pool": 890,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "uncertain": 50,
+    "negative": 50
+  },
+  "language_counts": {
+    "es": 100
+  },
+  "source_counts": {
+    "nubes": 100
+  },
+  "historical_material_matches": 1
+}
