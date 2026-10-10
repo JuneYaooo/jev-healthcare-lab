@@ -736,13 +736,13 @@ The problem is important for the following reasons. Despite high-quality evidenc
 
 数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
 
-材料性质：根据专家医学参考资料整理的区间与条件，不是患者记录。仅采用 Set 1 可解析且无冲突的原始范围答案。
+材料性质：根据专家医学参考资料整理的区间与条件；Set 2 数值由作者构造，不是真实患者检验结果。
 
-答案依据：原 Set 1 范围答案机械映射为同检验、单位、类别的固定候选；输入附上同组原参考条目，考查条件匹配。排除同条件答案冲突、裸数值及无替代范围条目；不生成范围或不确定答案。
+答案依据：原 Set 1 范围答案机械映射为同检验、单位、类别的固定候选；输入附上同组原参考条目，考查条件匹配。排除同条件答案冲突、裸数值及无替代范围条目；不生成范围或不确定答案。 Set 2 保留原 High/Normal/Low 选项与答案；仅收两端有限且有序的区间，排除边界相等、数值无法解析及原答案与给定区间不一致的题。
 
 许可与来源快照：[LabQAR_README.md](sources/labqar/LabQAR_README.md)、[figshare-metadata.json](sources/labqar/figshare-metadata.json)。
 
-评测范围：仅评估给定参考条目的人群、标本和条件匹配；不是独立诊疗知识或所有实验室范围的正确性。本版 72 题，未覆盖不确定和检验方法差异。
+评测范围：仅评估给定参考条目的人群、标本和条件匹配；不是独立诊疗知识或所有实验室范围的正确性。本版 72 题，未覆盖不确定和检验方法差异。 新增 Set 2 任务只测给定区间的数值判读，不推断诊断、危急值或处置优先级。
 
 ## NLI4CT
 
@@ -813,3 +813,49 @@ The problem is important for the following reasons. Despite high-quality evidenc
 材料性质：真实去标识临床数据库演示子集。
 
 答案依据：原事件记录字段不自动构成完整临床流程判断题。
+
+## CPIC curated pharmacogenomic tables
+
+来源：[发布方](https://www.clinpgx.org/cpic)。
+
+引用：Clinical Pharmacogenetics Implementation Consortium (CPIC), curated database API v1, accessed 2026-10-10. Primary source: www.clinpgx.org; recommendation records retain their specific guideline URL.，[论文/项目](https://github.com/cpicpgx/cpic-data/wiki)。
+
+数据许可：[CC0-1.0](https://raw.githubusercontent.com/cpicpgx/cpic-data/82aa2518f1051bb2db9c42c1023a9f08db5a5f80/LICENSE.md)；分发类别：`open`。
+
+材料性质：CPIC 专家整理的功能到表型映射和基因结果用药建议表，不是患者病例。API 的原始响应随数据包冻结，访问日期不冒充数据库发布版本。
+
+答案依据：功能表型题按 gene_result_lookup.phenotypeid 连接 gene_result.id，复制 result；用药题复制 recommendation_view.drugrecommendation，候选来自相同指南、药物和人群的原始建议。冲突输入和无替代选项排除，不生成临床答案。
+
+许可与来源快照：[LICENSE.md](sources/cpic/LICENSE.md)、[api-documentation.md](sources/cpic/api-documentation.md)。
+
+评测范围：只评价固定快照中的规则映射；不代表完整基因型检测、个体化处方或临床结局。指南会更新，应查看对应 guideline URL 的最新内容。按基因和指南分组，每组最多 5 题。
+
+## Evidence Inference 2.0 — CC-BY article subset
+
+来源：[发布方](https://github.com/jayded/evidence-inference)。
+
+引用：DeYoung et al. (2020), Evidence Inference 2.0: More Data, Better Models. Article title, authors, DOI, PMCID and exact CC-BY license are retained per record.，[论文/项目](https://aclanthology.org/2020.bionlp-1.13/)。
+
+数据许可：[MIT (annotations); CC-BY (articles, per-record version)](https://raw.githubusercontent.com/jayded/evidence-inference/a661e8c14f973398380c8865cf2f27a535aaaf6d/LICENSE)；分发类别：`open`。
+
+材料性质：已发表临床试验报告及医生判断；不是患者级原始病历。只纳入官方测试文章中 XML 明确标注 CC-BY 的文章。
+
+答案依据：PromptID 连接原 ICO 提示和医生标注；仅保留验证通过、全部有效标注的方向一致且至少有一条有效理由的条目。复制 Label Code (-1/0/1)。排除作者列出的 incorrect/questionable/malformed 提示。
+
+许可与来源快照：[LICENSE](sources/evidence_inference/LICENSE)、[annotation-guide.md](sources/evidence_inference/annotation-guide.md)、[article-attribution.md](sources/evidence_inference/article-attribution.md)。
+
+评测范围：判断指定干预相对对照对指定结局的报告方向，不把降低某结局直接当作治疗更优，也不把无显著差异当作等效证明。输入完整原始文章文本；统计和人群外推不在该任务的评测范围。
+
+## TRIAGE-Bench guideline conflicts (DarrenLoong)
+
+来源：[发布方](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench)。
+
+状态：仅引用，未收录题目。核验子集引用 DXY/AMBOSS 本地资料路径；未找到完整可公开复核的原始资料及摘录再分发授权。临床行动为开放文本，未强行改造成单选金标。
+
+核验日期：2026-10-10；结论：暂不采用。
+
+[发布证据](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench/blob/main/triage_bench/DATASHEET.md)；许可：Dataset card: CC-BY-4.0; upstream excerpts unresolved。
+
+材料性质：LLM 辅助合成场景；400 条为作者声称的专家核验子集。
+
+答案依据：作者隐藏的 governing_source_id 与临床行动答案；原始评测包含生成式输出。

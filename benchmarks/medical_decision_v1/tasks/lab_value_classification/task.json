@@ -1,0 +1,42 @@
+{
+  "id": "lab_value_classification",
+  "title": "检验数值高低判读",
+  "definition": "根据题目给出的检验值和参考区间，选择原始选项中的 High、Normal 或 Low；仅按给定区间判读，不推断诊断或危急程度。",
+  "dimension": "rules",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "labqar"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "testing",
+  "ability_tags": [
+    "rules"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 439,
+    "unique_consistent_pool": 439,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 439,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "B": 33,
+    "A": 29,
+    "C": 38
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "labqar": 100
+  },
+  "historical_material_matches": 0
+}

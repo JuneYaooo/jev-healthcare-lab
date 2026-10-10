@@ -252,6 +252,22 @@ def expanded_chinese_task(question):
     return None
 
 
+def locked_source_bytes(config, entry):
+    """Prefer a hash-verified frozen response when the upstream API is mutable."""
+    if entry.get('snapshot_path'):
+        path = (config / entry['snapshot_path']).resolve()
+        if not path.is_relative_to(config.resolve()):
+            raise ValueError('Snapshot outside dataset')
+        raw = path.read_bytes()
+    else:
+        request = urllib.request.Request(entry['url'], headers={'User-Agent': 'Jev-Medical-Decision-Benchmark'})
+        with urllib.request.urlopen(request, timeout=60) as response:
+            raw = response.read()
+    if hashlib.sha256(raw).hexdigest() != entry['sha256']:
+        raise ValueError('Source hash changed; refusing replacement: ' + entry['name'])
+    return raw
+
+
 def fetch(config, cache):
     cache.mkdir(parents=True, exist_ok=True)
     lock = json.loads((config / "sources.lock.json").read_text())
@@ -259,12 +275,7 @@ def fetch(config, cache):
         path = cache / entry["name"]
         if path.exists() and file_sha(path) == entry["sha256"]:
             continue
-        request = urllib.request.Request(entry["url"], headers={"User-Agent": "Jev-Medical-Decision-Benchmark"})
-        with urllib.request.urlopen(request, timeout=60) as response:
-            raw = response.read()
-        if hashlib.sha256(raw).hexdigest() != entry["sha256"]:
-            raise ValueError("Source hash changed; refusing replacement: " + entry["name"])
-        path.write_bytes(raw)
+        path.write_bytes(locked_source_bytes(config, entry))
     print("Verified", len(lock["files"]), "source files")
 
 
@@ -1197,6 +1208,140 @@ class Builder:
                          label_mapping='original Set 1 answer -> fixed candidate intervals for same test, unit and category',
                          coverage='population/specimen/condition matching; no unknown or method-specific validation cases')
 
+    def laboratory_values(self):
+        name = 'labqar__Set_2.json'
+        for i, row in enumerate(json.loads(self.path(name).read_text())):
+            bounds = row['reference_range']
+            low, high = bounds.get('lower_bound'), bounds.get('upper_bound')
+            match = re.search(r"a value in 'SI reference range' is (-?\d+(?:\.\d+)?)\.", row['Question'])
+            test = re.search(r"For the lab test '([^']+)'", row['Question'])
+            if low is None or high is None or not low < high or not match or not test:
+                self.exclusions['labqar_set2:ambiguous_interval_or_question'] += 1
+                continue
+            value = float(match[1])
+            options = dict(re.findall(r'([A-C]): (High|Normal|Low)', row['Choices']))
+            expected = 'Low' if value < low else 'High' if value > high else 'Normal'
+            # Boundary conventions are unspecified in the original Set 2.
+            if (value in {low, high} or set(options.values()) != {'High', 'Normal', 'Low'}
+                    or options.get(row['Answer']) != expected):
+                self.exclusions['labqar_set2:boundary_or_inconsistent_gold'] += 1
+                continue
+            self.add('lab_value_classification', 'labqar', row['ID'], 'set2:' + test[1],
+                     {'question': row['Question'], 'provided_reference_interval': bounds}, options, row['Answer'], name,
+                     {'json_index': i, 'upstream_id': row['ID']}, 'published_corpus_reserved_for_evaluation',
+                     stratum=expected, label_mapping='Original Set 2 option key; arithmetic used only to reject inconsistent items',
+                     numeric_value=value, patient_measurement=False)
+
+    def pharmacogenomic_rules(self):
+        result_file, lookup_file = 'cpic__gene_result.json', 'cpic__gene_result_lookup.json'
+        results = {r['id']: r for r in json.loads(self.path(result_file).read_text())}
+        vocab = collections.defaultdict(set)
+        for row in results.values():
+            vocab[row['genesymbol']].add(row['result'])
+        for i, row in enumerate(json.loads(self.path(lookup_file).read_text())):
+            result = results[row['phenotypeid']]
+            gene = result['genesymbol']
+            labels = sorted(vocab[gene])
+            if len(labels) < 2 or not row['lookupkey']:
+                continue
+            options = {f'phenotype_{j}': label for j, label in enumerate(labels)}
+            self.add('pgx_function_phenotype', 'cpic', row['id'], 'gene:' + gene,
+                     {'gene': gene, 'genetic_findings': row['lookupkey'],
+                      'allele_function_1': row['function1'], 'allele_function_2': row['function2'],
+                      'allele_activity_1': row['activityvalue1'], 'allele_activity_2': row['activityvalue2'],
+                      'total_activity_score': row['totalactivityscore'], 'reference_snapshot': 'CPIC API v1, 2026-10-10'},
+                     options, f'phenotype_{labels.index(result["result"])}', lookup_file,
+                     {'json_index': i, 'lookup_id': row['id'], 'gene_result_id': result['id'],
+                      'supporting_resources': [result_file]}, 'curated_rules_no_patient_split',
+                     stratum=gene, original_result=result['result'], gene_result_version=result['version'],
+                     grouping_unit='gene', patient_record=False)
+        name = 'cpic__recommendation_view.json'
+        rows = json.loads(self.path(name).read_text())
+        groups = collections.defaultdict(list)
+        for i, row in enumerate(rows):
+            if not row['lookupkey'] or not row['drugrecommendation'] or not row['population']:
+                continue
+            groups[(row['guidelineurl'], row['drugname'], row['population'])].append((i, row))
+        for key, group in groups.items():
+            by_input = collections.defaultdict(set)
+            for _, row in group:
+                by_input[dumps(row['lookupkey'])].add(row['drugrecommendation'])
+            clean = [(i, row) for i, row in group if len(by_input[dumps(row['lookupkey'])]) == 1]
+            self.exclusions['cpic:conflicting_recommendations'] += len(group) - len(clean)
+            labels = sorted({row['drugrecommendation'] for _, row in clean})
+            if len(labels) < 2:
+                self.exclusions['cpic:no_alternative_recommendation'] += len(clean)
+                continue
+            options = {f'action_{i}': label for i, label in enumerate(labels)}
+            for i, row in clean:
+                self.add('pgx_guideline_recommendation', 'cpic', row['recommendationid'], 'guideline:' + key[0],
+                         {'drug': row['drugname'], 'population': row['population'], 'gene_results': row['lookupkey'],
+                          'guideline': row['guidelinename'], 'reference_snapshot': 'CPIC API v1, 2026-10-10'},
+                         options, f'action_{labels.index(row["drugrecommendation"])}', name,
+                         {'json_index': i, 'recommendation_id': row['recommendationid'],
+                          'candidate_json_indices': [n for n, _ in clean]}, 'curated_rules_no_patient_split',
+                         stratum=row['drugname'], guideline_url=row['guidelineurl'],
+                         recommendation_classification=row['classification'], source_comments=row['comments'],
+                         grouping_unit='guideline', patient_record=False)
+
+    def trial_comparative_effects(self):
+        name = 'evidence_inference__corpus.zip'
+        options = {'-1': 'Significantly decreased', '0': 'No significant difference', '1': 'Significantly increased'}
+        with zipfile.ZipFile(self.path(name)) as archive:
+            prefix = archive.namelist()[0].split('/')[0] + '/annotations/'
+            read = lambda member: archive.read(prefix + member).decode('utf-8-sig')
+            test = set(read('splits/test_article_ids.txt').split())
+            guide = read('README.md')
+            flagged = set(re.findall(r'\d+', guide.split('### Incorrect:')[1]))
+            annotations = collections.defaultdict(list)
+            for i, row in enumerate(csv.DictReader(io.StringIO(read('annotations_merged.csv')))):
+                if row['PMCID'] in test and row['Valid Label'] == 'True':
+                    annotations[row['PromptID']].append((i + 2, row))
+            articles = {}
+            for i, prompt in enumerate(csv.DictReader(io.StringIO(read('prompts_merged.csv')))):
+                pid, pmc = prompt['PromptID'], prompt['PMCID']
+                if pmc not in test or pid in flagged:
+                    continue
+                anns = annotations.get(pid, [])
+                codes = {r['Label Code'] for _, r in anns}
+                if (len(codes) != 1 or not codes <= set(options)
+                        or not any(r['Valid Reasoning'] == 'True' for _, r in anns)):
+                    self.exclusions['evidence_inference:unverified_or_conflicting'] += 1
+                    continue
+                assert all(r['PMCID'] == pmc and r['Label'].lower() == options[r['Label Code']].lower() for _, r in anns)
+                if pmc not in articles:
+                    root = ET.fromstring(read(f'xml_files/PMC{pmc}.nxml'))
+                    licenses = root.findall('./front/article-meta/permissions/license')
+                    valid = [node for node in licenses if re.fullmatch(r'https?://creativecommons.org/licenses/by/[0-9.]+/?', node.get('{http://www.w3.org/1999/xlink}href', ''))]
+                    if not valid:
+                        articles[pmc] = None
+                    else:
+                        meta = root.find('./front/article-meta')
+                        articles[pmc] = {
+                            'text': read(f'txt_files/PMC{pmc}.txt'),
+                            'attribution': {'pmcid': 'PMC' + pmc,
+                                'title': ''.join(meta.find('title-group/article-title').itertext()),
+                                'authors': [' '.join(''.join(x.itertext()).split()) for x in meta.findall('contrib-group/contrib/name')],
+                                'doi': next((x.text for x in meta.findall('article-id') if x.get('pub-id-type') == 'doi'), None),
+                                'license_url': valid[0].get('{http://www.w3.org/1999/xlink}href'),
+                                'license_statement': ''.join(valid[0].itertext()),
+                                'source_url': 'https://pmc.ncbi.nlm.nih.gov/articles/PMC' + pmc + '/'}}
+                article = articles[pmc]
+                if article is None:
+                    self.exclusions['evidence_inference:article_without_explicit_cc_by'] += 1
+                    continue
+                gold = next(iter(codes))
+                self.add('trial_effect_direction', 'evidence_inference', pid, 'PMC' + pmc,
+                         {'trial_report': article['text'], 'intervention': prompt['Intervention'],
+                          'comparator': prompt['Comparator'], 'outcome': prompt['Outcome']}, options, gold, name,
+                         {'zip_member': prefix + 'prompts_merged.csv', 'csv_row': i + 2, 'prompt_id': pid,
+                          'annotation_member': prefix + 'annotations_merged.csv', 'annotation_csv_rows': [n for n, _ in anns],
+                          'text_member': prefix + f'txt_files/PMC{pmc}.txt',
+                          'license_member': prefix + f'xml_files/PMC{pmc}.nxml',
+                          'split_member': prefix + 'splits/test_article_ids.txt'}, 'official_test_articles',
+                         article_attribution=article['attribution'], annotation_consensus='All valid labels agree',
+                         grouping_unit='publication', patient_record=False)
+
     def run(self):
         for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams", "relation_expansion", "e3c_attributes", "care_triage", "clinical_outcomes", "chinese_decision_expansion", "cnmle_decision_expansion"]:
             getattr(self, name)()
@@ -1205,6 +1350,9 @@ class Builder:
         print('Prepared privacy_and_sepsis', flush=True)
         self.reference_ranges()
         print('Prepared reference_ranges', flush=True)
+        for method in ['laboratory_values', 'pharmacogenomic_rules', 'trial_comparative_effects']:
+            getattr(self, method)()
+            print('Prepared', method, flush=True)
         return self.pools
 
 
@@ -1409,6 +1557,7 @@ def generate_docs(output, builder, summary):
               "新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。\n",
               "[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。\n",
               "v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。\n",
+              "v0.6.0 新增检验数值判读、药物基因检测功能表型、基因结果用药建议匹配、试验干预效果方向 4 类任务。分别采用 LabQAR Set 2、CPIC CC0 规则快照和 Evidence Inference 官方测试中的 CC-BY 文章。前版 5,210 条完整记录保持不变；见 [适配协议](../../docs/EXPANSION_V060.md)。\n",
               "## 训练隔离与历史使用\n",
               f"[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；{summary['historical_material_matches']} 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。\n",
               "该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。\n",

@@ -47,3 +47,5 @@ python3 scripts/medical_decision_dataset.py score --predictions work/predictions
 评分规则见 [评测方法](EVALUATION.md)，来源与许可见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。
 
 v0.5.0 原始复建另需 MEDDOCAN 固定仓库归档、LabQAR Set 1 和 PhysioNet 2019 医院 A 的 1,000 个锁定记录文件。源数据下载量与整理包不同；仅使用已整理包无需下载这些原文件。选择框和预测协议见 [空缺核验](GAP_AUDIT_V050.md)。
+
+v0.6.0 另需 LabQAR Set 2 和 Evidence Inference 固定版本归档（约 164 MB）。CPIC 的 API 原始响应已随仓库/开放包冻结，`fetch` 与 `trace --fetch-source` 优先核验包内快照，不要求在线 API 仍返回相同内容。文章原许可和署名逐篇保留；详见 [扩展协议](EXPANSION_V060.md)。

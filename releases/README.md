@@ -4,8 +4,8 @@
 
 | 数据包 | 题数 | 使用范围 |
 | --- | ---: | --- |
-| [jev-medical-decision-v0.5.0-open.zip](jev-medical-decision-v0.5.0-open.zip) | 3,667 | 开放许可核心集；遵循各来源署名及相同方式共享等条件 |
-| [jev-medical-decision-v0.5.0-research-noncommercial.zip](jev-medical-decision-v0.5.0-research-noncommercial.zip) | 1,543 | 非商业研究附加集；不得按开放核心许可混用 |
+| [jev-medical-decision-v0.6.0-open.zip](jev-medical-decision-v0.6.0-open.zip) | 4,051 | 开放许可核心集；遵循各来源署名及相同方式共享等条件 |
+| [jev-medical-decision-v0.6.0-research-noncommercial.zip](jev-medical-decision-v0.6.0-research-noncommercial.zip) | 1,543 | 非商业研究附加集；不得按开放核心许可混用 |
 
 [校验和](SHA256SUMS) · [场景与任务](../benchmarks/medical_decision_v1/README.md) · [全部来源登记](../benchmarks/medical_decision_v1/SOURCES.md)
 

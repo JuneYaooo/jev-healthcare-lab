@@ -1,0 +1,50 @@
+{
+  "id": "pgx_guideline_recommendation",
+  "title": "药物基因结果用药建议匹配",
+  "definition": "给定药物、人群及基因结果，选择 CPIC 固定快照中对应的原始用药建议；不外推为完整个体处方。",
+  "dimension": "eligibility",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cpic"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "eligibility"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 25,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 2115,
+    "unique_consistent_pool": 2115,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 2115,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "action_1": 19,
+    "action_4": 9,
+    "action_0": 23,
+    "action_2": 24,
+    "action_3": 17,
+    "action_5": 2,
+    "action_11": 1,
+    "action_9": 1,
+    "action_6": 1,
+    "action_8": 2,
+    "action_14": 1
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "cpic": 100
+  },
+  "historical_material_matches": 0
+}

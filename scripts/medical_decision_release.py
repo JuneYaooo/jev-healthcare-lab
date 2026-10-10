@@ -94,6 +94,9 @@ def package_files(dataset, distribution):
     for source in cards.values():
         for name in source["license_evidence"]:
             files[name] = checked_path(dataset, name).read_bytes()
+    for resource in lock:
+        if resource.get('snapshot_path'):
+            files[resource['snapshot_path']] = data.locked_source_bytes(dataset, resource)
     for name in ["medical_decision_dataset.py", "medical_decision_release.py"]:
         files["tools/" + name] = (ROOT / "scripts" / name).read_bytes()
     files["LICENSE-CODE.txt"] = (ROOT / "LICENSE").read_bytes()
@@ -214,11 +217,10 @@ def trace(dataset, uid, fetch_source=False, cache=None):
         for resource in row["resources"]:
             path = checked_path(cache, resource["name"])
             if not path.exists() or data.file_sha(path) != resource["sha256"]:
-                request = urllib.request.Request(resource["url"], headers={"User-Agent": "Jev-Medical-Decision-Trace"})
-                with urllib.request.urlopen(request, timeout=60) as response:
-                    raw = response.read()
-                if hashlib.sha256(raw).hexdigest() != resource["sha256"]:
-                    raise ValueError("Upstream changed: " + resource["name"])
+                try:
+                    raw = data.locked_source_bytes(dataset, resource)
+                except ValueError as exc:
+                    raise ValueError('Upstream changed: ' + resource['name']) from exc
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(raw)
         row["upstream_hashes_verified"] = True

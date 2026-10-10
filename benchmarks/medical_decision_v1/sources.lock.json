@@ -10690,6 +10690,76 @@
       "sha256": "4841ffdf57066852c34f0df4fdc8dea9cc383ce694a1d3939d9cd049f785abcb",
       "bytes": 165216,
       "md5": "bc9f0920d38d2dd4af522afa59e8a68d"
+    },
+    {
+      "source": "labqar",
+      "name": "labqar__Set_2.json",
+      "url": "https://ndownloader.figshare.com/files/61820644",
+      "version": "Figshare 29189894 v1",
+      "sha256": "970f18f45679db9e39ec2df7f231566acaaf8b8e1a0d11accbf8d6e6058a2158",
+      "bytes": 236403
+    },
+    {
+      "source": "cpic",
+      "name": "cpic__gene_result_lookup.json",
+      "url": "https://api.cpicpgx.org/v1/gene_result_lookup?order=id",
+      "version": "API v1 response snapshot 2026-10-10",
+      "sha256": "f6f4ab80890c0e9db93c313c24a990db969f83f8ce4c409d9b85e741051aa5f1",
+      "bytes": 68193,
+      "snapshot_path": "sources/cpic/gene_result_lookup.json"
+    },
+    {
+      "source": "cpic",
+      "name": "cpic__gene_result.json",
+      "url": "https://api.cpicpgx.org/v1/gene_result?order=id",
+      "version": "API v1 response snapshot 2026-10-10",
+      "sha256": "a5d0f0e05ddae6dedbcfff7d1b5bea28030405b35a471c4f5b1278e7ef350fd4",
+      "bytes": 86915,
+      "snapshot_path": "sources/cpic/gene_result.json"
+    },
+    {
+      "source": "cpic",
+      "name": "cpic__recommendation_view.json",
+      "url": "https://api.cpicpgx.org/v1/recommendation_view?order=recommendationid",
+      "version": "API v1 response snapshot 2026-10-10",
+      "sha256": "8b4559a9b0b851fec69464cc5c62932d95d385bca59d725b03570f92c700bc85",
+      "bytes": 2347272,
+      "snapshot_path": "sources/cpic/recommendation_view.json"
+    },
+    {
+      "source": "cpic",
+      "name": "cpic__LICENSE.md",
+      "url": "https://raw.githubusercontent.com/cpicpgx/cpic-data/82aa2518f1051bb2db9c42c1023a9f08db5a5f80/LICENSE.md",
+      "version": "82aa2518f1051bb2db9c42c1023a9f08db5a5f80",
+      "sha256": "7d578cb313faefacd8e506dd49ed646af6c2f3743f1218f35adddcdb9025e5a3",
+      "bytes": 3234,
+      "snapshot_path": "sources/cpic/LICENSE.md"
+    },
+    {
+      "source": "evidence_inference",
+      "name": "evidence_inference__corpus.zip",
+      "url": "https://codeload.github.com/jayded/evidence-inference/zip/a661e8c14f973398380c8865cf2f27a535aaaf6d",
+      "version": "a661e8c14f973398380c8865cf2f27a535aaaf6d",
+      "sha256": "cfccb8f35a7ae825eea920a8ecfd2b59573907b7cdf3fb9902d3aabee591f8e7",
+      "bytes": 164429964
+    },
+    {
+      "source": "evidence_inference",
+      "name": "evidence_inference__LICENSE",
+      "url": "https://raw.githubusercontent.com/jayded/evidence-inference/a661e8c14f973398380c8865cf2f27a535aaaf6d/LICENSE",
+      "version": "a661e8c14f973398380c8865cf2f27a535aaaf6d",
+      "sha256": "f76b1ceb8940c3717c3658d56d799af405355786b638683f68b9754a7fc77089",
+      "bytes": 1116,
+      "snapshot_path": "sources/evidence_inference/LICENSE"
+    },
+    {
+      "source": "evidence_inference",
+      "name": "evidence_inference__annotation-guide.md",
+      "url": "https://raw.githubusercontent.com/jayded/evidence-inference/a661e8c14f973398380c8865cf2f27a535aaaf6d/annotations/README.md",
+      "version": "a661e8c14f973398380c8865cf2f27a535aaaf6d",
+      "sha256": "b9d7599a666cada77cec4e52b459ec70425fab6f61604ecbe77d1bbf7a8297b1",
+      "bytes": 6614,
+      "snapshot_path": "sources/evidence_inference/annotation-guide.md"
     }
   ]
 }

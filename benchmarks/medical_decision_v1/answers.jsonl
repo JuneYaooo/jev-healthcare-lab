@@ -5208,3 +5208,387 @@
 {"gold":"D","group_id":"zh_exam_case:4a1de0f27b6d3d73fe9fe45f","id":"fluid_plan:cmb:upstream_train_reserved_for_local_evaluation:13130"}
 {"gold":"E","group_id":"zh_exam_case:eb3cba96137176ea01978517","id":"fluid_plan:cmb:upstream_train_reserved_for_local_evaluation:32979"}
 {"gold":"opa","group_id":"zh_exam_case:4cfdc2cb6becb8fc2bc71a6e","id":"fluid_plan:cnmleqa:2776a67d-be2c-514c-b9cf-dfc89375d9c4"}
+{"gold":"B","group_id":"labqar:set2:Platelet count","id":"lab_value_classification:labqar:411"}
+{"gold":"A","group_id":"labqar:set2:Thiamine","id":"lab_value_classification:labqar:488"}
+{"gold":"C","group_id":"labqar:set2:Cyclic adenosine monophosphate (cAMP)","id":"lab_value_classification:labqar:211"}
+{"gold":"A","group_id":"labqar:set2:Calciferol","id":"lab_value_classification:labqar:111"}
+{"gold":"A","group_id":"labqar:set2:Cotinine","id":"lab_value_classification:labqar:198"}
+{"gold":"C","group_id":"labqar:set2:Homocysteine","id":"lab_value_classification:labqar:296"}
+{"gold":"B","group_id":"labqar:set2:Dehydroepiandrosterone sulfate (DHEA-S)","id":"lab_value_classification:labqar:215"}
+{"gold":"B","group_id":"labqar:set2:Erythropoietin","id":"lab_value_classification:labqar:231"}
+{"gold":"A","group_id":"labqar:set2:Sedimentation rate","id":"lab_value_classification:labqar:460"}
+{"gold":"B","group_id":"labqar:set2:Ibuprofen","id":"lab_value_classification:labqar:307"}
+{"gold":"B","group_id":"labqar:set2:Protein","id":"lab_value_classification:labqar:428"}
+{"gold":"C","group_id":"labqar:set2:Desipramine","id":"lab_value_classification:labqar:216"}
+{"gold":"B","group_id":"labqar:set2:Meperidine","id":"lab_value_classification:labqar:358"}
+{"gold":"C","group_id":"labqar:set2:Vitamin D","id":"lab_value_classification:labqar:529"}
+{"gold":"B","group_id":"labqar:set2:β-­Carotene","id":"lab_value_classification:labqar:121"}
+{"gold":"A","group_id":"labqar:set2:Protein electrophoresis (serum protein electrophoresis [SPEP])","id":"lab_value_classification:labqar:472"}
+{"gold":"C","group_id":"labqar:set2:Vitamin A (retinol)","id":"lab_value_classification:labqar:522"}
+{"gold":"B","group_id":"labqar:set2:Mercury","id":"lab_value_classification:labqar:359"}
+{"gold":"A","group_id":"labqar:set2:Ferritin","id":"lab_value_classification:labqar:254"}
+{"gold":"C","group_id":"labqar:set2:Amylase","id":"lab_value_classification:labqar:56"}
+{"gold":"A","group_id":"labqar:set2:Morphine","id":"lab_value_classification:labqar:374"}
+{"gold":"B","group_id":"labqar:set2:Methionine","id":"lab_value_classification:labqar:365"}
+{"gold":"C","group_id":"labqar:set2:Sertraline","id":"lab_value_classification:labqar:464"}
+{"gold":"B","group_id":"labqar:set2:Sirolimus","id":"lab_value_classification:labqar:476"}
+{"gold":"C","group_id":"labqar:set2:Osteocalcin","id":"lab_value_classification:labqar:391"}
+{"gold":"C","group_id":"labqar:set2:Insulin--like growth factor","id":"lab_value_classification:labqar:322"}
+{"gold":"B","group_id":"labqar:set2:Topiramate","id":"lab_value_classification:labqar:503"}
+{"gold":"C","group_id":"labqar:set2:Zidovudine","id":"lab_value_classification:labqar:549"}
+{"gold":"A","group_id":"labqar:set2:Hematocrit","id":"lab_value_classification:labqar:287"}
+{"gold":"C","group_id":"labqar:set2:Complete blood count (CBC)","id":"lab_value_classification:labqar:180"}
+{"gold":"C","group_id":"labqar:set2:Mean corpuscular hemoglobin (MCH)","id":"lab_value_classification:labqar:354"}
+{"gold":"B","group_id":"labqar:set2:Niacin (nicotinic acid)","id":"lab_value_classification:labqar:380"}
+{"gold":"A","group_id":"labqar:set2:Red cell folate","id":"lab_value_classification:labqar:452"}
+{"gold":"B","group_id":"labqar:set2:Verapamil","id":"lab_value_classification:labqar:521"}
+{"gold":"C","group_id":"labqar:set2:Alanine aminotransferase (ALT, SGPT)","id":"lab_value_classification:labqar:9"}
+{"gold":"A","group_id":"labqar:set2:Gabapentin","id":"lab_value_classification:labqar:268"}
+{"gold":"C","group_id":"labqar:set2:Phosphorus","id":"lab_value_classification:labqar:408"}
+{"gold":"B","group_id":"labqar:set2:Aldolase","id":"lab_value_classification:labqar:16"}
+{"gold":"C","group_id":"labqar:set2:Immunoglobulin D (IgD)","id":"lab_value_classification:labqar:310"}
+{"gold":"A","group_id":"labqar:set2:Everolimus","id":"lab_value_classification:labqar:250"}
+{"gold":"C","group_id":"labqar:set2:Protein C activity","id":"lab_value_classification:labqar:429"}
+{"gold":"B","group_id":"labqar:set2:Thyrotropin (thyroid--stimulating hormone, TSH)","id":"lab_value_classification:labqar:495"}
+{"gold":"B","group_id":"labqar:set2:Coagulation factor IX","id":"lab_value_classification:labqar:157"}
+{"gold":"C","group_id":"labqar:set2:Asparagine","id":"lab_value_classification:labqar:76"}
+{"gold":"A","group_id":"labqar:set2:Mean corpuscular hemoglobin concentration (MCHC)","id":"lab_value_classification:labqar:356"}
+{"gold":"A","group_id":"labqar:set2:Follicle--stimulating hormone (FSH)","id":"lab_value_classification:labqar:260"}
+{"gold":"C","group_id":"labqar:set2:Coagulation factor XII","id":"lab_value_classification:labqar:160"}
+{"gold":"C","group_id":"labqar:set2:Phenobarbital","id":"lab_value_classification:labqar:403"}
+{"gold":"B","group_id":"labqar:set2:Thyroxine--binding globulin (TBG)","id":"lab_value_classification:labqar:498"}
+{"gold":"B","group_id":"labqar:set2:Osmolality","id":"lab_value_classification:labqar:390"}
+{"gold":"C","group_id":"labqar:set2:Muramidase","id":"lab_value_classification:labqar:375"}
+{"gold":"C","group_id":"labqar:set2:Catecholamines","id":"lab_value_classification:labqar:122"}
+{"gold":"A","group_id":"labqar:set2:Creatinine","id":"lab_value_classification:labqar:205"}
+{"gold":"B","group_id":"labqar:set2:Progesterone","id":"lab_value_classification:labqar:422"}
+{"gold":"B","group_id":"labqar:set2:Bupropion","id":"lab_value_classification:labqar:101"}
+{"gold":"B","group_id":"labqar:set2:Antidiuretic hormone (ADH, vasopressin)","id":"lab_value_classification:labqar:63"}
+{"gold":"C","group_id":"labqar:set2:Glucose","id":"lab_value_classification:labqar:273"}
+{"gold":"B","group_id":"labqar:set2:Androstenedione","id":"lab_value_classification:labqar:57"}
+{"gold":"B","group_id":"labqar:set2:Apolipoprotein B","id":"lab_value_classification:labqar:69"}
+{"gold":"B","group_id":"labqar:set2:Luteinizing hormone (LH)","id":"lab_value_classification:labqar:345"}
+{"gold":"B","group_id":"labqar:set2:Proline","id":"lab_value_classification:labqar:425"}
+{"gold":"C","group_id":"labqar:set2:Pregnanediol","id":"lab_value_classification:labqar:416"}
+{"gold":"B","group_id":"labqar:set2:Folate (folic acid)","id":"lab_value_classification:labqar:258"}
+{"gold":"C","group_id":"labqar:set2:White blood cell count","id":"lab_value_classification:labqar:538"}
+{"gold":"B","group_id":"labqar:set2:Alanine","id":"lab_value_classification:labqar:8"}
+{"gold":"A","group_id":"labqar:set2:Tocainide","id":"lab_value_classification:labqar:501"}
+{"gold":"C","group_id":"labqar:set2:Estrone (E1)","id":"lab_value_classification:labqar:245"}
+{"gold":"C","group_id":"labqar:set2:Norepinephrine","id":"lab_value_classification:labqar:384"}
+{"gold":"C","group_id":"labqar:set2:Coagulation factor X","id":"lab_value_classification:labqar:158"}
+{"gold":"C","group_id":"labqar:set2:Erythrocyte sedimentation rate (ESR)","id":"lab_value_classification:labqar:230"}
+{"gold":"A","group_id":"labqar:set2:Lactate dehydrogenase (LDH, LD)","id":"lab_value_classification:labqar:331"}
+{"gold":"C","group_id":"labqar:set2:Inhibin A","id":"lab_value_classification:labqar:318"}
+{"gold":"A","group_id":"labqar:set2:Reticulocyte count","id":"lab_value_classification:labqar:454"}
+{"gold":"C","group_id":"labqar:set2:Cholesterol","id":"lab_value_classification:labqar:143"}
+{"gold":"A","group_id":"labqar:set2:Lactate (lactic acid)","id":"lab_value_classification:labqar:329"}
+{"gold":"B","group_id":"labqar:set2:Potassium","id":"lab_value_classification:labqar:413"}
+{"gold":"A","group_id":"labqar:set2:Codeine","id":"lab_value_classification:labqar:162"}
+{"gold":"B","group_id":"labqar:set2:Alkaline phosphatase","id":"lab_value_classification:labqar:19"}
+{"gold":"A","group_id":"labqar:set2:Protein S free antigen","id":"lab_value_classification:labqar:441"}
+{"gold":"A","group_id":"labqar:set2:Phenylalanine","id":"lab_value_classification:labqar:404"}
+{"gold":"C","group_id":"labqar:set2:Transferrin (siderophilin)","id":"lab_value_classification:labqar:504"}
+{"gold":"B","group_id":"labqar:set2:Chloride","id":"lab_value_classification:labqar:129"}
+{"gold":"A","group_id":"labqar:set2:Amino acid fractionation","id":"lab_value_classification:labqar:46"}
+{"gold":"C","group_id":"labqar:set2:Cholesterol, high-density lipoproteins (HDL)","id":"lab_value_classification:labqar:135"}
+{"gold":"C","group_id":"labqar:set2:C3 complement","id":"lab_value_classification:labqar:103"}
+{"gold":"C","group_id":"labqar:set2:C--telopeptide","id":"lab_value_classification:labqar:208"}
+{"gold":"A","group_id":"labqar:set2:Isoleucine","id":"lab_value_classification:labqar:326"}
+{"gold":"A","group_id":"labqar:set2:Phosphatase, tartrate--resistant acid","id":"lab_value_classification:labqar:406"}
+{"gold":"C","group_id":"labqar:set2:Gentamicin","id":"lab_value_classification:labqar:270"}
+{"gold":"A","group_id":"labqar:set2:Thioridazine","id":"lab_value_classification:labqar:491"}
+{"gold":"C","group_id":"labqar:set2:Troponin T","id":"lab_value_classification:labqar:510"}
+{"gold":"A","group_id":"labqar:set2:Vitamin E (α-­tocopherol)","id":"lab_value_classification:labqar:531"}
+{"gold":"B","group_id":"labqar:set2:Hemoglobin A1c","id":"lab_value_classification:labqar:292"}
+{"gold":"A","group_id":"labqar:set2:Electrolytes","id":"lab_value_classification:labqar:222"}
+{"gold":"C","group_id":"labqar:set2:Procainamide","id":"lab_value_classification:labqar:420"}
+{"gold":"B","group_id":"labqar:set2:Cadmium","id":"lab_value_classification:labqar:109"}
+{"gold":"A","group_id":"labqar:set2:von Willebrand factor","id":"lab_value_classification:labqar:533"}
+{"gold":"C","group_id":"labqar:set2:Blood gases","id":"lab_value_classification:labqar:96"}
+{"gold":"B","group_id":"labqar:set2:Cholesterol, low-density lipoproteins (LDL)","id":"lab_value_classification:labqar:140"}
+{"gold":"A","group_id":"labqar:set2:Creatine","id":"lab_value_classification:labqar:201"}
+{"gold":"phenotype_0","group_id":"cpic:gene:G6PD","id":"pgx_function_phenotype:cpic:8393866"}
+{"gold":"phenotype_2","group_id":"cpic:gene:ABCG2","id":"pgx_function_phenotype:cpic:8362021"}
+{"gold":"phenotype_0","group_id":"cpic:gene:HLA-A","id":"pgx_function_phenotype:cpic:8475126"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2C9","id":"pgx_function_phenotype:cpic:8371476"}
+{"gold":"phenotype_2","group_id":"cpic:gene:MT-RNR1","id":"pgx_function_phenotype:cpic:8410577"}
+{"gold":"phenotype_2","group_id":"cpic:gene:G6PD","id":"pgx_function_phenotype:cpic:8410546"}
+{"gold":"phenotype_3","group_id":"cpic:gene:NUDT15","id":"pgx_function_phenotype:cpic:8412505"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2D6","id":"pgx_function_phenotype:cpic:8380338"}
+{"gold":"phenotype_1","group_id":"cpic:gene:CYP3A5","id":"pgx_function_phenotype:cpic:8389169"}
+{"gold":"phenotype_0","group_id":"cpic:gene:G6PD","id":"pgx_function_phenotype:cpic:8396532"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2D6","id":"pgx_function_phenotype:cpic:8389156"}
+{"gold":"phenotype_3","group_id":"cpic:gene:HLA-B","id":"pgx_function_phenotype:cpic:8475141"}
+{"gold":"phenotype_0","group_id":"cpic:gene:ABCG2","id":"pgx_function_phenotype:cpic:8362024"}
+{"gold":"phenotype_3","group_id":"cpic:gene:G6PD","id":"pgx_function_phenotype:cpic:8392966"}
+{"gold":"phenotype_1","group_id":"cpic:gene:HLA-B","id":"pgx_function_phenotype:cpic:8475135"}
+{"gold":"phenotype_1","group_id":"cpic:gene:UGT1A1","id":"pgx_function_phenotype:cpic:8475081"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2C19","id":"pgx_function_phenotype:cpic:8369270"}
+{"gold":"phenotype_2","group_id":"cpic:gene:NAT2","id":"pgx_function_phenotype:cpic:8410686"}
+{"gold":"phenotype_0","group_id":"cpic:gene:RYR1","id":"pgx_function_phenotype:cpic:8448961"}
+{"gold":"phenotype_1","group_id":"cpic:gene:MT-RNR1","id":"pgx_function_phenotype:cpic:8410574"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2C19","id":"pgx_function_phenotype:cpic:8369071"}
+{"gold":"phenotype_1","group_id":"cpic:gene:UGT1A1","id":"pgx_function_phenotype:cpic:8475074"}
+{"gold":"phenotype_3","group_id":"cpic:gene:TPMT","id":"pgx_function_phenotype:cpic:8474207"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2B6","id":"pgx_function_phenotype:cpic:8367956"}
+{"gold":"phenotype_0","group_id":"cpic:gene:HLA-B","id":"pgx_function_phenotype:cpic:8475132"}
+{"gold":"phenotype_2","group_id":"cpic:gene:DPYD","id":"pgx_function_phenotype:cpic:8392546"}
+{"gold":"phenotype_0","group_id":"cpic:gene:UGT1A1","id":"pgx_function_phenotype:cpic:8475112"}
+{"gold":"phenotype_0","group_id":"cpic:gene:NUDT15","id":"pgx_function_phenotype:cpic:8412619"}
+{"gold":"phenotype_0","group_id":"cpic:gene:SLCO1B1","id":"pgx_function_phenotype:cpic:8473211"}
+{"gold":"phenotype_1","group_id":"cpic:gene:CFTR","id":"pgx_function_phenotype:cpic:8367398"}
+{"gold":"phenotype_0","group_id":"cpic:gene:TPMT","id":"pgx_function_phenotype:cpic:8475012"}
+{"gold":"phenotype_0","group_id":"cpic:gene:NAT2","id":"pgx_function_phenotype:cpic:8411825"}
+{"gold":"phenotype_4","group_id":"cpic:gene:HLA-B","id":"pgx_function_phenotype:cpic:8475144"}
+{"gold":"phenotype_1","group_id":"cpic:gene:RYR1","id":"pgx_function_phenotype:cpic:8412674"}
+{"gold":"phenotype_0","group_id":"cpic:gene:TPMT","id":"pgx_function_phenotype:cpic:8475044"}
+{"gold":"phenotype_1","group_id":"cpic:gene:NUDT15","id":"pgx_function_phenotype:cpic:8412402"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2B6","id":"pgx_function_phenotype:cpic:8368091"}
+{"gold":"phenotype_0","group_id":"cpic:gene:TPMT","id":"pgx_function_phenotype:cpic:8475051"}
+{"gold":"phenotype_5","group_id":"cpic:gene:CYP2B6","id":"pgx_function_phenotype:cpic:8367506"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2B6","id":"pgx_function_phenotype:cpic:8367976"}
+{"gold":"phenotype_3","group_id":"cpic:gene:SLCO1B1","id":"pgx_function_phenotype:cpic:8473234"}
+{"gold":"phenotype_0","group_id":"cpic:gene:SLCO1B1","id":"pgx_function_phenotype:cpic:8473065"}
+{"gold":"phenotype_0","group_id":"cpic:gene:NUDT15","id":"pgx_function_phenotype:cpic:8412636"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2C9","id":"pgx_function_phenotype:cpic:8370968"}
+{"gold":"phenotype_0","group_id":"cpic:gene:DPYD","id":"pgx_function_phenotype:cpic:8390796"}
+{"gold":"phenotype_4","group_id":"cpic:gene:CYP2D6","id":"pgx_function_phenotype:cpic:8372320"}
+{"gold":"phenotype_1","group_id":"cpic:gene:CACNA1S","id":"pgx_function_phenotype:cpic:8362038"}
+{"gold":"phenotype_0","group_id":"cpic:gene:RYR1","id":"pgx_function_phenotype:cpic:8452322"}
+{"gold":"phenotype_2","group_id":"cpic:gene:HLA-B","id":"pgx_function_phenotype:cpic:8475138"}
+{"gold":"phenotype_2","group_id":"cpic:gene:DPYD","id":"pgx_function_phenotype:cpic:8392397"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CACNA1S","id":"pgx_function_phenotype:cpic:8362030"}
+{"gold":"phenotype_2","group_id":"cpic:gene:G6PD","id":"pgx_function_phenotype:cpic:8409456"}
+{"gold":"phenotype_0","group_id":"cpic:gene:DPYD","id":"pgx_function_phenotype:cpic:8392367"}
+{"gold":"phenotype_1","group_id":"cpic:gene:TPMT","id":"pgx_function_phenotype:cpic:8474954"}
+{"gold":"phenotype_1","group_id":"cpic:gene:CFTR","id":"pgx_function_phenotype:cpic:8362041"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2D6","id":"pgx_function_phenotype:cpic:8379219"}
+{"gold":"phenotype_0","group_id":"cpic:gene:NAT2","id":"pgx_function_phenotype:cpic:8411523"}
+{"gold":"phenotype_4","group_id":"cpic:gene:CYP3A5","id":"pgx_function_phenotype:cpic:8389182"}
+{"gold":"phenotype_1","group_id":"cpic:gene:CYP2C9","id":"pgx_function_phenotype:cpic:8369468"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP3A5","id":"pgx_function_phenotype:cpic:8389186"}
+{"gold":"phenotype_2","group_id":"cpic:gene:CYP3A5","id":"pgx_function_phenotype:cpic:8389166"}
+{"gold":"phenotype_3","group_id":"cpic:gene:CYP2B6","id":"pgx_function_phenotype:cpic:8367926"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CYP2D6","id":"pgx_function_phenotype:cpic:8389163"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CACNA1S","id":"pgx_function_phenotype:cpic:8362034"}
+{"gold":"phenotype_2","group_id":"cpic:gene:CYP2C19","id":"pgx_function_phenotype:cpic:8368788"}
+{"gold":"phenotype_0","group_id":"cpic:gene:UGT1A1","id":"pgx_function_phenotype:cpic:8475123"}
+{"gold":"phenotype_5","group_id":"cpic:gene:CYP2C19","id":"pgx_function_phenotype:cpic:8368991"}
+{"gold":"phenotype_0","group_id":"cpic:gene:DPYD","id":"pgx_function_phenotype:cpic:8391190"}
+{"gold":"phenotype_0","group_id":"cpic:gene:MT-RNR1","id":"pgx_function_phenotype:cpic:8410569"}
+{"gold":"phenotype_1","group_id":"cpic:gene:HLA-A","id":"pgx_function_phenotype:cpic:8475129"}
+{"gold":"phenotype_1","group_id":"cpic:gene:RYR1","id":"pgx_function_phenotype:cpic:8413305"}
+{"gold":"phenotype_0","group_id":"cpic:gene:CFTR","id":"pgx_function_phenotype:cpic:8367503"}
+{"gold":"phenotype_3","group_id":"cpic:gene:CYP2C9","id":"pgx_function_phenotype:cpic:8369976"}
+{"gold":"phenotype_1","group_id":"cpic:gene:NAT2","id":"pgx_function_phenotype:cpic:8410604"}
+{"gold":"phenotype_2","group_id":"cpic:gene:SLCO1B1","id":"pgx_function_phenotype:cpic:8473138"}
+{"gold":"phenotype_0","group_id":"cpic:gene:RYR1","id":"pgx_function_phenotype:cpic:8444304"}
+{"gold":"phenotype_3","group_id":"cpic:gene:CYP3A5","id":"pgx_function_phenotype:cpic:8389174"}
+{"gold":"phenotype_1","group_id":"cpic:gene:ABCG2","id":"pgx_function_phenotype:cpic:8362027"}
+{"gold":"phenotype_5","group_id":"cpic:gene:SLCO1B1","id":"pgx_function_phenotype:cpic:8473746"}
+{"gold":"phenotype_2","group_id":"cpic:gene:CYP2C9","id":"pgx_function_phenotype:cpic:8369392"}
+{"gold":"phenotype_0","group_id":"cpic:gene:NAT2","id":"pgx_function_phenotype:cpic:8412326"}
+{"gold":"phenotype_3","group_id":"cpic:gene:UGT1A1","id":"pgx_function_phenotype:cpic:8475089"}
+{"gold":"phenotype_0","group_id":"cpic:gene:NUDT15","id":"pgx_function_phenotype:cpic:8412610"}
+{"gold":"phenotype_4","group_id":"cpic:gene:CYP2C19","id":"pgx_function_phenotype:cpic:8368715"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251466","id":"pgx_guideline_recommendation:cpic:8479730"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251459","id":"pgx_guideline_recommendation:cpic:8480009"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251456","id":"pgx_guideline_recommendation:cpic:8481787"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166343383","id":"pgx_guideline_recommendation:cpic:8481118"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251441","id":"pgx_guideline_recommendation:cpic:8480525"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251444","id":"pgx_guideline_recommendation:cpic:8479702"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251458","id":"pgx_guideline_recommendation:cpic:8481481"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251452","id":"pgx_guideline_recommendation:cpic:8480817"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251454","id":"pgx_guideline_recommendation:cpic:8480826"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251443","id":"pgx_guideline_recommendation:cpic:8480392"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251459","id":"pgx_guideline_recommendation:cpic:8480027"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251463","id":"pgx_guideline_recommendation:cpic:8480737"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166264281","id":"pgx_guideline_recommendation:cpic:8481448"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251453","id":"pgx_guideline_recommendation:cpic:8480000"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251448","id":"pgx_guideline_recommendation:cpic:8481182"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251466","id":"pgx_guideline_recommendation:cpic:8479721"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166343383","id":"pgx_guideline_recommendation:cpic:8481113"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251466","id":"pgx_guideline_recommendation:cpic:8479728"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251450","id":"pgx_guideline_recommendation:cpic:8479772"}
+{"gold":"action_5","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251442","id":"pgx_guideline_recommendation:cpic:8480067"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251450","id":"pgx_guideline_recommendation:cpic:8481525"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251461","id":"pgx_guideline_recommendation:cpic:8481324"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251460","id":"pgx_guideline_recommendation:cpic:8480484"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251462","id":"pgx_guideline_recommendation:cpic:8480744"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251452","id":"pgx_guideline_recommendation:cpic:8480165"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251460","id":"pgx_guideline_recommendation:cpic:8480498"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251463","id":"pgx_guideline_recommendation:cpic:8480736"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251458","id":"pgx_guideline_recommendation:cpic:8481464"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251448","id":"pgx_guideline_recommendation:cpic:8481184"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251456","id":"pgx_guideline_recommendation:cpic:8481785"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251445","id":"pgx_guideline_recommendation:cpic:8480309"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251441","id":"pgx_guideline_recommendation:cpic:8481169"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251450","id":"pgx_guideline_recommendation:cpic:8479750"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251463","id":"pgx_guideline_recommendation:cpic:8480738"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251453","id":"pgx_guideline_recommendation:cpic:8480002"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251462","id":"pgx_guideline_recommendation:cpic:8480745"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251464","id":"pgx_guideline_recommendation:cpic:8480129"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166264281","id":"pgx_guideline_recommendation:cpic:8480050"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166416361","id":"pgx_guideline_recommendation:cpic:8480824"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251448","id":"pgx_guideline_recommendation:cpic:8480097"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251464","id":"pgx_guideline_recommendation:cpic:8480114"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251458","id":"pgx_guideline_recommendation:cpic:8481480"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251454","id":"pgx_guideline_recommendation:cpic:8480413"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251452","id":"pgx_guideline_recommendation:cpic:8481777"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251446","id":"pgx_guideline_recommendation:cpic:8479703"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251451","id":"pgx_guideline_recommendation:cpic:8481452"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251460","id":"pgx_guideline_recommendation:cpic:8480452"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251466","id":"pgx_guideline_recommendation:cpic:8479723"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251466","id":"pgx_guideline_recommendation:cpic:8479710"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251445","id":"pgx_guideline_recommendation:cpic:8481144"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251464","id":"pgx_guideline_recommendation:cpic:8480135"}
+{"gold":"action_5","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251460","id":"pgx_guideline_recommendation:cpic:8480475"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251450","id":"pgx_guideline_recommendation:cpic:8480160"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166343383","id":"pgx_guideline_recommendation:cpic:8481117"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251448","id":"pgx_guideline_recommendation:cpic:8480095"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251443","id":"pgx_guideline_recommendation:cpic:8480388"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251441","id":"pgx_guideline_recommendation:cpic:8481177"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251443","id":"pgx_guideline_recommendation:cpic:8480390"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251462","id":"pgx_guideline_recommendation:cpic:8480751"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251451","id":"pgx_guideline_recommendation:cpic:8481454"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251459","id":"pgx_guideline_recommendation:cpic:8480032"}
+{"gold":"action_11","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251445","id":"pgx_guideline_recommendation:cpic:8480989"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251461","id":"pgx_guideline_recommendation:cpic:8481272"}
+{"gold":"action_9","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251452","id":"pgx_guideline_recommendation:cpic:8481400"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251459","id":"pgx_guideline_recommendation:cpic:8480016"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251451","id":"pgx_guideline_recommendation:cpic:8481450"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251463","id":"pgx_guideline_recommendation:cpic:8480739"}
+{"gold":"action_6","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251442","id":"pgx_guideline_recommendation:cpic:8481500"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166264281","id":"pgx_guideline_recommendation:cpic:8481347"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251462","id":"pgx_guideline_recommendation:cpic:8480747"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166343383","id":"pgx_guideline_recommendation:cpic:8481112"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251443","id":"pgx_guideline_recommendation:cpic:8480403"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251449","id":"pgx_guideline_recommendation:cpic:8481055"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251452","id":"pgx_guideline_recommendation:cpic:8481802"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251461","id":"pgx_guideline_recommendation:cpic:8481258"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251446","id":"pgx_guideline_recommendation:cpic:8479704"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251454","id":"pgx_guideline_recommendation:cpic:8481541"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251451","id":"pgx_guideline_recommendation:cpic:8481453"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251456","id":"pgx_guideline_recommendation:cpic:8481778"}
+{"gold":"action_8","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251442","id":"pgx_guideline_recommendation:cpic:8481102"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251449","id":"pgx_guideline_recommendation:cpic:8481054"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251458","id":"pgx_guideline_recommendation:cpic:8481473"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251444","id":"pgx_guideline_recommendation:cpic:8479701"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251441","id":"pgx_guideline_recommendation:cpic:8481163"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166416361","id":"pgx_guideline_recommendation:cpic:8480822"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251454","id":"pgx_guideline_recommendation:cpic:8481537"}
+{"gold":"action_14","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166264281","id":"pgx_guideline_recommendation:cpic:8481360"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166264281","id":"pgx_guideline_recommendation:cpic:8481341"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251461","id":"pgx_guideline_recommendation:cpic:8481299"}
+{"gold":"action_8","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251445","id":"pgx_guideline_recommendation:cpic:8481694"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166416361","id":"pgx_guideline_recommendation:cpic:8480823"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251456","id":"pgx_guideline_recommendation:cpic:8481791"}
+{"gold":"action_1","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251450","id":"pgx_guideline_recommendation:cpic:8479997"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251453","id":"pgx_guideline_recommendation:cpic:8480001"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166416361","id":"pgx_guideline_recommendation:cpic:8480825"}
+{"gold":"action_4","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251442","id":"pgx_guideline_recommendation:cpic:8480058"}
+{"gold":"action_0","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251464","id":"pgx_guideline_recommendation:cpic:8481484"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251464","id":"pgx_guideline_recommendation:cpic:8480118"}
+{"gold":"action_2","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251453","id":"pgx_guideline_recommendation:cpic:8479999"}
+{"gold":"action_3","group_id":"cpic:guideline:https://www.clinpgx.org/guideline/PA166251460","id":"pgx_guideline_recommendation:cpic:8480479"}
+{"gold":"0","group_id":"evidence_inference:PMC3412848","id":"trial_effect_direction:evidence_inference:10791"}
+{"gold":"1","group_id":"evidence_inference:PMC1676011","id":"trial_effect_direction:evidence_inference:11447"}
+{"gold":"0","group_id":"evidence_inference:PMC2909923","id":"trial_effect_direction:evidence_inference:6445"}
+{"gold":"1","group_id":"evidence_inference:PMC4868921","id":"trial_effect_direction:evidence_inference:9269"}
+{"gold":"0","group_id":"evidence_inference:PMC3409545","id":"trial_effect_direction:evidence_inference:13532"}
+{"gold":"0","group_id":"evidence_inference:PMC2365957","id":"trial_effect_direction:evidence_inference:13452"}
+{"gold":"-1","group_id":"evidence_inference:PMC1852556","id":"trial_effect_direction:evidence_inference:11568"}
+{"gold":"1","group_id":"evidence_inference:PMC5061809","id":"trial_effect_direction:evidence_inference:3517"}
+{"gold":"1","group_id":"evidence_inference:PMC3388481","id":"trial_effect_direction:evidence_inference:1823"}
+{"gold":"-1","group_id":"evidence_inference:PMC4918317","id":"trial_effect_direction:evidence_inference:2801"}
+{"gold":"0","group_id":"evidence_inference:PMC3925077","id":"trial_effect_direction:evidence_inference:5018"}
+{"gold":"0","group_id":"evidence_inference:PMC3806324","id":"trial_effect_direction:evidence_inference:6974"}
+{"gold":"-1","group_id":"evidence_inference:PMC4558976","id":"trial_effect_direction:evidence_inference:3634"}
+{"gold":"1","group_id":"evidence_inference:PMC3159986","id":"trial_effect_direction:evidence_inference:1018"}
+{"gold":"0","group_id":"evidence_inference:PMC4745915","id":"trial_effect_direction:evidence_inference:13839"}
+{"gold":"1","group_id":"evidence_inference:PMC3525562","id":"trial_effect_direction:evidence_inference:13393"}
+{"gold":"1","group_id":"evidence_inference:PMC5536158","id":"trial_effect_direction:evidence_inference:9128"}
+{"gold":"0","group_id":"evidence_inference:PMC4990278","id":"trial_effect_direction:evidence_inference:7751"}
+{"gold":"-1","group_id":"evidence_inference:PMC3682293","id":"trial_effect_direction:evidence_inference:5004"}
+{"gold":"1","group_id":"evidence_inference:PMC5381869","id":"trial_effect_direction:evidence_inference:7272"}
+{"gold":"1","group_id":"evidence_inference:PMC3914313","id":"trial_effect_direction:evidence_inference:3918"}
+{"gold":"0","group_id":"evidence_inference:PMC3972946","id":"trial_effect_direction:evidence_inference:3996"}
+{"gold":"1","group_id":"evidence_inference:PMC2784386","id":"trial_effect_direction:evidence_inference:3208"}
+{"gold":"-1","group_id":"evidence_inference:PMC5878866","id":"trial_effect_direction:evidence_inference:13876"}
+{"gold":"-1","group_id":"evidence_inference:PMC4076224","id":"trial_effect_direction:evidence_inference:10065"}
+{"gold":"-1","group_id":"evidence_inference:PMC4218710","id":"trial_effect_direction:evidence_inference:13008"}
+{"gold":"0","group_id":"evidence_inference:PMC3878029","id":"trial_effect_direction:evidence_inference:1002"}
+{"gold":"-1","group_id":"evidence_inference:PMC4439020","id":"trial_effect_direction:evidence_inference:12068"}
+{"gold":"0","group_id":"evidence_inference:PMC3314673","id":"trial_effect_direction:evidence_inference:4174"}
+{"gold":"0","group_id":"evidence_inference:PMC3329148","id":"trial_effect_direction:evidence_inference:2230"}
+{"gold":"1","group_id":"evidence_inference:PMC3003523","id":"trial_effect_direction:evidence_inference:5576"}
+{"gold":"1","group_id":"evidence_inference:PMC3253463","id":"trial_effect_direction:evidence_inference:7306"}
+{"gold":"-1","group_id":"evidence_inference:PMC4598102","id":"trial_effect_direction:evidence_inference:10414"}
+{"gold":"1","group_id":"evidence_inference:PMC5047648","id":"trial_effect_direction:evidence_inference:10634"}
+{"gold":"-1","group_id":"evidence_inference:PMC4825255","id":"trial_effect_direction:evidence_inference:5794"}
+{"gold":"0","group_id":"evidence_inference:PMC4264479","id":"trial_effect_direction:evidence_inference:934"}
+{"gold":"1","group_id":"evidence_inference:PMC3400348","id":"trial_effect_direction:evidence_inference:2575"}
+{"gold":"-1","group_id":"evidence_inference:PMC2635353","id":"trial_effect_direction:evidence_inference:10152"}
+{"gold":"0","group_id":"evidence_inference:PMC3575612","id":"trial_effect_direction:evidence_inference:13494"}
+{"gold":"-1","group_id":"evidence_inference:PMC1693558","id":"trial_effect_direction:evidence_inference:10710"}
+{"gold":"0","group_id":"evidence_inference:PMC3222191","id":"trial_effect_direction:evidence_inference:5440"}
+{"gold":"1","group_id":"evidence_inference:PMC4069535","id":"trial_effect_direction:evidence_inference:3335"}
+{"gold":"-1","group_id":"evidence_inference:PMC5777645","id":"trial_effect_direction:evidence_inference:12289"}
+{"gold":"-1","group_id":"evidence_inference:PMC3536709","id":"trial_effect_direction:evidence_inference:3169"}
+{"gold":"-1","group_id":"evidence_inference:PMC4824463","id":"trial_effect_direction:evidence_inference:3947"}
+{"gold":"0","group_id":"evidence_inference:PMC1871574","id":"trial_effect_direction:evidence_inference:291"}
+{"gold":"0","group_id":"evidence_inference:PMC3376511","id":"trial_effect_direction:evidence_inference:5845"}
+{"gold":"0","group_id":"evidence_inference:PMC3386590","id":"trial_effect_direction:evidence_inference:9470"}
+{"gold":"1","group_id":"evidence_inference:PMC4424841","id":"trial_effect_direction:evidence_inference:5868"}
+{"gold":"-1","group_id":"evidence_inference:PMC4249579","id":"trial_effect_direction:evidence_inference:2884"}
+{"gold":"-1","group_id":"evidence_inference:PMC5600923","id":"trial_effect_direction:evidence_inference:2948"}
+{"gold":"-1","group_id":"evidence_inference:PMC4815896","id":"trial_effect_direction:evidence_inference:13485"}
+{"gold":"1","group_id":"evidence_inference:PMC5937443","id":"trial_effect_direction:evidence_inference:10914"}
+{"gold":"-1","group_id":"evidence_inference:PMC2723123","id":"trial_effect_direction:evidence_inference:4186"}
+{"gold":"-1","group_id":"evidence_inference:PMC3266642","id":"trial_effect_direction:evidence_inference:10981"}
+{"gold":"1","group_id":"evidence_inference:PMC3585302","id":"trial_effect_direction:evidence_inference:5671"}
+{"gold":"-1","group_id":"evidence_inference:PMC1810515","id":"trial_effect_direction:evidence_inference:11415"}
+{"gold":"-1","group_id":"evidence_inference:PMC4096387","id":"trial_effect_direction:evidence_inference:9766"}
+{"gold":"-1","group_id":"evidence_inference:PMC1713239","id":"trial_effect_direction:evidence_inference:4793"}
+{"gold":"0","group_id":"evidence_inference:PMC2694359","id":"trial_effect_direction:evidence_inference:8071"}
+{"gold":"0","group_id":"evidence_inference:PMC5722253","id":"trial_effect_direction:evidence_inference:12174"}
+{"gold":"1","group_id":"evidence_inference:PMC4558453","id":"trial_effect_direction:evidence_inference:4292"}
+{"gold":"-1","group_id":"evidence_inference:PMC4752985","id":"trial_effect_direction:evidence_inference:13038"}
+{"gold":"0","group_id":"evidence_inference:PMC1550956","id":"trial_effect_direction:evidence_inference:13668"}
+{"gold":"1","group_id":"evidence_inference:PMC3504074","id":"trial_effect_direction:evidence_inference:3293"}
+{"gold":"1","group_id":"evidence_inference:PMC4497728","id":"trial_effect_direction:evidence_inference:8983"}
+{"gold":"0","group_id":"evidence_inference:PMC4990534","id":"trial_effect_direction:evidence_inference:9581"}
+{"gold":"-1","group_id":"evidence_inference:PMC5388694","id":"trial_effect_direction:evidence_inference:11896"}
+{"gold":"1","group_id":"evidence_inference:PMC5410668","id":"trial_effect_direction:evidence_inference:3329"}
+{"gold":"0","group_id":"evidence_inference:PMC4836696","id":"trial_effect_direction:evidence_inference:12710"}
+{"gold":"0","group_id":"evidence_inference:PMC1794254","id":"trial_effect_direction:evidence_inference:11234"}
+{"gold":"-1","group_id":"evidence_inference:PMC1713262","id":"trial_effect_direction:evidence_inference:11481"}
+{"gold":"0","group_id":"evidence_inference:PMC4161265","id":"trial_effect_direction:evidence_inference:4106"}
+{"gold":"1","group_id":"evidence_inference:PMC5153622","id":"trial_effect_direction:evidence_inference:4011"}
+{"gold":"1","group_id":"evidence_inference:PMC4061773","id":"trial_effect_direction:evidence_inference:7947"}
+{"gold":"1","group_id":"evidence_inference:PMC2206488","id":"trial_effect_direction:evidence_inference:209"}
+{"gold":"-1","group_id":"evidence_inference:PMC4904283","id":"trial_effect_direction:evidence_inference:10998"}
+{"gold":"0","group_id":"evidence_inference:PMC5467351","id":"trial_effect_direction:evidence_inference:7387"}
+{"gold":"-1","group_id":"evidence_inference:PMC3646538","id":"trial_effect_direction:evidence_inference:13035"}
+{"gold":"1","group_id":"evidence_inference:PMC535900","id":"trial_effect_direction:evidence_inference:11381"}
+{"gold":"1","group_id":"evidence_inference:PMC4450208","id":"trial_effect_direction:evidence_inference:2821"}
+{"gold":"0","group_id":"evidence_inference:PMC5426756","id":"trial_effect_direction:evidence_inference:2029"}
+{"gold":"1","group_id":"evidence_inference:PMC1783667","id":"trial_effect_direction:evidence_inference:11502"}
+{"gold":"1","group_id":"evidence_inference:PMC4415997","id":"trial_effect_direction:evidence_inference:5390"}
+{"gold":"-1","group_id":"evidence_inference:PMC1931598","id":"trial_effect_direction:evidence_inference:11262"}
+{"gold":"-1","group_id":"evidence_inference:PMC2526991","id":"trial_effect_direction:evidence_inference:13092"}
+{"gold":"0","group_id":"evidence_inference:PMC4624894","id":"trial_effect_direction:evidence_inference:8940"}
+{"gold":"1","group_id":"evidence_inference:PMC3316967","id":"trial_effect_direction:evidence_inference:8780"}
+{"gold":"1","group_id":"evidence_inference:PMC3659039","id":"trial_effect_direction:evidence_inference:12555"}
+{"gold":"0","group_id":"evidence_inference:PMC2529259","id":"trial_effect_direction:evidence_inference:12567"}
+{"gold":"0","group_id":"evidence_inference:PMC3840393","id":"trial_effect_direction:evidence_inference:9939"}
+{"gold":"-1","group_id":"evidence_inference:PMC5656289","id":"trial_effect_direction:evidence_inference:10655"}
+{"gold":"0","group_id":"evidence_inference:PMC3718642","id":"trial_effect_direction:evidence_inference:13390"}
+{"gold":"1","group_id":"evidence_inference:PMC3571894","id":"trial_effect_direction:evidence_inference:10385"}
+{"gold":"0","group_id":"evidence_inference:PMC3179725","id":"trial_effect_direction:evidence_inference:1353"}
+{"gold":"-1","group_id":"evidence_inference:PMC3477095","id":"trial_effect_direction:evidence_inference:8389"}
+{"gold":"0","group_id":"evidence_inference:PMC1851720","id":"trial_effect_direction:evidence_inference:11650"}
+{"gold":"1","group_id":"evidence_inference:PMC1434781","id":"trial_effect_direction:evidence_inference:13381"}
+{"gold":"0","group_id":"evidence_inference:PMC3264513","id":"trial_effect_direction:evidence_inference:11959"}
+{"gold":"-1","group_id":"evidence_inference:PMC4483323","id":"trial_effect_direction:evidence_inference:7844"}

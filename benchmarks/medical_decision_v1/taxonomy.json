@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "created": "2026-10-10",
   "seed": 20261010,
   "dimensions": [
@@ -1440,6 +1440,78 @@
         "rules"
       ],
       "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "lab_value_classification",
+      "title": "检验数值高低判读",
+      "definition": "根据题目给出的检验值和参考区间，选择原始选项中的 High、Normal 或 Low；仅按给定区间判读，不推断诊断或危急程度。",
+      "dimension": "rules",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "labqar"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "rules"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "pgx_function_phenotype",
+      "title": "药物基因检测功能表型判定",
+      "definition": "给定基因、等位基因功能或活性分值，选择 CPIC 固定快照对应的功能表型或等位基因状态。",
+      "dimension": "classification",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "cpic"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "testing",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "material_judgment"
+    },
+    {
+      "id": "pgx_guideline_recommendation",
+      "title": "药物基因结果用药建议匹配",
+      "definition": "给定药物、人群及基因结果，选择 CPIC 固定快照中对应的原始用药建议；不外推为完整个体处方。",
+      "dimension": "eligibility",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cpic"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "eligibility"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "trial_effect_direction",
+      "title": "试验干预效果方向判定",
+      "definition": "根据完整试验报告，判断指定干预相对对照对指定结局的报告结果：显著降低、无显著差异或显著升高。方向不等同临床优劣。",
+      "dimension": "evidence",
+      "decision_mode": "material",
+      "target_count": 100,
+      "source_ids": [
+        "evidence_inference"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "evidence"
+      ],
+      "decision_stage": "material_judgment"
     }
   ],
   "organization": "primary_scenario_then_task_with_ability_tags",

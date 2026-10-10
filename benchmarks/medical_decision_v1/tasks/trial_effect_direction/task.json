@@ -1,0 +1,42 @@
+{
+  "id": "trial_effect_direction",
+  "title": "试验干预效果方向判定",
+  "definition": "根据完整试验报告，判断指定干预相对对照对指定结局的报告结果：显著降低、无显著差异或显著升高。方向不等同临床优劣。",
+  "dimension": "evidence",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "evidence_inference"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "evidence"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 431,
+    "unique_consistent_pool": 431,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 431,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "0": 34,
+    "1": 33,
+    "-1": 33
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "evidence_inference": 100
+  },
+  "historical_material_matches": 31
+}

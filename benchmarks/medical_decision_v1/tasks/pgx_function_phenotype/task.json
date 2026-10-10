@@ -1,0 +1,45 @@
+{
+  "id": "pgx_function_phenotype",
+  "title": "药物基因检测功能表型判定",
+  "definition": "给定基因、等位基因功能或活性分值，选择 CPIC 固定快照对应的功能表型或等位基因状态。",
+  "dimension": "classification",
+  "decision_mode": "material",
+  "target_count": 100,
+  "source_ids": [
+    "cpic"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "testing",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "material_judgment",
+  "count": 84,
+  "groups": 19,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 208,
+    "unique_consistent_pool": 208,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 208,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "phenotype_0": 40,
+    "phenotype_2": 12,
+    "phenotype_3": 9,
+    "phenotype_1": 16,
+    "phenotype_4": 4,
+    "phenotype_5": 3
+  },
+  "language_counts": {
+    "en": 84
+  },
+  "source_counts": {
+    "cpic": 84
+  },
+  "historical_material_matches": 0
+}

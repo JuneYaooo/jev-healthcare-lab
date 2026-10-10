@@ -164,9 +164,9 @@
 
 选择检查、关联结果并判断结果的适用性与处理需求。
 
-任务：检查检验数值关联、标本身份与来源链、数值与单位等价、参考区间适用性、临床事件变化趋势、危急结果与人工升级、报告阶段与效力、检查方案选择。
+任务：检查检验数值关联、标本身份与来源链、数值与单位等价、参考区间适用性、临床事件变化趋势、危急结果与人工升级、报告阶段与效力、检查方案选择、检验数值高低判读、药物基因检测功能表型判定。
 
-已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[LabQAR](https://doi.org/10.6084/m9.figshare.29189894)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)、[LabQAR](https://doi.org/10.6084/m9.figshare.29189894)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -272,9 +272,9 @@
 
 ### [LabQAR](https://doi.org/10.6084/m9.figshare.29189894)
 
-材料：根据专家医学参考资料整理的区间与条件，不是患者记录。仅采用 Set 1 可解析且无冲突的原始范围答案。
+材料：根据专家医学参考资料整理的区间与条件；Set 2 数值由作者构造，不是真实患者检验结果。
 
-金标：原 Set 1 范围答案机械映射为同检验、单位、类别的固定候选；输入附上同组原参考条目，考查条件匹配。排除同条件答案冲突、裸数值及无替代范围条目；不生成范围或不确定答案。
+金标：原 Set 1 范围答案机械映射为同检验、单位、类别的固定候选；输入附上同组原参考条目，考查条件匹配。排除同条件答案冲突、裸数值及无替代范围条目；不生成范围或不确定答案。 Set 2 保留原 High/Normal/Low 选项与答案；仅收两端有限且有序的区间，排除边界相等、数值无法解析及原答案与给定区间不一致的题。
 
 许可：CC-BY-4.0。
 
@@ -303,6 +303,16 @@
 状态：本轮核验后留空。提供单位语义与换算标准；本轮未找到符合医疗数值等价判断的独立标注题集。
 
 [核验依据](https://ucum.org/ucum)。
+
+### [CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)
+
+材料：CPIC 专家整理的功能到表型映射和基因结果用药建议表，不是患者病例。API 的原始响应随数据包冻结，访问日期不冒充数据库发布版本。
+
+金标：功能表型题按 gene_result_lookup.phenotypeid 连接 gene_result.id，复制 result；用药题复制 recommendation_view.drugrecommendation，候选来自相同指南、药物和人群的原始建议。冲突输入和无替代选项排除，不生成临床答案。
+
+许可：CC0-1.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
 
 ## 诊断与鉴别
 
@@ -452,9 +462,9 @@
 
 判断治疗选择、用药关系及患者特异性适宜性。
 
-任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌选择、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测、给药途径关联、用药或操作频次关联、药物剂型关联、补液方案选择。
+任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌选择、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测、给药途径关联、用药或操作频次关联、药物剂型关联、补液方案选择、药物基因结果用药建议匹配、试验干预效果方向判定。
 
-已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -591,6 +601,38 @@
 状态：本轮核验后留空。具有启停、变更、时态等原标注，但不具备公开转发临床原文的授权。
 
 [核验依据](https://n2c2.dbmi.hms.harvard.edu/2022-track-1)。
+
+### [CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)
+
+材料：CPIC 专家整理的功能到表型映射和基因结果用药建议表，不是患者病例。API 的原始响应随数据包冻结，访问日期不冒充数据库发布版本。
+
+金标：功能表型题按 gene_result_lookup.phenotypeid 连接 gene_result.id，复制 result；用药题复制 recommendation_view.drugrecommendation，候选来自相同指南、药物和人群的原始建议。冲突输入和无替代选项排除，不生成临床答案。
+
+许可：CC0-1.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference)
+
+材料：已发表临床试验报告及医生判断；不是患者级原始病历。只纳入官方测试文章中 XML 明确标注 CC-BY 的文章。
+
+金标：PromptID 连接原 ICO 提示和医生标注；仅保留验证通过、全部有效标注的方向一致且至少有一条有效理由的条目。复制 Label Code (-1/0/1)。排除作者列出的 incorrect/questionable/malformed 提示。
+
+许可：MIT (annotations); CC-BY (articles, per-record version)。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
+### [TRIAGE-Bench guideline conflicts (DarrenLoong)](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench)
+
+材料：LLM 辅助合成场景；400 条为作者声称的专家核验子集。
+
+金标：作者隐藏的 governing_source_id 与临床行动答案；原始评测包含生成式输出。
+
+许可：Dataset card: CC-BY-4.0; upstream excerpts unresolved。
+
+状态：暂不采用。核验子集引用 DXY/AMBOSS 本地资料路径；未找到完整可公开复核的原始资料及摘录再分发授权。临床行动为开放文本，未强行改造成单选金标。
+
+[核验依据](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench/blob/main/triage_bench/DATASHEET.md)。
 
 ## 住院与护理
 
@@ -921,3 +963,15 @@ The problem is important for the following reasons. Despite high-quality evidenc
 状态：本轮核验后留空。可定义诊断核实、标本链、操作及报告状态；标准示例不等于独立临床金标数据集。
 
 [核验依据](https://hl7.org/fhir/R4/)。
+
+### [TRIAGE-Bench guideline conflicts (DarrenLoong)](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench)
+
+材料：LLM 辅助合成场景；400 条为作者声称的专家核验子集。
+
+金标：作者隐藏的 governing_source_id 与临床行动答案；原始评测包含生成式输出。
+
+许可：Dataset card: CC-BY-4.0; upstream excerpts unresolved。
+
+状态：暂不采用。核验子集引用 DXY/AMBOSS 本地资料路径；未找到完整可公开复核的原始资料及摘录再分发授权。临床行动为开放文本，未强行改造成单选金标。
+
+[核验依据](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench/blob/main/triage_bench/DATASHEET.md)。
