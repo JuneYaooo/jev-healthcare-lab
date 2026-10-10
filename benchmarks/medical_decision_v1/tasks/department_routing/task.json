@@ -14,9 +14,10 @@
   "candidate_source_ids": [
     "medjourney",
     "rd_triage",
-    "clinicalmc"
+    "clinicalmc",
+    "chinese_medical_dialogue"
   ],
-  "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。",
+  "missing_reason": "RD-Triage 有多答案及多上游来源需分别核权；ClinicalMC/MedJourney 数据许可未闭合；中文问诊科室字段不等于最佳首诊科室。",
   "count": 0,
   "groups": 0,
   "status": "empty",

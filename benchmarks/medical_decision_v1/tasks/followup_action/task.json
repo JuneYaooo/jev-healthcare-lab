@@ -6,8 +6,10 @@
   "decision_mode": "material",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "现有评测为自编题，暂留空。",
-  "candidate_source_ids": [],
+  "missing_reason": "CLIP 标注行动片段与类别，不标注是否已完成或逾期；原文另受 MIMIC 协议限制。",
+  "candidate_source_ids": [
+    "clip"
+  ],
   "primary_scenario": "followup",
   "ability_tags": [
     "workflow"

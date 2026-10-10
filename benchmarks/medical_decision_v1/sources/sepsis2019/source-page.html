@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019 v1.0.0</title>
+    
+  <!-- wfdb-python: <p>Version: 1.0.0</p> -->
+  
+    <meta name="description" content="The 2019 PhysioNet Computing in Cardiology Challenge invites participants to predict sepsis in clinical data">
+  
+  
+    <meta name="citation_title" content="Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019">
+
+  <meta name="citation_author" content="Reyna, Matthew">
+
+  <meta name="citation_author" content="Josef, Chris">
+
+  <meta name="citation_author" content="Jeter, Russell">
+
+  <meta name="citation_author" content="Shashikumar, Supreeth">
+
+  <meta name="citation_author" content="Moody, Benjamin">
+
+  <meta name="citation_author" content="Westover, M. Brandon">
+
+  <meta name="citation_author" content="Sharma, Ashish">
+
+  <meta name="citation_author" content="Nemati, Shamim">
+
+  <meta name="citation_author" content="Clifford, Gari D.">
+
+<meta name="citation_publication_date" content="2019/8/5">
+
+  <meta name="citation_doi" content="10.13026/v64v-d857">
+
+<meta name="citation_technical_report_institution" content="PhysioNet">
+
+  
+
+    
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="/static/font-awesome/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="/static/custom/css/physionet.css"/>
+    
+  <link rel="stylesheet" type="text/css" href="/static/project/css/project-content.css"/>
+  <link rel="stylesheet" type="text/css" href="/static/highlight/css/default.min.css"/>
+
+    
+<script src="/static/jquery/jquery.min.js"></script>
+<script src="/static/popper/popper.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-87592301-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-87592301-7');
+</script>
+    
+  <script src="/static/mathjax/MathJax.js?config=MML_HTMLorMML"></script>
+  <script src="/static/highlight/js/highlight.min.js"></script>
+  <script src="/static/custom/js/copy-to-clipboard.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/fonts/inter-local.css">
+    <link rel="stylesheet" type="text/css" href="/static/custom/css/style.css?v=2">
+  </head>
+
+  
+  <body class="modern-ui flexbody">
+    
+
+
+
+
+<div class="modern-ui nav-wrapper">
+  <nav class="nav">
+    <div class="container my-0 h-100 d-flex justify-content-between align-items-center">
+      <button type="button" class="nav__hamburger circle-button mr-2"
+              popovertarget="nav__hamburger_popup"
+              title="Menu">
+        <i class="nav__hamburger__list bi bi-list"></i>
+        <i class="nav__hamburger__x bi bi-x"></i>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <a href="/">
+        
+          <img src="/static/images/physionet-logo.svg" width="200px" alt="PhysioNet">
+        
+      </a>
+      <div class="nav__links align-items-center">
+        
+          
+            <a href="/about/publish/" class="nav-link">Share</a>
+          
+        
+          
+            <a href="/about/" class="nav-link">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/about/faqs/" class="nav-link">FAQs</a>
+          
+        
+          
+        
+
+        <div>
+          <button type="button" class="nav-link nav-link--expandable"
+                  popovertarget="nav__explore_popup">
+            Explore <i class="bi bi-chevron-down ml-2"></i>
+          </button>
+          <dialog class="nav-link__popup" id="nav__explore_popup" popover
+                  aria-label="Explore">
+            <div class="nav-sublinks">
+              
+                <a class="nav-sublink" href="/about/database/">
+                  <div class="nav-sublink__icon">
+                    
+                      <img src="/static/images/icons/data.png" alt="" height="32px">
+                    
+                  </div>
+                  <div class="nav-sublink__text">
+                    <span class="nav-sublink__title">Data</span>
+                    <span class="nav-sublink__description">View datasets</span>
+                  </div>
+                </a>
+              
+                <a class="nav-sublink" href="/about/software/">
+                  <div class="nav-sublink__icon">
+                    
+                      <img src="/static/images/icons/software.png" alt="" height="32px">
+                    
+                  </div>
+                  <div class="nav-sublink__text">
+                    <span class="nav-sublink__title">Software</span>
+                    <span class="nav-sublink__description">View software</span>
+                  </div>
+                </a>
+              
+                <a class="nav-sublink" href="/about/challenge/">
+                  <div class="nav-sublink__icon">
+                    
+                      <img src="/static/images/icons/challenges.png" alt="" height="32px">
+                    
+                  </div>
+                  <div class="nav-sublink__text">
+                    <span class="nav-sublink__title">Challenges</span>
+                    <span class="nav-sublink__description">View challenges</span>
+                  </div>
+                </a>
+              
+                <a class="nav-sublink" href="/about/tutorial/">
+                  <div class="nav-sublink__icon">
+                    
+                      <img src="/static/images/icons/tutorials.png" alt="" height="32px">
+                    
+                  </div>
+                  <div class="nav-sublink__text">
+                    <span class="nav-sublink__title">Tutorials</span>
+                    <span class="nav-sublink__description">View tutorials</span>
+                  </div>
+                </a>
+              
+              </div>
+          </dialog>
+        </div>
+      </div>
+      <div class="nav__actions d-flex ml-md-4">
+        <form action="/content/" class="mr-2">
+          <div class="nav__search">
+            <input type="text" name="topic" placeholder="Search for anything...">
+            <div class="nav__search__actions">
+              <button type="button" class="nav__search__close mr-2"
+                      title="Cancel">
+                <i class="bi bi-x"></i>
+                <span class="visually-hidden">Cancel</span>
+              </button>
+              <button type="submit" class="circle-button">Search</button>
+            </div>
+          </div>
+        </form>
+        <button type="button" class="nav__search__open circle-button mr-md-2"
+                title="Search PhysioNet">
+          <i class="bi bi-search"></i>
+          <span class="visually-hidden">Search PhysioNet</span>
+        </button>
+        
+          <a class="nav__user" href="/login/"
+             title="Log in">
+            <i class="bi bi-person"></i>
+            <span class="visually-hidden">Log in</span>
+          </a>
+        
+      </div>
+    </div>
+
+    <dialog class="nav__mobile" id="nav__hamburger_popup" popover
+            aria-label="Menu">
+      
+        
+          <a href="/about/publish/" class="nav-link">Share</a>
+        
+      
+        
+          <a href="/about/" class="nav-link">About</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/about/faqs/" class="nav-link">FAQs</a>
+        
+      
+        
+      
+      <hr>
+      <div class="nav-sublinks">
+        
+          <a class="nav-sublink" href="/about/database/">
+            <div class="nav-sublink__icon">
+              
+                <img src="/static/images/icons/data.png" alt="" height="32px">
+              
+              </div>
+            <div class="nav-sublink__text">
+              <span class="nav-sublink__title">Data</span>
+              <span class="nav-sublink__description">View datasets</span>
+            </div>
+          </a>
+        
+          <a class="nav-sublink" href="/about/software/">
+            <div class="nav-sublink__icon">
+              
+                <img src="/static/images/icons/software.png" alt="" height="32px">
+              
+              </div>
+            <div class="nav-sublink__text">
+              <span class="nav-sublink__title">Software</span>
+              <span class="nav-sublink__description">View software</span>
+            </div>
+          </a>
+        
+          <a class="nav-sublink" href="/about/challenge/">
+            <div class="nav-sublink__icon">
+              
+                <img src="/static/images/icons/challenges.png" alt="" height="32px">
+              
+              </div>
+            <div class="nav-sublink__text">
+              <span class="nav-sublink__title">Challenges</span>
+              <span class="nav-sublink__description">View challenges</span>
+            </div>
+          </a>
+        
+          <a class="nav-sublink" href="/about/tutorial/">
+            <div class="nav-sublink__icon">
+              
+                <img src="/static/images/icons/tutorials.png" alt="" height="32px">
+              
+              </div>
+            <div class="nav-sublink__text">
+              <span class="nav-sublink__title">Tutorials</span>
+              <span class="nav-sublink__description">View tutorials</span>
+            </div>
+          </a>
+        
+      </div>
+    </dialog>
+  </nav>
+</div>
+
+    <div class="nav-spacer"></div>
+
+    <main>
+  <div class="container">
+    
+
+    <div class="project-header">
+      <div class="mb-2">
+        <span class="badge badge-dark"><i class="fa fa-bullseye"></i> Challenge</span>
+        <span class="badge badge-success"><i class="fas fa-lock-open"></i> Open Access</span>
+      </div>
+      <h1>Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019</h1>
+      <p class="project-authors">
+        
+          <a class="author">Matthew Reyna</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Emory University&lt;/p&gt;<p><b>Profile</b><br><a href=/users/mareyna target=_blank>mareyna</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Chris Josef</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Emory University&lt;/p&gt;<p><b>Profile</b><br><a href=/users/cjosef target=_blank>cjosef</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Russell Jeter</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Emory University&lt;/p&gt;<p><b>Profile</b><br><a href=/users/rjeter target=_blank>rjeter</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Supreeth Shashikumar</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Georgia Institute of Technology&lt;/p&gt;<p><b>Profile</b><br><a href=/users/sprajwal target=_blank>sprajwal</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Benjamin Moody</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;MIT Laboratory for Computational Physiology&lt;/p&gt;<p><b>Profile</b><br><a href=/users/benjamin target=_blank>benjamin</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">M. Brandon Westover</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Massachusetts General Hospital, Boston, USA&lt;/p&gt;<p><b>Profile</b><br><a href=/users/mw110 target=_blank>mw110</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Ashish Sharma</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Emory University&lt;/p&gt;<p><b>Profile</b><br><a href=/users/ashish target=_blank>ashish</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Shamim Nemati</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;UC San Diego&lt;/p&gt;<p><b>Profile</b><br><a href=/users/shamimnemati target=_blank>shamimnemati</a></p>" data-html="true" style="cursor: pointer;"></i>,&nbsp;
+        
+          <a class="author">Gari D. Clifford</a> <i class="fas fa-info-circle" data-toggle="popover" data-original-title="<strong>Author Info</strong>" data-placement="bottom" data-content="&lt;b&gt;Affiliations&lt;/b&gt;&lt;p&gt;Emory University School of Medicine&lt;/p&gt;<p><b>Profile</b><br><a href=/users/gari target=_blank>gari</a></p>" data-html="true" style="cursor: pointer;"></i>
+        
+      </p>
+      <div class="project-meta">
+        <span>Published Aug. 5, 2019</span>
+        <span class="project-meta-sep">&middot;</span>
+        <span>Version 1.0.0</span>
+      </div>
+    </div>
+
+    
+
+    <!-- Latest news and announcements -->
+    
+      <div class="alert alert-primary" role="alert">
+        
+        
+        
+          
+          <p>
+            <strong>Community forum for the 2019 PhysioNet/CinC Challenge</strong>
+            <em>(Nov. 5, 2019, 12:51 p.m.)</em>
+            <p>If you have any questions or comments regarding this challenge, please post it directly in our&nbsp;<a href="https://groups.google.com/forum/#!forum/physionet-challenges">Community Discussion Forum</a>. This will increase transparency (benefiting all the competitors) and ensure that all the challenge organizers see your question.</p>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Official paper describing the 2019 PhysioNet Challenge</strong>
+            <em>(Nov. 4, 2019, 4:45 p.m.)</em>
+            <p>The <a href="/content/challenge-2019/1.0.0/physionet_challenge_2019_ccm_manuscript.pdf">official paper describing the 2019 PhysioNet Challenge</a> will appear in <a href="https://journals.lww.com/ccmjournal/pages/default.aspx">Critical Care Medicine</a>.</p>
+            
+            
+            
+          </p>
+          
+        
+        
+        <details>
+          <summary>More news</summary>
+          
+          
+          <p>
+            <strong>Official results for the 2019 PhysioNet Challenge</strong>
+            <em>(Sept. 17, 2019, 3:31 p.m.)</em>
+            <p>Official results for the 2019 <a href="/content/challenge-2019/">Challenge</a> and Hackathon are now available.</p>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Pre-conference hackathon at Computing in Cardiology 2019</strong>
+            <em>(July 8, 2019, 8 p.m.)</em>
+            <ul>
+	<li>Thanks to our sponsors, a pre-conference hackathon (with prize(s)) will take place on Sunday 8th September in Singapore. Registration is required. Rules and more information can be found <a href="/content/challenge-2019/1.0.0/#hackathon">here</a> .</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>"Wild card" teams approved for the 2019 PhysioNet Challenge</strong>
+            <em>(June 23, 2019, 8 p.m.)</em>
+            <ul>
+	<li>Two &quot;wild card&quot;&nbsp;teams were approved for inclusion in the Challenge. We are looking forward to meeting them in Singapore!</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Google Cloud credits for the PhysioNet Challenge</strong>
+            <em>(May 28, 2019, 8 p.m.)</em>
+            <ul>
+	<li>We are accepting requests for Google Cloud Credits ($500 per eligible team). Requests are due by <strong>29 May, 2019</strong>. Please see <a href="/content/challenge-2019/1.0.0/#google-cloud-credits">here</a> for more information on how to apply for them. Requests will be processed in order and sent on to Google. We cannot guarantee you will receive them, especially later in the competition.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Notices of acceptance have been sent for CinC abstracts</strong>
+            <em>(May 24, 2019, 8 p.m.)</em>
+            <ul>
+	<li>By now you should have received your acceptance or rejection notices for your abstracts. If you were rejected, please do not worry - there are two more options to compete. See <a href="/content/challenge-2019/1.0.0/#wildcard">here</a> and <a href="/content/challenge-2019/1.0.0/#hackathon">here</a> for more information on this.</li>
+	<li>We have added a `wild card&#39; entry to allow one more team to enter the competition and be eligible for all the prizes. See <a href="/content/challenge-2019/1.0.0/#wildcard">here</a> for more information on this.</li>
+	<li>There will be an on-site hackathon revisiting the Challenge (with a separate award) on Sunday 8th September, before the conference begins in Singapore. Any team (whether previously registered for the Challenge or not) with at least one attendee at the conference, who turns up in person to register for the Hackathon, is eligible to enter. See <a href="/content/challenge-2019/1.0.0/#hackathon">here</a> for more information on this.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Scoring for the PhysioNet Challenge</strong>
+            <em>(May 2, 2019, 8 p.m.)</em>
+            <ul>
+	<li>Please check the <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_dGi-82KYDR0lCK0YfcOeHXDRCeunRiw9U8EZdZG654wwOoJX2UTu2AsxCcxfghrBNeZe5c9RYKVV/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false">leaderboard</a> for the current Challenge scores.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Now accepting Challenge submissions</strong>
+            <em>(April 25, 2019, 8 p.m.)</em>
+            <ul>
+	<li>We are now accepting submissions for the official phase of the Challenge.</li>
+	<li>Please check the <a href="https://docs.google.com/document/d/1-YCLmie2_1gM4FrpBaSfkhYt8xpYghs8l2vbPemODkw">submission instructions</a> for information about how to submit your entry and a FAQ with common submission issues.</li>
+	<li>When ready, please submit your entry <a href="https://forms.gle/ARfUYv5Vpsa24EaB7">here</a>.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Official phase of the 20th PhysioNet/Computing in Cardiology Challenge is now open.</strong>
+            <em>(April 22, 2019, 8 p.m.)</em>
+            <ul>
+	<li>We have made several changes from the unofficial phase of the Challenge (see below). We invite comments and questions about these changes. We plan to accept submissions again on Thursday, 25 April at 12:01 am GMT.</li>
+	<li>We will only use our new cloud submission system for the official phase of the Challenge. See the updated instructions (<a href="https://docs.google.com/document/d/1-YCLmie2_1gM4FrpBaSfkhYt8xpYghs8l2vbPemODkw/edit">here</a>) for details. The past submission system is no longer available.</li>
+	<li>We ask participants to write causal algorithms that make predictions using current and past (but not future) information. See the <a href="/content/challenge-2019/1.0.0/#submitting">submission instructions</a> and sample prediction code (<a href="https://github.com/physionetchallenges">here</a>) for details.</li>
+	<li>Note that you will have 10 submissions in this official phase. We will score your results on a subset of the test data. At the end of the competition we will ask you to nominate your &#39;best&#39; algorithm (it need not be the one that gave you the best score) and we will run it on the full test data to provide the final test score.</li>
+	<li>Please do not submit all ten entries in the last week of the competition. Even though we can scale the computing, failures require manual intervention and feedback. We can&#39;t do this for 1000+ entries in the final week.</li>
+	<li>Also - we will be offering up to $500 in Google Cloud credits (courtesy of the Google Cloud Team) to the best performing entries by June, so it&#39;s worth getting a good score before then!</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Cloud submission system for the 2019 PhysioNet Challenge</strong>
+            <em>(April 11, 2019, 8 p.m.)</em>
+            <ul>
+	<li>We have now implemented a cloud submission system. Instructions for the cloud submission system available here.</li>
+	<li>The deadline of the unofficial phase of the competition has been extended to 11.59pm GMT on Sunday 14th April 2019. This will give you enough time to receive scores and, very importantly, submit abstracts to cinc.org before the 15th. Please <a href="/content/challenge-2019/1.0.0/#abstracts">see here</a> for important hints on how to prepare a successful abstract, even if you don&#39;t receive a score.</li>
+	<li>If you don&#39;t receive a score - don&#39;t panic - just submit an abstract to cinc.org by the deadline on the 15th April with some results - cross validated on the training data.</li>
+	<li>The hiatus has now been moved, and starts on the 15th April and lasts until 12 midnight GMT on the 21st April. The Challenge re-opens at 12.01 am GMT on the 22 April.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Deadline extended for the 2019 PhysioNet Challenge</strong>
+            <em>(April 8, 2019, 8 p.m.)</em>
+            <ul>
+	<li>The entry submission system is available <a href="https://forms.gle/ARfUYv5Vpsa24EaB7">here</a>.</li>
+	<li>The deadline of the unofficial phase of the competition has been extended to 11.59pm GMT on Wednesday 10th April 2019.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>Expanded training dataset now available</strong>
+            <em>(April 1, 2019, 8 p.m.)</em>
+            <ul>
+	<li>An <a href="https://archive.physionet.org/pnw/challenge-2019-request-access">expanded training database</a> is now available, containing data from a total of 40,336 subjects.</li>
+</ul>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>PhysioNet/CinC Challenge 2019</strong>
+            <em>(Feb. 8, 2019, midnight)</em>
+            <p>The PhysioNet/Computing in Cardiology Challenge 2019 has now begun! This year&#39;s topic is prediction of sepsis from clinical data. We are delighted to announce that this year&#39;s Challenge is being sponsored by the Gordon and Betty Moore Foundation, Google and Mathworks.</p>
+            
+            
+            
+          </p>
+          
+        
+        
+          
+          <p>
+            <strong>20th PhysioNet/Computing Challenge in Cardiology is now open</strong>
+            <em>(Feb. 6, 2019, 7 p.m.)</em>
+            <ul>
+	<li>This year&#39;s challenge is co-sponsored by the Gordon and Betty Moore Foundation, MathWorks, and Google.</li>
+	<li>The PhysioNet Challenge data, examples, and scoring functions can be <a href="https://archive.physionet.org/pnw/challenge-2019-request-access">downloaded here</a>.</li>
+	<li>If you have any questions or comments regarding this Challenge, then please post them directly in our <a href="https://groups.google.com/group/physionet-challenges">Community Discussion Forum</a>. This will increase transparency (benefiting all the competitors) and ensure that all the Challenge organizers see your question.</li>
+</ul>
+            
+            </span>
+            
+          </p>
+          
+          
+        </details>
+        
+      </div>
+    
+
+    <div class="row">
+      <!-- Main column -->
+      <div class="col-md-8">
+        
+          <div class="citation-box">
+
+  
+    <div class="citation-section">
+      <span class="citation-label">When using this resource, please cite:</span>
+      <span class="citation-actions">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#citationModal" title="View citation formats"><i class="bi bi-quote"></i> Cite</button>
+        
+          <button type="button" class="btn btn-sm btn-outline-secondary ml-1" title="Copy BibTeX" onclick="copyToClipboard(document.getElementById('bibtex-data').value); this.innerHTML='<i class=\'bi bi-check\'></i> Copied'; var btn=this; setTimeout(function(){ btn.innerHTML='<i class=\'bi bi-clipboard\'></i> Copy BibTeX'; }, 2000);"><i class="bi bi-clipboard"></i> Copy BibTeX</button>
+        
+      </span>
+      <p class="citation-text">Reyna, M., Josef, C., Jeter, R., Shashikumar, S., Moody, B., Westover, M. B., Sharma, A., Nemati, S., &amp; Clifford, G. D. (2019). Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019 (version 1.0.0). <i>PhysioNet</i>. RRID:SCR_007345. <a href="https://doi.org/10.13026/v64v-d857" rel="nofollow">https://doi.org/10.13026/v64v-d857</a></p>
+      <textarea id="bibtex-data" style="display:none;">@article{PhysioNet-challenge-2019-1.0.0,
+  author = {Reyna, Matthew and Josef, Chris and Jeter, Russell and Shashikumar, Supreeth and Moody, Benjamin and Westover, M. Brandon and Sharma, Ashish and Nemati, Shamim and Clifford, Gari D.},
+  title = {{Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019}},
+  journal = {{PhysioNet}},
+  year = {2019},
+  month = aug,
+  note = {Version 1.0.0},
+  doi = {10.13026/v64v-d857},
+  url = {https://doi.org/10.13026/v64v-d857}
+}</textarea>
+    </div>
+
+    <div class="modal fade" id="citationModal">
+  <div class="modal-dialog citation" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+    <table><tbody>
+      
+        
+        <tr>
+          <th>MLA</th>
+          <td>Reyna, Matthew, et al. "Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019" (version 1.0.0). <i>PhysioNet</i> (2019). RRID:SCR_007345. <a href="https://doi.org/10.13026/v64v-d857" rel="nofollow">https://doi.org/10.13026/v64v-d857</a></td>
+        </tr>
+        
+      
+        
+        <tr>
+          <th>APA</th>
+          <td>Reyna, M., Josef, C., Jeter, R., Shashikumar, S., Moody, B., Westover, M. B., Sharma, A., Nemati, S., &amp; Clifford, G. D. (2019). Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019 (version 1.0.0). <i>PhysioNet</i>. RRID:SCR_007345. <a href="https://doi.org/10.13026/v64v-d857" rel="nofollow">https://doi.org/10.13026/v64v-d857</a></td>
+        </tr>
+        
+      
+        
+        <tr>
+          <th>Chicago</th>
+          <td>Reyna, Matthew, Josef, Chris, Jeter, Russell, Shashikumar, Supreeth, Moody, Benjamin, Westover, M. Brandon, Sharma, Ashish, Nemati, Shamim, and Gari D. Clifford. "Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019" (version 1.0.0). <i>PhysioNet</i> (2019). RRID:SCR_007345. <a href="https://doi.org/10.13026/v64v-d857" rel="nofollow">https://doi.org/10.13026/v64v-d857</a></td>
+        </tr>
+        
+      
+        
+        <tr>
+          <th>Harvard</th>
+          <td>Reyna, M., Josef, C., Jeter, R., Shashikumar, S., Moody, B., Westover, M. B., Sharma, A., Nemati, S., and Clifford, G. D. (2019) 'Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019' (version 1.0.0), <i>PhysioNet</i>. RRID:SCR_007345. Available at: <a href="https://doi.org/10.13026/v64v-d857" rel="nofollow">https://doi.org/10.13026/v64v-d857</a></td>
+        </tr>
+        
+      
+        
+        <tr>
+          <th>Vancouver</th>
+          <td>Reyna M, Josef C, Jeter R, Shashikumar S, Moody B, Westover M B, Sharma A, Nemati S, Clifford G D. Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019 (version 1.0.0). PhysioNet. 2019. RRID:SCR_007345. Available from: <a href="https://doi.org/10.13026/v64v-d857" rel="nofollow">https://doi.org/10.13026/v64v-d857</a></td>
+        </tr>
+        
+      
+        
+      
+    </tbody></table>
+    
+    <div class="mt-3">
+      <strong>BibTeX</strong>
+      <button class="btn btn-sm btn-outline-secondary ml-2" onclick="copyToClipboard(document.getElementById('bibtex-data').value); var btn=this; btn.textContent='Copied!'; setTimeout(function(){ btn.textContent='Copy'; }, 2000)">Copy</button>
+      <pre class="mt-2 p-2 border rounded" style="white-space: pre-wrap; background-color: #f8f9fa;">@article{PhysioNet-challenge-2019-1.0.0,
+  author = {Reyna, Matthew and Josef, Chris and Jeter, Russell and Shashikumar, Supreeth and Moody, Benjamin and Westover, M. Brandon and Sharma, Ashish and Nemati, Shamim and Clifford, Gari D.},
+  title = {{Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019}},
+  journal = {{PhysioNet}},
+  year = {2019},
+  month = aug,
+  note = {Version 1.0.0},
+  doi = {10.13026/v64v-d857},
+  url = {https://doi.org/10.13026/v64v-d857}
+}</pre>
+    </div>
+    
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+    <div class="citation-section">
+      <span class="citation-label">Additionally, please cite the original publication:</span>
+      
+        <p class="citation-text"><a href="https://doi.org/10.1097/CCM.0000000000004145">Reyna MA, Josef CS, Jeter R, Shashikumar SP, Westover MB, Nemati S, Clifford GD, Sharma A. Early Prediction of Sepsis From Clinical Data: The PhysioNet/Computing in Cardiology Challenge. Critical Care Medicine 48 2: 210-217 (2019). https://doi.org/10.1097/CCM.0000000000004145</a></p>
+      
+    </div>
+  
+
+  
+    <div class="citation-section">
+      <span class="citation-label">Please include the standard citation for PhysioNet:</span>
+      <span class="citation-actions">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#citationModalPlatform" title="View citation formats"><i class="bi bi-quote"></i> Cite</button>
+        
+          <button type="button" class="btn btn-sm btn-outline-secondary ml-1" title="Copy BibTeX" onclick="copyToClipboard(document.getElementById('bibtex-data-platform').value); this.innerHTML='<i class=\'bi bi-check\'></i> Copied'; var btn=this; setTimeout(function(){ btn.innerHTML='<i class=\'bi bi-clipboard\'></i> Copy BibTeX'; }, 2000);"><i class="bi bi-clipboard"></i> Copy BibTeX</button>
+        
+      </span>
+      <p class="citation-text">Pollard, T., Moody, B. E., Lehman, L., Gow, B., Fernandes, C., Xie, C., Johnson, A., Mark, R. G., &amp; Heldt, T. (2026). PhysioNet as a global platform for biomedical research. Nature Health. <a href="https://doi.org/10.1038/s44360-026-00096-z" rel="nofollow">https://doi.org/10.1038/s44360-026-00096-z</a>. Available from: <a href="https://rdcu.be/faatM" rel="nofollow">https://rdcu.be/faatM</a></p>
+      <textarea id="bibtex-data-platform" style="display:none;">@article{pollard_physionet_2026, title = {{PhysioNet} as a global platform for biomedical research}, volume = {1}, issn = {3005-0693}, url = {https://doi.org/10.1038/s44360-026-00096-z}, doi = {10.1038/s44360-026-00096-z}, abstract = {Twenty-five years after its first public repository was established, the PhysioNet resource for biomedical and clinical data has enabled tens of thousands of research papers. Further efforts are ongoing to advance secure data sharing, community engagement and scalable research infrastructure.}, number = {8}, journal = {Nature Health}, author = {Pollard, Tom and Moody, Benjamin E. and Lehman, Li-wei H. and Gow, Brian J. and Fernandes, Chrystinne and Xie, Chen and Johnson, Alistair and Mark, Roger G. and Heldt, Thomas}, month = aug, year = {2026}, pages = {792--795},}</textarea>
+    </div>
+  
+
+  <div class="modal fade" id="citationModalPlatform">
+  <div class="modal-dialog citation" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+  <table><tbody>
+    
+      
+        <tr>
+          <th>APA</th>
+          <td>Pollard, T., Moody, B. E., Lehman, L., Gow, B., Fernandes, C., Xie, C., Johnson, A., Mark, R. G., &amp; Heldt, T. (2026). PhysioNet as a global platform for biomedical research. Nature Health. <a href="https://doi.org/10.1038/s44360-026-00096-z" rel="nofollow">https://doi.org/10.1038/s44360-026-00096-z</a>. Available from: <a href="https://rdcu.be/faatM" rel="nofollow">https://rdcu.be/faatM</a></td>
+        </tr>
+      
+    
+      
+        <tr>
+          <th>MLA</th>
+          <td>Pollard, Tom, et al. “PhysioNet as a Global Platform for Biomedical Research.” Nature Health, 2026, <a href="https://doi.org/10.1038/s44360-026-00096-z" rel="nofollow">https://doi.org/10.1038/s44360-026-00096-z</a>. Available from: <a href="https://rdcu.be/faatM" rel="nofollow">https://rdcu.be/faatM</a></td>
+        </tr>
+      
+    
+      
+        <tr>
+          <th>CHICAGO</th>
+          <td>Pollard, Tom, Benjamin E. Moody, Li-wei Lehman, Brian Gow, Chrystinne Fernandes, Chen Xie, Alistair Johnson, Roger G. Mark, and Thomas Heldt. “PhysioNet as a Global Platform for Biomedical Research.” Nature Health (2026). <a href="https://doi.org/10.1038/s44360-026-00096-z.i" rel="nofollow">https://doi.org/10.1038/s44360-026-00096-z.i</a> Available from: <a href="https://rdcu.be/faatM" rel="nofollow">https://rdcu.be/faatM</a></td>
+        </tr>
+      
+    
+      
+        <tr>
+          <th>HARVARD</th>
+          <td>Pollard, T., Moody, B.E., Lehman, L., Gow, B., Fernandes, C., Xie, C., Johnson, A., Mark, R.G. and Heldt, T., 2026. PhysioNet as a global platform for biomedical research. Nature Health. Available at: <a href="https://doi.org/10.1038/s44360-026-00096-z" rel="nofollow">https://doi.org/10.1038/s44360-026-00096-z</a>. Available from: <a href="https://rdcu.be/faatM" rel="nofollow">https://rdcu.be/faatM</a></td>
+        </tr>
+      
+    
+      
+        <tr>
+          <th>VANCOUVER</th>
+          <td>Pollard T, Moody BE, Lehman L, Gow B, Fernandes C, Xie C, et al. PhysioNet as a global platform for biomedical research. Nature Health. 2026. doi:10.1038/s44360-026-00096-z. Available from: <a href="https://rdcu.be/faatM" rel="nofollow">https://rdcu.be/faatM</a></td>
+        </tr>
+      
+    
+      
+    
+  </tbody></table>
+  
+  <div class="mt-3">
+    <strong>BibTeX</strong>
+    <button class="btn btn-sm btn-outline-secondary ml-2" onclick="copyToClipboard(document.getElementById('bibtex-data-platform').value); var btn=this; btn.textContent='Copied!'; setTimeout(function(){ btn.textContent='Copy'; }, 2000)">Copy</button>
+    <pre class="mt-2 p-2 border rounded" style="white-space: pre-wrap; background-color: #f8f9fa;">@article{pollard_physionet_2026, title = {{PhysioNet} as a global platform for biomedical research}, volume = {1}, issn = {3005-0693}, url = {https://doi.org/10.1038/s44360-026-00096-z}, doi = {10.1038/s44360-026-00096-z}, abstract = {Twenty-five years after its first public repository was established, the PhysioNet resource for biomedical and clinical data has enabled tens of thousands of research papers. Further efforts are ongoing to advance secure data sharing, community engagement and scalable research infrastructure.}, number = {8}, journal = {Nature Health}, author = {Pollard, Tom and Moody, Benjamin E. and Lehman, Li-wei H. and Gow, Brian J. and Fernandes, Chrystinne and Xie, Chen and Johnson, Alistair and Mark, Roger G. and Heldt, Thomas}, month = aug, year = {2026}, pages = {792--795},}</pre>
+  </div>
+  
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+        
+
+        
+          
+  
+    <h2 id="abstract">Abstract</h2>
+    <p>Sepsis is a life-threatening condition that occurs when the body&#39;s response to infection causes tissue damage, organ failure, or death (<a href="https://www.ncbi.nlm.nih.gov/pubmed/26903338">Singer <em>et al.</em>, 2016</a>). In the U.S., nearly 1.7 million people develop sepsis and 270,000 people die from sepsis each year; over one third of people who die in U.S. hospitals have sepsis (<a href="https://www.cdc.gov/sepsis/datareports/index.html">CDC</a>). Internationally, an estimated 30 million people develop sepsis and 6 million people die from sepsis each year; an estimated 4.2 million newborns and children are affected (<a href="https://www.who.int/news-room/fact-sheets/detail/sepsis">WHO</a>). Sepsis costs U.S. hospitals more than any other health condition at $24 billion (13% of U.S. healthcare expenses) a year, and a majority of these costs are for sepsis patients that were not diagnosed at admission (<a href="https://www.ncbi.nlm.nih.gov/pubmed/30048332">Paoli <em>et al.</em>, 2018</a>). Sepsis costs are even greater globally with the developing world at most risk. Altogether, sepsis is a major public health issue responsible for significant morbidity, mortality, and healthcare expenses.</p>
+
+<p>Early detection and antibiotic treatment of sepsis are critical for improving sepsis outcomes, where each hour of delayed treatment has been associated with roughly an 4-8% increase in mortality (<a href="https://www.ncbi.nlm.nih.gov/pubmed/16625125">Kumar <em>et al.</em>, 2006</a>; <a href="https://www.ncbi.nlm.nih.gov/pubmed/28528569">Seymour <em>et al.</em>, 2017</a>). To help address this problem, clinicians have proposed new definitions for sepsis (<a href="https://jamanetwork.com/journals/jama/fullarticle/2492881">Singer <em>et al.</em>, 2016</a>), but the fundamental need to detect and treat sepsis early still remains, and basic questions about the limits of early detection remain unanswered. The PhysioNet/Computing in Cardiology Challenge 2019 provides an opportunity to address these questions.</p>
+    <hr>
+  
+
+  
+    <h2 id="background">Background</h2>
+    <p>The goal of this Challenge is the early detection of sepsis using physiological data. For the purpose of the Challenge, we define <em>sepsis</em> according to the Sepsis-3 guidelines, i.e., a two-point change in the patient&#39;s Sequential Organ Failure Assessment (SOFA) score and clinical suspicion of infection (as defined by the ordering of blood cultures or IV antibiotics) (<a href="https://www.ncbi.nlm.nih.gov/pubmed/26903338">Singer <em>et al.</em>, 2016</a>).</p>
+
+<p>The early prediction of sepsis is potentially life-saving, and we challenge participants to predict sepsis 6 hours before the clinical prediction of sepsis. Conversely, the late prediction of sepsis is potentially life-threatening, and predicting sepsis in non-sepsis patients (or predicting sepsis very early in sepsis patients) consumes limited hospital resources. For the challenge, we designed a utility function that rewards early predictions and penalizes late predictions as well as false alarms.</p>
+
+<p>We ask participants to design and implement a working, open-source algorithm that can, based only on the clinical data provided, automatically identify a patient&#39;s risk of sepsis and make a positive or negative prediction of sepsis for every time interval. The winners of the Challenge will be the team whose algorithm gives predictions with the highest utility score for the patients in the hidden test set.</p>
+
+<h3>Challenge Data</h3>
+
+<p>Data used in the competition is sourced from ICU patients in three separate hospital systems. Data from two hospital systems will be publicly available; however, one data set will be censored and used for scoring. The data for each patient will be contained within a single pipe-delimited text file. Each file will have the same header and each row will represent a single hour&#39;s worth of data. Available patient co-variates consist of Demographics, Vital Signs, and Laboratory values, which are defined in the tables below.</p>
+
+<p>The following time points are defined for each patient:</p>
+
+<dl>
+	<dt><math> <semantics> <msub> <mi>t</mi> <mtext>suspicion</mtext> </msub> <annotation encoding="application/x-tex">t_\text{suspicion}</annotation> </semantics> </math></dt>
+	<dd>1. Clinical suspicion of infection identified as the earlier timestamp of IV antibiotics and blood cultures within a specified duration.</dd>
+	<dd>2. If antibiotics were given first, then the cultures must have been obtained within 24 hours. If cultures were obtained first, then antibiotic must have been subsequently ordered within 72 hours.</dd>
+	<dd>3. Antibiotics must have been administered for at least 72 consecutive hours to be considered.</dd>
+	<dt><math> <semantics> <msub> <mi>t</mi> <mtext>SOFA</mtext> </msub> <annotation encoding="application/x-tex">t_\text{SOFA}</annotation> </semantics> </math></dt>
+	<dd>The occurrence of end organ damage as identified by a two-point deterioration in SOFA score within a 24-hour period.</dd>
+	<dt><math> <semantics> <msub> <mi>t</mi> <mtext>sepsis</mtext> </msub> <annotation encoding="application/x-tex">t_\text{sepsis}</annotation> </semantics> </math></dt>
+	<dd>The onset time of sepsis is the earlier of&nbsp;<math> <semantics> <msub> <mi>t</mi> <mtext>suspicion</mtext> </msub> <annotation encoding="application/x-tex">t_\text{suspicion}</annotation> </semantics> </math> and&nbsp;<math> <semantics> <msub> <mi>t</mi> <mtext>SOFA</mtext> </msub> <annotation encoding="application/x-tex">t_\text{SOFA}</annotation> </semantics> </math> as long as <math> <semantics> <msub> <mi>t</mi> <mtext>SOFA</mtext> </msub> <annotation encoding="application/x-tex">t_\text{SOFA}</annotation> </semantics> </math>&nbsp;occurs no more than 24 hours before or 12 hours after <math> <semantics> <msub> <mi>t</mi> <mtext>suspicion</mtext> </msub> <annotation encoding="application/x-tex">t_\text{suspicion}</annotation> </semantics> </math>; otherwise, the patient is not marked as a sepsis patient. Specifically, if&nbsp;<math> <semantics> <mrow> <msub> <mi>t</mi> <mtext>suspicion</mtext> </msub> <mo>−</mo> <mn>24</mn> <mo>≤</mo> <msub> <mi>t</mi> <mtext>SOFA</mtext> </msub> <mo>≤</mo> <msub> <mi>t</mi> <mtext>suspicion</mtext> </msub> <mo>+</mo> <mn>12</mn> </mrow> <annotation encoding="application/x-tex">t_\text{suspicion} - 24 \leq t_\text{SOFA} \leq t_\text{suspicion} + 12</annotation> </semantics> </math>, then <math> <semantics> <mrow> <msub> <mi>t</mi> <mtext>sepsis</mtext> </msub> <mo>=</mo> <mo form="prefix" movablelimits="true">min</mo> <mo stretchy="false">(</mo> <msub> <mi>t</mi> <mtext>suspicion</mtext> </msub> <mo>,</mo> <msub> <mi>t</mi> <mtext>SOFA</mtext> </msub> <mo stretchy="false">)</mo> </mrow> <annotation encoding="application/x-tex">t_\text{sepsis} = \min(t_\text{suspicion}, t_\text{SOFA})</annotation> </semantics> </math>.</dd>
+</dl>
+
+<p>&nbsp;</p>
+
+<table>
+	<caption><strong>Table 1:</strong> Columns in each training data file.</caption>
+	<tbody>
+		<tr>
+			<th colspan="2">Vital signs (columns 1-8)</th>
+		</tr>
+		<tr>
+			<td>HR</td>
+			<td>Heart rate (beats per minute)</td>
+		</tr>
+		<tr>
+			<td>O2Sat</td>
+			<td>Pulse oximetry (%)</td>
+		</tr>
+		<tr>
+			<td>Temp</td>
+			<td>Temperature (Deg C)</td>
+		</tr>
+		<tr>
+			<td>SBP</td>
+			<td>Systolic BP (mm Hg)</td>
+		</tr>
+		<tr>
+			<td>MAP</td>
+			<td>Mean arterial pressure (mm Hg)</td>
+		</tr>
+		<tr>
+			<td>DBP</td>
+			<td>Diastolic BP (mm Hg)</td>
+		</tr>
+		<tr>
+			<td>Resp</td>
+			<td>Respiration rate (breaths per minute)</td>
+		</tr>
+		<tr>
+			<td>EtCO2</td>
+			<td>End tidal carbon dioxide (mm Hg)</td>
+		</tr>
+		<tr>
+			<th colspan="2">Laboratory values (columns 9-34)</th>
+		</tr>
+		<tr>
+			<td>BaseExcess</td>
+			<td>Measure of excess bicarbonate (mmol/L)</td>
+		</tr>
+		<tr>
+			<td>HCO3</td>
+			<td>Bicarbonate (mmol/L)</td>
+		</tr>
+		<tr>
+			<td>FiO2</td>
+			<td>Fraction of inspired oxygen (%)</td>
+		</tr>
+		<tr>
+			<td>pH</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>PaCO2</td>
+			<td>Partial pressure of carbon dioxide from arterial blood (mm Hg)</td>
+		</tr>
+		<tr>
+			<td>SaO2</td>
+			<td>Oxygen saturation from arterial blood (%)</td>
+		</tr>
+		<tr>
+			<td>AST</td>
+			<td>Aspartate transaminase (IU/L)</td>
+		</tr>
+		<tr>
+			<td>BUN</td>
+			<td>Blood urea nitrogen (mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Alkalinephos</td>
+			<td>Alkaline phosphatase (IU/L)</td>
+		</tr>
+		<tr>
+			<td>Calcium</td>
+			<td>(mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Chloride</td>
+			<td>(mmol/L)</td>
+		</tr>
+		<tr>
+			<td>Creatinine</td>
+			<td>(mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Bilirubin_direct</td>
+			<td>Bilirubin direct (mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Glucose</td>
+			<td>Serum glucose (mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Lactate</td>
+			<td>Lactic acid (mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Magnesium</td>
+			<td>(mmol/dL)</td>
+		</tr>
+		<tr>
+			<td>Phosphate</td>
+			<td>(mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Potassium</td>
+			<td>(mmol/L)</td>
+		</tr>
+		<tr>
+			<td>Bilirubin_total</td>
+			<td>Total bilirubin (mg/dL)</td>
+		</tr>
+		<tr>
+			<td>TroponinI</td>
+			<td>Troponin I (ng/mL)</td>
+		</tr>
+		<tr>
+			<td>Hct</td>
+			<td>Hematocrit (%)</td>
+		</tr>
+		<tr>
+			<td>Hgb</td>
+			<td>Hemoglobin (g/dL)</td>
+		</tr>
+		<tr>
+			<td>PTT</td>
+			<td>partial thromboplastin time (seconds)</td>
+		</tr>
+		<tr>
+			<td>WBC</td>
+			<td>Leukocyte count (count*10^3/&micro;L)</td>
+		</tr>
+		<tr>
+			<td>Fibrinogen</td>
+			<td>(mg/dL)</td>
+		</tr>
+		<tr>
+			<td>Platelets</td>
+			<td>(count*10^3/&micro;L)</td>
+		</tr>
+		<tr>
+			<th colspan="2">Demographics (columns 35-40)</th>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td>Years (100 for patients 90 or above)</td>
+		</tr>
+		<tr>
+			<td>Gender</td>
+			<td>Female (0) or Male (1)</td>
+		</tr>
+		<tr>
+			<td>Unit1</td>
+			<td>Administrative identifier for ICU unit (MICU)</td>
+		</tr>
+		<tr>
+			<td>Unit2</td>
+			<td>Administrative identifier for ICU unit (SICU)</td>
+		</tr>
+		<tr>
+			<td>HospAdmTime</td>
+			<td>Hours between hospital admit and ICU admit</td>
+		</tr>
+		<tr>
+			<td>ICULOS</td>
+			<td>ICU length-of-stay (hours since ICU admit)</td>
+		</tr>
+		<tr>
+			<th colspan="2">Outcome (column 41)</th>
+		</tr>
+		<tr>
+			<td>SepsisLabel</td>
+			<td>For sepsis patients, <code>SepsisLabel</code> is 1 if <math> <semantics> <mrow> <mi>t</mi> <mo>≥</mo> <msub> <mi>t</mi> <mtext>sepsis</mtext> </msub> <mo>−</mo> <mn>6</mn> </mrow> <annotation encoding="application/x-tex">t \geq t_\text{sepsis} - 6</annotation> </semantics> </math>&nbsp;and 0 if <math> <semantics> <mrow> <mi>t</mi> <mo>&lt;</mo> <msub> <mi>t</mi> <mtext>sepsis</mtext> </msub> <mo>−</mo> <mn>6</mn> </mrow> <annotation encoding="application/x-tex">t &lt; t_\text{sepsis} - 6</annotation> </semantics> </math>. For non-sepsis patients, <code>SepsisLabel</code> is 0.</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+    <hr>
+  
+
+  
+    <h2 id="participation">Participation</h2>
+    <p>PhysioNet Challenges are open to all. Participants enter by submitting entries and receiving&nbsp;scores via the PhysioNet Challenge website.&nbsp;</p>
+
+<h3 id='submitting'>Submitting Your Entry</h3>
+
+<p>Entries should be submitted through the new cloud submission system for the official phase of the Challenge. Please see <a href="https://docs.google.com/document/d/1-YCLmie2_1gM4FrpBaSfkhYt8xpYghs8l2vbPemODkw/edit">here</a> for detailed instructions.</p>
+
+<p>Given a table of clinical measurements (columns) over time (rows), your entry must report the risk of sepsis (a real number) and a binary sepsis prediction (0 or 1) at each hour of a patient&rsquo;s clinical record using the current and past (but not future) data for the patient (see the <a href="#description">&quot;Data Description&quot; section</a>). Please note that we have shifted the sepsis labels in the training data <strong>ahead</strong> by six hours (see the <a href="#background">&quot;Challenge Data&quot; section</a>), so we are effectively asking participants to predict sepsis six hours early. We will repeat this process for <em>k</em> = 1, 2, &hellip;, <em>N</em> hours, where <em>N</em> is the number of hours in a given patient&#39;s recording, and for each patient in the test set. Please see the <a href="https://github.com/physionetchallenges/">sample prediction and evaluation code&quot;</a> for details.</p>
+    <hr>
+  
+
+  
+    <h2 id="description">Data Description</h2>
+    <p>The Challenge data repository contains one file per subject (e.g., <code>training/p00101.psv</code> for the training data).</p>
+
+<h3>Accessing the Data</h3>
+
+<ul>
+	<li><strong><a href="https://archive.physionet.org/pnw/challenge-2019-request-access">Click here</a> to download the complete training database (42 MB), consisting of two parts: training set A (20,336 subjects) and B (20,000 subjects).</strong></li>
+</ul>
+
+<p>Each training data file provides a table with measurements over time. Each column of the table provides a sequence of measurements over time (e.g., heart rate over several hours), where the header of the column describes the measurement. Each row of the table provides a collection of measurements at the same time (e.g., heart rate and oxygen level at the same time). The table is formatted in the following way:</p>
+
+<pre><code>HR |O2Sat|Temp|...|HospAdmTime|ICULOS|SepsisLabel
+NaN|  NaN| NaN|...|        -50|     1|          0
+ 86|   98| NaN|...|        -50|     2|          0
+ 75|  NaN| NaN|...|        -50|     3|          1
+ 99|  100|35.5|...|        -50|     4|          1</code></pre>
+
+<p>There are 40 time-dependent variables <code>HR</code>, <code>O2Sat</code>, <code>Temp</code> ..., <code>HospAdmTime</code>, which are described here. The final column, <code>SepsisLabel</code>, indicates the onset of sepsis according to the Sepsis-3 definition, where <code>1</code> indicates sepsis and <code>0</code> indicates no sepsis. Entries of <code>NaN</code> (not a number) indicate that there was no recorded measurement of a variable at the time interval.</p>
+
+<p><em>Note: spaces were added to this example to improve readability. They will not be present in the data files.</em></p>
+    <hr>
+  
+
+  
+    <h2 id="evaluation">Evaluation</h2>
+    <p>Your final algorithm will be graded for its binary classification performance using a utility function that we created for the Challenge. This utility function rewards classifiers for early predictions of sepsis and penalizes them for late/missed predictions and for predictions of sepsis in non-sepsis patients.</p>
+
+<h3>Scoring</h3>
+
+<p>We first define a score <math> <semantics> <mrow> <mi>U</mi> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> </mrow> <annotation encoding="application/x-tex">U(s, t)</annotation> </semantics> </math>&nbsp;for each prediction, i.e., for each patient <math> <semantics> <mi>s</mi> <annotation encoding="application/x-tex">s</annotation> </semantics> </math>&nbsp;and each time interval <math> <semantics> <mi>t</mi> <annotation encoding="application/x-tex">t</annotation> </semantics> </math>&nbsp;(each line in the data file):</p>
+
+<div><math display="block"> <semantics> <mrow> <mi>U</mi> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> <mo>=</mo> <mrow> <mo>{</mo> <mtable columnalign="left left" columnspacing="1em" displaystyle="false" rowspacing=".2em"> <mtr> <mtd> <msub> <mi>U</mi> <mtext>TP</mtext> </msub> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> <mo>,</mo> </mtd> <mtd> <mtext>&nbsp;positive prediction at time&nbsp;</mtext> <mi>t</mi> <mtext>&nbsp;for sepsis patient&nbsp;</mtext> <mi>s</mi> <mo>,</mo> </mtd> </mtr> <mtr> <mtd> <msub> <mi>U</mi> <mtext>FN</mtext> </msub> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> <mo>,</mo> </mtd> <mtd> <mtext>&nbsp;negative prediction at time&nbsp;</mtext> <mi>t</mi> <mtext>&nbsp;for sepsis patient&nbsp;</mtext> <mi>s</mi> <mo>,</mo> </mtd> </mtr> <mtr> <mtd> <msub> <mi>U</mi> <mtext>FP</mtext> </msub> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> <mo>,</mo> </mtd> <mtd> <mtext>&nbsp;positive prediction at time&nbsp;</mtext> <mi>t</mi> <mtext>&nbsp;for non-sepsis patient&nbsp;</mtext> <mi>s</mi> <mo>,</mo> </mtd> </mtr> <mtr> <mtd> <msub> <mi>U</mi> <mtext>TN</mtext> </msub> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> <mo>,</mo> </mtd> <mtd> <mtext>&nbsp;negative prediction at time&nbsp;</mtext> <mi>t</mi> <mtext>&nbsp;for non-sepsis patient&nbsp;</mtext> <mi>s</mi> <mo>.</mo> </mtd> </mtr> </mtable> <mo fence="true" stretchy="true" symmetric="true"></mo> </mrow> </mrow> <annotation encoding="application/x-tex">U(s, t) = \begin{cases} U_\text{TP}(s, t), &amp; \text{ positive prediction at time } t \text{ for sepsis patient } s,\\ U_\text{FN}(s, t), &amp; \text{ negative prediction at time } t \text{ for sepsis patient } s,\\ U_\text{FP}(s, t), &amp; \text{ positive prediction at time } t \text{ for non-sepsis patient } s,\\ U_\text{TN}(s, t), &amp; \text{ negative prediction at time } t \text{ for non-sepsis patient } s.\\ \end{cases}</annotation> </semantics> </math></div>
+
+<div><math display="block"></math></div>
+
+<p>The following figures illustrate the utility function for a sepsis patient (upper plot) with <math><msub><mi>t</mi><mi>sepsis</mi></msub></math> = 48 as an example, and a non-sepsis patient (lower plot).</p>
+
+<p><img src="/files/challenge-2019/1.0.0/utility_sepsis_diagram.svg" width="100%"> <img src="/files/challenge-2019/1.0.0/utility_nonsepsis_diagram.svg" width="100%"></p>
+
+<p>This utility function rewards or penalizes classifiers using their predictions on each patient:</p>
+
+<ul>
+	<li>For patients that eventually have sepsis (i.e., with at least one <code>SepsisLabel</code> entry of 1), we reward classifiers that predict sepsis between 12 hours before and 3 hours after <math> <semantics> <msub> <mi>t</mi> <mtext>sepsis</mtext> </msub> <annotation encoding="application/x-tex">t_\text{sepsis}</annotation> </semantics> </math>, where the maximum reward is a parameter (1.0). We penalize classifiers that do not predict sepsis or predict sepsis more than 12 hours before <math> <semantics> <msub> <mi>t</mi> <mtext>sepsis</mtext> </msub> <annotation encoding="application/x-tex">t_\text{sepsis}</annotation> </semantics> </math>, where the maximum penalty for very early detection is a parameter (0.05) and the maximum penalty for late detection is also a parameter (-2.0).</li>
+	<li>For patients that do <strong>not</strong> eventually have sepsis (i.e., all <code>SepsisLabel</code> entries of 0), we penalize classifiers that predict sepsis, where the maximum penalty for false alarms is a parameter (0.05; equal to the very early detection penalty). We neither reward nor penalize those that do not predict sepsis.</li>
+</ul>
+
+<p>We then compute a score for a classifier by summing <math> <semantics> <mrow> <mi>U</mi> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> </mrow> <annotation encoding="application/x-tex">U(s, t)</annotation> </semantics> </math>&nbsp;over each prediction, i.e., over each patient <math> <semantics> <mi>s</mi> <annotation encoding="application/x-tex">s</annotation> </semantics> </math>&nbsp;and each time interval <math> <semantics> <mi>t</mi> <annotation encoding="application/x-tex">t</annotation> </semantics> </math>&nbsp;(each line in the data file):</p>
+
+<div><math display="block"> <semantics> <mrow> <msub> <mi>U</mi> <mtext>total</mtext> </msub> <mo>=</mo> <munder> <mo>∑</mo> <mrow class="MJX-TeXAtom-ORD"> <mi>s</mi> <mo>∈</mo> <mi>S</mi> </mrow> </munder> <munder> <mo>∑</mo> <mrow class="MJX-TeXAtom-ORD"> <mi>t</mi> <mo>∈</mo> <mi>T</mi> <mo stretchy="false">(</mo> <mi>s</mi> <mo stretchy="false">)</mo> </mrow> </munder> <mi>U</mi> <mo stretchy="false">(</mo> <mi>s</mi> <mo>,</mo> <mi>t</mi> <mo stretchy="false">)</mo> </mrow> <annotation encoding="application/x-tex">U_\text{total} = \sum_{s \in S} \sum_{t \in T(s)} U(s, t)</annotation> </semantics> </math></div>
+
+<p>To improve interpretability, we normalized the above classifier score so that the optimal classifier (highest possible score) receives a normalized score of 1 and that a completely inactive classifier (no positive predictions) receives a normalized score of 0:</p>
+
+<div><math display="block"> <semantics> <mrow> <msub> <mi>U</mi> <mtext>normalized</mtext> </msub> <mo>=</mo> <mfrac> <mrow> <msub> <mi>U</mi> <mtext>total</mtext> </msub> <mo>−</mo> <msub> <mi>U</mi> <mtext>no predictions</mtext> </msub> </mrow> <mrow> <msub> <mi>U</mi> <mtext>optimal</mtext> </msub> <mo>−</mo> <msub> <mi>U</mi> <mtext>no predictions</mtext> </msub> </mrow> </mfrac> </mrow> <annotation encoding="application/x-tex">U_\text{normalized} = \frac{U_\text{total} - U_\text{no predictions}}{U_\text{optimal} - U_\text{no predictions}}</annotation> </semantics> </math></div>
+
+<p>Each classifier receives a <math> <semantics> <msub> <mi>U</mi> <mtext>normalized</mtext> </msub> <annotation encoding="application/x-tex">U_\text{normalized}</annotation> </semantics> </math>&nbsp;score, and the classifier with the highest <math> <semantics> <msub> <mi>U</mi> <mtext>normalized</mtext> </msub> <annotation encoding="application/x-tex">U_\text{normalized}</annotation> </semantics> </math>&nbsp;score wins.</p>
+
+<p>A Python implementation of the scoring metric is available <a href="https://github.com/physionetchallenges">here</a>.</p>
+
+<h3>Sample Submission</h3>
+
+<p>A simple example algorithm is provided and may be used as a template for your own submission. Julia (<a href="https://github.com/physionetchallenges/julia-example-2019">here</a>), MATLAB (<a href="https://github.com/physionetchallenges/matlab-example-2019">here</a>), Python (<a href="https://github.com/physionetchallenges/python-example-2019">here</a>), and R (<a href="https://github.com/physionetchallenges/r-example-2019">here</a>) implementations are available.</p>
+
+<h3>Rules and Deadlines</h3>
+
+<p>Entrants may have an overall total of up to 15 submitted entries over both the unofficial and official phases of the competition (see Table 2).</p>
+
+<p>All deadlines occur at <strong>11:59pm GMT (UTC)</strong> on the dates mentioned below. If you do not know the difference between GMT and your local time, find out what it is <em>before</em> the deadline!</p>
+
+<table>
+	<caption><strong>Table 2:</strong> Challenge deadlines.</caption>
+	<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Start</th>
+			<th>Entry limit</th>
+			<th>End</th>
+		</tr>
+		<tr>
+			<th><strong>Unofficial Phase</strong></th>
+			<td>6 February</td>
+			<td>5</td>
+			<td>14 April</td>
+		</tr>
+		<tr>
+			<th>[Hiatus]</th>
+			<td>15 April</td>
+			<td>0</td>
+			<td>21 April</td>
+		</tr>
+		<tr>
+			<th><strong>Official Phase</strong></th>
+			<td>22 April</td>
+			<td>10</td>
+			<td>25 August</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>All official entries must be received no later than <strong>11:59pm GMT on 25 August</strong>. In the interest of fairness to all participants, late entries will not be accepted or scored. Entries that cannot be scored (because of missing components, improper formatting, or excessive run time) are not counted against the entry limits.</p>
+
+<p>To be eligible for the <strong>open-source award</strong>, you must do all of the following:</p>
+
+<ol>
+	<li><strong>Entering an Abstract to CinC</strong>: Submit an acceptable abstract (about 300 words) on your work on the Challenge to <a href="http://www.cinc.org/information-for-computing-in-cardiology-authors/">Computing in Cardiology</a> no later than <strong>15 April</strong>. Include the overall score for your Phase I entry in your abstract. Please select &ldquo;PhysioNet/CinC Challenge&rdquo; as the topic of your abstract, so it can be identified easily by the abstract review committee. You will be notified if your abstract has been accepted by email from CinC during the first week in June.</li>
+	<li>Submit at least one open-source entry that can be scored during the second phase <strong>(between 12:01am GMT on 22 April and 11:59pm GMT on 25 August)</strong>. <em>Only your final entry will count for ranking.</em></li>
+	<li>Submit a full (4-page) paper on your work on the Challenge to CinC no later than the deadline of conference paper submission.</li>
+	<li>Attend CinC 2019 (<strong>8-11 September 2019</strong>) in Singapore and present your work there.</li>
+</ol>
+
+<p>Please do not submit analysis of this year&rsquo;s Challenge data to other Conferences or Journals until after CinC 2019 has taken place, so the competitors are able to discuss the results in a single forum. We expect a special issue from a journal to follow the conference and encourage all entrants (and those who missed the opportunity to compete or attend CinC 2019) to submit extended analysis and articles to that issue, taking into account the publications and discussions at CinC 2019.</p>
+
+<p><u><strong>Non open source licenses</strong></u></p>
+
+<p>Software with non open-source licenses will be scored but not ranked in the official competition. All scores will be made public. At the end of the competition, all software will be posted publicly, and therefore, automatically mirrored on several sites around the world. We have no control over these sites so cannot remove code even on request. Before the end of the competition your code is not publicly available and you can choose to withdraw from this event up until the closing date of the competition in August.</p>
+
+<p><u><strong>Rules on competing in teams / collaboration</strong></u></p>
+
+<p>To maintain scientific impact of the Challenges, it is important that all Challengers enter truly independent ideas. For this reason we impose the following rules on team composition/collaboration:</p>
+
+<ol>
+	<li>Multiple teams from a single entity (such as a company, university or even university department) are permissible as long as the teams are truly independent, and do not share team members (at any point), code or any ideas. (Multiple teams from the same research group or unit within a company are not allowed because we do not believe true independence between teams can be maintained in circumstances where members can talk to each other face-to-face while at work / in a break room.)</li>
+	<li>New team members can join as long as they have not previously been in another team that year, or have communicated with a team member from any other team at any point during the competition concerning this year&#39;s Challenge.</li>
+	<li>You may use public code from another team if they posted it before the competition.</li>
+	<li>You may not post your code publicly during the competition, or use other competitor&#39;s code posted during the competition, whether it was intentional or not.</li>
+	<li>You may not publicly post information describing your methods (blog, code, preprint, magazine article, vlog, presentation, talk, etc.) or give a talk outside your own research group at any point during the competition that reveals the methods you have employed or will employ in the Challenge. Obviously you can talk and publish on the same methods on other data as long as you don&#39;t indicate that you have also used it on the challenge data.</li>
+	<li>You must use the same team name and email address throughout the course of the competition, and the email address should be the same as the one used to submit your abstract to Computing in Cardiology. (Note that the submitter of the conference article/code does not have to be the presenter at the conference, or in any particular location in the author order on the abstract/poster/paper, but they must be a member of the team.) If your team has used multiple team names and/or email addresses top enter the Challenge, please contact the organizers immediately to avoid potential disqualification.</li>
+</ol>
+
+<p>If evidence of the contravention of these rules are discovered, you will be ineligible for a prize and your entry publicly marked as possibly associated with another entry. Although we will contact the team(s) in question, time and resources are limited and the Organizers must use their best judgement on the matter in a short period of time. The Organizer&#39;s decision on this will be final.</p>
+
+<h3>Submitting an Abstract to the Conference</h3>
+
+<p>First, please think about your title very carefully. There are going to be over 100 abstracts with very similar titles, so your title must reflect the details of what you actually did. (Don&#39;t worry about the issue of your methods evolving over the competition, and making your title somewhat inappropriate - you can update it when you submit your final paper in early September.) If you use a vague title, it decreases the chances your abstract will be accepted and the organizers may modify it for the program to allow conference attendees to decide if the poster or talk will be of interest to them. For instance, &#39;Machine Learning for Predicting X&#39; or &#39;Signal Processing Methods for Detection of Y&#39; are not useful titles. Also, please do not use the terms &#39;PhysioNet&#39;, &#39;Challenge&#39; or &#39;Computing in Cardiology&#39; in the title. There will be an article in the proceedings which carries the same name as the competition (the title of this web page). Using any of these terms is likely to cause significant confusion when searching for the definitive article describing the Challenge and results. Please note, <em>when you submit to the abstract submission system please choose the track &#39;Physionet/CinC Challenge&#39;</em> to ensure it is reviewed by the Challenge organizers.</p>
+
+<p>Please ensure you describe your exact approach in the abstract, detailing novelty and specific pre/post-processing steps that made a difference in your performance. DO NOT rationalize or describe the competition and the data - this is a waste of valuable space (you only have 300 words). Your abstract is intended as preliminary evidence that you will attend the conference and have meaningfully contributed to the unofficial phase. If you have not been successful in receiving a score from our scoring system, don&#39;t worry. Report cross validated scores on the available public data we have posted and your methods in detail. Do not describe the challenge. It&#39;s a waste of valuable words - the reviewers know what the Challenge is this year. We also know your results and your methods will change. Your final abstract (which will accompany the preprint you post to the conference in early September before the conference begins) will be very different. The point of the abstract is to decide if you have an original idea, promising/logical approaches and can express these coherently. It helps us allocate limited oral presentations and poster space to the best entries. [If you do get rejected, there may be a &#39;wild card&#39; chance to enter later on in the Challenge, but if we able to do this, it will be for an exceptional entry, so please don&#39;t rely on this.]</p>
+
+<h3>Abstract Acceptances/Rejections</h3>
+
+<p>You should receive an acceptance or rejection notice by the end of May, although sometimes this is later. Some reviews will contain comments, but generally there is only a score. Although we try to include everyone, it is not possible given the limited space at the conference venue, so please take the abstract seriously. If you do not receive an email with the decision by the end of May (on the email address with which you registered for the conference), please check your spam filter. If you still can&#39;t find one, email <a href="mailto:challenge@physionet.org">challenge@physionet.org</a> to obtain confirmation of the abstract acceptance/rejection. Please do not email any of the organizers directly (for any reason) - there&#39;s a good chance the email will go astray. If you email <a href="mailto:challenge@physionet.org">challenge@physionet.org</a>, the Challenge team will triage your email and try to address your issues. You may receive and email from the organizers indicating that we&#39;ve modified your title slightly. This is to avoid confusion between abstracts that have vague or non-specific titles, and in particular mentioned the phrases &#39;Computing in Cardiology&#39;, &#39;Challenge&#39; or PhysioNet&#39;. You may modify this later to correct any misconceptions this may cause, or to update the content based on your evolving algorithm, but please do not re-insert the prohibited words/phrases or make the title generic once again. Your final paper will be rejection and you will be de-ranked from the leader board (since publishing a paper in the conference proceedings is part of the requirements of the competition).</p>
+
+<h3>Wild Card Submission</h3>
+
+<p>If you failed to have your abstract accepted, or did not enter an abstract and submission in time for the deadline, you have a chance to become the &#39;wild card&#39; entry. The top scoring entry on the leader board by the end of the day (midnight GMT) on June 20th, not already with an email acceptance from the conference, will have the chance to submit an abstract for inclusion in the program and be eligible for the final prizes with everyone else. If you think you qualify, please email <a href="mailto:challenge@physionet.org">challenge@physionet.org</a> by 12 *noon* GMT June 21st for confirmation, and your updated abstract by might night GMT June 22nd.</p>
+
+<h3>Hackathon</h3>
+
+<p>There will be an on-site Hackathon revisiting the Challenge (with a separate award) on Sunday 8th September, before the conference begins in Singapore. Any team with at least one attendee at the conference, who turns up in person to register, is eligible to enter. You do not have to have entered the Challenge or have an abstract in the conference before this date. Moreover, you may combine forces with other teams to produce hybrid algorithms. We suggest you peruse the conference preprints in the first week of September to find potential partners. This part of the Challenge is organized and sponsored by MathWorks and Google Cloud, so there will be hands-on help, although you are not required to use Google Cloud or Matlab for developing and entry (although we use Google Cloud to run the results). The rules and restrictions are otherwise the same.</p>
+
+<h3>Attending the Conference</h3>
+
+<p>If your abstract is accepted, then you must log in to the conference site and agree that you will attend. You must also submit a full article describing your results and mark it as a preprint (for others to read) by 4 September. (Don&#39;t forget that the competition deadline is noon GMT on 25 August - this deadline will <em>not</em> be extended.)</p>
+
+<p>More details about the conference will follow.</p>
+
+<p>Look out for future announcements via <a href="https://groups.google.com/group/physionet-challenges">the community discussion forum</a>.</p>
+
+<h3>After the Challenge</h3>
+
+<p>We hope to run a special issue with a closing date of (to be decided). We will therefore encourage competitors (and non-competitors) to submit updates and further reworks based on the Challenge after the award ceremony at the Computing in Cardiology Conference in Singapore in September.</p>
+
+<h3>Obtaining complimentary MATLAB licenses</h3>
+
+<p><a href="http://www.mathworks.com/">MathWorks</a> has generously decided to sponsor this Challenge by providing complimentary licenses to all teams that wish to use MATLAB. Users can apply for a license and learn more about MATLAB support by visiting the <a href="https://www.mathworks.com/academia/student-competitions/physionet.html">PhysioNet Challenge page</a> from MathWorks. If you have questions or need technical support, then please contact MathWorks at <a href="mailto:studentcompetitions@mathworks.com">studentcompetitions@mathworks.com</a>.</p>
+
+<h3>Google Cloud</h3>
+
+<p><a href="http://cloud.google.com/">Google</a> has generously agreed to provide $50,000 in Google Cloud Platform (GCP) credits for this Challenge. We will award these to the 100 top performing teams, probably in May (at a date yet to be determined). This will hopefully provide an added incentive to submit more entries earlier on, and give teams the maximum opportunity to learn <strong>before</strong> spending money in the cloud.</p>
+
+<p>At the time of launching this Challenge, Google Cloud offers multiple services for free on a one-year trial basis and $300 in cloud credits. See <a href="https://cloud.google.com/free/">here</a> for more information. Additionally, if teams are based at an educational institution in selected countries, they can access free GCP training online <a href="https://docs.google.com/forms/d/e/1FAIpQLSeY-K_b7TReTVnaGxWuAsRzIpbKfKsTe9B7g27SAcPXPnyTTA/viewform">here</a>.</p>
+
+<p>Google Cloud credits of $500 per team will be made available to teams with both a successful entry to the official phase of the Challenge and an accepted abstract to CinC. Only one credit of exactly $500 will be provided to one email address associated with each team. The Challenge organizers, their employers, and Computing in Cardiology accept no responsibility for the loss of credits, or failure to issue credits for any reason. By providing us with this information, you are granting us permission to forward your details to Google for the distribution of credits. <strong>Please complete <a href="https://docs.google.com/forms/d/1MbtZ69AZhZUq6DiGiL3tJ9zehRsTDVbyLzMre02F3e4">this form</a> to request credits by May 29th.</strong> <em>You will have until June 1st to redeem the credits and they will be valid for 90 days.</em></p>
+
+<h3>Pre-conference Challenge Hackathon</h3>
+
+<p>This year, for the first time, we are introducing a final opportunity to win a prize in the Challenge. On the Sunday morning before Computing in Cardiology starts, there will be an all-day hackathon (with on-site support from 9am-1pm local time) in Singapore, with the same objective as the current Challenge. This event is, once again, generously sponsored by the Gordon and Betty Moore Foundation, MathWorks and Google.</p>
+
+<p>Most of the same rules apply, but you may form a new team for this event or even merge with an existing team. You do not need to have previously competed in the Challenge, but you must register for the event at least 4 days in advance, listing all of your hackathon team members (known at the time - you may add or remove some later, but we will be watching to check for adherence to the rules).</p>
+
+<p><strong>Please complete <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9PVvBSWq6vFTzNjOXxhEOg8wNoED0a3yiuABkoShY0civyQ/viewform?vc=0&amp;c=0&amp;w=1&amp;usp=mail_form_link">this form</a> for the PhysioNet/CinC 2019 Hackathon.</strong></p>
+
+<p>Note: At least one member of each hackathon team must be physically present and register for the conference as well as the hackathon. If these details are missing from the above form, you will not be allowed to participate.</p>
+
+<p>Space is limited and will be allocated on a first-come, first-served basis. If there is room, you may be able to register with less than 4 days to the event, or even on the same day as the event, but you will encounter delays at the entrance to the event, where security will check you against the registration list we sent 4 days earlier.</p>
+
+<p>Please note, the event is not at the same as any other conference event, but is nearby.</p>
+
+<ul>
+	<li>Location of Hackathon: <a href="https://goo.gl/maps/Y5nRdF9k2tork3R28">1 Fusionopolis Way, #14 Connexis South, Singapore 138632</a></li>
+	<li>Date and time: Sunday, 8 September 2019 from 9:00 AM to 1:00 PM local time.</li>
+	<li>Refreshments and technical support will be available (and maybe some more cloud credits!).</li>
+</ul>
+
+<p>The deadline for submitting code will be later on Sunday (exact time to be announced). Please make sure the rest of your team (who are not present) are aware of the time zone difference with their local times. You may collaborate with them remotely all day to prepare and submit your code. Due to space restrictions, a maximum on site team size of 4 is allowed. There is no limit on the team size for remote members.</p>
+
+<p>You may ask: why a hackathon?</p>
+
+<ol>
+	<li>Well this is no ordinary hackathon. You will have had up to 7 months to prepare for it, so we expect it to generate some novel ideas.</li>
+	<li>You may collaborate with other teams from the Challenge or other teams that turn up (but only submit one entry per collaboration), thus potentially generating new and better hybrid approaches.</li>
+	<li>On-site support for Google Cloud and Matlab and domain experts in clinical informatics will be present.</li>
+</ol>
+
+<h3>Challenge Timeline</h3>
+
+<p>A complete timeline of events in this Challenge is as follows:</p>
+
+<ul>
+	<li>6 February 2019: The 20th PhysioNet/Computing Challenge in Cardiology opens (unofficial but mandatory phase).</li>
+	<li>1 April 2019: An expanded training database is available, containing data from a total of 40,336 subjects.</li>
+	<li>10 April 2019: The deadline of the unofficial phase of the competition (11.59pm GMT) - Unofficial period of the Challenge ends and the &#39;hiatus&#39; begins.</li>
+	<li>15 April 2019: Deadline for submission of abstracts to CinC.org.</li>
+	<li>22 April 2019: Official phase of the 20th PhysioNet/Computing Challenge in Cardiology opens.</li>
+	<li>2 May 2019: Leader board is posted.</li>
+	<li>18 May 2019: All abstracts reviewed and decisions on acceptance/rejection begins.</li>
+	<li>24 May 2019: Notifications of accepted or rejected submissions <strong>should</strong> have been received.</li>
+	<li>28 May 2019: [Optional] Requests for $500 in Google Cloud credits now being accepted</li>
+	<li>20 June 2019: [Optional] The highest scoring rejected abstract team appearing in the top 20 Utility scores (if one exists) will be offered the &#39;Wild Card&#39; and will be accepted into the competition. A revised title and abstract will be required within 2 days.</li>
+	<li>25th Aug 2019: [Mandatory] Competition closes. You will have 24 hours to identify your &#39;best&#39; submission. We will then run this on your code. You will NOT receive this score until after you present at Computing in Cardiology.</li>
+	<li>1st Sept 2019: [Mandatory] Deadline to upload preprint of paper through the conference submission system with your best score and methods related to your upcoming oral/poster presentation described in full detail. (DO NOT post a preprint on other systems or submit the work elsewhere until after your article has been accepted to the conference in full and you have the final score. If you do, you may be ineligible for a prize.)</li>
+	<li>2nd Sept 2019: [Optional] Look through preprints and reach out to other authors to partner with teams for the Hackathon on the Sunday morning of the 8th Sep. (You may also compete in the Hackathon with your original team or a completely new team, as long as one of your team is attending the conference from the Sunday morning until Wednesday late afternoon.)</li>
+	<li>7th Sept 2019: [Optional] Suggested arrival date in Singapore</li>
+	<li>8th Sept 2019: [Optional] Hackathon on-site in Singapore</li>
+	<li>9th-11th Sept 2019: [Mandatory for at least one member of team] Attend conference in Singapore.</li>
+	<li>11th Sept 2019: [Mandatory] Attend final poster and oral sessions on Challenge, plus prize ceremony, at the conference in Singapore. (Please note - if you do not attend to present and defend your work, no matter the reason, you are not eligible for a prize and you are moved to the unofficial category. You must also collect the prize in person. There will be no exceptions under any circumstances. We cannot mail or transmit prizes or certificates in digitally or otherwise. Please also note that CinC has a policy of not allowing those that are not meaningful authors of the accompanying manuscript to present on behalf of authors who could not attend, for whatever reason.)</li>
+	<li>16th Sept 2019: [Mandatory] Your final score will be provided to you on or before this date. Please insert it in the paper and submit the final version of the paper as soon as possible thereafter (You will probably still receive requests for ongoing edits if you have not followed the instructions on formatting and content).</li>
+	<li>23rd Sept 2019: [Mandatory] The final day to submit the final version of the paper. After this you are removed from the proceedings and de-ranked from the official leader board.</li>
+	<li>1st Feb 2020: [Optional] Closing date for focus issue full length articles to be submitted to PhysiologicalMeasurement.</li>
+	<li>~ March 2020: Code and papers from the Challenge will be posted as close to this time as possible.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+    <hr>
+  
+
+  
+
+  
+
+  
+    <h2 id="acknowledgements">Acknowledgements</h2>
+    <p>The organizers would like to thank the sponsors of the 2019 PhysioNet Challenge.</p>
+
+<h3>Sponsors</h3>
+
+<p>This year&#39;s challenge is co-sponsored by the Gordon and Betty Moore Foundation, MathWorks, and Google.</p>
+
+<div><img height="40" src="/files/challenge-2019/1.0.0/img/logo_moore_foundation.png" width="103"> <img height="40" src="/files/challenge-2019/1.0.0/img/logo_mathworks.png" width="197"> <img height="40" src="/files/challenge-2019/1.0.0/img/logo_google_cloud.png" width="157"></div>
+    <hr>
+  
+
+  
+    <h2 id="conflicts-of-interest">Conflicts of Interest</h2>
+    <p>The authors have no conflicts of interest.</p>
+    <hr>
+  
+
+
+
+
+        
+      </div>
+      <!-- /.main column -->
+
+      <!-- Sidebar Column -->
+      <div class="col-md-4">
+        
+        
+        <div class="card mb-3">
+          <div class="card-body sidebar-info contents-nav">
+            <h6 class="sidebar-heading">Contents</h6>
+            <ul>
+              
+                
+                  <li><a href="#abstract">Abstract</a></li>
+                
+              
+                
+                  <li><a href="#background">Background</a></li>
+                
+              
+                
+                  <li><a href="#participation">Participation</a></li>
+                
+              
+                
+                  <li><a href="#description">Data Description</a></li>
+                
+              
+                
+                  <li><a href="#evaluation">Evaluation</a></li>
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="#acknowledgements">Acknowledgements</a></li>
+                
+              
+                
+                  <li><a href="#conflicts-of-interest">Conflicts of Interest</a></li>
+                
+              
+              
+              <li><a href="#files">Files</a></li>
+            </ul>
+          </div>
+        </div>
+        
+
+        
+
+        <div class="card mb-3">
+          <div class="card-body sidebar-info">
+            <h6 class="sidebar-heading">Share</h6>
+            <div class="d-flex flex-wrap" style="gap: 8px;">
+              <a class="sharebtn"
+                href="mailto:?subject=Early%20Prediction%20of%20Sepsis%20from%20Clinical%20Data%3A%20The%20PhysioNet/Computing%20in%20Cardiology%20Challenge%202019&body=https://physionet.org/content/challenge-2019/1.0.0/"
+                title="Share with email"><i class="far fa-envelope"></i> Email</a>
+              <a class="sharebtn"
+                href="https://www.linkedin.com/shareArticle?url=https://physionet.org/content/challenge-2019/1.0.0/"
+                title="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a class="sharebtn"
+                href="https://www.reddit.com/submit?url=https://physionet.org/content/challenge-2019/1.0.0/&title=Early%20Prediction%20of%20Sepsis%20from%20Clinical%20Data%3A%20The%20PhysioNet/Computing%20in%20Cardiology%20Challenge%202019"
+                title="Share on Reddit"><i class="fab fa-reddit"></i> Reddit</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body sidebar-info">
+            <h6 class="sidebar-heading">Access</h6>
+            <dl class="sidebar-dl">
+              <dt>Access Policy</dt>
+              <dd>Anyone can access the files, as long as they conform to the terms of the specified license.</dd>
+              <dt>License</dt>
+              <dd><a href="/content/challenge-2019/view-license/1.0.0/">Creative Commons Attribution 4.0 International Public License</a></dd>
+              
+              
+            </dl>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body sidebar-info">
+            <h6 class="sidebar-heading">Discovery</h6>
+            <dl class="sidebar-dl">
+              
+              <dt>DOI (v1.0.0)</dt>
+              <dd><a href="https://doi.org/10.13026/v64v-d857">10.13026/v64v-d857</a></dd>
+              
+              
+              <dt>DOI (latest)</dt>
+              <dd><a href="https://doi.org/10.13026/0y7p-s471">10.13026/0y7p-s471</a></dd>
+              
+              
+              
+              <dt>Topics</dt>
+              <dd><a href="/content/?topic=prediction"><span class="badge badge-pn">prediction</span></a> <a href="/content/?topic=challenge"><span class="badge badge-pn">challenge</span></a> <a href="/content/?topic=sepsis"><span class="badge badge-pn">sepsis</span></a> </dd>
+              
+              
+            </dl>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body sidebar-info">
+            <h6 class="sidebar-heading">Project Views</h6>
+            <dl class="sidebar-dl">
+              <dt>Current Version</dt>
+              <dd>3864</dd>
+              <dt>All Versions</dt>
+              <dd>3864</dd>
+            </dl>
+            <div class="mt-2">
+              <a href="/content/challenge-2019/metrics/1.0.0/" class="btn btn-sm btn-outline-secondary">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body sidebar-info">
+            <h6 class="sidebar-heading">Corresponding Author</h6>
+            
+              <em>You must be logged in to view the contact information.</em>
+            
+          </div>
+        </div>
+
+        <div class="card mb-3">
+  <div class="card-body sidebar-info">
+    <h6 class="sidebar-heading">Versions</h6>
+    <ul class="list-group list-group-flush project-version-list">
+      
+        <li class="list-group-item px-0">
+          <a href="/content/challenge-2019/1.0.0/">
+            <span class="project-version">1.0.0</span>
+            <time datetime="2019-08-05">
+              Aug. 5, 2019
+            </time>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+      </div>
+      <!-- /.sidebar -->
+    </div>
+    <h2 id="files">Files</h2>
+    
+      
+        
+          
+            <p>Total uncompressed size: 327.3 KB.</p>
+          
+        
+        <h5>Access the files</h5>
+        
+
+        <ul>
+          
+          
+            
+          
+           
+
+          
+            <li>
+              Download the files using your terminal:
+              <pre class="shell-command">wget -r -N -c -np https://physionet.org/files/challenge-2019/1.0.0/</pre>
+            </li>
+          
+
+          
+            
+              <li>
+                Download the files using AWS command line tools:
+                <pre class="shell-command">aws s3 sync --no-sign-request s3://physionet-open/challenge-2019/1.0.0/ DESTINATION</pre>
+              </li>
+            
+          
+
+        </ul>
+        
+
+        
+          
+        
+
+        <div id="files-panel" class="card">
+          
+<div class="card-header"
+     data-dfp-panel-url="/content/challenge-2019/files-panel/1.0.0/"
+     data-dfp-cur-dir="">
+  Folder Navigation:
+  <span class="dir-breadcrumbs"><span class="dir-breadcrumb-self">&lt;base&gt;</span></span>
+</div>
+
+  
+<table class="files-panel">
+  <col class="files-panel-name"></col>
+  <col class="files-panel-size"></col>
+  <col class="files-panel-date"></col>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Modified</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  
+    <tr class="subdir">
+      <td><a href="hackathon/#files-panel" data-dfp-dir="hackathon">hackathon</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+  
+    <tr class="subdir">
+      <td><a href="img/#files-panel" data-dfp-dir="img">img</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+  
+    <tr class="subdir">
+      <td><a href="papers/#files-panel" data-dfp-dir="papers">papers</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+  
+    <tr class="subdir">
+      <td><a href="sources/#files-panel" data-dfp-dir="sources">sources</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+  
+    <tr class="subdir">
+      <td><a href="training/#files-panel" data-dfp-dir="training">training</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+  
+  
+    <tr>
+      <td><a href="LICENSE.txt">LICENSE.txt</a>
+        <a class="download" href="/files/challenge-2019/1.0.0/LICENSE.txt?download"
+           title="Download LICENSE.txt">
+          <span class="visually-hidden">(download)</span>
+        </a>
+      </td>
+      <td>25.2 KB</td>
+      <td>2019-08-05</td>
+    </tr>
+  
+    <tr>
+      <td><a href="SHA256SUMS.txt">SHA256SUMS.txt</a>
+        <a class="download" href="/files/challenge-2019/1.0.0/SHA256SUMS.txt?download"
+           title="Download SHA256SUMS.txt">
+          <span class="visually-hidden">(download)</span>
+        </a>
+      </td>
+      <td>264 B</td>
+      <td>2019-08-05</td>
+    </tr>
+  
+    <tr>
+      <td><a href="physionet_challenge_2019_ccm_manuscript.pdf">physionet_challenge_2019_ccm_manuscript.pdf</a>
+        <a class="download" href="/files/challenge-2019/1.0.0/physionet_challenge_2019_ccm_manuscript.pdf?download"
+           title="Download physionet_challenge_2019_ccm_manuscript.pdf">
+          <span class="visually-hidden">(download)</span>
+        </a>
+      </td>
+      <td>1.5 MB</td>
+      <td>2019-11-04</td>
+    </tr>
+  
+    <tr>
+      <td><a href="utility_nonsepsis_diagram.svg">utility_nonsepsis_diagram.svg</a>
+        <a class="download" href="/files/challenge-2019/1.0.0/utility_nonsepsis_diagram.svg?download"
+           title="Download utility_nonsepsis_diagram.svg">
+          <span class="visually-hidden">(download)</span>
+        </a>
+      </td>
+      <td>138.1 KB</td>
+      <td>2019-07-23</td>
+    </tr>
+  
+    <tr>
+      <td><a href="utility_sepsis_diagram.svg">utility_sepsis_diagram.svg</a>
+        <a class="download" href="/files/challenge-2019/1.0.0/utility_sepsis_diagram.svg?download"
+           title="Download utility_sepsis_diagram.svg">
+          <span class="visually-hidden">(download)</span>
+        </a>
+      </td>
+      <td>163.7 KB</td>
+      <td>2019-07-23</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+        </div>
+      
+
+      
+    
+    <br>
+    
+</div>
+
+
+
+</main>
+
+    
+<link rel="stylesheet" type="text/css" href="/static/custom/css/footer.css"/>
+
+<div class="modern-ui">
+  <footer class="footer w-100 secondary-bg py-5">
+    <div class="container my-0 py-0 py-md-5">
+      
+        <img src="/static/images/physionet-logo-white.svg" width="180px" alt="PhysioNet" class="pb-2" />
+      
+      <div class="footer__columns light-text">
+        <div>
+          
+            <p class="dark-light-text mb-2">Maintained by the MIT Laboratory for Computational Physiology</p>
+          
+          
+            <p class="dark-light-text mb-2">Supported by the National Institute of Biomedical Imaging and Bioengineering (NIBIB), National Heart Lung and Blood Institute (NHLBI), and NIH Office of the Director under NIH grant numbers U24EB037545 and R01EB030362</p>
+          
+        </div>
+        <div class="d-flex flex-column pl-0 pl-md-5 pt-4 pt-md-0">
+          <h2 class="text-white font-weight-bold">Navigation</h2>
+          <a href="/content" class="pb-3 dark-light-text">Discover Data</a>
+          <a href="/about/publish" class="pb-3 dark-light-text">Share Data</a>
+          <a href="/about" class="pb-3 dark-light-text">About</a>
+          <a href="/news" class="pb-3 dark-light-text">News</a>
+        </div>
+        <div class="d-flex flex-column pt-4 pt-md-0">
+          <h2 class="text-white font-weight-bold">Explore</h2>
+          
+            <a href="/about/database/" class="pb-3 dark-light-text">Data</a>
+          
+            <a href="/about/software/" class="pb-3 dark-light-text">Software</a>
+          
+            <a href="/about/challenge/" class="pb-3 dark-light-text">Challenges</a>
+          
+            <a href="/about/tutorial/" class="pb-3 dark-light-text">Tutorials</a>
+          
+        </div>
+        <!-- <div class="d-flex flex-column flex-grow">
+          <h2 class="text-white font-weight-bold">Subscribe to our Newsletter</h2>
+          <input type="email" class="form-control mb-2" placeholder="Your email">
+          <button type="button" class="primary-button">Subscribe Now</button>
+        </div> -->
+      </div>
+      <hr >
+      <div class="d-flex flex-column align-items-center justify-content-between flex-md-row">
+        <div class="d-flex pt-2 pt-md-0">
+          
+            <a class="mr-3" href="https://github.com/MIT-LCP/physionet-build/"><img src="/static/images/icons/github.png" height="18px"></a>
+          
+          
+          
+            <a class="mr-3" href="http://linkedin.com/company/physionet"><img src="/static/images/icons/linkedin.png" height="18px"></a>
+          
+          
+        </div>
+        <div class="pt-4 pt-md-0">
+          
+          
+          
+             <a class="dark-light-text" href="https://accessibility.mit.edu/">Accessibility</a>
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+    
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/static/custom/js/navbar.js"></script>
+
+    
+  <script src="/static/project/js/dynamic-files-panel.js"></script>
+  <script src="/static/custom/js/enable-popover.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+    
+  <!-- https://schema.org/ metadata for discovery -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019",
+  "description": "Sepsis is a life\u002Dthreatening condition that occurs when the body\u0026#x27\u003Bs response to infection causes tissue damage, organ failure, or death (Singer et al., 2016). In the U.S., nearly 1.7 million people develop sepsis and 270,000 people die from sepsis each year\u003B over one third of people who die in U.S. hospitals have sepsis (CDC). Internationally, an estimated 30 million people develop sepsis and 6 million people die from sepsis each year\u003B an estimated 4.2 million newborns and children are affected (WHO). Sepsis costs U.S. hospitals more than any other health condition at $24 billion (13% of U.S. healthcare expenses) a year, and a majority of these costs are for sepsis patients that were not diagnosed at admission (Paoli et al., 2018). Sepsis costs are even greater globally with the developing world at most risk. Altogether, sepsis is a major public health issue responsible for significant morbidity, mortality, and healthcare expenses.\u000A\u000AEarly detection and antibiotic treatment of sepsis are critical for improving sepsis outcomes, where each hour of delayed treatment has been associated with roughly an 4\u002D8% increase in mortality (Kumar et al., 2006\u003B Seymour et al., 2017). To help address this problem, clinicians have proposed new definitions for sepsis (Singer et al., 2016), but the fundamental need to detect and treat sepsis early still remains, and basic questions about the limits of early detection remain unanswered. The PhysioNet/Computing in Cardiology Challenge 2019 provides an opportunity to address these questions.",
+  "version": "1.0.0",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "datePublished" : "Aug. 5, 2019",
+  "url": "https://physionet.org/content/challenge-2019/1.0.0/",
+  
+  "identifier": "https://doi.org/10.13026/v64v\u002Dd857",
+  
+  "creator": [
+  
+    {
+      "@type": "Person",
+      "givenName": "Matthew",
+      "familyName": "Reyna",
+      "name": "Matthew Reyna"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Chris",
+      "familyName": "Josef",
+      "name": "Chris Josef"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Russell",
+      "familyName": "Jeter",
+      "name": "Russell Jeter"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Supreeth",
+      "familyName": "Shashikumar",
+      "name": "Supreeth Shashikumar"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Benjamin",
+      "familyName": "Moody",
+      "name": "Benjamin Moody"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "M. Brandon",
+      "familyName": "Westover",
+      "name": "M. Brandon Westover"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Ashish",
+      "familyName": "Sharma",
+      "name": "Ashish Sharma"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Shamim",
+      "familyName": "Nemati",
+      "name": "Shamim Nemati"
+    },
+  
+    {
+      "@type": "Person",
+      "givenName": "Gari D.",
+      "familyName": "Clifford",
+      "name": "Gari D. Clifford"
+    }
+  
+    ],
+  "includedInDataCatalog":{
+     "@type": "DataCatalog",
+     "name": "physionet.org"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://physionet.org/content/challenge-2019/1.0.0/#files"
+    }
+  ]
+}
+</script>
+
+  </body>
+  
+</html>

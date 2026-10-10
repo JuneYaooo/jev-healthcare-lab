@@ -6,10 +6,11 @@
   "decision_mode": "material",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "IMCS 数据许可未明确；MeDAL 旧样本为演示数据。",
+  "missing_reason": "MeDAL 原摘要版权尚未闭合；IMCS21 未明确数据许可；CBLUE 的术语材料及授权需按任务核验，不用代码许可证代替。",
   "candidate_source_ids": [
     "imcs21",
-    "medal"
+    "medal",
+    "cblue"
   ],
   "primary_scenario": "quality",
   "ability_tags": [

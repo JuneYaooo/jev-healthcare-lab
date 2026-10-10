@@ -5,28 +5,43 @@
   "definition": "给定区间及人群、方法条件，选择适用区间或不确定。",
   "decision_mode": "rule",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "尚无已核验的开放题目与金标。",
-  "candidate_source_ids": [],
+  "source_ids": [
+    "labqar"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [
+    "labqar"
+  ],
   "primary_scenario": "testing",
   "ability_tags": [
     "rules"
   ],
   "decision_stage": "clinical_choice",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 72,
+  "groups": 25,
+  "status": "partial",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 85,
+    "unique_consistent_pool": 75,
     "conflicting_rows_removed": 0,
-    "duplicate_requests_removed": 0,
+    "duplicate_requests_removed": 10,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 85,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "range_2": 9,
+    "range_0": 26,
+    "range_1": 27,
+    "range_5": 1,
+    "range_4": 3,
+    "range_3": 6
+  },
+  "language_counts": {
+    "en": 72
+  },
+  "source_counts": {
+    "labqar": 72
+  },
   "historical_material_matches": 0
 }

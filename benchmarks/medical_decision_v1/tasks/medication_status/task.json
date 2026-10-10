@@ -6,9 +6,10 @@
   "decision_mode": "material",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "未找到可直接公开分发的临床用药状态金标。",
+  "missing_reason": "CMED/n2c2 原标注相关，但临床文本受协议限制；未取得可公开再分发的替代语料。",
   "candidate_source_ids": [
-    "n2c2"
+    "n2c2",
+    "cmed"
   ],
   "primary_scenario": "treatment",
   "ability_tags": [

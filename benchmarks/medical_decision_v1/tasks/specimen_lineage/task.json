@@ -6,8 +6,10 @@
   "decision_mode": "material",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "FHIR 是标准参考，不能代替有答案的数据集。",
-  "candidate_source_ids": [],
+  "missing_reason": "FHIR Specimen.parent 提供字段和示例；未找到同物、派生、无关、未知四类的开放标注病例。",
+  "candidate_source_ids": [
+    "fhir_workflow"
+  ],
   "primary_scenario": "testing",
   "ability_tags": [
     "relations"

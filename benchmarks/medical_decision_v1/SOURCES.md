@@ -208,7 +208,15 @@
 
 来源：[发布方](https://github.com/McGill-NLP/medal)。
 
-状态：仅引用，未收录题目。旧用例只有演示数据，尚未构建独立公开测试子集
+状态：仅引用，未收录题目。Zenodo v4 与原 README 明确指向 NLM 条款，部分 PubMed 摘要仍可能受第三方版权保护。不能将模型/代码 MIT 或 Apache 许可当作全部摘要数据开放许可；本轮留空。
+
+核验日期：2026-10-10；结论：原文授权未闭合。
+
+[发布证据](https://zenodo.org/records/4482922)；许可：NLM 使用条款；部分原摘要可能另有版权。
+
+材料性质：医学摘要经缩写替换形成的消歧材料，不是标准术语临床映射金标。
+
+答案依据：缩写与原展开词对应；需要独立固定词表及上游版权核验。
 
 ## CMedCalc-Bench
 
@@ -270,15 +278,15 @@
 
 来源：[发布方](https://arxiv.org/abs/2601.13178)。
 
-状态：仅引用，未收录题目。固定消息级隔离和配对位置平衡，核对判定者及意见分歧后抽样；只进非商业附加部分。
+状态：仅引用，未收录题目。论文 §3.2.1 明确：Reddit 等级由 GPT-5 根据医生回复推导，再配对；并非逐对医生直接标注。本轮保留研究引用，不作为人工金标补入。
 
-核验日期：2026-10-10；结论：需抽样协议。
+核验日期：2026-10-10；结论：弱标签，暂未纳入。
 
-[发布证据](https://huggingface.co/datasets/PortalPal-AI/PMR-Reddit-Test-Pairs)；许可：CC-BY-NC-4.0。
+[发布证据](https://arxiv.org/html/2601.13178v1)；许可：CC-BY-NC-4.0。
 
 材料性质：患者自述消息的比较；不能称为医院急诊真实分诊记录。
 
-答案依据：官方测试文件含 1,502 对 chosen/rejected 及等级字段；不采用合成训练对作测试。
+答案依据：1,502 个官方测试对；chosen/rejected 来自模型推导等级。医生直接配对标注属于另一个 PMR-Synth 子集，不能混称。
 
 ## TriageBench（Wong，一致性探针）
 
@@ -298,15 +306,17 @@
 
 来源：[发布方](https://physionet.org/content/challenge-2019/1.0.0/)。
 
-状态：仅引用，未收录题目。先固定预测时点/提前窗口、患者划分与基线；公开训练材料构建的自留评测应明确标注，不能直接代表是否应转 ICU。
+引用：Reyna et al. (2019), Early Prediction of Sepsis From Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019; PhysioNet v1.0.0, doi:10.13026/v64v-d857.，[论文/项目](https://doi.org/10.1097/CCM.0000000000004145)。
 
-核验日期：2026-10-10；结论：需预测协议。
+数据许可：[CC-BY-4.0](https://physionet.org/content/challenge-2019/view-license/1.0.0/)；分发类别：`open`。
 
-[发布证据](https://physionet.org/content/challenge-2019/1.0.0/)；许可：CC-BY-4.0。
+材料性质：真实 ICU 小时记录；只使用公开训练医院 A 中按固定哈希预选的 1,000 个来源记录，非官方隐藏测试。
 
-材料性质：真实 ICU 的生命体征与检验时序，公开训练部分。
+答案依据：原 SepsisLabel 提前 6 小时。首次 1 所在小时加 6 得到挑战定义起病小时。要求完整 ICU 第 1–12 小时，随访至起病或第 24 小时；排除起始即阳性、12 小时内起病、非法序列及随访不足。只给前 12 小时，预测 (12,24] 小时起病。
 
-答案依据：基于挑战定义的 SepsisLabel；官方隐藏测试不能假称已取得。
+许可与来源快照：[LICENSE.txt](sources/sepsis2019/LICENSE.txt)、[source-page.html](sources/sepsis2019/source-page.html)、[preselection.json](sources/sepsis2019/preselection.json)、[selection_frame.json](sources/sepsis2019/selection_frame.json)。
+
+评测范围：本子集仅有 11 个阳性、89 个阴性；恒答阴性准确率为 89%，应同时报告两类召回。来源是公开训练医院 A，不能对训练过该库的模型声称盲测。选择框为 1,000 例，合格 528 例（11 阳性/517 阴性）；分层抽样改变了类别比例，不用于风险校准、临床患病率或 PPV 估计。推算起病和原挑战逐小时 utility 不等价。
 
 ## CLIP 出院行动标注
 
@@ -673,3 +683,133 @@ The problem is important for the following reasons. Despite high-quality evidenc
 材料性质：教材、医考题库、古籍、专家医案及 CCL/Tianchi 衍生；不能统称自然发生的临床记录。
 
 答案依据：部分为选择题、部分为自由文本或多字段答案；未转换为本次评测题。
+
+## MEDDOCAN / SPACCC
+
+来源：[发布方](https://github.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN)。
+
+引用：Marimon et al. (2019), Automatic De-identification of Medical Texts in Spanish: the MEDDOCAN Track, Corpus, Guidelines, Methods and Evaluation of Results; SEAD / BSC / CNIO.，[论文/项目](https://ceur-ws.org/Vol-2421/MEDDOCAN_overview.pdf)。
+
+数据许可：[CC-BY-4.0](https://raw.githubusercontent.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN/783a6df385c975b328c99bcffb54196a9ba4078a/LICENSE)；分发类别：`open`。
+
+材料性质：西班牙语公开病例报告经筛选、补入合成个人信息；不能视为原始患者身份记录。
+
+答案依据：官方 test BRAT 人工 PHI 片段标注。目标词完全落在标注片段内映射为 yes，完全不重叠映射为 no（闭世界 O 标签）；跨边界目标排除，不生成隐私标识。
+
+许可与来源快照：[README.md](sources/meddocan/README.md)、[LICENSE](sources/meddocan/LICENSE)。
+
+评测范围：仅评估给定词是否落入原 PHI 片段，不是整份文档脱敏召回率。负例沿用完整标注语料的闭世界假设，仍可能受到上游漏标影响。
+
+## CMED / n2c2 2022 Track 1
+
+来源：[发布方](https://n2c2.dbmi.hms.harvard.edu/2022-track-1)。
+
+状态：仅引用，未收录题目。具有启停、变更、时态等原标注，但不具备公开转发临床原文的授权。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://n2c2.dbmi.hms.harvard.edu/2022-track-1)；许可：受数据访问与使用协议约束。
+
+材料性质：临床病历中的药物事件。
+
+答案依据：原始药物事件上下文标注；并非开放再分发语料。
+
+## FEBRL record linkage datasets
+
+来源：[发布方](https://recordlinkage.readthedocs.io/en/latest/ref-datasets.html)。
+
+状态：仅引用，未收录题目。公开合成身份匹配基准，不是医疗材料的患者身份核实；缺信息时的不确定标签也未覆盖。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://recordlinkage.readthedocs.io/en/latest/ref-datasets.html)；许可：需按原数据条款单独核验；本轮未再分发。
+
+材料性质：生成并扰动的人口学记录。
+
+答案依据：原身份分组可支持同人匹配，不能代表医疗上下文中的可确定性。
+
+## LabQAR
+
+来源：[发布方](https://doi.org/10.6084/m9.figshare.29189894)。
+
+引用：Bhasuran, Jin, Deville et al., A Curated Dataset for Question Answering on Laboratory Test Reference Ranges and Interpretation. Scientific Data (2026); Figshare 29189894 v1.，[论文/项目](https://doi.org/10.1038/s41597-026-07554-z)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：根据专家医学参考资料整理的区间与条件，不是患者记录。仅采用 Set 1 可解析且无冲突的原始范围答案。
+
+答案依据：原 Set 1 范围答案机械映射为同检验、单位、类别的固定候选；输入附上同组原参考条目，考查条件匹配。排除同条件答案冲突、裸数值及无替代范围条目；不生成范围或不确定答案。
+
+许可与来源快照：[LabQAR_README.md](sources/labqar/LabQAR_README.md)、[figshare-metadata.json](sources/labqar/figshare-metadata.json)。
+
+评测范围：仅评估给定参考条目的人群、标本和条件匹配；不是独立诊疗知识或所有实验室范围的正确性。本版 72 题，未覆盖不确定和检验方法差异。
+
+## NLI4CT
+
+来源：[发布方](https://github.com/ai-systems/nli4ct)。
+
+状态：仅引用，未收录题目。数据为试验报告论断的支持/矛盾二分类，缺少患者病历的无法确定类别；不替代当前病历三分类任务。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://github.com/ai-systems/nli4ct)；许可：原发布仓库未明确数据再分发许可；不以参与团队代码 MIT 替代。
+
+材料性质：ClinicalTrials.gov 试验材料配专家撰写论断。
+
+答案依据：专家标注二分类，与 MedNLI 的患者病历三分类不同。
+
+## Chinese-medical-dialogue-data
+
+来源：[发布方](https://github.com/Toyhom/Chinese-medical-dialogue-data)。
+
+状态：仅引用，未收录题目。科室字段是采集来源的分类，未证明为临床审核的最佳首诊科室；不能直接作分流金标。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://github.com/Toyhom/Chinese-medical-dialogue-data)；许可：仓库 MIT；原问诊内容授权链未核实。
+
+材料性质：中文在线医疗问答汇编，原平台逐条溯源不足。
+
+答案依据：含 department/title/question/answer；没有独立首诊分流正确性审核。
+
+## FHIR R4 clinical workflow definitions
+
+来源：[发布方](https://hl7.org/fhir/R4/)。
+
+状态：仅引用，未收录题目。可定义诊断核实、标本链、操作及报告状态；标准示例不等于独立临床金标数据集。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://hl7.org/fhir/R4/)；许可：标准文档许可；不是病例标注集。
+
+材料性质：互操作标准及示例。
+
+答案依据：字段与枚举定义，无本项目目标的独立题目答案集。
+
+## UCUM unit specification
+
+来源：[发布方](https://ucum.org/ucum)。
+
+状态：仅引用，未收录题目。提供单位语义与换算标准；本轮未找到符合医疗数值等价判断的独立标注题集。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://ucum.org/ucum)；许可：UCUM 原使用条款；非临床病例数据许可。
+
+材料性质：单位编码标准及规则。
+
+答案依据：标准公式可用于将来自建规则测试，不能冒称已有临床评测金标。
+
+## MIMIC-IV Clinical Database Demo v2.2
+
+来源：[发布方](https://physionet.org/content/mimic-iv-demo/2.2/)。
+
+状态：仅引用，未收录题目。开放结构化演示数据可作开发材料；本轮未建立覆盖开单、配药、给入、未执行的独立证据与金标协议。不能把已有状态字段原样放进输入再要求选择同一字段。
+
+核验日期：2026-10-10；结论：本轮核验后留空。
+
+[发布证据](https://physionet.org/content/mimic-iv-demo/2.2/)；许可：Open Data Commons Open Database License v1.0（以发布页为准）。
+
+材料性质：真实去标识临床数据库演示子集。
+
+答案依据：原事件记录字段不自动构成完整临床流程判断题。

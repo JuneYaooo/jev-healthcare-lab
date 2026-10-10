@@ -1,0 +1,336 @@
+{
+  "version": "0.5.0",
+  "checked_on": "2026-10-10",
+  "scope": "21 tasks empty in v0.4.0; limited search and source review, not proof that no suitable dataset exists",
+  "tasks": [
+    {
+      "task_id": "diagnosis_verification",
+      "task_title": "诊断核实状态",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "FHIR 有核实状态定义；E3C 的实际/假设/不确定是事件属性，不能等同疑似/确诊/排除四分类。未找到匹配且可开放分发的原金标。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        },
+        {
+          "source_id": "e3c",
+          "url": "https://github.com/hltfbk/E3C-Corpus"
+        }
+      ]
+    },
+    {
+      "task_id": "medication_status",
+      "task_title": "用药状态与变更",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "CMED/n2c2 原标注相关，但临床文本受协议限制；未取得可公开再分发的替代语料。",
+      "sources": [
+        {
+          "source_id": "cmed",
+          "url": "https://n2c2.dbmi.hms.harvard.edu/2022-track-1"
+        },
+        {
+          "source_id": "n2c2",
+          "url": "https://n2c2.dbmi.hms.harvard.edu/data-sets"
+        }
+      ]
+    },
+    {
+      "task_id": "patient_identity",
+      "task_title": "患者与记录身份匹配",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "FEBRL 是合成人口学匹配，MIMIC 演示 ID 连接不是身份可确定性评测；缺医疗证据、冲突及不确定金标。",
+      "sources": [
+        {
+          "source_id": "febrl",
+          "url": "https://recordlinkage.readthedocs.io/en/latest/ref-datasets.html"
+        },
+        {
+          "source_id": "mimic_iv_demo",
+          "url": "https://physionet.org/content/mimic-iv-demo/2.2/"
+        }
+      ]
+    },
+    {
+      "task_id": "specimen_lineage",
+      "task_title": "标本身份与来源链",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "FHIR Specimen.parent 提供字段和示例；未找到同物、派生、无关、未知四类的开放标注病例。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        }
+      ]
+    },
+    {
+      "task_id": "terminology",
+      "task_title": "医学术语归一化",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "MeDAL 原摘要版权尚未闭合；IMCS21 未明确数据许可；CBLUE 的术语材料及授权需按任务核验，不用代码许可证代替。",
+      "sources": [
+        {
+          "source_id": "medal",
+          "url": "https://github.com/McGill-NLP/medal"
+        },
+        {
+          "source_id": "imcs21",
+          "url": "https://github.com/lemuria-wchen/imcs21"
+        },
+        {
+          "source_id": "cblue",
+          "url": "https://github.com/CBLUEbenchmark/CBLUE"
+        }
+      ]
+    },
+    {
+      "task_id": "input_sufficiency",
+      "task_title": "决策资料充分性",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。",
+      "sources": [
+        {
+          "source_id": "cmedcalc",
+          "url": "https://github.com/Zhihong-Zhu/CMedCalc-Bench"
+        },
+        {
+          "source_id": "care_bench",
+          "url": "https://github.com/ningkko/CARE-bench"
+        }
+      ]
+    },
+    {
+      "task_id": "unit_equivalence",
+      "task_title": "数值与单位等价",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "UCUM 提供换算依据，本轮未找到独立标注的医疗数值等价题集；不自行改数值生成金标。",
+      "sources": [
+        {
+          "source_id": "ucum",
+          "url": "https://ucum.org/ucum"
+        }
+      ]
+    },
+    {
+      "task_id": "reference_range",
+      "task_title": "参考区间适用性",
+      "checked_on": "2026-10-10",
+      "result": "adopted",
+      "finding": "采用 LabQAR Set 1 原范围答案，给定同检验/单位/类别的原参考条目后判断人群、标本与条件匹配；排除条件冲突、非区间及无候选项，不补造干扰项。",
+      "sources": [
+        {
+          "source_id": "labqar",
+          "url": "https://doi.org/10.6084/m9.figshare.29189894"
+        }
+      ]
+    },
+    {
+      "task_id": "dose_appropriateness",
+      "task_title": "剂量适宜性",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "openFDA 是药品说明书规则；尚缺患者肝肾功能、具体处方及独立剂量适宜性金标。",
+      "sources": [
+        {
+          "source_id": "openfda",
+          "url": "https://open.fda.gov/apis/drug/label/"
+        },
+        {
+          "source_id": "cmedcalc",
+          "url": "https://github.com/Zhihong-Zhu/CMedCalc-Bench"
+        }
+      ]
+    },
+    {
+      "task_id": "critical_result_escalation",
+      "task_title": "危急结果与人工升级",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "现有规则/分诊数据不提供机构危急值阈值版本、复核条件及升级等级的匹配金标。",
+      "sources": [
+        {
+          "source_id": "openfda",
+          "url": "https://open.fda.gov/apis/drug/label/"
+        },
+        {
+          "source_id": "care_bench",
+          "url": "https://github.com/ningkko/CARE-bench"
+        }
+      ]
+    },
+    {
+      "task_id": "privacy_candidate",
+      "task_title": "医疗材料隐私候选",
+      "checked_on": "2026-10-10",
+      "result": "adopted",
+      "finding": "采用 MEDDOCAN 官方测试标注；词级 PHI/非 PHI 二选一，每文档至多选一题，正负各 50。",
+      "sources": [
+        {
+          "source_id": "meddocan",
+          "url": "https://github.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN"
+        }
+      ]
+    },
+    {
+      "task_id": "procedure_progress",
+      "task_title": "医疗操作进度",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "操作状态标准与 E3C 事件时态不同；未找到完整覆盖计划、进行、完成、取消、目标未达成的开放金标。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        },
+        {
+          "source_id": "e3c",
+          "url": "https://github.com/hltfbk/E3C-Corpus"
+        }
+      ]
+    },
+    {
+      "task_id": "administration_status",
+      "task_title": "单次给药执行状态",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "MIMIC 演示为真实结构化事件；尚缺跨医嘱、配药、给入的可判定证据与统一答案协议，留空。",
+      "sources": [
+        {
+          "source_id": "mimic_iv_demo",
+          "url": "https://physionet.org/content/mimic-iv-demo/2.2/"
+        },
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        }
+      ]
+    },
+    {
+      "task_id": "followup_action",
+      "task_title": "随访行动与完成状态",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "CLIP 标注行动片段与类别，不标注是否已完成或逾期；原文另受 MIMIC 协议限制。",
+      "sources": [
+        {
+          "source_id": "clip",
+          "url": "https://physionet.org/content/mimic-iii-clinical-action/1.0.0/"
+        }
+      ]
+    },
+    {
+      "task_id": "report_stage",
+      "task_title": "报告阶段与效力",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "FHIR DiagnosticReport.status 是状态标准，未找到具有独立状态答案的开放临床报告集。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        }
+      ]
+    },
+    {
+      "task_id": "department_routing",
+      "task_title": "候选科室分流",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "RD-Triage 有多答案及多上游来源需分别核权；ClinicalMC/MedJourney 数据许可未闭合；中文问诊科室字段不等于最佳首诊科室。",
+      "sources": [
+        {
+          "source_id": "rd_triage",
+          "url": "https://github.com/zhelishisongjie/RD-Triage"
+        },
+        {
+          "source_id": "clinicalmc",
+          "url": "https://github.com/hzyuezh/ClinicalMPD"
+        },
+        {
+          "source_id": "medjourney",
+          "url": "https://github.com/Medical-AI-Learning/MedJourney"
+        },
+        {
+          "source_id": "chinese_medical_dialogue",
+          "url": "https://github.com/Toyhom/Chinese-medical-dialogue-data"
+        }
+      ]
+    },
+    {
+      "task_id": "message_urgency_pair",
+      "task_title": "患者消息紧急性比较",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "PMR-Reddit 的原等级经 GPT-5 推导，并非逐对人工金标；本轮不纳入主评测。",
+      "sources": [
+        {
+          "source_id": "pmr_bench",
+          "url": "https://arxiv.org/abs/2601.13178"
+        }
+      ]
+    },
+    {
+      "task_id": "deterioration_prediction",
+      "task_title": "脓毒症提前预警",
+      "checked_on": "2026-10-10",
+      "result": "adopted",
+      "finding": "采用 PhysioNet 2019 公开训练 A 的固定自留评测；还原 6 小时提前标签，固定 ICU 第 12 小时预测未来至第 24 小时的起病。",
+      "sources": [
+        {
+          "source_id": "sepsis2019",
+          "url": "https://physionet.org/content/challenge-2019/1.0.0/"
+        }
+      ]
+    },
+    {
+      "task_id": "followup_item_type",
+      "task_title": "出院待办行动类别",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "CLIP 任务匹配，但基于 MIMIC 文本，需要凭证和 DUA，不能公开复制原文。",
+      "sources": [
+        {
+          "source_id": "clip",
+          "url": "https://physionet.org/content/mimic-iii-clinical-action/1.0.0/"
+        }
+      ]
+    },
+    {
+      "task_id": "adverse_event_prediction",
+      "task_title": "治疗相关不良事件预测",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "CT-ADE 的数据许可声明未解决 MedDRA SOC/PT 术语及底层材料全部再分发边界；本轮保留引用。",
+      "sources": [
+        {
+          "source_id": "ct_ade",
+          "url": "https://github.com/ds4dh/CT-ADE"
+        }
+      ]
+    },
+    {
+      "task_id": "clinical_statement_support",
+      "task_title": "病历论断支持关系",
+      "checked_on": "2026-10-10",
+      "result": "empty",
+      "finding": "MedNLI 原病历受控；NLI4CT 是试验报告二分类且原仓库数据许可不明确，不能替代病历三分类。",
+      "sources": [
+        {
+          "source_id": "mednli",
+          "url": "https://physionet.org/content/mednli/1.0.0/"
+        },
+        {
+          "source_id": "nli4ct",
+          "url": "https://github.com/ai-systems/nli4ct"
+        }
+      ]
+    }
+  ]
+}

@@ -8,27 +8,36 @@
   ],
   "decision_mode": "prediction",
   "decision_stage": "outcome_prediction",
-  "definition": "仅使用指定预测时点之前的生命体征和检验记录，预测近期脓毒症风险。",
+  "definition": "仅使用 ICU 前 12 小时的记录，判断按挑战定义的脓毒症起病是否发生在第 12 小时之后至第 24 小时（含）。",
   "target_count": 100,
-  "source_ids": [],
+  "source_ids": [
+    "sepsis2019"
+  ],
   "candidate_source_ids": [
     "sepsis2019"
   ],
-  "missing_reason": "开放数据已核验；预测窗口、患者划分及类别先验尚未固定，不直接将整段住院结果转成题目。",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "missing_reason": "",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 528,
+    "unique_consistent_pool": 528,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 528,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "no": 89,
+    "yes": 11
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "sepsis2019": 100
+  },
   "historical_material_matches": 0
 }

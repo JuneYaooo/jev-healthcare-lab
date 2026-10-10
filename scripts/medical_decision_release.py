@@ -117,6 +117,8 @@ def package_files(dataset, distribution):
         notices += ["", "## " + card["name"], "", f"{card['attribution']}。引用：{card['citation_url']}。", "",
                     "材料性质：" + card["authenticity"], "", "本次适配：" + card["gold_provenance"], "",
                     "原声明：" + "、".join(f"[{Path(p).name}]({p})" for p in card["license_evidence"]) + "。"]
+        if card.get('evaluation_limits'):
+            notices += ['', '评测范围：' + card['evaluation_limits']]
     md("LICENSE-DATA.md", notices)
     md("FORMAT.md", ["# 数据格式与追溯", "",
         "全部 JSONL 文件均为 UTF-8，一行一条记录，以 id 关联，不依赖文件顺序。", "",

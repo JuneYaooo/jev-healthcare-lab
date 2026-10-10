@@ -6,8 +6,10 @@
   "decision_mode": "rule",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "现有独立金标均为自编题，暂不填充。",
-  "candidate_source_ids": [],
+  "missing_reason": "UCUM 提供换算依据，本轮未找到独立标注的医疗数值等价题集；不自行改数值生成金标。",
+  "candidate_source_ids": [
+    "ucum"
+  ],
   "primary_scenario": "testing",
   "ability_tags": [
     "rules"

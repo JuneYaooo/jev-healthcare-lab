@@ -6,8 +6,11 @@
   "decision_mode": "material",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "未取得可分发的执行记录及金标。",
-  "candidate_source_ids": [],
+  "missing_reason": "MIMIC 演示为真实结构化事件；尚缺跨医嘱、配药、给入的可判定证据与统一答案协议，留空。",
+  "candidate_source_ids": [
+    "mimic_iv_demo",
+    "fhir_workflow"
+  ],
   "primary_scenario": "inpatient",
   "ability_tags": [
     "workflow"

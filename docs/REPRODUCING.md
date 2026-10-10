@@ -42,6 +42,8 @@ python3 scripts/medical_decision_dataset.py export --output work/requests.jsonl
 python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/scores.json
 ```
 
-默认只处理开放核心集。若使用完整 4,938 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
+默认只处理开放核心集。若使用完整 5,210 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
 
 评分规则见 [评测方法](EVALUATION.md)，来源与许可见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。
+
+v0.5.0 原始复建另需 MEDDOCAN 固定仓库归档、LabQAR Set 1 和 PhysioNet 2019 医院 A 的 1,000 个锁定记录文件。源数据下载量与整理包不同；仅使用已整理包无需下载这些原文件。选择框和预测协议见 [空缺核验](GAP_AUDIT_V050.md)。

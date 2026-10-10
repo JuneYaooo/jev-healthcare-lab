@@ -14,7 +14,7 @@
   "candidate_source_ids": [
     "clip"
   ],
-  "missing_reason": "CLIP 有医生标注，但原文受 PhysioNet 凭证与协议限制，不打包进开放主集。",
+  "missing_reason": "CLIP 任务匹配，但基于 MIMIC 文本，需要凭证和 DUA，不能公开复制原文。",
   "count": 0,
   "groups": 0,
   "status": "empty",

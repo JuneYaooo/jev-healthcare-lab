@@ -6,8 +6,11 @@
   "decision_mode": "rule",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "未找到具有机构阈值版本与审核标签的开放来源。",
-  "candidate_source_ids": [],
+  "missing_reason": "现有规则/分诊数据不提供机构危急值阈值版本、复核条件及升级等级的匹配金标。",
+  "candidate_source_ids": [
+    "openfda",
+    "care_bench"
+  ],
   "primary_scenario": "testing",
   "ability_tags": [
     "risk"

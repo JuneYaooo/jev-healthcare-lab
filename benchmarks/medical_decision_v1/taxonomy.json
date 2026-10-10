@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "created": "2026-10-10",
   "seed": 20261010,
   "dimensions": [
@@ -108,8 +108,11 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "尚无核验完成的开放独立金标。",
-      "candidate_source_ids": [],
+      "missing_reason": "FHIR 有核实状态定义；E3C 的实际/假设/不确定是事件属性，不能等同疑似/确诊/排除四分类。未找到匹配且可开放分发的原金标。",
+      "candidate_source_ids": [
+        "fhir_workflow",
+        "e3c"
+      ],
       "primary_scenario": "diagnosis",
       "ability_tags": [
         "facts"
@@ -124,9 +127,10 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "未找到可直接公开分发的临床用药状态金标。",
+      "missing_reason": "CMED/n2c2 原标注相关，但临床文本受协议限制；未取得可公开再分发的替代语料。",
       "candidate_source_ids": [
-        "n2c2"
+        "n2c2",
+        "cmed"
       ],
       "primary_scenario": "treatment",
       "ability_tags": [
@@ -198,8 +202,11 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "未取得合适的可分发配对金标。",
-      "candidate_source_ids": [],
+      "missing_reason": "FEBRL 是合成人口学匹配，MIMIC 演示 ID 连接不是身份可确定性评测；缺医疗证据、冲突及不确定金标。",
+      "candidate_source_ids": [
+        "febrl",
+        "mimic_iv_demo"
+      ],
       "primary_scenario": "inpatient",
       "ability_tags": [
         "relations"
@@ -214,8 +221,10 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "FHIR 是标准参考，不能代替有答案的数据集。",
-      "candidate_source_ids": [],
+      "missing_reason": "FHIR Specimen.parent 提供字段和示例；未找到同物、派生、无关、未知四类的开放标注病例。",
+      "candidate_source_ids": [
+        "fhir_workflow"
+      ],
       "primary_scenario": "testing",
       "ability_tags": [
         "relations"
@@ -269,10 +278,11 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "IMCS 数据许可未明确；MeDAL 旧样本为演示数据。",
+      "missing_reason": "MeDAL 原摘要版权尚未闭合；IMCS21 未明确数据许可；CBLUE 的术语材料及授权需按任务核验，不用代码许可证代替。",
       "candidate_source_ids": [
         "imcs21",
-        "medal"
+        "medal",
+        "cblue"
       ],
       "primary_scenario": "quality",
       "ability_tags": [
@@ -307,9 +317,10 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。",
+      "missing_reason": "CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。",
       "candidate_source_ids": [
-        "cmedcalc"
+        "cmedcalc",
+        "care_bench"
       ],
       "primary_scenario": "intake",
       "ability_tags": [
@@ -346,8 +357,10 @@
       "decision_mode": "rule",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "现有独立金标均为自编题，暂不填充。",
-      "candidate_source_ids": [],
+      "missing_reason": "UCUM 提供换算依据，本轮未找到独立标注的医疗数值等价题集；不自行改数值生成金标。",
+      "candidate_source_ids": [
+        "ucum"
+      ],
       "primary_scenario": "testing",
       "ability_tags": [
         "rules"
@@ -361,9 +374,13 @@
       "definition": "给定区间及人群、方法条件，选择适用区间或不确定。",
       "decision_mode": "rule",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "尚无已核验的开放题目与金标。",
-      "candidate_source_ids": [],
+      "source_ids": [
+        "labqar"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [
+        "labqar"
+      ],
       "primary_scenario": "testing",
       "ability_tags": [
         "rules"
@@ -587,8 +604,11 @@
       "decision_mode": "rule",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "未找到已核验、可分发的患者特异性剂量适宜性金标。",
-      "candidate_source_ids": [],
+      "missing_reason": "openFDA 是药品说明书规则；尚缺患者肝肾功能、具体处方及独立剂量适宜性金标。",
+      "candidate_source_ids": [
+        "openfda",
+        "cmedcalc"
+      ],
       "primary_scenario": "treatment",
       "ability_tags": [
         "eligibility"
@@ -625,8 +645,11 @@
       "decision_mode": "rule",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "未找到具有机构阈值版本与审核标签的开放来源。",
-      "candidate_source_ids": [],
+      "missing_reason": "现有规则/分诊数据不提供机构危急值阈值版本、复核条件及升级等级的匹配金标。",
+      "candidate_source_ids": [
+        "openfda",
+        "care_bench"
+      ],
       "primary_scenario": "testing",
       "ability_tags": [
         "risk"
@@ -640,10 +663,13 @@
       "definition": "给定目标片段，判断是否属于需处理的个人标识。",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "现有自编题不进入；临床脱敏语料多需协议。",
+      "source_ids": [
+        "meddocan"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
-        "n2c2"
+        "n2c2",
+        "meddocan"
       ],
       "primary_scenario": "quality",
       "ability_tags": [
@@ -659,8 +685,11 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "现有训练题为自编，未核验外部测试来源。",
-      "candidate_source_ids": [],
+      "missing_reason": "操作状态标准与 E3C 事件时态不同；未找到完整覆盖计划、进行、完成、取消、目标未达成的开放金标。",
+      "candidate_source_ids": [
+        "fhir_workflow",
+        "e3c"
+      ],
       "primary_scenario": "inpatient",
       "ability_tags": [
         "workflow"
@@ -675,8 +704,11 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "未取得可分发的执行记录及金标。",
-      "candidate_source_ids": [],
+      "missing_reason": "MIMIC 演示为真实结构化事件；尚缺跨医嘱、配药、给入的可判定证据与统一答案协议，留空。",
+      "candidate_source_ids": [
+        "mimic_iv_demo",
+        "fhir_workflow"
+      ],
       "primary_scenario": "inpatient",
       "ability_tags": [
         "workflow"
@@ -691,8 +723,10 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "现有评测为自编题，暂留空。",
-      "candidate_source_ids": [],
+      "missing_reason": "CLIP 标注行动片段与类别，不标注是否已完成或逾期；原文另受 MIMIC 协议限制。",
+      "candidate_source_ids": [
+        "clip"
+      ],
       "primary_scenario": "followup",
       "ability_tags": [
         "workflow"
@@ -707,8 +741,10 @@
       "decision_mode": "material",
       "target_count": 100,
       "source_ids": [],
-      "missing_reason": "标准字段不代替独立真实材料与标签。",
-      "candidate_source_ids": [],
+      "missing_reason": "FHIR DiagnosticReport.status 是状态标准，未找到具有独立状态答案的开放临床报告集。",
+      "candidate_source_ids": [
+        "fhir_workflow"
+      ],
       "primary_scenario": "testing",
       "ability_tags": [
         "workflow"
@@ -868,9 +904,10 @@
       "candidate_source_ids": [
         "medjourney",
         "rd_triage",
-        "clinicalmc"
+        "clinicalmc",
+        "chinese_medical_dialogue"
       ],
-      "missing_reason": "已有候选来源缺明确数据许可，科室分流金标亦需核对。"
+      "missing_reason": "RD-Triage 有多答案及多上游来源需分别核权；ClinicalMC/MedJourney 数据许可未闭合；中文问诊科室字段不等于最佳首诊科室。"
     },
     {
       "id": "message_urgency_pair",
@@ -888,7 +925,7 @@
       "candidate_source_ids": [
         "pmr_bench"
       ],
-      "missing_reason": "已找到官方测试对与非商业许可；尚需核验消息复用、标注方案及配对抽样。"
+      "missing_reason": "PMR-Reddit 的原等级经 GPT-5 推导，并非逐对人工金标；本轮不纳入主评测。"
     },
     {
       "id": "deterioration_prediction",
@@ -900,13 +937,15 @@
       ],
       "decision_mode": "prediction",
       "decision_stage": "outcome_prediction",
-      "definition": "仅使用指定预测时点之前的生命体征和检验记录，预测近期脓毒症风险。",
+      "definition": "仅使用 ICU 前 12 小时的记录，判断按挑战定义的脓毒症起病是否发生在第 12 小时之后至第 24 小时（含）。",
       "target_count": 100,
-      "source_ids": [],
+      "source_ids": [
+        "sepsis2019"
+      ],
       "candidate_source_ids": [
         "sepsis2019"
       ],
-      "missing_reason": "开放数据已核验；预测窗口、患者划分及类别先验尚未固定，不直接将整段住院结果转成题目。"
+      "missing_reason": ""
     },
     {
       "id": "readmission_30d",
@@ -944,7 +983,7 @@
       "candidate_source_ids": [
         "clip"
       ],
-      "missing_reason": "CLIP 有医生标注，但原文受 PhysioNet 凭证与协议限制，不打包进开放主集。"
+      "missing_reason": "CLIP 任务匹配，但基于 MIMIC 文本，需要凭证和 DUA，不能公开复制原文。"
     },
     {
       "id": "adverse_event_prediction",
@@ -962,7 +1001,7 @@
       "candidate_source_ids": [
         "ct_ade"
       ],
-      "missing_reason": "已找到发布方数据；需核验版本与术语许可，并固定试验组划分。群体结局不能直接解释为个体禁忌。"
+      "missing_reason": "CT-ADE 的数据许可声明未解决 MedDRA SOC/PT 术语及底层材料全部再分发边界；本轮保留引用。"
     },
     {
       "id": "clinical_statement_support",
@@ -978,9 +1017,10 @@
       "target_count": 100,
       "source_ids": [],
       "candidate_source_ids": [
-        "mednli"
+        "mednli",
+        "nli4ct"
       ],
-      "missing_reason": "MedNLI 有临床医生标注，但材料来自受控 MIMIC-III，需访问协议。"
+      "missing_reason": "MedNLI 原病历受控；NLI4CT 是试验报告二分类且原仓库数据许可不明确，不能替代病历三分类。"
     },
     {
       "id": "mortality_90d",

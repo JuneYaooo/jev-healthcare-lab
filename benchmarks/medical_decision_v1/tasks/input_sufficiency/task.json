@@ -6,9 +6,10 @@
   "decision_mode": "material",
   "target_count": 100,
   "source_ids": [],
-  "missing_reason": "CMedCalc 数据可下载，但发布仓库未找到明确数据再分发许可。",
+  "missing_reason": "CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。",
   "candidate_source_ids": [
-    "cmedcalc"
+    "cmedcalc",
+    "care_bench"
   ],
   "primary_scenario": "intake",
   "ability_tags": [

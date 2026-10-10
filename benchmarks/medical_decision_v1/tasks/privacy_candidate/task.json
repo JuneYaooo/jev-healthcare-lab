@@ -5,30 +5,40 @@
   "definition": "给定目标片段，判断是否属于需处理的个人标识。",
   "decision_mode": "material",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "现有自编题不进入；临床脱敏语料多需协议。",
+  "source_ids": [
+    "meddocan"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
-    "n2c2"
+    "n2c2",
+    "meddocan"
   ],
   "primary_scenario": "quality",
   "ability_tags": [
     "risk"
   ],
   "decision_stage": "material_judgment",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 100,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 500,
+    "unique_consistent_pool": 500,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 500,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "no": 50,
+    "yes": 50
+  },
+  "language_counts": {
+    "es": 100
+  },
+  "source_counts": {
+    "meddocan": 100
+  },
   "historical_material_matches": 0
 }

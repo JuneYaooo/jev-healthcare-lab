@@ -145,6 +145,82 @@ def mortality_at_horizon(row, horizon):
     return None
 
 
+SEPSIS_FEATURES = {
+    'HR': 'Heart rate (beats/min)', 'O2Sat': 'Pulse oximetry (%)',
+    'Temp': 'Temperature (degrees Celsius)', 'SBP': 'Systolic BP (mm Hg)',
+    'MAP': 'Mean arterial pressure (mm Hg)', 'DBP': 'Diastolic BP (mm Hg)',
+    'Resp': 'Respiration rate (breaths/min)', 'EtCO2': 'End-tidal CO2 (mm Hg)',
+    'Hct': 'Hematocrit (%)', 'Hgb': 'Hemoglobin (g/dL)',
+    'WBC': 'White blood cell count (count*10^3/microliter)',
+    'Platelets': 'Platelets (count*10^3/microliter)',
+    'Creatinine': 'Creatinine (mg/dL)', 'BUN': 'Blood urea nitrogen (mg/dL)',
+    'Glucose': 'Glucose (mg/dL)', 'Potassium': 'Potassium (mmol/L)',
+    'Age': 'Age (years; source de-identification retained)',
+    'Gender': 'Source coding: female 0, male 1',
+}
+
+
+def sepsis_at_24h(rows):
+    """Undo the upstream six-hour label shift; observe until the event or horizon.
+
+    An initial positive is left-censored. A short stay is not a negative.
+    This is a fixed-landmark outcome task, not the official hourly challenge score.
+    """
+    if len(rows) < 12:
+        return None
+    if any(float(r['ICULOS']) != i for i, r in enumerate(rows, 1)):
+        return None
+    labels = [r['SepsisLabel'] for r in rows]
+    if any(x not in {'0', '1'} for x in labels) or labels != sorted(labels):
+        return None
+    first = labels.index('1') + 1 if '1' in labels else None
+    if first == 1 or (first is not None and first + 6 <= 12):
+        return None
+    if first is not None and first + 6 <= 24:
+        return 'yes' if len(rows) >= first + 6 else None
+    return 'no' if len(rows) >= 24 else None
+
+
+def privacy_token_candidates(text, entities):
+    """Upstream span membership, including explicit BIO-style outside positions.
+
+    Use the same tokenization for both classes to avoid a span-length shortcut.
+    A boundary-crossing token is ambiguous and never receives a negative label.
+    """
+    if not entities or not all(valid_span(text, e) for e in entities.values()):
+        return []
+    candidates = []
+    for token in re.finditer(r"\w+(?:[-'’]\w+)*", text):
+        if len(token.group()) < 2:
+            continue
+        overlap = [(uid, e) for uid, e in entities.items()
+                   if token.start() < e['end'] and e['start'] < token.end()]
+        if overlap and not all(e['start'] <= token.start() < token.end() <= e['end'] for _, e in overlap):
+            continue
+        candidates.append({'start': token.start(), 'end': token.end(), 'text': token.group(),
+                           'gold': 'yes' if overlap else 'no',
+                           'annotation_ids': sorted(uid for uid, _ in overlap)})
+    return candidates
+
+
+def labqar_context(question):
+    pattern = (r"For the lab test '([^']+)' measuring in '([^']+)' in Specimen '([^']+)' "
+               r"for '([^']+)' and '([^']+)'(?: with the condition '([^']+)')?"
+               r"(?: in the category '([^']+)')?, what is the correct lower and upper bound "
+               r"range values in SI reference range\?")
+    match = re.fullmatch(pattern, question)
+    if not match:
+        return None
+    test, unit, specimen, sex, age, condition, category = match.groups()
+    # The source repeats CBC components as standalone tests; one common source group.
+    if test == 'Complete blood count (CBC)' and category in {'Hematocrit', 'Hemoglobin', 'Red blood cell count'}:
+        test, category = category, None
+    if test == 'Erythrocyte count' and category == 'Red blood cell count':
+        test, category = category, None
+    return {'test': test, 'unit': unit, 'category': category,
+            'specimen': specimen, 'sex': sex, 'age_group': age, 'condition': condition}
+
+
 def expanded_chinese_task(question):
     if len(question) < 60 or not re.search(r'患者|患儿|病人|\d+\s*岁', question):
         return None
@@ -1025,10 +1101,110 @@ class Builder:
                 unique.append(min(versions, key=lambda r: (priority[r['provenance']['split']], r['id'])))
             self.pools[task] = unique
 
+    def privacy_and_sepsis(self):
+        source = 'meddocan'
+        name = 'meddocan__corpus.zip'
+        with zipfile.ZipFile(self.path(name)) as archive:
+            for member in sorted(archive.namelist()):
+                if '/corpus/test/brat/' not in member or not member.endswith('.ann'):
+                    continue
+                text = archive.read(member[:-4] + '.txt').decode('utf-8')
+                annotations = archive.read(member).decode('utf-8')
+                entities, _ = brat(annotations)
+                # Reject partial parsing rather than assigning a false outside label.
+                if len(entities) != sum(line.startswith('T') for line in annotations.splitlines()):
+                    self.exclusions['meddocan:unparsed_document'] += 1
+                    continue
+                candidates = privacy_token_candidates(text, entities)
+                group = Path(member).stem
+                for gold in ['yes', 'no']:
+                    pool = [c for c in candidates if c['gold'] == gold]
+                    if not pool:
+                        continue
+                    c = min(pool, key=lambda x: digest([SEED, source, group, x['start'], x['end']]))
+                    self.add('privacy_candidate', source, f"{group}:{c['start']}:{c['end']}", group,
+                             {'clinical_text': text, 'target': {k: c[k] for k in ['text', 'start', 'end']},
+                              'annotation_scope': 'MEDDOCAN PHI: patient and professional names, ages, sex, dates, addresses, locations, institutions, contact details and identifiers. Judge this target token in context.'},
+                             {'yes': 'Inside a PHI span under MEDDOCAN annotation rules',
+                              'no': 'Outside all PHI spans under MEDDOCAN annotation rules'}, gold,
+                             name, {'annotation_member': member, 'text_member': member[:-4] + '.txt',
+                                    'start': c['start'], 'end': c['end'], 'annotation_ids': c['annotation_ids']},
+                             'official_test', language='es',
+                             label_mapping='fully contained in upstream PHI span vs closed-world outside; crossing tokens excluded',
+                             candidate_unit='word_token', original_document_id=group)
+        source = 'sepsis2019'
+        for name in self.sources[source]['resources']:
+            if not name.endswith('.psv'):
+                continue
+            rows = list(csv.DictReader(io.StringIO(self.path(name).read_text()), delimiter='|'))
+            gold = sepsis_at_24h(rows)
+            if gold is None:
+                self.exclusions['sepsis2019:outside_landmark_cohort_or_invalid'] += 1
+                continue
+            history = [{'hour': i, **{k: None if r[k] == 'NaN' else float(r[k])
+                                      for k in SEPSIS_FEATURES}} for i, r in enumerate(rows[:12], 1)]
+            if not any(r[k] is not None for r in history for k in ['HR', 'SBP', 'Resp', 'Temp']):
+                self.exclusions['sepsis2019:no_observed_vitals_before_landmark'] += 1
+                continue
+            uid = name.removeprefix('sepsis2019__').removesuffix('.psv')
+            self.add('deterioration_prediction', source, uid, uid,
+                     {'prediction_hour': 12, 'outcome_window_hours': {'after': 12, 'through': 24},
+                      'hourly_observations': history, 'feature_definitions': SEPSIS_FEATURES,
+                      'missing_value_meaning': 'null = no recorded measurement; no imputation'},
+                     {'yes': 'Challenge-defined sepsis onset occurs in hours (12,24]',
+                      'no': 'No challenge-defined sepsis onset in hours (12,24]'}, gold,
+                     name, {'input_data_rows_one_based': [1, 12], 'outcome_column': 'SepsisLabel',
+                            'onset_mapping': 'first positive row hour + 6; initial positive excluded',
+                            'followup_requirement': 'observed through inferred onset or hour 24'},
+                     'upstream_train_reserved_for_local_evaluation',
+                     prediction_protocol='icu12h_onset_by24h_v1', upstream_hospital='A',
+                     candidate_frame='1000 records selected by fixed filename hash before reading labels',
+                     cohort='complete hours 1-12; follow-up through onset or hour 24; no onset by hour 12; first label not positive',
+                     label_mapping='source six-hour-advanced label converted to inferred onset; not independent physician adjudication')
+
+    def reference_ranges(self):
+        source, name = 'labqar', 'labqar__Set_1.json'
+        groups = collections.defaultdict(list)
+        for index, row in enumerate(json.loads(self.path(name).read_text())):
+            context = labqar_context(row['Question'])
+            answer = row['Answer'].strip()
+            if context is None or not re.fullmatch(r'(?:[<>≤≥]=?\s*\d+(?:\.\d+)?|\d+(?:\.\d+)?\s*[-–]\s*\d+(?:\.\d+)?)', answer):
+                self.exclusions['labqar:unparsed_context_or_noninterval'] += 1
+                continue
+            key = (context['test'], context['unit'], context['category'])
+            groups[key].append((index, row, context, answer))
+        for key, rows in groups.items():
+            by_context = collections.defaultdict(set)
+            for _, _, context, answer in rows:
+                by_context[dumps(context)].add(answer)
+            clean = [r for r in rows if len(by_context[dumps(r[2])]) == 1]
+            self.exclusions['labqar:conflicting_context_rows'] += len(rows) - len(clean)
+            ranges = sorted({r[3] for r in clean})
+            if len(ranges) < 2:
+                self.exclusions['labqar:no_alternative_interval'] += len(clean)
+                continue
+            references = sorted({dumps({**r[2], 'range': r[3]}) for r in clean})
+            criteria = {f'range_{i}': answer + ' ' + key[1] for i, answer in enumerate(ranges)}
+            for index, row, context, answer in clean:
+                self.add('reference_range', source, row['ID'], digest([key[0], key[2]])[:20],
+                         {'target_context': context, 'reference_entries': [json.loads(x) for x in references],
+                          'rule': 'Select the interval matching the target context in these source reference entries; do not infer a diagnosis or apply it as a universal laboratory standard.'},
+                         criteria, f'range_{ranges.index(answer)}', name,
+                         {'json_index': index, 'upstream_id': row['ID'],
+                          'reference_json_indices': sorted(r[0] for r in clean)},
+                         'published_corpus_reserved_for_evaluation', stratum='context_matching',
+                         original_question=row['Question'], original_answer=row['Answer'],
+                         label_mapping='original Set 1 answer -> fixed candidate intervals for same test, unit and category',
+                         coverage='population/specimen/condition matching; no unknown or method-specific validation cases')
+
     def run(self):
         for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams", "relation_expansion", "e3c_attributes", "care_triage", "clinical_outcomes", "chinese_decision_expansion", "cnmle_decision_expansion"]:
             getattr(self, name)()
             print("Prepared", name, flush=True)
+        self.privacy_and_sepsis()
+        print('Prepared privacy_and_sepsis', flush=True)
+        self.reference_ranges()
+        print('Prepared reference_ranges', flush=True)
         return self.pools
 
 
@@ -1198,6 +1374,8 @@ def generate_docs(output, builder, summary):
                          f"数据许可：[{source['data_license']}]({source['license_url']})；分发类别：`{source['distribution']}`。\n",
                          "材料性质：" + source["authenticity"] + "\n", "答案依据：" + source["gold_provenance"] + "\n",
                          "许可与来源快照：" + "、".join(f"[{Path(p).name}]({p})" for p in source["license_evidence"]) + "。\n"]
+        if source.get('evaluation_limits'):
+            source_lines.append('评测范围：' + source['evaluation_limits'] + '\n')
     (output / "SOURCES.md").write_text("\n".join(source_lines))
     lines = [f"# Jev 医疗决策评测集 v{summary['version']}\n",
              "给定医疗材料、规则或候选项，评估可明确计分的分类、状态、关系、证据和方案选择。每题只有一个决策输出，使用 Jev `choice` 请求格式；不要求生成病历、建议或解释。\n",
@@ -1205,7 +1383,7 @@ def generate_docs(output, builder, summary):
              f"开放许可核心部分 {summary['distribution_counts'].get('open', 0):,} 题；非商业研究附加部分 {summary['distribution_counts'].get('research_noncommercial', 0):,} 题。当前 {sum(s['records'] > 0 for s in summary['scenarios'])} 个场景有题目，不代表场景工作流完整覆盖；语言分布为 " + "、".join(f"{lang} {count:,} 题" for lang, count in sorted(summary['languages'].items())) + "。\n",
              "[全部题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl) · [来源与许可](SOURCES.md) · [场景任务定义](taxonomy.json) · [按场景寻找数据](SCENARIO_RESEARCH.md) · [构建统计](summary.json)\n",
              "**[下载独立数据包](../../releases/README.md)**：开放核心包和非商业研究附加包分别交付，内含题目、答案、逐题溯源索引、原许可、格式说明及校验/评分工具。每道题可通过 `id → 原始资源版本与哈希 → 标注位置 → 转换代码` 回查。\n",
-             "主目录按医疗场景 → 决策任务组织。每个任务只有一个 `primary_scenario`；原九个能力维度作为 `ability_tags`，允许多标签但不重复计算题目。`dimension` 保留为主要能力，兼容旧分析。材料判断、临床候选选择和结局预测分别报告；当前预测任务尚未收题。\n",
+             "主目录按医疗场景 → 决策任务组织。每个任务只有一个 `primary_scenario`；原九个能力维度作为 `ability_tags`，允许多标签但不重复计算题目。`dimension` 保留为主要能力，兼容旧分析。材料判断、临床候选选择和结局预测分别报告。\n",
              "## 场景覆盖\n", "| 场景 | 有题任务 / 定义任务 | 题数 |", "| --- | ---: | ---: |"]
     for scene in summary["scenarios"]:
         lines.append(f"| {scene['title']} | {scene['populated_tasks']} / {scene['defined_tasks']} | {scene['records']} |")
@@ -1230,6 +1408,7 @@ def generate_docs(output, builder, summary):
               "v0.4.0 增加 E3C、CT-EBM-SP、CARE-Bench 及 UCI 结构化来源，并扩展原 MACCROBAT 和中文病例题。每任务目标 100 题；不足部分保留实际数量，不填充。E3C/CT-EBM-SP 为材料属性或关系判断，CARE-Bench 为来源约束的重构分诊任务，UCI 结局预测与行动标签分别报告，不能将它们全部解释为诊疗方案能力。\n",
               "新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。\n",
               "[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。\n",
+              "v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。\n",
               "## 训练隔离与历史使用\n",
               f"[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；{summary['historical_material_matches']} 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。\n",
               "该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。\n",
@@ -1241,7 +1420,7 @@ def generate_docs(output, builder, summary):
               "python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/decision-scores.json",
               "```\n",
               "`fetch` 按 sources.lock.json 下载并核验源文件，`build` 使用已冻结的训练筛查索引复建；不重新生成答案。刷新本地筛查使用 `index` 子命令，刷新后重建将形成不同内容的版本，需复核并更新版本号。\n",
-              "默认导出及计分只包含 `open` 部分。研究用途需要显式加 `--include-research`，才纳入 DDI 和 TCM-SD；相应题目仍受非商业及相同方式共享等原许可约束。\n",
+              "默认导出及计分只包含 `open` 部分。研究用途需要显式加 `--include-research`，才纳入 DDI、TCM-SD、E3C、CT-EBM-SP、CARE-Bench；相应题目仍受非商业及相同方式共享等原许可约束。\n",
               "模型只接收 `request`（按 API 需要另加 model）；不要发送 gold、provenance、metadata 或来源定位。预测文件每行格式：\n", "```json",
               '{"id":"样本完整 ID","choice":"选项键"}', "```\n",
               "也接受 `{\"id\":\"样本完整 ID\",\"response\":{\"answers\":{\"decision\":{\"choice\":\"选项键\"}}}}`。缺失、格式错误和不在选项内的回答按错计；重复或未知 ID 会使计分失败。\n",
