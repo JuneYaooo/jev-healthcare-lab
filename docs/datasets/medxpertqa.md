@@ -11,6 +11,7 @@
 | 来源 ID | `medxpertqa` |
 | 上游入口 | [发布方页面](https://github.com/TsinghuaC3I/MedXpertQA) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | MIT（数据卡）；论文另要求不在线分享题例 |
 | 收录语种 | 无收录题目 |
@@ -37,7 +38,7 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [临床病例候选诊断](../tasks/diagnosis_choice.md) | 从给定诊断候选中选择最符合病例者。 |
+| [病例诊断选择：考试病例子集](../tasks/diagnosis_choice.md) | 从给定诊断候选中选择最符合病例者。 |
 | [检查方案选择](../tasks/examination_choice.md) | 根据病例从给定候选中选择检查。 |
 | [治疗方案选择](../tasks/treatment_choice.md) | 根据病例从给定候选中选择治疗。 |
 | [用药方案选择](../tasks/medication_choice.md) | 根据病例从给定候选中选择用药。 |

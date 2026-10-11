@@ -11,7 +11,8 @@ This dataset contains the medical records of 299 patients who had heart failure,
 | 来源 ID | `uci_heart_failure` |
 | 上游入口 | [发布方页面](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records) |
 | 收录情况 | 100 题 / 1 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 100 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC-BY-4.0 |
 | 收录语种 | 英语 100 题 |
 
@@ -25,9 +26,9 @@ Ahmad et al.; Chicco and Jurman; UCI
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [90 日死亡结局预测](../tasks/mortality_90d.md) | 100 | 根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [心衰患者 90 日死亡结局预测](../tasks/mortality_90d.md) | 辅助评测（不计临床主分数） | 100 | 根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。 |
 
 ## 答案与格式转换
 
@@ -167,7 +168,7 @@ Ahmad et al.; Chicco and Jurman; UCI
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[90 日死亡结局预测](../tasks/mortality_90d.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[心衰患者 90 日死亡结局预测](../tasks/mortality_90d.md)。
 
 ## 追溯与使用
 

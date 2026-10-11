@@ -11,6 +11,7 @@
 | 来源 ID | `care_bench` |
 | 上游入口 | [发布方页面](https://github.com/ningkko/CARE-bench) |
 | 收录情况 | 100 题 / 1 个任务 |
+| 评测用途 | 临床主评测 100 题 |
 | 使用范围 | 非商业研究附加集 |
 | 登记的数据许可 | CC-BY-NC-4.0 |
 | 收录语种 | 英语 100 题 |
@@ -25,9 +26,9 @@ CARE-Bench authors / ningkko
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [当前分诊与升级行动](../tasks/triage_urgency.md) | 100 | 仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [分诊与就医紧急程度判断](../tasks/triage_urgency.md) | 临床主评测 | 100 | 仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。 |
 
 ## 答案与格式转换
 
@@ -118,7 +119,7 @@ CARE-Bench authors / ningkko
 
 Only disclosed patient turns; no reference response, future turns, or construction metadata.
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[当前分诊与升级行动](../tasks/triage_urgency.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[分诊与就医紧急程度判断](../tasks/triage_urgency.md)。
 
 ## 相关任务调研
 
@@ -126,8 +127,8 @@ Only disclosed patient turns; no reference response, future turns, or constructi
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [决策资料充分性](../tasks/input_sufficiency.md) | 判断给定临床记录是否包含回答目标问题的证据；当前以 LongHealth 缺失证据协议覆盖记录信息充分性，不覆盖计算缺项或冲突消解。 |
-| [危急结果与人工升级](../tasks/critical_result_escalation.md) | 根据明确规则选择无需升级、复核或立即升级。 |
+| [目标患者回答证据是否出现（需重建）](../tasks/input_sufficiency.md) | 判断给定临床记录是否包含回答目标问题的证据；当前以 LongHealth 缺失证据协议覆盖记录信息充分性，不覆盖计算缺项或冲突消解。 |
+| [危急检验结果处置选择](../tasks/critical_result_escalation.md) | 根据明确规则选择无需升级、复核或立即升级。 |
 
 ## 追溯与使用
 

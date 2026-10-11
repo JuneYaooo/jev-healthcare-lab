@@ -11,6 +11,7 @@
 | 来源 ID | `fhir_workflow` |
 | 上游入口 | [发布方页面](https://hl7.org/fhir/R4/) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | 标准文档许可；不是病例标注集 |
 | 收录语种 | 无收录题目 |
@@ -37,11 +38,11 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [诊断核实状态](../tasks/diagnosis_verification.md) | 区分疑似、确诊、排除与未明确。 |
-| [标本身份与来源链](../tasks/specimen_lineage.md) | 区分同一实物、派生关系、无关系和信息不足。 |
-| [医疗操作进度](../tasks/procedure_progress.md) | 区分计划、进行、完成、取消及目标未达成。 |
-| [单次给药执行状态](../tasks/administration_status.md) | 判断已开医嘱、已配药、已给入或未执行。 |
-| [报告阶段与效力](../tasks/report_stage.md) | 区分初步、最终、补充、更正及作废报告。 |
+| [病历诊断记录状态核对](../tasks/diagnosis_verification.md) | 区分疑似、确诊、排除与未明确。 |
+| [标本来源关系核对](../tasks/specimen_lineage.md) | 区分同一实物、派生关系、无关系和信息不足。 |
+| [医疗操作记录状态核对](../tasks/procedure_progress.md) | 区分计划、进行、完成、取消及目标未达成。 |
+| [给药执行记录状态核对](../tasks/administration_status.md) | 判断已开医嘱、已配药、已给入或未执行。 |
+| [报告状态核对](../tasks/report_stage.md) | 区分初步、最终、补充、更正及作废报告。 |
 
 ## 追溯与使用
 

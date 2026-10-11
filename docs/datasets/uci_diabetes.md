@@ -12,7 +12,8 @@ The problem is important for the following reasons. Despite high-quality evidenc
 | 来源 ID | `uci_diabetes` |
 | 上游入口 | [发布方页面](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) |
 | 收录情况 | 100 题 / 1 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 100 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC-BY-4.0 |
 | 收录语种 | 英语 100 题 |
 
@@ -26,9 +27,9 @@ John Clore, Krzysztof Cios, Jon DeShazo, Beata Strack
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [出院后 30 天内再入院预测](../tasks/readmission_30d.md) | 100 | 根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [糖尿病患者回家后 30 天再入院预测](../tasks/readmission_30d.md) | 辅助评测（不计临床主分数） | 100 | 根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。 |
 
 ## 答案与格式转换
 
@@ -348,7 +349,7 @@ John Clore, Krzysztof Cios, Jon DeShazo, Beata Strack
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[出院后 30 天内再入院预测](../tasks/readmission_30d.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[糖尿病患者回家后 30 天再入院预测](../tasks/readmission_30d.md)。
 
 ## 追溯与使用
 

@@ -11,7 +11,8 @@
 | 来源 ID | `sepsis2019` |
 | 上游入口 | [发布方页面](https://physionet.org/content/challenge-2019/1.0.0/) |
 | 收录情况 | 100 题 / 1 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 100 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC-BY-4.0 |
 | 收录语种 | 英语 100 题 |
 
@@ -29,9 +30,9 @@ Reyna et al. (2019), Early Prediction of Sepsis From Clinical Data: The PhysioNe
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [脓毒症提前预警](../tasks/deterioration_prediction.md) | 100 | 仅使用 ICU 前 12 小时的记录，判断按挑战定义的脓毒症起病是否发生在第 12 小时之后至第 24 小时（含）。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [脓毒症发生风险预测](../tasks/deterioration_prediction.md) | 辅助评测（不计临床主分数） | 100 | 仅使用 ICU 前 12 小时的记录，判断按挑战定义的脓毒症起病是否发生在第 12 小时之后至第 24 小时（含）。 |
 
 ## 答案与格式转换
 
@@ -394,7 +395,7 @@ Reyna et al. (2019), Early Prediction of Sepsis From Clinical Data: The PhysioNe
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[脓毒症提前预警](../tasks/deterioration_prediction.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[脓毒症发生风险预测](../tasks/deterioration_prediction.md)。
 
 ## 追溯与使用
 

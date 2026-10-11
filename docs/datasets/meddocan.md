@@ -11,7 +11,8 @@
 | 来源 ID | `meddocan` |
 | 上游入口 | [发布方页面](https://github.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN) |
 | 收录情况 | 100 题 / 1 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 100 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC-BY-4.0 |
 | 收录语种 | 西班牙语 100 题 |
 
@@ -29,9 +30,9 @@ Marimon et al. (2019), Automatic De-identification of Medical Texts in Spanish: 
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [医疗材料隐私候选](../tasks/privacy_candidate.md) | 100 | 给定目标片段，判断是否属于需处理的个人标识。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [医疗文本个人标识识别](../tasks/privacy_candidate.md) | 辅助评测（不计临床主分数） | 100 | 给定目标片段，判断是否属于需处理的个人标识。 |
 
 ## 答案与格式转换
 
@@ -121,7 +122,7 @@ Marimon et al. (2019), Automatic De-identification of Medical Texts in Spanish: 
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[医疗材料隐私候选](../tasks/privacy_candidate.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[医疗文本个人标识识别](../tasks/privacy_candidate.md)。
 
 ## 追溯与使用
 

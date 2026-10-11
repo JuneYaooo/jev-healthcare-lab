@@ -11,7 +11,8 @@ CPIC 专家整理的功能到表型映射和基因结果用药建议表，不是
 | 来源 ID | `cpic` |
 | 上游入口 | [发布方页面](https://www.clinpgx.org/cpic) |
 | 收录情况 | 184 题 / 2 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 84 题、临床主评测 100 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC0-1.0 |
 | 收录语种 | 英语 184 题 |
 
@@ -29,10 +30,10 @@ Clinical Pharmacogenetics Implementation Consortium (CPIC), curated database API
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [药物基因检测功能表型判定](../tasks/pgx_function_phenotype.md) | 84 | 给定基因、等位基因功能或活性分值，选择 CPIC 固定快照对应的功能表型或等位基因状态。 |
-| [药物基因结果用药建议匹配](../tasks/pgx_guideline_recommendation.md) | 100 | 给定药物、人群及基因结果，选择 CPIC 固定快照中对应的原始用药建议；不外推为完整个体处方。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [药物基因功能表型映射](../tasks/pgx_function_phenotype.md) | 辅助评测（不计临床主分数） | 84 | 给定基因、等位基因功能或活性分值，选择 CPIC 固定快照对应的功能表型或等位基因状态。 |
+| [药物基因结果对应的指南建议选择](../tasks/pgx_guideline_recommendation.md) | 临床主评测 | 100 | 给定药物、人群及基因结果，选择 CPIC 固定快照中对应的原始用药建议；不外推为完整个体处方。 |
 
 ## 答案与格式转换
 
@@ -121,7 +122,7 @@ Clinical Pharmacogenetics Implementation Consortium (CPIC), curated database API
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[药物基因结果用药建议匹配](../tasks/pgx_guideline_recommendation.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[药物基因结果对应的指南建议选择](../tasks/pgx_guideline_recommendation.md)。
 
 ## 追溯与使用
 

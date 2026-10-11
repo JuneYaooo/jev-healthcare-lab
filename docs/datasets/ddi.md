@@ -11,6 +11,7 @@ DrugBank / MEDLINE 文本，不是患者处方。
 | 来源 ID | `ddi` |
 | 上游入口 | [发布方页面](https://github.com/isegura/DDICorpus) |
 | 收录情况 | 100 题 / 1 个任务 |
+| 评测用途 | 辅助评测（不计临床主分数） 100 题 |
 | 使用范围 | 非商业研究附加集 |
 | 登记的数据许可 | CC-BY-NC-4.0 |
 | 收录语种 | 英语 100 题 |
@@ -25,9 +26,9 @@ Herrero-Zazo, Segura-Bedmar, Martinez and Declerck (2013)
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [药物相互作用关系](../tasks/drug_interaction.md) | 100 | 给定药物对，判断无关系或原文标注的相互作用类型。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [文本药物相互作用关系识别](../tasks/drug_interaction.md) | 辅助评测（不计临床主分数） | 100 | 给定药物对，判断无关系或原文标注的相互作用类型。 |
 
 ## 答案与格式转换
 
@@ -111,7 +112,7 @@ Herrero-Zazo, Segura-Bedmar, Martinez and Declerck (2013)
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[药物相互作用关系](../tasks/drug_interaction.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[文本药物相互作用关系识别](../tasks/drug_interaction.md)。
 
 ## 追溯与使用
 

@@ -11,7 +11,8 @@
 | 来源 ID | `medmcqa` |
 | 上游入口 | [发布方页面](https://huggingface.co/datasets/openlifescienceai/medmcqa) |
 | 收录情况 | 2 题 / 2 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 临床主评测 2 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | Apache-2.0 |
 | 收录语种 | 英语 2 题 |
 
@@ -29,10 +30,10 @@ Pal, Umapathi and Sankarasubbu (2022)
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [随访方案选择](../tasks/followup_plan.md) | 1 | 根据完整病例选择复查项目或随访时机；不等同待办是否完成或逾期。 |
-| [个体预防方案选择](../tasks/prevention_choice.md) | 1 | 根据病例、暴露或复发风险，选择预防行动；不评价预防等级概念。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [复查项目与随访时机选择](../tasks/followup_plan.md) | 临床主评测 | 1 | 根据完整病例选择复查项目或随访时机；不等同待办是否完成或逾期。 |
+| [预防措施选择](../tasks/prevention_choice.md) | 临床主评测 | 1 | 根据病例、暴露或复发风险，选择预防行动；不评价预防等级概念。 |
 
 ## 答案与格式转换
 
@@ -114,7 +115,7 @@ Pal, Umapathi and Sankarasubbu (2022)
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[个体预防方案选择](../tasks/prevention_choice.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[预防措施选择](../tasks/prevention_choice.md)。
 
 ## 相关任务调研
 
@@ -122,7 +123,7 @@ Pal, Umapathi and Sankarasubbu (2022)
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [临床病例候选诊断](../tasks/diagnosis_choice.md) | 从给定诊断候选中选择最符合病例者。 |
+| [病例诊断选择：考试病例子集](../tasks/diagnosis_choice.md) | 从给定诊断候选中选择最符合病例者。 |
 | [检查方案选择](../tasks/examination_choice.md) | 根据病例从给定候选中选择检查。 |
 | [治疗方案选择](../tasks/treatment_choice.md) | 根据病例从给定候选中选择治疗。 |
 | [用药方案选择](../tasks/medication_choice.md) | 根据病例从给定候选中选择用药。 |

@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import unittest
+from frozen_records import assert_frozen_records
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,15 +20,7 @@ class ExpansionTests(unittest.TestCase):
         cls.rows = list(b.read_jsonl(DATA / 'samples.jsonl'))
 
     def test_full_v070_records_unchanged(self):
-        current = {r['id']: r for r in self.rows}
-        count = 0
-        for path in (ROOT / 'releases').glob('*v0.7.0-*.zip'):
-            with zipfile.ZipFile(path) as z:
-                for line in z.read(next(n for n in z.namelist() if n.endswith('/samples.jsonl'))).splitlines():
-                    row = json.loads(line)
-                    self.assertEqual(current[row['id']], row)
-                    count += 1
-        self.assertEqual(count, 5726)
+        assert_frozen_records(self, self.rows, '0.7.0', 5726)
 
     def test_message_pairs_keep_order_gold_and_disjoint_materials(self):
         rows = [r for r in self.rows if r['task'] == 'message_urgency_pair']

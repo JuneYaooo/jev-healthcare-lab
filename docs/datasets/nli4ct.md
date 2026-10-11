@@ -11,6 +11,7 @@ ClinicalTrials.gov 试验材料配专家撰写论断。
 | 来源 ID | `nli4ct` |
 | 上游入口 | [发布方页面](https://github.com/ai-systems/nli4ct) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | 原发布仓库未明确数据再分发许可；不以参与团队代码 MIT 替代 |
 | 收录语种 | 无收录题目 |
@@ -37,7 +38,7 @@ ClinicalTrials.gov 试验材料配专家撰写论断。
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [病历论断支持关系](../tasks/clinical_statement_support.md) | 给定临床记录和论断，判断支持、矛盾或无法确定。 |
+| [病历论断一致性判断](../tasks/clinical_statement_support.md) | 给定临床记录和论断，判断支持、矛盾或无法确定。 |
 
 ## 追溯与使用
 

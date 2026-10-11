@@ -11,6 +11,7 @@ MIMIC-III 出院记录，部分脱敏占位替换为合成信息。
 | 来源 ID | `clip` |
 | 上游入口 | [发布方页面](https://physionet.org/content/mimic-iii-clinical-action/1.0.0/) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | PhysioNet Credentialed Health Data License 1.5.0 |
 | 收录语种 | 无收录题目 |
@@ -37,8 +38,8 @@ MIMIC-III 出院记录，部分脱敏占位替换为合成信息。
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [随访行动与完成状态](../tasks/followup_action.md) | 从固定候选中选择待办行动并判断是否完成或逾期。 |
-| [出院待办行动类别](../tasks/followup_item_type.md) | 给定出院文书片段，判断是否有待办及所属复诊、检验、影像、用药等类别。 |
+| [随访待办与完成状态核对](../tasks/followup_action.md) | 从固定候选中选择待办行动并判断是否完成或逾期。 |
+| [出院文书待办类别识别](../tasks/followup_item_type.md) | 给定出院文书片段，判断是否有待办及所属复诊、检验、影像、用药等类别。 |
 
 ## 追溯与使用
 

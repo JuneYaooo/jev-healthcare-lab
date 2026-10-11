@@ -11,6 +11,7 @@
 | 来源 ID | `openfda` |
 | 上游入口 | [发布方页面](https://open.fda.gov/apis/drug/label/) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | 未确认；不据此再分发数据 |
 | 收录语种 | 无收录题目 |
@@ -37,9 +38,9 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [患者特异性禁忌选择](../tasks/patient_contraindication.md) | 根据病例从原选项中选择不宜使用或禁忌的药物、检查或治疗方案。 |
-| [剂量适宜性](../tasks/dose_appropriateness.md) | 给定药品规则及患者肝肾功能等，判断剂量是否适宜。 |
-| [危急结果与人工升级](../tasks/critical_result_escalation.md) | 根据明确规则选择无需升级、复核或立即升级。 |
+| [患者方案禁忌判断](../tasks/patient_contraindication.md) | 根据病例从原选项中选择不宜使用或禁忌的药物、检查或治疗方案。 |
+| [患者剂量适宜性判断](../tasks/dose_appropriateness.md) | 给定药品规则及患者肝肾功能等，判断剂量是否适宜。 |
+| [危急检验结果处置选择](../tasks/critical_result_escalation.md) | 根据明确规则选择无需升级、复核或立即升级。 |
 
 ## 追溯与使用
 

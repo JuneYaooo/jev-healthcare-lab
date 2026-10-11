@@ -11,6 +11,7 @@
 | 来源 ID | `medjourney` |
 | 上游入口 | [发布方页面](https://github.com/Medical-AI-Learning/MedJourney) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | 未确认；不据此再分发数据 |
 | 收录语种 | 无收录题目 |
@@ -37,11 +38,11 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [临床病例候选诊断](../tasks/diagnosis_choice.md) | 从给定诊断候选中选择最符合病例者。 |
+| [病例诊断选择：考试病例子集](../tasks/diagnosis_choice.md) | 从给定诊断候选中选择最符合病例者。 |
 | [检查方案选择](../tasks/examination_choice.md) | 根据病例从给定候选中选择检查。 |
 | [治疗方案选择](../tasks/treatment_choice.md) | 根据病例从给定候选中选择治疗。 |
 | [用药方案选择](../tasks/medication_choice.md) | 根据病例从给定候选中选择用药。 |
-| [候选科室分流](../tasks/department_routing.md) | 根据就诊主诉从固定科室表选择适合的首诊科室。 |
+| [首诊科室选择](../tasks/department_routing.md) | 根据就诊主诉从固定科室表选择适合的首诊科室。 |
 
 ## 追溯与使用
 

@@ -11,6 +11,7 @@ MIMIC-III 病历前提配临床医生撰写的推论。
 | 来源 ID | `mednli` |
 | 上游入口 | [发布方页面](https://physionet.org/content/mednli/1.0.0/) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | PhysioNet Credentialed Health Data License 1.5.0 |
 | 收录语种 | 无收录题目 |
@@ -37,7 +38,7 @@ MIMIC-III 病历前提配临床医生撰写的推论。
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [病历论断支持关系](../tasks/clinical_statement_support.md) | 给定临床记录和论断，判断支持、矛盾或无法确定。 |
+| [病历论断一致性判断](../tasks/clinical_statement_support.md) | 给定临床记录和论断，判断支持、矛盾或无法确定。 |
 
 ## 追溯与使用
 

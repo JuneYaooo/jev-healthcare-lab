@@ -1,0 +1,1972 @@
+{
+  "clinical": {
+    "defined_families": 29,
+    "populated_families": 26,
+    "records": 1514,
+    "distribution": {
+      "open": 1284,
+      "research_noncommercial": 230
+    },
+    "languages": {
+      "zh": 1080,
+      "en": 434
+    },
+    "sources": {
+      "cmb": 454,
+      "cnmleqa": 426,
+      "trialgpt": 100,
+      "care_bench": 100,
+      "ddxplus": 100,
+      "tcm_sd": 100,
+      "pmr_synth": 30,
+      "cpic": 100,
+      "tcmeval_sdt": 100,
+      "medmcqa": 2,
+      "principlismqa": 2
+    },
+    "families": [
+      {
+        "id": "clinical_grade",
+        "title": "疾病分期与严重程度判断",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "clinical_grade"
+        ],
+        "ability_tags": [
+          "rules"
+        ],
+        "records": 100,
+        "sources": {
+          "cmb": 70,
+          "cnmleqa": 30
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "trial_referral",
+        "title": "患者临床试验初筛与转介判断",
+        "scenario": "trials",
+        "task_ids": [
+          "trial_referral"
+        ],
+        "ability_tags": [
+          "eligibility",
+          "evidence"
+        ],
+        "records": 100,
+        "sources": {
+          "trialgpt": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "patient_contraindication",
+        "title": "患者方案禁忌判断",
+        "scenario": "treatment",
+        "task_ids": [
+          "patient_contraindication"
+        ],
+        "ability_tags": [
+          "eligibility"
+        ],
+        "records": 54,
+        "sources": {
+          "cnmleqa": 21,
+          "cmb": 33
+        },
+        "languages": {
+          "zh": 54
+        },
+        "distribution": {
+          "open": 54
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "dose_appropriateness",
+        "title": "患者剂量适宜性判断",
+        "scenario": "treatment",
+        "task_ids": [
+          "dose_appropriateness"
+        ],
+        "ability_tags": [
+          "eligibility"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "triage_urgency",
+        "title": "分诊与就医紧急程度判断",
+        "scenario": "intake",
+        "task_ids": [
+          "triage_urgency"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "care_bench": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "critical_result_escalation",
+        "title": "危急检验结果处置选择",
+        "scenario": "testing",
+        "task_ids": [
+          "critical_result_escalation"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "diagnosis",
+        "title": "病例诊断选择",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "synthetic_diagnosis",
+          "diagnosis_choice"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 200,
+        "sources": {
+          "ddxplus": 100,
+          "cmb": 50,
+          "cnmleqa": 50
+        },
+        "languages": {
+          "en": 100,
+          "zh": 100
+        },
+        "distribution": {
+          "open": 200
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "examination_choice",
+        "title": "检查方案选择",
+        "scenario": "testing",
+        "task_ids": [
+          "examination_choice"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 100,
+        "sources": {
+          "cnmleqa": 81,
+          "cmb": 19
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "treatment_choice",
+        "title": "治疗方案选择",
+        "scenario": "treatment",
+        "task_ids": [
+          "treatment_choice"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 100,
+        "sources": {
+          "cmb": 46,
+          "cnmleqa": 54
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "medication_choice",
+        "title": "用药方案选择",
+        "scenario": "treatment",
+        "task_ids": [
+          "medication_choice"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 100,
+        "sources": {
+          "cnmleqa": 88,
+          "cmb": 12
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "tcm_syndrome",
+        "title": "中医证型判断",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "tcm_syndrome"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 100,
+        "sources": {
+          "tcm_sd": 100
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "department_routing",
+        "title": "首诊科室选择",
+        "scenario": "intake",
+        "task_ids": [
+          "department_routing"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "message_urgency_pair",
+        "title": "患者消息处理优先级",
+        "scenario": "intake",
+        "task_ids": [
+          "message_urgency_pair"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 30,
+        "sources": {
+          "pmr_synth": 30
+        },
+        "languages": {
+          "en": 30
+        },
+        "distribution": {
+          "research_noncommercial": 30
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "case_etiology",
+        "title": "病例病因判断",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "case_etiology"
+        ],
+        "ability_tags": [
+          "clinical"
+        ],
+        "records": 100,
+        "sources": {
+          "cnmleqa": 50,
+          "cmb": 50
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "case_complication",
+        "title": "病例并发症判断",
+        "scenario": "inpatient",
+        "task_ids": [
+          "case_complication"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "cnmleqa": 36,
+          "cmb": 64
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "nursing_priority",
+        "title": "护理措施选择",
+        "scenario": "inpatient",
+        "task_ids": [
+          "nursing_priority"
+        ],
+        "ability_tags": [
+          "workflow"
+        ],
+        "records": 42,
+        "sources": {
+          "cmb": 42
+        },
+        "languages": {
+          "zh": 42
+        },
+        "distribution": {
+          "open": 42
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "fluid_plan",
+        "title": "补液方案选择",
+        "scenario": "treatment",
+        "task_ids": [
+          "fluid_plan"
+        ],
+        "ability_tags": [
+          "rules"
+        ],
+        "records": 16,
+        "sources": {
+          "cmb": 9,
+          "cnmleqa": 7
+        },
+        "languages": {
+          "zh": 16
+        },
+        "distribution": {
+          "open": 16
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "pgx_guideline_recommendation",
+        "title": "药物基因结果对应的指南建议选择",
+        "scenario": "treatment",
+        "task_ids": [
+          "pgx_guideline_recommendation"
+        ],
+        "ability_tags": [
+          "eligibility"
+        ],
+        "records": 100,
+        "sources": {
+          "cpic": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "tcm_pathogenesis_candidate",
+        "title": "中医候选病机判断",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "tcm_pathogenesis_candidate"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 100,
+        "sources": {
+          "tcmeval_sdt": 100
+        },
+        "languages": {
+          "zh": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "nutrition_plan",
+        "title": "营养与饮食方案选择",
+        "scenario": "inpatient",
+        "task_ids": [
+          "nutrition_plan"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 11,
+        "sources": {
+          "cmb": 10,
+          "cnmleqa": 1
+        },
+        "languages": {
+          "zh": 11
+        },
+        "distribution": {
+          "open": 11
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "positioning_choice",
+        "title": "护理与操作体位选择",
+        "scenario": "inpatient",
+        "task_ids": [
+          "positioning_choice"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 10,
+        "sources": {
+          "cnmleqa": 2,
+          "cmb": 8
+        },
+        "languages": {
+          "zh": 10
+        },
+        "distribution": {
+          "open": 10
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "followup_plan",
+        "title": "复查项目与随访时机选择",
+        "scenario": "followup",
+        "task_ids": [
+          "followup_plan"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 6,
+        "sources": {
+          "cmb": 3,
+          "cnmleqa": 2,
+          "medmcqa": 1
+        },
+        "languages": {
+          "zh": 5,
+          "en": 1
+        },
+        "distribution": {
+          "open": 6
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "monitoring_target",
+        "title": "病情监测与疗效判断",
+        "scenario": "inpatient",
+        "task_ids": [
+          "monitoring_target"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 5,
+        "sources": {
+          "cmb": 5
+        },
+        "languages": {
+          "zh": 5
+        },
+        "distribution": {
+          "open": 5
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "rehabilitation_choice",
+        "title": "康复训练方案选择",
+        "scenario": "followup",
+        "task_ids": [
+          "rehabilitation_choice"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 4,
+        "sources": {
+          "cmb": 4
+        },
+        "languages": {
+          "zh": 4
+        },
+        "distribution": {
+          "open": 4
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "prevention_choice",
+        "title": "预防措施选择",
+        "scenario": "followup",
+        "task_ids": [
+          "prevention_choice"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 13,
+        "sources": {
+          "cmb": 10,
+          "cnmleqa": 2,
+          "medmcqa": 1
+        },
+        "languages": {
+          "zh": 12,
+          "en": 1
+        },
+        "distribution": {
+          "open": 13
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "infection_precaution",
+        "title": "感染防控措施选择",
+        "scenario": "inpatient",
+        "task_ids": [
+          "infection_precaution"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 5,
+        "sources": {
+          "cnmleqa": 1,
+          "cmb": 4
+        },
+        "languages": {
+          "zh": 5
+        },
+        "distribution": {
+          "open": 5
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "patient_counseling",
+        "title": "健康教育与沟通行动选择",
+        "scenario": "followup",
+        "task_ids": [
+          "patient_counseling"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 11,
+        "sources": {
+          "cmb": 11
+        },
+        "languages": {
+          "zh": 11
+        },
+        "distribution": {
+          "open": 11
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "administration_route_choice",
+        "title": "给药途径与实施方法选择",
+        "scenario": "treatment",
+        "task_ids": [
+          "administration_route_choice"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 4,
+        "sources": {
+          "cnmleqa": 1,
+          "cmb": 3
+        },
+        "languages": {
+          "zh": 4
+        },
+        "distribution": {
+          "open": 4
+        },
+        "status": "exploratory"
+      },
+      {
+        "id": "consent_action",
+        "title": "知情同意与隐私处置选择",
+        "scenario": "quality",
+        "task_ids": [
+          "consent_action"
+        ],
+        "ability_tags": [
+          "clinical",
+          "workflow"
+        ],
+        "records": 3,
+        "sources": {
+          "principlismqa": 2,
+          "cmb": 1
+        },
+        "languages": {
+          "en": 2,
+          "zh": 1
+        },
+        "distribution": {
+          "open": 3
+        },
+        "status": "exploratory"
+      }
+    ]
+  },
+  "auxiliary": {
+    "defined_families": 58,
+    "populated_families": 45,
+    "records": 4293,
+    "distribution": {
+      "open": 2950,
+      "research_noncommercial": 1343
+    },
+    "languages": {
+      "es": 1058,
+      "en": 3124,
+      "zh": 111
+    },
+    "sources": {
+      "nubes": 100,
+      "ct_ebm_sp": 858,
+      "e3c": 385,
+      "ddi": 100,
+      "maccrobat": 815,
+      "aci_bench": 100,
+      "medquad": 100,
+      "medcalc": 100,
+      "labqar": 172,
+      "longhealth": 100,
+      "medec": 100,
+      "mederr": 100,
+      "scifact": 100,
+      "chia": 300,
+      "frd": 100,
+      "meddocan": 100,
+      "sepsis2019": 100,
+      "uci_diabetes": 100,
+      "uci_heart_failure": 100,
+      "uci_postoperative": 68,
+      "uci_maternal": 100,
+      "cpic": 84,
+      "evidence_inference": 100,
+      "tcmeval_pa": 11
+    },
+    "families": [
+      {
+        "id": "assertion_scope",
+        "title": "临床文本否定与推测识别",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "assertion_scope"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 100,
+        "sources": {
+          "nubes": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "experiencer",
+        "title": "临床文本主体角色识别",
+        "scenario": "intake",
+        "task_ids": [
+          "experiencer"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "temporality",
+        "title": "临床事件相对记录时间标注",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "temporality"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 100,
+        "sources": {
+          "e3c": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "diagnosis_verification",
+        "title": "病历诊断记录状态核对",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "diagnosis_verification"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "medication_status",
+        "title": "用药记录状态核对",
+        "scenario": "treatment",
+        "task_ids": [
+          "medication_status"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "drug_interaction",
+        "title": "文本药物相互作用关系识别",
+        "scenario": "treatment",
+        "task_ids": [
+          "drug_interaction"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ddi": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "lab_link",
+        "title": "检验结果与项目文本关联",
+        "scenario": "testing",
+        "task_ids": [
+          "lab_link"
+        ],
+        "ability_tags": [
+          "evidence",
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "dose_link",
+        "title": "剂量片段与药物文本关联",
+        "scenario": "treatment",
+        "task_ids": [
+          "dose_link"
+        ],
+        "ability_tags": [
+          "evidence",
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "patient_identity",
+        "title": "患者记录身份核对",
+        "scenario": "inpatient",
+        "task_ids": [
+          "patient_identity"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "specimen_lineage",
+        "title": "标本来源关系核对",
+        "scenario": "testing",
+        "task_ids": [
+          "specimen_lineage"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "note_section",
+        "title": "病历章节分类",
+        "scenario": "quality",
+        "task_ids": [
+          "note_section"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 100,
+        "sources": {
+          "aci_bench": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "query_intent",
+        "title": "医疗问句意图分类",
+        "scenario": "intake",
+        "task_ids": [
+          "query_intent"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 100,
+        "sources": {
+          "medquad": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "terminology",
+        "title": "医学术语标准化",
+        "scenario": "quality",
+        "task_ids": [
+          "terminology"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "bounded_score",
+        "title": "临床量表计算",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "bounded_score"
+        ],
+        "ability_tags": [
+          "evidence",
+          "rules"
+        ],
+        "records": 100,
+        "sources": {
+          "medcalc": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "unit_equivalence",
+        "title": "医疗单位换算判断",
+        "scenario": "testing",
+        "task_ids": [
+          "unit_equivalence"
+        ],
+        "ability_tags": [
+          "rules"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "reference_range",
+        "title": "给定参考表的区间匹配",
+        "scenario": "testing",
+        "task_ids": [
+          "reference_range"
+        ],
+        "ability_tags": [
+          "rules"
+        ],
+        "records": 72,
+        "sources": {
+          "labqar": 72
+        },
+        "languages": {
+          "en": 72
+        },
+        "distribution": {
+          "open": 72
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "result_trend",
+        "title": "文本事件变化描述识别",
+        "scenario": "testing",
+        "task_ids": [
+          "result_trend"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "long_record_evidence",
+        "title": "长病历事实检索问答",
+        "scenario": "inpatient",
+        "task_ids": [
+          "long_record_evidence"
+        ],
+        "ability_tags": [
+          "evidence"
+        ],
+        "records": 100,
+        "sources": {
+          "longhealth": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "clinical_error_detection",
+        "title": "病例医学错误检出",
+        "scenario": "quality",
+        "task_ids": [
+          "clinical_error_detection"
+        ],
+        "ability_tags": [
+          "clinical",
+          "evidence"
+        ],
+        "records": 100,
+        "sources": {
+          "medec": 50,
+          "mederr": 50
+        },
+        "languages": {
+          "en": 50,
+          "zh": 50
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "clinical_error_location",
+        "title": "病例医学错误定位",
+        "scenario": "quality",
+        "task_ids": [
+          "clinical_error_location"
+        ],
+        "ability_tags": [
+          "evidence"
+        ],
+        "records": 100,
+        "sources": {
+          "medec": 50,
+          "mederr": 50
+        },
+        "languages": {
+          "en": 50,
+          "zh": 50
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "claim_support",
+        "title": "研究论断与摘要一致性判断",
+        "scenario": "quality",
+        "task_ids": [
+          "claim_support"
+        ],
+        "ability_tags": [
+          "evidence"
+        ],
+        "records": 100,
+        "sources": {
+          "scifact": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "criterion_entity_type",
+        "title": "入排标准实体类型识别",
+        "scenario": "trials",
+        "task_ids": [
+          "criterion_entity_type"
+        ],
+        "ability_tags": [
+          "eligibility"
+        ],
+        "records": 100,
+        "sources": {
+          "chia": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "criterion_relation",
+        "title": "入排标准要素关系识别",
+        "scenario": "trials",
+        "task_ids": [
+          "criterion_relation"
+        ],
+        "ability_tags": [
+          "eligibility"
+        ],
+        "records": 100,
+        "sources": {
+          "chia": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "criterion_boolean",
+        "title": "入排标准与或结构识别",
+        "scenario": "trials",
+        "task_ids": [
+          "criterion_boolean"
+        ],
+        "ability_tags": [
+          "eligibility",
+          "rules"
+        ],
+        "records": 100,
+        "sources": {
+          "chia": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "criterion_bound",
+        "title": "入排标准数值边界识别",
+        "scenario": "trials",
+        "task_ids": [
+          "criterion_bound"
+        ],
+        "ability_tags": [
+          "eligibility"
+        ],
+        "records": 100,
+        "sources": {
+          "frd": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "privacy_candidate",
+        "title": "医疗文本个人标识识别",
+        "scenario": "quality",
+        "task_ids": [
+          "privacy_candidate"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "meddocan": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "procedure_progress",
+        "title": "医疗操作记录状态核对",
+        "scenario": "inpatient",
+        "task_ids": [
+          "procedure_progress"
+        ],
+        "ability_tags": [
+          "workflow"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "administration_status",
+        "title": "给药执行记录状态核对",
+        "scenario": "inpatient",
+        "task_ids": [
+          "administration_status"
+        ],
+        "ability_tags": [
+          "workflow"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "followup_action",
+        "title": "随访待办与完成状态核对",
+        "scenario": "followup",
+        "task_ids": [
+          "followup_action"
+        ],
+        "ability_tags": [
+          "workflow"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "report_stage",
+        "title": "报告状态核对",
+        "scenario": "testing",
+        "task_ids": [
+          "report_stage"
+        ],
+        "ability_tags": [
+          "workflow"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "deterioration_prediction",
+        "title": "脓毒症发生风险预测",
+        "scenario": "inpatient",
+        "task_ids": [
+          "deterioration_prediction"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "sepsis2019": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "readmission_30d",
+        "title": "糖尿病患者回家后 30 天再入院预测",
+        "scenario": "followup",
+        "task_ids": [
+          "readmission_30d"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "uci_diabetes": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "followup_item_type",
+        "title": "出院文书待办类别识别",
+        "scenario": "followup",
+        "task_ids": [
+          "followup_item_type"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "adverse_event_prediction",
+        "title": "试验人群不良事件发生预测",
+        "scenario": "treatment",
+        "task_ids": [
+          "adverse_event_prediction"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "clinical_statement_support",
+        "title": "病历论断一致性判断",
+        "scenario": "quality",
+        "task_ids": [
+          "clinical_statement_support"
+        ],
+        "ability_tags": [
+          "evidence"
+        ],
+        "records": 0,
+        "sources": {},
+        "languages": {},
+        "distribution": {},
+        "status": "empty"
+      },
+      {
+        "id": "mortality_90d",
+        "title": "心衰患者 90 日死亡结局预测",
+        "scenario": "followup",
+        "task_ids": [
+          "mortality_90d"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "uci_heart_failure": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "postoperative_disposition",
+        "title": "术后历史转归去向预测",
+        "scenario": "inpatient",
+        "task_ids": [
+          "postoperative_disposition"
+        ],
+        "ability_tags": [
+          "workflow"
+        ],
+        "records": 68,
+        "sources": {
+          "uci_postoperative": 68
+        },
+        "languages": {
+          "en": 68
+        },
+        "distribution": {
+          "open": 68
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "maternal_risk",
+        "title": "孕产记录风险标签分类",
+        "scenario": "intake",
+        "task_ids": [
+          "maternal_risk"
+        ],
+        "ability_tags": [
+          "risk"
+        ],
+        "records": 100,
+        "sources": {
+          "uci_maternal": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "event_temporal_order",
+        "title": "文本临床事件先后关系",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "event_temporal_order"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "event_coreference",
+        "title": "文本同一事件指代识别",
+        "scenario": "quality",
+        "task_ids": [
+          "event_coreference"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "anatomical_site_link",
+        "title": "文本事件与解剖部位关联",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "anatomical_site_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "severity_link",
+        "title": "文本严重程度修饰关联",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "severity_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "route_link",
+        "title": "文本给药途径与对象关联",
+        "scenario": "treatment",
+        "task_ids": [
+          "route_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "frequency_link",
+        "title": "文本频次与对象关联",
+        "scenario": "treatment",
+        "task_ids": [
+          "frequency_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 81,
+        "sources": {
+          "ct_ebm_sp": 81
+        },
+        "languages": {
+          "es": 81
+        },
+        "distribution": {
+          "research_noncommercial": 81
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "duration_link",
+        "title": "文本时长与对象关联",
+        "scenario": "trials",
+        "task_ids": [
+          "duration_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "drug_form_link",
+        "title": "文本剂型与药物关联",
+        "scenario": "treatment",
+        "task_ids": [
+          "drug_form_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 77,
+        "sources": {
+          "ct_ebm_sp": 77
+        },
+        "languages": {
+          "es": 77
+        },
+        "distribution": {
+          "research_noncommercial": 77
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "cause_effect_link",
+        "title": "文本因果关系识别",
+        "scenario": "quality",
+        "task_ids": [
+          "cause_effect_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "combination_link",
+        "title": "文本联合干预关系识别",
+        "scenario": "trials",
+        "task_ids": [
+          "combination_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "indication_link",
+        "title": "文本干预用途关联",
+        "scenario": "trials",
+        "task_ids": [
+          "indication_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "assertion_cue_target",
+        "title": "否定与推测线索作用范围",
+        "scenario": "quality",
+        "task_ids": [
+          "assertion_cue_target"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "ct_ebm_sp": 100
+        },
+        "languages": {
+          "es": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "event_date_link",
+        "title": "文本事件与时间表达关联",
+        "scenario": "diagnosis",
+        "task_ids": [
+          "event_date_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "e3c": 85,
+          "maccrobat": 15
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "research_noncommercial": 85,
+          "open": 15
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "procedure_component_link",
+        "title": "文本操作包含关系识别",
+        "scenario": "inpatient",
+        "task_ids": [
+          "procedure_component_link"
+        ],
+        "ability_tags": [
+          "relations"
+        ],
+        "records": 100,
+        "sources": {
+          "maccrobat": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "event_permanence",
+        "title": "文本事件持续性分类",
+        "scenario": "inpatient",
+        "task_ids": [
+          "event_permanence"
+        ],
+        "ability_tags": [
+          "facts"
+        ],
+        "records": 100,
+        "sources": {
+          "e3c": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "clinical_time_type",
+        "title": "临床文本时间表达分类",
+        "scenario": "quality",
+        "task_ids": [
+          "clinical_time_type"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 100,
+        "sources": {
+          "e3c": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "research_noncommercial": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "lab_value_classification",
+        "title": "按给定区间判读检验值高低",
+        "scenario": "testing",
+        "task_ids": [
+          "lab_value_classification"
+        ],
+        "ability_tags": [
+          "rules"
+        ],
+        "records": 100,
+        "sources": {
+          "labqar": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "pgx_function_phenotype",
+        "title": "药物基因功能表型映射",
+        "scenario": "testing",
+        "task_ids": [
+          "pgx_function_phenotype"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 84,
+        "sources": {
+          "cpic": 84
+        },
+        "languages": {
+          "en": 84
+        },
+        "distribution": {
+          "open": 84
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "trial_effect_direction",
+        "title": "试验报告结局方向判读",
+        "scenario": "treatment",
+        "task_ids": [
+          "trial_effect_direction"
+        ],
+        "ability_tags": [
+          "evidence"
+        ],
+        "records": 100,
+        "sources": {
+          "evidence_inference": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      },
+      {
+        "id": "prescription_audit_action",
+        "title": "中药处方审核规范情境问答",
+        "scenario": "treatment",
+        "task_ids": [
+          "prescription_audit_action"
+        ],
+        "ability_tags": [
+          "classification"
+        ],
+        "records": 11,
+        "sources": {
+          "tcmeval_pa": 11
+        },
+        "languages": {
+          "zh": 11
+        },
+        "distribution": {
+          "open": 11
+        },
+        "status": "exploratory"
+      }
+    ]
+  },
+  "suspended": {
+    "defined_families": 1,
+    "populated_families": 1,
+    "records": 100,
+    "distribution": {
+      "open": 100
+    },
+    "languages": {
+      "en": 100
+    },
+    "sources": {
+      "longhealth": 100
+    },
+    "families": [
+      {
+        "id": "input_sufficiency",
+        "title": "目标患者回答证据是否出现（需重建）",
+        "scenario": "intake",
+        "task_ids": [
+          "input_sufficiency"
+        ],
+        "ability_tags": [
+          "rules"
+        ],
+        "records": 100,
+        "sources": {
+          "longhealth": 100
+        },
+        "languages": {
+          "en": 100
+        },
+        "distribution": {
+          "open": 100
+        },
+        "status": "summary_eligible"
+      }
+    ]
+  }
+}

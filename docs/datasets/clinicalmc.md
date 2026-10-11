@@ -11,6 +11,7 @@
 | 来源 ID | `clinicalmc` |
 | 上游入口 | [发布方页面](https://github.com/hzyuezh/ClinicalMPD) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | 仓库未见明确数据许可证；上游 MedEureka / PMC-Patients 需核验 |
 | 收录语种 | 无收录题目 |
@@ -37,7 +38,7 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [候选科室分流](../tasks/department_routing.md) | 根据就诊主诉从固定科室表选择适合的首诊科室。 |
+| [首诊科室选择](../tasks/department_routing.md) | 根据就诊主诉从固定科室表选择适合的首诊科室。 |
 
 ## 追溯与使用
 

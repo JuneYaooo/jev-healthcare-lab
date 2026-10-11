@@ -11,6 +11,7 @@
 | 来源 ID | `e3c` |
 | 上游入口 | [发布方页面](https://github.com/hltfbk/E3C-Corpus) |
 | 收录情况 | 385 题 / 4 个任务 |
+| 评测用途 | 辅助评测（不计临床主分数） 385 题 |
 | 使用范围 | 非商业研究附加集 |
 | 登记的数据许可 | CC-BY-NC (publisher does not specify version) |
 | 收录语种 | 英语 385 题 |
@@ -25,12 +26,12 @@ Magnini et al.; Fondazione Bruno Kessler
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [临床时间表达类别](../tasks/clinical_time_type.md) | 100 | 给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。 |
-| [事件与时间表达关联](../tasks/event_date_link.md) | 85 | 给定病例和时间表达，从原文事件候选中选择原时间关联标注的唯一目标；若提供关系类型，按该方向解释。 |
-| [临床事件持续性](../tasks/event_permanence.md) | 100 | 给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。 |
-| [事件与文档时间关系](../tasks/temporality.md) | 100 | 给定病例原文、文档时间和事件片段，选择原 E3C docTimeRel 时间关系。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [临床文本时间表达分类](../tasks/clinical_time_type.md) | 辅助评测（不计临床主分数） | 100 | 给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。 |
+| [文本事件与时间表达关联](../tasks/event_date_link.md) | 辅助评测（不计临床主分数） | 85 | 给定病例和时间表达，从原文事件候选中选择原时间关联标注的唯一目标；若提供关系类型，按该方向解释。 |
+| [文本事件持续性分类](../tasks/event_permanence.md) | 辅助评测（不计临床主分数） | 100 | 给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。 |
+| [临床事件相对记录时间标注](../tasks/temporality.md) | 辅助评测（不计临床主分数） | 100 | 给定病例原文、文档时间和事件片段，选择原 E3C docTimeRel 时间关系。 |
 
 ## 答案与格式转换
 
@@ -119,7 +120,7 @@ Magnini et al.; Fondazione Bruno Kessler
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[临床事件持续性](../tasks/event_permanence.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[文本事件持续性分类](../tasks/event_permanence.md)。
 
 ## 相关任务调研
 
@@ -127,8 +128,8 @@ Magnini et al.; Fondazione Bruno Kessler
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [诊断核实状态](../tasks/diagnosis_verification.md) | 区分疑似、确诊、排除与未明确。 |
-| [医疗操作进度](../tasks/procedure_progress.md) | 区分计划、进行、完成、取消及目标未达成。 |
+| [病历诊断记录状态核对](../tasks/diagnosis_verification.md) | 区分疑似、确诊、排除与未明确。 |
+| [医疗操作记录状态核对](../tasks/procedure_progress.md) | 区分计划、进行、完成、取消及目标未达成。 |
 
 ## 追溯与使用
 

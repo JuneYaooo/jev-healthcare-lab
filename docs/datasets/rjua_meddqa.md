@@ -11,6 +11,7 @@
 | 来源 ID | `rjua_meddqa` |
 | 上游入口 | [发布方页面](https://github.com/AQ-MedAI/medDQA_benchmark) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | CC-BY-NC-SA-4.0（数据）；AGPL（代码） |
 | 收录语种 | 无收录题目 |

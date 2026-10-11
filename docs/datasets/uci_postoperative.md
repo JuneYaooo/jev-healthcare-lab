@@ -11,7 +11,8 @@ Dataset of patient features
 | 来源 ID | `uci_postoperative` |
 | 上游入口 | [发布方页面](https://archive.ics.uci.edu/dataset/82/post+operative+patient) |
 | 收录情况 | 68 题 / 1 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 68 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC-BY-4.0 |
 | 收录语种 | 英语 68 题 |
 
@@ -25,9 +26,9 @@ Sharon Summers, Linda Woolery
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [术后转归去向选择](../tasks/postoperative_disposition.md) | 68 | 给定术后恢复指标，选择原记录的 ICU、普通病房或回家去向。历史记录选择不等于临床最优决策。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [术后历史转归去向预测](../tasks/postoperative_disposition.md) | 辅助评测（不计临床主分数） | 68 | 给定术后恢复指标，选择原记录的 ICU、普通病房或回家去向。历史记录选择不等于临床最优决策。 |
 
 ## 答案与格式转换
 
@@ -153,7 +154,7 @@ ADM-DECS 原术后去向标签；相同输入冲突全部排除，无患者 ID�
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[术后转归去向选择](../tasks/postoperative_disposition.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[术后历史转归去向预测](../tasks/postoperative_disposition.md)。
 
 ## 追溯与使用
 

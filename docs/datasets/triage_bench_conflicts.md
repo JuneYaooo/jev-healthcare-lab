@@ -11,6 +11,7 @@ LLM 辅助合成场景；400 条为作者声称的专家核验子集。
 | 来源 ID | `triage_bench_conflicts` |
 | 上游入口 | [发布方页面](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | Dataset card: CC-BY-4.0; upstream excerpts unresolved |
 | 收录语种 | 无收录题目 |

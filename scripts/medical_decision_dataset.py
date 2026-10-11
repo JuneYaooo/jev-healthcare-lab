@@ -1729,62 +1729,26 @@ def generate_docs(output, builder, summary):
         if source.get('evaluation_limits'):
             source_lines.append('评测范围：' + source['evaluation_limits'] + '\n')
     (output / "SOURCES.md").write_text("\n".join(source_lines))
-    lines = [f"# Jev 医疗决策评测集 v{summary['version']}\n",
-             "给定医疗材料、规则或候选项，评估可明确计分的分类、状态、关系、证据和方案选择。每题只有一个决策输出，使用 Jev `choice` 请求格式；不要求生成病历、建议或解释。\n",
-             f"**{len(builder.taxonomy['scenarios'])} 个医疗场景 · {summary['total_tasks']} 个任务定义 · {summary['ready_tasks']} 个任务各 100 题 · {summary['partial_tasks']} 个不足 100 题 · {summary['empty_tasks']} 个留空 · 共 {summary['records']:,} 题。**\n",
-             f"开放许可核心部分 {summary['distribution_counts'].get('open', 0):,} 题；非商业研究附加部分 {summary['distribution_counts'].get('research_noncommercial', 0):,} 题。当前 {sum(s['records'] > 0 for s in summary['scenarios'])} 个场景有题目，不代表场景工作流完整覆盖；语言分布为 " + "、".join(f"{lang} {count:,} 题" for lang, count in sorted(summary['languages'].items())) + "。\n",
-             "[全部题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl) · [来源与许可](SOURCES.md) · [场景任务定义](taxonomy.json) · [按场景寻找数据](SCENARIO_RESEARCH.md) · [构建统计](summary.json)\n",
-             "**[下载独立数据包](../../releases/README.md)**：开放核心包和非商业研究附加包分别交付，内含题目、答案、逐题溯源索引、原许可、格式说明及校验/评分工具。每道题可通过 `id → 原始资源版本与哈希 → 标注位置 → 转换代码` 回查。\n",
-             "主目录按医疗场景 → 决策任务组织。每个任务只有一个 `primary_scenario`；原九个能力维度作为 `ability_tags`，允许多标签但不重复计算题目。`dimension` 保留为主要能力，兼容旧分析。材料判断、临床候选选择和结局预测分别报告。\n",
-             "## 场景覆盖\n", "| 场景 | 有题任务 / 定义任务 | 题数 |", "| --- | ---: | ---: |"]
-    for scene in summary["scenarios"]:
-        lines.append(f"| {scene['title']} | {scene['populated_tasks']} / {scene['defined_tasks']} | {scene['records']} |")
-    lines += ["", "## 任务目录\n", "题数是决策问题数，来源组可能是文档、句子、模拟病例或患者，不能一律解读为患者数。语种和输入条件不另计为任务。\n"]
-    for scene in builder.taxonomy["scenarios"]:
-        lines += ["### " + scene["title"] + "\n", scene["scope"] + "\n", "| 任务 | 题数 / 来源组 | 来源 | 状态与边界 |", "| --- | ---: | --- | --- |"]
-        for task in summary["tasks"]:
-            if task["primary_scenario"] != scene["id"]:
-                continue
-            sources = task["source_ids"] or task["candidate_source_ids"]
-            names = "、".join(f"[{builder.sources[s]['name']}]({builder.sources[s]['url']})" for s in sources) or "待补"
-            note = task["definition"] if task["status"] == "ready" else task["missing_reason"]
-            lines.append(f"| [{task['title']}](tasks/{task['id']}/task.json) | {task['count']} / {task['groups']} | {names} | {note} |")
-        lines.append("")
-    lines += ["## 版本、抽样和答案\n",
-              "固定种子 20261010；从锁定版本的原文件解析，以标签/量表/来源等已声明分层轮流取样。先尽量每来源组一题，必要时逐步放宽至每组最多五题。去掉重复请求、冲突答案、不能解析的标注和本地训练指纹命中；不复制或改写题目补足数量。DDXPlus 先从完整官方测试 CSV 按哈希取 1,000 条候选。\n",
-              "LongHealth 对 20 个虚构患者各取五题；这些问题共享整份病历。TCM-SD 按原测试分布哈希抽样，不将 148 个证型强行压成每类一题。CHIA 关系题只分类原始已标注关系，不包含自动构造的负例。NUBes 只测否定/不确定。FRD 的数值已由上游替换为 @NUMBER，仅测上下界方向。MedCalc 使用固定 GitHub 测试版本，不能报告为 HF Verified 版本。\n",
-              "答案来自原始发布标注及可重现的机械映射。记录经过格式、定位、映射与去重检查，尚未做本项目独立医生逐题审核。本版本属于可审计初版，不是临床验证金标准。原始训练/开发/测试划分逐题保留；没有官方测试划分的来源不冒称官方测试集。\n",
-              "v0.2.0 新增 MACCROBAT 的检查数值关联、药物剂量关联；检查题仅保留含数字的原始结果片段。候选项为病例中所有有效的对应类型实体，带原文位置以区分重复名称。只收原始 MODIFY 关系可唯一定位目标的题，不构造负关系、不判断处方适宜性。旧版 1,600 题的 ID、请求及金标保留，迁移基线见 [历史身份索引](history/v0.1.0_sample_identity.json)。\n",
-              "v0.3.0 从 CMB-Exam 和 CNMLEQA-10k 补入中文病例的诊断、检查、治疗、用药四类选择题，原有 1,800 题的 ID、请求与答案保持不变，见 [v0.2.0 身份索引](history/v0.2.0_sample_identity.json)。按病例特征和问题意图规则筛选，排除纯知识题、缺图题、反向提问及不符合任务定义的题；保留原选项与金标，不生成新答案。CMB 原题与独立答案按 ID 连接，原 C 型及多选题不纳入。CNMLEQA 没有官方测试划分，使用发布语料的固定自留子集。\n",
-              "两套中文题库按标准化题干与完整选项集合去重，答案文本冲突时全部排除；来源组由去标点后题干前 60 字的指纹近似确定，可能合并相似病例，也不能排除所有改写重复。题目中的旧术语或原始拼写按原文保留。中文新增题经过程序化适配与抽查，未独立复核其临床金标。[本轮新增来源核验](../../docs/DATASET_EXPANSION.md) 记录其他中文及英文候选。\n",
-              "v0.4.0 增加 E3C、CT-EBM-SP、CARE-Bench 及 UCI 结构化来源，并扩展原 MACCROBAT 和中文病例题。每任务目标 100 题；不足部分保留实际数量，不填充。E3C/CT-EBM-SP 为材料属性或关系判断，CARE-Bench 为来源约束的重构分诊任务，UCI 结局预测与行动标签分别报告，不能将它们全部解释为诊疗方案能力。\n",
-              "新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。\n",
-              "[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。\n",
-              "v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。\n",
-              "v0.8.0 新增八类场景决策任务，并补入消息优先级、记录信息充分性两个空缺。保留 v0.7.0 的 5,726 条完整记录。协议与检索边界见 [扩展记录](../../docs/EXPANSION_V080.md)。\n",
-              "v0.7.0 新增病机候选核验、处方审核处置、营养方案及护理体位四类任务；原有 5,594 条完整记录保持不变。病机任务的 100 个判断来自 50 个病例，不能按 100 个独立病例解释。详见 [扩展协议](../../docs/EXPANSION_V070.md)。\n",
-              "v0.6.0 新增检验数值判读、药物基因检测功能表型、基因结果用药建议匹配、试验干预效果方向 4 类任务。分别采用 LabQAR Set 2、CPIC CC0 规则快照和 Evidence Inference 官方测试中的 CC-BY 文章。前版 5,210 条完整记录保持不变；见 [适配协议](../../docs/EXPANSION_V060.md)。\n",
-              "## 训练隔离与历史使用\n",
-              f"[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；{summary['historical_material_matches']} 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。\n",
-              "该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。\n",
-              "## 运行\n", "在仓库根目录执行（Python 标准库，无自动模型调用）：\n", "```bash",
-              "python3 scripts/medical_decision_dataset.py validate",
-              "python3 scripts/medical_decision_dataset.py fetch",
-              "python3 scripts/medical_decision_dataset.py build",
-              "python3 scripts/medical_decision_dataset.py export --output work/decision-requests.jsonl",
-              "python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/decision-scores.json",
-              "```\n",
-              "`fetch` 按 sources.lock.json 下载并核验源文件，`build` 使用已冻结的训练筛查索引复建；不重新生成答案。刷新本地筛查使用 `index` 子命令，刷新后重建将形成不同内容的版本，需复核并更新版本号。\n",
-              "默认导出及计分只包含 `open` 部分。研究用途需要显式加 `--include-research`，才纳入 DDI、TCM-SD、E3C、CT-EBM-SP、CARE-Bench；相应题目仍受非商业及相同方式共享等原许可约束。\n",
-              "模型只接收 `request`（按 API 需要另加 model）；不要发送 gold、provenance、metadata 或来源定位。预测文件每行格式：\n", "```json",
-              '{"id":"样本完整 ID","choice":"选项键"}', "```\n",
-              "也接受 `{\"id\":\"样本完整 ID\",\"response\":{\"answers\":{\"decision\":{\"choice\":\"选项键\"}}}}`。缺失、格式错误和不在选项内的回答按错计；重复或未知 ID 会使计分失败。\n",
-              "计分先报告逐任务结果，再对同一场景内任务准确率等权平均；`scenario_macro_accuracy` 对有题场景等权，避免试验筛选任务较多而主导总分。场景表同时显示已计分任务数和定义任务数；空场景分数为 null，不计零分也不算已覆盖。旧 `task_macro_accuracy` 仍保留。能力标签统计可重叠，不累加成主分母。不同版本和不同题目覆盖的总分不可直接作训练前后比较。\n",
-              "逐任务输出准确率、宏 F1、逐类召回和来源组全对率；另按决策模式、来源性质、语种及历史匹配状态分层。宏 F1 使用实际有金标的类别，未出现的候选类别单列。公开论文、考试改编、模拟病例和真实临床材料分别报告。\n",
-              "每任务 100 题适合固定的小规模模型与训练对照，不能据此确认细小提升或临床效果。比较训练前后应使用相同题目、候选项、提示和计分范围，并按来源组做配对分析；LongHealth 的有效来源组只有 20 个。这里的汇总分数仅为描述性统计。\n",
-              "## 评测状态\n",
-              "本版本尚未运行模型评测。逐题历史材料重合标记及冻结筛查索引属于数据来源记录，不能解释为本版本模型成绩。\n"]
-    (output / "README.md").write_text("\n".join(lines))
+    inventory = evaluation_inventory(output)
+    write_json(output / "evaluation-summary.json", inventory)
+    main = inventory["clinical"]
+    lines = ["# 医疗决策数据底稿", "",
+        "[项目首页](../../README.md) · [主评测任务](../../docs/tasks/README.md) · [辅助任务](../../docs/tasks/AUXILIARY.md) · [下载整理包](../../releases/README.md)", "",
+        f"主评测有 {main['defined_families']} 个任务定义、{main['populated_families']} 个有题任务，共 {main['records']:,} 题。诊断的考试与模拟病例合为一个任务，按来源分层。", "",
+        "本目录 samples.jsonl、requests.jsonl、answers.jsonl 是包含主评测、辅助及暂停任务的完整溯源底稿。模型评测应使用下方按范围导出的请求或下载对应整理包，不能把底稿全部题目当作临床主评测。", "",
+        "| 范围 | 定义任务 | 有题任务 | 题数 |", "| --- | ---: | ---: | ---: |"]
+    for key, title in [("clinical", "临床主评测"), ("auxiliary", "辅助评测"), ("suspended", "暂停使用")]:
+        item = inventory[key]
+        lines.append(f"| {title} | {item['defined_families']} | {item['populated_families']} | {item['records']} |")
+    lines += ["", "[执行范围与任务合并规则](evaluation_scope.json) · [范围统计](evaluation-summary.json) · [全部来源](SOURCES.md) · [来源锁定](sources.lock.json)", "",
+        "## 导出与评分", "", "```bash",
+        "python3 scripts/medical_decision_dataset.py export --output work/clinical-requests.jsonl",
+        "python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/clinical-scores.json",
+        "python3 scripts/medical_decision_dataset.py export --scope auxiliary --output work/auxiliary-requests.jsonl",
+        "```", "",
+        "默认仅处理临床主评测的开放许可部分。需要相应非商业数据时添加 --include-research。辅助范围必须显式传入 --scope auxiliary；暂停任务不导出、不评分。", "",
+        "数据复建命令与来源筛查见 [复建说明](../../docs/REPRODUCING.md)；评分口径见 [评测方法](../../docs/EVALUATION.md)。源题 ID、请求和原金标保留用于追溯；范围变化由独立策略文件及其哈希记录。"]
+    (output / "README.md").write_text("\n".join(lines) + "\n")
     research = ["# 按医疗场景寻找任务与数据\n", "各来源的核验日期见来源登记。仅有数据可下载，不表示已满足当前任务的题目、答案、许可与隔离要求。以下为新增来源的采用状态和剩余步骤；已采用来源也可只覆盖某个场景的局部任务。\n"]
     for scene in builder.taxonomy["scenarios"]:
         relevant = [t for t in summary["tasks"] if t["primary_scenario"] == scene["id"]]
@@ -1806,7 +1770,10 @@ def generate_docs(output, builder, summary):
 
 
 def validate(dataset):
+    evaluation_policy(dataset)
     manifest = json.loads((dataset / "manifest.json").read_text())
+    if "evaluation_scope.json" not in manifest["files"]:
+        raise ValueError("Evaluation scope missing from manifest")
     for name, record in manifest["files"].items():
         if file_sha(dataset / name) != record["sha256"]:
             raise ValueError("Manifest mismatch: " + name)
@@ -1881,7 +1848,71 @@ def validate(dataset):
     return result
 
 
-def metrics(rows, predictions):
+def evaluation_policy(dataset):
+    policy = json.loads((dataset / "evaluation_scope.json").read_text())
+    taxonomy = json.loads((dataset / "taxonomy.json").read_text())
+    definitions = {t["id"]: t for t in taxonomy["tasks"]}
+    if set(policy["tasks"]) != set(definitions):
+        raise ValueError("Evaluation scope must cover every task exactly once")
+    if policy["minimum_summary_questions"] < 1:
+        raise ValueError("Invalid summary sample threshold")
+    families = {}
+    for tid, rule in policy["tasks"].items():
+        if rule["scope"] not in {"clinical", "auxiliary", "suspended"} or rule["label_semantics"] not in {"fixed", "per_question"}:
+            raise ValueError("Invalid evaluation rule: " + tid)
+        signature = (rule["scope"], definitions[tid]["primary_scenario"], rule["family_title"], rule["label_semantics"])
+        if families.setdefault(rule["family"], signature) != signature:
+            raise ValueError("Inconsistent task family: " + rule["family"])
+    return policy
+
+
+def evaluation_rows(dataset, include_research=False, scope="clinical"):
+    if scope not in {"clinical", "auxiliary"}:
+        raise ValueError("Choose clinical or auxiliary; suspended tasks cannot be evaluated")
+    policy = evaluation_policy(dataset)
+    return [r for r in read_jsonl(dataset / "samples.jsonl")
+            if policy["tasks"][r["task"]]["scope"] == scope
+            and (include_research or r["provenance"]["distribution"] == "open")]
+
+
+def evaluation_inventory(dataset):
+    policy = evaluation_policy(dataset)
+    taxonomy = json.loads((dataset / "taxonomy.json").read_text())
+    definitions = {t["id"]: t for t in taxonomy["tasks"]}
+    rows = list(read_jsonl(dataset / "samples.jsonl"))
+    output = {}
+    for scope in ["clinical", "auxiliary", "suspended"]:
+        families = {}
+        for tid, rule in policy["tasks"].items():
+            if rule["scope"] != scope:
+                continue
+            item = families.setdefault(rule["family"], {"id": rule["family"], "title": rule["family_title"],
+                "scenario": definitions[tid]["primary_scenario"], "task_ids": [], "ability_tags": set()})
+            item["task_ids"].append(tid)
+            item["ability_tags"].update(definitions[tid]["ability_tags"])
+        selected = [r for r in rows if policy["tasks"][r["task"]]["scope"] == scope]
+        for item in families.values():
+            part = [r for r in selected if r["task"] in item["task_ids"]]
+            item.update(records=len(part), ability_tags=sorted(item["ability_tags"]),
+                        sources=dict(collections.Counter(r["provenance"]["source_id"] for r in part)),
+                        languages=dict(collections.Counter(r["language"] for r in part)),
+                        distribution=dict(collections.Counter(r["provenance"]["distribution"] for r in part)),
+                        status="empty" if not part else "exploratory" if len(part) < policy["minimum_summary_questions"] else "summary_eligible")
+        output[scope] = {"defined_families": len(families), "populated_families": sum(x["records"] > 0 for x in families.values()),
+            "records": len(selected), "distribution": dict(collections.Counter(r["provenance"]["distribution"] for r in selected)),
+            "languages": dict(collections.Counter(r["language"] for r in selected)),
+            "sources": dict(collections.Counter(r["provenance"]["source_id"] for r in selected)), "families": list(families.values())}
+    return output
+
+
+def metrics(rows, predictions, semantic_labels=False, positive_label=None):
+    if semantic_labels:
+        meanings = collections.defaultdict(set)
+        for row in rows:
+            for key, value in row["request"]["questions"]["decision"]["criteria"].items():
+                meanings[key].add(value)
+        if any(len(values) > 1 for values in meanings.values()):
+            raise ValueError("Fixed semantic labels have inconsistent option meanings")
     tp, fp, fn = collections.Counter(), collections.Counter(), collections.Counter()
     groups = collections.defaultdict(list)
     correct = missing = invalid = 0
@@ -1903,25 +1934,44 @@ def metrics(rows, predictions):
             fn[row["gold"]] += 1
     per_class = {label: {"support": tp[label] + fn[label], "recall": tp[label] / (tp[label] + fn[label]),
                          "f1": 2 * tp[label] / (2 * tp[label] + fp[label] + fn[label])} for label in labels}
-    return {"n": len(rows), "correct": correct, "accuracy": correct / len(rows),
-            "macro_f1": sum(x["f1"] for x in per_class.values()) / len(per_class),
-            "missing": missing, "invalid": invalid, "per_class": per_class,
+    result = {"n": len(rows), "correct": correct, "accuracy": correct / len(rows),
+            "label_semantics": "fixed" if semantic_labels else "per_question",
+            "macro_f1": sum(x["f1"] for x in per_class.values()) / len(per_class) if semantic_labels else None,
+            "balanced_accuracy": sum(x["recall"] for x in per_class.values()) / len(per_class) if semantic_labels else None,
+            "missing": missing, "invalid": invalid, "per_class": per_class if semantic_labels else {},
             "candidate_labels_without_gold": sorted(candidates - set(labels)),
             "groups": len(groups), "groups_all_correct": sum(all(x) for x in groups.values()),
             "group_all_correct_rate": sum(all(x) for x in groups.values()) / len(groups)}
+    if semantic_labels:
+        confusion = collections.defaultdict(collections.Counter)
+        for row in rows:
+            pred = predictions.get(row["id"])
+            bucket = "<missing>" if row["id"] not in predictions else pred if pred in row["request"]["questions"]["decision"]["criteria"] else "<invalid>"
+            confusion[row["gold"]][bucket] += 1
+        gold_counts = collections.Counter(r["gold"] for r in rows)
+        majority, n = gold_counts.most_common(1)[0]
+        result.update(confusion={k: dict(v) for k, v in confusion.items()},
+                      sample_majority_label=majority, sample_majority_accuracy=n / len(rows))
+        if positive_label is not None:
+            negative = [r for r in rows if r["gold"] != positive_label]
+            result["positive_recall"] = per_class.get(positive_label, {}).get("recall")
+            result["specificity"] = sum(predictions.get(r["id"]) == r["gold"] for r in negative) / len(negative) if negative else None
+    return result
 
 
-def score(dataset, prediction_path, include_research=False):
-    all_rows = list(read_jsonl(dataset / "samples.jsonl"))
-    known = {r["id"] for r in all_rows}
-    rows = [r for r in all_rows if include_research or r["provenance"]["distribution"] == "open"]
+def score(dataset, prediction_path, include_research=False, scope="clinical"):
+    policy = evaluation_policy(dataset)
+    rows = evaluation_rows(dataset, include_research, scope)
+    known = {r["id"] for r in rows}
+    if not rows:
+        raise ValueError("No records in selected evaluation scope and license slice")
     predictions = {}
     for record in read_jsonl(prediction_path):
         if not isinstance(record, dict) or not isinstance(record.get("id"), str):
             raise ValueError("Prediction must be an object with a string ID")
         uid = record.get("id")
         if uid not in known or uid in predictions:
-            raise ValueError("Unknown or duplicate prediction ID: " + str(uid))
+            raise ValueError("Unknown, out-of-scope or duplicate prediction ID: " + str(uid))
         value = record.get("choice")
         if value is None:
             try:
@@ -1933,7 +1983,20 @@ def score(dataset, prediction_path, include_research=False):
     tasks = collections.defaultdict(list)
     for row in rows:
         tasks[row["task"]].append(row)
-    results = {task: metrics(items, predictions) for task, items in sorted(tasks.items())}
+    results = {task: metrics(items, predictions, policy["tasks"][task]["label_semantics"] == "fixed",
+                             policy["tasks"][task].get("positive_label")) for task, items in sorted(tasks.items())}
+    family_rows = collections.defaultdict(list)
+    for row in rows:
+        family_rows[policy["tasks"][row["task"]]["family"]].append(row)
+    family_results = {}
+    for family, items in sorted(family_rows.items()):
+        rule = policy["tasks"][items[0]["task"]]
+        family_results[family] = {**metrics(items, predictions, rule["label_semantics"] == "fixed", rule.get("positive_label")),
+            "title": rule["family_title"], "task_ids": sorted({r["task"] for r in items}),
+            "summary_eligible": len(items) >= policy["minimum_summary_questions"]}
+    for tid, result in results.items():
+        result.update(title=policy["tasks"][tid]["title"], family=policy["tasks"][tid]["family"],
+                      exploratory=not family_results[policy["tasks"][tid]["family"]]["summary_eligible"])
     aggregate = {}
     for name, key in [("primary_scenario", lambda r: r["primary_scenario"]),
                       ("decision_stage", lambda r: r["decision_stage"]),
@@ -1950,7 +2013,20 @@ def score(dataset, prediction_path, include_research=False):
                                    "task_macro_accuracy": sum(metrics(items, predictions)["accuracy"] for items in groups.values()) / len(groups)}
                            for value, groups in parts.items()}
     taxonomy = json.loads((dataset / "taxonomy.json").read_text())
-    scene_scores = scenario_scores(taxonomy, results, tasks)
+    scoped_taxonomy = {**taxonomy, "tasks": []}
+    seen = set()
+    for task in taxonomy["tasks"]:
+        rule = policy["tasks"][task["id"]]
+        if rule["scope"] == scope and rule["family"] not in seen:
+            scoped_taxonomy["tasks"].append({"id": rule["family"], "primary_scenario": task["primary_scenario"]})
+            seen.add(rule["family"])
+    eligible = {f: v for f, v in family_results.items() if v["summary_eligible"]}
+    scene_scores = scenario_scores(scoped_taxonomy, eligible, family_rows)
+    for scene in taxonomy["scenarios"]:
+        present = [f for f, part in family_rows.items() if part[0]["primary_scenario"] == scene["id"]]
+        scene_scores[scene["id"]].update(populated_families=len(present),
+            exploratory_families=sum(not family_results[f]["summary_eligible"] for f in present),
+            all_records=sum(len(family_rows[f]) for f in present))
     covered = [s["task_macro_accuracy"] for s in scene_scores.values() if s["task_macro_accuracy"] is not None]
     ability_parts = collections.defaultdict(lambda: collections.defaultdict(list))
     for row in rows:
@@ -1962,12 +2038,16 @@ def score(dataset, prediction_path, include_research=False):
     return {"dataset_version": taxonomy["version"],
             "dataset_manifest_sha256": file_sha(dataset / "manifest.json"),
             "predictions_sha256": file_sha(prediction_path),
+            "evaluation_scope": scope, "scope_policy_sha256": file_sha(dataset / "evaluation_scope.json"),
+            "evaluated_ids_sha256": digest(sorted(known)), "minimum_summary_questions": policy["minimum_summary_questions"],
             "include_research": include_research, "records": len(rows),
-            "scored_tasks": len(results), "task_macro_accuracy": sum(r["accuracy"] for r in results.values()) / len(results),
+            "scored_tasks": len(family_results), "scored_subtasks": len(results), "summary_eligible_tasks": len(eligible),
+            "task_macro_accuracy": sum(r["accuracy"] for r in eligible.values()) / len(eligible) if eligible else None,
             "scenario_macro_accuracy": sum(covered) / len(covered) if covered else None,
             "covered_scenarios": len(covered), "defined_scenarios": len(taxonomy["scenarios"]), "scenarios": scene_scores,
-            "tasks": results, "stratified": aggregate,
-            "note": "Descriptive macro scores; empty tasks excluded. No claim of independent patients or clinical effectiveness."}
+            "primary_clinical_score": sum(covered) / len(covered) if covered and scope == "clinical" else None,
+            "tasks": results, "task_families": family_results, "stratified": aggregate,
+            "note": "Summaries use eligible task families only; small tasks remain exploratory. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."}
 
 
 def scenario_scores(taxonomy, results, tasks):
@@ -1989,6 +2069,7 @@ def main():
     parser.add_argument("--output", type=Path)
     parser.add_argument("--predictions", type=Path)
     parser.add_argument("--include-research", action="store_true")
+    parser.add_argument("--scope", choices=["clinical", "auxiliary"], default="clinical")
     args = parser.parse_args()
     if args.command == "fetch":
         fetch(args.dataset, args.cache)
@@ -2006,14 +2087,14 @@ def main():
         if not args.output:
             parser.error("export requires --output")
         validate(args.dataset)
-        rows = [r for r in read_jsonl(args.dataset / "samples.jsonl") if args.include_research or r["provenance"]["distribution"] == "open"]
+        rows = evaluation_rows(args.dataset, args.include_research, args.scope)
         write_jsonl(args.output, ({"id": r["id"], "task": r["task"], "request": r["request"]} for r in rows))
         print("Exported", len(rows), "requests")
     elif args.command == "score":
         if not args.predictions or not args.output:
             parser.error("score requires --predictions and --output")
         validate(args.dataset)
-        result = score(args.dataset, args.predictions, args.include_research)
+        result = score(args.dataset, args.predictions, args.include_research, args.scope)
         write_json(args.output, result)
         print(dumps({k: v for k, v in result.items() if k not in {"tasks", "stratified"}}))
 

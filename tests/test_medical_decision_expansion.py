@@ -3,6 +3,7 @@ import collections
 import json
 from pathlib import Path
 import unittest
+from frozen_records import assert_frozen_records
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,15 +15,7 @@ class ExpansionIntegrityTests(unittest.TestCase):
         cls.rows = [json.loads(line) for line in (DATA / 'samples.jsonl').read_text().splitlines()]
 
     def test_previous_release_records_remain_exactly_unchanged(self):
-        current = {r['id']: r for r in self.rows}
-        count = 0
-        for path in (ROOT / 'releases').glob('*v0.3.0-*.zip'):
-            with zipfile.ZipFile(path) as archive:
-                for line in archive.read(next(n for n in archive.namelist() if n.endswith('/samples.jsonl'))).splitlines():
-                    old = json.loads(line)
-                    self.assertEqual(current[old['id']], old)
-                    count += 1
-        self.assertEqual(count, 2200)
+        assert_frozen_records(self, self.rows, '0.3.0', 2200)
 
     def test_outcomes_do_not_expose_post_outcome_columns(self):
         for row in self.rows:

@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import tempfile
 import unittest
+from frozen_records import assert_frozen_records
 from unittest.mock import patch
 import zipfile
 
@@ -23,15 +24,7 @@ class ExpansionTests(unittest.TestCase):
         cls.rows = list(bench.read_jsonl(DATA / 'samples.jsonl'))
 
     def test_previous_complete_records_are_preserved(self):
-        current = {r['id']: r for r in self.rows}
-        count = 0
-        for path in (ROOT / 'releases').glob('*v0.5.0-*.zip'):
-            with zipfile.ZipFile(path) as z:
-                for line in z.read(next(n for n in z.namelist() if n.endswith('/samples.jsonl'))).splitlines():
-                    row = json.loads(line)
-                    self.assertEqual(current[row['id']], row)
-                    count += 1
-        self.assertEqual(count, 5210)
+        assert_frozen_records(self, self.rows, '0.5.0', 5210)
 
     def test_lab_labels_have_their_stated_numerical_meaning(self):
         rows = [r for r in self.rows if r['task'] == 'lab_value_classification']

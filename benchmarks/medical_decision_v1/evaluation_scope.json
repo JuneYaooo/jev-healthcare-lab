@@ -1,0 +1,897 @@
+{
+  "schema_version": 1,
+  "default_scope": "clinical",
+  "minimum_summary_questions": 20,
+  "tasks": {
+    "assertion_scope": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "临床文本否定与推测识别",
+      "family": "assertion_scope",
+      "family_title": "临床文本否定与推测识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "识别否定或推测表达，且只覆盖两类，不判断患者是否确诊。"
+    },
+    "experiencer": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "临床文本主体角色识别",
+      "family": "experiencer",
+      "family_title": "临床文本主体角色识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "给定标注片段判断患者、家属等角色，是文本主体分类。"
+    },
+    "temporality": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "临床事件相对记录时间标注",
+      "family": "temporality",
+      "family_title": "临床事件相对记录时间标注",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "复制 docTimeRel 标签，不选择诊疗时机。"
+    },
+    "diagnosis_verification": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "病历诊断记录状态核对",
+      "family": "diagnosis_verification",
+      "family_title": "病历诊断记录状态核对",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "当前定义是记录状态分类，尚无题目；应区别于根据病例作出诊断。"
+    },
+    "medication_status": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "用药记录状态核对",
+      "family": "medication_status",
+      "family_title": "用药记录状态核对",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "识别既往、当前、暂停等记录状态，不决定是否停药或调整治疗；当前为空。"
+    },
+    "drug_interaction": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本药物相互作用关系识别",
+      "family": "drug_interaction",
+      "family_title": "文本药物相互作用关系识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "输入已含描述关系的句子，答案是 DDI 文本标注；无关系仅表示无标注，不证明联合用药安全。"
+    },
+    "lab_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "检验结果与项目文本关联",
+      "family": "lab_link",
+      "family_title": "检验结果与项目文本关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "在已标注数值和项目间找对应关系，不判断异常、诊断或处置。"
+    },
+    "dose_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "剂量片段与药物文本关联",
+      "family": "dose_link",
+      "family_title": "剂量片段与药物文本关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "定位数值属于哪种药，不判断患者剂量是否合适。"
+    },
+    "patient_identity": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "患者记录身份核对",
+      "family": "patient_identity",
+      "family_title": "患者记录身份核对",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "属于医疗安全和数据身份核对；当前为空，不能将合成身份连接等同临床身份判定。"
+    },
+    "specimen_lineage": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "标本来源关系核对",
+      "family": "specimen_lineage",
+      "family_title": "标本来源关系核对",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "属于检验流程追溯，当前为空；标准字段示例不能充当独立病例金标。"
+    },
+    "note_section": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "病历章节分类",
+      "family": "note_section",
+      "family_title": "病历章节分类",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "识别病史、检查、评估等章节类别，不判断内容是否正确。"
+    },
+    "query_intent": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "医疗问句意图分类",
+      "family": "query_intent",
+      "family_title": "医疗问句意图分类",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "分类用户问什么，不决定患者应如何处理，也不等于分诊。"
+    },
+    "terminology": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "医学术语标准化",
+      "family": "terminology",
+      "family_title": "医学术语标准化",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "术语表映射任务；当前为空，与临床方案判断分开。"
+    },
+    "bounded_score": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "临床量表计算",
+      "family": "bounded_score",
+      "family_title": "临床量表计算",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "计算五种指定量表的分值，有医疗用途，但没有评价评分后应采取的行动；各量表分层报告。"
+    },
+    "input_sufficiency": {
+      "scope": "suspended",
+      "category": "support",
+      "title": "目标患者回答证据是否出现（需重建）",
+      "family": "input_sufficiency",
+      "family_title": "目标患者回答证据是否出现（需重建）",
+      "label_semantics": "fixed",
+      "positive_label": "yes",
+      "notes": "负例没有任何目标患者文档，正例加入目标证据；姓名出现捷径达到 96%，不能解释为充分性判断能力，建议暂停进入主分数。"
+    },
+    "clinical_grade": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "疾病分期与严重程度判断",
+      "family": "clinical_grade",
+      "family_title": "疾病分期与严重程度判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据病例作出临床分级，方向适合主评测；不同分期体系应分层，考试金标不证明现行临床有效性。"
+    },
+    "unit_equivalence": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "医疗单位换算判断",
+      "family": "unit_equivalence",
+      "family_title": "医疗单位换算判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "通用数值和单位规则能力，不是临床处置；当前为空。"
+    },
+    "reference_range": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "给定参考表的区间匹配",
+      "family": "reference_range",
+      "family_title": "给定参考表的区间匹配",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "实际从完整提供的参考表按人群、标本等字段查找答案；不覆盖方法适用性或无法确定类，原名称范围过大。"
+    },
+    "result_trend": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本事件变化描述识别",
+      "family": "result_trend",
+      "family_title": "文本事件变化描述识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "沿用原 TREND 标注的增加、减少或改变，不进行纵向数值趋势分析或病情预测。"
+    },
+    "long_record_evidence": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "长病历事实检索问答",
+      "family": "long_record_evidence",
+      "family_title": "长病历事实检索问答",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "多数目标是从已有文书找到已记录答案，不是根据当时可用资料选择行动；20 个虚构患者须按患者分组。"
+    },
+    "clinical_error_detection": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "病例医学错误检出",
+      "family": "clinical_error_detection",
+      "family_title": "病例医学错误检出",
+      "label_semantics": "fixed",
+      "positive_label": "1",
+      "notes": "有医疗质量审核意义，但测错误是否存在，非诊疗行动；与错误定位合为一个审核任务的两项指标更合理。"
+    },
+    "clinical_error_location": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "病例医学错误定位",
+      "family": "clinical_error_location",
+      "family_title": "病例医学错误定位",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "定位上游注入或标注的错误句，未评价纠正措施；句号位置不是稳定临床类别。"
+    },
+    "claim_support": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "研究论断与摘要一致性判断",
+      "family": "claim_support",
+      "family_title": "研究论断与摘要一致性判断",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "是文献证据判断，不评价指定患者治疗获益；单列证据评估。"
+    },
+    "trial_referral": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "患者临床试验初筛与转介判断",
+      "family": "trial_referral",
+      "family_title": "患者临床试验初筛与转介判断",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "输入含患者与试验条件并输出转介相关等级，适合主评测；不是最终入组资格，原 material_judgment 标签应调整。"
+    },
+    "criterion_entity_type": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "入排标准实体类型识别",
+      "family": "criterion_entity_type",
+      "family_title": "入排标准实体类型识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "标注条件、药物、数值等文本要素，不评价某位患者是否符合标准。"
+    },
+    "criterion_relation": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "入排标准要素关系识别",
+      "family": "criterion_relation",
+      "family_title": "入排标准要素关系识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "选择已标注要素的限定关系，且主要是正关系；不是患者级入排判断。"
+    },
+    "criterion_boolean": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "入排标准与或结构识别",
+      "family": "criterion_boolean",
+      "family_title": "入排标准与或结构识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "区分文本条件 AND/OR，没有患者资料或患者资格结论。"
+    },
+    "criterion_bound": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "入排标准数值边界识别",
+      "family": "criterion_bound",
+      "family_title": "入排标准数值边界识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "区分上界、下界，没有把患者数值与条件比较。"
+    },
+    "patient_contraindication": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "患者方案禁忌判断",
+      "family": "patient_contraindication",
+      "family_title": "患者方案禁忌判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据病例选择不宜采用的方案，方向适合；54 题，且药物、检查和治疗禁忌是混合子类。"
+    },
+    "dose_appropriateness": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "患者剂量适宜性判断",
+      "family": "dose_appropriateness",
+      "family_title": "患者剂量适宜性判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合主评测，但当前无题目；需患者状态、具体处方和有来源的适宜性金标。"
+    },
+    "triage_urgency": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "分诊与就医紧急程度判断",
+      "family": "triage_urgency",
+      "family_title": "分诊与就医紧急程度判断",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "根据当前披露消息选择澄清、自护、非紧急或紧急就医，属于行动决策；材料为重构轨迹，应单列来源性质。"
+    },
+    "critical_result_escalation": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "危急检验结果处置选择",
+      "family": "critical_result_escalation",
+      "family_title": "危急检验结果处置选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，但当前无题目；需明确阈值、复核条件和升级规则后才可计分。"
+    },
+    "privacy_candidate": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "医疗文本个人标识识别",
+      "family": "privacy_candidate",
+      "family_title": "医疗文本个人标识识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "识别需处理的个人标识，不评价是否同意披露或如何处理隐私冲突。"
+    },
+    "procedure_progress": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "医疗操作记录状态核对",
+      "family": "procedure_progress",
+      "family_title": "医疗操作记录状态核对",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "判断记录显示计划、完成或取消，未决定下一步操作；当前为空。"
+    },
+    "administration_status": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "给药执行记录状态核对",
+      "family": "administration_status",
+      "family_title": "给药执行记录状态核对",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "区分开单、配药、给入，属于执行核对，不选择治疗方案；当前为空。"
+    },
+    "followup_action": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "随访待办与完成状态核对",
+      "family": "followup_action",
+      "family_title": "随访待办与完成状态核对",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "原定义混合行动提取和完成状态；未有完成或逾期金标，不能用待办分类代替。"
+    },
+    "report_stage": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "报告状态核对",
+      "family": "report_stage",
+      "family_title": "报告状态核对",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "识别初步、最终、更正等报告状态，不决定应采用哪个结论或如何处置；当前为空。"
+    },
+    "synthetic_diagnosis": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "病例诊断选择：模拟病例子集",
+      "family": "diagnosis",
+      "family_title": "病例诊断选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，但与临床病例候选诊断同属诊断选择；建议合并为任务下的数据来源分层，保留模拟性质。"
+    },
+    "diagnosis_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "病例诊断选择：考试病例子集",
+      "family": "diagnosis",
+      "family_title": "病例诊断选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合主评测；与模拟诊断合并报告上层任务，不能仅因来源不同当作两个独立临床能力。"
+    },
+    "examination_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "检查方案选择",
+      "family": "examination_choice",
+      "family_title": "检查方案选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据病例选择检查，属于诊断流程决策；应保留原题信息与原选项。"
+    },
+    "treatment_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "治疗方案选择",
+      "family": "treatment_choice",
+      "family_title": "治疗方案选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据病例选择治疗，方向适合；与用药、补液等细分任务按层级组织，避免任务拆分影响权重。"
+    },
+    "medication_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "用药方案选择",
+      "family": "medication_choice",
+      "family_title": "用药方案选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据病例选药，方向适合；不是药物实体匹配，需与后者严格区分。"
+    },
+    "tcm_syndrome": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "中医证型判断",
+      "family": "tcm_syndrome",
+      "family_title": "中医证型判断",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "根据病例作出上游证型判断，作为中医诊断子类单列；不等同处方效果。"
+    },
+    "department_routing": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "首诊科室选择",
+      "family": "department_routing",
+      "family_title": "首诊科室选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合主评测，但无合适题目；采集平台科室标签不等于首诊推荐金标。"
+    },
+    "message_urgency_pair": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "患者消息处理优先级",
+      "family": "message_urgency_pair",
+      "family_title": "患者消息处理优先级",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "有病历背景和优先处理动作，方向适合；只有 30 对、两个收件箱且消息为合成，需单列探索性结果。"
+    },
+    "deterioration_prediction": {
+      "scope": "auxiliary",
+      "category": "risk",
+      "title": "脓毒症发生风险预测",
+      "family": "deterioration_prediction",
+      "family_title": "脓毒症发生风险预测",
+      "label_semantics": "fixed",
+      "positive_label": "yes",
+      "notes": "根据固定前 12 小时预测后续起病，属于风险预测；100 题中阳性 11 题，单看准确率容易误读。"
+    },
+    "readmission_30d": {
+      "scope": "auxiliary",
+      "category": "risk",
+      "title": "糖尿病患者回家后 30 天再入院预测",
+      "family": "readmission_30d",
+      "family_title": "糖尿病患者回家后 30 天再入院预测",
+      "label_semantics": "fixed",
+      "positive_label": "yes",
+      "notes": "只覆盖糖尿病住院后回家人群；100 题仅 7 个阳性，始终预测否即可 93%，不评价是否应入院或何种干预。"
+    },
+    "followup_item_type": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "出院文书待办类别识别",
+      "family": "followup_item_type",
+      "family_title": "出院文书待办类别识别",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "提取文书已有的待办类别，不制定随访计划；当前为空。"
+    },
+    "adverse_event_prediction": {
+      "scope": "auxiliary",
+      "category": "risk",
+      "title": "试验人群不良事件发生预测",
+      "family": "adverse_event_prediction",
+      "family_title": "试验人群不良事件发生预测",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "原定义预测试验组事件出现，不是个体患者因果风险或处置；当前为空。"
+    },
+    "clinical_statement_support": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "病历论断一致性判断",
+      "family": "clinical_statement_support",
+      "family_title": "病历论断一致性判断",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "判断材料是否支持论断，可作可靠性辅助评测；没有直接诊疗动作，当前为空。"
+    },
+    "mortality_90d": {
+      "scope": "auxiliary",
+      "category": "risk",
+      "title": "心衰患者 90 日死亡结局预测",
+      "family": "mortality_90d",
+      "family_title": "心衰患者 90 日死亡结局预测",
+      "label_semantics": "fixed",
+      "positive_label": "yes",
+      "notes": "仅限心衰基线记录及声明的删失规则；不是普适死亡风险，100 题阳性 22，需报告风险指标与基线。"
+    },
+    "postoperative_disposition": {
+      "scope": "auxiliary",
+      "category": "risk",
+      "title": "术后历史转归去向预测",
+      "family": "postoperative_disposition",
+      "family_title": "术后历史转归去向预测",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "金标是过去记录的去向，未证明是最优处置；68 题仅 2 个 ICU 类，不能据此证明 ICU 分流能力。"
+    },
+    "maternal_risk": {
+      "scope": "auxiliary",
+      "category": "risk",
+      "title": "孕产记录风险标签分类",
+      "family": "maternal_risk",
+      "family_title": "孕产记录风险标签分类",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "复制发布方风险等级，不是已观察的母婴结局；需要标签定义核验，单列风险分类。"
+    },
+    "event_temporal_order": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本临床事件先后关系",
+      "family": "event_temporal_order",
+      "family_title": "文本临床事件先后关系",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "识别两处提及的时间关系，不确定临床干预顺序。"
+    },
+    "event_coreference": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本同一事件指代识别",
+      "family": "event_coreference",
+      "family_title": "文本同一事件指代识别",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "关联同一事件的不同提及，不作临床诊断。"
+    },
+    "anatomical_site_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本事件与解剖部位关联",
+      "family": "anatomical_site_link",
+      "family_title": "文本事件与解剖部位关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "复制原文修饰关系，不判断疾病部位或病灶定位。"
+    },
+    "severity_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本严重程度修饰关联",
+      "family": "severity_link",
+      "family_title": "文本严重程度修饰关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "定位程度词修饰哪个事件，不评价患者严重程度。"
+    },
+    "route_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本给药途径与对象关联",
+      "family": "route_link",
+      "family_title": "文本给药途径与对象关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "原文途径指向哪个药物或操作，不选择应采用何种给药途径。"
+    },
+    "frequency_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本频次与对象关联",
+      "family": "frequency_link",
+      "family_title": "文本频次与对象关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "给定频次片段寻找原文目标，不确定患者应采用的频次。"
+    },
+    "duration_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本时长与对象关联",
+      "family": "duration_link",
+      "family_title": "文本时长与对象关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "识别已有时长描述关联哪个对象，不制定疗程。"
+    },
+    "drug_form_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本剂型与药物关联",
+      "family": "drug_form_link",
+      "family_title": "文本剂型与药物关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "将剂型片段与药物配对，不选择适用剂型。"
+    },
+    "cause_effect_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本因果关系识别",
+      "family": "cause_effect_link",
+      "family_title": "文本因果关系识别",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "复制上游 Causes 关系，不作患者病因判断或药物不良反应因果归属。"
+    },
+    "combination_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本联合干预关系识别",
+      "family": "combination_link",
+      "family_title": "文本联合干预关系识别",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "识别原文哪些干预联合出现，不推荐联合方案。"
+    },
+    "indication_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本干预用途关联",
+      "family": "indication_link",
+      "family_title": "文本干预用途关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "识别文中说明的用途，不评价某患者是否适用。"
+    },
+    "assertion_cue_target": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "否定与推测线索作用范围",
+      "family": "assertion_cue_target",
+      "family_title": "否定与推测线索作用范围",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "定位线索作用对象，属于语义范围标注，不是临床诊断核实。"
+    },
+    "event_date_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本事件与时间表达关联",
+      "family": "event_date_link",
+      "family_title": "文本事件与时间表达关联",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "把已有事件和时间提及配对，不决定检查或治疗时点。"
+    },
+    "procedure_component_link": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本操作包含关系识别",
+      "family": "procedure_component_link",
+      "family_title": "文本操作包含关系识别",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "识别子操作属于哪个操作，不作手术或操作方案选择。"
+    },
+    "event_permanence": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "文本事件持续性分类",
+      "family": "event_permanence",
+      "family_title": "文本事件持续性分类",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "复制 FINITE/PERMANENT 属性，不判断慢病诊断或长期预后。"
+    },
+    "clinical_time_type": {
+      "scope": "auxiliary",
+      "category": "text",
+      "title": "临床文本时间表达分类",
+      "family": "clinical_time_type",
+      "family_title": "临床文本时间表达分类",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "区分日期、时长、周期等表达类型，属于文本标注。"
+    },
+    "case_etiology": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "病例病因判断",
+      "family": "case_etiology",
+      "family_title": "病例病因判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据病例在原候选中判断原因，属于临床推断；与文本 Causes 标注不同。"
+    },
+    "case_complication": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "病例并发症判断",
+      "family": "case_complication",
+      "family_title": "病例并发症判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据新表现判断并发症，适合主评测；按诊断相关子类汇总。"
+    },
+    "nursing_priority": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "护理措施选择",
+      "family": "nursing_priority",
+      "family_title": "护理措施选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "含首要措施和一般正确措施，题名不应全部称优先级；42 题，适合护理决策子类。"
+    },
+    "fluid_plan": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "补液方案选择",
+      "family": "fluid_plan",
+      "family_title": "补液方案选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，仅 16 题；作为治疗方案子类并标明探索性，不当作稳定独立榜单。"
+    },
+    "lab_value_classification": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "按给定区间判读检验值高低",
+      "family": "lab_value_classification",
+      "family_title": "按给定区间判读检验值高低",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "有参考区间时进行数值比较，属于检验解读辅助能力，不推断危急值、诊断或处置。"
+    },
+    "pgx_function_phenotype": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "药物基因功能表型映射",
+      "family": "pgx_function_phenotype",
+      "family_title": "药物基因功能表型映射",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "根据已给功能、活性等映射固定规则，非检测全流程或治疗选择；84 题只有 19 个基因来源组。"
+    },
+    "pgx_guideline_recommendation": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "药物基因结果对应的指南建议选择",
+      "family": "pgx_guideline_recommendation",
+      "family_title": "药物基因结果对应的指南建议选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "输出用药建议，方向适合但为固定指南规则选择，无完整患者记录；应与病例治疗分层而非声称个体处方能力。"
+    },
+    "trial_effect_direction": {
+      "scope": "auxiliary",
+      "category": "support",
+      "title": "试验报告结局方向判读",
+      "family": "trial_effect_direction",
+      "family_title": "试验报告结局方向判读",
+      "label_semantics": "fixed",
+      "positive_label": null,
+      "notes": "判断报告中升高、降低或无显著差异，方向不等于获益，不选择患者治疗方案。"
+    },
+    "tcm_pathogenesis_candidate": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "中医候选病机判断",
+      "family": "tcm_pathogenesis_candidate",
+      "family_title": "中医候选病机判断",
+      "label_semantics": "fixed",
+      "positive_label": "yes",
+      "notes": "属于诊断相关判断；100 题来自 50 病例，判断是否在原答案集合内，不是 100 个独立诊断病例或原多选整题准确率。"
+    },
+    "prescription_audit_action": {
+      "scope": "auxiliary",
+      "category": "workflow",
+      "title": "中药处方审核规范情境问答",
+      "family": "prescription_audit_action",
+      "family_title": "中药处方审核规范情境问答",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "11 题多为一般审核规范、签名或用量规则，没有完整患者与处方；有政策时效和适用范围条件，暂不当作个体处方适宜性评测。"
+    },
+    "nutrition_plan": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "营养与饮食方案选择",
+      "family": "nutrition_plan",
+      "family_title": "营养与饮食方案选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，仅 11 题且混合营养途径、摄入量与饮食指导；作为子类分层。"
+    },
+    "positioning_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "护理与操作体位选择",
+      "family": "positioning_choice",
+      "family_title": "护理与操作体位选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，仅 10 题，覆盖病情和操作两类情境；作为护理子类。"
+    },
+    "followup_plan": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "复查项目与随访时机选择",
+      "family": "followup_plan",
+      "family_title": "复查项目与随访时机选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，仅 6 题且项目与时机混合；区别于文书待办提取。"
+    },
+    "monitoring_target": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "病情监测与疗效判断",
+      "family": "monitoring_target",
+      "family_title": "病情监测与疗效判断",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "5 题中既有监测变量选择，也有疗效不满意的判据；原题名偏窄，建议细分标签而非新增独立任务。"
+    },
+    "rehabilitation_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "康复训练方案选择",
+      "family": "rehabilitation_choice",
+      "family_title": "康复训练方案选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "有患者功能状态和行动选项，方向适合，但只有 4 题，不能据此判断稳定训练增益。"
+    },
+    "prevention_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "预防措施选择",
+      "family": "prevention_choice",
+      "family_title": "预防措施选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "13 题混合个体、接触者及群体防控措施；原个体预防名称偏窄，需按作用对象分层。"
+    },
+    "infection_precaution": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "感染防控措施选择",
+      "family": "infection_precaution",
+      "family_title": "感染防控措施选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，仅 5 题，包含患者隔离及器械消毒，不能统称个体治疗决策。"
+    },
+    "patient_counseling": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "健康教育与沟通行动选择",
+      "family": "patient_counseling",
+      "family_title": "健康教育与沟通行动选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "11 题从原选项选择教育重点、方式或沟通话语，属于封闭行动选择；分开报告临床教育内容和沟通技巧。"
+    },
+    "administration_route_choice": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "给药途径与实施方法选择",
+      "family": "administration_route_choice",
+      "family_title": "给药途径与实施方法选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "方向适合，仅 4 题，包含途径、皮试浓度和脱敏注射方法；不等同原文途径关联。"
+    },
+    "consent_action": {
+      "scope": "clinical",
+      "category": "core",
+      "title": "知情同意与隐私处置选择",
+      "family": "consent_action",
+      "family_title": "知情同意与隐私处置选择",
+      "label_semantics": "per_question",
+      "positive_label": null,
+      "notes": "只有 3 题，存在伦理和法律语境差异；暂作行动选择探索项，不证明跨地区合规判断能力。"
+    }
+  }
+}

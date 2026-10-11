@@ -11,7 +11,8 @@
 | 来源 ID | `evidence_inference` |
 | 上游入口 | [发布方页面](https://github.com/jayded/evidence-inference) |
 | 收录情况 | 100 题 / 1 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 100 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | MIT (annotations); CC-BY (articles, per-record version) |
 | 收录语种 | 英语 100 题 |
 
@@ -29,9 +30,9 @@ DeYoung et al. (2020), Evidence Inference 2.0: More Data, Better Models. Article
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [试验干预效果方向判定](../tasks/trial_effect_direction.md) | 100 | 根据完整试验报告，判断指定干预相对对照对指定结局的报告结果：显著降低、无显著差异或显著升高。方向不等同临床优劣。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [试验报告结局方向判读](../tasks/trial_effect_direction.md) | 辅助评测（不计临床主分数） | 100 | 根据完整试验报告，判断指定干预相对对照对指定结局的报告结果：显著降低、无显著差异或显著升高。方向不等同临床优劣。 |
 
 ## 答案与格式转换
 
@@ -126,7 +127,7 @@ PromptID 连接原 ICO 提示和医生标注；仅保留验证通过、全部有
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[试验干预效果方向判定](../tasks/trial_effect_direction.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[试验报告结局方向判读](../tasks/trial_effect_direction.md)。
 
 ## 追溯与使用
 

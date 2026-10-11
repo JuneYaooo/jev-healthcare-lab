@@ -1,18 +1,36 @@
 {
   "releases": [
     {
-      "file": "jev-medical-decision-v0.8.0-open.zip",
-      "sha256": "e2999972ec14a13f6d4469f558b2498134ceb101cb5a1082233e6ab5ca246052",
-      "bytes": 15007994,
-      "records": 4334,
-      "distribution": "open"
+      "file": "jev-medical-decision-clinical-open.zip",
+      "sha256": "e3ed2ea1d50ec0602512c5b097ea783aa4bcfaccbbce078e0e142622c55214f0",
+      "bytes": 3996739,
+      "records": 1284,
+      "distribution": "open",
+      "evaluation_scope": "clinical"
     },
     {
-      "file": "jev-medical-decision-v0.8.0-research-noncommercial.zip",
-      "sha256": "6e37e7fc0be3093bb5abacdb2b3b2b30b406dce55575d93d87dd5578fde732ab",
-      "bytes": 3943212,
-      "records": 1573,
-      "distribution": "research_noncommercial"
+      "file": "jev-medical-decision-clinical-research-noncommercial.zip",
+      "sha256": "2cccebc405012d708bbf2994bb0233c95e1477eca3e67c98bbf05a7c1ec0ce31",
+      "bytes": 819049,
+      "records": 230,
+      "distribution": "research_noncommercial",
+      "evaluation_scope": "clinical"
+    },
+    {
+      "file": "jev-medical-decision-auxiliary-open.zip",
+      "sha256": "d0106f7478a4d427fdb6b6767f68a421966f3ddc9b49df68a589f6d589c088a3",
+      "bytes": 9744270,
+      "records": 2950,
+      "distribution": "open",
+      "evaluation_scope": "auxiliary"
+    },
+    {
+      "file": "jev-medical-decision-auxiliary-research-noncommercial.zip",
+      "sha256": "c0257cdd47d7260ab44e5bc5a2db12263b11fa0188a705e772efd5ec0517c79d",
+      "bytes": 3203813,
+      "records": 1343,
+      "distribution": "research_noncommercial",
+      "evaluation_scope": "auxiliary"
     }
   ]
 }

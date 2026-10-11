@@ -11,6 +11,7 @@
 | 来源 ID | `uci_immunotherapy` |
 | 上游入口 | [发布方页面](https://archive.ics.uci.edu/dataset/428/immunotherapy+dataset) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | 未确认；不据此再分发数据 |
 | 收录语种 | 无收录题目 |

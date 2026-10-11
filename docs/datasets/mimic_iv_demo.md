@@ -11,6 +11,7 @@
 | 来源 ID | `mimic_iv_demo` |
 | 上游入口 | [发布方页面](https://physionet.org/content/mimic-iv-demo/2.2/) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | Open Data Commons Open Database License v1.0（以发布页为准） |
 | 收录语种 | 无收录题目 |
@@ -37,8 +38,8 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [患者与记录身份匹配](../tasks/patient_identity.md) | 判断两条材料是否属于同一患者及身份是否可确定。 |
-| [单次给药执行状态](../tasks/administration_status.md) | 判断已开医嘱、已配药、已给入或未执行。 |
+| [患者记录身份核对](../tasks/patient_identity.md) | 判断两条材料是否属于同一患者及身份是否可确定。 |
+| [给药执行记录状态核对](../tasks/administration_status.md) | 判断已开医嘱、已配药、已给入或未执行。 |
 
 ## 追溯与使用
 

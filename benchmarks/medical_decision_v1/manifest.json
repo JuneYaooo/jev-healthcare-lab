@@ -1,10 +1,10 @@
 {
   "version": "0.8.0",
-  "builder_sha256": "64e3c5c0cfccc9caa2588c9696e93d7cf518ba12ba95bb16e518543a336d5659",
+  "builder_sha256": "e2e4e872b98b9be14a2a24d6d808a4d46caad29a92c920e5517f180eacc18d37",
   "files": {
     "README.md": {
-      "sha256": "f747c5399cc0c0ae770b141edbc75d5ca90be240dd904358f49344413c185f1b",
-      "bytes": 37195
+      "sha256": "4245aa22b9e816d36cfb43527bae338a626cd4b22eb9ba9c8921ebe5a51a84e1",
+      "bytes": 1753
     },
     "SCENARIO_RESEARCH.md": {
       "sha256": "fe3060a93709ffda4abb2e2f1dc4d877d1ad0d766fdc2ce98abf1b83dececce5",
@@ -17,6 +17,14 @@
     "answers.jsonl": {
       "sha256": "54ffbe4257978fba62bbc8a3f571f2be0f93533806e68b1e4a1177ab2f4c9a6c",
       "bytes": 737268
+    },
+    "evaluation-summary.json": {
+      "sha256": "04e4ec7a9f0541053679200a93e9c254914dee4400022d22dbcc38cd95f4b256",
+      "bytes": 43833
+    },
+    "evaluation_scope.json": {
+      "sha256": "4bcc135f062d5d0a591d8f8449b5814ee101656e21628170798d846ae3cde488",
+      "bytes": 36943
     },
     "expansion_audit_v080.json": {
       "sha256": "42f0da451e7677b6d70b3157252a63085333116d35e18034a4d8598a80c5ffe7",

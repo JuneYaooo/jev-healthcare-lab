@@ -10,6 +10,7 @@ from collections import Counter, defaultdict
 import json
 from pathlib import Path
 import re
+import medical_decision_dataset as data
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "benchmarks/medical_decision_v1"
@@ -22,11 +23,13 @@ STAGES = {
     "risk_classification": "风险分类",
 }
 DISTRIBUTIONS = {
-    "open": "开放许可核心集",
+    "open": "开放许可部分",
     "research_noncommercial": "非商业研究附加集",
     "reference_only": "仅作参考，未收录题目",
 }
 LANGUAGES = {"zh": "中文", "en": "英语", "es": "西班牙语"}
+SCOPES = {"clinical": "临床主评测", "auxiliary": "辅助评测（不计临床主分数）", "suspended": "暂停使用（不导出、不评分）"}
+CATEGORIES = {"support": "临床计算、解读与证据", "risk": "风险、结局与历史去向预测", "workflow": "流程与记录核对", "text": "文本理解与标注"}
 
 
 def read_json(path):
@@ -103,6 +106,11 @@ def render():
     sources = {s["id"]: s for s in read_json(DATA / "sources.json")["sources"]}
     scenes = {s["id"]: s for s in taxonomy["scenarios"]}
     dimensions = {d["id"]: d["title"] for d in taxonomy["dimensions"]}
+    policy = data.evaluation_policy(DATA)
+    inventory = data.evaluation_inventory(DATA)
+    rules = policy["tasks"]
+    for tid, task in tasks.items():
+        task["title"] = rules[tid]["title"]
     by_task, by_source = defaultdict(list), defaultdict(list)
     for line in (DATA / "samples.jsonl").read_text().splitlines():
         row = json.loads(line)
@@ -120,19 +128,21 @@ def render():
 
     for tid, task in tasks.items():
         rows, report = by_task[tid], reports[tid]
+        rule = rules[tid]
         source_counts = Counter(r["provenance"]["source_id"] for r in rows)
         assert len(rows) == report["count"]
         assert dict(source_counts) == report["source_counts"]
         parts = [
             f"# {task['title']}",
-            "[返回首页](../../README.md) · [全部任务](README.md) · [数据集目录](../datasets/README.md)",
+            "[返回首页](../../README.md) · [主评测任务](README.md) · [辅助与暂停任务](AUXILIARY.md) · [数据集目录](../datasets/README.md)",
+            f"**当前用途：{SCOPES[rule['scope']]}。** {rule['notes']}",
             "## 任务是什么",
             task["definition"],
             table(["项目", "说明"], [
                 ["任务 ID", f"`{tid}`"],
                 ["医疗场景", scenes[task["primary_scenario"]]["title"]],
                 ["能力维度", "、".join(dimensions[d] for d in task["ability_tags"])],
-                ["决策类型", STAGES[task["decision_stage"]]],
+                ["评测类别", "临床判断与行动" if rule["scope"] == "clinical" else CATEGORIES[rule["category"]]],
                 ["当前题数 / 目标题数", f"{len(rows)} / {task['target_count']}"],
                 ["来源组数", str(len({r["group_id"] for r in rows}))],
                 ["语种", counts_text(Counter(r["language"] for r in rows), LANGUAGES) or "待补"],
@@ -147,7 +157,8 @@ def render():
             ]))
             parts.extend([
                 "## 如何作答与评分",
-                "根据题目给定的材料和规则，从 `request.questions.decision.criteria` 选择一个选项键。选项随题目变化；`gold` 保存标准选项键，不向模型发送。按选项键计准确率、宏 F1 和逐类召回，缺失或无效回答按错计。",
+                "根据材料从 `request.questions.decision.criteria` 选择一个选项键。`gold` 不向模型发送。缺失或无效回答按错计。" + ("固定语义标签计算准确率、宏 F1、召回与混淆矩阵。" if rule["label_semantics"] == "fixed" else "按各题候选独立评分，只报告准确率和来源组结果；不对局部选项键计算临床类别 F1。"),
+                "暂停任务仅保留来源与构造示例，不导出、不评分。" if rule["scope"] == "suspended" else "合并任务后，在本次所选许可范围内少于 20 题的任务仅给探索性结果，不进入汇总。20 题是最低汇总门槛，不是统计充分性或临床有效性保证。",
                 "后续比较模型时，使用相同题目子集，分别记录本任务得分、完整决策耗时与失败率。计时口径见 [评测方法](../EVALUATION.md#耗时测量与结果记录)。当前没有该任务的模型对比成绩。",
             ])
             parts.extend(example_sections(example(rows)))
@@ -188,6 +199,8 @@ def render():
             f"[本任务全部记录]({DATA_LINK}/tasks/{tid}/samples.jsonl) · [任务定义与统计]({DATA_LINK}/tasks/{tid}/task.json) · [格式与使用方法](../REPRODUCING.md)",
             "[返回首页](../../README.md)",
         ])
+        if rule["family"] != tid:
+            parts.insert(3, f"本页为来源子集，统一并入 [{rule['family_title']}]({rule['family']}.md) 计分，不另增加任务权重。")
         output[ROOT / f"docs/tasks/{tid}.md"] = "\n\n".join(parts) + "\n"
 
     for sid, source in sources.items():
@@ -203,6 +216,7 @@ def render():
                 ["来源 ID", f"`{sid}`"],
                 ["上游入口", link("发布方页面", source["url"])],
                 ["收录情况", f"{len(rows)} 题 / {len(task_counts)} 个任务" if rows else "0 题；仅作参考"],
+                ["评测用途", counts_text(Counter(rules[r["task"]]["scope"] for r in rows), SCOPES) or "仅作参考"],
                 ["使用范围", DISTRIBUTIONS[source["distribution"]]],
                 ["登记的数据许可", source.get("data_license", "未确认；不据此再分发数据")],
                 ["收录语种", counts_text(Counter(r["language"] for r in rows), LANGUAGES) or "无收录题目"],
@@ -222,8 +236,8 @@ def render():
             parts.extend(["### 使用限制", prose(source["evaluation_limits"])])
         parts.append("## 用于哪些任务")
         if rows:
-            parts.append(table(["任务说明", "此来源贡献题数", "评测内容"], [
-                [task_link(tid), str(n), tasks[tid]["definition"]]
+            parts.append(table(["任务或来源子集", "用途", "此来源贡献题数", "评测内容"], [
+                [task_link(tid), SCOPES[rules[tid]["scope"]], str(n), tasks[tid]["definition"]]
                 for tid, n in sorted(task_counts.items())
             ]))
             parts.extend([
@@ -252,21 +266,84 @@ def render():
         ])
         output[ROOT / f"docs/datasets/{sid}.md"] = "\n\n".join(parts) + "\n"
 
-    parts = ["# 任务说明目录", "[返回首页](../../README.md) · [数据集目录](../datasets/README.md)", f"共 {len(tasks)} 个任务定义，{len([t for t in tasks if by_task[t]])} 个有题任务。每页说明判断目标、来源、样例输入、标准答案与使用边界；空任务保留定义和缺口。"]
+    clinical = inventory['clinical']
+    families = clinical['families']
+    status_names = {'empty': '待补', 'exploratory': '探索性', 'summary_eligible': '可参与汇总'}
+    parts = ['# 临床主评测任务', '[返回首页](../../README.md) · [辅助与暂停任务](AUXILIARY.md) · [数据集目录](../datasets/README.md)',
+             f"共 {clinical['defined_families']} 个任务定义、{clinical['populated_families']} 个有题任务，{clinical['records']:,} 题。病例诊断的两个来源子集合并计分；小样本任务保留逐项结果，不进入汇总。状态按完整临床范围展示，实际评分按本次许可子集重新计算题数门槛。"]
     for scene_id, scene in scenes.items():
-        parts.extend([f"## {scene['title']}", scene["scope"], table(["任务说明", "能力维度", "题数"], [
-            [link(t['title'], f"{tid}.md"), "、".join(dimensions[d] for d in t['ability_tags']), str(len(by_task[tid]))]
-            for tid, t in tasks.items() if t['primary_scenario'] == scene_id
-        ])])
-    output[ROOT / "docs/tasks/README.md"] = "\n\n".join(parts) + "\n"
+        parts.extend([f"## {scene['title']}", table(['任务说明', '能力维度', '题数', '状态'], [
+            [link(f['title'], f"{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']]]
+            for f in families if f['scenario'] == scene_id])])
+    output[ROOT / 'docs/tasks/README.md'] = '\n\n'.join(parts) + '\n'
+    parts = ['# 辅助与暂停任务', '[返回首页](../../README.md) · [临床主评测任务](README.md)',
+             '这些任务不计入临床主分数。辅助任务可通过 --scope auxiliary 单独导出和评分；暂停任务仅保留追溯材料。']
+    for category, title in CATEGORIES.items():
+        parts.extend([f'## {title}', table(['任务说明', '题数', '当前用途'], [
+            [task_link(tid), len(by_task[tid]), rules[tid]['notes']] for tid in tasks
+            if rules[tid]['scope'] == 'auxiliary' and rules[tid]['category'] == category])])
+    parts.extend(['## 暂停使用', table(['任务说明', '底稿题数', '原因'], [
+        [task_link(tid), len(by_task[tid]), rules[tid]['notes']] for tid in tasks if rules[tid]['scope'] == 'suspended'])])
+    output[ROOT / 'docs/tasks/AUXILIARY.md'] = '\n\n'.join(parts) + '\n'
+    diagnosis = next(f for f in families if f['id'] == 'diagnosis')
+    parts = ['# 病例诊断选择', '[返回首页](../../README.md) · [临床主评测任务](README.md)',
+             '根据给定病例资料，从候选中选择诊断。考试病例与模拟病例作为同一个评测任务的来源子集；题目和原答案保留，不因拆分来源重复增加任务权重。',
+             f"共 {diagnosis['records']} 题。合并后按全部题目计算任务准确率，并保留每个来源子集的结果。选项含义随题变化，不计算临床类别 F1。",
+             table(['来源子集与完整样例', '题数'], [[task_link(tid), len(by_task[tid])] for tid in diagnosis['task_ids']]),
+             '## 样例与来源', '两个来源子集的说明页分别给出完整输入、原选项、标准答案和溯源。以下为考试病例子集中的一题：']
+    parts.extend(example_sections(example(by_task['diagnosis_choice'])))
+    parts.extend(['## 评测边界', '考试病例与模拟病例分别报告，不能把模拟患者当成真实患者。候选数量与题型不同，比较模型时冻结同一批题目和选项。', '[返回首页](../../README.md)'])
+    output[ROOT / 'docs/tasks/diagnosis.md'] = '\n\n'.join(parts) + '\n'
 
-    parts = ["# 数据集与参考来源目录", "[返回首页](../../README.md) · [任务目录](../tasks/README.md)", f"登记 {len(sources)} 个来源，其中 {len([s for s in sources if by_source[s]])} 个实际提供题目。其余仅作调研参考，包括受控数据、许可待核验数据及标准规范，不能按已收录数据集统计。页面中的题数均为本评测集实际采用的数量，不是上游数据总量。"]
+    parts = ['# 数据集与参考来源目录', '[返回首页](../../README.md) · [临床主评测任务](../tasks/README.md) · [辅助与暂停任务](../tasks/AUXILIARY.md)',
+             f"临床主评测使用 {len(clinical['sources'])} 个来源。底稿累计登记 {len(sources)} 个来源，其中 {sum(bool(by_source[s]) for s in sources)} 个有收录记录；其余仅作参考。下表按当前用途统计，底稿题数不等于主评测题数。"]
     for distribution, title in DISTRIBUTIONS.items():
-        parts.extend([f"## {title}", table(["数据集 / 来源说明", "题数", "采用任务数", "材料性质或未采用原因"], [
-            [link(s['name'], f"{sid}.md"), str(len(by_source[sid])), str(len({r['task'] for r in by_source[sid]})), prose(s.get('authenticity') if by_source[sid] else s.get('reason') or s.get('authenticity') or '待核验')]
-            for sid, s in sources.items() if s['distribution'] == distribution
-        ])])
-    output[ROOT / "docs/datasets/README.md"] = "\n\n".join(parts) + "\n"
+        parts.extend([f'## {title}', table(['数据集 / 来源说明', '主评测题数', '辅助题数', '暂停题数', '材料性质或未采用原因'], [
+            [link(s['name'], f'{sid}.md'),
+             sum(rules[r['task']]['scope'] == 'clinical' for r in by_source[sid]),
+             sum(rules[r['task']]['scope'] == 'auxiliary' for r in by_source[sid]),
+             sum(rules[r['task']]['scope'] == 'suspended' for r in by_source[sid]),
+             prose(s.get('authenticity') if by_source[sid] else s.get('reason') or s.get('authenticity') or '待核验')]
+            for sid, s in sources.items() if s['distribution'] == distribution])])
+    output[ROOT / 'docs/datasets/README.md'] = '\n\n'.join(parts) + '\n'
+
+    used_tags = sorted({d for f in families for d in f['ability_tags']})
+    main_rows = [r for rows in by_task.values() for r in rows if rules[r['task']]['scope'] == 'clinical']
+    example_row = example([r for r in main_rows if r['provenance']['distribution'] == 'open'])
+    parts = ['# Jev Healthcare Lab',
+        '用于逐任务比较 **JEV 与其他模型的医疗决策准确率和完整运行耗时**。主评测围绕病例诊断、检查、治疗、用药、分诊、护理、随访与试验转介，要求从给定候选中作出选择；不包含自由生成任务。',
+        f"**{len(scenes)} 个医疗场景、{len(used_tags)} 个能力标签、{clinical['defined_families']} 个任务定义。** 其中 {clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题（中文 {clinical['languages'].get('zh', 0):,} 题），采用 {len(clinical['sources'])} 个数据来源。{sum(f['status'] == 'empty' for f in families)} 个任务待补；{sum(f['status'] == 'exploratory' for f in families)} 个不足 20 题的任务作为探索项，暂不进入汇总。当前尚无模型对比成绩。",
+        '[场景与任务](#场景与任务) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md) · [下载与使用](#下载与使用)',
+        '## 能力维度',
+        '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
+        table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
+        '## 场景与任务',
+        '任务名称链接到说明页，包含任务定义、输入样例、选项与原答案；数据集名称链接到来源、引用与许可。来源后的数字为实际题数，† 表示非商业附加来源。“可参与汇总”只代表达到最低题量门槛，不表示已通过临床验证。',
+        table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
+    for sid, scene in scenes.items():
+        parts.extend([f"### {scene['title']}", table(['任务', '能力维度', '题数', '状态', '数据集来源（题数）'], [
+            [link(f['title'], f"docs/tasks/{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']],
+             '；'.join(link(sources[source]['name'], f'docs/datasets/{source}.md') + ('†' if sources[source]['distribution']=='research_noncommercial' else '') + f'（{n}）' for source,n in sorted(f['sources'].items())) or '待补数据']
+            for f in families if f['scenario'] == sid])])
+    parts.extend(['## 模型得分与耗时对比',
+        '每个模型使用相同题目、候选项和许可范围，分别报告逐任务准确率、完整决策耗时（均值、P50、P95）、任务总耗时及失败率。多阶段调用、工具与重试计入完整决策耗时，运行配置随结果保存。',
+        '病例诊断的两个来源子集合并为一个任务。汇总先对场景内达到 20 题的任务等权，再对有分数场景等权；不足 20 题仅给探索结果，空任务不计零分。题量门槛按本次所选许可范围计算。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。',
+        '**现有工具支持离线质量评分，尚未实现模型调用和耗时采集。** 详细口径见 [评测方法](docs/EVALUATION.md)。',
+        '## 下载与使用',
+        table(['数据包', '题数', '使用范围'], [[link('临床主评测 · 开放许可', 'releases/jev-medical-decision-clinical-open.zip'), clinical['distribution'].get('open',0), '遵守各来源署名、相同方式共享等条款'], [link('临床主评测 · 非商业附加', 'releases/jev-medical-decision-clinical-research-noncommercial.zip'), clinical['distribution'].get('research_noncommercial',0), '保留非商业等限制；与开放部分分开报告']]),
+        '[辅助数据包与全部校验和](releases/README.md)。解压后进入包目录执行（Python 3.10+，仅标准库）：',
+        '```bash\npython3 tools/medical_decision_release.py verify --dataset .\npython3 tools/medical_decision_release.py score --dataset . --predictions predictions.jsonl --output scores.json\n```',
+        '读取包内 requests.jsonl，只把 request 发给模型。预测文件每行一条，以下使用一个实际题号演示，choice 应填模型返回的选项键：',
+        block({'id':example_row['id'],'choice':'模型返回的选项键'}, compact=True),
+        'scores.json 的 task_families 保存合并后的逐任务结果，tasks 保留来源子集结果。逐题耗时记录通过题目编号关联。仓库内导出默认同样只选择临床主评测的开放许可部分：',
+        '```bash\npython3 scripts/medical_decision_dataset.py export --output work/clinical-requests.jsonl\npython3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/clinical-scores.json\n```',
+        '## 数据来源与评测边界',
+        '每题保留原始资源地址、固定快照、文件哈希、原记录位置及答案映射。材料包含考试病例、模拟病例、重构咨询和指南规则，各来源说明页标明性质与许可；尚未经过本项目独立医生逐题审核。',
+        '辅助计算、风险预测、流程核对和文本标注放在 [辅助目录](docs/tasks/AUXILIARY.md)，须显式指定 --scope auxiliary，不能混入临床主分数。“目标患者回答证据是否出现”因姓名捷径暂停使用，不导出、不评分、不打包。',
+        '[任务范围调整依据](docs/TASK_SCOPE_REVIEW.md) · [来源登记](docs/datasets/README.md) · [使用与复建](docs/REPRODUCING.md)',
+        '训练对比需要检查上游训练划分、模型暴露和共享病例，并冻结相同子集。公开试题和小样本结果不能作为未暴露盲测或临床有效性证明。',
+        '## 许可', '代码采用 [MIT](LICENSE)。第三方数据保留原许可，代码许可不覆盖题目材料；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
+    output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
     return output
 
 

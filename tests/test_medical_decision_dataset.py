@@ -156,11 +156,14 @@ class ScoringTests(unittest.TestCase):
             "scenarios": [{"id": "intake", "title": "Intake"}, {"id": "followup", "title": "Follow-up"}],
             "tasks": [{"id": "task", "primary_scenario": "intake"}, {"id": "empty", "primary_scenario": "followup"}]})
         module.write_json(self.folder / "manifest.json", {})
+        module.write_json(self.folder / "evaluation_scope.json", {"minimum_summary_questions": 1, "tasks": {
+            tid: {"scope": "clinical", "family": tid, "family_title": tid, "title": tid, "label_semantics": "fixed"}
+            for tid in ["task", "empty"]}})
         self.predictions = self.folder / "predictions.jsonl"
 
     def test_missing_and_invalid_predictions_remain_in_denominator(self):
         rows = [sample("one"), sample("two", "b"), sample("three", "b")]
-        result = module.metrics(rows, {"one": "a", "two": "invalid"})
+        result = module.metrics(rows, {"one": "a", "two": "invalid"}, semantic_labels=True)
         self.assertEqual(result["accuracy"], 1 / 3)
         self.assertEqual((result["missing"], result["invalid"]), (1, 1))
         self.assertEqual(result["macro_f1"], 0.5)
@@ -170,8 +173,9 @@ class ScoringTests(unittest.TestCase):
         module.write_jsonl(self.predictions, [{"id": "one", "choice": "a"},
             {"id": "two", "response": {"answers": {"decision": {"choice": "b"}}}},
             {"id": "research", "choice": "a"}])
-        core = module.score(self.folder, self.predictions)
         full = module.score(self.folder, self.predictions, include_research=True)
+        module.write_jsonl(self.predictions, [{"id": "one", "choice": "a"}, {"id": "two", "choice": "b"}])
+        core = module.score(self.folder, self.predictions)
         self.assertEqual((core["records"], full["records"]), (2, 3))
         self.assertEqual(core["task_macro_accuracy"], 1)
         self.assertEqual(core["dataset_version"], "fixture")

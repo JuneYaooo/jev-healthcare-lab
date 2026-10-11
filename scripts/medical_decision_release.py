@@ -55,9 +55,10 @@ def trace_record(row, cards, resources, tasks, builder_sha):
             "resources": [resources[name] for name in names]}
 
 
-def package_files(dataset, distribution):
+def package_files(dataset, distribution, scope="clinical"):
     """Return an explicit allowlist; never archive a workspace recursively."""
-    rows = [r for r in data.read_jsonl(dataset / "samples.jsonl")
+    policy = data.evaluation_policy(dataset)
+    rows = [r for r in data.evaluation_rows(dataset, include_research=True, scope=scope)
             if r["provenance"]["distribution"] == distribution]
     if not rows:
         raise ValueError("Empty release: " + distribution)
@@ -89,6 +90,7 @@ def package_files(dataset, distribution):
     example = next((r for r in rows if r["provenance"]["source_id"] == "medcalc"), rows[0])
     js("example-trace.json", trace_record(example, cards, resources, tasks, builder_sha))
     js("taxonomy.json", taxonomy)
+    js("evaluation_scope.json", policy)
     js("sources.json", {"sources": list(cards.values())})
     js("sources.lock.json", {"files": lock})
     for source in cards.values():
@@ -110,8 +112,9 @@ def package_files(dataset, distribution):
         files["tools/" + name] = (ROOT / "scripts" / name).read_bytes()
     files["LICENSE-CODE.txt"] = (ROOT / "LICENSE").read_bytes()
     count = Counter(r["task"] for r in rows)
-    summary = {"dataset_version": taxonomy["version"], "distribution": distribution,
-               "records": len(rows), "tasks_with_data": len(count), "task_counts": dict(count),
+    family_count = len({policy["tasks"][r["task"]]["family"] for r in rows})
+    summary = {"dataset_version": taxonomy["version"], "distribution": distribution, "evaluation_scope": scope,
+               "records": len(rows), "tasks_with_data": family_count, "subtasks_with_data": len(count), "task_counts": dict(count),
                "source_counts": dict(Counter(r["provenance"]["source_id"] for r in rows)),
                "languages": dict(Counter(r["language"] for r in rows)),
                "historical_material_matches": sum(r["exposure"]["historical_material_signature_match"] for r in rows),
@@ -139,21 +142,24 @@ def package_files(dataset, distribution):
         "| requests.jsonl | 仅 id、task、request；调用模型只发送 request 并按接口添加 model |",
         "| answers.jsonl | 独立答案：id、gold、group_id |",
         "| provenance.jsonl | 逐题来源版本、资源 URL/哈希、原标注位置、引用、许可、转换说明与代码哈希 |",
-        "| taxonomy.json | 八个场景和全部任务定义；本包未收录的任务不算已覆盖 |",
+        "| taxonomy.json | 来源任务定义；本包未收录的任务不算已覆盖 |",
+        "| evaluation_scope.json | 主评测、辅助、暂停范围及合并任务与汇总门槛 |",
         "| sources.lock.json | 仅本包来源的上游文件锁定清单 |",
         "| manifest.json | 包内每个交付文件的 SHA-256 和字节数 |", "",
         "request.state 是输入材料；questions.decision.criteria 为选项键与显示文本；gold 是选项键。provenance.locator 按来源采用 CSV 行号（含表头）、JSONL 行号、压缩包成员和标注 ID 等定位。", "",
         "追溯链：id → 整理题目及答案 → provenance.locator → resource_url + version + SHA-256 → 原文件与原标注。SHA-256 用于确认版本和完整性，不等同临床答案审核。", "",
         "部分小型源文件和易变 API 响应随包冻结，其余原始全量数据需另行下载；需要时使用 trace 的 --fetch-source 下载该题直接依赖并校验哈希。失效链接或哈希变化会报错，不会静默换用新版本。", "",
         "例：先从 samples.jsonl 取得完整 id，再运行 `python3 tools/medical_decision_release.py trace --dataset . --id '完整ID'`。"])
-    md("README.md", [f"# Jev 医疗决策评测集 v{taxonomy['version']} · {distribution}", "",
-        f"本包包含 {len(rows):,} 道整理后的决策题，{len(count)} 个任务；无需下载全量上游数据即可读取和评测。", "",
+    scope_title = "临床主评测" if scope == "clinical" else "辅助评测"
+    md("README.md", [f"# Jev 医疗决策评测集 · {scope_title} · {distribution}", "",
+        f"本包包含 {len(rows):,} 道整理题目，{family_count} 个有题任务；无需下载全量上游数据即可读取和评测。", "",
         "[数据格式与追溯](FORMAT.md) · [逐题溯源示例](example-trace.json) · [数据许可与引用](LICENSE-DATA.md) · [题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl)", "",
         "## 快速使用", "", "在解压后的目录执行，Python 3.10+，仅标准库：", "", "```bash",
         "python3 tools/medical_decision_release.py verify --dataset .",
         "python3 tools/medical_decision_release.py trace --dataset . --id " + shlex.quote(example["id"]),
         "python3 tools/medical_decision_release.py score --dataset . --predictions predictions.jsonl --output scores.json",
-        "```", "", "预测文件每行形如 `{" + '"id":"完整样本ID","choice":"选项键"' + "}`；缺失与无效回答计错，重复或未知 ID 报错。只评分本包题目，先任务内统计，再按场景等权汇总；空场景分数为 null。", "",
+        "```", "", "预测文件每行形如 `{" + '"id":"完整样本ID","choice":"选项键"' + "}`；缺失与无效回答计错，重复、未知或范围外 ID 报错。只评分本包题目：诊断来源子集合并，少于 20 题的任务仅给探索结果，不进入汇总；其他任务先在场景内等权，再对有分数场景等权。范围和许可分包不同的汇总分不能直接比较。辅助包没有临床主分数。", "",
+        "A/B/C 等随题变化的选项只计算准确率和来源组结果。固定语义标签才计算 F1、召回、混淆矩阵和样本多数类基线。未实现模型调用及耗时采集。", "",
         "## 读取", "", "```python", "import json", 'with open("requests.jsonl", encoding="utf-8") as f:',
         "    for line in f:", "        row = json.loads(line)", '        request = row["request"]  # 将此对象交给模型；勿发送答案或来源标注', "```", "",
         "## 来源与复建", "", f"项目：[Jev Healthcare Lab]({REPOSITORY})。本包包含锁定资源清单、原许可声明和精确版本的转换/评分代码。", "",
@@ -169,7 +175,7 @@ def package_files(dataset, distribution):
 def verify(dataset):
     manifest = json.loads((dataset / "manifest.json").read_text())
     required = {"samples.jsonl", "requests.jsonl", "answers.jsonl", "provenance.jsonl", "taxonomy.json",
-                "sources.json", "sources.lock.json", "release.json", "LICENSE-CODE.txt", "LICENSE-DATA.md",
+                "sources.json", "sources.lock.json", "evaluation_scope.json", "release.json", "LICENSE-CODE.txt", "LICENSE-DATA.md",
                 "tools/medical_decision_dataset.py", "tools/medical_decision_release.py"}
     if not required <= set(manifest["files"]):
         raise ValueError("Incomplete package manifest")
@@ -184,10 +190,15 @@ def verify(dataset):
     cards = {s["id"]: s for s in json.loads((dataset / "sources.json").read_text())["sources"]}
     resources = {r["name"]: r for r in json.loads((dataset / "sources.lock.json").read_text())["files"]}
     tasks = {t["id"]: t for t in json.loads((dataset / "taxonomy.json").read_text())["tasks"]}
+    policy = data.evaluation_policy(dataset)
+    if meta.get("evaluation_scope") not in {"clinical", "auxiliary"}:
+        raise ValueError("Unknown evaluation scope")
     ids = [r["id"] for r in rows]
     if len(ids) != len(set(ids)) or len(rows) != meta["records"]:
         raise ValueError("Duplicate IDs or wrong count")
     for row in rows:
+        if policy["tasks"][row["task"]]["scope"] != meta["evaluation_scope"]:
+            raise ValueError("Mixed evaluation scope or suspended task")
         p = row["provenance"]
         card = cards[p["source_id"]]
         if p["distribution"] != meta["distribution"] or p["distribution"] != card["distribution"]:
@@ -240,9 +251,10 @@ def build(dataset, output):
     data.validate(dataset)
     output.mkdir(parents=True, exist_ok=True)
     releases = []
-    for distribution, suffix in [("open", "open"), ("research_noncommercial", "research-noncommercial")]:
-        files, meta = package_files(dataset, distribution)
-        name = f"jev-medical-decision-v{meta['dataset_version']}-{suffix}"
+    for scope, distribution, suffix in [(scope, distribution, suffix) for scope in ["clinical", "auxiliary"]
+            for distribution, suffix in [("open", "open"), ("research_noncommercial", "research-noncommercial")]]:
+        files, meta = package_files(dataset, distribution, scope)
+        name = f"jev-medical-decision-{scope}-{suffix}"
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             for part, raw in files.items():
@@ -258,15 +270,15 @@ def build(dataset, output):
                 info.external_attr = 0o100644 << 16
                 archive.writestr(info, raw, compresslevel=9)
         releases.append({"file": path.name, "sha256": data.file_sha(path), "bytes": path.stat().st_size,
-                         "records": meta["records"], "distribution": distribution})
+                         "records": meta["records"], "distribution": distribution, "evaluation_scope": scope})
     data.write_json(output / "release-index.json", {"releases": releases})
     (output / "SHA256SUMS").write_text("".join(f"{r['sha256']}  {r['file']}\n" for r in releases))
     (output / "README.md").write_text("# 医疗决策数据集下载\n\n" +
         "每个包都含整理后的题目、独立答案、无答案请求、逐题溯源索引、原许可与引用，以及离线校验/评分工具。解压即可使用，Python 3.10+，无第三方依赖。\n\n" +
         "| 数据包 | 题数 | 使用范围 |\n| --- | ---: | --- |\n" + "".join(
-            f"| [{r['file']}]({r['file']}) | {r['records']:,} | " + ("开放许可核心集；遵循各来源署名及相同方式共享等条件" if r['distribution']=='open' else "非商业研究附加集；不得按开放核心许可混用") + " |\n" for r in releases) +
+            f"| [{'临床主评测' if r['evaluation_scope']=='clinical' else '辅助评测'} · {'开放许可' if r['distribution']=='open' else '非商业附加'}]({r['file']}) | {r['records']:,} | " + ("遵循各来源署名及相同方式共享等条件" if r['distribution']=='open' else "保留非商业等限制") + " |\n" for r in releases) +
         "\n[校验和](SHA256SUMS) · [场景与任务](../benchmarks/medical_decision_v1/README.md) · [全部来源登记](../benchmarks/medical_decision_v1/SOURCES.md)\n\n" +
-        "两个包互不重复；共同使用时仍分别遵守原许可。开放核心集可独立运行，不依赖非商业附加集。数据为评测子集，实际训练会影响后续同题对比。\n\n" +
+        "四个包互不重复；临床与辅助分开计分，暂停任务不打包。每个范围的开放包可独立使用，非商业附加包保留原限制；共同使用时仍分别遵守原许可。数据为评测子集，实际训练会影响后续同题对比。\n\n" +
         "重建：`python3 scripts/medical_decision_release.py build`。压缩包按固定顺序和时间戳生成，可重复校验字节一致性。\n")
     return releases
 
@@ -294,7 +306,7 @@ def main():
             parser.error("score requires --predictions and --output")
         verify(args.dataset)
         meta = json.loads((args.dataset / "release.json").read_text())
-        result = data.score(args.dataset, args.predictions, meta["distribution"] == "research_noncommercial")
+        result = data.score(args.dataset, args.predictions, meta["distribution"] == "research_noncommercial", meta["evaluation_scope"])
         result["release_distribution"] = meta["distribution"]
         data.write_json(args.output, result)
         result = {key: result[key] for key in ["records", "scored_tasks", "scenario_macro_accuracy", "release_distribution"]}

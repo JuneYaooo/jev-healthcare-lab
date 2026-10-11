@@ -1,66 +1,57 @@
 # 数据使用与复建
 
-Python 3.10+，仅标准库。构建和评分不调用模型 API。
+[返回首页](../README.md) · [下载与校验和](../releases/README.md)
 
-## 使用整理好的数据包
+Python 3.10+，仅标准库。数据构建、校验和评分不调用模型 API。
 
-从 [下载页](../releases/README.md) 选择开放核心集或非商业研究附加集，按同页 `SHA256SUMS` 校验下载文件。解压后进入数据包目录：
+## 使用整理包
+
+下载页按临床主评测 / 辅助评测、开放许可 / 非商业附加分成四包。各包互不重复。解压后在包目录执行：
 
 ```bash
 python3 tools/medical_decision_release.py verify --dataset .
 python3 tools/medical_decision_release.py trace --dataset . --id '完整题目ID'
-python3 tools/medical_decision_release.py trace --dataset . --id '完整题目ID' --fetch-source
 python3 tools/medical_decision_release.py score --dataset . --predictions predictions.jsonl --output scores.json
 ```
 
-各包 README 提供一个实际题号；`example-trace.json` 展示该题的完整溯源。`verify` 核验包内文件哈希、题目/答案一致性、来源链和许可分组。`trace` 默认离线；显式传入 `--fetch-source` 才下载该题直接依赖的上游文件，并校验锁定哈希。链接失效或哈希变化会报错。
+模型使用包内 requests.jsonl，只发送 request。独立评分器自动使用本包的范围与许可，暂停任务不在任何包内。需要同时评测主范围两种许可时，可在仓库导出完整临床范围，合并对应预测后用 --include-research 评分；不同题目范围的总分不能直接比较。
 
-`requests.jsonl` 可直接用于组织模型请求，`answers.jsonl` 独立保存答案。评分工具只读取预测文件，不发起模型调用。
+追溯默认离线。使用 `trace --fetch-source` 可下载该题直接依赖并核对锁定 SHA-256；失效链接或哈希变化会报错。原始大文件与整理包的体积不同，只用整理包不需要全量下载。
 
-## 从仓库复建
-
-在仓库根目录执行：
+## 从仓库导出与评分
 
 ```bash
 python3 scripts/medical_decision_dataset.py validate
-python3 -m unittest discover -s tests -v
-python3 scripts/medical_decision_dataset.py fetch
-python3 scripts/medical_decision_dataset.py build
-python3 scripts/medical_decision_release.py build
+python3 scripts/medical_decision_dataset.py export --output work/clinical-requests.jsonl
+python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/clinical-scores.json
 ```
 
-`fetch` 下载 `sources.lock.json` 中的固定源文件并检查 SHA-256，缓存位于 `work/decision-benchmark-v1/raw/`。部分小型源文件与易变 API 响应随包冻结；其余完整原始数据另行下载。`build` 使用已发布的任务定义、适配器、固定抽样种子和冻结筛查索引重建题目，不调用模型生成答案。复建依赖上游锁定资源仍可下载；本地已有且哈希正确的缓存可复用。
+默认临床主评测、开放许可，共 1,284 题。增加 `--include-research` 后为 1,514 题。辅助评测须在导出与评分时都加 `--scope auxiliary`，并分别报告；暂停题目不可选择。必须使用同一范围、许可子集和题号集合，范围外预测会报错。
 
-`exposure_index.json` 保存构建时的训练与历史材料指纹。复建当前版本应保留该索引，不运行 `index` 子命令；当前仓库不包含这些历史训练与实验原文。重新筛查其他训练材料属于新版本数据准备，需要重新审核、冻结并标版本。
+仓库底稿目录中的 samples.jsonl、requests.jsonl、answers.jsonl 保留全部原始整理记录供追溯，包括辅助与暂停任务；不要绕过范围导出把底稿全部当作临床主评测。每个样本的原题号保留，用户任务合并关系记录在 evaluation_scope.json，评分结果 task_families 为合并任务，tasks 为原来源子集。
 
-`medical_decision_release.py build` 生成两个互不重叠的包、发布索引和 SHA256SUMS。归档文件排序与时间戳固定；同一份代码和数据应产生字节一致的包。
-
-## 导出与评分
+## 复建与本地验证
 
 ```bash
-python3 scripts/medical_decision_dataset.py export --output work/requests.jsonl
-python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/scores.json
+python3 scripts/medical_decision_dataset.py fetch
+python3 scripts/medical_decision_dataset.py build
+python3 scripts/generate_catalog_docs.py
+python3 scripts/medical_decision_release.py build
+python3 -m unittest discover -s tests -v
 ```
 
-默认只处理开放核心集。若使用完整 5,907 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
+fetch 按 sources.lock.json 下载并核对固定资源，缓存位于 work/decision-benchmark-v1/raw/。部分小型文件和易变 API 响应随仓库冻结；API 在线内容变化不会自动替换已有快照。Parquet 与标准库解码 JSON 同时冻结，可选用 PyArrow 运行 `python3 scripts/verify_source_tables.py` 独立核验解码。
 
-评分规则见 [评测方法](EVALUATION.md)，来源与许可见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。
+build 使用固定种子、原适配器和冻结的 exposure_index.json 重建来源底稿、范围统计及清单；不生成新题或新答案。不要为复建重新运行 index。其他模型的训练材料需要另做暴露筛查，并冻结共同子集后再比较。
 
-v0.5.0 原始复建另需 MEDDOCAN 固定仓库归档、LabQAR Set 1 和 PhysioNet 2019 医院 A 的 1,000 个锁定记录文件。源数据下载量与整理包不同；仅使用已整理包无需下载这些原文件。选择框和预测协议见 [空缺核验](GAP_AUDIT_V050.md)。
+下载包只取策略允许的任务与相应许可，附原许可、逐题溯源、独立评分器及内容清单。文件顺序和 ZIP 时间戳固定，可重复比较校验和。正式使用以内容清单和范围策略哈希标识数据。
 
-v0.6.0 另需 LabQAR Set 2 和 Evidence Inference 固定版本归档（约 164 MB）。CPIC 的 API 原始响应已随仓库/开放包冻结，`fetch` 与 `trace --fetch-source` 优先核验包内快照，不要求在线 API 仍返回相同内容。文章原许可和署名逐篇保留；详见 [扩展协议](EXPANSION_V060.md)。
-
-v0.7.0 的 TCMEval-SDT 测试问题/答案、TCMEval-PA 原始 Excel 和许可元数据随仓库及开放包冻结。营养、体位和处方处置的范围清单在 `selection_v070.json`，清单哈希变动需按新版本处理。标准库即可重建，无需安装 Excel 库。详见 [扩展协议](EXPANSION_V070.md)。
-
-v0.8.0 的 Parquet 原文件与解码 JSON 一同冻结；`table_exports.json` 分开记录解码路径、行数及 SHA-256，逐题 locator 使用原表零基行号。重建读取已核验的解码文件，无需 Parquet 依赖。若要独立验证解码，另装 PyArrow 后运行 `python3 scripts/verify_source_tables.py`；此可选检查逐值比较原始 Parquet 与 JSON，不联网、不修改数据。详情见 [扩展协议](EXPANSION_V080.md)。
-
-## 更新任务与数据集说明页
-
-说明页直接读取已整理的任务定义、来源登记和题目记录。数据更新后运行：
+## 更新说明页与范围
 
 ```bash
 python3 scripts/generate_catalog_docs.py
 python3 scripts/generate_catalog_docs.py --check
+python3 scripts/audit_task_scope.py
 ```
 
-生成器更新 `docs/tasks/` 与 `docs/datasets/`，从实际收录记录中选取较短的完整样例，不生成题目或修改评测数据。`--check` 仅检查页面是否与当前记录一致；任务或来源增删后，还需同步首页的任务表与链接。
+说明页生成器从实际记录与执行范围生成首页、任务页和来源页。审查脚本复核调整前底稿的分组统计及姓名捷径，供回溯问题，不把暂停题重新加入评分。变更范围时需同步重建底稿清单、说明页和下载包；运行本地检查。

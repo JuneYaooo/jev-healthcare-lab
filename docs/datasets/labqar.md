@@ -11,7 +11,8 @@
 | 来源 ID | `labqar` |
 | 上游入口 | [发布方页面](https://doi.org/10.6084/m9.figshare.29189894) |
 | 收录情况 | 172 题 / 2 个任务 |
-| 使用范围 | 开放许可核心集 |
+| 评测用途 | 辅助评测（不计临床主分数） 172 题 |
+| 使用范围 | 开放许可部分 |
 | 登记的数据许可 | CC-BY-4.0 |
 | 收录语种 | 英语 172 题 |
 
@@ -29,10 +30,10 @@ Bhasuran, Jin, Deville et al., A Curated Dataset for Question Answering on Labor
 
 ## 用于哪些任务
 
-| 任务说明 | 此来源贡献题数 | 评测内容 |
-| --- | --- | --- |
-| [检验数值高低判读](../tasks/lab_value_classification.md) | 100 | 根据题目给出的检验值和参考区间，选择原始选项中的 High、Normal 或 Low；仅按给定区间判读，不推断诊断或危急程度。 |
-| [参考区间适用性](../tasks/reference_range.md) | 72 | 给定区间及人群、方法条件，选择适用区间或不确定。 |
+| 任务或来源子集 | 用途 | 此来源贡献题数 | 评测内容 |
+| --- | --- | --- | --- |
+| [按给定区间判读检验值高低](../tasks/lab_value_classification.md) | 辅助评测（不计临床主分数） | 100 | 根据题目给出的检验值和参考区间，选择原始选项中的 High、Normal 或 Low；仅按给定区间判读，不推断诊断或危急程度。 |
+| [给定参考表的区间匹配](../tasks/reference_range.md) | 辅助评测（不计临床主分数） | 72 | 给定区间及人群、方法条件，选择适用区间或不确定。 |
 
 ## 答案与格式转换
 
@@ -117,7 +118,7 @@ Bhasuran, Jin, Deville et al., A Curated Dataset for Question Answering on Labor
 }
 ```
 
-更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[检验数值高低判读](../tasks/lab_value_classification.md)。
+更多样例、数据文件和任务边界见上方各任务说明页。样例所属任务：[按给定区间判读检验值高低](../tasks/lab_value_classification.md)。
 
 ## 追溯与使用
 

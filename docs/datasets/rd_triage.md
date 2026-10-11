@@ -11,6 +11,7 @@
 | 来源 ID | `rd_triage` |
 | 上游入口 | [发布方页面](https://github.com/zhelishisongjie/RD-Triage) |
 | 收录情况 | 0 题；仅作参考 |
+| 评测用途 | 仅作参考 |
 | 使用范围 | 仅作参考，未收录题目 |
 | 登记的数据许可 | MIT（仓库）；RareBench 等上游条款待核验 |
 | 收录语种 | 无收录题目 |
@@ -37,7 +38,7 @@
 
 | 任务说明 | 任务内容 |
 | --- | --- |
-| [候选科室分流](../tasks/department_routing.md) | 根据就诊主诉从固定科室表选择适合的首诊科室。 |
+| [首诊科室选择](../tasks/department_routing.md) | 根据就诊主诉从固定科室表选择适合的首诊科室。 |
 
 ## 追溯与使用
 

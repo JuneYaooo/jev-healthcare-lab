@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import unittest
+from frozen_records import assert_frozen_records
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,15 +69,7 @@ class GapReleaseTests(unittest.TestCase):
         cls.rows = [json.loads(x) for x in (DATA / 'samples.jsonl').read_text().splitlines()]
 
     def test_all_previous_full_records_are_unchanged(self):
-        current = {r['id']: r for r in self.rows}
-        count = 0
-        for path in (ROOT / 'releases').glob('*v0.4.0-*.zip'):
-            with zipfile.ZipFile(path) as z:
-                for line in z.read(next(n for n in z.namelist() if n.endswith('/samples.jsonl'))).splitlines():
-                    row = json.loads(line)
-                    self.assertEqual(current[row['id']], row)
-                    count += 1
-        self.assertEqual(count, 4938)
+        assert_frozen_records(self, self.rows, '0.4.0', 4938)
 
     def test_audit_matches_all_prior_empty_tasks(self):
         audit = json.loads((DATA / 'gap_audit.json').read_text())['tasks']
