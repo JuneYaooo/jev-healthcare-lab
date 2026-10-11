@@ -1,0 +1,125 @@
+# 患者与试验匹配
+
+[返回首页](../../README.md) · [全部任务](README.md) · [数据集目录](../datasets/README.md)
+
+## 任务是什么
+
+根据患者和试验材料，判断不相关、可能适合或很可能适合转介。
+
+| 项目 | 说明 |
+| --- | --- |
+| 任务 ID | `trial_referral` |
+| 医疗场景 | 临床试验筛选 |
+| 能力维度 | 资格与适宜性、证据与一致性 |
+| 决策类型 | 材料判断 |
+| 当前题数 / 目标题数 | 100 / 100 |
+| 来源组数 | 58 |
+| 语种 | 英语 100 题 |
+| 数据范围 | 开放许可核心集 100 题 |
+
+## 数据集来源
+
+| 数据集说明 | 收录题数 | 上游入口 |
+| --- | --- | --- |
+| [TrialGPT SIGIR](../datasets/trialgpt.md) | 100 | [原始来源](https://github.com/ncbi-nlp/TrialGPT) |
+
+## 如何作答与评分
+
+根据题目给定的材料和规则，从 `request.questions.decision.criteria` 选择一个选项键。选项随题目变化；`gold` 保存标准选项键，不向模型发送。按选项键计准确率、宏 F1 和逐类召回，缺失或无效回答按错计。
+
+后续比较模型时，使用相同题目子集，分别记录本任务得分、完整决策耗时与失败率。计时口径见 [评测方法](../EVALUATION.md#耗时测量与结果记录)。当前没有该任务的模型对比成绩。
+
+## 收录样例
+
+以下为当前评测集中实际收录的一题，展示适配后的请求格式。为便于阅读，选取较短记录；样例不代表全任务的难度或类别分布，材料与选项未截断或改写。
+
+题目 ID：`trial_referral:trialgpt:sigir-201512:NCT02418169`；语种：英语；来源组：`trialgpt:sigir-201512`。
+
+### 模型输入
+
+只把以下 `request` 对象发送给模型。`state` 是输入材料，`questions.decision` 包含问题、选项和输出类型。
+
+```json
+{
+  "questions": {
+    "decision": {
+      "criteria": {
+        "0": "Irrelevant: would not refer",
+        "1": "Potential: consider referral after further investigation",
+        "2": "Eligible: highly likely to refer"
+      },
+      "instructions": "根据患者和试验材料，判断不相关、可能适合或很可能适合转介。",
+      "type": "choice"
+    }
+  },
+  "state": {
+    "patient": "A 44-year-old man was recently in an automobile accident where he sustained a skull fracture. In the emergency room, he noted clear fluid dripping from his nose. The following day he started complaining of severe headache and fever. Nuchal rigidity was found on physical examination.",
+    "trial": {
+      "brief_summary": "This study evaluates the association between traumatic brain injuries and craniofacial or/and skull fractures. Purpose is to find out the amount of missed diagnoses and improve primary diagnostics of trauma patients.",
+      "brief_title": "Association Between Craniofacial Fractures and Brain Injuries: Diagnostic and Therapeutic Considerations",
+      "exclusion_criteria": ": \n\n Died before admitted to hospital",
+      "inclusion_criteria": "inclusion criteria: \n\n Severe traumatic brain injury, GCS 8 or less and/or Craniofacial fracture \n\n "
+    }
+  }
+}
+```
+
+### 标准答案与预测格式
+
+原始标注映射后的正确选项键为 `1`，对应选项：
+
+```json
+"Potential: consider referral after further investigation"
+```
+
+评分用预测文件每行包含题目 ID 与模型选择的选项键。下面使用标准答案演示文件格式，不是模型运行结果：
+
+```json
+{"id": "trial_referral:trialgpt:sigir-201512:NCT02418169", "choice": "1"}
+```
+
+### 样例溯源
+
+[上游资源](https://raw.githubusercontent.com/ncbi-nlp/TrialGPT/1b3242cd50c153a9c324661d4a0bd94fc68a4226/dataset/sigir/retrieved_trials.json) · [数据集说明](../datasets/trialgpt.md)
+
+以下信息用于追溯材料、划分和答案来源，不作为模型输入。`locator` 是原文件中的定位信息：
+
+```json
+{
+  "data_license": "LicenseRef-NCBI-Public-Domain",
+  "distribution": "open",
+  "gold_origin": "upstream_annotation",
+  "independent_clinical_review": false,
+  "locator": {
+    "nct_id": "NCT02418169",
+    "patient_id": "sigir-201512",
+    "relevance": "1"
+  },
+  "material_kind": "synthetic_patient_real_trial",
+  "resource": "trialgpt__dataset_sigir_retrieved_trials.json",
+  "resource_sha256": "8516049da9f4663b1288086532cc885da232532bd2e081a2b70f54fb035ddb81",
+  "resource_url": "https://raw.githubusercontent.com/ncbi-nlp/TrialGPT/1b3242cd50c153a9c324661d4a0bd94fc68a4226/dataset/sigir/retrieved_trials.json",
+  "source_id": "trialgpt",
+  "source_url": "https://github.com/ncbi-nlp/TrialGPT",
+  "split": "sigir_judged_pool",
+  "upstream_group": "sigir-201512",
+  "upstream_id": "sigir-201512:NCT02418169",
+  "version": "1b3242cd50c153a9c324661d4a0bd94fc68a4226"
+}
+```
+
+## 覆盖与使用边界
+
+题数是决策问题数，来源组可能是病例、文档、句子或指南条目，不应一律视为独立患者。答案沿用上游标注或机械映射，尚未经过本项目独立医生逐题审核。
+
+当前标准标签分布：0 34 题、1 33 题、2 33 题。
+
+**[TrialGPT SIGIR](../datasets/trialgpt.md)**：患者题设配真实试验文件；不是实际入组结局。 答案依据：SIGIR 公开 relevance 0/1/2；0 不相关、1 可能转介、2 高度适合转介。
+
+其中 82 题材料或片段命中过往评测指纹；训练效果对比应核查材料暴露，并对各模型冻结相同子集。
+
+## 数据文件
+
+[本任务全部记录](../../benchmarks/medical_decision_v1/tasks/trial_referral/samples.jsonl) · [任务定义与统计](../../benchmarks/medical_decision_v1/tasks/trial_referral/task.json) · [格式与使用方法](../REPRODUCING.md)
+
+[返回首页](../../README.md)

@@ -53,3 +53,14 @@ v0.6.0 另需 LabQAR Set 2 和 Evidence Inference 固定版本归档（约 164 M
 v0.7.0 的 TCMEval-SDT 测试问题/答案、TCMEval-PA 原始 Excel 和许可元数据随仓库及开放包冻结。营养、体位和处方处置的范围清单在 `selection_v070.json`，清单哈希变动需按新版本处理。标准库即可重建，无需安装 Excel 库。详见 [扩展协议](EXPANSION_V070.md)。
 
 v0.8.0 的 Parquet 原文件与解码 JSON 一同冻结；`table_exports.json` 分开记录解码路径、行数及 SHA-256，逐题 locator 使用原表零基行号。重建读取已核验的解码文件，无需 Parquet 依赖。若要独立验证解码，另装 PyArrow 后运行 `python3 scripts/verify_source_tables.py`；此可选检查逐值比较原始 Parquet 与 JSON，不联网、不修改数据。详情见 [扩展协议](EXPANSION_V080.md)。
+
+## 更新任务与数据集说明页
+
+说明页直接读取已整理的任务定义、来源登记和题目记录。数据更新后运行：
+
+```bash
+python3 scripts/generate_catalog_docs.py
+python3 scripts/generate_catalog_docs.py --check
+```
+
+生成器更新 `docs/tasks/` 与 `docs/datasets/`，从实际收录记录中选取较短的完整样例，不生成题目或修改评测数据。`--check` 仅检查页面是否与当前记录一致；任务或来源增删后，还需同步首页的任务表与链接。

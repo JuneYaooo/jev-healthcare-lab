@@ -4,7 +4,7 @@
 
 **目前覆盖 8 个医疗场景、9 个能力维度、89 个任务定义。** 其中 73 个任务已有数据，共 5,907 题（中文 1,191 题）；53 个任务各 100 题，20 个任务保留实际数量，16 个任务待补数据。实际采用 34 个上游来源。当前尚未发布模型得分或耗时结果。
 
-[场景与任务](#场景与任务) · [能力维度](#能力维度) · [模型得分与耗时对比](#模型得分与耗时对比) · [下载与使用](#下载与使用)
+[场景与任务](#场景与任务) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [能力维度](#能力维度) · [模型得分与耗时对比](#模型得分与耗时对比) · [下载与使用](#下载与使用)
 
 ## 如何组织评测
 
@@ -39,7 +39,7 @@
 | [临床试验筛选](#临床试验筛选) | 8 / 8 | 800 |
 | [病历与医疗质量控制](#病历与医疗质量控制) | 10 / 12 | 903 |
 
-下面完整列出 89 个任务。来源后的数字是该任务实际收录的题数，链接指向上游数据集；**†** 表示非商业研究附加来源。题数为 0 的任务没有纳入评分，候选数据源不作为已收录来源展示。任务名称链接到对应的数据目录，括号内为评分和结果关联使用的任务 ID。
+下面完整列出 89 个任务。来源后的数字是该任务实际收录的题数，链接指向数据集说明页，其中提供上游入口、引用、许可和收录样例；**†** 表示非商业研究附加来源。题数为 0 的任务没有纳入评分，候选数据源不作为已收录来源展示。任务名称链接到对应的任务说明页，可查看任务定义、完整样例输入、选项与标准答案；括号内为评分和结果关联使用的任务 ID。
 
 ### 接诊与分诊
 
@@ -47,13 +47,13 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [事实主体归属](benchmarks/medical_decision_v1/tasks/experiencer)（`experiencer`） | 事实与状态 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
-| [医疗问题意图](benchmarks/medical_decision_v1/tasks/query_intent)（`query_intent`） | 分类与标准化 | 100 | [MedQuAD](https://github.com/abachaa/MedQuAD)（100） |
-| [决策资料充分性](benchmarks/medical_decision_v1/tasks/input_sufficiency)（`input_sufficiency`） | 规则与数值 | 100 | [LongHealth](https://github.com/kbressem/LongHealth)（100） |
-| [当前分诊与升级行动](benchmarks/medical_decision_v1/tasks/triage_urgency)（`triage_urgency`） | 风险与升级 | 100 | [CARE-Bench](https://github.com/ningkko/CARE-bench)†（100） |
-| [候选科室分流](benchmarks/medical_decision_v1/tasks/department_routing)（`department_routing`） | 临床候选方案 | 0 | 待补数据 |
-| [患者消息紧急性比较](benchmarks/medical_decision_v1/tasks/message_urgency_pair)（`message_urgency_pair`） | 风险与升级 | 30 | [PMR-Synth annotated pairs](https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated)†（30） |
-| [孕产风险等级识别](benchmarks/medical_decision_v1/tasks/maternal_risk)（`maternal_risk`） | 风险与升级 | 100 | [Maternal Health Risk](https://archive.ics.uci.edu/dataset/863/maternal+health+risk)（100） |
+| [事实主体归属](docs/tasks/experiencer.md)（`experiencer`） | 事实与状态 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
+| [医疗问题意图](docs/tasks/query_intent.md)（`query_intent`） | 分类与标准化 | 100 | [MedQuAD](docs/datasets/medquad.md)（100） |
+| [决策资料充分性](docs/tasks/input_sufficiency.md)（`input_sufficiency`） | 规则与数值 | 100 | [LongHealth](docs/datasets/longhealth.md)（100） |
+| [当前分诊与升级行动](docs/tasks/triage_urgency.md)（`triage_urgency`） | 风险与升级 | 100 | [CARE-Bench](docs/datasets/care_bench.md)†（100） |
+| [候选科室分流](docs/tasks/department_routing.md)（`department_routing`） | 临床候选方案 | 0 | 待补数据 |
+| [患者消息紧急性比较](docs/tasks/message_urgency_pair.md)（`message_urgency_pair`） | 风险与升级 | 30 | [PMR-Synth annotated pairs](docs/datasets/pmr_synth.md)†（30） |
+| [孕产风险等级识别](docs/tasks/maternal_risk.md)（`maternal_risk`） | 风险与升级 | 100 | [Maternal Health Risk](docs/datasets/uci_maternal.md)（100） |
 
 ### 检查与检验
 
@@ -61,16 +61,16 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [检查检验数值关联](benchmarks/medical_decision_v1/tasks/lab_link)（`lab_link`） | 关联与匹配、证据与一致性 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [标本身份与来源链](benchmarks/medical_decision_v1/tasks/specimen_lineage)（`specimen_lineage`） | 关联与匹配 | 0 | 待补数据 |
-| [数值与单位等价](benchmarks/medical_decision_v1/tasks/unit_equivalence)（`unit_equivalence`） | 规则与数值 | 0 | 待补数据 |
-| [参考区间适用性](benchmarks/medical_decision_v1/tasks/reference_range)（`reference_range`） | 规则与数值 | 72 | [LabQAR](https://doi.org/10.6084/m9.figshare.29189894)（72） |
-| [临床事件变化趋势](benchmarks/medical_decision_v1/tasks/result_trend)（`result_trend`） | 事实与状态 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [危急结果与人工升级](benchmarks/medical_decision_v1/tasks/critical_result_escalation)（`critical_result_escalation`） | 风险与升级 | 0 | 待补数据 |
-| [报告阶段与效力](benchmarks/medical_decision_v1/tasks/report_stage)（`report_stage`） | 流程与下一步行动 | 0 | 待补数据 |
-| [检查方案选择](benchmarks/medical_decision_v1/tasks/examination_choice)（`examination_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（19）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（81） |
-| [检验数值高低判读](benchmarks/medical_decision_v1/tasks/lab_value_classification)（`lab_value_classification`） | 规则与数值 | 100 | [LabQAR](https://doi.org/10.6084/m9.figshare.29189894)（100） |
-| [药物基因检测功能表型判定](benchmarks/medical_decision_v1/tasks/pgx_function_phenotype)（`pgx_function_phenotype`） | 分类与标准化 | 84 | [CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)（84） |
+| [检查检验数值关联](docs/tasks/lab_link.md)（`lab_link`） | 关联与匹配、证据与一致性 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [标本身份与来源链](docs/tasks/specimen_lineage.md)（`specimen_lineage`） | 关联与匹配 | 0 | 待补数据 |
+| [数值与单位等价](docs/tasks/unit_equivalence.md)（`unit_equivalence`） | 规则与数值 | 0 | 待补数据 |
+| [参考区间适用性](docs/tasks/reference_range.md)（`reference_range`） | 规则与数值 | 72 | [LabQAR](docs/datasets/labqar.md)（72） |
+| [临床事件变化趋势](docs/tasks/result_trend.md)（`result_trend`） | 事实与状态 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [危急结果与人工升级](docs/tasks/critical_result_escalation.md)（`critical_result_escalation`） | 风险与升级 | 0 | 待补数据 |
+| [报告阶段与效力](docs/tasks/report_stage.md)（`report_stage`） | 流程与下一步行动 | 0 | 待补数据 |
+| [检查方案选择](docs/tasks/examination_choice.md)（`examination_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（19）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（81） |
+| [检验数值高低判读](docs/tasks/lab_value_classification.md)（`lab_value_classification`） | 规则与数值 | 100 | [LabQAR](docs/datasets/labqar.md)（100） |
+| [药物基因检测功能表型判定](docs/tasks/pgx_function_phenotype.md)（`pgx_function_phenotype`） | 分类与标准化 | 84 | [CPIC curated pharmacogenomic tables](docs/datasets/cpic.md)（84） |
 
 ### 诊断与鉴别
 
@@ -78,20 +78,20 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [否定与不确定状态](benchmarks/medical_decision_v1/tasks/assertion_scope)（`assertion_scope`） | 事实与状态 | 100 | [NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus)（100） |
-| [事件与文档时间关系](benchmarks/medical_decision_v1/tasks/temporality)（`temporality`） | 事实与状态 | 100 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)†（100） |
-| [诊断核实状态](benchmarks/medical_decision_v1/tasks/diagnosis_verification)（`diagnosis_verification`） | 事实与状态 | 0 | 待补数据 |
-| [有界临床量表评分](benchmarks/medical_decision_v1/tasks/bounded_score)（`bounded_score`） | 规则与数值、证据与一致性 | 100 | [MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench)（100） |
-| [临床分级与分期选择](benchmarks/medical_decision_v1/tasks/clinical_grade)（`clinical_grade`） | 规则与数值 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（70）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（30） |
-| [模拟病例主诊断选择](benchmarks/medical_decision_v1/tasks/synthetic_diagnosis)（`synthetic_diagnosis`） | 临床候选方案 | 100 | [DDXPlus](https://doi.org/10.6084/m9.figshare.20043374)（100） |
-| [临床病例候选诊断](benchmarks/medical_decision_v1/tasks/diagnosis_choice)（`diagnosis_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（50）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（50） |
-| [中医证型选择](benchmarks/medical_decision_v1/tasks/tcm_syndrome)（`tcm_syndrome`） | 临床候选方案 | 100 | [TCM-SD](https://github.com/borororo/zy-bert)†（100） |
-| [临床事件先后关系](benchmarks/medical_decision_v1/tasks/event_temporal_order)（`event_temporal_order`） | 关联与匹配 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [临床事件与解剖部位关联](benchmarks/medical_decision_v1/tasks/anatomical_site_link)（`anatomical_site_link`） | 关联与匹配 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [严重程度与临床事件关联](benchmarks/medical_decision_v1/tasks/severity_link)（`severity_link`） | 关联与匹配 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [事件与时间表达关联](benchmarks/medical_decision_v1/tasks/event_date_link)（`event_date_link`） | 关联与匹配 | 100 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)†（85）；[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（15） |
-| [病例病因与原因判断](benchmarks/medical_decision_v1/tasks/case_etiology)（`case_etiology`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（50）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（50） |
-| [中医病机候选核验](benchmarks/medical_decision_v1/tasks/tcm_pathogenesis_candidate)（`tcm_pathogenesis_candidate`） | 分类与标准化 | 100 | [TCMEval-SDT](https://doi.org/10.6084/m9.figshare.27184596.v5)（100） |
+| [否定与不确定状态](docs/tasks/assertion_scope.md)（`assertion_scope`） | 事实与状态 | 100 | [NUBes SAMPLE-001](docs/datasets/nubes.md)（100） |
+| [事件与文档时间关系](docs/tasks/temporality.md)（`temporality`） | 事实与状态 | 100 | [E3C English Layer 1](docs/datasets/e3c.md)†（100） |
+| [诊断核实状态](docs/tasks/diagnosis_verification.md)（`diagnosis_verification`） | 事实与状态 | 0 | 待补数据 |
+| [有界临床量表评分](docs/tasks/bounded_score.md)（`bounded_score`） | 规则与数值、证据与一致性 | 100 | [MedCalc-Bench GitHub test release](docs/datasets/medcalc.md)（100） |
+| [临床分级与分期选择](docs/tasks/clinical_grade.md)（`clinical_grade`） | 规则与数值 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（70）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（30） |
+| [模拟病例主诊断选择](docs/tasks/synthetic_diagnosis.md)（`synthetic_diagnosis`） | 临床候选方案 | 100 | [DDXPlus](docs/datasets/ddxplus.md)（100） |
+| [临床病例候选诊断](docs/tasks/diagnosis_choice.md)（`diagnosis_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（50）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（50） |
+| [中医证型选择](docs/tasks/tcm_syndrome.md)（`tcm_syndrome`） | 临床候选方案 | 100 | [TCM-SD](docs/datasets/tcm_sd.md)†（100） |
+| [临床事件先后关系](docs/tasks/event_temporal_order.md)（`event_temporal_order`） | 关联与匹配 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [临床事件与解剖部位关联](docs/tasks/anatomical_site_link.md)（`anatomical_site_link`） | 关联与匹配 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [严重程度与临床事件关联](docs/tasks/severity_link.md)（`severity_link`） | 关联与匹配 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [事件与时间表达关联](docs/tasks/event_date_link.md)（`event_date_link`） | 关联与匹配 | 100 | [E3C English Layer 1](docs/datasets/e3c.md)†（85）；[MACCROBAT2020](docs/datasets/maccrobat.md)（15） |
+| [病例病因与原因判断](docs/tasks/case_etiology.md)（`case_etiology`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（50）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（50） |
+| [中医病机候选核验](docs/tasks/tcm_pathogenesis_candidate.md)（`tcm_pathogenesis_candidate`） | 分类与标准化 | 100 | [TCMEval-SDT](docs/datasets/tcmeval_sdt.md)（100） |
 
 ### 治疗与用药
 
@@ -99,22 +99,22 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [用药状态与变更](benchmarks/medical_decision_v1/tasks/medication_status)（`medication_status`） | 事实与状态 | 0 | 待补数据 |
-| [药物相互作用关系](benchmarks/medical_decision_v1/tasks/drug_interaction)（`drug_interaction`） | 关联与匹配 | 100 | [DDI Corpus 2013](https://github.com/isegura/DDICorpus)†（100） |
-| [药物与剂量关联](benchmarks/medical_decision_v1/tasks/dose_link)（`dose_link`） | 关联与匹配、证据与一致性 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [患者特异性禁忌选择](benchmarks/medical_decision_v1/tasks/patient_contraindication)（`patient_contraindication`） | 资格与适宜性 | 54 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（33）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（21） |
-| [剂量适宜性](benchmarks/medical_decision_v1/tasks/dose_appropriateness)（`dose_appropriateness`） | 资格与适宜性 | 0 | 待补数据 |
-| [治疗方案选择](benchmarks/medical_decision_v1/tasks/treatment_choice)（`treatment_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（46）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（54） |
-| [用药方案选择](benchmarks/medical_decision_v1/tasks/medication_choice)（`medication_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（12）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（88） |
-| [治疗相关不良事件预测](benchmarks/medical_decision_v1/tasks/adverse_event_prediction)（`adverse_event_prediction`） | 风险与升级 | 0 | 待补数据 |
-| [给药途径关联](benchmarks/medical_decision_v1/tasks/route_link)（`route_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
-| [用药或操作频次关联](benchmarks/medical_decision_v1/tasks/frequency_link)（`frequency_link`） | 关联与匹配 | 81 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（81） |
-| [药物剂型关联](benchmarks/medical_decision_v1/tasks/drug_form_link)（`drug_form_link`） | 关联与匹配 | 77 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（77） |
-| [补液方案选择](benchmarks/medical_decision_v1/tasks/fluid_plan)（`fluid_plan`） | 规则与数值 | 16 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（9）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（7） |
-| [药物基因结果用药建议匹配](benchmarks/medical_decision_v1/tasks/pgx_guideline_recommendation)（`pgx_guideline_recommendation`） | 资格与适宜性 | 100 | [CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)（100） |
-| [试验干预效果方向判定](benchmarks/medical_decision_v1/tasks/trial_effect_direction)（`trial_effect_direction`） | 证据与一致性 | 100 | [Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference)（100） |
-| [处方审核处置选择](benchmarks/medical_decision_v1/tasks/prescription_audit_action)（`prescription_audit_action`） | 分类与标准化 | 11 | [TCMEval-PA](https://doi.org/10.6084/m9.figshare.29651261.v3)（11） |
-| [给药途径与方法选择](benchmarks/medical_decision_v1/tasks/administration_route_choice)（`administration_route_choice`） | 临床候选方案、流程与下一步行动 | 4 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（3）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（1） |
+| [用药状态与变更](docs/tasks/medication_status.md)（`medication_status`） | 事实与状态 | 0 | 待补数据 |
+| [药物相互作用关系](docs/tasks/drug_interaction.md)（`drug_interaction`） | 关联与匹配 | 100 | [DDI Corpus 2013](docs/datasets/ddi.md)†（100） |
+| [药物与剂量关联](docs/tasks/dose_link.md)（`dose_link`） | 关联与匹配、证据与一致性 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [患者特异性禁忌选择](docs/tasks/patient_contraindication.md)（`patient_contraindication`） | 资格与适宜性 | 54 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（33）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（21） |
+| [剂量适宜性](docs/tasks/dose_appropriateness.md)（`dose_appropriateness`） | 资格与适宜性 | 0 | 待补数据 |
+| [治疗方案选择](docs/tasks/treatment_choice.md)（`treatment_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（46）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（54） |
+| [用药方案选择](docs/tasks/medication_choice.md)（`medication_choice`） | 临床候选方案 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（12）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（88） |
+| [治疗相关不良事件预测](docs/tasks/adverse_event_prediction.md)（`adverse_event_prediction`） | 风险与升级 | 0 | 待补数据 |
+| [给药途径关联](docs/tasks/route_link.md)（`route_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
+| [用药或操作频次关联](docs/tasks/frequency_link.md)（`frequency_link`） | 关联与匹配 | 81 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（81） |
+| [药物剂型关联](docs/tasks/drug_form_link.md)（`drug_form_link`） | 关联与匹配 | 77 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（77） |
+| [补液方案选择](docs/tasks/fluid_plan.md)（`fluid_plan`） | 规则与数值 | 16 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（9）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（7） |
+| [药物基因结果用药建议匹配](docs/tasks/pgx_guideline_recommendation.md)（`pgx_guideline_recommendation`） | 资格与适宜性 | 100 | [CPIC curated pharmacogenomic tables](docs/datasets/cpic.md)（100） |
+| [试验干预效果方向判定](docs/tasks/trial_effect_direction.md)（`trial_effect_direction`） | 证据与一致性 | 100 | [Evidence Inference 2.0 — CC-BY article subset](docs/datasets/evidence_inference.md)（100） |
+| [处方审核处置选择](docs/tasks/prescription_audit_action.md)（`prescription_audit_action`） | 分类与标准化 | 11 | [TCMEval-PA](docs/datasets/tcmeval_pa.md)（11） |
+| [给药途径与方法选择](docs/tasks/administration_route_choice.md)（`administration_route_choice`） | 临床候选方案、流程与下一步行动 | 4 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（3）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（1） |
 
 ### 住院与护理
 
@@ -122,20 +122,20 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [患者与记录身份匹配](benchmarks/medical_decision_v1/tasks/patient_identity)（`patient_identity`） | 关联与匹配 | 0 | 待补数据 |
-| [长病历证据选择](benchmarks/medical_decision_v1/tasks/long_record_evidence)（`long_record_evidence`） | 证据与一致性 | 100 | [LongHealth](https://github.com/kbressem/LongHealth)（100） |
-| [医疗操作进度](benchmarks/medical_decision_v1/tasks/procedure_progress)（`procedure_progress`） | 流程与下一步行动 | 0 | 待补数据 |
-| [单次给药执行状态](benchmarks/medical_decision_v1/tasks/administration_status)（`administration_status`） | 流程与下一步行动 | 0 | 待补数据 |
-| [脓毒症提前预警](benchmarks/medical_decision_v1/tasks/deterioration_prediction)（`deterioration_prediction`） | 风险与升级 | 100 | [PhysioNet Challenge 2019](https://physionet.org/content/challenge-2019/1.0.0/)（100） |
-| [术后转归去向选择](benchmarks/medical_decision_v1/tasks/postoperative_disposition)（`postoperative_disposition`） | 流程与下一步行动 | 68 | [Post-Operative Patient](https://archive.ics.uci.edu/dataset/82/post+operative+patient)（68） |
-| [子操作与所属操作关联](benchmarks/medical_decision_v1/tasks/procedure_component_link)（`procedure_component_link`） | 关联与匹配 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [临床事件持续性](benchmarks/medical_decision_v1/tasks/event_permanence)（`event_permanence`） | 事实与状态 | 100 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)†（100） |
-| [病例并发症判断](benchmarks/medical_decision_v1/tasks/case_complication)（`case_complication`） | 风险与升级 | 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（64）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（36） |
-| [护理措施选择](benchmarks/medical_decision_v1/tasks/nursing_priority)（`nursing_priority`） | 流程与下一步行动 | 42 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（42） |
-| [病例营养方案选择](benchmarks/medical_decision_v1/tasks/nutrition_plan)（`nutrition_plan`） | 分类与标准化 | 11 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（10）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（1） |
-| [护理体位选择](benchmarks/medical_decision_v1/tasks/positioning_choice)（`positioning_choice`） | 分类与标准化 | 10 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（8）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（2） |
-| [病情监测指标选择](benchmarks/medical_decision_v1/tasks/monitoring_target)（`monitoring_target`） | 临床候选方案、流程与下一步行动 | 5 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（5） |
-| [感染防控措施选择](benchmarks/medical_decision_v1/tasks/infection_precaution)（`infection_precaution`） | 临床候选方案、流程与下一步行动 | 5 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（4）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（1） |
+| [患者与记录身份匹配](docs/tasks/patient_identity.md)（`patient_identity`） | 关联与匹配 | 0 | 待补数据 |
+| [长病历证据选择](docs/tasks/long_record_evidence.md)（`long_record_evidence`） | 证据与一致性 | 100 | [LongHealth](docs/datasets/longhealth.md)（100） |
+| [医疗操作进度](docs/tasks/procedure_progress.md)（`procedure_progress`） | 流程与下一步行动 | 0 | 待补数据 |
+| [单次给药执行状态](docs/tasks/administration_status.md)（`administration_status`） | 流程与下一步行动 | 0 | 待补数据 |
+| [脓毒症提前预警](docs/tasks/deterioration_prediction.md)（`deterioration_prediction`） | 风险与升级 | 100 | [PhysioNet Challenge 2019](docs/datasets/sepsis2019.md)（100） |
+| [术后转归去向选择](docs/tasks/postoperative_disposition.md)（`postoperative_disposition`） | 流程与下一步行动 | 68 | [Post-Operative Patient](docs/datasets/uci_postoperative.md)（68） |
+| [子操作与所属操作关联](docs/tasks/procedure_component_link.md)（`procedure_component_link`） | 关联与匹配 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [临床事件持续性](docs/tasks/event_permanence.md)（`event_permanence`） | 事实与状态 | 100 | [E3C English Layer 1](docs/datasets/e3c.md)†（100） |
+| [病例并发症判断](docs/tasks/case_complication.md)（`case_complication`） | 风险与升级 | 100 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（64）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（36） |
+| [护理措施选择](docs/tasks/nursing_priority.md)（`nursing_priority`） | 流程与下一步行动 | 42 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（42） |
+| [病例营养方案选择](docs/tasks/nutrition_plan.md)（`nutrition_plan`） | 分类与标准化 | 11 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（10）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（1） |
+| [护理体位选择](docs/tasks/positioning_choice.md)（`positioning_choice`） | 分类与标准化 | 10 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（8）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（2） |
+| [病情监测指标选择](docs/tasks/monitoring_target.md)（`monitoring_target`） | 临床候选方案、流程与下一步行动 | 5 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（5） |
+| [感染防控措施选择](docs/tasks/infection_precaution.md)（`infection_precaution`） | 临床候选方案、流程与下一步行动 | 5 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（4）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（1） |
 
 ### 出院与随访
 
@@ -143,14 +143,14 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [随访行动与完成状态](benchmarks/medical_decision_v1/tasks/followup_action)（`followup_action`） | 流程与下一步行动 | 0 | 待补数据 |
-| [出院后 30 天内再入院预测](benchmarks/medical_decision_v1/tasks/readmission_30d)（`readmission_30d`） | 风险与升级 | 100 | [Diabetes 130-US Hospitals for Years 1999-2008](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008)（100） |
-| [出院待办行动类别](benchmarks/medical_decision_v1/tasks/followup_item_type)（`followup_item_type`） | 分类与标准化 | 0 | 待补数据 |
-| [90 日死亡结局预测](benchmarks/medical_decision_v1/tasks/mortality_90d)（`mortality_90d`） | 风险与升级 | 100 | [Heart Failure Clinical Records](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records)（100） |
-| [随访方案选择](benchmarks/medical_decision_v1/tasks/followup_plan)（`followup_plan`） | 临床候选方案、流程与下一步行动 | 6 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（3）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（2）；[MedMCQA](https://huggingface.co/datasets/openlifescienceai/medmcqa)（1） |
-| [康复训练方案选择](benchmarks/medical_decision_v1/tasks/rehabilitation_choice)（`rehabilitation_choice`） | 临床候选方案、流程与下一步行动 | 4 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（4） |
-| [个体预防方案选择](benchmarks/medical_decision_v1/tasks/prevention_choice)（`prevention_choice`） | 临床候选方案、流程与下一步行动 | 13 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（10）；[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)（2）；[MedMCQA](https://huggingface.co/datasets/openlifescienceai/medmcqa)（1） |
-| [患者教育与沟通选择](benchmarks/medical_decision_v1/tasks/patient_counseling)（`patient_counseling`） | 临床候选方案、流程与下一步行动 | 11 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（11） |
+| [随访行动与完成状态](docs/tasks/followup_action.md)（`followup_action`） | 流程与下一步行动 | 0 | 待补数据 |
+| [出院后 30 天内再入院预测](docs/tasks/readmission_30d.md)（`readmission_30d`） | 风险与升级 | 100 | [Diabetes 130-US Hospitals for Years 1999-2008](docs/datasets/uci_diabetes.md)（100） |
+| [出院待办行动类别](docs/tasks/followup_item_type.md)（`followup_item_type`） | 分类与标准化 | 0 | 待补数据 |
+| [90 日死亡结局预测](docs/tasks/mortality_90d.md)（`mortality_90d`） | 风险与升级 | 100 | [Heart Failure Clinical Records](docs/datasets/uci_heart_failure.md)（100） |
+| [随访方案选择](docs/tasks/followup_plan.md)（`followup_plan`） | 临床候选方案、流程与下一步行动 | 6 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（3）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（2）；[MedMCQA](docs/datasets/medmcqa.md)（1） |
+| [康复训练方案选择](docs/tasks/rehabilitation_choice.md)（`rehabilitation_choice`） | 临床候选方案、流程与下一步行动 | 4 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（4） |
+| [个体预防方案选择](docs/tasks/prevention_choice.md)（`prevention_choice`） | 临床候选方案、流程与下一步行动 | 13 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（10）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（2）；[MedMCQA](docs/datasets/medmcqa.md)（1） |
+| [患者教育与沟通选择](docs/tasks/patient_counseling.md)（`patient_counseling`） | 临床候选方案、流程与下一步行动 | 11 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（11） |
 
 ### 临床试验筛选
 
@@ -158,14 +158,14 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [患者与试验匹配](benchmarks/medical_decision_v1/tasks/trial_referral)（`trial_referral`） | 资格与适宜性、证据与一致性 | 100 | [TrialGPT SIGIR](https://github.com/ncbi-nlp/TrialGPT)（100） |
-| [入排条件要素分类](benchmarks/medical_decision_v1/tasks/criterion_entity_type)（`criterion_entity_type`） | 资格与适宜性 | 100 | [Chia](https://doi.org/10.6084/m9.figshare.11855817)（100） |
-| [入排条件限定关系](benchmarks/medical_decision_v1/tasks/criterion_relation)（`criterion_relation`） | 资格与适宜性 | 100 | [Chia](https://doi.org/10.6084/m9.figshare.11855817)（100） |
-| [入排条件与或关系](benchmarks/medical_decision_v1/tasks/criterion_boolean)（`criterion_boolean`） | 资格与适宜性、规则与数值 | 100 | [Chia](https://doi.org/10.6084/m9.figshare.11855817)（100） |
-| [条件上界与下界](benchmarks/medical_decision_v1/tasks/criterion_bound)（`criterion_bound`） | 资格与适宜性 | 100 | [Clinical Trial Parser annotated test data](https://github.com/facebookresearch/Clinical-Trial-Parser)（100） |
-| [病程与疗程时长关联](benchmarks/medical_decision_v1/tasks/duration_link)（`duration_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
-| [联合干预对象关联](benchmarks/medical_decision_v1/tasks/combination_link)（`combination_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
-| [干预用途关联](benchmarks/medical_decision_v1/tasks/indication_link)（`indication_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
+| [患者与试验匹配](docs/tasks/trial_referral.md)（`trial_referral`） | 资格与适宜性、证据与一致性 | 100 | [TrialGPT SIGIR](docs/datasets/trialgpt.md)（100） |
+| [入排条件要素分类](docs/tasks/criterion_entity_type.md)（`criterion_entity_type`） | 资格与适宜性 | 100 | [Chia](docs/datasets/chia.md)（100） |
+| [入排条件限定关系](docs/tasks/criterion_relation.md)（`criterion_relation`） | 资格与适宜性 | 100 | [Chia](docs/datasets/chia.md)（100） |
+| [入排条件与或关系](docs/tasks/criterion_boolean.md)（`criterion_boolean`） | 资格与适宜性、规则与数值 | 100 | [Chia](docs/datasets/chia.md)（100） |
+| [条件上界与下界](docs/tasks/criterion_bound.md)（`criterion_bound`） | 资格与适宜性 | 100 | [Clinical Trial Parser annotated test data](docs/datasets/frd.md)（100） |
+| [病程与疗程时长关联](docs/tasks/duration_link.md)（`duration_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
+| [联合干预对象关联](docs/tasks/combination_link.md)（`combination_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
+| [干预用途关联](docs/tasks/indication_link.md)（`indication_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
 
 ### 病历与医疗质量控制
 
@@ -173,22 +173,22 @@
 
 | 任务（ID） | 能力维度 | 题数 | 数据集来源（题数） |
 | --- | --- | ---: | --- |
-| [病历章节类别](benchmarks/medical_decision_v1/tasks/note_section)（`note_section`） | 分类与标准化 | 100 | [ACI-Bench](https://github.com/microsoft/clinical_visit_note_summarization_corpus)（100） |
-| [医学术语归一化](benchmarks/medical_decision_v1/tasks/terminology)（`terminology`） | 分类与标准化 | 0 | 待补数据 |
-| [医疗叙述错误检出](benchmarks/medical_decision_v1/tasks/clinical_error_detection)（`clinical_error_detection`） | 证据与一致性、临床候选方案 | 100 | [MEDEC-MS](https://github.com/abachaa/MEDEC)（50）；[MedErrBench CN](https://github.com/congboma/MedErrBench)（50） |
-| [医疗叙述错误定位](benchmarks/medical_decision_v1/tasks/clinical_error_location)（`clinical_error_location`） | 证据与一致性 | 100 | [MEDEC-MS](https://github.com/abachaa/MEDEC)（50）；[MedErrBench CN](https://github.com/congboma/MedErrBench)（50） |
-| [研究论断证据关系](benchmarks/medical_decision_v1/tasks/claim_support)（`claim_support`） | 证据与一致性 | 100 | [SciFact](https://github.com/allenai/scifact)（100） |
-| [医疗材料隐私候选](benchmarks/medical_decision_v1/tasks/privacy_candidate)（`privacy_candidate`） | 风险与升级 | 100 | [MEDDOCAN / SPACCC](https://github.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN)（100） |
-| [病历论断支持关系](benchmarks/medical_decision_v1/tasks/clinical_statement_support)（`clinical_statement_support`） | 证据与一致性 | 0 | 待补数据 |
-| [同一临床事件指代关联](benchmarks/medical_decision_v1/tasks/event_coreference)（`event_coreference`） | 关联与匹配 | 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)（100） |
-| [文本因果结果关联](benchmarks/medical_decision_v1/tasks/cause_effect_link)（`cause_effect_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
-| [否定或推测线索作用对象](benchmarks/medical_decision_v1/tasks/assertion_cue_target)（`assertion_cue_target`） | 关联与匹配 | 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)†（100） |
-| [临床时间表达类别](benchmarks/medical_decision_v1/tasks/clinical_time_type)（`clinical_time_type`） | 分类与标准化 | 100 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)†（100） |
-| [知情与隐私处置选择](benchmarks/medical_decision_v1/tasks/consent_action)（`consent_action`） | 临床候选方案、流程与下一步行动 | 3 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)（1）；[PrinciplismQA](https://github.com/FreedomIntelligence/PrinciplismQA)（2） |
+| [病历章节类别](docs/tasks/note_section.md)（`note_section`） | 分类与标准化 | 100 | [ACI-Bench](docs/datasets/aci_bench.md)（100） |
+| [医学术语归一化](docs/tasks/terminology.md)（`terminology`） | 分类与标准化 | 0 | 待补数据 |
+| [医疗叙述错误检出](docs/tasks/clinical_error_detection.md)（`clinical_error_detection`） | 证据与一致性、临床候选方案 | 100 | [MEDEC-MS](docs/datasets/medec.md)（50）；[MedErrBench CN](docs/datasets/mederr.md)（50） |
+| [医疗叙述错误定位](docs/tasks/clinical_error_location.md)（`clinical_error_location`） | 证据与一致性 | 100 | [MEDEC-MS](docs/datasets/medec.md)（50）；[MedErrBench CN](docs/datasets/mederr.md)（50） |
+| [研究论断证据关系](docs/tasks/claim_support.md)（`claim_support`） | 证据与一致性 | 100 | [SciFact](docs/datasets/scifact.md)（100） |
+| [医疗材料隐私候选](docs/tasks/privacy_candidate.md)（`privacy_candidate`） | 风险与升级 | 100 | [MEDDOCAN / SPACCC](docs/datasets/meddocan.md)（100） |
+| [病历论断支持关系](docs/tasks/clinical_statement_support.md)（`clinical_statement_support`） | 证据与一致性 | 0 | 待补数据 |
+| [同一临床事件指代关联](docs/tasks/event_coreference.md)（`event_coreference`） | 关联与匹配 | 100 | [MACCROBAT2020](docs/datasets/maccrobat.md)（100） |
+| [文本因果结果关联](docs/tasks/cause_effect_link.md)（`cause_effect_link`） | 关联与匹配 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
+| [否定或推测线索作用对象](docs/tasks/assertion_cue_target.md)（`assertion_cue_target`） | 关联与匹配 | 100 | [CT-EBM-SP v3](docs/datasets/ct_ebm_sp.md)†（100） |
+| [临床时间表达类别](docs/tasks/clinical_time_type.md)（`clinical_time_type`） | 分类与标准化 | 100 | [E3C English Layer 1](docs/datasets/e3c.md)†（100） |
+| [知情与隐私处置选择](docs/tasks/consent_action.md)（`consent_action`） | 临床候选方案、流程与下一步行动 | 3 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（1）；[PrinciplismQA](docs/datasets/principlismqa.md)（2） |
 
 ## 数据来源与追溯
 
-任务表展示实际使用的数据集。各来源的论文引用、发布方、材料性质、许可和答案映射见 [来源登记](benchmarks/medical_decision_v1/SOURCES.md)；任务定义、选项标签和实际题量见 [任务说明](benchmarks/medical_decision_v1/README.md)。
+任务表展示实际使用的数据集。[数据集与参考来源目录](docs/datasets/README.md) 提供全部 80 个来源的独立说明页，其中 34 个已收录，46 个仅作参考。各页列出材料性质、引用、许可、相关任务及样例；未收录来源说明原因，样例留空。[任务目录](docs/tasks/README.md) 提供全部 89 个任务的定义、数据范围和样例。原始登记见 [来源与引用](benchmarks/medical_decision_v1/SOURCES.md)。
 
 每道题保留 **题目 ID → 上游固定版本与文件哈希 → 原记录或标注位置 → 答案映射** 的溯源链。下载包内的 `provenance.jsonl` 可逐题查询，`sources.lock.json` 记录原始资源版本与 SHA-256。原始答案与适配元数据不作为模型输入。
 
