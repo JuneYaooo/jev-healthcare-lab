@@ -279,6 +279,36 @@ def fetch(config, cache):
     print("Verified", len(lock["files"]), "source files")
 
 
+def read_prescription_sheet(path):
+    """Read the locked upstream XLSX without optional workbook dependencies."""
+    ns = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    with zipfile.ZipFile(path) as z:
+        sheets = ET.fromstring(z.read('xl/workbook.xml')).find('s:sheets', ns)
+        if len(sheets) != 1 or sheets[0].get('name') != '单选-多选':
+            raise ValueError('Changed prescription workbook layout')
+        shared = []
+        if 'xl/sharedStrings.xml' in z.namelist():
+            shared = [''.join(x.itertext()) for x in ET.fromstring(z.read('xl/sharedStrings.xml'))]
+        root = ET.fromstring(z.read('xl/worksheets/sheet1.xml'))
+    rows = {}
+    for row in root.findall('s:sheetData/s:row', ns):
+        values = {}
+        for cell in row.findall('s:c', ns):
+            if cell.find('s:f', ns) is not None:
+                raise ValueError('Unexpected formula in source dataset')
+            value = cell.findtext('s:v', default='', namespaces=ns)
+            if cell.get('t') == 's':
+                value = shared[int(value)]
+            elif cell.get('t') == 'inlineStr':
+                value = ''.join(cell.find('s:is', ns).itertext())
+            values[re.match(r'[A-Z]+', cell.get('r'))[0]] = value
+        rows[int(row.get('r'))] = values
+    header = rows.pop(1)
+    if list(header.values()) != ['ID', 'Question', 'Candidate Answers', 'Answer', 'Explanation', 'Category', 'Rule_ID', 'Rule_summary']:
+        raise ValueError('Changed prescription dataset schema')
+    return {i: {name: row.get(col, '') for col, name in header.items()} for i, row in rows.items()}
+
+
 class Builder:
     def __init__(self, config, cache):
         self.config, self.cache = config, cache
@@ -1342,6 +1372,87 @@ class Builder:
                          article_attribution=article['attribution'], annotation_consensus='All valid labels agree',
                          grouping_unit='publication', patient_record=False)
 
+    def chinese_scenario_additions(self):
+        """Pinned scope-reviewed questions; answers are always read from upstream."""
+        selection = json.loads((self.config / 'selection_v070.json').read_text())['items']
+        answer_file = 'cmb__CMB-test-choice-answer.json'
+        answers = {r['id']: (i, r) for i, r in enumerate(json.loads(self.path(answer_file).read_text()))}
+        with zipfile.ZipFile(self.path('cmb__CMB.zip')) as archive:
+            members = {x['member']: json.loads(archive.read(x['member'])) for x in selection if x['source'] == 'cmb'}
+        cnmle = json.loads(self.path('cnmleqa__CNMLEQA-10k.json').read_text())
+        pa = read_prescription_sheet(self.path('tcmeval_pa__TCMEval-PA.xlsx'))
+        for item in selection:
+            sid, index, task = item['source'], item['index'], item['task']
+            locator = {'json_index': index, 'answer_field': 'answer'}
+            metadata = {'eligibility': 'fixed_scope_review_v070', 'independent_clinical_review': False}
+            if sid == 'cmb':
+                file = 'cmb__CMB.zip'; original = members[item['member']][index]
+                question, options = original['question'], original['option']
+                split = item['split']; uid = split + ':' + str(index)
+                locator['zip_member'] = item['member']
+                if split == 'official_test':
+                    ai, answer = answers[original['id']]
+                    if any(original[k] != answer[k] for k in ['exam_type', 'exam_class', 'exam_subject', 'question_type']):
+                        raise ValueError('CMB answer join mismatch')
+                    gold = answer['answer']
+                    locator.update(question_id=original['id'], answer_json_index=ai, supporting_resources=[answer_file])
+                else:
+                    gold = original['answer']
+                metadata['upstream_training_partition'] = split == 'upstream_train_reserved_for_local_evaluation'
+            elif sid == 'cnmleqa':
+                file = 'cnmleqa__CNMLEQA-10k.json'; original = cnmle[index]
+                question, gold = original['question'], original['answer']
+                options = {k: original[k] for k in ['opa', 'opb', 'opc', 'opd', 'ope']}
+                split, uid = item['split'], original['id']
+                locator['question_id'] = uid
+            else:
+                file = 'tcmeval_pa__TCMEval-PA.xlsx'; original = pa[item['xlsx_row']]
+                question, gold = original['Question'], original['Answer']
+                options = dict(re.findall(r'(?:^|\n)\s*([A-E])\.\s*(.*?)(?=\n\s*[A-E]\. |$)', original['Candidate Answers'], re.S))
+                options = {k: v.strip() for k, v in options.items()}
+                uid = original['ID']; split = 'published_benchmark_no_official_split'
+                locator = {'xlsx_sheet': '单选-多选', 'xlsx_row': item['xlsx_row'], 'upstream_id': uid, 'answer_column': 'D'}
+                metadata.update(rule_id=original['Rule_ID'], rule_summary=original['Rule_summary'],
+                                upstream_explanation=original['Explanation'])
+            if digest(question) != item['question_sha256'] or gold not in options or len(options) not in {4, 5}:
+                raise ValueError('Changed or malformed selected source item')
+            group = digest(re.sub(r'[^\w]', '', norm(question))[:60])[:24]
+            self.add(task, sid, uid, group, {'clinical_question': question}, options, gold,
+                     file, locator, split, language='zh', **metadata)
+            if sid in {'cmb', 'cnmleqa'}:
+                self.pools[task][-1]['group_id'] = 'zh_exam_case:' + group
+
+    def tcm_pathogenesis(self):
+        question_file, answer_file = 'tcmeval_sdt__Test_TCM_Data_v1.json', 'tcmeval_sdt__Test_data_result.txt'
+        questions = json.loads(self.path(question_file).read_text())
+        answers = {}
+        for line_number, line in enumerate(self.path(answer_file).read_text().splitlines(), 1):
+            if not line.strip():
+                continue
+            fields = line.split('@')
+            if len(fields) != 5 or fields[0] in answers:
+                raise ValueError('Malformed or duplicate TCMEval answer ID')
+            answers[fields[0]] = (line_number, fields[2])
+        if {r['Medical Record ID'] for r in questions} != set(answers) or len(questions) != len(answers):
+            raise ValueError('Unmatched TCMEval test IDs')
+        for i, row in enumerate(questions):
+            uid = row['Medical Record ID']; line, original_gold = answers[uid]
+            options = dict(x.split(':', 1) for x in row['Options of TCM Pathogenesis'].split(';'))
+            selected = set(original_gold.split(';'))
+            if not selected or not selected < set(options):
+                raise ValueError('Invalid TCMEval multi-select gold')
+            for label, candidates in [('yes', selected), ('no', set(options) - selected)]:
+                key = min(candidates, key=lambda k: digest([SEED, uid, k]))
+                self.add('tcm_pathogenesis_candidate', 'tcmeval_sdt', uid + ':' + key, uid,
+                         {'clinical_case': row['Clinical Data'], 'original_candidates': options,
+                          'target_candidate': {'key': key, 'text': options[key]}},
+                         {'yes': '属于上游专家所选病机集合', 'no': '不属于本题上游所选病机集合'}, label,
+                         question_file, {'json_index': i, 'case_id': uid, 'supporting_resources': [answer_file],
+                                         'answer_line': line, 'answer_field_zero_based': 2},
+                         'official_test', language='zh', original_selected_keys=sorted(selected),
+                         label_mapping='membership in original expert multi-select answer; one positive and one negative candidate per case',
+                         grouping_unit='case', independent_patient_claim=False)
+
     def run(self):
         for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams", "relation_expansion", "e3c_attributes", "care_triage", "clinical_outcomes", "chinese_decision_expansion", "cnmle_decision_expansion"]:
             getattr(self, name)()
@@ -1350,7 +1461,7 @@ class Builder:
         print('Prepared privacy_and_sepsis', flush=True)
         self.reference_ranges()
         print('Prepared reference_ranges', flush=True)
-        for method in ['laboratory_values', 'pharmacogenomic_rules', 'trial_comparative_effects']:
+        for method in ['laboratory_values', 'pharmacogenomic_rules', 'trial_comparative_effects', 'chinese_scenario_additions', 'tcm_pathogenesis']:
             getattr(self, method)()
             print('Prepared', method, flush=True)
         return self.pools
@@ -1557,6 +1668,7 @@ def generate_docs(output, builder, summary):
               "新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。\n",
               "[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。\n",
               "v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。\n",
+              "v0.7.0 新增病机候选核验、处方审核处置、营养方案及护理体位四类任务；原有 5,594 条完整记录保持不变。病机任务的 100 个判断来自 50 个病例，不能按 100 个独立病例解释。详见 [扩展协议](../../docs/EXPANSION_V070.md)。\n",
               "v0.6.0 新增检验数值判读、药物基因检测功能表型、基因结果用药建议匹配、试验干预效果方向 4 类任务。分别采用 LabQAR Set 2、CPIC CC0 规则快照和 Evidence Inference 官方测试中的 CC-BY 文章。前版 5,210 条完整记录保持不变；见 [适配协议](../../docs/EXPANSION_V060.md)。\n",
               "## 训练隔离与历史使用\n",
               f"[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；{summary['historical_material_matches']} 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。\n",
@@ -1579,7 +1691,7 @@ def generate_docs(output, builder, summary):
               "## 评测状态\n",
               "本版本尚未运行模型评测。逐题历史材料重合标记及冻结筛查索引属于数据来源记录，不能解释为本版本模型成绩。\n"]
     (output / "README.md").write_text("\n".join(lines))
-    research = ["# 按医疗场景寻找任务与数据\n", "核验日期：2026-10-10。仅有数据可下载，不表示已满足当前任务的题目、答案、许可与隔离要求。以下为新增来源的采用状态和剩余步骤；已采用来源也可只覆盖某个场景的局部任务。\n"]
+    research = ["# 按医疗场景寻找任务与数据\n", "各来源的核验日期见来源登记。仅有数据可下载，不表示已满足当前任务的题目、答案、许可与隔离要求。以下为新增来源的采用状态和剩余步骤；已采用来源也可只覆盖某个场景的局部任务。\n"]
     for scene in builder.taxonomy["scenarios"]:
         relevant = [t for t in summary["tasks"] if t["primary_scenario"] == scene["id"]]
         research += ["## " + scene["title"] + "\n", scene["scope"] + "\n",

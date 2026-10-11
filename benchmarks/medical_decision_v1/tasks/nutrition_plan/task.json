@@ -1,0 +1,47 @@
+{
+  "id": "nutrition_plan",
+  "title": "病例营养方案选择",
+  "definition": "根据病例选择原题要求的饮食或营养支持方案；保留上游选项及答案，不生成食谱。",
+  "dimension": "classification",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 11,
+  "groups": 11,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 11,
+    "unique_consistent_pool": 11,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 11,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "B": 2,
+    "C": 2,
+    "E": 3,
+    "D": 2,
+    "A": 1,
+    "ope": 1
+  },
+  "language_counts": {
+    "zh": 11
+  },
+  "source_counts": {
+    "cmb": 10,
+    "cnmleqa": 1
+  },
+  "historical_material_matches": 0
+}

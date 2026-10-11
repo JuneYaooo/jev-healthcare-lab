@@ -1,0 +1,47 @@
+{
+  "id": "positioning_choice",
+  "title": "护理体位选择",
+  "definition": "根据患者病情或操作情境，从原始选项中选择合适体位。",
+  "dimension": "classification",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "inpatient",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 10,
+  "groups": 10,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 10,
+    "unique_consistent_pool": 10,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 10,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "opa": 1,
+    "B": 3,
+    "D": 2,
+    "opd": 1,
+    "E": 2,
+    "C": 1
+  },
+  "language_counts": {
+    "zh": 10
+  },
+  "source_counts": {
+    "cnmleqa": 2,
+    "cmb": 8
+  },
+  "historical_material_matches": 0
+}

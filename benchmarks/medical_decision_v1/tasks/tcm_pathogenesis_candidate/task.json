@@ -1,0 +1,41 @@
+{
+  "id": "tcm_pathogenesis_candidate",
+  "title": "中医病机候选核验",
+  "definition": "根据病例和原始候选病机，判断目标候选是否被上游专家选中。否仅表示不属于本题原始答案集合，不表示医学上不可能。",
+  "dimension": "classification",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "tcmeval_sdt"
+  ],
+  "missing_reason": "",
+  "candidate_source_ids": [],
+  "primary_scenario": "diagnosis",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 100,
+  "groups": 50,
+  "status": "ready",
+  "sampling": {
+    "raw_pool": 100,
+    "unique_consistent_pool": 100,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 100,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "no": 50,
+    "yes": 50
+  },
+  "language_counts": {
+    "zh": 100
+  },
+  "source_counts": {
+    "tcmeval_sdt": 100
+  },
+  "historical_material_matches": 0
+}

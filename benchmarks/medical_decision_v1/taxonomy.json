@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "created": "2026-10-10",
   "seed": 20261010,
   "dimensions": [
@@ -1512,6 +1512,80 @@
         "evidence"
       ],
       "decision_stage": "material_judgment"
+    },
+    {
+      "id": "tcm_pathogenesis_candidate",
+      "title": "中医病机候选核验",
+      "definition": "根据病例和原始候选病机，判断目标候选是否被上游专家选中。否仅表示不属于本题原始答案集合，不表示医学上不可能。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "tcmeval_sdt"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "prescription_audit_action",
+      "title": "处方审核处置选择",
+      "definition": "给定处方审核情境，从原始选项中选择上游标注的处理行动或审核要求。按发布版本评分，不等同现行政策核验或完整个体处方审核。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "tcmeval_pa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "nutrition_plan",
+      "title": "病例营养方案选择",
+      "definition": "根据病例选择原题要求的饮食或营养支持方案；保留上游选项及答案，不生成食谱。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "positioning_choice",
+      "title": "护理体位选择",
+      "definition": "根据患者病情或操作情境，从原始选项中选择合适体位。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice"
     }
   ],
   "organization": "primary_scenario_then_task_with_ability_tags",

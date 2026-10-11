@@ -1,0 +1,42 @@
+{
+  "id": "prescription_audit_action",
+  "title": "处方审核处置选择",
+  "definition": "给定处方审核情境，从原始选项中选择上游标注的处理行动或审核要求。按发布版本评分，不等同现行政策核验或完整个体处方审核。",
+  "dimension": "classification",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "tcmeval_pa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "classification"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 11,
+  "groups": 11,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 11,
+    "unique_consistent_pool": 11,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 11,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "C": 7,
+    "B": 2,
+    "D": 2
+  },
+  "language_counts": {
+    "zh": 11
+  },
+  "source_counts": {
+    "tcmeval_pa": 11
+  },
+  "historical_material_matches": 0
+}

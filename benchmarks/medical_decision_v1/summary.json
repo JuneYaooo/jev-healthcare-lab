@@ -1,19 +1,19 @@
 {
-  "version": "0.6.0",
+  "version": "0.7.0",
   "seed": 20261010,
-  "total_tasks": 77,
-  "ready_tasks": 51,
-  "partial_tasks": 8,
+  "total_tasks": 81,
+  "ready_tasks": 52,
+  "partial_tasks": 11,
   "empty_tasks": 18,
-  "records": 5594,
-  "unique_source_groups": 3611,
+  "records": 5726,
+  "unique_source_groups": 3693,
   "languages": {
     "es": 1058,
     "en": 3524,
-    "zh": 1012
+    "zh": 1144
   },
   "distribution_counts": {
-    "open": 4051,
+    "open": 4183,
     "research_noncommercial": 1543
   },
   "historical_material_matches": 577,
@@ -7110,6 +7110,183 @@
         "evidence_inference": 100
       },
       "historical_material_matches": 31
+    },
+    {
+      "id": "tcm_pathogenesis_candidate",
+      "title": "中医病机候选核验",
+      "definition": "根据病例和原始候选病机，判断目标候选是否被上游专家选中。否仅表示不属于本题原始答案集合，不表示医学上不可能。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "tcmeval_sdt"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "diagnosis",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 100,
+      "groups": 50,
+      "status": "ready",
+      "sampling": {
+        "raw_pool": 100,
+        "unique_consistent_pool": 100,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 100,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "no": 50,
+        "yes": 50
+      },
+      "language_counts": {
+        "zh": 100
+      },
+      "source_counts": {
+        "tcmeval_sdt": 100
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "prescription_audit_action",
+      "title": "处方审核处置选择",
+      "definition": "给定处方审核情境，从原始选项中选择上游标注的处理行动或审核要求。按发布版本评分，不等同现行政策核验或完整个体处方审核。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "tcmeval_pa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 11,
+      "groups": 11,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 11,
+        "unique_consistent_pool": 11,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 11,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "C": 7,
+        "B": 2,
+        "D": 2
+      },
+      "language_counts": {
+        "zh": 11
+      },
+      "source_counts": {
+        "tcmeval_pa": 11
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "nutrition_plan",
+      "title": "病例营养方案选择",
+      "definition": "根据病例选择原题要求的饮食或营养支持方案；保留上游选项及答案，不生成食谱。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 11,
+      "groups": 11,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 11,
+        "unique_consistent_pool": 11,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 11,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "B": 2,
+        "C": 2,
+        "E": 3,
+        "D": 2,
+        "A": 1,
+        "ope": 1
+      },
+      "language_counts": {
+        "zh": 11
+      },
+      "source_counts": {
+        "cmb": 10,
+        "cnmleqa": 1
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "positioning_choice",
+      "title": "护理体位选择",
+      "definition": "根据患者病情或操作情境，从原始选项中选择合适体位。",
+      "dimension": "classification",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "classification"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 10,
+      "groups": 10,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 10,
+        "unique_consistent_pool": 10,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 10,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "opa": 1,
+        "B": 3,
+        "D": 2,
+        "opd": 1,
+        "E": 2,
+        "C": 1
+      },
+      "language_counts": {
+        "zh": 10
+      },
+      "source_counts": {
+        "cnmleqa": 2,
+        "cmb": 8
+      },
+      "historical_material_matches": 0
     }
   ],
   "scenarios": [
@@ -7133,25 +7310,25 @@
       "id": "diagnosis",
       "title": "诊断与鉴别",
       "scope": "根据已有材料判断诊断、状态和临床分级。",
-      "defined_tasks": 13,
-      "populated_tasks": 12,
-      "records": 1200
+      "defined_tasks": 14,
+      "populated_tasks": 13,
+      "records": 1300
     },
     {
       "id": "treatment",
       "title": "治疗与用药",
       "scope": "判断治疗选择、用药关系及患者特异性适宜性。",
-      "defined_tasks": 14,
-      "populated_tasks": 11,
-      "records": 928
+      "defined_tasks": 15,
+      "populated_tasks": 12,
+      "records": 939
     },
     {
       "id": "inpatient",
       "title": "住院与护理",
       "scope": "核对病情证据、操作执行和病情恶化风险。",
-      "defined_tasks": 10,
-      "populated_tasks": 7,
-      "records": 610
+      "defined_tasks": 12,
+      "populated_tasks": 9,
+      "records": 631
     },
     {
       "id": "followup",

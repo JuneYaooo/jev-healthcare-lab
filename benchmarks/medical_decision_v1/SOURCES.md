@@ -859,3 +859,35 @@ The problem is important for the following reasons. Despite high-quality evidenc
 材料性质：LLM 辅助合成场景；400 条为作者声称的专家核验子集。
 
 答案依据：作者隐藏的 governing_source_id 与临床行动答案；原始评测包含生成式输出。
+
+## TCMEval-SDT
+
+来源：[发布方](https://doi.org/10.6084/m9.figshare.27184596.v5)。
+
+引用：Wang Z., Hao M., Peng S. et al. (2025), TCMEval-SDT，[论文/项目](https://doi.org/10.1038/s41597-025-04772-9)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：整理的经典医案、网络及医院病例材料；不是统一采集的前瞻性患者队列。
+
+答案依据：v5 官方测试答案按病例 ID 连接；从病机多选答案机械映射候选是否入选。
+
+许可与来源快照：[figshare-metadata.json](sources/tcmeval_sdt/figshare-metadata.json)。
+
+评测范围：固定发布版本的上游答案；未作本项目独立临床或现行规范核验。数据许可按 Figshare 数据记录，区别于论文或仓库其他内容许可。
+
+## TCMEval-PA
+
+来源：[发布方](https://doi.org/10.6084/m9.figshare.29651261.v3)。
+
+引用：Wang B., Lu Y., Wang Z. et al., TCMEval-PA，[论文/项目](https://doi.org/10.1038/s41597-025-06387-6)。
+
+数据许可：[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)；分发类别：`open`。
+
+材料性质：考试题与规则情境题，经上游中医执业医师核验；不是实际处方审核日志。
+
+答案依据：保留原 Excel 单选答案；仅纳入固定清单的情境处置题，不使用解释字段作为输入。
+
+许可与来源快照：[figshare-metadata.json](sources/tcmeval_pa/figshare-metadata.json)。
+
+评测范围：固定发布版本的上游答案；未作本项目独立临床或现行规范核验。数据许可按 Figshare 数据记录，区别于论文或仓库其他内容许可。

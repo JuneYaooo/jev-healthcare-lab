@@ -10760,6 +10760,51 @@
       "sha256": "b9d7599a666cada77cec4e52b459ec70425fab6f61604ecbe77d1bbf7a8297b1",
       "bytes": 6614,
       "snapshot_path": "sources/evidence_inference/annotation-guide.md"
+    },
+    {
+      "source": "tcmeval_sdt",
+      "name": "tcmeval_sdt__Test_TCM_Data_v1.json",
+      "url": "https://ndownloader.figshare.com/files/51198842",
+      "version": "Figshare 27184596.v5",
+      "sha256": "4b9f69308b46125ea6d979613d4b2717b1d930d7acefd2e3c58d274975420bff",
+      "bytes": 56432,
+      "snapshot_path": "sources/tcmeval_sdt/Test_TCM_Data_v1.json"
+    },
+    {
+      "source": "tcmeval_sdt",
+      "name": "tcmeval_sdt__Test_data_result.txt",
+      "url": "https://ndownloader.figshare.com/files/59087276",
+      "version": "Figshare 27184596.v5",
+      "sha256": "68b521be0650796af8fcc96672b680368278b561c07203b03d10d1ef78530ee5",
+      "bytes": 23113,
+      "snapshot_path": "sources/tcmeval_sdt/Test_data_result.txt"
+    },
+    {
+      "source": "tcmeval_sdt",
+      "name": "tcmeval_sdt__figshare-metadata.json",
+      "url": "https://api.figshare.com/v2/articles/27184596",
+      "version": "Figshare 27184596.v5; metadata snapshot 2026-10-11",
+      "sha256": "62614b88d4466a6feda4256d0284c4ea223520f3658be27fcd1fbac48f2022b5",
+      "bytes": 4754,
+      "snapshot_path": "sources/tcmeval_sdt/figshare-metadata.json"
+    },
+    {
+      "source": "tcmeval_pa",
+      "name": "tcmeval_pa__TCMEval-PA.xlsx",
+      "url": "https://ndownloader.figshare.com/files/56581880",
+      "version": "Figshare 29651261.v3",
+      "sha256": "905cb28f145ba50f3b1c912265ff6649e0bb38f56adf6cd588d77ca768db92c1",
+      "bytes": 66132,
+      "snapshot_path": "sources/tcmeval_pa/TCMEval-PA.xlsx"
+    },
+    {
+      "source": "tcmeval_pa",
+      "name": "tcmeval_pa__figshare-metadata.json",
+      "url": "https://api.figshare.com/v2/articles/29651261",
+      "version": "Figshare 29651261.v3; metadata snapshot 2026-10-11",
+      "sha256": "579f7f14bfb727813a171945823d03b5300437058390d91ca8d1c22f78602f49",
+      "bytes": 4784,
+      "snapshot_path": "sources/tcmeval_pa/figshare-metadata.json"
     }
   ]
 }

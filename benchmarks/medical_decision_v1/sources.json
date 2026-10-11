@@ -2611,6 +2611,59 @@
         "treatment",
         "quality"
       ]
+    },
+    {
+      "id": "tcmeval_sdt",
+      "name": "TCMEval-SDT",
+      "url": "https://doi.org/10.6084/m9.figshare.27184596.v5",
+      "citation_url": "https://doi.org/10.1038/s41597-025-04772-9",
+      "attribution": "Wang Z., Hao M., Peng S. et al. (2025), TCMEval-SDT",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "curated_case_and_expert_annotation",
+      "authenticity": "整理的经典医案、网络及医院病例材料；不是统一采集的前瞻性患者队列。",
+      "gold_provenance": "v5 官方测试答案按病例 ID 连接；从病机多选答案机械映射候选是否入选。",
+      "checked_date": "2026-10-11",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "tcmeval_sdt__Test_TCM_Data_v1.json",
+        "tcmeval_sdt__Test_data_result.txt",
+        "tcmeval_sdt__figshare-metadata.json"
+      ],
+      "license_evidence": [
+        "sources/tcmeval_sdt/figshare-metadata.json"
+      ],
+      "evaluation_limits": "固定发布版本的上游答案；未作本项目独立临床或现行规范核验。数据许可按 Figshare 数据记录，区别于论文或仓库其他内容许可。",
+      "scenario_ids": [
+        "diagnosis"
+      ]
+    },
+    {
+      "id": "tcmeval_pa",
+      "name": "TCMEval-PA",
+      "url": "https://doi.org/10.6084/m9.figshare.29651261.v3",
+      "citation_url": "https://doi.org/10.1038/s41597-025-06387-6",
+      "attribution": "Wang B., Lu Y., Wang Z. et al., TCMEval-PA",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "open",
+      "material_kind": "exam_and_rule_based_scenarios",
+      "authenticity": "考试题与规则情境题，经上游中医执业医师核验；不是实际处方审核日志。",
+      "gold_provenance": "保留原 Excel 单选答案；仅纳入固定清单的情境处置题，不使用解释字段作为输入。",
+      "checked_date": "2026-10-11",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "tcmeval_pa__TCMEval-PA.xlsx",
+        "tcmeval_pa__figshare-metadata.json"
+      ],
+      "license_evidence": [
+        "sources/tcmeval_pa/figshare-metadata.json"
+      ],
+      "evaluation_limits": "固定发布版本的上游答案；未作本项目独立临床或现行规范核验。数据许可按 Figshare 数据记录，区别于论文或仓库其他内容许可。",
+      "scenario_ids": [
+        "treatment"
+      ]
     }
   ]
 }

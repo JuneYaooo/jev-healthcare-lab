@@ -29,7 +29,7 @@ python3 scripts/medical_decision_dataset.py build
 python3 scripts/medical_decision_release.py build
 ```
 
-`fetch` 下载 `sources.lock.json` 中的固定源文件并检查 SHA-256，缓存位于 `work/decision-benchmark-v1/raw/`。完整原始数据不随压缩包发布。`build` 使用已发布的任务定义、适配器、固定抽样种子和冻结筛查索引重建题目，不调用模型生成答案。复建依赖上游锁定资源仍可下载；本地已有且哈希正确的缓存可复用。
+`fetch` 下载 `sources.lock.json` 中的固定源文件并检查 SHA-256，缓存位于 `work/decision-benchmark-v1/raw/`。部分小型源文件与易变 API 响应随包冻结；其余完整原始数据另行下载。`build` 使用已发布的任务定义、适配器、固定抽样种子和冻结筛查索引重建题目，不调用模型生成答案。复建依赖上游锁定资源仍可下载；本地已有且哈希正确的缓存可复用。
 
 `exposure_index.json` 保存构建时的训练与历史材料指纹。复建当前版本应保留该索引，不运行 `index` 子命令；当前仓库不包含这些历史训练与实验原文。重新筛查其他训练材料属于新版本数据准备，需要重新审核、冻结并标版本。
 
@@ -42,10 +42,12 @@ python3 scripts/medical_decision_dataset.py export --output work/requests.jsonl
 python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/scores.json
 ```
 
-默认只处理开放核心集。若使用完整 5,210 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
+默认只处理开放核心集。若使用完整 5,726 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
 
 评分规则见 [评测方法](EVALUATION.md)，来源与许可见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。
 
 v0.5.0 原始复建另需 MEDDOCAN 固定仓库归档、LabQAR Set 1 和 PhysioNet 2019 医院 A 的 1,000 个锁定记录文件。源数据下载量与整理包不同；仅使用已整理包无需下载这些原文件。选择框和预测协议见 [空缺核验](GAP_AUDIT_V050.md)。
 
 v0.6.0 另需 LabQAR Set 2 和 Evidence Inference 固定版本归档（约 164 MB）。CPIC 的 API 原始响应已随仓库/开放包冻结，`fetch` 与 `trace --fetch-source` 优先核验包内快照，不要求在线 API 仍返回相同内容。文章原许可和署名逐篇保留；详见 [扩展协议](EXPANSION_V060.md)。
+
+v0.7.0 的 TCMEval-SDT 测试问题/答案、TCMEval-PA 原始 Excel 和许可元数据随仓库及开放包冻结。营养、体位和处方处置的范围清单在 `selection_v070.json`，清单哈希变动需按新版本处理。标准库即可重建，无需安装 Excel 库。详见 [扩展协议](EXPANSION_V070.md)。

@@ -1,0 +1,160 @@
+{
+  "files": [
+    {
+      "id": 56581880,
+      "name": "TCMEval-PA.xlsx",
+      "size": 66132,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/56581880",
+      "supplied_md5": "b3b4a94e399b4d35f9443f43434889f0",
+      "computed_md5": "b3b4a94e399b4d35f9443f43434889f0",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "id": 56740277,
+      "name": "LLM_test _1(GPT-4o).ipynb",
+      "size": 5543,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/56740277",
+      "supplied_md5": "b3788f6d5bb640d42fb363d8b5709d73",
+      "computed_md5": "b3788f6d5bb640d42fb363d8b5709d73",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 56740283,
+      "name": "LLM_test_2(HuatuoGPT2-7b).ipynb",
+      "size": 5493,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/56740283",
+      "supplied_md5": "92af877353fff359c8b14146fc3c31b1",
+      "computed_md5": "92af877353fff359c8b14146fc3c31b1",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 56740280,
+      "name": "LLM_test_3(Qwen-Plus).ipynb",
+      "size": 5718,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/56740280",
+      "supplied_md5": "cd0decfd71d4229406ef0de47771d909",
+      "computed_md5": "cd0decfd71d4229406ef0de47771d909",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 56740286,
+      "name": "LLM_test_4(DeepSeek R1).ipynb",
+      "size": 5270,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/56740286",
+      "supplied_md5": "e94e1546db2219a731013dd9ce16f116",
+      "computed_md5": "e94e1546db2219a731013dd9ce16f116",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 56740289,
+      "name": "LLM_test_5(ShenNong-TCM-LLM).ipynb",
+      "size": 6845,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/56740289",
+      "supplied_md5": "bb80d888922251aefd906d3adb065f24",
+      "computed_md5": "bb80d888922251aefd906d3adb065f24",
+      "mimetype": "application/json"
+    }
+  ],
+  "folder_structure": {
+    "56581880": "",
+    "56740277": "scripts",
+    "56740283": "scripts",
+    "56740289": "scripts",
+    "56740286": "scripts",
+    "56740280": "scripts"
+  },
+  "authors": [
+    {
+      "id": 19734967,
+      "full_name": "Yan Zhu",
+      "first_name": "Yan",
+      "last_name": "Zhu",
+      "is_active": true,
+      "url_name": "Yan_Zhu",
+      "orcid_id": ""
+    }
+  ],
+  "custom_fields": [],
+  "figshare_url": "https://figshare.com/articles/dataset/TCMEval-PA/29651261",
+  "download_disabled": false,
+  "description": "A benchmark dataset for the prescription audit of Traditional Chinese Medicine<p></p>",
+  "funding": null,
+  "funding_list": [],
+  "version": 3,
+  "status": "public",
+  "size": 95001,
+  "created_date": "2025-07-31T16:02:39Z",
+  "modified_date": "2025-07-31T16:02:39Z",
+  "is_public": true,
+  "is_confidential": false,
+  "is_metadata_record": false,
+  "confidential_reason": "",
+  "metadata_reason": "",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "tags": [
+    "AI",
+    "TCM",
+    "Benchmark",
+    "Dataset",
+    "LLMs",
+    "prescription audit"
+  ],
+  "keywords": [
+    "AI",
+    "TCM",
+    "Benchmark",
+    "Dataset",
+    "LLMs",
+    "prescription audit"
+  ],
+  "categories": [
+    {
+      "id": 27232,
+      "title": "Traditional Chinese medicine and treatments",
+      "parent_id": 27223,
+      "path": "/27001/27223/27232",
+      "source_id": "420803",
+      "taxonomy_id": 100
+    }
+  ],
+  "references": [],
+  "has_linked_file": false,
+  "citation": "Zhu, Yan (2025). TCMEval-PA. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29651261.v3",
+  "related_materials": [],
+  "is_embargoed": false,
+  "embargo_date": null,
+  "embargo_type": null,
+  "embargo_title": "",
+  "embargo_reason": "",
+  "embargo_options": [],
+  "id": 29651261,
+  "title": "TCMEval-PA",
+  "doi": "10.6084/m9.figshare.29651261.v3",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/29651261",
+  "published_date": "2025-07-31T16:02:39Z",
+  "thumb": "",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": null,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/29651261",
+  "url_public_api": "https://api.figshare.com/v2/articles/29651261",
+  "url_private_html": "https://figshare.com/account/articles/29651261",
+  "url_public_html": "https://figshare.com/articles/dataset/TCMEval-PA/29651261",
+  "timeline": {
+    "posted": "2025-07-31T16:02:39",
+    "firstOnline": "2025-07-27"
+  },
+  "resource_title": null,
+  "resource_doi": null
+}

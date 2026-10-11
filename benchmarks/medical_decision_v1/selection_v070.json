@@ -1,0 +1,250 @@
+{
+  "review_scope": "Task fit and textual completeness; not independent physician review. Fixed question hashes prevent silent source changes.",
+  "items": [
+    {
+      "source": "cmb",
+      "split": "official_test",
+      "index": 2077,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json",
+      "question_sha256": "4f7e62c14faa9a95719d72d027c64141438d0797f1015c4586b5261103bb71b4"
+    },
+    {
+      "source": "cmb",
+      "split": "official_test",
+      "index": 2833,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json",
+      "question_sha256": "4cc539c6e4ea5f4444a5edf94df74f3d0cd750def77fa4b1b07b09ec56d9b4fd"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 1104,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "a96b0dc2fe0a571cae9a83e1e8a452baa512e76394a12c77db408d8fad41aca2"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 3268,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "41d46a9fdc67c97475947d51ba59b6cb984e0105251efa0cfe83e9b0eefb103c"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 32582,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "8374ce2ad4325fab94b88a6e1516bcdbe0bbc8a2a51fb2aaacfb09b9ab2ddde3"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 63609,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "5247d5bec1e96e0bcc2f90c52d91bf2a820d333bd38667ff3ecf6cf1fdb07782"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 124993,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "5640f5e6046f3c819ab97c93f64bf7dd3995fa71551552b5138fbffacbe99f53"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 132004,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "58643aeb7fbd557a3be7678c489ccb4e71cd8b0e0b1eed6e766dc0b6cd136800"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 134265,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "90d16c429e9c4d8069d307465bc53a83e057477acddd82393114c88e1c46a5b2"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 136324,
+      "task": "nutrition_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "7e16406186d8e0f47bf162bc636b15ba0a1ed4db8dc9d5f0f0b7906614dbe303"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 510,
+      "task": "nutrition_plan",
+      "member": null,
+      "question_sha256": "249f5708261b434956eed6309392a53c45afb07e95f446115727d2069401a47b"
+    },
+    {
+      "source": "cmb",
+      "split": "official_test",
+      "index": 2186,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json",
+      "question_sha256": "8ed5dd3771a1304d0fedc159d744c89223d6d46759b3377062a4670bca578801"
+    },
+    {
+      "source": "cmb",
+      "split": "official_test",
+      "index": 2605,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json",
+      "question_sha256": "518533aace81b28567101aa97ced9782831726cd051d4956be547aaf0145a06f"
+    },
+    {
+      "source": "cmb",
+      "split": "official_test",
+      "index": 2755,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json",
+      "question_sha256": "9f1201a61db084ed3b0c95a669d81f683cd2b496d13c491c9453b39717f573d3"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 77463,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "275f9428969b5cf19e75dbe91bcc9de587c92b54886f0f237a8f5b0ec923796b"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 77739,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "a3c6e74e3671588d76d0104889059225b5d82b76cd47f43de0f87d732658ef96"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 113165,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "9038284c3d6f71298d4c0c5666b8c95679ca23083556aab80bd5731dca365fab"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 123798,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "35d11e88610ede74c1811d273513b8e9bb276593ae417005b272283d8b7efa8b"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 131428,
+      "task": "positioning_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "62e2cd7adbe0e249404da2de61d6a136b0ebffd171651fa75d321cc9455b7d14"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 2723,
+      "task": "positioning_choice",
+      "member": null,
+      "question_sha256": "3932b674bab1be4331895c0e12fdb1f31a763151bb2f8dc68ea9423cffa764e4"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 4312,
+      "task": "positioning_choice",
+      "member": null,
+      "question_sha256": "3153be6cb0f5a28b8b7b2087f0f4153a435853b06c8dbe8b253639ca7b642d2f"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 213,
+      "xlsx_row": 215,
+      "question_sha256": "4992c29b2adf6399d32384d53c7a81f05c111a020c636629f595ca5cb5a28eb9"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 214,
+      "xlsx_row": 216,
+      "question_sha256": "54e77d61da8bb04cefc2ffbf803197cfaa645a59bdb575c24b11462205bc672f"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 225,
+      "xlsx_row": 227,
+      "question_sha256": "78e346b20de14f2580c0bb914c9be96a6a0b5b85937a5016a0434d960a60838c"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 240,
+      "xlsx_row": 242,
+      "question_sha256": "bd7ecd087fc0d4c02b5705b41d10a85a4c23772a098a9eec1c8654c2d6d43bf0"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 241,
+      "xlsx_row": 243,
+      "question_sha256": "54d13854db197e619d408f991c398163770501cb1db30283947904fa1f7d09df"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 242,
+      "xlsx_row": 244,
+      "question_sha256": "531d22d83f421587a403ef2053a319b7bc79f1730eb146de8115f8ba52eed069"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 243,
+      "xlsx_row": 245,
+      "question_sha256": "eb951d92ca8693f2ad8509983621330e8a16601f5d44a3e1a2d5a319d582fb3d"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 245,
+      "xlsx_row": 247,
+      "question_sha256": "587084ba7d975ec3a7e422f424689bab688496b355c535763ebed1222cadf094"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 250,
+      "xlsx_row": 252,
+      "question_sha256": "172d0eeeb091fc0f964cd906f9c492b8b65d432ffbe4788b1f67ec0669c0a0fc"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 255,
+      "xlsx_row": 257,
+      "question_sha256": "e9ef75ef81ecbbc27ef659079f7b42de74d0124df594894e16d3b7748abe13b3"
+    },
+    {
+      "source": "tcmeval_pa",
+      "task": "prescription_audit_action",
+      "index": 282,
+      "xlsx_row": 284,
+      "question_sha256": "7142eb58c83d148e3418535e3206867de6809d91fc7b14c7fb366467fefc49b5"
+    }
+  ]
+}

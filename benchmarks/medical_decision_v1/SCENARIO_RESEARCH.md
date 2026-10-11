@@ -1,6 +1,6 @@
 # 按医疗场景寻找任务与数据
 
-核验日期：2026-10-10。仅有数据可下载，不表示已满足当前任务的题目、答案、许可与隔离要求。以下为新增来源的采用状态和剩余步骤；已采用来源也可只覆盖某个场景的局部任务。
+各来源的核验日期见来源登记。仅有数据可下载，不表示已满足当前任务的题目、答案、许可与隔离要求。以下为新增来源的采用状态和剩余步骤；已采用来源也可只覆盖某个场景的局部任务。
 
 ## 接诊与分诊
 
@@ -318,9 +318,9 @@
 
 根据已有材料判断诊断、状态和临床分级。
 
-任务：否定与不确定状态、事件与文档时间关系、诊断核实状态、有界临床量表评分、临床分级与分期选择、模拟病例主诊断选择、临床病例候选诊断、中医证型选择、临床事件先后关系、临床事件与解剖部位关联、严重程度与临床事件关联、事件与时间表达关联、病例病因与原因判断。
+任务：否定与不确定状态、事件与文档时间关系、诊断核实状态、有界临床量表评分、临床分级与分期选择、模拟病例主诊断选择、临床病例候选诊断、中医证型选择、临床事件先后关系、临床事件与解剖部位关联、严重程度与临床事件关联、事件与时间表达关联、病例病因与原因判断、中医病机候选核验。
 
-已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[DDXPlus](https://doi.org/10.6084/m9.figshare.20043374)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench)、[NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus)、[TCM-SD](https://github.com/borororo/zy-bert)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[DDXPlus](https://doi.org/10.6084/m9.figshare.20043374)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench)、[NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus)、[TCM-SD](https://github.com/borororo/zy-bert)、[TCMEval-SDT](https://doi.org/10.6084/m9.figshare.27184596.v5)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -458,13 +458,23 @@
 
 [核验依据](https://hl7.org/fhir/R4/)。
 
+### [TCMEval-SDT](https://doi.org/10.6084/m9.figshare.27184596.v5)
+
+材料：整理的经典医案、网络及医院病例材料；不是统一采集的前瞻性患者队列。
+
+金标：v5 官方测试答案按病例 ID 连接；从病机多选答案机械映射候选是否入选。
+
+许可：CC-BY-4.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
 ## 治疗与用药
 
 判断治疗选择、用药关系及患者特异性适宜性。
 
-任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌选择、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测、给药途径关联、用药或操作频次关联、药物剂型关联、补液方案选择、药物基因结果用药建议匹配、试验干预效果方向判定。
+任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌选择、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测、给药途径关联、用药或操作频次关联、药物剂型关联、补液方案选择、药物基因结果用药建议匹配、试验干预效果方向判定、处方审核处置选择。
 
-已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[TCMEval-PA](https://doi.org/10.6084/m9.figshare.29651261.v3)。
 
 ### [MedMCQA](https://github.com/medmcqa/medmcqa)
 
@@ -634,11 +644,21 @@
 
 [核验依据](https://huggingface.co/datasets/DarrenLoong/TRIAGE_Bench/blob/main/triage_bench/DATASHEET.md)。
 
+### [TCMEval-PA](https://doi.org/10.6084/m9.figshare.29651261.v3)
+
+材料：考试题与规则情境题，经上游中医执业医师核验；不是实际处方审核日志。
+
+金标：保留原 Excel 单选答案；仅纳入固定清单的情境处置题，不使用解释字段作为输入。
+
+许可：CC-BY-4.0。
+
+状态：已采用。抽样和转换见任务目录及逐题来源定位。
+
 ## 住院与护理
 
 核对病情证据、操作执行和病情恶化风险。
 
-任务：患者与记录身份匹配、长病历证据选择、医疗操作进度、单次给药执行状态、脓毒症提前预警、术后转归去向选择、子操作与所属操作关联、临床事件持续性、病例并发症判断、护理措施选择。
+任务：患者与记录身份匹配、长病历证据选择、医疗操作进度、单次给药执行状态、脓毒症提前预警、术后转归去向选择、子操作与所属操作关联、临床事件持续性、病例并发症判断、护理措施选择、病例营养方案选择、护理体位选择。
 
 已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[LongHealth](https://github.com/kbressem/LongHealth)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[PhysioNet Challenge 2019](https://physionet.org/content/challenge-2019/1.0.0/)、[Post-Operative Patient](https://archive.ics.uci.edu/dataset/82/post+operative+patient)。
 

@@ -135,7 +135,7 @@ def package_files(dataset, distribution):
         "| manifest.json | 包内每个交付文件的 SHA-256 和字节数 |", "",
         "request.state 是输入材料；questions.decision.criteria 为选项键与显示文本；gold 是选项键。provenance.locator 按来源采用 CSV 行号（含表头）、JSONL 行号、压缩包成员和标注 ID 等定位。", "",
         "追溯链：id → 整理题目及答案 → provenance.locator → resource_url + version + SHA-256 → 原文件与原标注。SHA-256 用于确认版本和完整性，不等同临床答案审核。", "",
-        "原始全量数据不包含在本包中；需要时使用 trace 的 --fetch-source 下载该题直接依赖并校验哈希。失效链接或哈希变化会报错，不会静默换用新版本。", "",
+        "部分小型源文件和易变 API 响应随包冻结，其余原始全量数据需另行下载；需要时使用 trace 的 --fetch-source 下载该题直接依赖并校验哈希。失效链接或哈希变化会报错，不会静默换用新版本。", "",
         "例：先从 samples.jsonl 取得完整 id，再运行 `python3 tools/medical_decision_release.py trace --dataset . --id '完整ID'`。"])
     md("README.md", [f"# Jev 医疗决策评测集 v{taxonomy['version']} · {distribution}", "",
         f"本包包含 {len(rows):,} 道整理后的决策题，{len(count)} 个任务；无需下载全量上游数据即可读取和评测。", "",

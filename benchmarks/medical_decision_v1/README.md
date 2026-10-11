@@ -1,10 +1,10 @@
-# Jev 医疗决策评测集 v0.6.0
+# Jev 医疗决策评测集 v0.7.0
 
 给定医疗材料、规则或候选项，评估可明确计分的分类、状态、关系、证据和方案选择。每题只有一个决策输出，使用 Jev `choice` 请求格式；不要求生成病历、建议或解释。
 
-**8 个医疗场景 · 77 个任务定义 · 51 个任务各 100 题 · 8 个不足 100 题 · 18 个留空 · 共 5,594 题。**
+**8 个医疗场景 · 81 个任务定义 · 52 个任务各 100 题 · 11 个不足 100 题 · 18 个留空 · 共 5,726 题。**
 
-开放许可核心部分 4,051 题；非商业研究附加部分 1,543 题。当前 8 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 3,524 题、es 1,058 题、zh 1,012 题。
+开放许可核心部分 4,183 题；非商业研究附加部分 1,543 题。当前 8 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 3,524 题、es 1,058 题、zh 1,144 题。
 
 [全部题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl) · [来源与许可](SOURCES.md) · [场景任务定义](taxonomy.json) · [按场景寻找数据](SCENARIO_RESEARCH.md) · [构建统计](summary.json)
 
@@ -18,9 +18,9 @@
 | --- | ---: | ---: |
 | 接诊与分诊 | 4 / 7 | 400 |
 | 检查与检验 | 6 / 10 | 556 |
-| 诊断与鉴别 | 12 / 13 | 1200 |
-| 治疗与用药 | 11 / 14 | 928 |
-| 住院与护理 | 7 / 10 | 610 |
+| 诊断与鉴别 | 13 / 14 | 1300 |
+| 治疗与用药 | 12 / 15 | 939 |
+| 住院与护理 | 9 / 12 | 631 |
 | 出院与随访 | 2 / 4 | 200 |
 | 临床试验筛选 | 8 / 8 | 800 |
 | 病历与医疗质量控制 | 9 / 11 | 900 |
@@ -79,6 +79,7 @@
 | [严重程度与临床事件关联](tasks/severity_link/task.json) | 100 / 100 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2) | 给定病例和严重程度片段，从原文事件候选中选择其唯一修饰的事件。 |
 | [事件与时间表达关联](tasks/event_date_link/task.json) | 100 / 47 | [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例和时间表达，从原文事件候选中选择原时间关联标注的唯一目标；若提供关系类型，按该方向解释。 |
 | [病例病因与原因判断](tasks/case_etiology/task.json) | 100 / 100 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从原选项中选择导致所述疾病、症状或事件的最可能原因。 |
+| [中医病机候选核验](tasks/tcm_pathogenesis_candidate/task.json) | 100 / 50 | [TCMEval-SDT](https://doi.org/10.6084/m9.figshare.27184596.v5) | 根据病例和原始候选病机，判断目标候选是否被上游专家选中。否仅表示不属于本题原始答案集合，不表示医学上不可能。 |
 
 ### 治疗与用药
 
@@ -100,6 +101,7 @@
 | [补液方案选择](tasks/fluid_plan/task.json) | 16 / 15 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 | [药物基因结果用药建议匹配](tasks/pgx_guideline_recommendation/task.json) | 100 / 25 | [CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic) | 给定药物、人群及基因结果，选择 CPIC 固定快照中对应的原始用药建议；不外推为完整个体处方。 |
 | [试验干预效果方向判定](tasks/trial_effect_direction/task.json) | 100 / 100 | [Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference) | 根据完整试验报告，判断指定干预相对对照对指定结局的报告结果：显著降低、无显著差异或显著升高。方向不等同临床优劣。 |
+| [处方审核处置选择](tasks/prescription_audit_action/task.json) | 11 / 11 | [TCMEval-PA](https://doi.org/10.6084/m9.figshare.29651261.v3) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 住院与护理
 
@@ -117,6 +119,8 @@
 | [临床事件持续性](tasks/event_permanence/task.json) | 100 / 48 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例及事件片段，选择原 E3C 持续性标注 FINITE 或 PERMANENT；不把它解释为新的慢病诊断。 |
 | [病例并发症判断](tasks/case_complication/task.json) | 100 / 96 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 根据病例从原选项中选择最可能的并发症；不是主诊断任务。 |
 | [护理措施选择](tasks/nursing_priority/task.json) | 42 / 42 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [病例营养方案选择](tasks/nutrition_plan/task.json) | 11 / 11 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [护理体位选择](tasks/positioning_choice/task.json) | 10 / 10 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 出院与随访
 
@@ -183,6 +187,8 @@ v0.4.0 增加 E3C、CT-EBM-SP、CARE-Bench 及 UCI 结构化来源，并扩展�
 [v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。
 
 v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。
+
+v0.7.0 新增病机候选核验、处方审核处置、营养方案及护理体位四类任务；原有 5,594 条完整记录保持不变。病机任务的 100 个判断来自 50 个病例，不能按 100 个独立病例解释。详见 [扩展协议](../../docs/EXPANSION_V070.md)。
 
 v0.6.0 新增检验数值判读、药物基因检测功能表型、基因结果用药建议匹配、试验干预效果方向 4 类任务。分别采用 LabQAR Set 2、CPIC CC0 规则快照和 Evidence Inference 官方测试中的 CC-BY 文章。前版 5,210 条完整记录保持不变；见 [适配协议](../../docs/EXPANSION_V060.md)。
 
