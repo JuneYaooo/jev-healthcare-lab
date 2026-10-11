@@ -354,7 +354,7 @@ def render():
     parts = ['# Jev Healthcare Lab',
         '用于逐任务比较 **JEV 与其他模型的医疗决策准确率和完整运行耗时**。主评测围绕病例诊断、检查、治疗、用药、分诊、护理、随访与试验转介，要求从给定候选中作出选择；不包含自由生成任务。',
         f"**{len(scenes)} 个医疗场景、{len(used_tags)} 个能力标签、{clinical['defined_families']} 个任务定义。** 其中 {clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题（中文 {clinical['languages'].get('zh', 0):,} 题），采用 {len(clinical['sources'])} 个数据来源。{sum(f['status'] == 'empty' for f in families)} 个任务待补；{sum(f['status'] == 'exploratory' for f in families)} 个不足 20 题的任务作为探索项，暂不进入汇总。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
-        '[场景与任务](#场景与任务) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)',
+        '[场景与任务](#场景与任务) · [评测方案：请求与提示词](docs/EVALUATION.md) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)',
         '## 能力维度',
         '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
         table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
@@ -389,7 +389,7 @@ def render():
     parts.extend(['## 模型得分与耗时对比',
         '每个模型使用相同题目、候选项和许可范围，分别报告逐任务准确率、完整决策耗时（均值、P50、P95）、任务总耗时及失败率。多阶段调用、工具与重试计入完整决策耗时，运行配置随结果保存。',
         '病例诊断的两个来源子集合并为一个任务。汇总先对场景内达到 20 题的任务等权，再对有分数场景等权；不足 20 题仅给探索结果，空任务不计零分。题量门槛按本次所选许可范围计算。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。',
-        '详细口径见 [评测方法](docs/EVALUATION.md)。'])
+        '请求格式、完整提示词、模型参数、重试与计分计时口径见 [评测方案](docs/EVALUATION.md)。'])
     if comparison:
         models = list(comparison['models'].values())
         scores = best_cells([m['primary_clinical_score'] for m in models], percent=True)
