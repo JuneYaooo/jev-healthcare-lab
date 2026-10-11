@@ -71,13 +71,13 @@ def render():
                         f"{t['success']}/{t['total']}", seconds(t['mean_elapsed_s']),
                         seconds(t['p50_elapsed_s']), seconds(t['p95_elapsed_s']),
                         t['status_counts'].get('invalid_answer', 0),
-                        t['status_counts'].get('request_error', 0), t['status_counts'].get('timeout', 0), t['retries']])
+                        t['status_counts'].get('request_error', 0), t['status_counts'].get('timeout', 0)])
     parts = ['# 医疗决策模型评测',
              '[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-20261012/README.md)',
              f'本轮比较 {model_names}。{len(models)} 个模型各测试相同的 1,514 道临床决策题，覆盖 26 个有题任务；3 个空任务不调用 API。开放许可部分为 1,284 题，非商业附加部分为 230 题。辅助任务与暂停任务不在本轮范围。',
              '## 总体结果',
              '主分数先对场景内所有有题任务等权，再对有成绩的场景等权；任务均分对全部 26 个有题任务等权。11 个不足 20 题的任务标记为小样本，仍计入总分；其成绩更易受个别题目影响。有效回答数表示返回了合法选项，不代表回答正确。',
-             table(['模型', '临床主分数', '任务均分', '有效回答', '平均耗时（秒）', 'P50（秒）', 'P95（秒）', '无效回答', '请求失败', '超时', '重试次数'], overall),
+             table(['模型', '临床主分数', '任务均分', '有效回答', '平均耗时（秒）', 'P50（秒）', 'P95（秒）', '无效回答', '请求失败', '超时'], overall),
              '## 逐任务结果',
              '每格为 **准确率 / 平均完整决策耗时（秒）**。所有有题任务计入总分，不足 20 题标记“小样本”；待补任务不填零分。',
              table(['任务', '题数', '状态'] + [labels[m] for m in models], [

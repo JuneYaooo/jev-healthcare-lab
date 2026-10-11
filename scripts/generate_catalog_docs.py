@@ -139,12 +139,11 @@ def render():
                   ['mean_elapsed_s', 'p50_elapsed_s', 'p95_elapsed_s', 'task_wall_s']],
                 ' / '.join(str(t['status_counts'].get(status, 0)) for status in
                            ['timeout', 'request_error', 'invalid_answer']),
-                t['retries'],
                 link('配置', f'../../results/clinical-20261012/{model}/config.json') + ' · '
                 + link('响应', f'../../results/clinical-20261012/{model}/responses.jsonl') + ' · '
                 + link('评分', f'../../results/clinical-20261012/{model}/scores.json')])
         return '加粗表示本任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。\n\n' + table(['模型', '准确率 ↑', '有效回答 / 题数', '平均秒 ↓', 'P50 秒 ↓', 'P95 秒 ↓', '任务总秒 ↓',
-                      '超时 / 请求失败 / 无效回答', '重试次数', '原始记录'], rows)
+                      '超时 / 请求失败 / 无效回答', '原始记录'], rows)
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
     by_task, by_source = defaultdict(list), defaultdict(list)
