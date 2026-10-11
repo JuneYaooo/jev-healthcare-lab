@@ -149,17 +149,17 @@ def draw_motion(data, font):
     for y in range(0, 400, 40):
         d.line((0, y, 1200, y), fill='#102130')
     d.text((42, 26), 'JEV / HEALTHCARE LAB', font=fonts[18], fill=GREEN)
-    d.text((42, 66), '让每一次医疗决策，都有据可查。', font=fonts[32], fill=INK)
-    d.text((44, 116), '公开题目  /  同题比较  /  逐题溯源', font=fonts[18], fill=MUTED)
+    d.text((42, 61), 'JEV 模型医疗场景评测', font=fonts[46], fill=INK)
+    d.text((44, 125), '用医疗决策类题目，评测 JEV 的准确率与用时，并与其他模型对比。', font=fonts[22], fill=MUTED)
     xs, y = [125, 438, 751, 1064], 213
-    labels = ['病例与规则', '候选决策', '模型作答', '评分与用时']
+    labels = ['病例与规则', '候选决策', 'JEV / 对照模型', '评分与用时']
     for x, label in zip(xs, labels):
-        d.rounded_rectangle((x-85, y-31, x+85, y+31), radius=12, fill=PANEL, outline='#355169', width=1)
+        d.rounded_rectangle((x-85, y-31, x+85, y+31), radius=12, fill=PANEL, outline=GREEN if 'JEV' in label else '#355169', width=2 if 'JEV' in label else 1)
         d.text((x, y), label, font=fonts[22], fill=INK, anchor='mm')
     for a, b in zip(xs, xs[1:]):
         d.line((a+85, y, b-85, y), fill='#2a5365', width=2)
     stats = [(str(len(data['scenes'])), '医疗场景'), (str(data['defined_tasks']), f"任务 / {data['tested_tasks']} 项有题"),
-             (f"{data['records']:,}", '固定评测题'), (str(len(data['models'])), '同题对照模型')]
+             (f"{data['records']:,}", '固定评测题'), (str(len(data['models'])), '参评模型（含 JEV）')]
     for i, (number, label) in enumerate(stats):
         x = 45 + 295*i
         d.text((x, 280), number, font=fonts[46], fill=GREEN if i==0 else INK)

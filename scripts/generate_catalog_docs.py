@@ -351,7 +351,7 @@ def render():
 
     used_tags = sorted({d for f in families for d in f['ability_tags']})
     parts = ['# Jev Healthcare Lab',
-        '![医疗决策评测流程：病例与规则、候选决策、模型作答、评分与用时；8 个场景，29 个任务，26 项有题，1,514 道题，5 个模型](assets/readme/hero-v1.gif)\n\n[查看静态封面](assets/readme/hero-v1.png)',
+        '![JEV 模型医疗场景评测：使用医疗决策类题目比较准确率与用时；8 个场景，29 个任务，26 项有题，1,514 道题](assets/readme/hero-v1.gif)',
         '本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率和完整运行耗时。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。',
         f"评测按 **{len(scenes)} 个医疗场景、{clinical['defined_families']} 个任务**组织：从接诊与分诊、检查与检验、诊断与鉴别，到治疗与用药、住院与护理、出院与随访，并涵盖临床试验筛选和病历与医疗质量控制。",
         f"目前 **{clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题**（中文 {clinical['languages'].get('zh', 0):,} 题），来自 {len(clinical['sources'])} 个数据来源；另有 {sum(f['status'] == 'empty' for f in families)} 个任务待补。任务另按 {len(used_tags)} 个能力标签标注。全部有题任务计入总分，其中 {sum(f['small_sample'] for f in families)} 个不足 20 题，标记为小样本。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
