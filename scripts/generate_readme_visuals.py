@@ -82,8 +82,8 @@ def draw_charts(data, font):
     models = data['models']
     best, runner_up = models[:2]
     fastest = min(models, key=lambda m: m['seconds'])
-    fig = canvas('医疗决策场景 · JEV 评测｜总分与用时',
-                 f"{data['records']:,} 道相同题目 · {data['tested_tasks']} 个有题任务 · {len(models)} 个模型")
+    fig = canvas('医疗决策场景评测：JEV 与其他模型对比',
+                 f"比较场景等权准确率与平均作答用时｜{data['records']:,} 道相同题目 · {data['tested_tasks']} 个任务 · {len(models)} 个模型")
     fig.text(.045, .785, f"{best['score']:.2f}%", fontsize=36, color=GREEN, weight='bold')
     fig.text(.285, .80, f"{best['label']} 领先第二名 {best['score'] - runner_up['score']:.2f} 个百分点", fontsize=15)
     fig.text(.285, .759, f"平均用时最短：{fastest['label']} · {fastest['seconds']:.3f} 秒/题", fontsize=13, color=MUTED)
@@ -109,9 +109,9 @@ def draw_charts(data, font):
                     va='center', fontsize=12, color=INK)
     fig.text(.045, .093, '主分数：场景内任务等权，再对场景等权；全部小样本任务计入。', fontsize=12, color=MUTED)
     fig.text(.045, .052, '用时包含网络与等待，受平台条件影响。本轮差值不代表统计显著性或临床有效性。', fontsize=11, color=MUTED)
-    save(fig, 'performance-v1')
+    save(fig, 'jev-medical-score-time-v1')
 
-    fig = canvas('医疗决策场景 · JEV 评测｜各场景表现', '每格为场景内任务等权准确率（%） · 描边为最高值；并列均标记，全部相同不标记')
+    fig = canvas('医疗决策场景评测：JEV 与其他模型的准确率', '覆盖 8 类医疗场景，与 DeepSeek、Qwen 同题比较｜每格为场景内任务等权准确率（%）')
     ax = fig.add_axes([.30, .18, .64, .59], facecolor=BG)
     scenes = data['scenes']
     values = [s['values'] for s in scenes]
@@ -140,7 +140,8 @@ def draw_charts(data, font):
         spine.set_visible(False)
     fig.text(.045, .10, '小样本 = 单任务不足 20 题。医疗质量控制仅 3 题，100% 不代表稳定的场景能力。', fontsize=12, color=MUTED)
     fig.text(.045, .056, '所有模型使用相同题目；最终请求失败与无效回答计错。完整样例、来源与结果见任务页。', fontsize=11, color=MUTED)
-    save(fig, 'scenarios-v1')
+    fig.text(.045, .021, '白色描边为该场景最高值；并列均标记，全部相同不标记。', fontsize=10, color=MUTED)
+    save(fig, 'jev-medical-scenario-accuracy-v1')
 
 
 def draw_motion(data, font):
@@ -169,7 +170,7 @@ def draw_motion(data, font):
         x = 45 + 295*i
         d.text((x, 280), number, font=fonts[46], fill=GREEN if i==0 else INK)
         d.text((x, 343), label, font=fonts[18], fill=MUTED)
-    base.save(OUT / 'hero-v1.png')
+    base.save(OUT / 'jev-medical-evaluation-v1.png')
     frames = []
     for frame in range(48):
         im = base.copy()
@@ -184,7 +185,7 @@ def draw_motion(data, font):
     # A shared palette avoids color flicker; motion never changes reported data.
     palette = frames[0].quantize(colors=128)
     indexed = [f.quantize(palette=palette, dither=Image.Dither.NONE) for f in frames]
-    indexed[0].save(OUT / 'hero-v1.gif', save_all=True, append_images=indexed[1:],
+    indexed[0].save(OUT / 'jev-medical-evaluation-v1.gif', save_all=True, append_images=indexed[1:],
                     duration=100, loop=0, optimize=True, disposal=1)
 
 
