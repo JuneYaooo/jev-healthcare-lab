@@ -734,6 +734,12 @@
     "prompt_tokens": 711863,
     "total_tokens": 721531
   },
-  "primary_clinical_score": 0.680765873015873,
-  "task_macro_accuracy": 0.6753015873015873
+  "primary_clinical_score": 0.739069382006882,
+  "task_macro_accuracy": 0.7363605625144086,
+  "scoring": {
+    "scope_policy_sha256": "afae5570975e25a3c4efee5a31bcfc284e11ee293af67f859fde373e0775269e",
+    "dataset_manifest_sha256": "df81946e868beb2b2319669cc7cbe440e791f41415e4a584c6e49747829a0868",
+    "scorer_sha256": "9b2b04e79377b71e294c64dd0efc8b1166565fd8ff2e9dfe918c5944e8936e9d",
+    "run_scope_policy_sha256": "4bcc135f062d5d0a591d8f8449b5814ee101656e21628170798d846ae3cde488"
+  }
 }

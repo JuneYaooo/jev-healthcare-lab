@@ -175,7 +175,7 @@ def timing(records, total, spans):
             'retries': sum(r['attempts'] - 1 for r in records)}
 
 
-def summarize(out, dataset):
+def summarize(out, dataset, *, archived_dataset=None):
     config = json.loads((out / 'config.json').read_text())
     inputs = list(dataset_tools.read_jsonl(out / 'inputs.jsonl'))
     rows = dataset_tools.evaluation_rows(dataset, config['include_research'], config['scope'])
@@ -183,10 +183,25 @@ def summarize(out, dataset):
     policy = dataset_tools.evaluation_policy(dataset)
     frozen = [{'id': r['id'], 'task': r['task'], 'family': policy['tasks'][r['task']]['family'],
                'request': r['request']} for r in rows]
-    if inputs != frozen or config['dataset_manifest_sha256'] != dataset_tools.file_sha(dataset / 'manifest.json'):
+    if inputs != frozen:
         raise ValueError('Dataset differs from frozen run')
-    if config['scope_policy_sha256'] != dataset_tools.file_sha(dataset / 'evaluation_scope.json'):
+    provenance = archived_dataset if archived_dataset is not None else dataset
+    if config['dataset_manifest_sha256'] != dataset_tools.file_sha(provenance / 'manifest.json'):
+        raise ValueError('Dataset manifest differs from frozen run')
+    if config['scope_policy_sha256'] != dataset_tools.file_sha(provenance / 'evaluation_scope.json'):
         raise ValueError('Scope policy changed')
+    if archived_dataset is not None:
+        # Rescoring may change aggregation, never the frozen questions, gold or task mapping.
+        old_manifest = json.loads((provenance / 'manifest.json').read_text())
+        for name in ['samples.jsonl', 'answers.jsonl', 'requests.jsonl', 'taxonomy.json',
+                     'sources.json', 'sources.lock.json']:
+            if old_manifest['files'][name]['sha256'] != dataset_tools.file_sha(dataset / name):
+                raise ValueError('Rescoring changed frozen data: ' + name)
+        old_policy = json.loads((provenance / 'evaluation_scope.json').read_text())
+        aggregation_fields = {'minimum_summary_questions', 'small_sample_warning_questions'}
+        if ({k: v for k, v in old_policy.items() if k not in aggregation_fields}
+                != {k: v for k, v in policy.items() if k not in aggregation_fields}):
+            raise ValueError('Rescoring changed task scope or mapping')
     records = read_optional(out / 'responses.jsonl')
     seen = set()
     for record in records:
@@ -229,6 +244,11 @@ def summarize(out, dataset):
                'overall_timing': timing(records, len(inputs), []), 'task_timing': times,
                'usage_all_attempts': dict(usage), 'primary_clinical_score': quality['primary_clinical_score'],
                'task_macro_accuracy': quality['task_macro_accuracy']}
+    if archived_dataset is not None:
+        summary['scoring'] = {'scope_policy_sha256': quality['scope_policy_sha256'],
+                              'dataset_manifest_sha256': quality['dataset_manifest_sha256'],
+                              'scorer_sha256': dataset_tools.file_sha(Path(dataset_tools.__file__)),
+                              'run_scope_policy_sha256': config['scope_policy_sha256']}
     dataset_tools.write_json(out / 'summary.json', summary)
     return summary
 

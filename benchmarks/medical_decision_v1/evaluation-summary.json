@@ -46,6 +46,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -69,6 +70,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -92,6 +94,7 @@
         "distribution": {
           "open": 54
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -108,6 +111,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -130,6 +134,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -146,6 +151,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -172,6 +178,7 @@
         "distribution": {
           "open": 200
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -195,6 +202,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -218,6 +226,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -241,6 +250,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -263,6 +273,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -279,6 +290,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -301,6 +313,7 @@
         "distribution": {
           "research_noncommercial": 30
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -324,6 +337,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -347,6 +361,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -369,6 +384,7 @@
         "distribution": {
           "open": 42
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -392,7 +408,8 @@
         "distribution": {
           "open": 16
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "pgx_guideline_recommendation",
@@ -414,6 +431,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -436,6 +454,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -459,7 +478,8 @@
         "distribution": {
           "open": 11
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "positioning_choice",
@@ -482,7 +502,8 @@
         "distribution": {
           "open": 10
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "followup_plan",
@@ -508,7 +529,8 @@
         "distribution": {
           "open": 6
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "monitoring_target",
@@ -531,7 +553,8 @@
         "distribution": {
           "open": 5
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "rehabilitation_choice",
@@ -554,7 +577,8 @@
         "distribution": {
           "open": 4
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "prevention_choice",
@@ -580,7 +604,8 @@
         "distribution": {
           "open": 13
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "infection_precaution",
@@ -604,7 +629,8 @@
         "distribution": {
           "open": 5
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "patient_counseling",
@@ -627,7 +653,8 @@
         "distribution": {
           "open": 11
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "administration_route_choice",
@@ -651,7 +678,8 @@
         "distribution": {
           "open": 4
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       },
       {
         "id": "consent_action",
@@ -676,7 +704,8 @@
         "distribution": {
           "open": 3
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       }
     ]
   },
@@ -740,6 +769,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -762,6 +792,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -784,6 +815,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -800,6 +832,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -816,6 +849,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -838,6 +872,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -861,6 +896,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -884,6 +920,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -900,6 +937,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -916,6 +954,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -938,6 +977,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -960,6 +1000,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -976,6 +1017,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -999,6 +1041,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1015,6 +1058,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1037,6 +1081,7 @@
         "distribution": {
           "open": 72
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1059,6 +1104,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1081,6 +1127,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1106,6 +1153,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1130,6 +1178,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1152,6 +1201,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1174,6 +1224,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1196,6 +1247,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1219,6 +1271,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1241,6 +1294,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1263,6 +1317,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1279,6 +1334,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1295,6 +1351,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1311,6 +1368,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1327,6 +1385,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1349,6 +1408,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1371,6 +1431,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1387,6 +1448,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1403,6 +1465,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1419,6 +1482,7 @@
         "sources": {},
         "languages": {},
         "distribution": {},
+        "small_sample": false,
         "status": "empty"
       },
       {
@@ -1441,6 +1505,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1463,6 +1528,7 @@
         "distribution": {
           "open": 68
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1485,6 +1551,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1507,6 +1574,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1529,6 +1597,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1551,6 +1620,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1573,6 +1643,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1595,6 +1666,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1617,6 +1689,7 @@
         "distribution": {
           "research_noncommercial": 81
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1639,6 +1712,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1661,6 +1735,7 @@
         "distribution": {
           "research_noncommercial": 77
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1683,6 +1758,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1705,6 +1781,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1727,6 +1804,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1749,6 +1827,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1773,6 +1852,7 @@
           "research_noncommercial": 85,
           "open": 15
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1795,6 +1875,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1817,6 +1898,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1839,6 +1921,7 @@
         "distribution": {
           "research_noncommercial": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1861,6 +1944,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1883,6 +1967,7 @@
         "distribution": {
           "open": 84
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1905,6 +1990,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       },
       {
@@ -1927,7 +2013,8 @@
         "distribution": {
           "open": 11
         },
-        "status": "exploratory"
+        "small_sample": true,
+        "status": "summary_eligible"
       }
     ]
   },
@@ -1965,6 +2052,7 @@
         "distribution": {
           "open": 100
         },
+        "small_sample": false,
         "status": "summary_eligible"
       }
     ]

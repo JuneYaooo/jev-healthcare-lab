@@ -1897,6 +1897,7 @@ def evaluation_inventory(dataset):
                         sources=dict(collections.Counter(r["provenance"]["source_id"] for r in part)),
                         languages=dict(collections.Counter(r["language"] for r in part)),
                         distribution=dict(collections.Counter(r["provenance"]["distribution"] for r in part)),
+                        small_sample=0 < len(part) < policy.get("small_sample_warning_questions", 20),
                         status="empty" if not part else "exploratory" if len(part) < policy["minimum_summary_questions"] else "summary_eligible")
         output[scope] = {"defined_families": len(families), "populated_families": sum(x["records"] > 0 for x in families.values()),
             "records": len(selected), "distribution": dict(collections.Counter(r["provenance"]["distribution"] for r in selected)),
@@ -1993,10 +1994,12 @@ def score(dataset, prediction_path, include_research=False, scope="clinical"):
         rule = policy["tasks"][items[0]["task"]]
         family_results[family] = {**metrics(items, predictions, rule["label_semantics"] == "fixed", rule.get("positive_label")),
             "title": rule["family_title"], "task_ids": sorted({r["task"] for r in items}),
-            "summary_eligible": len(items) >= policy["minimum_summary_questions"]}
+            "summary_eligible": len(items) >= policy["minimum_summary_questions"],
+            "small_sample": len(items) < policy.get("small_sample_warning_questions", 20)}
     for tid, result in results.items():
         result.update(title=policy["tasks"][tid]["title"], family=policy["tasks"][tid]["family"],
-                      exploratory=not family_results[policy["tasks"][tid]["family"]]["summary_eligible"])
+                      exploratory=not family_results[policy["tasks"][tid]["family"]]["summary_eligible"],
+                      small_sample=family_results[policy["tasks"][tid]["family"]]["small_sample"])
     aggregate = {}
     for name, key in [("primary_scenario", lambda r: r["primary_scenario"]),
                       ("decision_stage", lambda r: r["decision_stage"]),
@@ -2026,6 +2029,7 @@ def score(dataset, prediction_path, include_research=False, scope="clinical"):
         present = [f for f, part in family_rows.items() if part[0]["primary_scenario"] == scene["id"]]
         scene_scores[scene["id"]].update(populated_families=len(present),
             exploratory_families=sum(not family_results[f]["summary_eligible"] for f in present),
+            small_sample_families=sum(family_results[f]["small_sample"] for f in present),
             all_records=sum(len(family_rows[f]) for f in present))
     covered = [s["task_macro_accuracy"] for s in scene_scores.values() if s["task_macro_accuracy"] is not None]
     ability_parts = collections.defaultdict(lambda: collections.defaultdict(list))
@@ -2040,6 +2044,7 @@ def score(dataset, prediction_path, include_research=False, scope="clinical"):
             "predictions_sha256": file_sha(prediction_path),
             "evaluation_scope": scope, "scope_policy_sha256": file_sha(dataset / "evaluation_scope.json"),
             "evaluated_ids_sha256": digest(sorted(known)), "minimum_summary_questions": policy["minimum_summary_questions"],
+            "small_sample_warning_questions": policy.get("small_sample_warning_questions", 20),
             "include_research": include_research, "records": len(rows),
             "scored_tasks": len(family_results), "scored_subtasks": len(results), "summary_eligible_tasks": len(eligible),
             "task_macro_accuracy": sum(r["accuracy"] for r in eligible.values()) / len(eligible) if eligible else None,
@@ -2047,7 +2052,7 @@ def score(dataset, prediction_path, include_research=False, scope="clinical"):
             "covered_scenarios": len(covered), "defined_scenarios": len(taxonomy["scenarios"]), "scenarios": scene_scores,
             "primary_clinical_score": sum(covered) / len(covered) if covered and scope == "clinical" else None,
             "tasks": results, "task_families": family_results, "stratified": aggregate,
-            "note": "Summaries use eligible task families only; small tasks remain exploratory. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."}
+            "note": "Summaries follow minimum_summary_questions; small_sample is a warning only and does not exclude tasks. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."}
 
 
 def scenario_scores(taxonomy, results, tasks):

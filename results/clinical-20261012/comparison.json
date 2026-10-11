@@ -2,8 +2,8 @@
   "models": {
     "jev-1.13.0": {
       "label": "JEV 1.13",
-      "primary_clinical_score": 0.7225520282186949,
-      "task_macro_accuracy": 0.7147848324514992,
+      "primary_clinical_score": 0.7740821385404719,
+      "task_macro_accuracy": 0.7722512459050921,
       "timing": {
         "total": 1514,
         "attempted": 1514,
@@ -49,7 +49,8 @@
           "task_ids": [
             "administration_route_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -97,6 +98,7 @@
             "case_complication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -144,6 +146,7 @@
             "case_etiology"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -191,6 +194,7 @@
             "clinical_grade"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -241,7 +245,8 @@
           "task_ids": [
             "consent_action"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 3,
             "attempted": 3,
@@ -293,6 +298,7 @@
             "synthetic_diagnosis"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 200,
             "attempted": 200,
@@ -340,6 +346,7 @@
             "examination_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -390,7 +397,8 @@
           "task_ids": [
             "fluid_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 16,
             "attempted": 16,
@@ -443,7 +451,8 @@
           "task_ids": [
             "followup_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 6,
             "attempted": 6,
@@ -497,7 +506,8 @@
           "task_ids": [
             "infection_precaution"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -547,6 +557,7 @@
             "medication_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -617,6 +628,7 @@
             "message_urgency_pair"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 30,
             "attempted": 30,
@@ -666,7 +678,8 @@
           "task_ids": [
             "monitoring_target"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -714,6 +727,7 @@
             "nursing_priority"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 42,
             "attempted": 42,
@@ -765,7 +779,8 @@
           "task_ids": [
             "nutrition_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -813,6 +828,7 @@
             "patient_contraindication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 54,
             "attempted": 54,
@@ -861,7 +877,8 @@
           "task_ids": [
             "patient_counseling"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -916,6 +933,7 @@
             "pgx_guideline_recommendation"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -967,7 +985,8 @@
           "task_ids": [
             "positioning_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 10,
             "attempted": 10,
@@ -1018,7 +1037,8 @@
           "task_ids": [
             "prevention_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 13,
             "attempted": 13,
@@ -1068,7 +1088,8 @@
           "task_ids": [
             "rehabilitation_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -1141,6 +1162,7 @@
             "tcm_pathogenesis_candidate"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -1677,6 +1699,7 @@
             "tcm_syndrome"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -1724,6 +1747,7 @@
             "treatment_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -1818,6 +1842,7 @@
             "triage_urgency"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -1899,6 +1924,7 @@
             "trial_referral"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -1931,8 +1957,8 @@
       "license_slices": {
         "open": {
           "records": 1284,
-          "primary_clinical_score": 0.7547791005291005,
-          "task_macro_accuracy": 0.7565365961199295
+          "primary_clinical_score": 0.8044629202367297,
+          "task_macro_accuracy": 0.8015303939216983
         },
         "by_distribution": {
           "open": {
@@ -2084,8 +2110,8 @@
     },
     "deepseek-flash": {
       "label": "DeepSeek V4.1 Flash",
-      "primary_clinical_score": 0.6943721340388006,
-      "task_macro_accuracy": 0.6905890652557319,
+      "primary_clinical_score": 0.7398640799786633,
+      "task_macro_accuracy": 0.7354046203084665,
       "timing": {
         "total": 1514,
         "attempted": 1514,
@@ -2132,7 +2158,8 @@
           "task_ids": [
             "administration_route_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -2180,6 +2207,7 @@
             "case_complication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -2227,6 +2255,7 @@
             "case_etiology"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -2274,6 +2303,7 @@
             "clinical_grade"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -2325,7 +2355,8 @@
           "task_ids": [
             "consent_action"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 3,
             "attempted": 3,
@@ -2377,6 +2408,7 @@
             "synthetic_diagnosis"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 200,
             "attempted": 200,
@@ -2424,6 +2456,7 @@
             "examination_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -2475,7 +2508,8 @@
           "task_ids": [
             "fluid_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 16,
             "attempted": 16,
@@ -2529,7 +2563,8 @@
           "task_ids": [
             "followup_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 6,
             "attempted": 6,
@@ -2583,7 +2618,8 @@
           "task_ids": [
             "infection_precaution"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -2633,6 +2669,7 @@
             "medication_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -2703,6 +2740,7 @@
             "message_urgency_pair"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 30,
             "attempted": 30,
@@ -2752,7 +2790,8 @@
           "task_ids": [
             "monitoring_target"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -2800,6 +2839,7 @@
             "nursing_priority"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 42,
             "attempted": 42,
@@ -2851,7 +2891,8 @@
           "task_ids": [
             "nutrition_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -2899,6 +2940,7 @@
             "patient_contraindication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 54,
             "attempted": 54,
@@ -2947,7 +2989,8 @@
           "task_ids": [
             "patient_counseling"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -3002,6 +3045,7 @@
             "pgx_guideline_recommendation"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -3053,7 +3097,8 @@
           "task_ids": [
             "positioning_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 10,
             "attempted": 10,
@@ -3104,7 +3149,8 @@
           "task_ids": [
             "prevention_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 13,
             "attempted": 13,
@@ -3154,7 +3200,8 @@
           "task_ids": [
             "rehabilitation_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -3227,6 +3274,7 @@
             "tcm_pathogenesis_candidate"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -3764,6 +3812,7 @@
             "tcm_syndrome"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -3811,6 +3860,7 @@
             "treatment_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -3903,6 +3953,7 @@
             "triage_urgency"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -3985,6 +4036,7 @@
             "trial_referral"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -4017,8 +4069,8 @@
       "license_slices": {
         "open": {
           "records": 1284,
-          "primary_clinical_score": 0.7368465608465609,
-          "task_macro_accuracy": 0.7399029982363315
+          "primary_clinical_score": 0.7767018056899009,
+          "task_macro_accuracy": 0.7669791360008752
         },
         "by_distribution": {
           "open": {
@@ -4170,8 +4222,8 @@
     },
     "deepseek-v4-pro": {
       "label": "DeepSeek V4 Pro",
-      "primary_clinical_score": 0.680765873015873,
-      "task_macro_accuracy": 0.6753015873015873,
+      "primary_clinical_score": 0.739069382006882,
+      "task_macro_accuracy": 0.7363605625144086,
       "timing": {
         "total": 1514,
         "attempted": 1514,
@@ -4217,7 +4269,8 @@
           "task_ids": [
             "administration_route_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -4265,6 +4318,7 @@
             "case_complication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -4312,6 +4366,7 @@
             "case_etiology"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -4359,6 +4414,7 @@
             "clinical_grade"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -4409,7 +4465,8 @@
           "task_ids": [
             "consent_action"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 3,
             "attempted": 3,
@@ -4461,6 +4518,7 @@
             "synthetic_diagnosis"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 200,
             "attempted": 200,
@@ -4508,6 +4566,7 @@
             "examination_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -4558,7 +4617,8 @@
           "task_ids": [
             "fluid_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 16,
             "attempted": 16,
@@ -4611,7 +4671,8 @@
           "task_ids": [
             "followup_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 6,
             "attempted": 6,
@@ -4665,7 +4726,8 @@
           "task_ids": [
             "infection_precaution"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -4715,6 +4777,7 @@
             "medication_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -4785,6 +4848,7 @@
             "message_urgency_pair"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 30,
             "attempted": 30,
@@ -4834,7 +4898,8 @@
           "task_ids": [
             "monitoring_target"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -4882,6 +4947,7 @@
             "nursing_priority"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 42,
             "attempted": 42,
@@ -4933,7 +4999,8 @@
           "task_ids": [
             "nutrition_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -4981,6 +5048,7 @@
             "patient_contraindication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 54,
             "attempted": 54,
@@ -5029,7 +5097,8 @@
           "task_ids": [
             "patient_counseling"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -5084,6 +5153,7 @@
             "pgx_guideline_recommendation"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -5135,7 +5205,8 @@
           "task_ids": [
             "positioning_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 10,
             "attempted": 10,
@@ -5186,7 +5257,8 @@
           "task_ids": [
             "prevention_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 13,
             "attempted": 13,
@@ -5236,7 +5308,8 @@
           "task_ids": [
             "rehabilitation_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -5309,6 +5382,7 @@
             "tcm_pathogenesis_candidate"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -5842,6 +5916,7 @@
             "tcm_syndrome"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -5889,6 +5964,7 @@
             "treatment_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -5983,6 +6059,7 @@
             "triage_urgency"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6065,6 +6142,7 @@
             "trial_referral"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6097,8 +6175,8 @@
       "license_slices": {
         "open": {
           "records": 1284,
-          "primary_clinical_score": 0.7142857142857142,
-          "task_macro_accuracy": 0.7188492063492063
+          "primary_clinical_score": 0.7713411984840556,
+          "task_macro_accuracy": 0.7670452735670127
         },
         "by_distribution": {
           "open": {
@@ -6250,8 +6328,8 @@
     },
     "qwen3.5-9b": {
       "label": "Qwen3.5-9B",
-      "primary_clinical_score": 0.5603417107583774,
-      "task_macro_accuracy": 0.5420388007054674,
+      "primary_clinical_score": 0.6312112559508393,
+      "task_macro_accuracy": 0.5958407013214706,
       "timing": {
         "total": 1514,
         "attempted": 1514,
@@ -6299,7 +6377,8 @@
           "task_ids": [
             "administration_route_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -6347,6 +6426,7 @@
             "case_complication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6394,6 +6474,7 @@
             "case_etiology"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6441,6 +6522,7 @@
             "clinical_grade"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6492,7 +6574,8 @@
           "task_ids": [
             "consent_action"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 3,
             "attempted": 3,
@@ -6544,6 +6627,7 @@
             "synthetic_diagnosis"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 200,
             "attempted": 200,
@@ -6591,6 +6675,7 @@
             "examination_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6641,7 +6726,8 @@
           "task_ids": [
             "fluid_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 16,
             "attempted": 16,
@@ -6694,7 +6780,8 @@
           "task_ids": [
             "followup_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 6,
             "attempted": 6,
@@ -6748,7 +6835,8 @@
           "task_ids": [
             "infection_precaution"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -6798,6 +6886,7 @@
             "medication_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -6868,6 +6957,7 @@
             "message_urgency_pair"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 30,
             "attempted": 30,
@@ -6917,7 +7007,8 @@
           "task_ids": [
             "monitoring_target"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -6965,6 +7056,7 @@
             "nursing_priority"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 42,
             "attempted": 42,
@@ -7016,7 +7108,8 @@
           "task_ids": [
             "nutrition_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -7064,6 +7157,7 @@
             "patient_contraindication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 54,
             "attempted": 54,
@@ -7112,7 +7206,8 @@
           "task_ids": [
             "patient_counseling"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -7167,6 +7262,7 @@
             "pgx_guideline_recommendation"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -7218,7 +7314,8 @@
           "task_ids": [
             "positioning_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 10,
             "attempted": 10,
@@ -7269,7 +7366,8 @@
           "task_ids": [
             "prevention_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 13,
             "attempted": 13,
@@ -7319,7 +7417,8 @@
           "task_ids": [
             "rehabilitation_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -7392,6 +7491,7 @@
             "tcm_pathogenesis_candidate"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -7925,6 +8025,7 @@
             "tcm_syndrome"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -7973,6 +8074,7 @@
             "treatment_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8065,6 +8167,7 @@
             "triage_urgency"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8151,6 +8254,7 @@
             "trial_referral"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8184,8 +8288,8 @@
       "license_slices": {
         "open": {
           "records": 1284,
-          "primary_clinical_score": 0.5710767195767195,
-          "task_macro_accuracy": 0.5589373897707232
+          "primary_clinical_score": 0.6490033401342925,
+          "task_macro_accuracy": 0.6116749956967348
         },
         "by_distribution": {
           "open": {
@@ -8337,8 +8441,8 @@
     },
     "qwen3.8-27b": {
       "label": "Qwen3.8-27B",
-      "primary_clinical_score": 0.667533950617284,
-      "task_macro_accuracy": 0.6567654320987655,
+      "primary_clinical_score": 0.7016828892558059,
+      "task_macro_accuracy": 0.6763087731356963,
       "timing": {
         "total": 1514,
         "attempted": 1514,
@@ -8385,7 +8489,8 @@
           "task_ids": [
             "administration_route_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -8433,6 +8538,7 @@
             "case_complication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8480,6 +8586,7 @@
             "case_etiology"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8527,6 +8634,7 @@
             "clinical_grade"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8577,7 +8685,8 @@
           "task_ids": [
             "consent_action"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 3,
             "attempted": 3,
@@ -8629,6 +8738,7 @@
             "synthetic_diagnosis"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 200,
             "attempted": 200,
@@ -8676,6 +8786,7 @@
             "examination_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8726,7 +8837,8 @@
           "task_ids": [
             "fluid_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 16,
             "attempted": 16,
@@ -8779,7 +8891,8 @@
           "task_ids": [
             "followup_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 6,
             "attempted": 6,
@@ -8833,7 +8946,8 @@
           "task_ids": [
             "infection_precaution"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -8883,6 +8997,7 @@
             "medication_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -8953,6 +9068,7 @@
             "message_urgency_pair"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 30,
             "attempted": 30,
@@ -9002,7 +9118,8 @@
           "task_ids": [
             "monitoring_target"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 5,
             "attempted": 5,
@@ -9050,6 +9167,7 @@
             "nursing_priority"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 42,
             "attempted": 42,
@@ -9101,7 +9219,8 @@
           "task_ids": [
             "nutrition_plan"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -9149,6 +9268,7 @@
             "patient_contraindication"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 54,
             "attempted": 54,
@@ -9197,7 +9317,8 @@
           "task_ids": [
             "patient_counseling"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 11,
             "attempted": 11,
@@ -9252,6 +9373,7 @@
             "pgx_guideline_recommendation"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -9303,7 +9425,8 @@
           "task_ids": [
             "positioning_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 10,
             "attempted": 10,
@@ -9354,7 +9477,8 @@
           "task_ids": [
             "prevention_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 13,
             "attempted": 13,
@@ -9404,7 +9528,8 @@
           "task_ids": [
             "rehabilitation_choice"
           ],
-          "summary_eligible": false,
+          "summary_eligible": true,
+          "small_sample": true,
           "timing": {
             "total": 4,
             "attempted": 4,
@@ -9477,6 +9602,7 @@
             "tcm_pathogenesis_candidate"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -10010,6 +10136,7 @@
             "tcm_syndrome"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -10057,6 +10184,7 @@
             "treatment_choice"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -10150,6 +10278,7 @@
             "triage_urgency"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -10233,6 +10362,7 @@
             "trial_referral"
           ],
           "summary_eligible": true,
+          "small_sample": false,
           "timing": {
             "total": 100,
             "attempted": 100,
@@ -10266,8 +10396,8 @@
       "license_slices": {
         "open": {
           "records": 1284,
-          "primary_clinical_score": 0.7012407407407407,
-          "task_macro_accuracy": 0.6992901234567901
+          "primary_clinical_score": 0.7306375877209211,
+          "task_macro_accuracy": 0.7010447000664392
         },
         "by_distribution": {
           "open": {
@@ -10422,5 +10552,7 @@
   "scope": "clinical",
   "include_research": true,
   "inputs_sha256": "95ddd7a7d23ce93e723efee746233a23631c9de3ee3fa38a7f752f7e795e0196",
-  "scope_policy_sha256": "4bcc135f062d5d0a591d8f8449b5814ee101656e21628170798d846ae3cde488"
+  "scope_policy_sha256": "afae5570975e25a3c4efee5a31bcfc284e11ee293af67f859fde373e0775269e",
+  "run_scope_policy_sha256": "4bcc135f062d5d0a591d8f8449b5814ee101656e21628170798d846ae3cde488",
+  "scorer_sha256": "9b2b04e79377b71e294c64dd0efc8b1166565fd8ff2e9dfe918c5944e8936e9d"
 }

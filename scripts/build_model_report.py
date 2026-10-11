@@ -34,7 +34,7 @@ def render():
         folder = RUNS / model
         configs[model] = json.loads((folder / 'config.json').read_text())
         # Re-derive answers and verify every response against the exact frozen request.
-        summaries[model] = runner.summarize(folder, data.DEFAULT)
+        summaries[model] = runner.summarize(folder, data.DEFAULT, archived_dataset=RUNS / 'dataset_at_run')
         if not summaries[model]['complete']:
             raise ValueError('Do not publish an incomplete model comparison')
         snapshot = folder / 'tools/run_model_evaluation.py'
@@ -76,18 +76,18 @@ def render():
              '[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-20261012/README.md)',
              f'本轮比较 {model_names}。{len(models)} 个模型各测试相同的 1,514 道临床决策题，覆盖 26 个有题任务；3 个空任务不调用 API。开放许可部分为 1,284 题，非商业附加部分为 230 题。辅助任务与暂停任务不在本轮范围。',
              '## 总体结果',
-             '主分数先对场景内达到 20 题的任务等权，再对有成绩的场景等权；任务均分仅对达到门槛的任务等权。11 个小样本任务只展示逐项结果，不进入汇总。有效回答数表示返回了合法选项，不代表回答正确。',
+             '主分数先对场景内所有有题任务等权，再对有成绩的场景等权；任务均分对全部 26 个有题任务等权。11 个不足 20 题的任务标记为小样本，仍计入总分；其成绩更易受个别题目影响。有效回答数表示返回了合法选项，不代表回答正确。',
              table(['模型', '临床主分数', '任务均分', '有效回答', '平均耗时（秒）', 'P50（秒）', 'P95（秒）', '无效回答', '请求失败', '超时', '重试次数'], overall),
              '## 逐任务结果',
-             '每格为 **准确率 / 平均完整决策耗时（秒）**。探索项照常计分展示，汇总时排除；待补任务不填零分。',
+             '每格为 **准确率 / 平均完整决策耗时（秒）**。所有有题任务计入总分，不足 20 题标记“小样本”；待补任务不填零分。',
              table(['任务', '题数', '状态'] + [labels[m] for m in models], [
                  [f"[{f['title']}](tasks/{f['id']}.md)", f['records'],
-                  {'empty': '待补', 'exploratory': '探索性', 'summary_eligible': '参与汇总'}[f['status']]]
+                  '待补' if not f['records'] else '计入总分（小样本）' if f['small_sample'] else '计入总分']
                  + [f"{pct(scores[m]['task_families'][f['id']]['accuracy'])} / {seconds(summaries[m]['task_timing'][f['id']]['mean_elapsed_s'])}" if f['records'] else '—' for m in models]
                  for f in common['families']]),
              '## 按许可范围查看',
-             '开放部分单独重算 20 题门槛及场景主分数。下表的逐题准确率仅描述相应子集，不与场景等权主分数混称。非商业附加成绩受原始数据许可限制。',
-             table(['模型', '开放部分主分数', '开放部分逐题准确率（1,284 题）', '非商业部分逐题准确率（230 题）'], [
+             '这里按数据使用许可拆分，与题目难度和计分权重无关。**允许商业使用的数据**共 1,284 题，仍需遵循各来源的署名、许可保留或相同方式共享等条件；**仅限非商业使用的数据**共 230 题，来自 CARE-Bench（100）、TCM-SD（100）和 PMR-Synth（30），同样可以依许可公开分享，但许可不授权商业用途。具体条款见 [数据许可说明](EVALUATION.md#数据许可分组)。两部分都计入上方完整临床主分数。下表另对允许商业使用的子集独立计算场景主分数，所有有题任务都纳入；逐题准确率按题数加权，与场景等权主分数不同。',
+             table(['模型', '允许商业使用子集 · 主分数', '允许商业使用子集 · 逐题准确率（1,284 题）', '仅限非商业子集 · 逐题准确率（230 题）'], [
                  [labels[m], pct(slices[m]['open']['primary_clinical_score']),
                   pct(slices[m]['by_distribution']['open']['accuracy']),
                   pct(slices[m]['by_distribution']['research_noncommercial']['accuracy'])] for m in models]),
@@ -128,13 +128,15 @@ def render():
                         'license_slices': slices[m]} for m in models},
                   'records': common['records'], 'scope': 'clinical', 'include_research': True,
                   'inputs_sha256': configs[models[0]]['inputs_sha256'],
-                  'scope_policy_sha256': configs[models[0]]['scope_policy_sha256']}
+                  'scope_policy_sha256': scores[models[0]]['scope_policy_sha256'],
+                  'run_scope_policy_sha256': configs[models[0]]['scope_policy_sha256'],
+                  'scorer_sha256': data.file_sha(Path(data.__file__))}
     readme = ['# 临床模型评测原始结果',
               '[返回首页](../../README.md) · [逐任务得分与耗时](../../docs/MODEL_RESULTS.md)',
               f'{len(models)} 组各 1,514 道题。每组保存冻结输入、配置、逐次原始响应、最终预测、质量评分、耗时汇总和任务墙钟记录。inputs.jsonl 包含开放及非商业材料，继承 [各来源许可](../../THIRD_PARTY_NOTICES.md)，不能将整组输入当作无限制开放数据。',
               table(['模型', '配置', '输入', '原始响应', '评分', '耗时'], [[labels[m], f'[{m}/config.json]({m}/config.json)',
                   f'[输入]({m}/inputs.jsonl)', f'[响应]({m}/responses.jsonl)', f'[评分]({m}/scores.json)', f'[耗时]({m}/summary.json)'] for m in models]),
-              'tools/ 保存本轮运行和评分代码快照。archive_manifest.json 对原始运行文件和代码记录 SHA-256；当前仓库可执行下列命令复核响应、重新计分并检查报告：',
+              'tools/ 保存调用时的运行和评分代码快照，dataset_at_run/ 保存调用时的数据清单与范围策略。config.json 保留调用时的哈希；当前 scores.json、summary.json 和 comparison.json 按所有有题任务计入总分的现行规则离线重算，并记录当前评分策略哈希。原始输入、配置、响应及计时记录不变。archive_manifest.json 对档案文件记录 SHA-256；当前仓库可执行下列命令复核响应、重新计分并检查报告：',
               '```bash\npython3 scripts/build_model_report.py --check\n```',
               '逐题选择、错误和耗时均来自实际调用。失败保留在分母；没有按答案正确与否筛选或重跑。']
     return {ROOT / 'docs/MODEL_RESULTS.md': '\n\n'.join(parts) + '\n',

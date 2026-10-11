@@ -1,4 +1,4 @@
-"""Prevent auxiliary tasks, option positions and tiny samples from distorting clinical scores."""
+"""Verify scope isolation, task merging and inclusion of small samples in summary scores."""
 import json
 from pathlib import Path
 import sys
@@ -29,7 +29,7 @@ class EvaluationScopeTests(unittest.TestCase):
                      record('tiny1', 'tiny'), record('aux1', 'aux'), record('paused1', 'paused'),
                      record('nc1', 'exam', distribution='research_noncommercial')]
         data.write_jsonl(self.root / 'samples.jsonl', self.rows)
-        self.policy = {'minimum_summary_questions': 2, 'tasks': {}}
+        self.policy = {'minimum_summary_questions': 1, 'small_sample_warning_questions': 20, 'tasks': {}}
         for tid in ['exam', 'simulation', 'tiny', 'aux', 'paused']:
             family = 'diagnosis' if tid in {'exam', 'simulation'} else tid
             self.policy['tasks'][tid] = {'scope': 'suspended' if tid == 'paused' else 'auxiliary' if tid == 'aux' else 'clinical',
@@ -46,25 +46,41 @@ class EvaluationScopeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             data.evaluation_rows(self.root, True, 'suspended')
 
-    def test_merging_sources_and_excluding_tiny_tasks_changes_summary(self):
+    def test_merging_sources_and_including_tiny_tasks_changes_summary(self):
         data.write_jsonl(self.predictions, [{'id': r['id'], 'choice': 'A'} for r in data.evaluation_rows(self.root)])
         result = data.score(self.root, self.predictions)
-        self.assertEqual(result['scored_tasks'], 2)  # diagnosis + exploratory tiny
-        self.assertEqual(result['summary_eligible_tasks'], 1)
+        self.assertEqual(result['scored_tasks'], 2)  # diagnosis + small-sample tiny
+        self.assertEqual(result['summary_eligible_tasks'], 2)
         self.assertEqual(result['task_families']['diagnosis']['n'], 4)
-        self.assertEqual(result['primary_clinical_score'], 0.5)
-        self.assertEqual(result['task_macro_accuracy'], 0.5)  # tiny's perfect answer is not averaged in
-        self.assertTrue(result['tasks']['tiny']['exploratory'])
+        self.assertEqual(result['primary_clinical_score'], 0.75)
+        self.assertEqual(result['task_macro_accuracy'], 0.75)  # merged diagnosis 0.5 and tiny 1.0 have equal weight
+        self.assertFalse(result['tasks']['tiny']['exploratory'])
+        self.assertTrue(result['tasks']['tiny']['small_sample'])
+        self.assertTrue(result['task_families']['tiny']['summary_eligible'])
         self.assertIsNone(result['tasks']['exam']['macro_f1'])
         self.assertEqual(result['tasks']['exam']['per_class'], {})
 
-    def test_all_exploratory_auxiliary_has_no_clinical_or_summary_score(self):
+    def test_small_auxiliary_has_summary_but_no_clinical_score(self):
         data.write_jsonl(self.predictions, [{'id': 'aux1', 'choice': 'A'}])
         result = data.score(self.root, self.predictions, scope='auxiliary')
         self.assertEqual(result['tasks']['aux']['accuracy'], 1)
         self.assertIsNone(result['primary_clinical_score'])
-        self.assertIsNone(result['scenario_macro_accuracy'])
-        self.assertIsNone(result['task_macro_accuracy'])
+        self.assertEqual(result['scenario_macro_accuracy'], 1)
+        self.assertEqual(result['task_macro_accuracy'], 1)
+
+    def test_empty_scope_is_not_scored_as_zero(self):
+        data.write_jsonl(self.root / 'samples.jsonl', [])
+        data.write_jsonl(self.predictions, [])
+        with self.assertRaisesRegex(ValueError, 'No records'):
+            data.score(self.root, self.predictions)
+
+    def test_license_selection_recomputes_task_scores_without_sample_exclusion(self):
+        rows = data.evaluation_rows(self.root, True)
+        data.write_jsonl(self.predictions, [{'id': r['id'], 'choice': 'A'} for r in rows])
+        result = data.score(self.root, self.predictions, True)
+        self.assertEqual(result['task_families']['diagnosis']['n'], 5)
+        self.assertAlmostEqual(result['primary_clinical_score'], 0.8)
+        self.assertEqual(result['summary_eligible_tasks'], 2)
 
     def test_predictions_cannot_silently_cross_scope_or_license(self):
         for uid in ['aux1', 'paused1', 'nc1']:

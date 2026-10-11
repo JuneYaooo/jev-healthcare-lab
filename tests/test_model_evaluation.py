@@ -126,12 +126,33 @@ class ArchivedModelTests(unittest.TestCase):
             score = runner.dataset_tools.score(runner.dataset_tools.DEFAULT, folder / 'predictions.jsonl', True)
             self.assertEqual(score, json.loads((folder / 'scores.json').read_text()))
             self.assertEqual(score['scored_tasks'], 26)
-            self.assertEqual(score['summary_eligible_tasks'], 15)
+            self.assertEqual(score['summary_eligible_tasks'], 26)
+            self.assertEqual(sum(t['small_sample'] for t in score['task_families'].values()), 11)
 
     def test_archive_hashes(self):
         manifest = json.loads((self.root / 'archive_manifest.json').read_text())
         for name, sha in manifest['files'].items():
             self.assertEqual(runner.dataset_tools.file_sha(self.root / name), sha, name)
+
+    def test_rescoring_rejects_changed_gold_and_scope(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dataset = Path(tmp)
+            for name in ['samples.jsonl', 'answers.jsonl', 'requests.jsonl', 'taxonomy.json',
+                         'sources.json', 'sources.lock.json', 'evaluation_scope.json']:
+                shutil.copy2(runner.dataset_tools.DEFAULT / name, dataset / name)
+            rows = list(runner.dataset_tools.read_jsonl(dataset / 'samples.jsonl'))
+            rows[0]['gold'] = 'tampered'
+            runner.dataset_tools.write_jsonl(dataset / 'samples.jsonl', rows)
+            with self.assertRaisesRegex(ValueError, 'changed frozen data'):
+                runner.summarize(self.root / 'jev-1.13.0', dataset,
+                                 archived_dataset=self.root / 'dataset_at_run')
+            shutil.copy2(runner.dataset_tools.DEFAULT / 'samples.jsonl', dataset / 'samples.jsonl')
+            policy = json.loads((dataset / 'evaluation_scope.json').read_text())
+            policy['tasks']['medication_choice']['positive_label'] = 'changed'
+            runner.dataset_tools.write_json(dataset / 'evaluation_scope.json', policy)
+            with self.assertRaisesRegex(ValueError, 'scope or mapping'):
+                runner.summarize(self.root / 'jev-1.13.0', dataset,
+                                 archived_dataset=self.root / 'dataset_at_run')
 
     def test_verifier_rejects_duplicate_and_altered_response(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -142,11 +163,11 @@ class ArchivedModelTests(unittest.TestCase):
             rows = list(runner.dataset_tools.read_jsonl(folder / 'responses.jsonl'))
             runner.dataset_tools.write_jsonl(folder / 'responses.jsonl', rows + rows[:1])
             with self.assertRaisesRegex(ValueError, 'duplicate'):
-                runner.summarize(folder, runner.dataset_tools.DEFAULT)
+                runner.summarize(folder, runner.dataset_tools.DEFAULT, archived_dataset=self.root / 'dataset_at_run')
             rows[0]['choice'] = 'tampered'
             runner.dataset_tools.write_jsonl(folder / 'responses.jsonl', rows)
             with self.assertRaisesRegex(ValueError, 'Normalized answer mismatch'):
-                runner.summarize(folder, runner.dataset_tools.DEFAULT)
+                runner.summarize(folder, runner.dataset_tools.DEFAULT, archived_dataset=self.root / 'dataset_at_run')
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "default_scope": "clinical",
-  "minimum_summary_questions": 20,
+  "minimum_summary_questions": 1,
   "tasks": {
     "assertion_scope": {
       "scope": "auxiliary",
@@ -893,5 +893,6 @@
       "positive_label": null,
       "notes": "只有 3 题，存在伦理和法律语境差异；暂作行动选择探索项，不证明跨地区合规判断能力。"
     }
-  }
+  },
+  "small_sample_warning_questions": 20
 }

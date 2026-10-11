@@ -12,7 +12,7 @@
 | Qwen3.5-9B | [qwen3.5-9b/config.json](qwen3.5-9b/config.json) | [输入](qwen3.5-9b/inputs.jsonl) | [响应](qwen3.5-9b/responses.jsonl) | [评分](qwen3.5-9b/scores.json) | [耗时](qwen3.5-9b/summary.json) |
 | Qwen3.8-27B | [qwen3.8-27b/config.json](qwen3.8-27b/config.json) | [输入](qwen3.8-27b/inputs.jsonl) | [响应](qwen3.8-27b/responses.jsonl) | [评分](qwen3.8-27b/scores.json) | [耗时](qwen3.8-27b/summary.json) |
 
-tools/ 保存本轮运行和评分代码快照。archive_manifest.json 对原始运行文件和代码记录 SHA-256；当前仓库可执行下列命令复核响应、重新计分并检查报告：
+tools/ 保存调用时的运行和评分代码快照，dataset_at_run/ 保存调用时的数据清单与范围策略。config.json 保留调用时的哈希；当前 scores.json、summary.json 和 comparison.json 按所有有题任务计入总分的现行规则离线重算，并记录当前评分策略哈希。原始输入、配置、响应及计时记录不变。archive_manifest.json 对档案文件记录 SHA-256；当前仓库可执行下列命令复核响应、重新计分并检查报告：
 
 ```bash
 python3 scripts/build_model_report.py --check

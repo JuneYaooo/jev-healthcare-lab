@@ -1,19 +1,20 @@
 {
   "dataset_version": "0.8.0",
-  "dataset_manifest_sha256": "68ac55e93e4c19afbe291812f12232d381342345a247c90a631818adef8ec7a8",
+  "dataset_manifest_sha256": "df81946e868beb2b2319669cc7cbe440e791f41415e4a584c6e49747829a0868",
   "predictions_sha256": "96d7a9e86a058765cf5652a395735e0fb224fe41bebc09c16f04a80bf12417dc",
   "evaluation_scope": "clinical",
-  "scope_policy_sha256": "4bcc135f062d5d0a591d8f8449b5814ee101656e21628170798d846ae3cde488",
+  "scope_policy_sha256": "afae5570975e25a3c4efee5a31bcfc284e11ee293af67f859fde373e0775269e",
   "evaluated_ids_sha256": "d9b31e14ff057bde12b4b7145ebca8baf7be5d0b2168d9d0a78979ed9256fc3f",
-  "minimum_summary_questions": 20,
+  "minimum_summary_questions": 1,
+  "small_sample_warning_questions": 20,
   "include_research": true,
   "records": 1514,
   "scored_tasks": 26,
   "scored_subtasks": 27,
-  "summary_eligible_tasks": 15,
-  "task_macro_accuracy": 0.5420388007054674,
-  "scenario_macro_accuracy": 0.5603417107583774,
-  "covered_scenarios": 6,
+  "summary_eligible_tasks": 26,
+  "task_macro_accuracy": 0.5958407013214706,
+  "scenario_macro_accuracy": 0.6312112559508393,
+  "covered_scenarios": 8,
   "defined_scenarios": 8,
   "scenarios": {
     "intake": {
@@ -24,6 +25,7 @@
       "task_macro_accuracy": 0.5666666666666667,
       "populated_families": 2,
       "exploratory_families": 0,
+      "small_sample_families": 0,
       "all_records": 130
     },
     "testing": {
@@ -34,6 +36,7 @@
       "task_macro_accuracy": 0.6,
       "populated_families": 1,
       "exploratory_families": 0,
+      "small_sample_families": 0,
       "all_records": 100
     },
     "diagnosis": {
@@ -44,36 +47,40 @@
       "task_macro_accuracy": 0.53,
       "populated_families": 5,
       "exploratory_families": 0,
+      "small_sample_families": 0,
       "all_records": 600
     },
     "treatment": {
       "title": "治疗与用药",
       "defined_tasks": 7,
-      "scored_tasks": 4,
-      "records": 354,
-      "task_macro_accuracy": 0.4582407407407407,
+      "scored_tasks": 6,
+      "records": 374,
+      "task_macro_accuracy": 0.42007716049382715,
       "populated_families": 6,
-      "exploratory_families": 2,
+      "exploratory_families": 0,
+      "small_sample_families": 2,
       "all_records": 374
     },
     "inpatient": {
       "title": "住院与护理",
       "defined_tasks": 6,
-      "scored_tasks": 2,
-      "records": 142,
-      "task_macro_accuracy": 0.7071428571428571,
+      "scored_tasks": 6,
+      "records": 173,
+      "task_macro_accuracy": 0.6781385281385282,
       "populated_families": 6,
-      "exploratory_families": 4,
+      "exploratory_families": 0,
+      "small_sample_families": 4,
       "all_records": 173
     },
     "followup": {
       "title": "出院与随访",
       "defined_tasks": 4,
-      "scored_tasks": 0,
-      "records": 0,
-      "task_macro_accuracy": null,
+      "scored_tasks": 4,
+      "records": 34,
+      "task_macro_accuracy": 0.7548076923076923,
       "populated_families": 4,
-      "exploratory_families": 4,
+      "exploratory_families": 0,
+      "small_sample_families": 4,
       "all_records": 34
     },
     "trials": {
@@ -84,20 +91,22 @@
       "task_macro_accuracy": 0.5,
       "populated_families": 1,
       "exploratory_families": 0,
+      "small_sample_families": 0,
       "all_records": 100
     },
     "quality": {
       "title": "病历与医疗质量控制",
       "defined_tasks": 1,
-      "scored_tasks": 0,
-      "records": 0,
-      "task_macro_accuracy": null,
+      "scored_tasks": 1,
+      "records": 3,
+      "task_macro_accuracy": 1.0,
       "populated_families": 1,
-      "exploratory_families": 1,
+      "exploratory_families": 0,
+      "small_sample_families": 1,
       "all_records": 3
     }
   },
-  "primary_clinical_score": 0.5603417107583774,
+  "primary_clinical_score": 0.6312112559508393,
   "tasks": {
     "administration_route_choice": {
       "n": 4,
@@ -123,7 +132,8 @@
       "group_all_correct_rate": 0.5,
       "title": "给药途径与实施方法选择",
       "family": "administration_route_choice",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "case_complication": {
       "n": 100,
@@ -141,7 +151,8 @@
       "group_all_correct_rate": 0.7083333333333334,
       "title": "病例并发症判断",
       "family": "case_complication",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "case_etiology": {
       "n": 100,
@@ -159,7 +170,8 @@
       "group_all_correct_rate": 0.66,
       "title": "病例病因判断",
       "family": "case_etiology",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "clinical_grade": {
       "n": 100,
@@ -177,7 +189,8 @@
       "group_all_correct_rate": 0.3434343434343434,
       "title": "疾病分期与严重程度判断",
       "family": "clinical_grade",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "consent_action": {
       "n": 3,
@@ -199,7 +212,8 @@
       "group_all_correct_rate": 1.0,
       "title": "知情同意与隐私处置选择",
       "family": "consent_action",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "diagnosis_choice": {
       "n": 100,
@@ -217,7 +231,8 @@
       "group_all_correct_rate": 0.8,
       "title": "病例诊断选择：考试病例子集",
       "family": "diagnosis",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "examination_choice": {
       "n": 100,
@@ -235,7 +250,8 @@
       "group_all_correct_rate": 0.6,
       "title": "检查方案选择",
       "family": "examination_choice",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "fluid_plan": {
       "n": 16,
@@ -257,7 +273,8 @@
       "group_all_correct_rate": 0.2,
       "title": "补液方案选择",
       "family": "fluid_plan",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "followup_plan": {
       "n": 6,
@@ -281,7 +298,8 @@
       "group_all_correct_rate": 0.5,
       "title": "复查项目与随访时机选择",
       "family": "followup_plan",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "infection_precaution": {
       "n": 5,
@@ -306,7 +324,8 @@
       "group_all_correct_rate": 1.0,
       "title": "感染防控措施选择",
       "family": "infection_precaution",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "medication_choice": {
       "n": 100,
@@ -326,7 +345,8 @@
       "group_all_correct_rate": 0.47,
       "title": "用药方案选择",
       "family": "medication_choice",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "message_urgency_pair": {
       "n": 30,
@@ -367,7 +387,8 @@
       "sample_majority_accuracy": 0.6666666666666666,
       "title": "患者消息处理优先级",
       "family": "message_urgency_pair",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "monitoring_target": {
       "n": 5,
@@ -388,7 +409,8 @@
       "group_all_correct_rate": 0.6,
       "title": "病情监测与疗效判断",
       "family": "monitoring_target",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "nursing_priority": {
       "n": 42,
@@ -406,7 +428,8 @@
       "group_all_correct_rate": 0.7142857142857143,
       "title": "护理措施选择",
       "family": "nursing_priority",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "nutrition_plan": {
       "n": 11,
@@ -429,7 +452,8 @@
       "group_all_correct_rate": 0.45454545454545453,
       "title": "营养与饮食方案选择",
       "family": "nutrition_plan",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "patient_contraindication": {
       "n": 54,
@@ -447,7 +471,8 @@
       "group_all_correct_rate": 0.4528301886792453,
       "title": "患者方案禁忌判断",
       "family": "patient_contraindication",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "patient_counseling": {
       "n": 11,
@@ -467,7 +492,8 @@
       "group_all_correct_rate": 1.0,
       "title": "健康教育与沟通行动选择",
       "family": "patient_counseling",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "pgx_guideline_recommendation": {
       "n": 100,
@@ -492,7 +518,8 @@
       "group_all_correct_rate": 0.16,
       "title": "药物基因结果对应的指南建议选择",
       "family": "pgx_guideline_recommendation",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "positioning_choice": {
       "n": 10,
@@ -515,7 +542,8 @@
       "group_all_correct_rate": 0.6,
       "title": "护理与操作体位选择",
       "family": "positioning_choice",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "prevention_choice": {
       "n": 13,
@@ -537,7 +565,8 @@
       "group_all_correct_rate": 0.7692307692307693,
       "title": "预防措施选择",
       "family": "prevention_choice",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "rehabilitation_choice": {
       "n": 4,
@@ -558,7 +587,8 @@
       "group_all_correct_rate": 0.75,
       "title": "康复训练方案选择",
       "family": "rehabilitation_choice",
-      "exploratory": true
+      "exploratory": false,
+      "small_sample": true
     },
     "synthetic_diagnosis": {
       "n": 100,
@@ -579,7 +609,8 @@
       "group_all_correct_rate": 0.52,
       "title": "病例诊断选择：模拟病例子集",
       "family": "diagnosis",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "tcm_pathogenesis_candidate": {
       "n": 100,
@@ -622,7 +653,8 @@
       "specificity": 0.86,
       "title": "中医候选病机判断",
       "family": "tcm_pathogenesis_candidate",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "tcm_syndrome": {
       "n": 100,
@@ -1126,7 +1158,8 @@
       "sample_majority_accuracy": 0.13,
       "title": "中医证型判断",
       "family": "tcm_syndrome",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "treatment_choice": {
       "n": 100,
@@ -1144,7 +1177,8 @@
       "group_all_correct_rate": 0.51,
       "title": "治疗方案选择",
       "family": "treatment_choice",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "triage_urgency": {
       "n": 100,
@@ -1207,7 +1241,8 @@
       "sample_majority_accuracy": 0.3,
       "title": "分诊与就医紧急程度判断",
       "family": "triage_urgency",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     },
     "trial_referral": {
       "n": 100,
@@ -1263,7 +1298,8 @@
       "sample_majority_accuracy": 0.34,
       "title": "患者临床试验初筛与转介判断",
       "family": "trial_referral",
-      "exploratory": false
+      "exploratory": false,
+      "small_sample": false
     }
   },
   "task_families": {
@@ -1293,7 +1329,8 @@
       "task_ids": [
         "administration_route_choice"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "case_complication": {
       "n": 100,
@@ -1313,7 +1350,8 @@
       "task_ids": [
         "case_complication"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "case_etiology": {
       "n": 100,
@@ -1333,7 +1371,8 @@
       "task_ids": [
         "case_etiology"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "clinical_grade": {
       "n": 100,
@@ -1353,7 +1392,8 @@
       "task_ids": [
         "clinical_grade"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "consent_action": {
       "n": 3,
@@ -1377,7 +1417,8 @@
       "task_ids": [
         "consent_action"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "diagnosis": {
       "n": 200,
@@ -1401,7 +1442,8 @@
         "diagnosis_choice",
         "synthetic_diagnosis"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "examination_choice": {
       "n": 100,
@@ -1421,7 +1463,8 @@
       "task_ids": [
         "examination_choice"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "fluid_plan": {
       "n": 16,
@@ -1445,7 +1488,8 @@
       "task_ids": [
         "fluid_plan"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "followup_plan": {
       "n": 6,
@@ -1471,7 +1515,8 @@
       "task_ids": [
         "followup_plan"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "infection_precaution": {
       "n": 5,
@@ -1498,7 +1543,8 @@
       "task_ids": [
         "infection_precaution"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "medication_choice": {
       "n": 100,
@@ -1520,7 +1566,8 @@
       "task_ids": [
         "medication_choice"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "message_urgency_pair": {
       "n": 30,
@@ -1563,7 +1610,8 @@
       "task_ids": [
         "message_urgency_pair"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "monitoring_target": {
       "n": 5,
@@ -1586,7 +1634,8 @@
       "task_ids": [
         "monitoring_target"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "nursing_priority": {
       "n": 42,
@@ -1606,7 +1655,8 @@
       "task_ids": [
         "nursing_priority"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "nutrition_plan": {
       "n": 11,
@@ -1631,7 +1681,8 @@
       "task_ids": [
         "nutrition_plan"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "patient_contraindication": {
       "n": 54,
@@ -1651,7 +1702,8 @@
       "task_ids": [
         "patient_contraindication"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "patient_counseling": {
       "n": 11,
@@ -1673,7 +1725,8 @@
       "task_ids": [
         "patient_counseling"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "pgx_guideline_recommendation": {
       "n": 100,
@@ -1700,7 +1753,8 @@
       "task_ids": [
         "pgx_guideline_recommendation"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "positioning_choice": {
       "n": 10,
@@ -1725,7 +1779,8 @@
       "task_ids": [
         "positioning_choice"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "prevention_choice": {
       "n": 13,
@@ -1749,7 +1804,8 @@
       "task_ids": [
         "prevention_choice"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "rehabilitation_choice": {
       "n": 4,
@@ -1772,7 +1828,8 @@
       "task_ids": [
         "rehabilitation_choice"
       ],
-      "summary_eligible": false
+      "summary_eligible": true,
+      "small_sample": true
     },
     "tcm_pathogenesis_candidate": {
       "n": 100,
@@ -1817,7 +1874,8 @@
       "task_ids": [
         "tcm_pathogenesis_candidate"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "tcm_syndrome": {
       "n": 100,
@@ -2323,7 +2381,8 @@
       "task_ids": [
         "tcm_syndrome"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "treatment_choice": {
       "n": 100,
@@ -2343,7 +2402,8 @@
       "task_ids": [
         "treatment_choice"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "triage_urgency": {
       "n": 100,
@@ -2408,7 +2468,8 @@
       "task_ids": [
         "triage_urgency"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     },
     "trial_referral": {
       "n": 100,
@@ -2466,7 +2527,8 @@
       "task_ids": [
         "trial_referral"
       ],
-      "summary_eligible": true
+      "summary_eligible": true,
+      "small_sample": false
     }
   },
   "stratified": {
@@ -2758,5 +2820,5 @@
       }
     }
   },
-  "note": "Summaries use eligible task families only; small tasks remain exploratory. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."
+  "note": "Summaries follow minimum_summary_questions; small_sample is a warning only and does not exclude tasks. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."
 }
