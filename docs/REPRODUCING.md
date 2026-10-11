@@ -77,3 +77,17 @@ python3 scripts/audit_task_scope.py
 ```
 
 说明页生成器从实际记录与执行范围生成首页、任务页和来源页。审查脚本复核调整前底稿的分组统计及姓名捷径，供回溯问题，不把暂停题重新加入评分。变更范围时需同步重建底稿清单、说明页和下载包；运行本地检查。
+
+## 更新首页图表
+
+首页动图与图表位于 `assets/readme/`，数值由模型对比结果和范围统计生成。动图只演示评测流程，得分与用时图保持静态，便于比较。
+
+重绘需要安装 `matplotlib` 和 `Pillow`，并提供支持中文的字体。脚本会尝试系统字体，也可通过 `JEV_CHART_FONT` 指定字体路径：
+
+```bash
+python3 scripts/generate_readme_visuals.py
+python3 scripts/generate_readme_visuals.py --check
+python3 scripts/generate_catalog_docs.py
+```
+
+`--check` 仅使用标准库，核对来源哈希、图表数值和图片文件。模型结果更新后需重新生成图表；静态 PNG 预览和图表数据随图片保存。

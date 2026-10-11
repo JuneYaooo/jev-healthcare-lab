@@ -351,6 +351,7 @@ def render():
 
     used_tags = sorted({d for f in families for d in f['ability_tags']})
     parts = ['# Jev Healthcare Lab',
+        '![医疗决策评测流程：病例与规则、候选决策、模型作答、评分与用时；8 个场景，29 个任务，26 项有题，1,514 道题，5 个模型](assets/readme/hero-v1.gif)\n\n[查看静态封面](assets/readme/hero-v1.png)',
         '本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率和完整运行耗时。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。',
         f"评测按 **{len(scenes)} 个医疗场景、{clinical['defined_families']} 个任务**组织：从接诊与分诊、检查与检验、诊断与鉴别，到治疗与用药、住院与护理、出院与随访，并涵盖临床试验筛选和病历与医疗质量控制。",
         f"目前 **{clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题**（中文 {clinical['languages'].get('zh', 0):,} 题），来自 {len(clinical['sources'])} 个数据来源；另有 {sum(f['status'] == 'empty' for f in families)} 个任务待补。任务另按 {len(used_tags)} 个能力标签标注。全部有题任务计入总分，其中 {sum(f['small_sample'] for f in families)} 个不足 20 题，标记为小样本。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
@@ -362,6 +363,17 @@ def render():
         '先看 **准确率 ↑**，再看 **平均用时 ↓**。每个场景分成两张表，模型顺序保持一致。**加粗**表示该任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。',
         '用时单位为秒，包含网络、响应处理和重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
         table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
+    if comparison:
+        ranked = sorted(comparison['models'].values(), key=lambda m: -m['primary_clinical_score'])
+        best, second = ranked[:2]
+        fastest = min(ranked, key=lambda m: m['timing']['mean_elapsed_s'])
+        parts[parts.index('## 能力维度'):parts.index('## 能力维度')] = [
+            '## 评测速览',
+            f"**{best['label']} 本轮主分数最高：{best['primary_clinical_score']:.2%}**，领先第二名 {(best['primary_clinical_score']-second['primary_clinical_score'])*100:.2f} 个百分点。**{fastest['label']} 平均用时最短：{fastest['timing']['mean_elapsed_s']:.3f} 秒/题**。",
+            '![五个模型的临床主分数与平均用时对比，完整数值见下方模型得分与耗时表](assets/readme/performance-v1.svg)',
+            '![八个医疗场景的模型得分热力图，标注题数、小样本任务数和场景最高值，完整结果见各任务表](assets/readme/scenarios-v1.svg)',
+            '主分数按场景内任务等权、再对场景等权计算；全部 26 个有题任务计入。11 个任务不足 20 题，医疗质量控制场景仅 3 题。以上为本轮观测结果，不代表统计显著性或临床有效性；用时受网络和平台服务条件影响。',
+            '[完整模型结果](docs/MODEL_RESULTS.md) · [逐题原始记录](results/clinical-v1/README.md) · [图表数据](assets/readme/metrics-v1.json)']
     for sid, scene in scenes.items():
         scene_families = [f for f in families if f['scenario'] == sid]
         parts.append(f"### {scene['title']}")
