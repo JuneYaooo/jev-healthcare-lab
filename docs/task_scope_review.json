@@ -1,0 +1,550 @@
+{
+  "status": "proposal_not_applied_to_scoring",
+  "reviewed_file_sha256": {
+    "taxonomy.json": "afe2606e9d12e234f45e55805cb64a97913078851494c1569f5f1d3658f70a47",
+    "samples.jsonl": "df7549f5688bb4cb17a5c9956f3e31d8a4780f3391c87a7302a5d635cbf8b908"
+  },
+  "groups": {
+    "core": "临床判断与行动：主评测候选",
+    "support": "临床计算、解读与证据辅助",
+    "risk": "风险、结局与历史去向预测",
+    "workflow": "医疗流程与记录核对",
+    "text": "文本理解、分类与关系标注"
+  },
+  "tasks": [
+    {
+      "task_id": "assertion_scope",
+      "proposed_group": "text",
+      "suggested_title": "临床文本否定与推测识别",
+      "assessment": "识别否定或推测表达，且只覆盖两类，不判断患者是否确诊。"
+    },
+    {
+      "task_id": "experiencer",
+      "proposed_group": "text",
+      "suggested_title": "临床文本主体角色识别",
+      "assessment": "给定标注片段判断患者、家属等角色，是文本主体分类。"
+    },
+    {
+      "task_id": "temporality",
+      "proposed_group": "text",
+      "suggested_title": "临床事件相对记录时间标注",
+      "assessment": "复制 docTimeRel 标签，不选择诊疗时机。"
+    },
+    {
+      "task_id": "diagnosis_verification",
+      "proposed_group": "workflow",
+      "suggested_title": "病历诊断记录状态核对",
+      "assessment": "当前定义是记录状态分类，尚无题目；应区别于根据病例作出诊断。"
+    },
+    {
+      "task_id": "medication_status",
+      "proposed_group": "workflow",
+      "suggested_title": "用药记录状态核对",
+      "assessment": "识别既往、当前、暂停等记录状态，不决定是否停药或调整治疗；当前为空。"
+    },
+    {
+      "task_id": "drug_interaction",
+      "proposed_group": "text",
+      "suggested_title": "文本药物相互作用关系识别",
+      "assessment": "输入已含描述关系的句子，答案是 DDI 文本标注；无关系仅表示无标注，不证明联合用药安全。"
+    },
+    {
+      "task_id": "lab_link",
+      "proposed_group": "text",
+      "suggested_title": "检验结果与项目文本关联",
+      "assessment": "在已标注数值和项目间找对应关系，不判断异常、诊断或处置。"
+    },
+    {
+      "task_id": "dose_link",
+      "proposed_group": "text",
+      "suggested_title": "剂量片段与药物文本关联",
+      "assessment": "定位数值属于哪种药，不判断患者剂量是否合适。"
+    },
+    {
+      "task_id": "patient_identity",
+      "proposed_group": "workflow",
+      "suggested_title": "患者记录身份核对",
+      "assessment": "属于医疗安全和数据身份核对；当前为空，不能将合成身份连接等同临床身份判定。"
+    },
+    {
+      "task_id": "specimen_lineage",
+      "proposed_group": "workflow",
+      "suggested_title": "标本来源关系核对",
+      "assessment": "属于检验流程追溯，当前为空；标准字段示例不能充当独立病例金标。"
+    },
+    {
+      "task_id": "note_section",
+      "proposed_group": "text",
+      "suggested_title": "病历章节分类",
+      "assessment": "识别病史、检查、评估等章节类别，不判断内容是否正确。"
+    },
+    {
+      "task_id": "query_intent",
+      "proposed_group": "text",
+      "suggested_title": "医疗问句意图分类",
+      "assessment": "分类用户问什么，不决定患者应如何处理，也不等于分诊。"
+    },
+    {
+      "task_id": "terminology",
+      "proposed_group": "text",
+      "suggested_title": "医学术语标准化",
+      "assessment": "术语表映射任务；当前为空，与临床方案判断分开。"
+    },
+    {
+      "task_id": "bounded_score",
+      "proposed_group": "support",
+      "suggested_title": "临床量表计算",
+      "assessment": "计算五种指定量表的分值，有医疗用途，但没有评价评分后应采取的行动；各量表分层报告。"
+    },
+    {
+      "task_id": "input_sufficiency",
+      "proposed_group": "support",
+      "suggested_title": "目标患者回答证据是否出现（需重建）",
+      "assessment": "负例没有任何目标患者文档，正例加入目标证据；姓名出现捷径达到 96%，不能解释为充分性判断能力，建议暂停进入主分数。"
+    },
+    {
+      "task_id": "clinical_grade",
+      "proposed_group": "core",
+      "suggested_title": "疾病分期与严重程度判断",
+      "assessment": "根据病例作出临床分级，方向适合主评测；不同分期体系应分层，考试金标不证明现行临床有效性。"
+    },
+    {
+      "task_id": "unit_equivalence",
+      "proposed_group": "support",
+      "suggested_title": "医疗单位换算判断",
+      "assessment": "通用数值和单位规则能力，不是临床处置；当前为空。"
+    },
+    {
+      "task_id": "reference_range",
+      "proposed_group": "support",
+      "suggested_title": "给定参考表的区间匹配",
+      "assessment": "实际从完整提供的参考表按人群、标本等字段查找答案；不覆盖方法适用性或无法确定类，原名称范围过大。"
+    },
+    {
+      "task_id": "result_trend",
+      "proposed_group": "text",
+      "suggested_title": "文本事件变化描述识别",
+      "assessment": "沿用原 TREND 标注的增加、减少或改变，不进行纵向数值趋势分析或病情预测。"
+    },
+    {
+      "task_id": "long_record_evidence",
+      "proposed_group": "support",
+      "suggested_title": "长病历事实检索问答",
+      "assessment": "多数目标是从已有文书找到已记录答案，不是根据当时可用资料选择行动；20 个虚构患者须按患者分组。"
+    },
+    {
+      "task_id": "clinical_error_detection",
+      "proposed_group": "support",
+      "suggested_title": "病例医学错误检出",
+      "assessment": "有医疗质量审核意义，但测错误是否存在，非诊疗行动；与错误定位合为一个审核任务的两项指标更合理。"
+    },
+    {
+      "task_id": "clinical_error_location",
+      "proposed_group": "support",
+      "suggested_title": "病例医学错误定位",
+      "assessment": "定位上游注入或标注的错误句，未评价纠正措施；句号位置不是稳定临床类别。"
+    },
+    {
+      "task_id": "claim_support",
+      "proposed_group": "support",
+      "suggested_title": "研究论断与摘要一致性判断",
+      "assessment": "是文献证据判断，不评价指定患者治疗获益；单列证据评估。"
+    },
+    {
+      "task_id": "trial_referral",
+      "proposed_group": "core",
+      "suggested_title": "患者临床试验初筛与转介判断",
+      "assessment": "输入含患者与试验条件并输出转介相关等级，适合主评测；不是最终入组资格，原 material_judgment 标签应调整。"
+    },
+    {
+      "task_id": "criterion_entity_type",
+      "proposed_group": "text",
+      "suggested_title": "入排标准实体类型识别",
+      "assessment": "标注条件、药物、数值等文本要素，不评价某位患者是否符合标准。"
+    },
+    {
+      "task_id": "criterion_relation",
+      "proposed_group": "text",
+      "suggested_title": "入排标准要素关系识别",
+      "assessment": "选择已标注要素的限定关系，且主要是正关系；不是患者级入排判断。"
+    },
+    {
+      "task_id": "criterion_boolean",
+      "proposed_group": "text",
+      "suggested_title": "入排标准与或结构识别",
+      "assessment": "区分文本条件 AND/OR，没有患者资料或患者资格结论。"
+    },
+    {
+      "task_id": "criterion_bound",
+      "proposed_group": "text",
+      "suggested_title": "入排标准数值边界识别",
+      "assessment": "区分上界、下界，没有把患者数值与条件比较。"
+    },
+    {
+      "task_id": "patient_contraindication",
+      "proposed_group": "core",
+      "suggested_title": "患者方案禁忌判断",
+      "assessment": "根据病例选择不宜采用的方案，方向适合；54 题，且药物、检查和治疗禁忌是混合子类。"
+    },
+    {
+      "task_id": "dose_appropriateness",
+      "proposed_group": "core",
+      "suggested_title": "患者剂量适宜性判断",
+      "assessment": "方向适合主评测，但当前无题目；需患者状态、具体处方和有来源的适宜性金标。"
+    },
+    {
+      "task_id": "triage_urgency",
+      "proposed_group": "core",
+      "suggested_title": "分诊与就医紧急程度判断",
+      "assessment": "根据当前披露消息选择澄清、自护、非紧急或紧急就医，属于行动决策；材料为重构轨迹，应单列来源性质。"
+    },
+    {
+      "task_id": "critical_result_escalation",
+      "proposed_group": "core",
+      "suggested_title": "危急检验结果处置选择",
+      "assessment": "方向适合，但当前无题目；需明确阈值、复核条件和升级规则后才可计分。"
+    },
+    {
+      "task_id": "privacy_candidate",
+      "proposed_group": "text",
+      "suggested_title": "医疗文本个人标识识别",
+      "assessment": "识别需处理的个人标识，不评价是否同意披露或如何处理隐私冲突。"
+    },
+    {
+      "task_id": "procedure_progress",
+      "proposed_group": "workflow",
+      "suggested_title": "医疗操作记录状态核对",
+      "assessment": "判断记录显示计划、完成或取消，未决定下一步操作；当前为空。"
+    },
+    {
+      "task_id": "administration_status",
+      "proposed_group": "workflow",
+      "suggested_title": "给药执行记录状态核对",
+      "assessment": "区分开单、配药、给入，属于执行核对，不选择治疗方案；当前为空。"
+    },
+    {
+      "task_id": "followup_action",
+      "proposed_group": "workflow",
+      "suggested_title": "随访待办与完成状态核对",
+      "assessment": "原定义混合行动提取和完成状态；未有完成或逾期金标，不能用待办分类代替。"
+    },
+    {
+      "task_id": "report_stage",
+      "proposed_group": "workflow",
+      "suggested_title": "报告状态核对",
+      "assessment": "识别初步、最终、更正等报告状态，不决定应采用哪个结论或如何处置；当前为空。"
+    },
+    {
+      "task_id": "synthetic_diagnosis",
+      "proposed_group": "core",
+      "suggested_title": "病例诊断选择：模拟病例子集",
+      "assessment": "方向适合，但与临床病例候选诊断同属诊断选择；建议合并为任务下的数据来源分层，保留模拟性质。"
+    },
+    {
+      "task_id": "diagnosis_choice",
+      "proposed_group": "core",
+      "suggested_title": "病例诊断选择：考试病例子集",
+      "assessment": "方向适合主评测；与模拟诊断合并报告上层任务，不能仅因来源不同当作两个独立临床能力。"
+    },
+    {
+      "task_id": "examination_choice",
+      "proposed_group": "core",
+      "suggested_title": "检查方案选择",
+      "assessment": "根据病例选择检查，属于诊断流程决策；应保留原题信息与原选项。"
+    },
+    {
+      "task_id": "treatment_choice",
+      "proposed_group": "core",
+      "suggested_title": "治疗方案选择",
+      "assessment": "根据病例选择治疗，方向适合；与用药、补液等细分任务按层级组织，避免任务拆分影响权重。"
+    },
+    {
+      "task_id": "medication_choice",
+      "proposed_group": "core",
+      "suggested_title": "用药方案选择",
+      "assessment": "根据病例选药，方向适合；不是药物实体匹配，需与后者严格区分。"
+    },
+    {
+      "task_id": "tcm_syndrome",
+      "proposed_group": "core",
+      "suggested_title": "中医证型判断",
+      "assessment": "根据病例作出上游证型判断，作为中医诊断子类单列；不等同处方效果。"
+    },
+    {
+      "task_id": "department_routing",
+      "proposed_group": "core",
+      "suggested_title": "首诊科室选择",
+      "assessment": "方向适合主评测，但无合适题目；采集平台科室标签不等于首诊推荐金标。"
+    },
+    {
+      "task_id": "message_urgency_pair",
+      "proposed_group": "core",
+      "suggested_title": "患者消息处理优先级",
+      "assessment": "有病历背景和优先处理动作，方向适合；只有 30 对、两个收件箱且消息为合成，需单列探索性结果。"
+    },
+    {
+      "task_id": "deterioration_prediction",
+      "proposed_group": "risk",
+      "suggested_title": "脓毒症发生风险预测",
+      "assessment": "根据固定前 12 小时预测后续起病，属于风险预测；100 题中阳性 11 题，单看准确率容易误读。"
+    },
+    {
+      "task_id": "readmission_30d",
+      "proposed_group": "risk",
+      "suggested_title": "糖尿病患者回家后 30 天再入院预测",
+      "assessment": "只覆盖糖尿病住院后回家人群；100 题仅 7 个阳性，始终预测否即可 93%，不评价是否应入院或何种干预。"
+    },
+    {
+      "task_id": "followup_item_type",
+      "proposed_group": "text",
+      "suggested_title": "出院文书待办类别识别",
+      "assessment": "提取文书已有的待办类别，不制定随访计划；当前为空。"
+    },
+    {
+      "task_id": "adverse_event_prediction",
+      "proposed_group": "risk",
+      "suggested_title": "试验人群不良事件发生预测",
+      "assessment": "原定义预测试验组事件出现，不是个体患者因果风险或处置；当前为空。"
+    },
+    {
+      "task_id": "clinical_statement_support",
+      "proposed_group": "support",
+      "suggested_title": "病历论断一致性判断",
+      "assessment": "判断材料是否支持论断，可作可靠性辅助评测；没有直接诊疗动作，当前为空。"
+    },
+    {
+      "task_id": "mortality_90d",
+      "proposed_group": "risk",
+      "suggested_title": "心衰患者 90 日死亡结局预测",
+      "assessment": "仅限心衰基线记录及声明的删失规则；不是普适死亡风险，100 题阳性 22，需报告风险指标与基线。"
+    },
+    {
+      "task_id": "postoperative_disposition",
+      "proposed_group": "risk",
+      "suggested_title": "术后历史转归去向预测",
+      "assessment": "金标是过去记录的去向，未证明是最优处置；68 题仅 2 个 ICU 类，不能据此证明 ICU 分流能力。"
+    },
+    {
+      "task_id": "maternal_risk",
+      "proposed_group": "risk",
+      "suggested_title": "孕产记录风险标签分类",
+      "assessment": "复制发布方风险等级，不是已观察的母婴结局；需要标签定义核验，单列风险分类。"
+    },
+    {
+      "task_id": "event_temporal_order",
+      "proposed_group": "text",
+      "suggested_title": "文本临床事件先后关系",
+      "assessment": "识别两处提及的时间关系，不确定临床干预顺序。"
+    },
+    {
+      "task_id": "event_coreference",
+      "proposed_group": "text",
+      "suggested_title": "文本同一事件指代识别",
+      "assessment": "关联同一事件的不同提及，不作临床诊断。"
+    },
+    {
+      "task_id": "anatomical_site_link",
+      "proposed_group": "text",
+      "suggested_title": "文本事件与解剖部位关联",
+      "assessment": "复制原文修饰关系，不判断疾病部位或病灶定位。"
+    },
+    {
+      "task_id": "severity_link",
+      "proposed_group": "text",
+      "suggested_title": "文本严重程度修饰关联",
+      "assessment": "定位程度词修饰哪个事件，不评价患者严重程度。"
+    },
+    {
+      "task_id": "route_link",
+      "proposed_group": "text",
+      "suggested_title": "文本给药途径与对象关联",
+      "assessment": "原文途径指向哪个药物或操作，不选择应采用何种给药途径。"
+    },
+    {
+      "task_id": "frequency_link",
+      "proposed_group": "text",
+      "suggested_title": "文本频次与对象关联",
+      "assessment": "给定频次片段寻找原文目标，不确定患者应采用的频次。"
+    },
+    {
+      "task_id": "duration_link",
+      "proposed_group": "text",
+      "suggested_title": "文本时长与对象关联",
+      "assessment": "识别已有时长描述关联哪个对象，不制定疗程。"
+    },
+    {
+      "task_id": "drug_form_link",
+      "proposed_group": "text",
+      "suggested_title": "文本剂型与药物关联",
+      "assessment": "将剂型片段与药物配对，不选择适用剂型。"
+    },
+    {
+      "task_id": "cause_effect_link",
+      "proposed_group": "text",
+      "suggested_title": "文本因果关系识别",
+      "assessment": "复制上游 Causes 关系，不作患者病因判断或药物不良反应因果归属。"
+    },
+    {
+      "task_id": "combination_link",
+      "proposed_group": "text",
+      "suggested_title": "文本联合干预关系识别",
+      "assessment": "识别原文哪些干预联合出现，不推荐联合方案。"
+    },
+    {
+      "task_id": "indication_link",
+      "proposed_group": "text",
+      "suggested_title": "文本干预用途关联",
+      "assessment": "识别文中说明的用途，不评价某患者是否适用。"
+    },
+    {
+      "task_id": "assertion_cue_target",
+      "proposed_group": "text",
+      "suggested_title": "否定与推测线索作用范围",
+      "assessment": "定位线索作用对象，属于语义范围标注，不是临床诊断核实。"
+    },
+    {
+      "task_id": "event_date_link",
+      "proposed_group": "text",
+      "suggested_title": "文本事件与时间表达关联",
+      "assessment": "把已有事件和时间提及配对，不决定检查或治疗时点。"
+    },
+    {
+      "task_id": "procedure_component_link",
+      "proposed_group": "text",
+      "suggested_title": "文本操作包含关系识别",
+      "assessment": "识别子操作属于哪个操作，不作手术或操作方案选择。"
+    },
+    {
+      "task_id": "event_permanence",
+      "proposed_group": "text",
+      "suggested_title": "文本事件持续性分类",
+      "assessment": "复制 FINITE/PERMANENT 属性，不判断慢病诊断或长期预后。"
+    },
+    {
+      "task_id": "clinical_time_type",
+      "proposed_group": "text",
+      "suggested_title": "临床文本时间表达分类",
+      "assessment": "区分日期、时长、周期等表达类型，属于文本标注。"
+    },
+    {
+      "task_id": "case_etiology",
+      "proposed_group": "core",
+      "suggested_title": "病例病因判断",
+      "assessment": "根据病例在原候选中判断原因，属于临床推断；与文本 Causes 标注不同。"
+    },
+    {
+      "task_id": "case_complication",
+      "proposed_group": "core",
+      "suggested_title": "病例并发症判断",
+      "assessment": "根据新表现判断并发症，适合主评测；按诊断相关子类汇总。"
+    },
+    {
+      "task_id": "nursing_priority",
+      "proposed_group": "core",
+      "suggested_title": "护理措施选择",
+      "assessment": "含首要措施和一般正确措施，题名不应全部称优先级；42 题，适合护理决策子类。"
+    },
+    {
+      "task_id": "fluid_plan",
+      "proposed_group": "core",
+      "suggested_title": "补液方案选择",
+      "assessment": "方向适合，仅 16 题；作为治疗方案子类并标明探索性，不当作稳定独立榜单。"
+    },
+    {
+      "task_id": "lab_value_classification",
+      "proposed_group": "support",
+      "suggested_title": "按给定区间判读检验值高低",
+      "assessment": "有参考区间时进行数值比较，属于检验解读辅助能力，不推断危急值、诊断或处置。"
+    },
+    {
+      "task_id": "pgx_function_phenotype",
+      "proposed_group": "support",
+      "suggested_title": "药物基因功能表型映射",
+      "assessment": "根据已给功能、活性等映射固定规则，非检测全流程或治疗选择；84 题只有 19 个基因来源组。"
+    },
+    {
+      "task_id": "pgx_guideline_recommendation",
+      "proposed_group": "core",
+      "suggested_title": "药物基因结果对应的指南建议选择",
+      "assessment": "输出用药建议，方向适合但为固定指南规则选择，无完整患者记录；应与病例治疗分层而非声称个体处方能力。"
+    },
+    {
+      "task_id": "trial_effect_direction",
+      "proposed_group": "support",
+      "suggested_title": "试验报告结局方向判读",
+      "assessment": "判断报告中升高、降低或无显著差异，方向不等于获益，不选择患者治疗方案。"
+    },
+    {
+      "task_id": "tcm_pathogenesis_candidate",
+      "proposed_group": "core",
+      "suggested_title": "中医候选病机判断",
+      "assessment": "属于诊断相关判断；100 题来自 50 病例，判断是否在原答案集合内，不是 100 个独立诊断病例或原多选整题准确率。"
+    },
+    {
+      "task_id": "prescription_audit_action",
+      "proposed_group": "workflow",
+      "suggested_title": "中药处方审核规范情境问答",
+      "assessment": "11 题多为一般审核规范、签名或用量规则，没有完整患者与处方；有政策时效和适用范围条件，暂不当作个体处方适宜性评测。"
+    },
+    {
+      "task_id": "nutrition_plan",
+      "proposed_group": "core",
+      "suggested_title": "营养与饮食方案选择",
+      "assessment": "方向适合，仅 11 题且混合营养途径、摄入量与饮食指导；作为子类分层。"
+    },
+    {
+      "task_id": "positioning_choice",
+      "proposed_group": "core",
+      "suggested_title": "护理与操作体位选择",
+      "assessment": "方向适合，仅 10 题，覆盖病情和操作两类情境；作为护理子类。"
+    },
+    {
+      "task_id": "followup_plan",
+      "proposed_group": "core",
+      "suggested_title": "复查项目与随访时机选择",
+      "assessment": "方向适合，仅 6 题且项目与时机混合；区别于文书待办提取。"
+    },
+    {
+      "task_id": "monitoring_target",
+      "proposed_group": "core",
+      "suggested_title": "病情监测与疗效判断",
+      "assessment": "5 题中既有监测变量选择，也有疗效不满意的判据；原题名偏窄，建议细分标签而非新增独立任务。"
+    },
+    {
+      "task_id": "rehabilitation_choice",
+      "proposed_group": "core",
+      "suggested_title": "康复训练方案选择",
+      "assessment": "有患者功能状态和行动选项，方向适合，但只有 4 题，不能据此判断稳定训练增益。"
+    },
+    {
+      "task_id": "prevention_choice",
+      "proposed_group": "core",
+      "suggested_title": "预防措施选择",
+      "assessment": "13 题混合个体、接触者及群体防控措施；原个体预防名称偏窄，需按作用对象分层。"
+    },
+    {
+      "task_id": "infection_precaution",
+      "proposed_group": "core",
+      "suggested_title": "感染防控措施选择",
+      "assessment": "方向适合，仅 5 题，包含患者隔离及器械消毒，不能统称个体治疗决策。"
+    },
+    {
+      "task_id": "patient_counseling",
+      "proposed_group": "core",
+      "suggested_title": "健康教育与沟通行动选择",
+      "assessment": "11 题从原选项选择教育重点、方式或沟通话语，属于封闭行动选择；分开报告临床教育内容和沟通技巧。"
+    },
+    {
+      "task_id": "administration_route_choice",
+      "proposed_group": "core",
+      "suggested_title": "给药途径与实施方法选择",
+      "assessment": "方向适合，仅 4 题，包含途径、皮试浓度和脱敏注射方法；不等同原文途径关联。"
+    },
+    {
+      "task_id": "consent_action",
+      "proposed_group": "core",
+      "suggested_title": "知情同意与隐私处置选择",
+      "assessment": "只有 3 题，存在伦理和法律语境差异；暂作行动选择探索项，不证明跨地区合规判断能力。"
+    }
+  ]
+}
