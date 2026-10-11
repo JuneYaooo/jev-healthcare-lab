@@ -11,6 +11,7 @@ OUT = ROOT / 'assets/readme'
 SOURCES = ['results/clinical-v1/comparison.json',
            'benchmarks/medical_decision_v1/evaluation-summary.json',
            'benchmarks/medical_decision_v1/taxonomy.json']
+SOURCE_LABEL = '来源：JuneYaooo/jev-healthcare-lab'
 BG, PANEL, INK, MUTED, GREEN = '#09121d', '#111f2e', '#edf5fa', '#a5b8ca', '#5de3ba'
 COLORS = {'jev-1.13.0': GREEN, 'deepseek-flash': '#73b7ff',
           'deepseek-v4-pro': '#9aaff0', 'qwen3.8-27b': '#eda977', 'qwen3.5-9b': '#c49ade'}
@@ -66,22 +67,25 @@ def draw_charts(data, font):
 
     def canvas(title, subtitle):
         fig = plt.figure(figsize=(12, 6.8), dpi=150, facecolor=BG)
+        fig.text(.955, .984, SOURCE_LABEL, fontsize=10, color=MUTED, ha='right', va='top')
         fig.text(.045, .94, title, fontsize=24, weight='bold', va='top')
         fig.text(.045, .873, subtitle, fontsize=12, color=MUTED, va='top')
         return fig
 
     def save(fig, name):
-        fig.savefig(OUT / (name + '.svg'), facecolor=BG, metadata={'Date': None})
+        svg = OUT / (name + '.svg')
+        fig.savefig(svg, facecolor=BG, metadata={'Date': None})
+        svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines()) + '\n')
         fig.savefig(OUT / (name + '.png'), facecolor=BG)
         plt.close(fig)
 
     models = data['models']
     best, runner_up = models[:2]
     fastest = min(models, key=lambda m: m['seconds'])
-    fig = canvas('本轮结果：' + best['label'] + ' 主分数最高',
+    fig = canvas('医疗决策场景 · JEV 评测｜总分与用时',
                  f"{data['records']:,} 道相同题目 · {data['tested_tasks']} 个有题任务 · {len(models)} 个模型")
     fig.text(.045, .785, f"{best['score']:.2f}%", fontsize=36, color=GREEN, weight='bold')
-    fig.text(.285, .80, f"领先第二名 {best['score'] - runner_up['score']:.2f} 个百分点", fontsize=15)
+    fig.text(.285, .80, f"{best['label']} 领先第二名 {best['score'] - runner_up['score']:.2f} 个百分点", fontsize=15)
     fig.text(.285, .759, f"平均用时最短：{fastest['label']} · {fastest['seconds']:.3f} 秒/题", fontsize=13, color=MUTED)
     for rect, field, limit, ticks, title in [
             ([.245, .205, .335, .44], 'score', 105, [0, 25, 50, 75, 100], '临床主分数 ↑'),
@@ -107,7 +111,7 @@ def draw_charts(data, font):
     fig.text(.045, .052, '用时包含网络与等待，受平台条件影响。本轮差值不代表统计显著性或临床有效性。', fontsize=11, color=MUTED)
     save(fig, 'performance-v1')
 
-    fig = canvas('场景表现：优势与差距分别看', '每格为场景内任务等权准确率（%） · 描边为最高值；并列均标记，全部相同不标记')
+    fig = canvas('医疗决策场景 · JEV 评测｜各场景表现', '每格为场景内任务等权准确率（%） · 描边为最高值；并列均标记，全部相同不标记')
     ax = fig.add_axes([.30, .18, .64, .59], facecolor=BG)
     scenes = data['scenes']
     values = [s['values'] for s in scenes]
@@ -149,7 +153,8 @@ def draw_motion(data, font):
     for y in range(0, 400, 40):
         d.line((0, y, 1200, y), fill='#102130')
     d.text((42, 26), 'JEV / HEALTHCARE LAB', font=fonts[18], fill=GREEN)
-    d.text((42, 61), 'JEV 模型医疗场景评测', font=fonts[46], fill=INK)
+    d.text((1158, 28), SOURCE_LABEL, font=fonts[18], fill=MUTED, anchor='ra')
+    d.text((42, 61), '医疗决策场景 · JEV 评测', font=fonts[46], fill=INK)
     d.text((44, 125), '用医疗决策类题目，评测 JEV 的准确率与用时，并与其他模型对比。', font=fonts[22], fill=MUTED)
     xs, y = [125, 438, 751, 1064], 213
     labels = ['病例与规则', '候选决策', 'JEV / 对照模型', '评分与用时']
