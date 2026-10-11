@@ -4,7 +4,7 @@
 
 **8 个医疗场景、7 个能力标签、29 个任务定义。** 其中 26 个任务有题，共 1,514 题（中文 1,080 题），采用 11 个数据来源。3 个任务待补；11 个不足 20 题的任务作为探索项，暂不进入汇总。当前尚无模型对比成绩。
 
-[场景与任务](#场景与任务) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md) · [下载与使用](#下载与使用)
+[场景与任务](#场景与任务) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)
 
 ## 能力维度
 
@@ -111,43 +111,6 @@
 病例诊断的两个来源子集合并为一个任务。汇总先对场景内达到 20 题的任务等权，再对有分数场景等权；不足 20 题仅给探索结果，空任务不计零分。题量门槛按本次所选许可范围计算。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。
 
 **现有工具支持离线质量评分，尚未实现模型调用和耗时采集。** 详细口径见 [评测方法](docs/EVALUATION.md)。
-
-## 下载与使用
-
-| 数据包 | 题数 | 使用范围 |
-| --- | --- | --- |
-| [临床主评测 · 开放许可](releases/jev-medical-decision-clinical-open.zip) | 1284 | 遵守各来源署名、相同方式共享等条款 |
-| [临床主评测 · 非商业附加](releases/jev-medical-decision-clinical-research-noncommercial.zip) | 230 | 保留非商业等限制；与开放部分分开报告 |
-
-[辅助数据包与全部校验和](releases/README.md)。解压后进入包目录执行（Python 3.10+，仅标准库）：
-
-```bash
-python3 tools/medical_decision_release.py verify --dataset .
-python3 tools/medical_decision_release.py score --dataset . --predictions predictions.jsonl --output scores.json
-```
-
-读取包内 requests.jsonl，只把 request 发给模型。预测文件每行一条，以下使用一个实际题号演示，choice 应填模型返回的选项键：
-
-```json
-{"id": "medication_choice:cmb:484", "choice": "模型返回的选项键"}
-```
-
-scores.json 的 task_families 保存合并后的逐任务结果，tasks 保留来源子集结果。逐题耗时记录通过题目编号关联。仓库内导出默认同样只选择临床主评测的开放许可部分：
-
-```bash
-python3 scripts/medical_decision_dataset.py export --output work/clinical-requests.jsonl
-python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/clinical-scores.json
-```
-
-## 数据来源与评测边界
-
-每题保留原始资源地址、固定快照、文件哈希、原记录位置及答案映射。材料包含考试病例、模拟病例、重构咨询和指南规则，各来源说明页标明性质与许可；尚未经过本项目独立医生逐题审核。
-
-辅助计算、风险预测、流程核对和文本标注放在 [辅助目录](docs/tasks/AUXILIARY.md)，须显式指定 --scope auxiliary，不能混入临床主分数。“目标患者回答证据是否出现”因姓名捷径暂停使用，不导出、不评分、不打包。
-
-[任务范围调整依据](docs/TASK_SCOPE_REVIEW.md) · [来源登记](docs/datasets/README.md) · [使用与复建](docs/REPRODUCING.md)
-
-训练对比需要检查上游训练划分、模型暴露和共享病例，并冻结相同子集。公开试题和小样本结果不能作为未暴露盲测或临床有效性证明。
 
 ## 许可
 
