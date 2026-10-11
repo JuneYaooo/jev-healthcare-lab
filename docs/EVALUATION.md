@@ -253,7 +253,7 @@ python3 scripts/generate_catalog_docs.py --check
 
 非商业部分来自 [CARE-Bench](datasets/care_bench.md) 100 题、[TCM-SD](datasets/tcm_sd.md) 100 题和 [PMR-Synth](datasets/pmr_synth.md) 30 题。CARE-Bench 与 PMR-Synth 使用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)，TCM-SD 使用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)，后者另有相同方式共享要求。开放许可例如 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 允许商业使用，但要求署名。每个来源的具体许可证见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。
 
-“公开下载”不等于“可用于任何用途”；仓库代码的 MIT 许可不会改变原题材料的许可。默认导出与评分仅选择 `open`；加 `--include-research` 纳入同一范围的非商业材料。两种题目范围应分别标清，不能直接比较不同题目集合的总分。
+“公开下载”不等于“可用于任何用途”；原题材料保留各自来源的许可。默认导出与评分仅选择 `open`；加 `--include-research` 纳入同一范围的非商业材料。两种题目范围应分别标清，不能直接比较不同题目集合的总分。
 
 ## 数据与使用边界
 

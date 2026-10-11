@@ -1711,7 +1711,7 @@ def build(config, cache, output):
 
 
 def generate_docs(output, builder, summary):
-    source_lines = ["# 数据来源与引用\n", "各来源分别保留其数据许可；本仓库代码的 MIT 许可不改变题目材料的许可。`research_noncommercial` 为研究/非商业附加部分，不计入默认开放许可核心分数。\n"]
+    source_lines = ["# 数据来源与引用\n", "各来源分别保留其数据许可。`research_noncommercial` 为研究/非商业附加部分，不计入默认开放许可核心分数。\n"]
     for sid, source in builder.sources.items():
         source_lines += ["## " + source["name"] + "\n", "来源：[发布方](" + source["url"] + ")。\n"]
         if source["distribution"] == "reference_only":

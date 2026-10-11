@@ -1,6 +1,6 @@
 # Third-party data and attribution
 
-The medical decision dataset combines selected records and annotations from upstream datasets. The repository's [MIT code license](LICENSE) does not relicense third-party text, annotations, or other source material. Adapted questions retain the corresponding source license.
+The medical decision dataset combines selected records and annotations from upstream datasets. Adapted questions retain the corresponding source license.
 
 The [source register](benchmarks/medical_decision_v1/SOURCES.md) provides each source's publisher, citation, license, material type, and answer provenance. Original license and citation evidence is retained under `benchmarks/medical_decision_v1/sources/`. Each sample records its source, pinned resource version, URL, SHA-256, annotation locator, and adaptation metadata.
 

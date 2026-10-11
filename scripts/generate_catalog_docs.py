@@ -351,8 +351,9 @@ def render():
 
     used_tags = sorted({d for f in families for d in f['ability_tags']})
     parts = ['# Jev Healthcare Lab',
-        '用于逐任务比较 **JEV 与其他模型的医疗决策准确率和完整运行耗时**。主评测围绕病例诊断、检查、治疗、用药、分诊、护理、随访与试验转介，要求从给定候选中作出选择；不包含自由生成任务。',
-        f"**{len(scenes)} 个医疗场景、{len(used_tags)} 个能力标签、{clinical['defined_families']} 个任务定义。** 其中 {clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题（中文 {clinical['languages'].get('zh', 0):,} 题），采用 {len(clinical['sources'])} 个数据来源。{sum(f['status'] == 'empty' for f in families)} 个任务待补；全部 {clinical['populated_families']} 个有题任务计入总分，其中 {sum(f['small_sample'] for f in families)} 个不足 20 题，标记为小样本。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
+        '本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率和完整运行耗时。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。',
+        f"评测按 **{len(scenes)} 个医疗场景、{clinical['defined_families']} 个任务**组织：从接诊与分诊、检查与检验、诊断与鉴别，到治疗与用药、住院与护理、出院与随访，并涵盖临床试验筛选和病历与医疗质量控制。",
+        f"目前 **{clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题**（中文 {clinical['languages'].get('zh', 0):,} 题），来自 {len(clinical['sources'])} 个数据来源；另有 {sum(f['status'] == 'empty' for f in families)} 个任务待补。任务另按 {len(used_tags)} 个能力标签标注。全部有题任务计入总分，其中 {sum(f['small_sample'] for f in families)} 个不足 20 题，标记为小样本。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
         '[场景与任务](#场景与任务) · [评测方案：请求与提示词](docs/EVALUATION.md) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)',
         '## 能力维度',
         '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
@@ -399,7 +400,7 @@ def render():
             for i, m in enumerate(models)], numeric_from=1),
             '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
             '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)'])
-    parts.extend(['## 许可', '代码采用 [MIT](LICENSE)。第三方数据保留原许可，代码许可不覆盖题目材料；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
+    parts.extend(['## 许可', '第三方数据保留各自的原始许可；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
     output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
     return output
 

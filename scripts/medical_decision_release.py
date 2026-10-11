@@ -110,7 +110,6 @@ def package_files(dataset, distribution, scope="clinical"):
             files[entry['path']] = raw
     for name in ["medical_decision_dataset.py", "medical_decision_release.py"]:
         files["tools/" + name] = (ROOT / "scripts" / name).read_bytes()
-    files["LICENSE-CODE.txt"] = (ROOT / "LICENSE").read_bytes()
     count = Counter(r["task"] for r in rows)
     family_count = len({policy["tasks"][r["task"]]["family"] for r in rows})
     summary = {"dataset_version": taxonomy["version"], "distribution": distribution, "evaluation_scope": scope,
@@ -123,7 +122,7 @@ def package_files(dataset, distribution, scope="clinical"):
                "package_revision": 1, "use": "frozen_evaluation", "model_evaluation_performed": False}
     js("release.json", summary)
     notices = ["# 数据许可与来源署名", "",
-               "本包是多个来源的选题合集，各题按 provenance.data_license 保留原许可；题目适配随相应来源许可提供。代码的 MIT 许可不覆盖第三方材料。", "",
+               "本包是多个来源的选题合集，各题按 provenance.data_license 保留原许可；题目适配随相应来源许可提供。", "",
                "开放核心包没有纳入非商业限制来源，但部分材料有相同方式共享要求；开放使用不等于无条件使用。非商业附加包不能作为开放核心包再许可。", "",
                "| 来源 | 题数 | 数据许可 |", "| --- | ---: | --- |"]
     for sid, card in cards.items():
@@ -175,7 +174,7 @@ def package_files(dataset, distribution, scope="clinical"):
 def verify(dataset):
     manifest = json.loads((dataset / "manifest.json").read_text())
     required = {"samples.jsonl", "requests.jsonl", "answers.jsonl", "provenance.jsonl", "taxonomy.json",
-                "sources.json", "sources.lock.json", "evaluation_scope.json", "release.json", "LICENSE-CODE.txt", "LICENSE-DATA.md",
+                "sources.json", "sources.lock.json", "evaluation_scope.json", "release.json", "LICENSE-DATA.md",
                 "tools/medical_decision_dataset.py", "tools/medical_decision_release.py"}
     if not required <= set(manifest["files"]):
         raise ValueError("Incomplete package manifest")
