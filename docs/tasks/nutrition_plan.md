@@ -44,11 +44,11 @@
 
 | 模型 | 准确率 ↑ | 有效回答 / 题数 | 平均秒 ↓ | P50 秒 ↓ | P95 秒 ↓ | 任务总秒 ↓ | 超时 / 请求失败 / 无效回答 | 原始记录 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| JEV 1.13 | **72.73%** | 11 / 11 | 0.848 | 0.855 | 0.905 | 1.722 | 0 / 0 / 0 | [配置](../../results/clinical-20261012/jev-1.13.0/config.json) · [响应](../../results/clinical-20261012/jev-1.13.0/responses.jsonl) · [评分](../../results/clinical-20261012/jev-1.13.0/scores.json) |
-| DeepSeek V4.1 Flash | **72.73%** | 11 / 11 | **0.445** | **0.433** | **0.608** | **0.937** | 0 / 0 / 0 | [配置](../../results/clinical-20261012/deepseek-flash/config.json) · [响应](../../results/clinical-20261012/deepseek-flash/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-flash/scores.json) |
-| DeepSeek V4 Pro | **72.73%** | 11 / 11 | 1.165 | 1.211 | 1.485 | 2.006 | 0 / 0 / 0 | [配置](../../results/clinical-20261012/deepseek-v4-pro/config.json) · [响应](../../results/clinical-20261012/deepseek-v4-pro/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-v4-pro/scores.json) |
-| Qwen3.5-9B | 45.45% | 11 / 11 | 1.335 | 0.734 | 7.403 | 7.405 | 0 / 0 / 0 | [配置](../../results/clinical-20261012/qwen3.5-9b/config.json) · [响应](../../results/clinical-20261012/qwen3.5-9b/responses.jsonl) · [评分](../../results/clinical-20261012/qwen3.5-9b/scores.json) |
-| Qwen3.8-27B | 45.45% | 11 / 11 | 1.470 | 1.739 | 1.910 | 2.553 | 0 / 0 / 0 | [配置](../../results/clinical-20261012/qwen3.8-27b/config.json) · [响应](../../results/clinical-20261012/qwen3.8-27b/responses.jsonl) · [评分](../../results/clinical-20261012/qwen3.8-27b/scores.json) |
+| JEV 1.13 | **72.73%** | 11 / 11 | 0.848 | 0.855 | 0.905 | 1.722 | 0 / 0 / 0 | [配置](../../results/clinical-v1/jev-1.13.0/config.json) · [响应](../../results/clinical-v1/jev-1.13.0/responses.jsonl) · [评分](../../results/clinical-v1/jev-1.13.0/scores.json) |
+| DeepSeek V4.1 Flash | **72.73%** | 11 / 11 | **0.445** | **0.433** | **0.608** | **0.937** | 0 / 0 / 0 | [配置](../../results/clinical-v1/deepseek-flash/config.json) · [响应](../../results/clinical-v1/deepseek-flash/responses.jsonl) · [评分](../../results/clinical-v1/deepseek-flash/scores.json) |
+| DeepSeek V4 Pro | **72.73%** | 11 / 11 | 1.165 | 1.211 | 1.485 | 2.006 | 0 / 0 / 0 | [配置](../../results/clinical-v1/deepseek-v4-pro/config.json) · [响应](../../results/clinical-v1/deepseek-v4-pro/responses.jsonl) · [评分](../../results/clinical-v1/deepseek-v4-pro/scores.json) |
+| Qwen3.5-9B | 45.45% | 11 / 11 | 1.335 | 0.734 | 7.403 | 7.405 | 0 / 0 / 0 | [配置](../../results/clinical-v1/qwen3.5-9b/config.json) · [响应](../../results/clinical-v1/qwen3.5-9b/responses.jsonl) · [评分](../../results/clinical-v1/qwen3.5-9b/scores.json) |
+| Qwen3.8-27B | 45.45% | 11 / 11 | 1.470 | 1.739 | 1.910 | 2.553 | 0 / 0 / 0 | [配置](../../results/clinical-v1/qwen3.8-27b/config.json) · [响应](../../results/clinical-v1/qwen3.8-27b/responses.jsonl) · [评分](../../results/clinical-v1/qwen3.8-27b/scores.json) |
 
 ## 收录样例
 

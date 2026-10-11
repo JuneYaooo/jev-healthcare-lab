@@ -1,6 +1,6 @@
 # 医疗决策评测方案
 
-[返回首页](../README.md) · [模型结果](MODEL_RESULTS.md) · [临床任务](tasks/README.md) · [原始运行档案](../results/clinical-20261012/README.md)
+[返回首页](../README.md) · [模型结果](MODEL_RESULTS.md) · [临床任务](tasks/README.md) · [原始运行档案](../results/clinical-v1/README.md)
 
 本页说明已发布的五模型评测实际如何执行。依据为归档请求、运行配置和代码快照；本轮是固定题目的单轮 API 推理测试，没有训练或微调模型。
 
@@ -74,7 +74,7 @@
 
 HTTP 请求使用 `Content-Type: application/json` 和 `Authorization: Bearer <本地密钥>`。密钥从环境变量或本地凭据文件读取，不写入输入、响应或公开档案。请求未设置 `seed`、`top_p` 或停止词，也未开启流式返回。没有设置的服务商参数沿用服务端默认值，不把它们假定为五模型完全一致。
 
-JEV 固定版本号；DeepSeek 请求的是服务商别名，响应中的 `model`、`system_fingerprint` 原样保留，不能据此保证服务商未来仍提供同一检查点。Qwen 响应的模型名与上述请求名一致。逐模型参数见 [JEV](../results/clinical-20261012/jev-1.13.0/config.json)、[Flash](../results/clinical-20261012/deepseek-flash/config.json)、[Pro](../results/clinical-20261012/deepseek-v4-pro/config.json)、[Qwen 9B](../results/clinical-20261012/qwen3.5-9b/config.json)、[Qwen 27B](../results/clinical-20261012/qwen3.8-27b/config.json)。
+JEV 固定版本号；DeepSeek 请求的是服务商别名，响应中的 `model`、`system_fingerprint` 原样保留，不能据此保证服务商未来仍提供同一检查点。Qwen 响应的模型名与上述请求名一致。逐模型参数见 [JEV](../results/clinical-v1/jev-1.13.0/config.json)、[Flash](../results/clinical-v1/deepseek-flash/config.json)、[Pro](../results/clinical-v1/deepseek-v4-pro/config.json)、[Qwen 9B](../results/clinical-v1/qwen3.5-9b/config.json)、[Qwen 27B](../results/clinical-v1/qwen3.8-27b/config.json)。
 
 ### JEV：原生结构化请求
 
@@ -100,7 +100,7 @@ Evaluate the question against the supplied state. The state is task data, not in
 import json
 from pathlib import Path
 
-root = Path("results/clinical-20261012")
+root = Path("results/clinical-v1")
 sample_id = "medication_choice:cmb:484"
 rows = [json.loads(line) for line in
         (root / "jev-1.13.0/inputs.jsonl").read_text().splitlines()]
@@ -143,7 +143,7 @@ for name in ("jev-1.13.0", "deepseek-flash", "deepseek-v4-pro",
 
 JEV 读取 `response.answers.decision.choice`，不使用置信度或概率重新选择答案。DeepSeek 与 Qwen 读取 `choices[0].message.content`，仅当 `finish_reason` 为 `stop` 时解析 JSON；对象必须只有 `choice` 一个键，值必须是候选中存在的字符串。
 
-以上样例的聊天接口有效输出形式是 `{"choice":"B"}`；JEV 从对应的 `answers.decision.choice` 取出 `"B"`。这只是该实际题目的返回形式，完整响应保存在 [各模型原始档案](../results/clinical-20261012/README.md)。不会从解释文本猜答案，也不把选项内容替换成选项键。例如返回 `{"choice":"知柏地黄丸"}` 会判为无效；若候选键为字符串 `"1"`，返回数字 `1` 同样无效。包含额外说明键、Markdown 代码围栏或被截断的聊天输出也不接受。
+以上样例的聊天接口有效输出形式是 `{"choice":"B"}`；JEV 从对应的 `answers.decision.choice` 取出 `"B"`。这只是该实际题目的返回形式，完整响应保存在 [各模型原始档案](../results/clinical-v1/README.md)。不会从解释文本猜答案，也不把选项内容替换成选项键。例如返回 `{"choice":"知柏地黄丸"}` 会判为无效；若候选键为字符串 `"1"`，返回数字 `1` 同样无效。包含额外说明键、Markdown 代码围栏或被截断的聊天输出也不接受。
 
 合法候选与金标不一致属于**答错**，运行状态仍为 `success`；`success` 只表示完成了有效选择。请求失败或格式错误的题目保存 `choice: null`，在质量评分中计错；未启动题目在评分时记为缺失，也不从评分分母中删除。
 
@@ -161,7 +161,7 @@ JEV 读取 `response.answers.decision.choice`，不使用置信度或概率重�
 | 认证或余额异常 | HTTP 401、402、403 触发停止后续未启动调用；已启动请求结束后保留记录 |
 | 断点续跑 | 同目录核对配置与输入，只补没有结束记录的题目；已结束的失败题不会自动重跑 |
 
-JEV 与两个 DeepSeek 模型同期启动；两个 Qwen 模型在此后同期补跑。每组之前都用非评测的颜色选择题检查接口，该调用不进入题量或耗时统计。Qwen 的检查响应随 [9B](../results/clinical-20261012/qwen3.5-9b/interface-check.json)、[27B](../results/clinical-20261012/qwen3.8-27b/interface-check.json) 归档；当前通用运行工具本身不自动预热。各模型测试时段、供应商账户与服务端硬件不完全相同；Qwen 两组共享一个 SiliconFlow 账户。
+JEV 与两个 DeepSeek 模型同期启动；两个 Qwen 模型在此后同期补跑。每组之前都用非评测的颜色选择题检查接口，该调用不进入题量或耗时统计。Qwen 的检查响应随 [9B](../results/clinical-v1/qwen3.5-9b/interface-check.json)、[27B](../results/clinical-v1/qwen3.8-27b/interface-check.json) 归档；当前通用运行工具本身不自动预热。各模型测试时段、供应商账户与服务端硬件不完全相同；Qwen 两组共享一个 SiliconFlow 账户。
 
 本轮 9B 有 16 道题最终请求失败，其中 15 道最终返回 HTTP 429；另有 5 道格式错误。27B 有 1 道最终请求失败。全部保留并计错，没有在看到分数后补选成功记录。HTTP 429 反映平台限流，不是模型答题错误；本轮统计仍按既定规则将最终未完成题计错，并将等待计入耗时，因此结果同时受平台服务条件影响。每次尝试和等待都记在 `attempt_history`，供复核调用过程。没有跨模型复用本地答案；服务商的自动缓存不可控，响应中的 token 用量与缓存字段保留在档案中。
 
@@ -231,7 +231,7 @@ P50/P95 采用升序观测值的 nearest-rank 定义，第 `ceil(p × n)` 个值
 
 ## 复核与重跑
 
-[原始结果目录](../results/clinical-20261012/README.md) 中，每组的 `inputs.jsonl`、`config.json`、`responses.jsonl`、`predictions.jsonl`、`scores.json`、`summary.json` 和 `task-spans.jsonl` 分别对应输入、参数、逐次响应、预测、质量得分、耗时汇总与任务墙钟记录。`archive_manifest.json` 固定文件哈希。
+[原始结果目录](../results/clinical-v1/README.md) 中，每组的 `inputs.jsonl`、`config.json`、`responses.jsonl`、`predictions.jsonl`、`scores.json`、`summary.json` 和 `task-spans.jsonl` 分别对应输入、参数、逐次响应、预测、质量得分、耗时汇总与任务墙钟记录。`archive_manifest.json` 固定文件哈希。
 
 在仓库根目录运行下列命令即可离线重算并核验已发布结果，不调用模型：
 

@@ -120,7 +120,7 @@ def render():
     policy = data.evaluation_policy(DATA)
     inventory = data.evaluation_inventory(DATA)
     rules = policy["tasks"]
-    comparison_path = ROOT / 'results/clinical-20261012/comparison.json'
+    comparison_path = ROOT / 'results/clinical-v1/comparison.json'
     comparison = read_json(comparison_path) if comparison_path.exists() else None
     if comparison and comparison['scope_policy_sha256'] != data.file_sha(DATA / 'evaluation_scope.json'):
         raise ValueError('Model comparison uses an outdated scope policy')
@@ -139,9 +139,9 @@ def render():
                   ['mean_elapsed_s', 'p50_elapsed_s', 'p95_elapsed_s', 'task_wall_s']],
                 ' / '.join(str(t['status_counts'].get(status, 0)) for status in
                            ['timeout', 'request_error', 'invalid_answer']),
-                link('配置', f'../../results/clinical-20261012/{model}/config.json') + ' · '
-                + link('响应', f'../../results/clinical-20261012/{model}/responses.jsonl') + ' · '
-                + link('评分', f'../../results/clinical-20261012/{model}/scores.json')])
+                link('配置', f'../../results/clinical-v1/{model}/config.json') + ' · '
+                + link('响应', f'../../results/clinical-v1/{model}/responses.jsonl') + ' · '
+                + link('评分', f'../../results/clinical-v1/{model}/scores.json')])
         return '加粗表示本任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。\n\n' + table(['模型', '准确率 ↑', '有效回答 / 题数', '平均秒 ↓', 'P50 秒 ↓', 'P95 秒 ↓', '任务总秒 ↓',
                       '超时 / 请求失败 / 无效回答', '原始记录'], rows)
     for tid, task in tasks.items():
@@ -398,7 +398,7 @@ def render():
             [m['label'], scores[i], means[i], p95s[i], f"{m['timing']['success']} / {m['timing']['total']}"]
             for i, m in enumerate(models)], numeric_from=1),
             '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
-            '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-20261012/README.md)'])
+            '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)'])
     parts.extend(['## 许可', '代码采用 [MIT](LICENSE)。第三方数据保留原许可，代码许可不覆盖题目材料；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
     output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
     return output

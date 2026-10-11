@@ -9,7 +9,7 @@ import medical_decision_dataset as data
 import run_model_evaluation as runner
 
 ROOT = Path(__file__).resolve().parents[1]
-RUNS = ROOT / 'results/clinical-20261012'
+RUNS = ROOT / 'results/clinical-v1'
 
 
 def table(headers, rows):
@@ -73,7 +73,7 @@ def render():
                         t['status_counts'].get('invalid_answer', 0),
                         t['status_counts'].get('request_error', 0), t['status_counts'].get('timeout', 0)])
     parts = ['# 医疗决策模型评测',
-             '[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-20261012/README.md)',
+             '[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-v1/README.md)',
              f'本轮比较 {model_names}。{len(models)} 个模型各测试相同的 1,514 道临床决策题，覆盖 26 个有题任务；3 个空任务不调用 API。开放许可部分为 1,284 题，非商业附加部分为 230 题。辅助任务与暂停任务不在本轮范围。',
              '## 总体结果',
              '主分数先对场景内所有有题任务等权，再对有成绩的场景等权；任务均分对全部 26 个有题任务等权。11 个不足 20 题的任务标记为小样本，仍计入总分；其成绩更易受个别题目影响。有效回答数表示返回了合法选项，不代表回答正确。',

@@ -109,7 +109,7 @@ class ModelEvaluationTests(unittest.TestCase):
 
 
 class ArchivedModelTests(unittest.TestCase):
-    root = Path(__file__).resolve().parents[1] / 'results/clinical-20261012'
+    root = Path(__file__).resolve().parents[1] / 'results/clinical-v1'
 
     def test_frozen_inputs_and_scores_match_for_all_models(self):
         inputs = None

@@ -1,6 +1,6 @@
 # 医疗决策模型评测
 
-[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-20261012/README.md)
+[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-v1/README.md)
 
 本轮比较 JEV 1.13、DeepSeek V4.1 Flash、DeepSeek V4 Pro、Qwen3.5-9B 和 Qwen3.8-27B。5 个模型各测试相同的 1,514 道临床决策题，覆盖 26 个有题任务；3 个空任务不调用 API。开放许可部分为 1,284 题，非商业附加部分为 230 题。辅助任务与暂停任务不在本轮范围。
 

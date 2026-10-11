@@ -32,7 +32,7 @@ python3 scripts/medical_decision_dataset.py score --predictions work/predictions
 
 ## 运行模型与复核结果
 
-本轮完整结果见 [模型对比](MODEL_RESULTS.md)，逐题响应与配置位于 results/clinical-20261012/。复核现有结果不调用 API：
+本轮完整结果见 [模型对比](MODEL_RESULTS.md)，逐题响应与配置位于 results/clinical-v1/。复核现有结果不调用 API：
 
 ```bash
 python3 scripts/build_model_report.py --check
