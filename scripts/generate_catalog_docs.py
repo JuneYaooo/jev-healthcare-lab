@@ -109,6 +109,17 @@ def render():
     policy = data.evaluation_policy(DATA)
     inventory = data.evaluation_inventory(DATA)
     rules = policy["tasks"]
+    comparison_path = ROOT / 'results/clinical-20261012/comparison.json'
+    comparison = read_json(comparison_path) if comparison_path.exists() else None
+    if comparison and comparison['scope_policy_sha256'] != data.file_sha(DATA / 'evaluation_scope.json'):
+        raise ValueError('Model comparison uses an outdated scope policy')
+
+    def model_task_table(family):
+        return table(['模型', '准确率', '平均完整耗时（秒）', 'P95（秒）'], [
+            [m['label'], f"{m['tasks'][family]['accuracy'] * 100:.2f}%",
+             f"{m['tasks'][family]['timing']['mean_elapsed_s']:.3f}",
+             f"{m['tasks'][family]['timing']['p95_elapsed_s']:.3f}"]
+            for m in comparison['models'].values()])
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
     by_task, by_source = defaultdict(list), defaultdict(list)
@@ -159,8 +170,12 @@ def render():
                 "## 如何作答与评分",
                 "根据材料从 `request.questions.decision.criteria` 选择一个选项键。`gold` 不向模型发送。缺失或无效回答按错计。" + ("固定语义标签计算准确率、宏 F1、召回与混淆矩阵。" if rule["label_semantics"] == "fixed" else "按各题候选独立评分，只报告准确率和来源组结果；不对局部选项键计算临床类别 F1。"),
                 "暂停任务仅保留来源与构造示例，不导出、不评分。" if rule["scope"] == "suspended" else "合并任务后，在本次所选许可范围内少于 20 题的任务仅给探索性结果，不进入汇总。20 题是最低汇总门槛，不是统计充分性或临床有效性保证。",
-                "后续比较模型时，使用相同题目子集，分别记录本任务得分、完整决策耗时与失败率。计时口径见 [评测方法](../EVALUATION.md#耗时测量与结果记录)。当前没有该任务的模型对比成绩。",
+                "本轮 JEV 与两个 DeepSeek 模型使用相同题目进行测试；完整计时与失败明细见 [模型对比](../MODEL_RESULTS.md)。" if comparison and rule['scope'] == 'clinical' else "后续比较模型时，使用相同题目子集，分别记录本任务得分、完整决策耗时与失败率。计时口径见 [评测方法](../EVALUATION.md#耗时测量与结果记录)。当前没有该任务的模型对比成绩。",
             ])
+            if comparison and rule['scope'] == 'clinical':
+                parts.extend(['## 模型结果',
+                    '以下为合并后的病例诊断任务成绩，两个来源子集共 200 题；逐来源结果保存在评分文件中。' if rule['family'] == 'diagnosis' else '以下成绩使用本页全部已收录题目；耗时包括请求、响应处理及重试等待。',
+                    model_task_table(rule['family'])])
             parts.extend(example_sections(example(rows)))
             parts.extend([
                 "## 覆盖与使用边界",
@@ -292,6 +307,8 @@ def render():
              table(['来源子集与完整样例', '题数'], [[task_link(tid), len(by_task[tid])] for tid in diagnosis['task_ids']]),
              '## 样例与来源', '两个来源子集的说明页分别给出完整输入、原选项、标准答案和溯源。以下为考试病例子集中的一题：']
     parts.extend(example_sections(example(by_task['diagnosis_choice'])))
+    if comparison:
+        parts.extend(['## 模型结果', model_task_table('diagnosis'), '[完整得分、耗时与运行条件](../MODEL_RESULTS.md)'])
     parts.extend(['## 评测边界', '考试病例与模拟病例分别报告，不能把模拟患者当成真实患者。候选数量与题型不同，比较模型时冻结同一批题目和选项。', '[返回首页](../../README.md)'])
     output[ROOT / 'docs/tasks/diagnosis.md'] = '\n\n'.join(parts) + '\n'
 
@@ -310,7 +327,7 @@ def render():
     used_tags = sorted({d for f in families for d in f['ability_tags']})
     parts = ['# Jev Healthcare Lab',
         '用于逐任务比较 **JEV 与其他模型的医疗决策准确率和完整运行耗时**。主评测围绕病例诊断、检查、治疗、用药、分诊、护理、随访与试验转介，要求从给定候选中作出选择；不包含自由生成任务。',
-        f"**{len(scenes)} 个医疗场景、{len(used_tags)} 个能力标签、{clinical['defined_families']} 个任务定义。** 其中 {clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题（中文 {clinical['languages'].get('zh', 0):,} 题），采用 {len(clinical['sources'])} 个数据来源。{sum(f['status'] == 'empty' for f in families)} 个任务待补；{sum(f['status'] == 'exploratory' for f in families)} 个不足 20 题的任务作为探索项，暂不进入汇总。当前尚无模型对比成绩。",
+        f"**{len(scenes)} 个医疗场景、{len(used_tags)} 个能力标签、{clinical['defined_families']} 个任务定义。** 其中 {clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题（中文 {clinical['languages'].get('zh', 0):,} 题），采用 {len(clinical['sources'])} 个数据来源。{sum(f['status'] == 'empty' for f in families)} 个任务待补；{sum(f['status'] == 'exploratory' for f in families)} 个不足 20 题的任务作为探索项，暂不进入汇总。" + ('已完成 JEV 与两个 DeepSeek 模型的同题评测。' if comparison else '当前尚无模型对比成绩。'),
         '[场景与任务](#场景与任务) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)',
         '## 能力维度',
         '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
@@ -326,8 +343,15 @@ def render():
     parts.extend(['## 模型得分与耗时对比',
         '每个模型使用相同题目、候选项和许可范围，分别报告逐任务准确率、完整决策耗时（均值、P50、P95）、任务总耗时及失败率。多阶段调用、工具与重试计入完整决策耗时，运行配置随结果保存。',
         '病例诊断的两个来源子集合并为一个任务。汇总先对场景内达到 20 题的任务等权，再对有分数场景等权；不足 20 题仅给探索结果，空任务不计零分。题量门槛按本次所选许可范围计算。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。',
-        '**现有工具支持离线质量评分，尚未实现模型调用和耗时采集。** 详细口径见 [评测方法](docs/EVALUATION.md)。',
-        '## 许可', '代码采用 [MIT](LICENSE)。第三方数据保留原许可，代码许可不覆盖题目材料；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
+        '详细口径见 [评测方法](docs/EVALUATION.md)。'])
+    if comparison:
+        parts.extend([table(['模型', '临床主分数', '平均完整耗时（秒）', 'P95（秒）', '有效回答 / 题数'], [
+            [m['label'], f"{m['primary_clinical_score'] * 100:.2f}%", f"{m['timing']['mean_elapsed_s']:.3f}",
+             f"{m['timing']['p95_elapsed_s']:.3f}", f"{m['timing']['success']} / {m['timing']['total']}"]
+            for m in comparison['models'].values()]),
+            '两个 DeepSeek 模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。耗时为实际 API 调用的客户端时间，包含网络和重试。',
+            '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-20261012/README.md)'])
+    parts.extend(['## 许可', '代码采用 [MIT](LICENSE)。第三方数据保留原许可，代码许可不覆盖题目材料；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
     output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
     return output
 

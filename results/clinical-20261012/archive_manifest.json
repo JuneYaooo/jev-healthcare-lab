@@ -1,0 +1,30 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "README.md": "5be6e499878465de0575676c8370192f0e04a68b1c8ce085c1d54be1ccd7fd05",
+    "comparison.json": "92d7a82c1527d5607d53ddab683f342df8194e9367e931e9b9aee81540a2db83",
+    "deepseek-flash/config.json": "346d83af3c3d2c7d94bdcfdfc84c618a8db0b4e3ca8228b841308e4199d265aa",
+    "deepseek-flash/inputs.jsonl": "f1e08db5c79d38cddcf879448f9ec6d5062411e99963978b04da2272eea73ab7",
+    "deepseek-flash/predictions.jsonl": "0e2cef6411a007bf50e6eb9bbca04b4be20587d3d59e6425f941f0e54582a13c",
+    "deepseek-flash/responses.jsonl": "20a95ab5b9f354f6e8bc90f5ba0275d9d36da7426017d46e89f605329dd48692",
+    "deepseek-flash/scores.json": "7136337cbecb41939a191e2db401a14340e6eb73e19d63ed6992f1c282f02ee4",
+    "deepseek-flash/summary.json": "010596be2df1c0a8659a91cf83e47fad7c18757720635b5890db02031b644226",
+    "deepseek-flash/task-spans.jsonl": "5ce9cb7d64c0e35153b1db29b81f8730b6816cb8db8b0d33944d4ec867cc1cee",
+    "deepseek-v4-pro/config.json": "3350bab06ed940741473f4e20180b445e18e6dc622e1d95c25d96a4b4f31938f",
+    "deepseek-v4-pro/inputs.jsonl": "f1e08db5c79d38cddcf879448f9ec6d5062411e99963978b04da2272eea73ab7",
+    "deepseek-v4-pro/predictions.jsonl": "ece567d3260c9ab64ce48d037c791aafb5c87ebece037d4ef4f880a0bef6c205",
+    "deepseek-v4-pro/responses.jsonl": "e5d68a6f95872eefcbed2f261b2c685de3fc69fadfc5aba56b395e2380ffbe0b",
+    "deepseek-v4-pro/scores.json": "bec68d77722ade520412a56c0db11cbd4a7888093aa05bec4b3eb0675ee8b124",
+    "deepseek-v4-pro/summary.json": "cab69e8380d9d10b701e1456c253eb3b04ebd86625737dd3d99bd7bcb0ceefb9",
+    "deepseek-v4-pro/task-spans.jsonl": "69652470e0cfdc1467f95f40cfbe2c9800d1412e9810c6a120eefffe8bef8bee",
+    "jev-1.13.0/config.json": "7a1d3510ecf12a86219641d70fc766945accaaa212458f467c75f48832a38d97",
+    "jev-1.13.0/inputs.jsonl": "f1e08db5c79d38cddcf879448f9ec6d5062411e99963978b04da2272eea73ab7",
+    "jev-1.13.0/predictions.jsonl": "dcc3d9b521754cc143b505ff23b03e2e9a7d50fca8e8bb36d8148d2e3fe4301a",
+    "jev-1.13.0/responses.jsonl": "34f924a7000027976fbc2e6bd7c66618fec6056ad6d35283d2acc93848d4b56f",
+    "jev-1.13.0/scores.json": "06f58263c03ad015247a39b43afaaefb5705394dea5f866487bba37eae016c37",
+    "jev-1.13.0/summary.json": "58b3d604d14703934b8e7e0063f1425abaefed0fcb35a5e4cf35743aa59b0c8a",
+    "jev-1.13.0/task-spans.jsonl": "a3b1c7ba8499874e7e47a8be86f16033ad01559ecdefd4d837d83d6f0dbe15a3",
+    "tools/medical_decision_dataset.py": "e2e4e872b98b9be14a2a24d6d808a4d46caad29a92c920e5517f180eacc18d37",
+    "tools/run_model_evaluation.py": "9c38daf2786aae158e19afe953e3ae9dd0c162d95b127e9f3f2cccb0364b2ce1"
+  }
+}

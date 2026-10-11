@@ -1,0 +1,743 @@
+{
+  "run_id": "deepseek-flash",
+  "complete": true,
+  "model": "deepseek-flash",
+  "resolved_models": [
+    "deepseek-flash"
+  ],
+  "overall_timing": {
+    "total": 1514,
+    "attempted": 1514,
+    "not_started": 0,
+    "success": 1505,
+    "status_counts": {
+      "success": 1505,
+      "invalid_answer": 9
+    },
+    "mean_elapsed_s": 0.5091230136095829,
+    "p50_elapsed_s": 0.46438379198662005,
+    "p95_elapsed_s": 0.7590736669953912,
+    "task_wall_s": null,
+    "task_segments": [],
+    "timeout_rate": 0.0,
+    "request_error_rate": 0.0,
+    "invalid_answer_rate": 0.0059445178335535,
+    "retries": 4
+  },
+  "task_timing": {
+    "administration_route_choice": {
+      "total": 4,
+      "attempted": 4,
+      "not_started": 0,
+      "success": 4,
+      "status_counts": {
+        "success": 4
+      },
+      "mean_elapsed_s": 0.5757692502447753,
+      "p50_elapsed_s": 0.46574679197510704,
+      "p95_elapsed_s": 0.8324940000020433,
+      "task_wall_s": 0.8366922090062872,
+      "task_segments": [
+        {
+          "completed": 4,
+          "ended_at": "2026-10-11T16:21:06.742231+00:00",
+          "family": "administration_route_choice",
+          "selected": 4,
+          "started_at": "2026-10-11T16:21:05.905539+00:00",
+          "wall_s": 0.8366922090062872
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "case_complication": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.4386448995885439,
+      "p50_elapsed_s": 0.4329150420089718,
+      "p95_elapsed_s": 0.578804124990711,
+      "task_wall_s": 5.668591459019808,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:21:12.411606+00:00",
+          "family": "case_complication",
+          "selected": 100,
+          "started_at": "2026-10-11T16:21:06.742994+00:00",
+          "wall_s": 5.668591459019808
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "case_etiology": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.4784400921408087,
+      "p50_elapsed_s": 0.4750446250254754,
+      "p95_elapsed_s": 0.6980519999924581,
+      "task_wall_s": 6.2357832079869695,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:21:18.647972+00:00",
+          "family": "case_etiology",
+          "selected": 100,
+          "started_at": "2026-10-11T16:21:12.412173+00:00",
+          "wall_s": 6.2357832079869695
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "clinical_grade": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 95,
+      "status_counts": {
+        "success": 95,
+        "invalid_answer": 5
+      },
+      "mean_elapsed_s": 0.4695712095990893,
+      "p50_elapsed_s": 0.45470941698295064,
+      "p95_elapsed_s": 0.7077496669953689,
+      "task_wall_s": 6.228549666993786,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:21:24.877143+00:00",
+          "family": "clinical_grade",
+          "selected": 100,
+          "started_at": "2026-10-11T16:21:18.648595+00:00",
+          "wall_s": 6.228549666993786
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.05,
+      "retries": 0
+    },
+    "consent_action": {
+      "total": 3,
+      "attempted": 3,
+      "not_started": 0,
+      "success": 3,
+      "status_counts": {
+        "success": 3
+      },
+      "mean_elapsed_s": 0.3503938196712018,
+      "p50_elapsed_s": 0.39136041700839996,
+      "p95_elapsed_s": 0.39155270901392214,
+      "task_wall_s": 0.3927827500156127,
+      "task_segments": [
+        {
+          "completed": 3,
+          "ended_at": "2026-10-11T16:21:25.270318+00:00",
+          "family": "consent_action",
+          "selected": 3,
+          "started_at": "2026-10-11T16:21:24.877548+00:00",
+          "wall_s": 0.3927827500156127
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "diagnosis": {
+      "total": 200,
+      "attempted": 200,
+      "not_started": 0,
+      "success": 200,
+      "status_counts": {
+        "success": 200
+      },
+      "mean_elapsed_s": 0.5857452125147392,
+      "p50_elapsed_s": 0.4732745000219438,
+      "p95_elapsed_s": 0.7772454170044512,
+      "task_wall_s": 24.20877679201658,
+      "task_segments": [
+        {
+          "completed": 200,
+          "ended_at": "2026-10-11T16:21:49.478789+00:00",
+          "family": "diagnosis",
+          "selected": 200,
+          "started_at": "2026-10-11T16:21:25.270488+00:00",
+          "wall_s": 24.20877679201658
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 1
+    },
+    "examination_choice": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 98,
+      "status_counts": {
+        "success": 98,
+        "invalid_answer": 2
+      },
+      "mean_elapsed_s": 0.47899205374880693,
+      "p50_elapsed_s": 0.4475324169907253,
+      "p95_elapsed_s": 0.7677126670023426,
+      "task_wall_s": 6.302434417011682,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:21:55.781784+00:00",
+          "family": "examination_choice",
+          "selected": 100,
+          "started_at": "2026-10-11T16:21:49.479392+00:00",
+          "wall_s": 6.302434417011682
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.02,
+      "retries": 0
+    },
+    "fluid_plan": {
+      "total": 16,
+      "attempted": 16,
+      "not_started": 0,
+      "success": 14,
+      "status_counts": {
+        "success": 14,
+        "invalid_answer": 2
+      },
+      "mean_elapsed_s": 0.5886420129390899,
+      "p50_elapsed_s": 0.5575817079807166,
+      "p95_elapsed_s": 0.8711220409895759,
+      "task_wall_s": 1.485142250021454,
+      "task_segments": [
+        {
+          "completed": 16,
+          "ended_at": "2026-10-11T16:21:57.267874+00:00",
+          "family": "fluid_plan",
+          "selected": 16,
+          "started_at": "2026-10-11T16:21:55.782734+00:00",
+          "wall_s": 1.485142250021454
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.125,
+      "retries": 0
+    },
+    "followup_plan": {
+      "total": 6,
+      "attempted": 6,
+      "not_started": 0,
+      "success": 6,
+      "status_counts": {
+        "success": 6
+      },
+      "mean_elapsed_s": 0.46772566667641513,
+      "p50_elapsed_s": 0.4370313750114292,
+      "p95_elapsed_s": 0.5527910000237171,
+      "task_wall_s": 0.5547739169851411,
+      "task_segments": [
+        {
+          "completed": 6,
+          "ended_at": "2026-10-11T16:21:57.823213+00:00",
+          "family": "followup_plan",
+          "selected": 6,
+          "started_at": "2026-10-11T16:21:57.268440+00:00",
+          "wall_s": 0.5547739169851411
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "infection_precaution": {
+      "total": 5,
+      "attempted": 5,
+      "not_started": 0,
+      "success": 5,
+      "status_counts": {
+        "success": 5
+      },
+      "mean_elapsed_s": 0.4647203415981494,
+      "p50_elapsed_s": 0.4751634999993257,
+      "p95_elapsed_s": 0.5689601660124026,
+      "task_wall_s": 0.5709106249851175,
+      "task_segments": [
+        {
+          "completed": 5,
+          "ended_at": "2026-10-11T16:21:58.394618+00:00",
+          "family": "infection_precaution",
+          "selected": 5,
+          "started_at": "2026-10-11T16:21:57.823714+00:00",
+          "wall_s": 0.5709106249851175
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "medication_choice": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.5186456917205942,
+      "p50_elapsed_s": 0.4862319589883555,
+      "p95_elapsed_s": 0.9460219999891706,
+      "task_wall_s": 7.049250709009357,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:22:05.444654+00:00",
+          "family": "medication_choice",
+          "selected": 100,
+          "started_at": "2026-10-11T16:21:58.395404+00:00",
+          "wall_s": 7.049250709009357
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "message_urgency_pair": {
+      "total": 30,
+      "attempted": 30,
+      "not_started": 0,
+      "success": 30,
+      "status_counts": {
+        "success": 30
+      },
+      "mean_elapsed_s": 0.496497772266351,
+      "p50_elapsed_s": 0.4523205000150483,
+      "p95_elapsed_s": 0.9258093329844996,
+      "task_wall_s": 2.392473207990406,
+      "task_segments": [
+        {
+          "completed": 30,
+          "ended_at": "2026-10-11T16:22:07.837289+00:00",
+          "family": "message_urgency_pair",
+          "selected": 30,
+          "started_at": "2026-10-11T16:22:05.444838+00:00",
+          "wall_s": 2.392473207990406
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "monitoring_target": {
+      "total": 5,
+      "attempted": 5,
+      "not_started": 0,
+      "success": 5,
+      "status_counts": {
+        "success": 5
+      },
+      "mean_elapsed_s": 0.4334104584006127,
+      "p50_elapsed_s": 0.4308212499890942,
+      "p95_elapsed_s": 0.5440155830001459,
+      "task_wall_s": 0.5467862080258783,
+      "task_segments": [
+        {
+          "completed": 5,
+          "ended_at": "2026-10-11T16:22:08.384752+00:00",
+          "family": "monitoring_target",
+          "selected": 5,
+          "started_at": "2026-10-11T16:22:07.837962+00:00",
+          "wall_s": 0.5467862080258783
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "nursing_priority": {
+      "total": 42,
+      "attempted": 42,
+      "not_started": 0,
+      "success": 42,
+      "status_counts": {
+        "success": 42
+      },
+      "mean_elapsed_s": 0.45230158538227744,
+      "p50_elapsed_s": 0.42380191598203965,
+      "p95_elapsed_s": 0.628420458000619,
+      "task_wall_s": 2.6854039170139004,
+      "task_segments": [
+        {
+          "completed": 42,
+          "ended_at": "2026-10-11T16:22:11.070681+00:00",
+          "family": "nursing_priority",
+          "selected": 42,
+          "started_at": "2026-10-11T16:22:08.385283+00:00",
+          "wall_s": 2.6854039170139004
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "nutrition_plan": {
+      "total": 11,
+      "attempted": 11,
+      "not_started": 0,
+      "success": 11,
+      "status_counts": {
+        "success": 11
+      },
+      "mean_elapsed_s": 0.44513605691397307,
+      "p50_elapsed_s": 0.433259416022338,
+      "p95_elapsed_s": 0.6078625000081956,
+      "task_wall_s": 0.9374518340046052,
+      "task_segments": [
+        {
+          "completed": 11,
+          "ended_at": "2026-10-11T16:22:12.008531+00:00",
+          "family": "nutrition_plan",
+          "selected": 11,
+          "started_at": "2026-10-11T16:22:11.071088+00:00",
+          "wall_s": 0.9374518340046052
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "patient_contraindication": {
+      "total": 54,
+      "attempted": 54,
+      "not_started": 0,
+      "success": 54,
+      "status_counts": {
+        "success": 54
+      },
+      "mean_elapsed_s": 0.4867996357605551,
+      "p50_elapsed_s": 0.4646868749987334,
+      "p95_elapsed_s": 0.8197646669868845,
+      "task_wall_s": 3.561736292002024,
+      "task_segments": [
+        {
+          "completed": 54,
+          "ended_at": "2026-10-11T16:22:15.571032+00:00",
+          "family": "patient_contraindication",
+          "selected": 54,
+          "started_at": "2026-10-11T16:22:12.009302+00:00",
+          "wall_s": 3.561736292002024
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "patient_counseling": {
+      "total": 11,
+      "attempted": 11,
+      "not_started": 0,
+      "success": 11,
+      "status_counts": {
+        "success": 11
+      },
+      "mean_elapsed_s": 0.4233478863660077,
+      "p50_elapsed_s": 0.39351500000339,
+      "p95_elapsed_s": 0.7255683330004103,
+      "task_wall_s": 0.8765051669906825,
+      "task_segments": [
+        {
+          "completed": 11,
+          "ended_at": "2026-10-11T16:22:16.448316+00:00",
+          "family": "patient_counseling",
+          "selected": 11,
+          "started_at": "2026-10-11T16:22:15.571810+00:00",
+          "wall_s": 0.8765051669906825
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "pgx_guideline_recommendation": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.4915976570697967,
+      "p50_elapsed_s": 0.44923445899621584,
+      "p95_elapsed_s": 0.7402790000196546,
+      "task_wall_s": 6.774789500021143,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:22:23.223694+00:00",
+          "family": "pgx_guideline_recommendation",
+          "selected": 100,
+          "started_at": "2026-10-11T16:22:16.448885+00:00",
+          "wall_s": 6.774789500021143
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 1
+    },
+    "positioning_choice": {
+      "total": 10,
+      "attempted": 10,
+      "not_started": 0,
+      "success": 10,
+      "status_counts": {
+        "success": 10
+      },
+      "mean_elapsed_s": 0.47359282499819527,
+      "p50_elapsed_s": 0.47926758299581707,
+      "p95_elapsed_s": 0.607662333000917,
+      "task_wall_s": 0.9625867090071552,
+      "task_segments": [
+        {
+          "completed": 10,
+          "ended_at": "2026-10-11T16:22:24.187277+00:00",
+          "family": "positioning_choice",
+          "selected": 10,
+          "started_at": "2026-10-11T16:22:23.224678+00:00",
+          "wall_s": 0.9625867090071552
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "prevention_choice": {
+      "total": 13,
+      "attempted": 13,
+      "not_started": 0,
+      "success": 13,
+      "status_counts": {
+        "success": 13
+      },
+      "mean_elapsed_s": 0.43241414430219893,
+      "p50_elapsed_s": 0.4060806249908637,
+      "p95_elapsed_s": 0.8313895000028424,
+      "task_wall_s": 0.9941447080054786,
+      "task_segments": [
+        {
+          "completed": 13,
+          "ended_at": "2026-10-11T16:22:25.182478+00:00",
+          "family": "prevention_choice",
+          "selected": 13,
+          "started_at": "2026-10-11T16:22:24.188311+00:00",
+          "wall_s": 0.9941447080054786
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "rehabilitation_choice": {
+      "total": 4,
+      "attempted": 4,
+      "not_started": 0,
+      "success": 4,
+      "status_counts": {
+        "success": 4
+      },
+      "mean_elapsed_s": 0.5030177809967427,
+      "p50_elapsed_s": 0.4529026249947492,
+      "p95_elapsed_s": 0.6100173330050893,
+      "task_wall_s": 0.611429041979136,
+      "task_segments": [
+        {
+          "completed": 4,
+          "ended_at": "2026-10-11T16:22:25.794680+00:00",
+          "family": "rehabilitation_choice",
+          "selected": 4,
+          "started_at": "2026-10-11T16:22:25.183236+00:00",
+          "wall_s": 0.611429041979136
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "tcm_pathogenesis_candidate": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.4304228400392458,
+      "p50_elapsed_s": 0.4259012920083478,
+      "p95_elapsed_s": 0.6006538749788888,
+      "task_wall_s": 5.571277165989159,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:22:31.366675+00:00",
+          "family": "tcm_pathogenesis_candidate",
+          "selected": 100,
+          "started_at": "2026-10-11T16:22:25.795297+00:00",
+          "wall_s": 5.571277165989159
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "tcm_syndrome": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.5456381079205311,
+      "p50_elapsed_s": 0.5258408749941736,
+      "p95_elapsed_s": 0.7854084999999031,
+      "task_wall_s": 7.016318000009051,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:22:38.383572+00:00",
+          "family": "tcm_syndrome",
+          "selected": 100,
+          "started_at": "2026-10-11T16:22:31.367174+00:00",
+          "wall_s": 7.016318000009051
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "treatment_choice": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.45420762712077706,
+      "p50_elapsed_s": 0.43894008398638107,
+      "p95_elapsed_s": 0.6400797920068726,
+      "task_wall_s": 6.051807958981954,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:22:44.436471+00:00",
+          "family": "treatment_choice",
+          "selected": 100,
+          "started_at": "2026-10-11T16:22:38.384600+00:00",
+          "wall_s": 6.051807958981954
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "triage_urgency": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.5109102361893747,
+      "p50_elapsed_s": 0.49530412498279475,
+      "p95_elapsed_s": 0.7055852909979876,
+      "task_wall_s": 6.749045124975964,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:22:51.186149+00:00",
+          "family": "triage_urgency",
+          "selected": 100,
+          "started_at": "2026-10-11T16:22:44.437068+00:00",
+          "wall_s": 6.749045124975964
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 0
+    },
+    "trial_referral": {
+      "total": 100,
+      "attempted": 100,
+      "not_started": 0,
+      "success": 100,
+      "status_counts": {
+        "success": 100
+      },
+      "mean_elapsed_s": 0.6978513321003993,
+      "p50_elapsed_s": 0.4893437089922372,
+      "p95_elapsed_s": 0.9275909170100931,
+      "task_wall_s": 21.02425241700257,
+      "task_segments": [
+        {
+          "completed": 100,
+          "ended_at": "2026-10-11T16:23:12.211288+00:00",
+          "family": "trial_referral",
+          "selected": 100,
+          "started_at": "2026-10-11T16:22:51.186941+00:00",
+          "wall_s": 21.02425241700257
+        }
+      ],
+      "timeout_rate": 0.0,
+      "request_error_rate": 0.0,
+      "invalid_answer_rate": 0.0,
+      "retries": 2
+    }
+  },
+  "usage_all_attempts": {
+    "completion_tokens": 9666,
+    "prompt_cache_hit_tokens": 213502,
+    "prompt_cache_miss_tokens": 502903,
+    "prompt_tokens": 716405,
+    "total_tokens": 726071
+  },
+  "primary_clinical_score": 0.6943721340388006,
+  "task_macro_accuracy": 0.6905890652557319
+}

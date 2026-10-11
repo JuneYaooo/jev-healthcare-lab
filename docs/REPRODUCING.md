@@ -30,6 +30,26 @@ python3 scripts/medical_decision_dataset.py score --predictions work/predictions
 
 仓库底稿目录中的 samples.jsonl、requests.jsonl、answers.jsonl 保留全部原始整理记录供追溯，包括辅助与暂停任务；不要绕过范围导出把底稿全部当作临床主评测。每个样本的原题号保留，用户任务合并关系记录在 evaluation_scope.json，评分结果 task_families 为合并任务，tasks 为原来源子集。
 
+## 运行模型与复核结果
+
+本轮完整结果见 [模型对比](MODEL_RESULTS.md)，逐题响应与配置位于 results/clinical-20261012/。复核现有结果不调用 API：
+
+```bash
+python3 scripts/build_model_report.py --check
+```
+
+新一轮运行从环境变量或本地 .env 读取 TYPESAFE_API_KEY、DEEPSEEK_API_KEY，调用对应官方服务。使用新的输出目录保留独立运行记录：
+
+```bash
+python3 scripts/run_model_evaluation.py run --model jev-1.13.0 --include-research --output work/new-run/jev-1.13.0
+python3 scripts/run_model_evaluation.py run --model deepseek-flash --include-research --output work/new-run/deepseek-flash
+python3 scripts/run_model_evaluation.py run --model deepseek-v4-pro --include-research --output work/new-run/deepseek-v4-pro
+```
+
+默认每模型并发 8、单次请求超时 120 秒，最多 3 次尝试；只重试暂时性请求失败。返回错误或格式无效的答案照常保存，不按得分重跑。省略 --include-research 只评测开放部分，--scope auxiliary 运行辅助部分。脚本不自动预热，新运行应另记外部连通性检查与预热设置。
+
+重复指定相同目录会核对配置与输入并跳过已经结束的题目，不覆盖原响应。中断续跑的任务不提供单次完整任务墙钟数，分段时间仍保留；需要完整可比计时应建立新的运行目录。生成器与评分器依据范围策略、固定输入和原始响应复核结果，所有密钥均不写入结果。
+
 ## 复建与本地验证
 
 ```bash
