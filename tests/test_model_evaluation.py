@@ -28,7 +28,7 @@ class ModelEvaluationTests(unittest.TestCase):
                 if runner.MODELS[model]['provider'] == 'siliconflow':
                     self.assertIs(body['enable_thinking'], False)
                     self.assertNotIn('thinking', body)
-                    self.assertEqual(body['model'], 'Qwen/Qwen3.5-9B')
+                    self.assertEqual(body['model'], runner.MODELS[model]['remote_model'])
                 else:
                     self.assertEqual(body['thinking'], {'type': 'disabled'})
             else:
@@ -42,6 +42,16 @@ class ModelEvaluationTests(unittest.TestCase):
         response = {'choices': [{'finish_reason': 'length', 'message': {'content': '{"choice":"0"}'}}]}
         with self.assertRaises(ValueError):
             runner.normalize(self.request, response, 'deepseek-flash')
+
+    def test_qwen_models_share_deepseek_prompt_and_generation_limits(self):
+        reference = runner.payload(self.request, 'deepseek-flash')
+        for model, remote in [('qwen3.5-9b', 'Qwen/Qwen3.5-9B'),
+                              ('qwen3.8-27b', 'Qwen/Qwen3.8-27B')]:
+            body = runner.payload(self.request, model)
+            self.assertEqual(body['model'], remote)
+            for field in ['messages', 'temperature', 'max_tokens', 'response_format']:
+                self.assertEqual(body[field], reference[field])
+            self.assertIs(body['enable_thinking'], False)
 
     def test_retry_preserves_attempts_and_full_latency(self):
         item = {'id': 'x', 'task': 'a', 'family': 'a', 'request': self.request}

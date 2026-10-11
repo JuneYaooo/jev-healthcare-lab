@@ -1,0 +1,2760 @@
+{
+  "dataset_version": "0.8.0",
+  "dataset_manifest_sha256": "68ac55e93e4c19afbe291812f12232d381342345a247c90a631818adef8ec7a8",
+  "predictions_sha256": "8c50e250b2fabef03b358b942d9b98ac4b58935b54c75ad474b9f74e8c53d505",
+  "evaluation_scope": "clinical",
+  "scope_policy_sha256": "4bcc135f062d5d0a591d8f8449b5814ee101656e21628170798d846ae3cde488",
+  "evaluated_ids_sha256": "d9b31e14ff057bde12b4b7145ebca8baf7be5d0b2168d9d0a78979ed9256fc3f",
+  "minimum_summary_questions": 20,
+  "include_research": true,
+  "records": 1514,
+  "scored_tasks": 26,
+  "scored_subtasks": 27,
+  "summary_eligible_tasks": 15,
+  "task_macro_accuracy": 0.6567654320987655,
+  "scenario_macro_accuracy": 0.667533950617284,
+  "covered_scenarios": 6,
+  "defined_scenarios": 8,
+  "scenarios": {
+    "intake": {
+      "title": "接诊与分诊",
+      "defined_tasks": 3,
+      "scored_tasks": 2,
+      "records": 130,
+      "task_macro_accuracy": 0.575,
+      "populated_families": 2,
+      "exploratory_families": 0,
+      "all_records": 130
+    },
+    "testing": {
+      "title": "检查与检验",
+      "defined_tasks": 2,
+      "scored_tasks": 1,
+      "records": 100,
+      "task_macro_accuracy": 0.74,
+      "populated_families": 1,
+      "exploratory_families": 0,
+      "all_records": 100
+    },
+    "diagnosis": {
+      "title": "诊断与鉴别",
+      "defined_tasks": 5,
+      "scored_tasks": 5,
+      "records": 600,
+      "task_macro_accuracy": 0.6140000000000001,
+      "populated_families": 5,
+      "exploratory_families": 0,
+      "all_records": 600
+    },
+    "treatment": {
+      "title": "治疗与用药",
+      "defined_tasks": 7,
+      "scored_tasks": 4,
+      "records": 354,
+      "task_macro_accuracy": 0.659537037037037,
+      "populated_families": 6,
+      "exploratory_families": 2,
+      "all_records": 374
+    },
+    "inpatient": {
+      "title": "住院与护理",
+      "defined_tasks": 6,
+      "scored_tasks": 2,
+      "records": 142,
+      "task_macro_accuracy": 0.8366666666666667,
+      "populated_families": 6,
+      "exploratory_families": 4,
+      "all_records": 173
+    },
+    "followup": {
+      "title": "出院与随访",
+      "defined_tasks": 4,
+      "scored_tasks": 0,
+      "records": 0,
+      "task_macro_accuracy": null,
+      "populated_families": 4,
+      "exploratory_families": 4,
+      "all_records": 34
+    },
+    "trials": {
+      "title": "临床试验筛选",
+      "defined_tasks": 1,
+      "scored_tasks": 1,
+      "records": 100,
+      "task_macro_accuracy": 0.58,
+      "populated_families": 1,
+      "exploratory_families": 0,
+      "all_records": 100
+    },
+    "quality": {
+      "title": "病历与医疗质量控制",
+      "defined_tasks": 1,
+      "scored_tasks": 0,
+      "records": 0,
+      "task_macro_accuracy": null,
+      "populated_families": 1,
+      "exploratory_families": 1,
+      "all_records": 3
+    }
+  },
+  "primary_clinical_score": 0.667533950617284,
+  "tasks": {
+    "administration_route_choice": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "A",
+        "B",
+        "D",
+        "opb",
+        "opc",
+        "opd",
+        "ope"
+      ],
+      "groups": 4,
+      "groups_all_correct": 2,
+      "group_all_correct_rate": 0.5,
+      "title": "给药途径与实施方法选择",
+      "family": "administration_route_choice",
+      "exploratory": true
+    },
+    "case_complication": {
+      "n": 100,
+      "correct": 84,
+      "accuracy": 0.84,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 96,
+      "groups_all_correct": 81,
+      "group_all_correct_rate": 0.84375,
+      "title": "病例并发症判断",
+      "family": "case_complication",
+      "exploratory": false
+    },
+    "case_etiology": {
+      "n": 100,
+      "correct": 81,
+      "accuracy": 0.81,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 81,
+      "group_all_correct_rate": 0.81,
+      "title": "病例病因判断",
+      "family": "case_etiology",
+      "exploratory": false
+    },
+    "clinical_grade": {
+      "n": 100,
+      "correct": 43,
+      "accuracy": 0.43,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 99,
+      "groups_all_correct": 43,
+      "group_all_correct_rate": 0.43434343434343436,
+      "title": "疾病分期与严重程度判断",
+      "family": "clinical_grade",
+      "exploratory": false
+    },
+    "consent_action": {
+      "n": 3,
+      "correct": 3,
+      "accuracy": 1.0,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "D",
+        "E"
+      ],
+      "groups": 3,
+      "groups_all_correct": 3,
+      "group_all_correct_rate": 1.0,
+      "title": "知情同意与隐私处置选择",
+      "family": "consent_action",
+      "exploratory": true
+    },
+    "diagnosis_choice": {
+      "n": 100,
+      "correct": 86,
+      "accuracy": 0.86,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 86,
+      "group_all_correct_rate": 0.86,
+      "title": "病例诊断选择：考试病例子集",
+      "family": "diagnosis",
+      "exploratory": false
+    },
+    "examination_choice": {
+      "n": 100,
+      "correct": 74,
+      "accuracy": 0.74,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 74,
+      "group_all_correct_rate": 0.74,
+      "title": "检查方案选择",
+      "family": "examination_choice",
+      "exploratory": false
+    },
+    "fluid_plan": {
+      "n": 16,
+      "correct": 5,
+      "accuracy": 0.3125,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "C",
+        "ope"
+      ],
+      "groups": 15,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 0.3333333333333333,
+      "title": "补液方案选择",
+      "family": "fluid_plan",
+      "exploratory": true
+    },
+    "followup_plan": {
+      "n": 6,
+      "correct": 5,
+      "accuracy": 0.8333333333333334,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "A",
+        "C",
+        "opa",
+        "opb",
+        "opd"
+      ],
+      "groups": 6,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 0.8333333333333334,
+      "title": "复查项目与随访时机选择",
+      "family": "followup_plan",
+      "exploratory": true
+    },
+    "infection_precaution": {
+      "n": 5,
+      "correct": 5,
+      "accuracy": 1.0,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "C",
+        "D",
+        "opa",
+        "opb",
+        "opd",
+        "ope"
+      ],
+      "groups": 5,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 1.0,
+      "title": "感染防控措施选择",
+      "family": "infection_precaution",
+      "exploratory": true
+    },
+    "medication_choice": {
+      "n": 100,
+      "correct": 73,
+      "accuracy": 0.73,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "E"
+      ],
+      "groups": 100,
+      "groups_all_correct": 73,
+      "group_all_correct_rate": 0.73,
+      "title": "用药方案选择",
+      "family": "medication_choice",
+      "exploratory": false
+    },
+    "message_urgency_pair": {
+      "n": 30,
+      "correct": 15,
+      "accuracy": 0.5,
+      "label_semantics": "fixed",
+      "macro_f1": 0.45054945054945056,
+      "balanced_accuracy": 0.44999999999999996,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "Patient #1": {
+          "support": 20,
+          "recall": 0.6,
+          "f1": 0.6153846153846154
+        },
+        "Patient #2": {
+          "support": 10,
+          "recall": 0.3,
+          "f1": 0.2857142857142857
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 30,
+      "groups_all_correct": 15,
+      "group_all_correct_rate": 0.5,
+      "confusion": {
+        "Patient #1": {
+          "Patient #1": 12,
+          "Patient #2": 8
+        },
+        "Patient #2": {
+          "Patient #1": 7,
+          "Patient #2": 3
+        }
+      },
+      "sample_majority_label": "Patient #1",
+      "sample_majority_accuracy": 0.6666666666666666,
+      "title": "患者消息处理优先级",
+      "family": "message_urgency_pair",
+      "exploratory": false
+    },
+    "monitoring_target": {
+      "n": 5,
+      "correct": 3,
+      "accuracy": 0.6,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "D"
+      ],
+      "groups": 5,
+      "groups_all_correct": 3,
+      "group_all_correct_rate": 0.6,
+      "title": "病情监测与疗效判断",
+      "family": "monitoring_target",
+      "exploratory": true
+    },
+    "nursing_priority": {
+      "n": 42,
+      "correct": 35,
+      "accuracy": 0.8333333333333334,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 42,
+      "groups_all_correct": 35,
+      "group_all_correct_rate": 0.8333333333333334,
+      "title": "护理措施选择",
+      "family": "nursing_priority",
+      "exploratory": false
+    },
+    "nutrition_plan": {
+      "n": 11,
+      "correct": 5,
+      "accuracy": 0.45454545454545453,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "opa",
+        "opb",
+        "opc",
+        "opd"
+      ],
+      "groups": 11,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 0.45454545454545453,
+      "title": "营养与饮食方案选择",
+      "family": "nutrition_plan",
+      "exploratory": true
+    },
+    "patient_contraindication": {
+      "n": 54,
+      "correct": 35,
+      "accuracy": 0.6481481481481481,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 53,
+      "groups_all_correct": 34,
+      "group_all_correct_rate": 0.6415094339622641,
+      "title": "患者方案禁忌判断",
+      "family": "patient_contraindication",
+      "exploratory": false
+    },
+    "patient_counseling": {
+      "n": 11,
+      "correct": 10,
+      "accuracy": 0.9090909090909091,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B"
+      ],
+      "groups": 11,
+      "groups_all_correct": 10,
+      "group_all_correct_rate": 0.9090909090909091,
+      "title": "健康教育与沟通行动选择",
+      "family": "patient_counseling",
+      "exploratory": true
+    },
+    "pgx_guideline_recommendation": {
+      "n": 100,
+      "correct": 54,
+      "accuracy": 0.54,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "action_10",
+        "action_12",
+        "action_13",
+        "action_15",
+        "action_16",
+        "action_7"
+      ],
+      "groups": 25,
+      "groups_all_correct": 6,
+      "group_all_correct_rate": 0.24,
+      "title": "药物基因结果对应的指南建议选择",
+      "family": "pgx_guideline_recommendation",
+      "exploratory": false
+    },
+    "positioning_choice": {
+      "n": 10,
+      "correct": 7,
+      "accuracy": 0.7,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "A",
+        "opb",
+        "opc",
+        "ope"
+      ],
+      "groups": 10,
+      "groups_all_correct": 7,
+      "group_all_correct_rate": 0.7,
+      "title": "护理与操作体位选择",
+      "family": "positioning_choice",
+      "exploratory": true
+    },
+    "prevention_choice": {
+      "n": 13,
+      "correct": 12,
+      "accuracy": 0.9230769230769231,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "C",
+        "opa",
+        "ope"
+      ],
+      "groups": 13,
+      "groups_all_correct": 12,
+      "group_all_correct_rate": 0.9230769230769231,
+      "title": "预防措施选择",
+      "family": "prevention_choice",
+      "exploratory": true
+    },
+    "rehabilitation_choice": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "C"
+      ],
+      "groups": 4,
+      "groups_all_correct": 2,
+      "group_all_correct_rate": 0.5,
+      "title": "康复训练方案选择",
+      "family": "rehabilitation_choice",
+      "exploratory": true
+    },
+    "synthetic_diagnosis": {
+      "n": 100,
+      "correct": 68,
+      "accuracy": 0.68,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "d12",
+        "d19"
+      ],
+      "groups": 100,
+      "groups_all_correct": 68,
+      "group_all_correct_rate": 0.68,
+      "title": "病例诊断选择：模拟病例子集",
+      "family": "diagnosis",
+      "exploratory": false
+    },
+    "tcm_pathogenesis_candidate": {
+      "n": 100,
+      "correct": 75,
+      "accuracy": 0.75,
+      "label_semantics": "fixed",
+      "macro_f1": 0.7469379491851402,
+      "balanced_accuracy": 0.75,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "no": {
+          "support": 50,
+          "recall": 0.86,
+          "f1": 0.7747747747747747
+        },
+        "yes": {
+          "support": 50,
+          "recall": 0.64,
+          "f1": 0.7191011235955056
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 50,
+      "groups_all_correct": 26,
+      "group_all_correct_rate": 0.52,
+      "confusion": {
+        "no": {
+          "yes": 7,
+          "no": 43
+        },
+        "yes": {
+          "yes": 32,
+          "no": 18
+        }
+      },
+      "sample_majority_label": "no",
+      "sample_majority_accuracy": 0.5,
+      "positive_recall": 0.64,
+      "specificity": 0.86,
+      "title": "中医候选病机判断",
+      "family": "tcm_pathogenesis_candidate",
+      "exploratory": false
+    },
+    "tcm_syndrome": {
+      "n": 100,
+      "correct": 31,
+      "accuracy": 0.31,
+      "label_semantics": "fixed",
+      "macro_f1": 0.20171057013162275,
+      "balanced_accuracy": 0.21818711591438864,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "大肠湿热证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "心脉痹阻证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "正虚瘀结证": {
+          "support": 4,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "气滞血瘀证": {
+          "support": 6,
+          "recall": 0.6666666666666666,
+          "f1": 0.42105263157894735
+        },
+        "气虚痰结证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "气虚血瘀证": {
+          "support": 11,
+          "recall": 0.8181818181818182,
+          "f1": 0.6923076923076923
+        },
+        "湿热下注证": {
+          "support": 13,
+          "recall": 0.6153846153846154,
+          "f1": 0.7619047619047619
+        },
+        "湿热内蕴证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "湿热瘀滞证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "湿热瘀阻证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "湿热蕴毒证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "湿热蕴结证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "热毒蕴结证": {
+          "support": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰浊蒙窍证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰湿内阻证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰湿蒙窍证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰湿蕴肺证": {
+          "support": 3,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666
+        },
+        "痰热壅肺证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰瘀痹阻证": {
+          "support": 3,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝肾亏虚证": {
+          "support": 3,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝肾阴虚证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝胃不和证": {
+          "support": 3,
+          "recall": 0.3333333333333333,
+          "f1": 0.3333333333333333
+        },
+        "肝胃郁热证": {
+          "support": 5,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝郁血瘀证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝阳上亢证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肺卫不固证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肾虚证": {
+          "support": 2,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "脾气虚证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "脾肾两虚证": {
+          "support": 4,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "脾肾阳虚证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "脾胃湿热证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "脾胃虚寒证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "脾胃虚弱证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阳虚水泛证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阴虚火旺证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阴虚血瘀证": {
+          "support": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阴虚阳亢证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风寒外袭证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "风寒阻络证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风热外袭证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风热犯肺证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "风痰上扰证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风痰入络证": {
+          "support": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风痰瘀阻证": {
+          "support": 8,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "candidate_labels_without_gold": [
+        "中气下陷证",
+        "中气不足证",
+        "外伤损络证",
+        "寒凝血瘀证",
+        "寒湿阻络证",
+        "寒痰阻肺证",
+        "心肺气虚证",
+        "心肾不交证",
+        "心脾两虚证",
+        "心虚胆怯证",
+        "心血虚证",
+        "心阳不振证",
+        "正虚毒瘀证",
+        "正虚毒结证",
+        "毒邪流窜证",
+        "气不摄血证",
+        "气滞痰凝证",
+        "气滞证",
+        "气虚不摄证",
+        "气虚血溢证",
+        "气虚证",
+        "气血不足证",
+        "气血两虚证",
+        "气血亏虚证",
+        "气血失调证",
+        "气血瘀滞证",
+        "气郁痰阻证",
+        "气阴两虚证",
+        "气阴亏虚证",
+        "津亏热结证",
+        "湿毒蕴结证",
+        "湿热阻络证",
+        "热毒壅结证",
+        "热毒炽盛证",
+        "热毒蕴肤证",
+        "痰气交阻证",
+        "痰浊上蒙证",
+        "痰浊中阻证",
+        "痰浊内蕴证",
+        "痰湿中阻证",
+        "痰湿证",
+        "痰湿阻滞证",
+        "痰火扰心证",
+        "痰热内扰证",
+        "痰瘀互结证",
+        "痰瘀滞络证",
+        "痰蒙清窍证",
+        "痰蒙神窍证",
+        "瘀滞胞宫证",
+        "瘀血内阻证",
+        "瘀血阻滞证",
+        "瘀血阻络证",
+        "瘀阻心脉证",
+        "肝气犯胃证",
+        "肝经湿热证",
+        "肝肾两虚证",
+        "肝肾亏损证",
+        "肝胃气滞证",
+        "肝胆湿热证",
+        "肝郁气滞证",
+        "肝郁脾虚证",
+        "肝阴不足证",
+        "肠燥津伤证",
+        "肺肾气虚证",
+        "肺阴虚证",
+        "肾不纳气证",
+        "肾气虚证",
+        "肾虚寒凝证",
+        "肾虚水泛证",
+        "肾虚肝亢证",
+        "肾阳虚证",
+        "脾肾气虚证",
+        "脾胃不和证",
+        "脾胃气虚证",
+        "脾胃积热证",
+        "脾胃阳虚证",
+        "脾虚湿盛证",
+        "脾虚湿蕴证",
+        "血热证",
+        "血瘀痰凝证",
+        "血虚证",
+        "血虚风燥证",
+        "阳虚寒凝证",
+        "阳虚痰凝证",
+        "阳虚血瘀证",
+        "阴虚津亏证",
+        "阴虚湿热证",
+        "阴虚血热证",
+        "阴虚风动证",
+        "风寒湿痹证",
+        "风寒湿阻证",
+        "风寒痹阻证",
+        "风寒袭肺证",
+        "风寒袭表证",
+        "风湿热证",
+        "风湿蕴肤证",
+        "风热伤络证",
+        "风热毒蕴证",
+        "风热血热证",
+        "风热袭表证",
+        "风痰闭窍证",
+        "风痰闭阻证",
+        "饮食积滞证",
+        "髓海不足证"
+      ],
+      "groups": 100,
+      "groups_all_correct": 31,
+      "group_all_correct_rate": 0.31,
+      "confusion": {
+        "脾胃虚弱证": {
+          "气虚证": 1
+        },
+        "气虚血瘀证": {
+          "气虚血瘀证": 9,
+          "痰湿中阻证": 1,
+          "气虚证": 1
+        },
+        "湿热下注证": {
+          "湿热下注证": 8,
+          "湿热蕴结证": 4,
+          "气滞血瘀证": 1
+        },
+        "风痰瘀阻证": {
+          "气虚血瘀证": 3,
+          "痰湿中阻证": 1,
+          "湿热阻络证": 1,
+          "痰热内扰证": 2,
+          "气滞血瘀证": 1
+        },
+        "脾肾两虚证": {
+          "痰瘀互结证": 1,
+          "脾肾气虚证": 2,
+          "气阴两虚证": 1
+        },
+        "气滞血瘀证": {
+          "气滞血瘀证": 4,
+          "寒湿阻络证": 1,
+          "外伤损络证": 1
+        },
+        "肾虚证": {
+          "肾虚证": 1,
+          "气血不足证": 1
+        },
+        "痰湿蕴肺证": {
+          "痰湿蕴肺证": 2,
+          "痰湿内阻证": 1
+        },
+        "肝胃郁热证": {
+          "肝胃不和证": 2,
+          "阴虚火旺证": 1,
+          "气滞血瘀证": 2
+        },
+        "痰瘀痹阻证": {
+          "痰瘀互结证": 1,
+          "痰湿中阻证": 1,
+          "气滞血瘀证": 1
+        },
+        "湿热瘀阻证": {
+          "湿热瘀阻证": 1
+        },
+        "正虚瘀结证": {
+          "气阴两虚证": 2,
+          "正虚毒瘀证": 1,
+          "气虚证": 1
+        },
+        "脾胃湿热证": {
+          "脾胃湿热证": 1
+        },
+        "痰湿蒙窍证": {
+          "气虚血瘀证": 1
+        },
+        "风寒阻络证": {
+          "风寒外袭证": 1
+        },
+        "心脉痹阻证": {
+          "心脉痹阻证": 1
+        },
+        "肝胃不和证": {
+          "气滞证": 1,
+          "肝胃气滞证": 1,
+          "肝胃不和证": 1
+        },
+        "大肠湿热证": {
+          "湿热内蕴证": 1
+        },
+        "阴虚阳亢证": {
+          "肝阳上亢证": 1
+        },
+        "热毒蕴结证": {
+          "湿热蕴结证": 2
+        },
+        "痰浊蒙窍证": {
+          "痰瘀互结证": 1
+        },
+        "肝郁血瘀证": {
+          "肝阳上亢证": 1
+        },
+        "风寒外袭证": {
+          "风寒外袭证": 1
+        },
+        "肺卫不固证": {
+          "气虚证": 1
+        },
+        "脾肾阳虚证": {
+          "气阴两虚证": 1
+        },
+        "痰湿内阻证": {
+          "肝阳上亢证": 1
+        },
+        "阴虚血瘀证": {
+          "气阴两虚证": 1,
+          "肝肾阴虚证": 1
+        },
+        "风痰入络证": {
+          "痰湿中阻证": 1,
+          "痰瘀互结证": 1
+        },
+        "风痰上扰证": {
+          "痰湿中阻证": 1
+        },
+        "肝肾亏虚证": {
+          "气滞血瘀证": 3
+        },
+        "痰热壅肺证": {
+          "风寒袭肺证": 1
+        },
+        "湿热瘀滞证": {
+          "湿热瘀阻证": 1
+        },
+        "风热犯肺证": {
+          "风热犯肺证": 1
+        },
+        "脾气虚证": {
+          "气虚血溢证": 1
+        },
+        "肝阳上亢证": {
+          "气虚血瘀证": 1
+        },
+        "阴虚火旺证": {
+          "肝肾阴虚证": 1
+        },
+        "脾胃虚寒证": {
+          "脾胃虚寒证": 1
+        },
+        "湿热蕴结证": {
+          "湿热内蕴证": 1
+        },
+        "风热外袭证": {
+          "风热袭表证": 1
+        },
+        "湿热内蕴证": {
+          "痰湿蕴肺证": 1
+        },
+        "湿热蕴毒证": {
+          "湿热蕴结证": 1
+        },
+        "肝肾阴虚证": {
+          "气滞血瘀证": 1
+        },
+        "阳虚水泛证": {
+          "气虚血瘀证": 1
+        },
+        "气虚痰结证": {
+          "痰湿内阻证": 1
+        }
+      },
+      "sample_majority_label": "湿热下注证",
+      "sample_majority_accuracy": 0.13,
+      "title": "中医证型判断",
+      "family": "tcm_syndrome",
+      "exploratory": false
+    },
+    "treatment_choice": {
+      "n": 100,
+      "correct": 72,
+      "accuracy": 0.72,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 72,
+      "group_all_correct_rate": 0.72,
+      "title": "治疗方案选择",
+      "family": "treatment_choice",
+      "exploratory": false
+    },
+    "triage_urgency": {
+      "n": 100,
+      "correct": 65,
+      "accuracy": 0.65,
+      "label_semantics": "fixed",
+      "macro_f1": 0.6407773546174,
+      "balanced_accuracy": 0.6583333333333333,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "0A_NO_ESCALATION_INFO_NEEDED": {
+          "support": 30,
+          "recall": 0.9,
+          "f1": 0.6666666666666666
+        },
+        "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+          "support": 20,
+          "recall": 0.5,
+          "f1": 0.5714285714285714
+        },
+        "1A_ESCALATION_NONURGENT_CARE": {
+          "support": 30,
+          "recall": 0.3333333333333333,
+          "f1": 0.4878048780487805
+        },
+        "1B_ESCALATION_URGENT_CARE": {
+          "support": 20,
+          "recall": 0.9,
+          "f1": 0.8372093023255814
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 62,
+      "groups_all_correct": 30,
+      "group_all_correct_rate": 0.4838709677419355,
+      "confusion": {
+        "1A_ESCALATION_NONURGENT_CARE": {
+          "1A_ESCALATION_NONURGENT_CARE": 10,
+          "0A_NO_ESCALATION_INFO_NEEDED": 15,
+          "0B_NO_ESCALATION_SELF_CARE_MONITOR": 4,
+          "1B_ESCALATION_URGENT_CARE": 1
+        },
+        "1B_ESCALATION_URGENT_CARE": {
+          "1B_ESCALATION_URGENT_CARE": 18,
+          "0A_NO_ESCALATION_INFO_NEEDED": 2
+        },
+        "0A_NO_ESCALATION_INFO_NEEDED": {
+          "0A_NO_ESCALATION_INFO_NEEDED": 27,
+          "1B_ESCALATION_URGENT_CARE": 2,
+          "0B_NO_ESCALATION_SELF_CARE_MONITOR": 1
+        },
+        "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+          "0A_NO_ESCALATION_INFO_NEEDED": 7,
+          "1A_ESCALATION_NONURGENT_CARE": 1,
+          "0B_NO_ESCALATION_SELF_CARE_MONITOR": 10,
+          "1B_ESCALATION_URGENT_CARE": 2
+        }
+      },
+      "sample_majority_label": "1A_ESCALATION_NONURGENT_CARE",
+      "sample_majority_accuracy": 0.3,
+      "title": "分诊与就医紧急程度判断",
+      "family": "triage_urgency",
+      "exploratory": false
+    },
+    "trial_referral": {
+      "n": 100,
+      "correct": 58,
+      "accuracy": 0.58,
+      "label_semantics": "fixed",
+      "macro_f1": 0.558876404494382,
+      "balanced_accuracy": 0.5766488413547237,
+      "missing": 0,
+      "invalid": 1,
+      "per_class": {
+        "0": {
+          "support": 34,
+          "recall": 0.9117647058823529,
+          "f1": 0.6966292134831461
+        },
+        "1": {
+          "support": 33,
+          "recall": 0.45454545454545453,
+          "f1": 0.5
+        },
+        "2": {
+          "support": 33,
+          "recall": 0.36363636363636365,
+          "f1": 0.48
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 58,
+      "groups_all_correct": 24,
+      "group_all_correct_rate": 0.41379310344827586,
+      "confusion": {
+        "1": {
+          "0": 14,
+          "1": 15,
+          "2": 4
+        },
+        "2": {
+          "0": 10,
+          "2": 12,
+          "1": 11
+        },
+        "0": {
+          "0": 31,
+          "1": 1,
+          "2": 1,
+          "<invalid>": 1
+        }
+      },
+      "sample_majority_label": "0",
+      "sample_majority_accuracy": 0.34,
+      "title": "患者临床试验初筛与转介判断",
+      "family": "trial_referral",
+      "exploratory": false
+    }
+  },
+  "task_families": {
+    "administration_route_choice": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "A",
+        "B",
+        "D",
+        "opb",
+        "opc",
+        "opd",
+        "ope"
+      ],
+      "groups": 4,
+      "groups_all_correct": 2,
+      "group_all_correct_rate": 0.5,
+      "title": "给药途径与实施方法选择",
+      "task_ids": [
+        "administration_route_choice"
+      ],
+      "summary_eligible": false
+    },
+    "case_complication": {
+      "n": 100,
+      "correct": 84,
+      "accuracy": 0.84,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 96,
+      "groups_all_correct": 81,
+      "group_all_correct_rate": 0.84375,
+      "title": "病例并发症判断",
+      "task_ids": [
+        "case_complication"
+      ],
+      "summary_eligible": true
+    },
+    "case_etiology": {
+      "n": 100,
+      "correct": 81,
+      "accuracy": 0.81,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 81,
+      "group_all_correct_rate": 0.81,
+      "title": "病例病因判断",
+      "task_ids": [
+        "case_etiology"
+      ],
+      "summary_eligible": true
+    },
+    "clinical_grade": {
+      "n": 100,
+      "correct": 43,
+      "accuracy": 0.43,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 99,
+      "groups_all_correct": 43,
+      "group_all_correct_rate": 0.43434343434343436,
+      "title": "疾病分期与严重程度判断",
+      "task_ids": [
+        "clinical_grade"
+      ],
+      "summary_eligible": true
+    },
+    "consent_action": {
+      "n": 3,
+      "correct": 3,
+      "accuracy": 1.0,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "D",
+        "E"
+      ],
+      "groups": 3,
+      "groups_all_correct": 3,
+      "group_all_correct_rate": 1.0,
+      "title": "知情同意与隐私处置选择",
+      "task_ids": [
+        "consent_action"
+      ],
+      "summary_eligible": false
+    },
+    "diagnosis": {
+      "n": 200,
+      "correct": 154,
+      "accuracy": 0.77,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "d12",
+        "d19"
+      ],
+      "groups": 200,
+      "groups_all_correct": 154,
+      "group_all_correct_rate": 0.77,
+      "title": "病例诊断选择",
+      "task_ids": [
+        "diagnosis_choice",
+        "synthetic_diagnosis"
+      ],
+      "summary_eligible": true
+    },
+    "examination_choice": {
+      "n": 100,
+      "correct": 74,
+      "accuracy": 0.74,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 74,
+      "group_all_correct_rate": 0.74,
+      "title": "检查方案选择",
+      "task_ids": [
+        "examination_choice"
+      ],
+      "summary_eligible": true
+    },
+    "fluid_plan": {
+      "n": 16,
+      "correct": 5,
+      "accuracy": 0.3125,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "C",
+        "ope"
+      ],
+      "groups": 15,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 0.3333333333333333,
+      "title": "补液方案选择",
+      "task_ids": [
+        "fluid_plan"
+      ],
+      "summary_eligible": false
+    },
+    "followup_plan": {
+      "n": 6,
+      "correct": 5,
+      "accuracy": 0.8333333333333334,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "A",
+        "C",
+        "opa",
+        "opb",
+        "opd"
+      ],
+      "groups": 6,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 0.8333333333333334,
+      "title": "复查项目与随访时机选择",
+      "task_ids": [
+        "followup_plan"
+      ],
+      "summary_eligible": false
+    },
+    "infection_precaution": {
+      "n": 5,
+      "correct": 5,
+      "accuracy": 1.0,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "C",
+        "D",
+        "opa",
+        "opb",
+        "opd",
+        "ope"
+      ],
+      "groups": 5,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 1.0,
+      "title": "感染防控措施选择",
+      "task_ids": [
+        "infection_precaution"
+      ],
+      "summary_eligible": false
+    },
+    "medication_choice": {
+      "n": 100,
+      "correct": 73,
+      "accuracy": 0.73,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "E"
+      ],
+      "groups": 100,
+      "groups_all_correct": 73,
+      "group_all_correct_rate": 0.73,
+      "title": "用药方案选择",
+      "task_ids": [
+        "medication_choice"
+      ],
+      "summary_eligible": true
+    },
+    "message_urgency_pair": {
+      "n": 30,
+      "correct": 15,
+      "accuracy": 0.5,
+      "label_semantics": "fixed",
+      "macro_f1": 0.45054945054945056,
+      "balanced_accuracy": 0.44999999999999996,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "Patient #1": {
+          "support": 20,
+          "recall": 0.6,
+          "f1": 0.6153846153846154
+        },
+        "Patient #2": {
+          "support": 10,
+          "recall": 0.3,
+          "f1": 0.2857142857142857
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 30,
+      "groups_all_correct": 15,
+      "group_all_correct_rate": 0.5,
+      "confusion": {
+        "Patient #1": {
+          "Patient #1": 12,
+          "Patient #2": 8
+        },
+        "Patient #2": {
+          "Patient #1": 7,
+          "Patient #2": 3
+        }
+      },
+      "sample_majority_label": "Patient #1",
+      "sample_majority_accuracy": 0.6666666666666666,
+      "title": "患者消息处理优先级",
+      "task_ids": [
+        "message_urgency_pair"
+      ],
+      "summary_eligible": true
+    },
+    "monitoring_target": {
+      "n": 5,
+      "correct": 3,
+      "accuracy": 0.6,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "D"
+      ],
+      "groups": 5,
+      "groups_all_correct": 3,
+      "group_all_correct_rate": 0.6,
+      "title": "病情监测与疗效判断",
+      "task_ids": [
+        "monitoring_target"
+      ],
+      "summary_eligible": false
+    },
+    "nursing_priority": {
+      "n": 42,
+      "correct": 35,
+      "accuracy": 0.8333333333333334,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 42,
+      "groups_all_correct": 35,
+      "group_all_correct_rate": 0.8333333333333334,
+      "title": "护理措施选择",
+      "task_ids": [
+        "nursing_priority"
+      ],
+      "summary_eligible": true
+    },
+    "nutrition_plan": {
+      "n": 11,
+      "correct": 5,
+      "accuracy": 0.45454545454545453,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "opa",
+        "opb",
+        "opc",
+        "opd"
+      ],
+      "groups": 11,
+      "groups_all_correct": 5,
+      "group_all_correct_rate": 0.45454545454545453,
+      "title": "营养与饮食方案选择",
+      "task_ids": [
+        "nutrition_plan"
+      ],
+      "summary_eligible": false
+    },
+    "patient_contraindication": {
+      "n": 54,
+      "correct": 35,
+      "accuracy": 0.6481481481481481,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 53,
+      "groups_all_correct": 34,
+      "group_all_correct_rate": 0.6415094339622641,
+      "title": "患者方案禁忌判断",
+      "task_ids": [
+        "patient_contraindication"
+      ],
+      "summary_eligible": true
+    },
+    "patient_counseling": {
+      "n": 11,
+      "correct": 10,
+      "accuracy": 0.9090909090909091,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B"
+      ],
+      "groups": 11,
+      "groups_all_correct": 10,
+      "group_all_correct_rate": 0.9090909090909091,
+      "title": "健康教育与沟通行动选择",
+      "task_ids": [
+        "patient_counseling"
+      ],
+      "summary_eligible": false
+    },
+    "pgx_guideline_recommendation": {
+      "n": 100,
+      "correct": 54,
+      "accuracy": 0.54,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "action_10",
+        "action_12",
+        "action_13",
+        "action_15",
+        "action_16",
+        "action_7"
+      ],
+      "groups": 25,
+      "groups_all_correct": 6,
+      "group_all_correct_rate": 0.24,
+      "title": "药物基因结果对应的指南建议选择",
+      "task_ids": [
+        "pgx_guideline_recommendation"
+      ],
+      "summary_eligible": true
+    },
+    "positioning_choice": {
+      "n": 10,
+      "correct": 7,
+      "accuracy": 0.7,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "A",
+        "opb",
+        "opc",
+        "ope"
+      ],
+      "groups": 10,
+      "groups_all_correct": 7,
+      "group_all_correct_rate": 0.7,
+      "title": "护理与操作体位选择",
+      "task_ids": [
+        "positioning_choice"
+      ],
+      "summary_eligible": false
+    },
+    "prevention_choice": {
+      "n": 13,
+      "correct": 12,
+      "accuracy": 0.9230769230769231,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "C",
+        "opa",
+        "ope"
+      ],
+      "groups": 13,
+      "groups_all_correct": 12,
+      "group_all_correct_rate": 0.9230769230769231,
+      "title": "预防措施选择",
+      "task_ids": [
+        "prevention_choice"
+      ],
+      "summary_eligible": false
+    },
+    "rehabilitation_choice": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [
+        "B",
+        "C"
+      ],
+      "groups": 4,
+      "groups_all_correct": 2,
+      "group_all_correct_rate": 0.5,
+      "title": "康复训练方案选择",
+      "task_ids": [
+        "rehabilitation_choice"
+      ],
+      "summary_eligible": false
+    },
+    "tcm_pathogenesis_candidate": {
+      "n": 100,
+      "correct": 75,
+      "accuracy": 0.75,
+      "label_semantics": "fixed",
+      "macro_f1": 0.7469379491851402,
+      "balanced_accuracy": 0.75,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "no": {
+          "support": 50,
+          "recall": 0.86,
+          "f1": 0.7747747747747747
+        },
+        "yes": {
+          "support": 50,
+          "recall": 0.64,
+          "f1": 0.7191011235955056
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 50,
+      "groups_all_correct": 26,
+      "group_all_correct_rate": 0.52,
+      "confusion": {
+        "no": {
+          "yes": 7,
+          "no": 43
+        },
+        "yes": {
+          "yes": 32,
+          "no": 18
+        }
+      },
+      "sample_majority_label": "no",
+      "sample_majority_accuracy": 0.5,
+      "positive_recall": 0.64,
+      "specificity": 0.86,
+      "title": "中医候选病机判断",
+      "task_ids": [
+        "tcm_pathogenesis_candidate"
+      ],
+      "summary_eligible": true
+    },
+    "tcm_syndrome": {
+      "n": 100,
+      "correct": 31,
+      "accuracy": 0.31,
+      "label_semantics": "fixed",
+      "macro_f1": 0.20171057013162275,
+      "balanced_accuracy": 0.21818711591438864,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "大肠湿热证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "心脉痹阻证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "正虚瘀结证": {
+          "support": 4,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "气滞血瘀证": {
+          "support": 6,
+          "recall": 0.6666666666666666,
+          "f1": 0.42105263157894735
+        },
+        "气虚痰结证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "气虚血瘀证": {
+          "support": 11,
+          "recall": 0.8181818181818182,
+          "f1": 0.6923076923076923
+        },
+        "湿热下注证": {
+          "support": 13,
+          "recall": 0.6153846153846154,
+          "f1": 0.7619047619047619
+        },
+        "湿热内蕴证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "湿热瘀滞证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "湿热瘀阻证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "湿热蕴毒证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "湿热蕴结证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "热毒蕴结证": {
+          "support": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰浊蒙窍证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰湿内阻证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰湿蒙窍证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰湿蕴肺证": {
+          "support": 3,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666
+        },
+        "痰热壅肺证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "痰瘀痹阻证": {
+          "support": 3,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝肾亏虚证": {
+          "support": 3,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝肾阴虚证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝胃不和证": {
+          "support": 3,
+          "recall": 0.3333333333333333,
+          "f1": 0.3333333333333333
+        },
+        "肝胃郁热证": {
+          "support": 5,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝郁血瘀证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肝阳上亢证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肺卫不固证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "肾虚证": {
+          "support": 2,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "脾气虚证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "脾肾两虚证": {
+          "support": 4,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "脾肾阳虚证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "脾胃湿热证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "脾胃虚寒证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "脾胃虚弱证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阳虚水泛证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阴虚火旺证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阴虚血瘀证": {
+          "support": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "阴虚阳亢证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风寒外袭证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "风寒阻络证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风热外袭证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风热犯肺证": {
+          "support": 1,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "风痰上扰证": {
+          "support": 1,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风痰入络证": {
+          "support": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "风痰瘀阻证": {
+          "support": 8,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "candidate_labels_without_gold": [
+        "中气下陷证",
+        "中气不足证",
+        "外伤损络证",
+        "寒凝血瘀证",
+        "寒湿阻络证",
+        "寒痰阻肺证",
+        "心肺气虚证",
+        "心肾不交证",
+        "心脾两虚证",
+        "心虚胆怯证",
+        "心血虚证",
+        "心阳不振证",
+        "正虚毒瘀证",
+        "正虚毒结证",
+        "毒邪流窜证",
+        "气不摄血证",
+        "气滞痰凝证",
+        "气滞证",
+        "气虚不摄证",
+        "气虚血溢证",
+        "气虚证",
+        "气血不足证",
+        "气血两虚证",
+        "气血亏虚证",
+        "气血失调证",
+        "气血瘀滞证",
+        "气郁痰阻证",
+        "气阴两虚证",
+        "气阴亏虚证",
+        "津亏热结证",
+        "湿毒蕴结证",
+        "湿热阻络证",
+        "热毒壅结证",
+        "热毒炽盛证",
+        "热毒蕴肤证",
+        "痰气交阻证",
+        "痰浊上蒙证",
+        "痰浊中阻证",
+        "痰浊内蕴证",
+        "痰湿中阻证",
+        "痰湿证",
+        "痰湿阻滞证",
+        "痰火扰心证",
+        "痰热内扰证",
+        "痰瘀互结证",
+        "痰瘀滞络证",
+        "痰蒙清窍证",
+        "痰蒙神窍证",
+        "瘀滞胞宫证",
+        "瘀血内阻证",
+        "瘀血阻滞证",
+        "瘀血阻络证",
+        "瘀阻心脉证",
+        "肝气犯胃证",
+        "肝经湿热证",
+        "肝肾两虚证",
+        "肝肾亏损证",
+        "肝胃气滞证",
+        "肝胆湿热证",
+        "肝郁气滞证",
+        "肝郁脾虚证",
+        "肝阴不足证",
+        "肠燥津伤证",
+        "肺肾气虚证",
+        "肺阴虚证",
+        "肾不纳气证",
+        "肾气虚证",
+        "肾虚寒凝证",
+        "肾虚水泛证",
+        "肾虚肝亢证",
+        "肾阳虚证",
+        "脾肾气虚证",
+        "脾胃不和证",
+        "脾胃气虚证",
+        "脾胃积热证",
+        "脾胃阳虚证",
+        "脾虚湿盛证",
+        "脾虚湿蕴证",
+        "血热证",
+        "血瘀痰凝证",
+        "血虚证",
+        "血虚风燥证",
+        "阳虚寒凝证",
+        "阳虚痰凝证",
+        "阳虚血瘀证",
+        "阴虚津亏证",
+        "阴虚湿热证",
+        "阴虚血热证",
+        "阴虚风动证",
+        "风寒湿痹证",
+        "风寒湿阻证",
+        "风寒痹阻证",
+        "风寒袭肺证",
+        "风寒袭表证",
+        "风湿热证",
+        "风湿蕴肤证",
+        "风热伤络证",
+        "风热毒蕴证",
+        "风热血热证",
+        "风热袭表证",
+        "风痰闭窍证",
+        "风痰闭阻证",
+        "饮食积滞证",
+        "髓海不足证"
+      ],
+      "groups": 100,
+      "groups_all_correct": 31,
+      "group_all_correct_rate": 0.31,
+      "confusion": {
+        "脾胃虚弱证": {
+          "气虚证": 1
+        },
+        "气虚血瘀证": {
+          "气虚血瘀证": 9,
+          "痰湿中阻证": 1,
+          "气虚证": 1
+        },
+        "湿热下注证": {
+          "湿热下注证": 8,
+          "湿热蕴结证": 4,
+          "气滞血瘀证": 1
+        },
+        "风痰瘀阻证": {
+          "气虚血瘀证": 3,
+          "痰湿中阻证": 1,
+          "湿热阻络证": 1,
+          "痰热内扰证": 2,
+          "气滞血瘀证": 1
+        },
+        "脾肾两虚证": {
+          "痰瘀互结证": 1,
+          "脾肾气虚证": 2,
+          "气阴两虚证": 1
+        },
+        "气滞血瘀证": {
+          "气滞血瘀证": 4,
+          "寒湿阻络证": 1,
+          "外伤损络证": 1
+        },
+        "肾虚证": {
+          "肾虚证": 1,
+          "气血不足证": 1
+        },
+        "痰湿蕴肺证": {
+          "痰湿蕴肺证": 2,
+          "痰湿内阻证": 1
+        },
+        "肝胃郁热证": {
+          "肝胃不和证": 2,
+          "阴虚火旺证": 1,
+          "气滞血瘀证": 2
+        },
+        "痰瘀痹阻证": {
+          "痰瘀互结证": 1,
+          "痰湿中阻证": 1,
+          "气滞血瘀证": 1
+        },
+        "湿热瘀阻证": {
+          "湿热瘀阻证": 1
+        },
+        "正虚瘀结证": {
+          "气阴两虚证": 2,
+          "正虚毒瘀证": 1,
+          "气虚证": 1
+        },
+        "脾胃湿热证": {
+          "脾胃湿热证": 1
+        },
+        "痰湿蒙窍证": {
+          "气虚血瘀证": 1
+        },
+        "风寒阻络证": {
+          "风寒外袭证": 1
+        },
+        "心脉痹阻证": {
+          "心脉痹阻证": 1
+        },
+        "肝胃不和证": {
+          "气滞证": 1,
+          "肝胃气滞证": 1,
+          "肝胃不和证": 1
+        },
+        "大肠湿热证": {
+          "湿热内蕴证": 1
+        },
+        "阴虚阳亢证": {
+          "肝阳上亢证": 1
+        },
+        "热毒蕴结证": {
+          "湿热蕴结证": 2
+        },
+        "痰浊蒙窍证": {
+          "痰瘀互结证": 1
+        },
+        "肝郁血瘀证": {
+          "肝阳上亢证": 1
+        },
+        "风寒外袭证": {
+          "风寒外袭证": 1
+        },
+        "肺卫不固证": {
+          "气虚证": 1
+        },
+        "脾肾阳虚证": {
+          "气阴两虚证": 1
+        },
+        "痰湿内阻证": {
+          "肝阳上亢证": 1
+        },
+        "阴虚血瘀证": {
+          "气阴两虚证": 1,
+          "肝肾阴虚证": 1
+        },
+        "风痰入络证": {
+          "痰湿中阻证": 1,
+          "痰瘀互结证": 1
+        },
+        "风痰上扰证": {
+          "痰湿中阻证": 1
+        },
+        "肝肾亏虚证": {
+          "气滞血瘀证": 3
+        },
+        "痰热壅肺证": {
+          "风寒袭肺证": 1
+        },
+        "湿热瘀滞证": {
+          "湿热瘀阻证": 1
+        },
+        "风热犯肺证": {
+          "风热犯肺证": 1
+        },
+        "脾气虚证": {
+          "气虚血溢证": 1
+        },
+        "肝阳上亢证": {
+          "气虚血瘀证": 1
+        },
+        "阴虚火旺证": {
+          "肝肾阴虚证": 1
+        },
+        "脾胃虚寒证": {
+          "脾胃虚寒证": 1
+        },
+        "湿热蕴结证": {
+          "湿热内蕴证": 1
+        },
+        "风热外袭证": {
+          "风热袭表证": 1
+        },
+        "湿热内蕴证": {
+          "痰湿蕴肺证": 1
+        },
+        "湿热蕴毒证": {
+          "湿热蕴结证": 1
+        },
+        "肝肾阴虚证": {
+          "气滞血瘀证": 1
+        },
+        "阳虚水泛证": {
+          "气虚血瘀证": 1
+        },
+        "气虚痰结证": {
+          "痰湿内阻证": 1
+        }
+      },
+      "sample_majority_label": "湿热下注证",
+      "sample_majority_accuracy": 0.13,
+      "title": "中医证型判断",
+      "task_ids": [
+        "tcm_syndrome"
+      ],
+      "summary_eligible": true
+    },
+    "treatment_choice": {
+      "n": 100,
+      "correct": 72,
+      "accuracy": 0.72,
+      "label_semantics": "per_question",
+      "macro_f1": null,
+      "balanced_accuracy": null,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {},
+      "candidate_labels_without_gold": [],
+      "groups": 100,
+      "groups_all_correct": 72,
+      "group_all_correct_rate": 0.72,
+      "title": "治疗方案选择",
+      "task_ids": [
+        "treatment_choice"
+      ],
+      "summary_eligible": true
+    },
+    "triage_urgency": {
+      "n": 100,
+      "correct": 65,
+      "accuracy": 0.65,
+      "label_semantics": "fixed",
+      "macro_f1": 0.6407773546174,
+      "balanced_accuracy": 0.6583333333333333,
+      "missing": 0,
+      "invalid": 0,
+      "per_class": {
+        "0A_NO_ESCALATION_INFO_NEEDED": {
+          "support": 30,
+          "recall": 0.9,
+          "f1": 0.6666666666666666
+        },
+        "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+          "support": 20,
+          "recall": 0.5,
+          "f1": 0.5714285714285714
+        },
+        "1A_ESCALATION_NONURGENT_CARE": {
+          "support": 30,
+          "recall": 0.3333333333333333,
+          "f1": 0.4878048780487805
+        },
+        "1B_ESCALATION_URGENT_CARE": {
+          "support": 20,
+          "recall": 0.9,
+          "f1": 0.8372093023255814
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 62,
+      "groups_all_correct": 30,
+      "group_all_correct_rate": 0.4838709677419355,
+      "confusion": {
+        "1A_ESCALATION_NONURGENT_CARE": {
+          "1A_ESCALATION_NONURGENT_CARE": 10,
+          "0A_NO_ESCALATION_INFO_NEEDED": 15,
+          "0B_NO_ESCALATION_SELF_CARE_MONITOR": 4,
+          "1B_ESCALATION_URGENT_CARE": 1
+        },
+        "1B_ESCALATION_URGENT_CARE": {
+          "1B_ESCALATION_URGENT_CARE": 18,
+          "0A_NO_ESCALATION_INFO_NEEDED": 2
+        },
+        "0A_NO_ESCALATION_INFO_NEEDED": {
+          "0A_NO_ESCALATION_INFO_NEEDED": 27,
+          "1B_ESCALATION_URGENT_CARE": 2,
+          "0B_NO_ESCALATION_SELF_CARE_MONITOR": 1
+        },
+        "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+          "0A_NO_ESCALATION_INFO_NEEDED": 7,
+          "1A_ESCALATION_NONURGENT_CARE": 1,
+          "0B_NO_ESCALATION_SELF_CARE_MONITOR": 10,
+          "1B_ESCALATION_URGENT_CARE": 2
+        }
+      },
+      "sample_majority_label": "1A_ESCALATION_NONURGENT_CARE",
+      "sample_majority_accuracy": 0.3,
+      "title": "分诊与就医紧急程度判断",
+      "task_ids": [
+        "triage_urgency"
+      ],
+      "summary_eligible": true
+    },
+    "trial_referral": {
+      "n": 100,
+      "correct": 58,
+      "accuracy": 0.58,
+      "label_semantics": "fixed",
+      "macro_f1": 0.558876404494382,
+      "balanced_accuracy": 0.5766488413547237,
+      "missing": 0,
+      "invalid": 1,
+      "per_class": {
+        "0": {
+          "support": 34,
+          "recall": 0.9117647058823529,
+          "f1": 0.6966292134831461
+        },
+        "1": {
+          "support": 33,
+          "recall": 0.45454545454545453,
+          "f1": 0.5
+        },
+        "2": {
+          "support": 33,
+          "recall": 0.36363636363636365,
+          "f1": 0.48
+        }
+      },
+      "candidate_labels_without_gold": [],
+      "groups": 58,
+      "groups_all_correct": 24,
+      "group_all_correct_rate": 0.41379310344827586,
+      "confusion": {
+        "1": {
+          "0": 14,
+          "1": 15,
+          "2": 4
+        },
+        "2": {
+          "0": 10,
+          "2": 12,
+          "1": 11
+        },
+        "0": {
+          "0": 31,
+          "1": 1,
+          "2": 1,
+          "<invalid>": 1
+        }
+      },
+      "sample_majority_label": "0",
+      "sample_majority_accuracy": 0.34,
+      "title": "患者临床试验初筛与转介判断",
+      "task_ids": [
+        "trial_referral"
+      ],
+      "summary_eligible": true
+    }
+  },
+  "stratified": {
+    "primary_scenario": {
+      "diagnosis": {
+        "n": 600,
+        "tasks": 6,
+        "task_macro_accuracy": 0.64
+      },
+      "trials": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.58
+      },
+      "treatment": {
+        "n": 374,
+        "tasks": 6,
+        "task_macro_accuracy": 0.575108024691358
+      },
+      "intake": {
+        "n": 130,
+        "tasks": 2,
+        "task_macro_accuracy": 0.575
+      },
+      "testing": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.74
+      },
+      "inpatient": {
+        "n": 173,
+        "tasks": 6,
+        "task_macro_accuracy": 0.737979797979798
+      },
+      "followup": {
+        "n": 34,
+        "tasks": 4,
+        "task_macro_accuracy": 0.7913752913752914
+      },
+      "quality": {
+        "n": 3,
+        "tasks": 1,
+        "task_macro_accuracy": 1.0
+      }
+    },
+    "decision_stage": {
+      "clinical_choice": {
+        "n": 1284,
+        "tasks": 24,
+        "task_macro_accuracy": 0.6926678375636709
+      },
+      "material_judgment": {
+        "n": 130,
+        "tasks": 2,
+        "task_macro_accuracy": 0.54
+      },
+      "clinical_action": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.65
+      }
+    },
+    "dimension": {
+      "rules": {
+        "n": 116,
+        "tasks": 2,
+        "task_macro_accuracy": 0.37124999999999997
+      },
+      "eligibility": {
+        "n": 254,
+        "tasks": 3,
+        "task_macro_accuracy": 0.5893827160493826
+      },
+      "risk": {
+        "n": 230,
+        "tasks": 3,
+        "task_macro_accuracy": 0.6633333333333333
+      },
+      "clinical": {
+        "n": 751,
+        "tasks": 15,
+        "task_macro_accuracy": 0.741033411033411
+      },
+      "workflow": {
+        "n": 42,
+        "tasks": 1,
+        "task_macro_accuracy": 0.8333333333333334
+      },
+      "classification": {
+        "n": 121,
+        "tasks": 3,
+        "task_macro_accuracy": 0.6348484848484849
+      }
+    },
+    "decision_mode": {
+      "clinical": {
+        "n": 784,
+        "tasks": 19,
+        "task_macro_accuracy": 0.6965277948172686
+      },
+      "material": {
+        "n": 130,
+        "tasks": 2,
+        "task_macro_accuracy": 0.54
+      },
+      "knowledge": {
+        "n": 600,
+        "tasks": 6,
+        "task_macro_accuracy": 0.6733333333333333
+      }
+    },
+    "material_kind": {
+      "medical_examination_vignettes": {
+        "n": 880,
+        "tasks": 20,
+        "task_macro_accuracy": 0.7152142255892256
+      },
+      "synthetic_patient_real_trial": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.58
+      },
+      "source_grounded_model_assisted_reconstructed": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.65
+      },
+      "simulated_patients": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.68
+      },
+      "clinical_records_author_reported": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.31
+      },
+      "synthetic_messages_with_ehr_context": {
+        "n": 30,
+        "tasks": 1,
+        "task_macro_accuracy": 0.5
+      },
+      "curated_guideline_rules": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.54
+      },
+      "curated_case_and_expert_annotation": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.75
+      },
+      "medical_exam_questions": {
+        "n": 2,
+        "tasks": 2,
+        "task_macro_accuracy": 1.0
+      },
+      "expert_reviewed_model_created_exam_questions": {
+        "n": 2,
+        "tasks": 1,
+        "task_macro_accuracy": 1.0
+      }
+    },
+    "language": {
+      "zh": {
+        "n": 1080,
+        "tasks": 22,
+        "task_macro_accuracy": 0.6983765687174778
+      },
+      "en": {
+        "n": 434,
+        "tasks": 8,
+        "task_macro_accuracy": 0.74375
+      }
+    },
+    "distribution": {
+      "open": {
+        "n": 1284,
+        "tasks": 24,
+        "task_macro_accuracy": 0.7039178375636709
+      },
+      "research_noncommercial": {
+        "n": 230,
+        "tasks": 3,
+        "task_macro_accuracy": 0.48666666666666664
+      }
+    },
+    "upstream_split": {
+      "official_test": {
+        "n": 447,
+        "tasks": 15,
+        "task_macro_accuracy": 0.6991838291380625
+      },
+      "published_benchmark_no_official_split": {
+        "n": 428,
+        "tasks": 16,
+        "task_macro_accuracy": 0.6814922037838704
+      },
+      "upstream_train_reserved_for_local_evaluation": {
+        "n": 306,
+        "tasks": 16,
+        "task_macro_accuracy": 0.706962139892982
+      },
+      "official_validation": {
+        "n": 3,
+        "tasks": 3,
+        "task_macro_accuracy": 1.0
+      },
+      "sigir_judged_pool": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.58
+      },
+      "official_public_test_1": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.65
+      },
+      "published_inboxes_train_test_mapping_unresolved": {
+        "n": 30,
+        "tasks": 1,
+        "task_macro_accuracy": 0.5
+      },
+      "curated_rules_no_patient_split": {
+        "n": 100,
+        "tasks": 1,
+        "task_macro_accuracy": 0.54
+      }
+    },
+    "sample_completeness": {
+      "at_least_100": {
+        "n": 1300,
+        "tasks": 13,
+        "task_macro_accuracy": 0.6646153846153846
+      },
+      "below_100": {
+        "n": 214,
+        "tasks": 14,
+        "task_macro_accuracy": 0.6938591501091501
+      }
+    },
+    "historical_material_match": {
+      "false": {
+        "n": 1296,
+        "tasks": 26,
+        "task_macro_accuracy": 0.6815588773594887
+      },
+      "true": {
+        "n": 218,
+        "tasks": 4,
+        "task_macro_accuracy": 0.4723835920177384
+      }
+    },
+    "ability_tags_overlapping": {
+      "rules": {
+        "tasks": 2,
+        "n": 116,
+        "task_macro_accuracy": 0.37124999999999997
+      },
+      "eligibility": {
+        "tasks": 3,
+        "n": 254,
+        "task_macro_accuracy": 0.5893827160493826
+      },
+      "evidence": {
+        "tasks": 1,
+        "n": 100,
+        "task_macro_accuracy": 0.58
+      },
+      "risk": {
+        "tasks": 3,
+        "n": 230,
+        "task_macro_accuracy": 0.6633333333333333
+      },
+      "clinical": {
+        "tasks": 15,
+        "n": 751,
+        "task_macro_accuracy": 0.741033411033411
+      },
+      "workflow": {
+        "tasks": 9,
+        "n": 93,
+        "task_macro_accuracy": 0.7887593887593888
+      },
+      "classification": {
+        "tasks": 3,
+        "n": 121,
+        "task_macro_accuracy": 0.6348484848484849
+      }
+    }
+  },
+  "note": "Summaries use eligible task families only; small tasks remain exploratory. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."
+}

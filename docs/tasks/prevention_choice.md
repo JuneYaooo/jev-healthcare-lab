@@ -33,17 +33,21 @@
 
 合并任务后，在本次所选许可范围内少于 20 题的任务仅给探索性结果，不进入汇总。20 题是最低汇总门槛，不是统计充分性或临床有效性保证。
 
-本轮 JEV 与两个 DeepSeek 模型使用相同题目进行测试；完整计时与失败明细见 [模型对比](../MODEL_RESULTS.md)。
+本轮各模型使用相同题目进行测试；完整计时与失败明细见 [模型对比](../MODEL_RESULTS.md)。
 
 ## 模型结果
 
 以下成绩使用本页全部已收录题目；耗时包括请求、响应处理及重试等待。
 
-| 模型 | 准确率 | 平均完整耗时（秒） | P95（秒） |
-| --- | --- | --- | --- |
-| JEV 1.13 | 84.62% | 0.898 | 1.011 |
-| DeepSeek V4.1 Flash | 84.62% | 0.432 | 0.831 |
-| DeepSeek V4 Pro | 84.62% | 0.881 | 1.128 |
+有效回答表示返回合法选项，不代表正确；平均值和分位数包含已启动题目的失败耗时。任务总秒为含并发调度的墙钟时间，不是单题耗时之和。响应链接包含该模型全部题目，可按本页任务的题目 ID 查找。
+
+| 模型 | 准确率 | 有效回答 / 题数 | 平均秒 | P50 秒 | P95 秒 | 任务总秒 | 超时 / 请求失败 / 无效回答 | 重试次数 | 原始记录 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| JEV 1.13 | 84.62% | 13 / 13 | 0.898 | 0.898 | 1.011 | 1.849 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/jev-1.13.0/config.json) · [响应](../../results/clinical-20261012/jev-1.13.0/responses.jsonl) · [评分](../../results/clinical-20261012/jev-1.13.0/scores.json) |
+| DeepSeek V4.1 Flash | 84.62% | 13 / 13 | 0.432 | 0.406 | 0.831 | 0.994 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/deepseek-flash/config.json) · [响应](../../results/clinical-20261012/deepseek-flash/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-flash/scores.json) |
+| DeepSeek V4 Pro | 84.62% | 13 / 13 | 0.881 | 0.924 | 1.128 | 1.911 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/deepseek-v4-pro/config.json) · [响应](../../results/clinical-20261012/deepseek-v4-pro/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-v4-pro/scores.json) |
+| Qwen3.5-9B | 76.92% | 13 / 13 | 0.720 | 0.606 | 1.732 | 1.735 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/qwen3.5-9b/config.json) · [响应](../../results/clinical-20261012/qwen3.5-9b/responses.jsonl) · [评分](../../results/clinical-20261012/qwen3.5-9b/scores.json) |
+| Qwen3.8-27B | 92.31% | 13 / 13 | 1.407 | 1.634 | 1.835 | 2.815 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/qwen3.8-27b/config.json) · [响应](../../results/clinical-20261012/qwen3.8-27b/responses.jsonl) · [评分](../../results/clinical-20261012/qwen3.8-27b/scores.json) |
 
 ## 收录样例
 

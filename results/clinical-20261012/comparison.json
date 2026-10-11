@@ -6247,6 +6247,4175 @@
           }
         }
       }
+    },
+    "qwen3.5-9b": {
+      "label": "Qwen3.5-9B",
+      "primary_clinical_score": 0.5603417107583774,
+      "task_macro_accuracy": 0.5420388007054674,
+      "timing": {
+        "total": 1514,
+        "attempted": 1514,
+        "not_started": 0,
+        "success": 1493,
+        "status_counts": {
+          "success": 1493,
+          "invalid_answer": 5,
+          "request_error": 16
+        },
+        "mean_elapsed_s": 1.2796432416380483,
+        "p50_elapsed_s": 0.7394360410107765,
+        "p95_elapsed_s": 4.0975972920132335,
+        "task_wall_s": null,
+        "task_segments": [],
+        "timeout_rate": 0.0,
+        "request_error_rate": 0.010568031704095112,
+        "invalid_answer_rate": 0.0033025099075297227,
+        "retries": 140
+      },
+      "tasks": {
+        "administration_route_choice": {
+          "n": 4,
+          "correct": 2,
+          "accuracy": 0.5,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "A",
+            "B",
+            "D",
+            "opb",
+            "opc",
+            "opd",
+            "ope"
+          ],
+          "groups": 4,
+          "groups_all_correct": 2,
+          "group_all_correct_rate": 0.5,
+          "title": "给药途径与实施方法选择",
+          "task_ids": [
+            "administration_route_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 4,
+            "attempted": 4,
+            "not_started": 0,
+            "success": 4,
+            "status_counts": {
+              "success": 4
+            },
+            "mean_elapsed_s": 1.7623396979979589,
+            "p50_elapsed_s": 0.6543169579817913,
+            "p95_elapsed_s": 3.6426358750031795,
+            "task_wall_s": 3.6459967080154456,
+            "task_segments": [
+              {
+                "completed": 4,
+                "ended_at": "2026-10-11T16:40:14.915431+00:00",
+                "family": "administration_route_choice",
+                "selected": 4,
+                "started_at": "2026-10-11T16:40:11.269464+00:00",
+                "wall_s": 3.6459967080154456
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "case_complication": {
+          "n": 100,
+          "correct": 70,
+          "accuracy": 0.7,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 96,
+          "groups_all_correct": 68,
+          "group_all_correct_rate": 0.7083333333333334,
+          "title": "病例并发症判断",
+          "task_ids": [
+            "case_complication"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.173369448800513,
+            "p50_elapsed_s": 0.6686486249964219,
+            "p95_elapsed_s": 4.746241917018779,
+            "task_wall_s": 16.19031800000812,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:40:31.106822+00:00",
+                "family": "case_complication",
+                "selected": 100,
+                "started_at": "2026-10-11T16:40:14.916533+00:00",
+                "wall_s": 16.19031800000812
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "case_etiology": {
+          "n": 100,
+          "correct": 66,
+          "accuracy": 0.66,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 100,
+          "groups_all_correct": 66,
+          "group_all_correct_rate": 0.66,
+          "title": "病例病因判断",
+          "task_ids": [
+            "case_etiology"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.584983264140319,
+            "p50_elapsed_s": 0.7078934590099379,
+            "p95_elapsed_s": 3.7830163330072537,
+            "task_wall_s": 42.32143816698226,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:41:13.429270+00:00",
+                "family": "case_etiology",
+                "selected": 100,
+                "started_at": "2026-10-11T16:40:31.107450+00:00",
+                "wall_s": 42.32143816698226
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 1
+          }
+        },
+        "clinical_grade": {
+          "n": 100,
+          "correct": 34,
+          "accuracy": 0.34,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 3,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 99,
+          "groups_all_correct": 34,
+          "group_all_correct_rate": 0.3434343434343434,
+          "title": "疾病分期与严重程度判断",
+          "task_ids": [
+            "clinical_grade"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 97,
+            "status_counts": {
+              "success": 97,
+              "invalid_answer": 3
+            },
+            "mean_elapsed_s": 1.4685858229608857,
+            "p50_elapsed_s": 0.8073824580060318,
+            "p95_elapsed_s": 4.640109375002794,
+            "task_wall_s": 20.693473916995572,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:41:34.123600+00:00",
+                "family": "clinical_grade",
+                "selected": 100,
+                "started_at": "2026-10-11T16:41:13.429963+00:00",
+                "wall_s": 20.693473916995572
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.03,
+            "retries": 0
+          }
+        },
+        "consent_action": {
+          "n": 3,
+          "correct": 3,
+          "accuracy": 1.0,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "D",
+            "E"
+          ],
+          "groups": 3,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 1.0,
+          "title": "知情同意与隐私处置选择",
+          "task_ids": [
+            "consent_action"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 3,
+            "attempted": 3,
+            "not_started": 0,
+            "success": 3,
+            "status_counts": {
+              "success": 3
+            },
+            "mean_elapsed_s": 0.6061413333227392,
+            "p50_elapsed_s": 0.6239359169849195,
+            "p95_elapsed_s": 0.6414667499775533,
+            "task_wall_s": 0.6421303329989314,
+            "task_segments": [
+              {
+                "completed": 3,
+                "ended_at": "2026-10-11T16:41:34.766052+00:00",
+                "family": "consent_action",
+                "selected": 3,
+                "started_at": "2026-10-11T16:41:34.123918+00:00",
+                "wall_s": 0.6421303329989314
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "diagnosis": {
+          "n": 200,
+          "correct": 132,
+          "accuracy": 0.66,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "d12",
+            "d19"
+          ],
+          "groups": 200,
+          "groups_all_correct": 132,
+          "group_all_correct_rate": 0.66,
+          "title": "病例诊断选择",
+          "task_ids": [
+            "diagnosis_choice",
+            "synthetic_diagnosis"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 200,
+            "attempted": 200,
+            "not_started": 0,
+            "success": 200,
+            "status_counts": {
+              "success": 200
+            },
+            "mean_elapsed_s": 1.2827241523157864,
+            "p50_elapsed_s": 0.8210786659910809,
+            "p95_elapsed_s": 4.233418041985715,
+            "task_wall_s": 33.378692833008245,
+            "task_segments": [
+              {
+                "completed": 200,
+                "ended_at": "2026-10-11T16:42:08.144920+00:00",
+                "family": "diagnosis",
+                "selected": 200,
+                "started_at": "2026-10-11T16:41:34.766217+00:00",
+                "wall_s": 33.378692833008245
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 1
+          }
+        },
+        "examination_choice": {
+          "n": 100,
+          "correct": 60,
+          "accuracy": 0.6,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 100,
+          "groups_all_correct": 60,
+          "group_all_correct_rate": 0.6,
+          "title": "检查方案选择",
+          "task_ids": [
+            "examination_choice"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.188085664519749,
+            "p50_elapsed_s": 0.652972707990557,
+            "p95_elapsed_s": 4.383305832976475,
+            "task_wall_s": 16.815331541991327,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:42:24.960349+00:00",
+                "family": "examination_choice",
+                "selected": 100,
+                "started_at": "2026-10-11T16:42:08.145130+00:00",
+                "wall_s": 16.815331541991327
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "fluid_plan": {
+          "n": 16,
+          "correct": 3,
+          "accuracy": 0.1875,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "C",
+            "ope"
+          ],
+          "groups": 15,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 0.2,
+          "title": "补液方案选择",
+          "task_ids": [
+            "fluid_plan"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 16,
+            "attempted": 16,
+            "not_started": 0,
+            "success": 16,
+            "status_counts": {
+              "success": 16
+            },
+            "mean_elapsed_s": 2.594971916751092,
+            "p50_elapsed_s": 0.7972450829984155,
+            "p95_elapsed_s": 5.1531968750059605,
+            "task_wall_s": 5.735797542001819,
+            "task_segments": [
+              {
+                "completed": 16,
+                "ended_at": "2026-10-11T16:42:30.696329+00:00",
+                "family": "fluid_plan",
+                "selected": 16,
+                "started_at": "2026-10-11T16:42:24.960543+00:00",
+                "wall_s": 5.735797542001819
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "followup_plan": {
+          "n": 6,
+          "correct": 3,
+          "accuracy": 0.5,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "A",
+            "C",
+            "opa",
+            "opb",
+            "opd"
+          ],
+          "groups": 6,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 0.5,
+          "title": "复查项目与随访时机选择",
+          "task_ids": [
+            "followup_plan"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 6,
+            "attempted": 6,
+            "not_started": 0,
+            "success": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "mean_elapsed_s": 0.7091784511721926,
+            "p50_elapsed_s": 0.7176505000097677,
+            "p95_elapsed_s": 0.7760111659881659,
+            "task_wall_s": 0.7781497089890763,
+            "task_segments": [
+              {
+                "completed": 6,
+                "ended_at": "2026-10-11T16:42:31.474642+00:00",
+                "family": "followup_plan",
+                "selected": 6,
+                "started_at": "2026-10-11T16:42:30.696519+00:00",
+                "wall_s": 0.7781497089890763
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "infection_precaution": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "C",
+            "D",
+            "opa",
+            "opb",
+            "opd",
+            "ope"
+          ],
+          "groups": 5,
+          "groups_all_correct": 5,
+          "group_all_correct_rate": 1.0,
+          "title": "感染防控措施选择",
+          "task_ids": [
+            "infection_precaution"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 5,
+            "attempted": 5,
+            "not_started": 0,
+            "success": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "mean_elapsed_s": 1.1237432167981751,
+            "p50_elapsed_s": 1.3026743340014946,
+            "p95_elapsed_s": 1.6940060420020018,
+            "task_wall_s": 1.6961903749906924,
+            "task_segments": [
+              {
+                "completed": 5,
+                "ended_at": "2026-10-11T16:42:33.171659+00:00",
+                "family": "infection_precaution",
+                "selected": 5,
+                "started_at": "2026-10-11T16:42:31.475475+00:00",
+                "wall_s": 1.6961903749906924
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "medication_choice": {
+          "n": 100,
+          "correct": 47,
+          "accuracy": 0.47,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "E"
+          ],
+          "groups": 100,
+          "groups_all_correct": 47,
+          "group_all_correct_rate": 0.47,
+          "title": "用药方案选择",
+          "task_ids": [
+            "medication_choice"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.2171869475100539,
+            "p50_elapsed_s": 0.6372642919886857,
+            "p95_elapsed_s": 4.687045500002569,
+            "task_wall_s": 15.627167749975342,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:42:48.799637+00:00",
+                "family": "medication_choice",
+                "selected": 100,
+                "started_at": "2026-10-11T16:42:33.172452+00:00",
+                "wall_s": 15.627167749975342
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "message_urgency_pair": {
+          "n": 30,
+          "correct": 19,
+          "accuracy": 0.6333333333333333,
+          "label_semantics": "fixed",
+          "macro_f1": 0.5970695970695971,
+          "balanced_accuracy": 0.6,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {
+            "Patient #1": {
+              "support": 20,
+              "recall": 0.7,
+              "f1": 0.717948717948718
+            },
+            "Patient #2": {
+              "support": 10,
+              "recall": 0.5,
+              "f1": 0.47619047619047616
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 30,
+          "groups_all_correct": 19,
+          "group_all_correct_rate": 0.6333333333333333,
+          "confusion": {
+            "Patient #1": {
+              "Patient #1": 14,
+              "Patient #2": 6
+            },
+            "Patient #2": {
+              "Patient #1": 5,
+              "Patient #2": 5
+            }
+          },
+          "sample_majority_label": "Patient #1",
+          "sample_majority_accuracy": 0.6666666666666666,
+          "title": "患者消息处理优先级",
+          "task_ids": [
+            "message_urgency_pair"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 30,
+            "attempted": 30,
+            "not_started": 0,
+            "success": 30,
+            "status_counts": {
+              "success": 30
+            },
+            "mean_elapsed_s": 1.0199726402681941,
+            "p50_elapsed_s": 0.8218805830110796,
+            "p95_elapsed_s": 2.1351846670149826,
+            "task_wall_s": 4.540906542009907,
+            "task_segments": [
+              {
+                "completed": 30,
+                "ended_at": "2026-10-11T16:42:53.340919+00:00",
+                "family": "message_urgency_pair",
+                "selected": 30,
+                "started_at": "2026-10-11T16:42:48.800014+00:00",
+                "wall_s": 4.540906542009907
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "monitoring_target": {
+          "n": 5,
+          "correct": 3,
+          "accuracy": 0.6,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "D"
+          ],
+          "groups": 5,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 0.6,
+          "title": "病情监测与疗效判断",
+          "task_ids": [
+            "monitoring_target"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 5,
+            "attempted": 5,
+            "not_started": 0,
+            "success": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "mean_elapsed_s": 0.7156907086027786,
+            "p50_elapsed_s": 0.7005532920011319,
+            "p95_elapsed_s": 0.9524902090197429,
+            "task_wall_s": 0.9544223330158275,
+            "task_segments": [
+              {
+                "completed": 5,
+                "ended_at": "2026-10-11T16:42:54.296150+00:00",
+                "family": "monitoring_target",
+                "selected": 5,
+                "started_at": "2026-10-11T16:42:53.341715+00:00",
+                "wall_s": 0.9544223330158275
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "nursing_priority": {
+          "n": 42,
+          "correct": 30,
+          "accuracy": 0.7142857142857143,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 42,
+          "groups_all_correct": 30,
+          "group_all_correct_rate": 0.7142857142857143,
+          "title": "护理措施选择",
+          "task_ids": [
+            "nursing_priority"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 42,
+            "attempted": 42,
+            "not_started": 0,
+            "success": 42,
+            "status_counts": {
+              "success": 42
+            },
+            "mean_elapsed_s": 0.8687438540468325,
+            "p50_elapsed_s": 0.7049595419957768,
+            "p95_elapsed_s": 1.5455679580045398,
+            "task_wall_s": 5.7754145830112975,
+            "task_segments": [
+              {
+                "completed": 42,
+                "ended_at": "2026-10-11T16:43:00.071730+00:00",
+                "family": "nursing_priority",
+                "selected": 42,
+                "started_at": "2026-10-11T16:42:54.296316+00:00",
+                "wall_s": 5.7754145830112975
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "nutrition_plan": {
+          "n": 11,
+          "correct": 5,
+          "accuracy": 0.45454545454545453,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "opa",
+            "opb",
+            "opc",
+            "opd"
+          ],
+          "groups": 11,
+          "groups_all_correct": 5,
+          "group_all_correct_rate": 0.45454545454545453,
+          "title": "营养与饮食方案选择",
+          "task_ids": [
+            "nutrition_plan"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 11,
+            "attempted": 11,
+            "not_started": 0,
+            "success": 11,
+            "status_counts": {
+              "success": 11
+            },
+            "mean_elapsed_s": 1.3347403902708637,
+            "p50_elapsed_s": 0.7336639590212144,
+            "p95_elapsed_s": 7.402808334009023,
+            "task_wall_s": 7.405336416995851,
+            "task_segments": [
+              {
+                "completed": 11,
+                "ended_at": "2026-10-11T16:43:07.477774+00:00",
+                "family": "nutrition_plan",
+                "selected": 11,
+                "started_at": "2026-10-11T16:43:00.072301+00:00",
+                "wall_s": 7.405336416995851
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "patient_contraindication": {
+          "n": 54,
+          "correct": 25,
+          "accuracy": 0.46296296296296297,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 53,
+          "groups_all_correct": 24,
+          "group_all_correct_rate": 0.4528301886792453,
+          "title": "患者方案禁忌判断",
+          "task_ids": [
+            "patient_contraindication"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 54,
+            "attempted": 54,
+            "not_started": 0,
+            "success": 54,
+            "status_counts": {
+              "success": 54
+            },
+            "mean_elapsed_s": 0.7290059251859525,
+            "p50_elapsed_s": 0.6749262090015691,
+            "p95_elapsed_s": 1.205122167011723,
+            "task_wall_s": 5.224599707988091,
+            "task_segments": [
+              {
+                "completed": 54,
+                "ended_at": "2026-10-11T16:43:12.703132+00:00",
+                "family": "patient_contraindication",
+                "selected": 54,
+                "started_at": "2026-10-11T16:43:07.478453+00:00",
+                "wall_s": 5.224599707988091
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "patient_counseling": {
+          "n": 11,
+          "correct": 11,
+          "accuracy": 1.0,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B"
+          ],
+          "groups": 11,
+          "groups_all_correct": 11,
+          "group_all_correct_rate": 1.0,
+          "title": "健康教育与沟通行动选择",
+          "task_ids": [
+            "patient_counseling"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 11,
+            "attempted": 11,
+            "not_started": 0,
+            "success": 11,
+            "status_counts": {
+              "success": 11
+            },
+            "mean_elapsed_s": 1.042674053092593,
+            "p50_elapsed_s": 0.7130136249761563,
+            "p95_elapsed_s": 4.767176249995828,
+            "task_wall_s": 5.293531375005841,
+            "task_segments": [
+              {
+                "completed": 11,
+                "ended_at": "2026-10-11T16:43:17.997235+00:00",
+                "family": "patient_counseling",
+                "selected": 11,
+                "started_at": "2026-10-11T16:43:12.703637+00:00",
+                "wall_s": 5.293531375005841
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "pgx_guideline_recommendation": {
+          "n": 100,
+          "correct": 39,
+          "accuracy": 0.39,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "action_10",
+            "action_12",
+            "action_13",
+            "action_15",
+            "action_16",
+            "action_7"
+          ],
+          "groups": 25,
+          "groups_all_correct": 4,
+          "group_all_correct_rate": 0.16,
+          "title": "药物基因结果对应的指南建议选择",
+          "task_ids": [
+            "pgx_guideline_recommendation"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 0.8653121875217766,
+            "p50_elapsed_s": 0.6889340420020744,
+            "p95_elapsed_s": 1.691774291015463,
+            "task_wall_s": 11.128399874985917,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:43:29.126161+00:00",
+                "family": "pgx_guideline_recommendation",
+                "selected": 100,
+                "started_at": "2026-10-11T16:43:17.997674+00:00",
+                "wall_s": 11.128399874985917
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "positioning_choice": {
+          "n": 10,
+          "correct": 6,
+          "accuracy": 0.6,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "A",
+            "opb",
+            "opc",
+            "ope"
+          ],
+          "groups": 10,
+          "groups_all_correct": 6,
+          "group_all_correct_rate": 0.6,
+          "title": "护理与操作体位选择",
+          "task_ids": [
+            "positioning_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 10,
+            "attempted": 10,
+            "not_started": 0,
+            "success": 10,
+            "status_counts": {
+              "success": 10
+            },
+            "mean_elapsed_s": 0.9673677873070119,
+            "p50_elapsed_s": 0.7604827500181273,
+            "p95_elapsed_s": 3.377469708007993,
+            "task_wall_s": 3.954116624983726,
+            "task_segments": [
+              {
+                "completed": 10,
+                "ended_at": "2026-10-11T16:43:33.080856+00:00",
+                "family": "positioning_choice",
+                "selected": 10,
+                "started_at": "2026-10-11T16:43:29.126717+00:00",
+                "wall_s": 3.954116624983726
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "prevention_choice": {
+          "n": 13,
+          "correct": 10,
+          "accuracy": 0.7692307692307693,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "C",
+            "opa",
+            "ope"
+          ],
+          "groups": 13,
+          "groups_all_correct": 10,
+          "group_all_correct_rate": 0.7692307692307693,
+          "title": "预防措施选择",
+          "task_ids": [
+            "prevention_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 13,
+            "attempted": 13,
+            "not_started": 0,
+            "success": 13,
+            "status_counts": {
+              "success": 13
+            },
+            "mean_elapsed_s": 0.7202948429263555,
+            "p50_elapsed_s": 0.6058456250175368,
+            "p95_elapsed_s": 1.7324447080027312,
+            "task_wall_s": 1.7354944590188097,
+            "task_segments": [
+              {
+                "completed": 13,
+                "ended_at": "2026-10-11T16:43:34.816862+00:00",
+                "family": "prevention_choice",
+                "selected": 13,
+                "started_at": "2026-10-11T16:43:33.081370+00:00",
+                "wall_s": 1.7354944590188097
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "rehabilitation_choice": {
+          "n": 4,
+          "correct": 3,
+          "accuracy": 0.75,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "C"
+          ],
+          "groups": 4,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 0.75,
+          "title": "康复训练方案选择",
+          "task_ids": [
+            "rehabilitation_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 4,
+            "attempted": 4,
+            "not_started": 0,
+            "success": 4,
+            "status_counts": {
+              "success": 4
+            },
+            "mean_elapsed_s": 0.6295828855072614,
+            "p50_elapsed_s": 0.5729636250180192,
+            "p95_elapsed_s": 0.7474237919959705,
+            "task_wall_s": 0.7489797500020359,
+            "task_segments": [
+              {
+                "completed": 4,
+                "ended_at": "2026-10-11T16:43:35.566829+00:00",
+                "family": "rehabilitation_choice",
+                "selected": 4,
+                "started_at": "2026-10-11T16:43:34.817769+00:00",
+                "wall_s": 0.7489797500020359
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "tcm_pathogenesis_candidate": {
+          "n": 100,
+          "correct": 70,
+          "accuracy": 0.7,
+          "label_semantics": "fixed",
+          "macro_f1": 0.6921182266009853,
+          "balanced_accuracy": 0.7,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {
+            "no": {
+              "support": 50,
+              "recall": 0.86,
+              "f1": 0.7413793103448276
+            },
+            "yes": {
+              "support": 50,
+              "recall": 0.54,
+              "f1": 0.6428571428571429
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 50,
+          "groups_all_correct": 22,
+          "group_all_correct_rate": 0.44,
+          "confusion": {
+            "no": {
+              "yes": 7,
+              "no": 43
+            },
+            "yes": {
+              "yes": 27,
+              "no": 23
+            }
+          },
+          "sample_majority_label": "no",
+          "sample_majority_accuracy": 0.5,
+          "positive_recall": 0.54,
+          "specificity": 0.86,
+          "title": "中医候选病机判断",
+          "task_ids": [
+            "tcm_pathogenesis_candidate"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.012456662542536,
+            "p50_elapsed_s": 0.6104911670263391,
+            "p95_elapsed_s": 2.3180022920132615,
+            "task_wall_s": 20.476509625004837,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:43:56.043575+00:00",
+                "family": "tcm_pathogenesis_candidate",
+                "selected": 100,
+                "started_at": "2026-10-11T16:43:35.566994+00:00",
+                "wall_s": 20.476509625004837
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 1
+          }
+        },
+        "tcm_syndrome": {
+          "n": 100,
+          "correct": 29,
+          "accuracy": 0.29,
+          "label_semantics": "fixed",
+          "macro_f1": 0.1597152847152847,
+          "balanced_accuracy": 0.17903687221869038,
+          "missing": 0,
+          "invalid": 1,
+          "per_class": {
+            "大肠湿热证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "心脉痹阻证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 0.2857142857142857
+            },
+            "正虚瘀结证": {
+              "support": 4,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "气滞血瘀证": {
+              "support": 6,
+              "recall": 0.3333333333333333,
+              "f1": 0.4444444444444444
+            },
+            "气虚痰结证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "气虚血瘀证": {
+              "support": 11,
+              "recall": 0.45454545454545453,
+              "f1": 0.38461538461538464
+            },
+            "湿热下注证": {
+              "support": 13,
+              "recall": 0.9230769230769231,
+              "f1": 0.8888888888888888
+            },
+            "湿热内蕴证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "湿热瘀滞证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "湿热瘀阻证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "湿热蕴毒证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "湿热蕴结证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "热毒蕴结证": {
+              "support": 2,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰浊蒙窍证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰湿内阻证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰湿蒙窍证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰湿蕴肺证": {
+              "support": 3,
+              "recall": 1.0,
+              "f1": 0.8571428571428571
+            },
+            "痰热壅肺证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰瘀痹阻证": {
+              "support": 3,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝肾亏虚证": {
+              "support": 3,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝肾阴虚证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝胃不和证": {
+              "support": 3,
+              "recall": 0.6666666666666666,
+              "f1": 0.5
+            },
+            "肝胃郁热证": {
+              "support": 5,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝郁血瘀证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝阳上亢证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肺卫不固证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肾虚证": {
+              "support": 2,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            },
+            "脾气虚证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾肾两虚证": {
+              "support": 4,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾肾阳虚证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾胃湿热证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾胃虚寒证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "脾胃虚弱证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阳虚水泛证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阴虚火旺证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阴虚血瘀证": {
+              "support": 2,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阴虚阳亢证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "风寒外袭证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风寒阻络证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风热外袭证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风热犯肺证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风痰上扰证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风痰入络证": {
+              "support": 2,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风痰瘀阻证": {
+              "support": 8,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "candidate_labels_without_gold": [
+            "中气下陷证",
+            "中气不足证",
+            "外伤损络证",
+            "寒凝血瘀证",
+            "寒湿阻络证",
+            "寒痰阻肺证",
+            "心肺气虚证",
+            "心肾不交证",
+            "心脾两虚证",
+            "心虚胆怯证",
+            "心血虚证",
+            "心阳不振证",
+            "正虚毒瘀证",
+            "正虚毒结证",
+            "毒邪流窜证",
+            "气不摄血证",
+            "气滞痰凝证",
+            "气滞证",
+            "气虚不摄证",
+            "气虚血溢证",
+            "气虚证",
+            "气血不足证",
+            "气血两虚证",
+            "气血亏虚证",
+            "气血失调证",
+            "气血瘀滞证",
+            "气郁痰阻证",
+            "气阴两虚证",
+            "气阴亏虚证",
+            "津亏热结证",
+            "湿毒蕴结证",
+            "湿热阻络证",
+            "热毒壅结证",
+            "热毒炽盛证",
+            "热毒蕴肤证",
+            "痰气交阻证",
+            "痰浊上蒙证",
+            "痰浊中阻证",
+            "痰浊内蕴证",
+            "痰湿中阻证",
+            "痰湿证",
+            "痰湿阻滞证",
+            "痰火扰心证",
+            "痰热内扰证",
+            "痰瘀互结证",
+            "痰瘀滞络证",
+            "痰蒙清窍证",
+            "痰蒙神窍证",
+            "瘀滞胞宫证",
+            "瘀血内阻证",
+            "瘀血阻滞证",
+            "瘀血阻络证",
+            "瘀阻心脉证",
+            "肝气犯胃证",
+            "肝经湿热证",
+            "肝肾两虚证",
+            "肝肾亏损证",
+            "肝胃气滞证",
+            "肝胆湿热证",
+            "肝郁气滞证",
+            "肝郁脾虚证",
+            "肝阴不足证",
+            "肠燥津伤证",
+            "肺肾气虚证",
+            "肺阴虚证",
+            "肾不纳气证",
+            "肾气虚证",
+            "肾虚寒凝证",
+            "肾虚水泛证",
+            "肾虚肝亢证",
+            "肾阳虚证",
+            "脾肾气虚证",
+            "脾胃不和证",
+            "脾胃气虚证",
+            "脾胃积热证",
+            "脾胃阳虚证",
+            "脾虚湿盛证",
+            "脾虚湿蕴证",
+            "血热证",
+            "血瘀痰凝证",
+            "血虚证",
+            "血虚风燥证",
+            "阳虚寒凝证",
+            "阳虚痰凝证",
+            "阳虚血瘀证",
+            "阴虚津亏证",
+            "阴虚湿热证",
+            "阴虚血热证",
+            "阴虚风动证",
+            "风寒湿痹证",
+            "风寒湿阻证",
+            "风寒痹阻证",
+            "风寒袭肺证",
+            "风寒袭表证",
+            "风湿热证",
+            "风湿蕴肤证",
+            "风热伤络证",
+            "风热毒蕴证",
+            "风热血热证",
+            "风热袭表证",
+            "风痰闭窍证",
+            "风痰闭阻证",
+            "饮食积滞证",
+            "髓海不足证"
+          ],
+          "groups": 100,
+          "groups_all_correct": 29,
+          "group_all_correct_rate": 0.29,
+          "confusion": {
+            "脾胃虚弱证": {
+              "气虚证": 1
+            },
+            "气虚血瘀证": {
+              "心脉痹阻证": 4,
+              "气虚血瘀证": 5,
+              "痰湿蒙窍证": 1,
+              "气虚证": 1
+            },
+            "湿热下注证": {
+              "<invalid>": 1,
+              "湿热下注证": 12
+            },
+            "风痰瘀阻证": {
+              "气虚血瘀证": 3,
+              "气虚证": 1,
+              "湿热蕴结证": 1,
+              "外伤损络证": 1,
+              "痰热内扰证": 2
+            },
+            "脾肾两虚证": {
+              "痰瘀互结证": 1,
+              "脾肾气虚证": 2,
+              "痰浊蒙窍证": 1
+            },
+            "气滞血瘀证": {
+              "寒湿阻络证": 2,
+              "气滞血瘀证": 2,
+              "外伤损络证": 1,
+              "寒凝血瘀证": 1
+            },
+            "肾虚证": {
+              "肾虚证": 1,
+              "气虚证": 1
+            },
+            "痰湿蕴肺证": {
+              "痰湿蕴肺证": 3
+            },
+            "肝胃郁热证": {
+              "肝胃不和证": 2,
+              "阴虚火旺证": 1,
+              "气虚血瘀证": 1,
+              "气滞证": 1
+            },
+            "痰瘀痹阻证": {
+              "气虚血瘀证": 2,
+              "心脉痹阻证": 1
+            },
+            "湿热瘀阻证": {
+              "湿热瘀阻证": 1
+            },
+            "正虚瘀结证": {
+              "气虚证": 3,
+              "正虚毒结证": 1
+            },
+            "脾胃湿热证": {
+              "肝胃不和证": 1
+            },
+            "痰湿蒙窍证": {
+              "瘀血内阻证": 1
+            },
+            "风寒阻络证": {
+              "风寒袭表证": 1
+            },
+            "心脉痹阻证": {
+              "心脉痹阻证": 1
+            },
+            "肝胃不和证": {
+              "气滞证": 1,
+              "肝胃不和证": 2
+            },
+            "大肠湿热证": {
+              "湿热蕴结证": 1
+            },
+            "阴虚阳亢证": {
+              "阴虚阳亢证": 1
+            },
+            "热毒蕴结证": {
+              "湿热下注证": 2
+            },
+            "痰浊蒙窍证": {
+              "痰蒙清窍证": 1
+            },
+            "肝郁血瘀证": {
+              "气虚血瘀证": 1
+            },
+            "风寒外袭证": {
+              "风寒袭表证": 1
+            },
+            "肺卫不固证": {
+              "痰湿蕴肺证": 1
+            },
+            "脾肾阳虚证": {
+              "气虚证": 1
+            },
+            "痰湿内阻证": {
+              "肝阳上亢证": 1
+            },
+            "阴虚血瘀证": {
+              "气阴两虚证": 1,
+              "风寒湿痹证": 1
+            },
+            "风痰入络证": {
+              "风痰上扰证": 1,
+              "风痰瘀阻证": 1
+            },
+            "风痰上扰证": {
+              "肝阳上亢证": 1
+            },
+            "肝肾亏虚证": {
+              "气滞证": 1,
+              "气滞血瘀证": 1,
+              "风寒湿痹证": 1
+            },
+            "痰热壅肺证": {
+              "风寒袭肺证": 1
+            },
+            "湿热瘀滞证": {
+              "湿热蕴结证": 1
+            },
+            "风热犯肺证": {
+              "痰热内扰证": 1
+            },
+            "脾气虚证": {
+              "气虚血瘀证": 1
+            },
+            "肝阳上亢证": {
+              "气虚血瘀证": 1
+            },
+            "阴虚火旺证": {
+              "肝郁气滞证": 1
+            },
+            "脾胃虚寒证": {
+              "脾胃虚寒证": 1
+            },
+            "湿热蕴结证": {
+              "大肠湿热证": 1
+            },
+            "风热外袭证": {
+              "风热犯肺证": 1
+            },
+            "湿热内蕴证": {
+              "痰热壅肺证": 1
+            },
+            "湿热蕴毒证": {
+              "湿热蕴结证": 1
+            },
+            "肝肾阴虚证": {
+              "气虚血瘀证": 1
+            },
+            "阳虚水泛证": {
+              "心阳不振证": 1
+            },
+            "气虚痰结证": {
+              "脾虚湿盛证": 1
+            }
+          },
+          "sample_majority_label": "湿热下注证",
+          "sample_majority_accuracy": 0.13,
+          "title": "中医证型判断",
+          "task_ids": [
+            "tcm_syndrome"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 99,
+            "status_counts": {
+              "success": 99,
+              "invalid_answer": 1
+            },
+            "mean_elapsed_s": 1.1426183137582848,
+            "p50_elapsed_s": 0.9384875420073513,
+            "p95_elapsed_s": 2.535618166992208,
+            "task_wall_s": 16.581475375016453,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:44:12.626163+00:00",
+                "family": "tcm_syndrome",
+                "selected": 100,
+                "started_at": "2026-10-11T16:43:56.044624+00:00",
+                "wall_s": 16.581475375016453
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.01,
+            "retries": 1
+          }
+        },
+        "treatment_choice": {
+          "n": 100,
+          "correct": 51,
+          "accuracy": 0.51,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 100,
+          "groups_all_correct": 51,
+          "group_all_correct_rate": 0.51,
+          "title": "治疗方案选择",
+          "task_ids": [
+            "treatment_choice"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 0.860821764151915,
+            "p50_elapsed_s": 0.626930958009325,
+            "p95_elapsed_s": 2.0703001670190133,
+            "task_wall_s": 12.155820584011963,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:44:24.782214+00:00",
+                "family": "treatment_choice",
+                "selected": 100,
+                "started_at": "2026-10-11T16:44:12.626371+00:00",
+                "wall_s": 12.155820584011963
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "triage_urgency": {
+          "n": 100,
+          "correct": 50,
+          "accuracy": 0.5,
+          "label_semantics": "fixed",
+          "macro_f1": 0.434280303030303,
+          "balanced_accuracy": 0.49583333333333335,
+          "missing": 0,
+          "invalid": 1,
+          "per_class": {
+            "0A_NO_ESCALATION_INFO_NEEDED": {
+              "support": 30,
+              "recall": 0.43333333333333335,
+              "f1": 0.4
+            },
+            "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+              "support": 20,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "1A_ESCALATION_NONURGENT_CARE": {
+              "support": 30,
+              "recall": 0.6,
+              "f1": 0.5454545454545454
+            },
+            "1B_ESCALATION_URGENT_CARE": {
+              "support": 20,
+              "recall": 0.95,
+              "f1": 0.7916666666666666
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 62,
+          "groups_all_correct": 19,
+          "group_all_correct_rate": 0.3064516129032258,
+          "confusion": {
+            "1A_ESCALATION_NONURGENT_CARE": {
+              "1B_ESCALATION_URGENT_CARE": 3,
+              "1A_ESCALATION_NONURGENT_CARE": 18,
+              "0A_NO_ESCALATION_INFO_NEEDED": 9
+            },
+            "1B_ESCALATION_URGENT_CARE": {
+              "1B_ESCALATION_URGENT_CARE": 19,
+              "0A_NO_ESCALATION_INFO_NEEDED": 1
+            },
+            "0A_NO_ESCALATION_INFO_NEEDED": {
+              "1A_ESCALATION_NONURGENT_CARE": 11,
+              "0A_NO_ESCALATION_INFO_NEEDED": 13,
+              "1B_ESCALATION_URGENT_CARE": 5,
+              "<invalid>": 1
+            },
+            "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+              "0A_NO_ESCALATION_INFO_NEEDED": 12,
+              "1A_ESCALATION_NONURGENT_CARE": 7,
+              "1B_ESCALATION_URGENT_CARE": 1
+            }
+          },
+          "sample_majority_label": "1A_ESCALATION_NONURGENT_CARE",
+          "sample_majority_accuracy": 0.3,
+          "title": "分诊与就医紧急程度判断",
+          "task_ids": [
+            "triage_urgency"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 99,
+            "status_counts": {
+              "success": 99,
+              "invalid_answer": 1
+            },
+            "mean_elapsed_s": 1.074618855790468,
+            "p50_elapsed_s": 0.8318328330060467,
+            "p95_elapsed_s": 2.282384040998295,
+            "task_wall_s": 18.657162792020245,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:44:43.440187+00:00",
+                "family": "triage_urgency",
+                "selected": 100,
+                "started_at": "2026-10-11T16:44:24.782971+00:00",
+                "wall_s": 18.657162792020245
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.01,
+            "retries": 0
+          }
+        },
+        "trial_referral": {
+          "n": 100,
+          "correct": 50,
+          "accuracy": 0.5,
+          "label_semantics": "fixed",
+          "macro_f1": 0.5355863499245852,
+          "balanced_accuracy": 0.4982174688057041,
+          "missing": 0,
+          "invalid": 16,
+          "per_class": {
+            "0": {
+              "support": 34,
+              "recall": 0.6764705882352942,
+              "f1": 0.6764705882352942
+            },
+            "1": {
+              "support": 33,
+              "recall": 0.45454545454545453,
+              "f1": 0.46875
+            },
+            "2": {
+              "support": 33,
+              "recall": 0.36363636363636365,
+              "f1": 0.46153846153846156
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 58,
+          "groups_all_correct": 20,
+          "group_all_correct_rate": 0.3448275862068966,
+          "confusion": {
+            "1": {
+              "1": 15,
+              "0": 9,
+              "<invalid>": 5,
+              "2": 4
+            },
+            "2": {
+              "1": 12,
+              "0": 2,
+              "2": 12,
+              "<invalid>": 7
+            },
+            "0": {
+              "0": 23,
+              "2": 3,
+              "1": 4,
+              "<invalid>": 4
+            }
+          },
+          "sample_majority_label": "0",
+          "sample_majority_accuracy": 0.34,
+          "title": "患者临床试验初筛与转介判断",
+          "task_ids": [
+            "trial_referral"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 84,
+            "status_counts": {
+              "success": 84,
+              "request_error": 16
+            },
+            "mean_elapsed_s": 3.0403142812498847,
+            "p50_elapsed_s": 3.3920203750021756,
+            "p95_elapsed_s": 4.71731904099579,
+            "task_wall_s": 38.261502290988574,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:45:21.702484+00:00",
+                "family": "trial_referral",
+                "selected": 100,
+                "started_at": "2026-10-11T16:44:43.440871+00:00",
+                "wall_s": 38.261502290988574
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.16,
+            "invalid_answer_rate": 0.0,
+            "retries": 136
+          }
+        }
+      },
+      "license_slices": {
+        "open": {
+          "records": 1284,
+          "primary_clinical_score": 0.5710767195767195,
+          "task_macro_accuracy": 0.5589373897707232
+        },
+        "by_distribution": {
+          "open": {
+            "n": 1284,
+            "correct": 728,
+            "accuracy": 0.5669781931464174,
+            "label_semantics": "per_question",
+            "macro_f1": null,
+            "balanced_accuracy": null,
+            "missing": 0,
+            "invalid": 19,
+            "per_class": {},
+            "candidate_labels_without_gold": [
+              "action_10",
+              "action_12",
+              "action_13",
+              "action_15",
+              "action_16",
+              "action_7",
+              "d12",
+              "d19"
+            ],
+            "groups": 1096,
+            "groups_all_correct": 603,
+            "group_all_correct_rate": 0.5501824817518248
+          },
+          "research_noncommercial": {
+            "n": 230,
+            "correct": 98,
+            "accuracy": 0.4260869565217391,
+            "label_semantics": "per_question",
+            "macro_f1": null,
+            "balanced_accuracy": null,
+            "missing": 0,
+            "invalid": 2,
+            "per_class": {},
+            "candidate_labels_without_gold": [
+              "中气下陷证",
+              "中气不足证",
+              "外伤损络证",
+              "寒凝血瘀证",
+              "寒湿阻络证",
+              "寒痰阻肺证",
+              "心肺气虚证",
+              "心肾不交证",
+              "心脾两虚证",
+              "心虚胆怯证",
+              "心血虚证",
+              "心阳不振证",
+              "正虚毒瘀证",
+              "正虚毒结证",
+              "毒邪流窜证",
+              "气不摄血证",
+              "气滞痰凝证",
+              "气滞证",
+              "气虚不摄证",
+              "气虚血溢证",
+              "气虚证",
+              "气血不足证",
+              "气血两虚证",
+              "气血亏虚证",
+              "气血失调证",
+              "气血瘀滞证",
+              "气郁痰阻证",
+              "气阴两虚证",
+              "气阴亏虚证",
+              "津亏热结证",
+              "湿毒蕴结证",
+              "湿热阻络证",
+              "热毒壅结证",
+              "热毒炽盛证",
+              "热毒蕴肤证",
+              "痰气交阻证",
+              "痰浊上蒙证",
+              "痰浊中阻证",
+              "痰浊内蕴证",
+              "痰湿中阻证",
+              "痰湿证",
+              "痰湿阻滞证",
+              "痰火扰心证",
+              "痰热内扰证",
+              "痰瘀互结证",
+              "痰瘀滞络证",
+              "痰蒙清窍证",
+              "痰蒙神窍证",
+              "瘀滞胞宫证",
+              "瘀血内阻证",
+              "瘀血阻滞证",
+              "瘀血阻络证",
+              "瘀阻心脉证",
+              "肝气犯胃证",
+              "肝经湿热证",
+              "肝肾两虚证",
+              "肝肾亏损证",
+              "肝胃气滞证",
+              "肝胆湿热证",
+              "肝郁气滞证",
+              "肝郁脾虚证",
+              "肝阴不足证",
+              "肠燥津伤证",
+              "肺肾气虚证",
+              "肺阴虚证",
+              "肾不纳气证",
+              "肾气虚证",
+              "肾虚寒凝证",
+              "肾虚水泛证",
+              "肾虚肝亢证",
+              "肾阳虚证",
+              "脾肾气虚证",
+              "脾胃不和证",
+              "脾胃气虚证",
+              "脾胃积热证",
+              "脾胃阳虚证",
+              "脾虚湿盛证",
+              "脾虚湿蕴证",
+              "血热证",
+              "血瘀痰凝证",
+              "血虚证",
+              "血虚风燥证",
+              "阳虚寒凝证",
+              "阳虚痰凝证",
+              "阳虚血瘀证",
+              "阴虚津亏证",
+              "阴虚湿热证",
+              "阴虚血热证",
+              "阴虚风动证",
+              "风寒湿痹证",
+              "风寒湿阻证",
+              "风寒痹阻证",
+              "风寒袭肺证",
+              "风寒袭表证",
+              "风湿热证",
+              "风湿蕴肤证",
+              "风热伤络证",
+              "风热毒蕴证",
+              "风热血热证",
+              "风热袭表证",
+              "风痰闭窍证",
+              "风痰闭阻证",
+              "饮食积滞证",
+              "髓海不足证"
+            ],
+            "groups": 192,
+            "groups_all_correct": 67,
+            "group_all_correct_rate": 0.3489583333333333
+          }
+        }
+      }
+    },
+    "qwen3.8-27b": {
+      "label": "Qwen3.8-27B",
+      "primary_clinical_score": 0.667533950617284,
+      "task_macro_accuracy": 0.6567654320987655,
+      "timing": {
+        "total": 1514,
+        "attempted": 1514,
+        "not_started": 0,
+        "success": 1513,
+        "status_counts": {
+          "success": 1513,
+          "request_error": 1
+        },
+        "mean_elapsed_s": 2.7998890058029287,
+        "p50_elapsed_s": 1.8513782499940135,
+        "p95_elapsed_s": 6.495591917017009,
+        "task_wall_s": null,
+        "task_segments": [],
+        "timeout_rate": 0.0,
+        "request_error_rate": 0.0006605019815059445,
+        "invalid_answer_rate": 0.0,
+        "retries": 11
+      },
+      "tasks": {
+        "administration_route_choice": {
+          "n": 4,
+          "correct": 2,
+          "accuracy": 0.5,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "A",
+            "B",
+            "D",
+            "opb",
+            "opc",
+            "opd",
+            "ope"
+          ],
+          "groups": 4,
+          "groups_all_correct": 2,
+          "group_all_correct_rate": 0.5,
+          "title": "给药途径与实施方法选择",
+          "task_ids": [
+            "administration_route_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 4,
+            "attempted": 4,
+            "not_started": 0,
+            "success": 4,
+            "status_counts": {
+              "success": 4
+            },
+            "mean_elapsed_s": 1.3341902292449959,
+            "p50_elapsed_s": 1.3665555419865996,
+            "p95_elapsed_s": 1.3681993749924004,
+            "task_wall_s": 1.370926250005141,
+            "task_segments": [
+              {
+                "completed": 4,
+                "ended_at": "2026-10-11T16:40:12.640543+00:00",
+                "family": "administration_route_choice",
+                "selected": 4,
+                "started_at": "2026-10-11T16:40:11.269629+00:00",
+                "wall_s": 1.370926250005141
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "case_complication": {
+          "n": 100,
+          "correct": 84,
+          "accuracy": 0.84,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 96,
+          "groups_all_correct": 81,
+          "group_all_correct_rate": 0.84375,
+          "title": "病例并发症判断",
+          "task_ids": [
+            "case_complication"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 2.4388331403114716,
+            "p50_elapsed_s": 1.9504416249983478,
+            "p95_elapsed_s": 6.120989250019193,
+            "task_wall_s": 31.068487542012008,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:40:43.709735+00:00",
+                "family": "case_complication",
+                "selected": 100,
+                "started_at": "2026-10-11T16:40:12.641269+00:00",
+                "wall_s": 31.068487542012008
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "case_etiology": {
+          "n": 100,
+          "correct": 81,
+          "accuracy": 0.81,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 100,
+          "groups_all_correct": 81,
+          "group_all_correct_rate": 0.81,
+          "title": "病例病因判断",
+          "task_ids": [
+            "case_etiology"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.807713358749752,
+            "p50_elapsed_s": 1.7798367499781307,
+            "p95_elapsed_s": 2.702759292005794,
+            "task_wall_s": 23.571212624985492,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:41:07.282161+00:00",
+                "family": "case_etiology",
+                "selected": 100,
+                "started_at": "2026-10-11T16:40:43.710658+00:00",
+                "wall_s": 23.571212624985492
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "clinical_grade": {
+          "n": 100,
+          "correct": 43,
+          "accuracy": 0.43,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 99,
+          "groups_all_correct": 43,
+          "group_all_correct_rate": 0.43434343434343436,
+          "title": "疾病分期与严重程度判断",
+          "task_ids": [
+            "clinical_grade"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 2.685401040079014,
+            "p50_elapsed_s": 2.4880890829954296,
+            "p95_elapsed_s": 5.410707959003048,
+            "task_wall_s": 40.293533416988794,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:41:47.576667+00:00",
+                "family": "clinical_grade",
+                "selected": 100,
+                "started_at": "2026-10-11T16:41:07.282845+00:00",
+                "wall_s": 40.293533416988794
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 3
+          }
+        },
+        "consent_action": {
+          "n": 3,
+          "correct": 3,
+          "accuracy": 1.0,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "D",
+            "E"
+          ],
+          "groups": 3,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 1.0,
+          "title": "知情同意与隐私处置选择",
+          "task_ids": [
+            "consent_action"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 3,
+            "attempted": 3,
+            "not_started": 0,
+            "success": 3,
+            "status_counts": {
+              "success": 3
+            },
+            "mean_elapsed_s": 5.022380444327912,
+            "p50_elapsed_s": 5.005244750005659,
+            "p95_elapsed_s": 5.125570790987695,
+            "task_wall_s": 5.127156834001653,
+            "task_segments": [
+              {
+                "completed": 3,
+                "ended_at": "2026-10-11T16:41:52.704865+00:00",
+                "family": "consent_action",
+                "selected": 3,
+                "started_at": "2026-10-11T16:41:47.577692+00:00",
+                "wall_s": 5.127156834001653
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "diagnosis": {
+          "n": 200,
+          "correct": 154,
+          "accuracy": 0.77,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "d12",
+            "d19"
+          ],
+          "groups": 200,
+          "groups_all_correct": 154,
+          "group_all_correct_rate": 0.77,
+          "title": "病例诊断选择",
+          "task_ids": [
+            "diagnosis_choice",
+            "synthetic_diagnosis"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 200,
+            "attempted": 200,
+            "not_started": 0,
+            "success": 200,
+            "status_counts": {
+              "success": 200
+            },
+            "mean_elapsed_s": 3.024818476860091,
+            "p50_elapsed_s": 2.485809750010958,
+            "p95_elapsed_s": 6.495591917017009,
+            "task_wall_s": 76.02469470800133,
+            "task_segments": [
+              {
+                "completed": 200,
+                "ended_at": "2026-10-11T16:43:08.730411+00:00",
+                "family": "diagnosis",
+                "selected": 200,
+                "started_at": "2026-10-11T16:41:52.705704+00:00",
+                "wall_s": 76.02469470800133
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 1
+          }
+        },
+        "examination_choice": {
+          "n": 100,
+          "correct": 74,
+          "accuracy": 0.74,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 100,
+          "groups_all_correct": 74,
+          "group_all_correct_rate": 0.74,
+          "title": "检查方案选择",
+          "task_ids": [
+            "examination_choice"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 2.3655415204001473,
+            "p50_elapsed_s": 1.9058294580026995,
+            "p95_elapsed_s": 8.353934457991272,
+            "task_wall_s": 30.965843207988655,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:43:39.697128+00:00",
+                "family": "examination_choice",
+                "selected": 100,
+                "started_at": "2026-10-11T16:43:08.731017+00:00",
+                "wall_s": 30.965843207988655
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "fluid_plan": {
+          "n": 16,
+          "correct": 5,
+          "accuracy": 0.3125,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "C",
+            "ope"
+          ],
+          "groups": 15,
+          "groups_all_correct": 5,
+          "group_all_correct_rate": 0.3333333333333333,
+          "title": "补液方案选择",
+          "task_ids": [
+            "fluid_plan"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 16,
+            "attempted": 16,
+            "not_started": 0,
+            "success": 16,
+            "status_counts": {
+              "success": 16
+            },
+            "mean_elapsed_s": 1.9919872838745505,
+            "p50_elapsed_s": 1.7931792919989675,
+            "p95_elapsed_s": 2.553626292006811,
+            "task_wall_s": 4.241153792012483,
+            "task_segments": [
+              {
+                "completed": 16,
+                "ended_at": "2026-10-11T16:43:43.939197+00:00",
+                "family": "fluid_plan",
+                "selected": 16,
+                "started_at": "2026-10-11T16:43:39.698014+00:00",
+                "wall_s": 4.241153792012483
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "followup_plan": {
+          "n": 6,
+          "correct": 5,
+          "accuracy": 0.8333333333333334,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "A",
+            "C",
+            "opa",
+            "opb",
+            "opd"
+          ],
+          "groups": 6,
+          "groups_all_correct": 5,
+          "group_all_correct_rate": 0.8333333333333334,
+          "title": "复查项目与随访时机选择",
+          "task_ids": [
+            "followup_plan"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 6,
+            "attempted": 6,
+            "not_started": 0,
+            "success": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "mean_elapsed_s": 5.576110340009715,
+            "p50_elapsed_s": 5.533845458005089,
+            "p95_elapsed_s": 5.660953500017058,
+            "task_wall_s": 5.662298374983948,
+            "task_segments": [
+              {
+                "completed": 6,
+                "ended_at": "2026-10-11T16:43:49.601670+00:00",
+                "family": "followup_plan",
+                "selected": 6,
+                "started_at": "2026-10-11T16:43:43.939354+00:00",
+                "wall_s": 5.662298374983948
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "infection_precaution": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "C",
+            "D",
+            "opa",
+            "opb",
+            "opd",
+            "ope"
+          ],
+          "groups": 5,
+          "groups_all_correct": 5,
+          "group_all_correct_rate": 1.0,
+          "title": "感染防控措施选择",
+          "task_ids": [
+            "infection_precaution"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 5,
+            "attempted": 5,
+            "not_started": 0,
+            "success": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "mean_elapsed_s": 1.4976220498036128,
+            "p50_elapsed_s": 1.5045364999969024,
+            "p95_elapsed_s": 1.5143828750005923,
+            "task_wall_s": 1.516402040986577,
+            "task_segments": [
+              {
+                "completed": 5,
+                "ended_at": "2026-10-11T16:43:51.118452+00:00",
+                "family": "infection_precaution",
+                "selected": 5,
+                "started_at": "2026-10-11T16:43:49.602049+00:00",
+                "wall_s": 1.516402040986577
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "medication_choice": {
+          "n": 100,
+          "correct": 73,
+          "accuracy": 0.73,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "E"
+          ],
+          "groups": 100,
+          "groups_all_correct": 73,
+          "group_all_correct_rate": 0.73,
+          "title": "用药方案选择",
+          "task_ids": [
+            "medication_choice"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 1.5947528945709928,
+            "p50_elapsed_s": 1.5827699579822365,
+            "p95_elapsed_s": 1.9644967910135165,
+            "task_wall_s": 20.73199037500308,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:44:11.851259+00:00",
+                "family": "medication_choice",
+                "selected": 100,
+                "started_at": "2026-10-11T16:43:51.119195+00:00",
+                "wall_s": 20.73199037500308
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "message_urgency_pair": {
+          "n": 30,
+          "correct": 15,
+          "accuracy": 0.5,
+          "label_semantics": "fixed",
+          "macro_f1": 0.45054945054945056,
+          "balanced_accuracy": 0.44999999999999996,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {
+            "Patient #1": {
+              "support": 20,
+              "recall": 0.6,
+              "f1": 0.6153846153846154
+            },
+            "Patient #2": {
+              "support": 10,
+              "recall": 0.3,
+              "f1": 0.2857142857142857
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 30,
+          "groups_all_correct": 15,
+          "group_all_correct_rate": 0.5,
+          "confusion": {
+            "Patient #1": {
+              "Patient #1": 12,
+              "Patient #2": 8
+            },
+            "Patient #2": {
+              "Patient #1": 7,
+              "Patient #2": 3
+            }
+          },
+          "sample_majority_label": "Patient #1",
+          "sample_majority_accuracy": 0.6666666666666666,
+          "title": "患者消息处理优先级",
+          "task_ids": [
+            "message_urgency_pair"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 30,
+            "attempted": 30,
+            "not_started": 0,
+            "success": 30,
+            "status_counts": {
+              "success": 30
+            },
+            "mean_elapsed_s": 2.727764413933619,
+            "p50_elapsed_s": 2.777600874978816,
+            "p95_elapsed_s": 3.3485503749980126,
+            "task_wall_s": 10.877924458007328,
+            "task_segments": [
+              {
+                "completed": 30,
+                "ended_at": "2026-10-11T16:44:22.729664+00:00",
+                "family": "message_urgency_pair",
+                "selected": 30,
+                "started_at": "2026-10-11T16:44:11.851714+00:00",
+                "wall_s": 10.877924458007328
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "monitoring_target": {
+          "n": 5,
+          "correct": 3,
+          "accuracy": 0.6,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "D"
+          ],
+          "groups": 5,
+          "groups_all_correct": 3,
+          "group_all_correct_rate": 0.6,
+          "title": "病情监测与疗效判断",
+          "task_ids": [
+            "monitoring_target"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 5,
+            "attempted": 5,
+            "not_started": 0,
+            "success": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "mean_elapsed_s": 4.005459875211818,
+            "p50_elapsed_s": 3.9951246670098044,
+            "p95_elapsed_s": 4.088504709012341,
+            "task_wall_s": 4.089903667016188,
+            "task_segments": [
+              {
+                "completed": 5,
+                "ended_at": "2026-10-11T16:44:26.820081+00:00",
+                "family": "monitoring_target",
+                "selected": 5,
+                "started_at": "2026-10-11T16:44:22.730164+00:00",
+                "wall_s": 4.089903667016188
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "nursing_priority": {
+          "n": 42,
+          "correct": 35,
+          "accuracy": 0.8333333333333334,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 42,
+          "groups_all_correct": 35,
+          "group_all_correct_rate": 0.8333333333333334,
+          "title": "护理措施选择",
+          "task_ids": [
+            "nursing_priority"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 42,
+            "attempted": 42,
+            "not_started": 0,
+            "success": 42,
+            "status_counts": {
+              "success": 42
+            },
+            "mean_elapsed_s": 7.995072359095849,
+            "p50_elapsed_s": 2.153891416004626,
+            "p95_elapsed_s": 32.59280195902102,
+            "task_wall_s": 42.42877050000243,
+            "task_segments": [
+              {
+                "completed": 42,
+                "ended_at": "2026-10-11T16:45:09.249356+00:00",
+                "family": "nursing_priority",
+                "selected": 42,
+                "started_at": "2026-10-11T16:44:26.820444+00:00",
+                "wall_s": 42.42877050000243
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "nutrition_plan": {
+          "n": 11,
+          "correct": 5,
+          "accuracy": 0.45454545454545453,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "opa",
+            "opb",
+            "opc",
+            "opd"
+          ],
+          "groups": 11,
+          "groups_all_correct": 5,
+          "group_all_correct_rate": 0.45454545454545453,
+          "title": "营养与饮食方案选择",
+          "task_ids": [
+            "nutrition_plan"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 11,
+            "attempted": 11,
+            "not_started": 0,
+            "success": 11,
+            "status_counts": {
+              "success": 11
+            },
+            "mean_elapsed_s": 1.47018097736079,
+            "p50_elapsed_s": 1.7394907079869881,
+            "p95_elapsed_s": 1.9100420840259176,
+            "task_wall_s": 2.55298016598681,
+            "task_segments": [
+              {
+                "completed": 11,
+                "ended_at": "2026-10-11T16:45:11.802579+00:00",
+                "family": "nutrition_plan",
+                "selected": 11,
+                "started_at": "2026-10-11T16:45:09.249600+00:00",
+                "wall_s": 2.55298016598681
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "patient_contraindication": {
+          "n": 54,
+          "correct": 35,
+          "accuracy": 0.6481481481481481,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 53,
+          "groups_all_correct": 34,
+          "group_all_correct_rate": 0.6415094339622641,
+          "title": "患者方案禁忌判断",
+          "task_ids": [
+            "patient_contraindication"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 54,
+            "attempted": 54,
+            "not_started": 0,
+            "success": 54,
+            "status_counts": {
+              "success": 54
+            },
+            "mean_elapsed_s": 1.700879271593294,
+            "p50_elapsed_s": 1.5212027500092518,
+            "p95_elapsed_s": 3.2051359589968342,
+            "task_wall_s": 11.82564879200072,
+            "task_segments": [
+              {
+                "completed": 54,
+                "ended_at": "2026-10-11T16:45:23.628721+00:00",
+                "family": "patient_contraindication",
+                "selected": 54,
+                "started_at": "2026-10-11T16:45:11.803038+00:00",
+                "wall_s": 11.82564879200072
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "patient_counseling": {
+          "n": 11,
+          "correct": 10,
+          "accuracy": 0.9090909090909091,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B"
+          ],
+          "groups": 11,
+          "groups_all_correct": 10,
+          "group_all_correct_rate": 0.9090909090909091,
+          "title": "健康教育与沟通行动选择",
+          "task_ids": [
+            "patient_counseling"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 11,
+            "attempted": 11,
+            "not_started": 0,
+            "success": 11,
+            "status_counts": {
+              "success": 11
+            },
+            "mean_elapsed_s": 1.6741268143682233,
+            "p50_elapsed_s": 1.585354125010781,
+            "p95_elapsed_s": 2.5621182910108473,
+            "task_wall_s": 3.400683707994176,
+            "task_segments": [
+              {
+                "completed": 11,
+                "ended_at": "2026-10-11T16:45:27.029936+00:00",
+                "family": "patient_counseling",
+                "selected": 11,
+                "started_at": "2026-10-11T16:45:23.629251+00:00",
+                "wall_s": 3.400683707994176
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 1
+          }
+        },
+        "pgx_guideline_recommendation": {
+          "n": 100,
+          "correct": 54,
+          "accuracy": 0.54,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "action_10",
+            "action_12",
+            "action_13",
+            "action_15",
+            "action_16",
+            "action_7"
+          ],
+          "groups": 25,
+          "groups_all_correct": 6,
+          "group_all_correct_rate": 0.24,
+          "title": "药物基因结果对应的指南建议选择",
+          "task_ids": [
+            "pgx_guideline_recommendation"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 3.1757835254006204,
+            "p50_elapsed_s": 1.8202420409943443,
+            "p95_elapsed_s": 8.36067812499823,
+            "task_wall_s": 40.2822707919986,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:46:07.312846+00:00",
+                "family": "pgx_guideline_recommendation",
+                "selected": 100,
+                "started_at": "2026-10-11T16:45:27.030370+00:00",
+                "wall_s": 40.2822707919986
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "positioning_choice": {
+          "n": 10,
+          "correct": 7,
+          "accuracy": 0.7,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "A",
+            "opb",
+            "opc",
+            "ope"
+          ],
+          "groups": 10,
+          "groups_all_correct": 7,
+          "group_all_correct_rate": 0.7,
+          "title": "护理与操作体位选择",
+          "task_ids": [
+            "positioning_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 10,
+            "attempted": 10,
+            "not_started": 0,
+            "success": 10,
+            "status_counts": {
+              "success": 10
+            },
+            "mean_elapsed_s": 1.4089133125031368,
+            "p50_elapsed_s": 1.493381792010041,
+            "p95_elapsed_s": 1.8188389590068255,
+            "task_wall_s": 2.288601625012234,
+            "task_segments": [
+              {
+                "completed": 10,
+                "ended_at": "2026-10-11T16:46:09.602207+00:00",
+                "family": "positioning_choice",
+                "selected": 10,
+                "started_at": "2026-10-11T16:46:07.313554+00:00",
+                "wall_s": 2.288601625012234
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "prevention_choice": {
+          "n": 13,
+          "correct": 12,
+          "accuracy": 0.9230769230769231,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "C",
+            "opa",
+            "ope"
+          ],
+          "groups": 13,
+          "groups_all_correct": 12,
+          "group_all_correct_rate": 0.9230769230769231,
+          "title": "预防措施选择",
+          "task_ids": [
+            "prevention_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 13,
+            "attempted": 13,
+            "not_started": 0,
+            "success": 13,
+            "status_counts": {
+              "success": 13
+            },
+            "mean_elapsed_s": 1.4071246346955797,
+            "p50_elapsed_s": 1.6336625840049237,
+            "p95_elapsed_s": 1.834863583004335,
+            "task_wall_s": 2.814735667023342,
+            "task_segments": [
+              {
+                "completed": 13,
+                "ended_at": "2026-10-11T16:46:12.417622+00:00",
+                "family": "prevention_choice",
+                "selected": 13,
+                "started_at": "2026-10-11T16:46:09.602832+00:00",
+                "wall_s": 2.814735667023342
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "rehabilitation_choice": {
+          "n": 4,
+          "correct": 2,
+          "accuracy": 0.5,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [
+            "B",
+            "C"
+          ],
+          "groups": 4,
+          "groups_all_correct": 2,
+          "group_all_correct_rate": 0.5,
+          "title": "康复训练方案选择",
+          "task_ids": [
+            "rehabilitation_choice"
+          ],
+          "summary_eligible": false,
+          "timing": {
+            "total": 4,
+            "attempted": 4,
+            "not_started": 0,
+            "success": 4,
+            "status_counts": {
+              "success": 4
+            },
+            "mean_elapsed_s": 1.8350138750029146,
+            "p50_elapsed_s": 1.7689720840135124,
+            "p95_elapsed_s": 1.9295095000125002,
+            "task_wall_s": 1.9312516250065528,
+            "task_segments": [
+              {
+                "completed": 4,
+                "ended_at": "2026-10-11T16:46:14.349726+00:00",
+                "family": "rehabilitation_choice",
+                "selected": 4,
+                "started_at": "2026-10-11T16:46:12.418435+00:00",
+                "wall_s": 1.9312516250065528
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "tcm_pathogenesis_candidate": {
+          "n": 100,
+          "correct": 75,
+          "accuracy": 0.75,
+          "label_semantics": "fixed",
+          "macro_f1": 0.7469379491851402,
+          "balanced_accuracy": 0.75,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {
+            "no": {
+              "support": 50,
+              "recall": 0.86,
+              "f1": 0.7747747747747747
+            },
+            "yes": {
+              "support": 50,
+              "recall": 0.64,
+              "f1": 0.7191011235955056
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 50,
+          "groups_all_correct": 26,
+          "group_all_correct_rate": 0.52,
+          "confusion": {
+            "no": {
+              "yes": 7,
+              "no": 43
+            },
+            "yes": {
+              "yes": 32,
+              "no": 18
+            }
+          },
+          "sample_majority_label": "no",
+          "sample_majority_accuracy": 0.5,
+          "positive_recall": 0.64,
+          "specificity": 0.86,
+          "title": "中医候选病机判断",
+          "task_ids": [
+            "tcm_pathogenesis_candidate"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 3.760143697492895,
+            "p50_elapsed_s": 1.233182708005188,
+            "p95_elapsed_s": 2.5830278329958674,
+            "task_wall_s": 125.48029616699205,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:48:19.831744+00:00",
+                "family": "tcm_pathogenesis_candidate",
+                "selected": 100,
+                "started_at": "2026-10-11T16:46:14.350196+00:00",
+                "wall_s": 125.48029616699205
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 2
+          }
+        },
+        "tcm_syndrome": {
+          "n": 100,
+          "correct": 31,
+          "accuracy": 0.31,
+          "label_semantics": "fixed",
+          "macro_f1": 0.20171057013162275,
+          "balanced_accuracy": 0.21818711591438864,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {
+            "大肠湿热证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "心脉痹阻证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "正虚瘀结证": {
+              "support": 4,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "气滞血瘀证": {
+              "support": 6,
+              "recall": 0.6666666666666666,
+              "f1": 0.42105263157894735
+            },
+            "气虚痰结证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "气虚血瘀证": {
+              "support": 11,
+              "recall": 0.8181818181818182,
+              "f1": 0.6923076923076923
+            },
+            "湿热下注证": {
+              "support": 13,
+              "recall": 0.6153846153846154,
+              "f1": 0.7619047619047619
+            },
+            "湿热内蕴证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "湿热瘀滞证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "湿热瘀阻证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 0.6666666666666666
+            },
+            "湿热蕴毒证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "湿热蕴结证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "热毒蕴结证": {
+              "support": 2,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰浊蒙窍证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰湿内阻证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰湿蒙窍证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰湿蕴肺证": {
+              "support": 3,
+              "recall": 0.6666666666666666,
+              "f1": 0.6666666666666666
+            },
+            "痰热壅肺证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "痰瘀痹阻证": {
+              "support": 3,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝肾亏虚证": {
+              "support": 3,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝肾阴虚证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝胃不和证": {
+              "support": 3,
+              "recall": 0.3333333333333333,
+              "f1": 0.3333333333333333
+            },
+            "肝胃郁热证": {
+              "support": 5,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝郁血瘀证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肝阳上亢证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肺卫不固证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "肾虚证": {
+              "support": 2,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            },
+            "脾气虚证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾肾两虚证": {
+              "support": 4,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾肾阳虚证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "脾胃湿热证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "脾胃虚寒证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "脾胃虚弱证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阳虚水泛证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阴虚火旺证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阴虚血瘀证": {
+              "support": 2,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "阴虚阳亢证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风寒外袭证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 0.6666666666666666
+            },
+            "风寒阻络证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风热外袭证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风热犯肺证": {
+              "support": 1,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "风痰上扰证": {
+              "support": 1,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风痰入络证": {
+              "support": 2,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "风痰瘀阻证": {
+              "support": 8,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "candidate_labels_without_gold": [
+            "中气下陷证",
+            "中气不足证",
+            "外伤损络证",
+            "寒凝血瘀证",
+            "寒湿阻络证",
+            "寒痰阻肺证",
+            "心肺气虚证",
+            "心肾不交证",
+            "心脾两虚证",
+            "心虚胆怯证",
+            "心血虚证",
+            "心阳不振证",
+            "正虚毒瘀证",
+            "正虚毒结证",
+            "毒邪流窜证",
+            "气不摄血证",
+            "气滞痰凝证",
+            "气滞证",
+            "气虚不摄证",
+            "气虚血溢证",
+            "气虚证",
+            "气血不足证",
+            "气血两虚证",
+            "气血亏虚证",
+            "气血失调证",
+            "气血瘀滞证",
+            "气郁痰阻证",
+            "气阴两虚证",
+            "气阴亏虚证",
+            "津亏热结证",
+            "湿毒蕴结证",
+            "湿热阻络证",
+            "热毒壅结证",
+            "热毒炽盛证",
+            "热毒蕴肤证",
+            "痰气交阻证",
+            "痰浊上蒙证",
+            "痰浊中阻证",
+            "痰浊内蕴证",
+            "痰湿中阻证",
+            "痰湿证",
+            "痰湿阻滞证",
+            "痰火扰心证",
+            "痰热内扰证",
+            "痰瘀互结证",
+            "痰瘀滞络证",
+            "痰蒙清窍证",
+            "痰蒙神窍证",
+            "瘀滞胞宫证",
+            "瘀血内阻证",
+            "瘀血阻滞证",
+            "瘀血阻络证",
+            "瘀阻心脉证",
+            "肝气犯胃证",
+            "肝经湿热证",
+            "肝肾两虚证",
+            "肝肾亏损证",
+            "肝胃气滞证",
+            "肝胆湿热证",
+            "肝郁气滞证",
+            "肝郁脾虚证",
+            "肝阴不足证",
+            "肠燥津伤证",
+            "肺肾气虚证",
+            "肺阴虚证",
+            "肾不纳气证",
+            "肾气虚证",
+            "肾虚寒凝证",
+            "肾虚水泛证",
+            "肾虚肝亢证",
+            "肾阳虚证",
+            "脾肾气虚证",
+            "脾胃不和证",
+            "脾胃气虚证",
+            "脾胃积热证",
+            "脾胃阳虚证",
+            "脾虚湿盛证",
+            "脾虚湿蕴证",
+            "血热证",
+            "血瘀痰凝证",
+            "血虚证",
+            "血虚风燥证",
+            "阳虚寒凝证",
+            "阳虚痰凝证",
+            "阳虚血瘀证",
+            "阴虚津亏证",
+            "阴虚湿热证",
+            "阴虚血热证",
+            "阴虚风动证",
+            "风寒湿痹证",
+            "风寒湿阻证",
+            "风寒痹阻证",
+            "风寒袭肺证",
+            "风寒袭表证",
+            "风湿热证",
+            "风湿蕴肤证",
+            "风热伤络证",
+            "风热毒蕴证",
+            "风热血热证",
+            "风热袭表证",
+            "风痰闭窍证",
+            "风痰闭阻证",
+            "饮食积滞证",
+            "髓海不足证"
+          ],
+          "groups": 100,
+          "groups_all_correct": 31,
+          "group_all_correct_rate": 0.31,
+          "confusion": {
+            "脾胃虚弱证": {
+              "气虚证": 1
+            },
+            "气虚血瘀证": {
+              "气虚血瘀证": 9,
+              "痰湿中阻证": 1,
+              "气虚证": 1
+            },
+            "湿热下注证": {
+              "湿热下注证": 8,
+              "湿热蕴结证": 4,
+              "气滞血瘀证": 1
+            },
+            "风痰瘀阻证": {
+              "气虚血瘀证": 3,
+              "痰湿中阻证": 1,
+              "湿热阻络证": 1,
+              "痰热内扰证": 2,
+              "气滞血瘀证": 1
+            },
+            "脾肾两虚证": {
+              "痰瘀互结证": 1,
+              "脾肾气虚证": 2,
+              "气阴两虚证": 1
+            },
+            "气滞血瘀证": {
+              "气滞血瘀证": 4,
+              "寒湿阻络证": 1,
+              "外伤损络证": 1
+            },
+            "肾虚证": {
+              "肾虚证": 1,
+              "气血不足证": 1
+            },
+            "痰湿蕴肺证": {
+              "痰湿蕴肺证": 2,
+              "痰湿内阻证": 1
+            },
+            "肝胃郁热证": {
+              "肝胃不和证": 2,
+              "阴虚火旺证": 1,
+              "气滞血瘀证": 2
+            },
+            "痰瘀痹阻证": {
+              "痰瘀互结证": 1,
+              "痰湿中阻证": 1,
+              "气滞血瘀证": 1
+            },
+            "湿热瘀阻证": {
+              "湿热瘀阻证": 1
+            },
+            "正虚瘀结证": {
+              "气阴两虚证": 2,
+              "正虚毒瘀证": 1,
+              "气虚证": 1
+            },
+            "脾胃湿热证": {
+              "脾胃湿热证": 1
+            },
+            "痰湿蒙窍证": {
+              "气虚血瘀证": 1
+            },
+            "风寒阻络证": {
+              "风寒外袭证": 1
+            },
+            "心脉痹阻证": {
+              "心脉痹阻证": 1
+            },
+            "肝胃不和证": {
+              "气滞证": 1,
+              "肝胃气滞证": 1,
+              "肝胃不和证": 1
+            },
+            "大肠湿热证": {
+              "湿热内蕴证": 1
+            },
+            "阴虚阳亢证": {
+              "肝阳上亢证": 1
+            },
+            "热毒蕴结证": {
+              "湿热蕴结证": 2
+            },
+            "痰浊蒙窍证": {
+              "痰瘀互结证": 1
+            },
+            "肝郁血瘀证": {
+              "肝阳上亢证": 1
+            },
+            "风寒外袭证": {
+              "风寒外袭证": 1
+            },
+            "肺卫不固证": {
+              "气虚证": 1
+            },
+            "脾肾阳虚证": {
+              "气阴两虚证": 1
+            },
+            "痰湿内阻证": {
+              "肝阳上亢证": 1
+            },
+            "阴虚血瘀证": {
+              "气阴两虚证": 1,
+              "肝肾阴虚证": 1
+            },
+            "风痰入络证": {
+              "痰湿中阻证": 1,
+              "痰瘀互结证": 1
+            },
+            "风痰上扰证": {
+              "痰湿中阻证": 1
+            },
+            "肝肾亏虚证": {
+              "气滞血瘀证": 3
+            },
+            "痰热壅肺证": {
+              "风寒袭肺证": 1
+            },
+            "湿热瘀滞证": {
+              "湿热瘀阻证": 1
+            },
+            "风热犯肺证": {
+              "风热犯肺证": 1
+            },
+            "脾气虚证": {
+              "气虚血溢证": 1
+            },
+            "肝阳上亢证": {
+              "气虚血瘀证": 1
+            },
+            "阴虚火旺证": {
+              "肝肾阴虚证": 1
+            },
+            "脾胃虚寒证": {
+              "脾胃虚寒证": 1
+            },
+            "湿热蕴结证": {
+              "湿热内蕴证": 1
+            },
+            "风热外袭证": {
+              "风热袭表证": 1
+            },
+            "湿热内蕴证": {
+              "痰湿蕴肺证": 1
+            },
+            "湿热蕴毒证": {
+              "湿热蕴结证": 1
+            },
+            "肝肾阴虚证": {
+              "气滞血瘀证": 1
+            },
+            "阳虚水泛证": {
+              "气虚血瘀证": 1
+            },
+            "气虚痰结证": {
+              "痰湿内阻证": 1
+            }
+          },
+          "sample_majority_label": "湿热下注证",
+          "sample_majority_accuracy": 0.13,
+          "title": "中医证型判断",
+          "task_ids": [
+            "tcm_syndrome"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 4.762962561289896,
+            "p50_elapsed_s": 4.014487749984255,
+            "p95_elapsed_s": 10.883580542023992,
+            "task_wall_s": 60.56654583301861,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:49:20.399227+00:00",
+                "family": "tcm_syndrome",
+                "selected": 100,
+                "started_at": "2026-10-11T16:48:19.832255+00:00",
+                "wall_s": 60.56654583301861
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "treatment_choice": {
+          "n": 100,
+          "correct": 72,
+          "accuracy": 0.72,
+          "label_semantics": "per_question",
+          "macro_f1": null,
+          "balanced_accuracy": null,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {},
+          "candidate_labels_without_gold": [],
+          "groups": 100,
+          "groups_all_correct": 72,
+          "group_all_correct_rate": 0.72,
+          "title": "治疗方案选择",
+          "task_ids": [
+            "treatment_choice"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 2.486210425440513,
+            "p50_elapsed_s": 1.7814253339893185,
+            "p95_elapsed_s": 7.001064750016667,
+            "task_wall_s": 31.41811745800078,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:49:51.818456+00:00",
+                "family": "treatment_choice",
+                "selected": 100,
+                "started_at": "2026-10-11T16:49:20.400172+00:00",
+                "wall_s": 31.41811745800078
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 0
+          }
+        },
+        "triage_urgency": {
+          "n": 100,
+          "correct": 65,
+          "accuracy": 0.65,
+          "label_semantics": "fixed",
+          "macro_f1": 0.6407773546174,
+          "balanced_accuracy": 0.6583333333333333,
+          "missing": 0,
+          "invalid": 0,
+          "per_class": {
+            "0A_NO_ESCALATION_INFO_NEEDED": {
+              "support": 30,
+              "recall": 0.9,
+              "f1": 0.6666666666666666
+            },
+            "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+              "support": 20,
+              "recall": 0.5,
+              "f1": 0.5714285714285714
+            },
+            "1A_ESCALATION_NONURGENT_CARE": {
+              "support": 30,
+              "recall": 0.3333333333333333,
+              "f1": 0.4878048780487805
+            },
+            "1B_ESCALATION_URGENT_CARE": {
+              "support": 20,
+              "recall": 0.9,
+              "f1": 0.8372093023255814
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 62,
+          "groups_all_correct": 30,
+          "group_all_correct_rate": 0.4838709677419355,
+          "confusion": {
+            "1A_ESCALATION_NONURGENT_CARE": {
+              "1A_ESCALATION_NONURGENT_CARE": 10,
+              "0A_NO_ESCALATION_INFO_NEEDED": 15,
+              "0B_NO_ESCALATION_SELF_CARE_MONITOR": 4,
+              "1B_ESCALATION_URGENT_CARE": 1
+            },
+            "1B_ESCALATION_URGENT_CARE": {
+              "1B_ESCALATION_URGENT_CARE": 18,
+              "0A_NO_ESCALATION_INFO_NEEDED": 2
+            },
+            "0A_NO_ESCALATION_INFO_NEEDED": {
+              "0A_NO_ESCALATION_INFO_NEEDED": 27,
+              "1B_ESCALATION_URGENT_CARE": 2,
+              "0B_NO_ESCALATION_SELF_CARE_MONITOR": 1
+            },
+            "0B_NO_ESCALATION_SELF_CARE_MONITOR": {
+              "0A_NO_ESCALATION_INFO_NEEDED": 7,
+              "1A_ESCALATION_NONURGENT_CARE": 1,
+              "0B_NO_ESCALATION_SELF_CARE_MONITOR": 10,
+              "1B_ESCALATION_URGENT_CARE": 2
+            }
+          },
+          "sample_majority_label": "1A_ESCALATION_NONURGENT_CARE",
+          "sample_majority_accuracy": 0.3,
+          "title": "分诊与就医紧急程度判断",
+          "task_ids": [
+            "triage_urgency"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 100,
+            "status_counts": {
+              "success": 100
+            },
+            "mean_elapsed_s": 2.2010399475181477,
+            "p50_elapsed_s": 1.800109749980038,
+            "p95_elapsed_s": 2.6969434170168824,
+            "task_wall_s": 42.585794582992094,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:50:34.405863+00:00",
+                "family": "triage_urgency",
+                "selected": 100,
+                "started_at": "2026-10-11T16:49:51.819356+00:00",
+                "wall_s": 42.585794582992094
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.0,
+            "invalid_answer_rate": 0.0,
+            "retries": 1
+          }
+        },
+        "trial_referral": {
+          "n": 100,
+          "correct": 58,
+          "accuracy": 0.58,
+          "label_semantics": "fixed",
+          "macro_f1": 0.558876404494382,
+          "balanced_accuracy": 0.5766488413547237,
+          "missing": 0,
+          "invalid": 1,
+          "per_class": {
+            "0": {
+              "support": 34,
+              "recall": 0.9117647058823529,
+              "f1": 0.6966292134831461
+            },
+            "1": {
+              "support": 33,
+              "recall": 0.45454545454545453,
+              "f1": 0.5
+            },
+            "2": {
+              "support": 33,
+              "recall": 0.36363636363636365,
+              "f1": 0.48
+            }
+          },
+          "candidate_labels_without_gold": [],
+          "groups": 58,
+          "groups_all_correct": 24,
+          "group_all_correct_rate": 0.41379310344827586,
+          "confusion": {
+            "1": {
+              "0": 14,
+              "1": 15,
+              "2": 4
+            },
+            "2": {
+              "0": 10,
+              "2": 12,
+              "1": 11
+            },
+            "0": {
+              "0": 31,
+              "1": 1,
+              "2": 1,
+              "<invalid>": 1
+            }
+          },
+          "sample_majority_label": "0",
+          "sample_majority_accuracy": 0.34,
+          "title": "患者临床试验初筛与转介判断",
+          "task_ids": [
+            "trial_referral"
+          ],
+          "summary_eligible": true,
+          "timing": {
+            "total": 100,
+            "attempted": 100,
+            "not_started": 0,
+            "success": 99,
+            "status_counts": {
+              "success": 99,
+              "request_error": 1
+            },
+            "mean_elapsed_s": 2.091996310800023,
+            "p50_elapsed_s": 1.6430432080233004,
+            "p95_elapsed_s": 6.796617416024674,
+            "task_wall_s": 28.938813582994044,
+            "task_segments": [
+              {
+                "completed": 100,
+                "ended_at": "2026-10-11T16:51:03.345651+00:00",
+                "family": "trial_referral",
+                "selected": 100,
+                "started_at": "2026-10-11T16:50:34.406669+00:00",
+                "wall_s": 28.938813582994044
+              }
+            ],
+            "timeout_rate": 0.0,
+            "request_error_rate": 0.01,
+            "invalid_answer_rate": 0.0,
+            "retries": 3
+          }
+        }
+      },
+      "license_slices": {
+        "open": {
+          "records": 1284,
+          "primary_clinical_score": 0.7012407407407407,
+          "task_macro_accuracy": 0.6992901234567901
+        },
+        "by_distribution": {
+          "open": {
+            "n": 1284,
+            "correct": 897,
+            "accuracy": 0.6985981308411215,
+            "label_semantics": "per_question",
+            "macro_f1": null,
+            "balanced_accuracy": null,
+            "missing": 0,
+            "invalid": 1,
+            "per_class": {},
+            "candidate_labels_without_gold": [
+              "action_10",
+              "action_12",
+              "action_13",
+              "action_15",
+              "action_16",
+              "action_7",
+              "d12",
+              "d19"
+            ],
+            "groups": 1096,
+            "groups_all_correct": 750,
+            "group_all_correct_rate": 0.6843065693430657
+          },
+          "research_noncommercial": {
+            "n": 230,
+            "correct": 111,
+            "accuracy": 0.4826086956521739,
+            "label_semantics": "per_question",
+            "macro_f1": null,
+            "balanced_accuracy": null,
+            "missing": 0,
+            "invalid": 0,
+            "per_class": {},
+            "candidate_labels_without_gold": [
+              "中气下陷证",
+              "中气不足证",
+              "外伤损络证",
+              "寒凝血瘀证",
+              "寒湿阻络证",
+              "寒痰阻肺证",
+              "心肺气虚证",
+              "心肾不交证",
+              "心脾两虚证",
+              "心虚胆怯证",
+              "心血虚证",
+              "心阳不振证",
+              "正虚毒瘀证",
+              "正虚毒结证",
+              "毒邪流窜证",
+              "气不摄血证",
+              "气滞痰凝证",
+              "气滞证",
+              "气虚不摄证",
+              "气虚血溢证",
+              "气虚证",
+              "气血不足证",
+              "气血两虚证",
+              "气血亏虚证",
+              "气血失调证",
+              "气血瘀滞证",
+              "气郁痰阻证",
+              "气阴两虚证",
+              "气阴亏虚证",
+              "津亏热结证",
+              "湿毒蕴结证",
+              "湿热阻络证",
+              "热毒壅结证",
+              "热毒炽盛证",
+              "热毒蕴肤证",
+              "痰气交阻证",
+              "痰浊上蒙证",
+              "痰浊中阻证",
+              "痰浊内蕴证",
+              "痰湿中阻证",
+              "痰湿证",
+              "痰湿阻滞证",
+              "痰火扰心证",
+              "痰热内扰证",
+              "痰瘀互结证",
+              "痰瘀滞络证",
+              "痰蒙清窍证",
+              "痰蒙神窍证",
+              "瘀滞胞宫证",
+              "瘀血内阻证",
+              "瘀血阻滞证",
+              "瘀血阻络证",
+              "瘀阻心脉证",
+              "肝气犯胃证",
+              "肝经湿热证",
+              "肝肾两虚证",
+              "肝肾亏损证",
+              "肝胃气滞证",
+              "肝胆湿热证",
+              "肝郁气滞证",
+              "肝郁脾虚证",
+              "肝阴不足证",
+              "肠燥津伤证",
+              "肺肾气虚证",
+              "肺阴虚证",
+              "肾不纳气证",
+              "肾气虚证",
+              "肾虚寒凝证",
+              "肾虚水泛证",
+              "肾虚肝亢证",
+              "肾阳虚证",
+              "脾肾气虚证",
+              "脾胃不和证",
+              "脾胃气虚证",
+              "脾胃积热证",
+              "脾胃阳虚证",
+              "脾虚湿盛证",
+              "脾虚湿蕴证",
+              "血热证",
+              "血瘀痰凝证",
+              "血虚证",
+              "血虚风燥证",
+              "阳虚寒凝证",
+              "阳虚痰凝证",
+              "阳虚血瘀证",
+              "阴虚津亏证",
+              "阴虚湿热证",
+              "阴虚血热证",
+              "阴虚风动证",
+              "风寒湿痹证",
+              "风寒湿阻证",
+              "风寒痹阻证",
+              "风寒袭肺证",
+              "风寒袭表证",
+              "风湿热证",
+              "风湿蕴肤证",
+              "风热伤络证",
+              "风热毒蕴证",
+              "风热血热证",
+              "风热袭表证",
+              "风痰闭窍证",
+              "风痰闭阻证",
+              "饮食积滞证",
+              "髓海不足证"
+            ],
+            "groups": 192,
+            "groups_all_correct": 76,
+            "group_all_correct_rate": 0.3958333333333333
+          }
+        }
+      }
     }
   },
   "records": 1514,

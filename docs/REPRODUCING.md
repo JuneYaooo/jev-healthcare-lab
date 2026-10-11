@@ -38,12 +38,14 @@ python3 scripts/medical_decision_dataset.py score --predictions work/predictions
 python3 scripts/build_model_report.py --check
 ```
 
-新一轮运行从环境变量或本地 .env 读取 TYPESAFE_API_KEY、DEEPSEEK_API_KEY，调用对应官方服务。使用新的输出目录保留独立运行记录：
+新一轮运行从环境变量或本地 .env 读取 TYPESAFE_API_KEY、DEEPSEEK_API_KEY、SILICONFLOW_API_KEY，调用对应官方服务。使用新的输出目录保留独立运行记录：
 
 ```bash
 python3 scripts/run_model_evaluation.py run --model jev-1.13.0 --include-research --output work/new-run/jev-1.13.0
 python3 scripts/run_model_evaluation.py run --model deepseek-flash --include-research --output work/new-run/deepseek-flash
 python3 scripts/run_model_evaluation.py run --model deepseek-v4-pro --include-research --output work/new-run/deepseek-v4-pro
+python3 scripts/run_model_evaluation.py run --model qwen3.5-9b --include-research --output work/new-run/qwen3.5-9b
+python3 scripts/run_model_evaluation.py run --model qwen3.8-27b --include-research --output work/new-run/qwen3.8-27b
 ```
 
 默认每模型并发 8、单次请求超时 120 秒，最多 3 次尝试；只重试暂时性请求失败。返回错误或格式无效的答案照常保存，不按得分重跑。省略 --include-research 只评测开放部分，--scope auxiliary 运行辅助部分。脚本不自动预热，新运行应另记外部连通性检查与预热设置。

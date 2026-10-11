@@ -35,6 +35,8 @@ MODELS = {
                         'key_env': 'DEEPSEEK_API_KEY', 'label': 'DeepSeek V4 Pro'},
     'qwen3.5-9b': {'provider': 'siliconflow', 'endpoint': 'https://api.siliconflow.cn/v1/chat/completions',
                     'key_env': 'SILICONFLOW_API_KEY', 'label': 'Qwen3.5-9B', 'remote_model': 'Qwen/Qwen3.5-9B'},
+    'qwen3.8-27b': {'provider': 'siliconflow', 'endpoint': 'https://api.siliconflow.cn/v1/chat/completions',
+                     'key_env': 'SILICONFLOW_API_KEY', 'label': 'Qwen3.8-27B', 'remote_model': 'Qwen/Qwen3.8-27B'},
 }
 
 

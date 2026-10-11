@@ -70,13 +70,14 @@ def render():
         overall.append([labels[model], pct(q['primary_clinical_score']), pct(q['task_macro_accuracy']),
                         f"{t['success']}/{t['total']}", seconds(t['mean_elapsed_s']),
                         seconds(t['p50_elapsed_s']), seconds(t['p95_elapsed_s']),
-                        t['status_counts'].get('invalid_answer', 0), t['retries']])
+                        t['status_counts'].get('invalid_answer', 0),
+                        t['status_counts'].get('request_error', 0), t['status_counts'].get('timeout', 0), t['retries']])
     parts = ['# 医疗决策模型评测',
              '[返回首页](../README.md) · [评测方法](EVALUATION.md) · [原始结果与运行配置](../results/clinical-20261012/README.md)',
              f'本轮比较 {model_names}。{len(models)} 个模型各测试相同的 1,514 道临床决策题，覆盖 26 个有题任务；3 个空任务不调用 API。开放许可部分为 1,284 题，非商业附加部分为 230 题。辅助任务与暂停任务不在本轮范围。',
              '## 总体结果',
              '主分数先对场景内达到 20 题的任务等权，再对有成绩的场景等权；任务均分仅对达到门槛的任务等权。11 个小样本任务只展示逐项结果，不进入汇总。有效回答数表示返回了合法选项，不代表回答正确。',
-             table(['模型', '临床主分数', '任务均分', '有效回答', '平均耗时（秒）', 'P50（秒）', 'P95（秒）', '无效回答', '重试次数'], overall),
+             table(['模型', '临床主分数', '任务均分', '有效回答', '平均耗时（秒）', 'P50（秒）', 'P95（秒）', '无效回答', '请求失败', '超时', '重试次数'], overall),
              '## 逐任务结果',
              '每格为 **准确率 / 平均完整决策耗时（秒）**。探索项照常计分展示，汇总时排除；待补任务不填零分。',
              table(['任务', '题数', '状态'] + [labels[m] for m in models], [
@@ -92,11 +93,26 @@ def render():
                   pct(slices[m]['by_distribution']['research_noncommercial']['accuracy'])] for m in models]),
              '## 运行条件',
              'JEV 使用官方 TypeSafe 接口，固定请求模型为 jev-1.13.0。DeepSeek 使用官方接口，分别请求 deepseek-flash 和 deepseek-v4-pro；两者关闭思考，temperature=0，输出上限 256 token。DeepSeek 返回模型别名，其实际底层检查点由服务商维护，原始响应保留 model 与 system_fingerprint。',
-             '模型读取相同的 state、问题说明和候选项。JEV 使用原生 choice 接口；DeepSeek 外加统一 JSON 格式提示。金标、来源和适配元数据均不发送。字符串选项键必须与候选完全一致；解释文本、选项内容替代选项键、数字类型与截断输出都判为无效，不作事后修复。',
+             '模型读取相同的 state、问题说明和候选项。JEV 使用原生 choice 接口；其他模型外加同一份 JSON 格式提示。金标、来源和适配元数据均不发送。字符串选项键必须与候选完全一致；解释文本、选项内容替代选项键、数字类型与截断输出都判为无效，不作事后修复。',
              '每个模型并发 8，HTTP 连接与读取超时 120 秒，最多 3 次尝试；只重试网络、超时、限流和暂时服务错误，不重试错误答案或格式错误。JEV 与两个 DeepSeek 模型的三组运行同期启动；两个 DeepSeek 模型共享同一服务商账户。三组正式运行前分别使用一条非评测颜色选择题检查接口，耗时不纳入结果。',
              '单题时间包含客户端序列化、HTTP 请求、响应验证及重试等待。模型服务、网络和服务商缓存条件并不相同，不能把全部时间差归因于模型推理速度；服务器计算时间未单独测量。没有跨模型复用本地答案，服务商自动缓存不可控，token 用量与命中记录保存在原始响应中。',
              '逐任务总耗时为该任务从首题开始到最后一题结束的墙钟时间，包含并发调度。原始日志采用 UTC，展示日期以 Asia/Shanghai 为准；各模型的实际起止时间保存在运行配置与任务日志中。',
              '## 完整耗时与失败明细']
+    qwen_models = [m for m in models if runner.MODELS[m]['provider'] == 'siliconflow']
+    if qwen_models:
+        qwen_note = ('Qwen 通过 SiliconFlow 官方接口调用：' + '、'.join(configs[m]['remote_model'] for m in qwen_models)
+                     + '。均设置 enable_thinking=false、temperature=0、输出上限 256 token，使用与 DeepSeek 相同的提示及严格答案校验。'
+                     'Qwen 两组在前三组完成后同期补跑，共享一个 SiliconFlow 账户，使用同一份冻结题目；与前三组的服务商账户及运行时段不同。每组先用非评测颜色选择题检查接口，检查响应另存 interface-check.json，不计入成绩或耗时。'
+                     '接口参数见 [SiliconFlow 官方文档](https://docs.siliconflow.cn/docs/api/chat-completions-post)。')
+        for m in qwen_models:
+            records = list(data.read_jsonl(RUNS / m / 'responses.jsonl'))
+            failed = [r for r in records if r['status'] == 'request_error']
+            limited = sum(r['attempt_history'][-1].get('http_status') == 429 for r in failed)
+            if failed:
+                qwen_note += (f" {labels[m]} 有 {len(failed)} 道题在重试后仍请求失败"
+                              f"（其中 {limited} 道最终返回 HTTP 429 限流），这些题计错并保留全部尝试；"
+                              '因此本轮得分同时受到服务可用性的影响。')
+        parts.insert(parts.index('## 完整耗时与失败明细'), qwen_note)
     for model in models:
         parts.extend([f"### {labels[model]}", table(['任务', '题数', '有效回答', '平均秒', 'P50 秒', 'P95 秒', '任务总秒', '超时', '请求失败', '无效回答'], [
             [f['title'], f['records'], summaries[model]['task_timing'][f['id']]['success'],
