@@ -1,0 +1,52 @@
+{
+  "id": "prevention_choice",
+  "title": "个体预防方案选择",
+  "definition": "根据病例、暴露或复发风险，选择预防行动；不评价预防等级概念。",
+  "dimension": "clinical",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa",
+    "medmcqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "followup",
+  "ability_tags": [
+    "clinical",
+    "workflow"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 13,
+  "groups": 13,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 13,
+    "unique_consistent_pool": 13,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 13,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "B": 5,
+    "D": 3,
+    "opd": 1,
+    "A": 1,
+    "opb": 1,
+    "opc": 1,
+    "E": 1
+  },
+  "language_counts": {
+    "zh": 12,
+    "en": 1
+  },
+  "source_counts": {
+    "cmb": 10,
+    "cnmleqa": 2,
+    "medmcqa": 1
+  },
+  "historical_material_matches": 0
+}

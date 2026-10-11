@@ -8,27 +8,36 @@
   ],
   "decision_mode": "material",
   "decision_stage": "material_judgment",
-  "definition": "给定两条患者消息，选择需要更优先处理的一条。",
+  "definition": "给定两条患者消息及各自病历背景，选择应优先处理的消息；当前子集为人工合成消息及上游临床人员比较标注。",
   "target_count": 100,
-  "source_ids": [],
+  "source_ids": [
+    "pmr_synth"
+  ],
   "candidate_source_ids": [
     "pmr_bench"
   ],
-  "missing_reason": "PMR-Reddit 的原等级经 GPT-5 推导，并非逐对人工金标；本轮不纳入主评测。",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "count": 30,
+  "groups": 30,
+  "status": "partial",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 30,
+    "unique_consistent_pool": 30,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 30,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
+  "label_counts": {
+    "Patient #1": 20,
+    "Patient #2": 10
+  },
+  "language_counts": {
+    "en": 30
+  },
+  "source_counts": {
+    "pmr_synth": 30
+  },
   "historical_material_matches": 0
 }

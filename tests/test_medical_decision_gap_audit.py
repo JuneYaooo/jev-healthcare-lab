@@ -84,7 +84,10 @@ class GapReleaseTests(unittest.TestCase):
         counts = collections.Counter(r['task'] for r in self.rows)
         self.assertEqual(sum(a['result'] == 'adopted' for a in audit), 3)
         for a in audit:
-            self.assertEqual(a['result'] == 'adopted', counts[a['task_id']] > 0)
+            if a['result'] == 'adopted':
+                self.assertGreater(counts[a['task_id']], 0)
+            elif a['task_id'] not in {'message_urgency_pair', 'input_sufficiency'}:
+                self.assertEqual(counts[a['task_id']], 0)
             self.assertTrue(a['sources'])
             self.assertTrue(a['finding'])
 

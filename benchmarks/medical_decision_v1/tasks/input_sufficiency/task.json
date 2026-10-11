@@ -2,11 +2,13 @@
   "id": "input_sufficiency",
   "dimension": "rules",
   "title": "决策资料充分性",
-  "definition": "判断计算或决策所需信息是否充分且无未解决冲突。",
+  "definition": "判断给定临床记录是否包含回答目标问题的证据；当前以 LongHealth 缺失证据协议覆盖记录信息充分性，不覆盖计算缺项或冲突消解。",
   "decision_mode": "material",
   "target_count": 100,
-  "source_ids": [],
-  "missing_reason": "CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。",
+  "source_ids": [
+    "longhealth"
+  ],
+  "missing_reason": "",
   "candidate_source_ids": [
     "cmedcalc",
     "care_bench"
@@ -16,20 +18,27 @@
     "rules"
   ],
   "decision_stage": "material_judgment",
-  "count": 0,
-  "groups": 0,
-  "status": "empty",
+  "count": 100,
+  "groups": 20,
+  "status": "ready",
   "sampling": {
-    "raw_pool": 0,
-    "unique_consistent_pool": 0,
+    "raw_pool": 100,
+    "unique_consistent_pool": 100,
     "conflicting_rows_removed": 0,
     "duplicate_requests_removed": 0,
     "group_cap": 5,
-    "upstream_adapter_pool": 0,
+    "upstream_adapter_pool": 100,
     "local_training_matches_excluded": 0
   },
-  "label_counts": {},
-  "language_counts": {},
-  "source_counts": {},
-  "historical_material_matches": 0
+  "label_counts": {
+    "no": 50,
+    "yes": 50
+  },
+  "language_counts": {
+    "en": 100
+  },
+  "source_counts": {
+    "longhealth": 100
+  },
+  "historical_material_matches": 100
 }

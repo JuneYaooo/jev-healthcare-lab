@@ -345,18 +345,20 @@
       "distribution": "open",
       "material_kind": "fictional_longitudinal_records",
       "authenticity": "20 个虚构患者；100 道题不是 100 个患者。",
-      "gold_provenance": "沿用发布问题、五个选项和 correct 字段。",
+      "gold_provenance": "沿用发布问题、五个选项和 correct 字段。 信息充分性来自同版本 task2.py 的 answer_docs 有/无协议，机械投影为 yes/no，不创作临床答案。",
       "checked_date": "2026-10-10",
       "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
       "resources": [
         "longhealth__data_benchmark_v5.json",
         "longhealth__README.md",
-        "longhealth__LICENSE"
+        "longhealth__LICENSE",
+        "longhealth__task2.py"
       ],
       "license_evidence": [
         "sources/longhealth/longhealth__README.md",
         "sources/longhealth/longhealth__LICENSE"
-      ]
+      ],
+      "evaluation_limits": "信息充分性子集使用固定的两个异患者干扰文档和完整证据文档；不同于原始随机十次、token 截断协议。100 个问题共享 20 个虚构患者及干扰材料，应按患者分组，不能声称 100 个独立患者。"
     },
     {
       "id": "medcalc",
@@ -607,25 +609,6 @@
       "distribution": "reference_only",
       "reason": "可作规则材料，尚无对应患者判断题与金标",
       "checked_date": "2026-10-10",
-      "resources": []
-    },
-    {
-      "id": "medmcqa",
-      "name": "MedMCQA",
-      "url": "https://github.com/medmcqa/medmcqa",
-      "distribution": "reference_only",
-      "reason": "需要逐题筛选临床情境与任务类型，核对数据卡与仓库划分数量差异；不混入纯知识记忆题。",
-      "data_license": "Apache-2.0（发布数据卡）；GitHub 代码 MIT",
-      "authenticity": "考试题与原选项答案；不是真实临床结局。",
-      "gold_provenance": "已有单选金标，但按科目划分，不直接提供诊断/检查/治疗决策标签。",
-      "evidence_url": "https://huggingface.co/datasets/openlifescienceai/medmcqa",
-      "review_status": "需任务筛选",
-      "checked_on": "2026-10-10",
-      "scenario_ids": [
-        "diagnosis",
-        "testing",
-        "treatment"
-      ],
       "resources": []
     },
     {
@@ -2664,6 +2647,177 @@
       "scenario_ids": [
         "treatment"
       ]
+    },
+    {
+      "id": "pmr_synth",
+      "name": "PMR-Synth annotated pairs",
+      "url": "https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated",
+      "citation_url": "https://arxiv.org/abs/2601.13178",
+      "attribution": "Gatto et al. (2026)",
+      "data_license": "CC-BY-NC-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "distribution": "research_noncommercial",
+      "material_kind": "synthetic_messages_with_ehr_context",
+      "authenticity": "人工合成患者消息，配对去标识病历背景；不能称为真实患者发出的消息。",
+      "gold_provenance": "沿用 Label 字段的 Patient #1 / Patient #2；每条消息与病历最多出现一次。",
+      "checked_date": "2026-10-11",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "pmr_synth__INBOX_A-00000-of-00001.parquet",
+        "pmr_synth__INBOX_B-00000-of-00001.parquet",
+        "pmr_synth__README.md"
+      ],
+      "license_evidence": [
+        "sources/pmr_synth/README.md"
+      ],
+      "evaluation_limits": "公开 INBOX_A/B 与论文 train/test 的对应未确认；不得视为未暴露官方测试集。保留原始 inbox 标记；60 条消息至多组成 30 个不重复材料的比较，仍只来自两个收件箱。"
+    },
+    {
+      "id": "medmcqa",
+      "name": "MedMCQA",
+      "url": "https://huggingface.co/datasets/openlifescienceai/medmcqa",
+      "citation_url": "https://proceedings.mlr.press/v174/pal22a.html",
+      "attribution": "Pal, Umapathi and Sankarasubbu (2022)",
+      "data_license": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "distribution": "open",
+      "material_kind": "medical_exam_questions",
+      "authenticity": "印度医学考试题；不是患者观察队列。",
+      "gold_provenance": "仅用官方 validation、choice_type=single；cop 的 0–3 原样映射 opa–opd。",
+      "checked_date": "2026-10-11",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "medmcqa__validation-00000-of-00001.parquet",
+        "medmcqa__README.md"
+      ],
+      "license_evidence": [
+        "sources/medmcqa/README.md"
+      ],
+      "evaluation_limits": "采用数据卡 Apache-2.0，而非代码仓库许可。仅固定范围清单病例题，未独立核验现行临床规范。"
+    },
+    {
+      "id": "principlismqa",
+      "name": "PrinciplismQA",
+      "url": "https://github.com/FreedomIntelligence/PrinciplismQA",
+      "citation_url": "https://aclanthology.org/2026.findings-acl.1806/",
+      "attribution": "Hong et al. (2026)",
+      "data_license": "MIT",
+      "license_url": "https://opensource.org/license/mit",
+      "distribution": "open",
+      "material_kind": "expert_reviewed_model_created_exam_questions",
+      "authenticity": "上游模型根据医学伦理教材构造题目，经医学专家审核；不是实际临床记录。",
+      "gold_provenance": "保留固定清单中处置选择题的原问题、选项及 correct_answer；不纳入开放式问答或原则分类题。",
+      "checked_date": "2026-10-11",
+      "review_status": "upstream_labels_mechanical_adaptation_not_independent_clinician_review",
+      "resources": [
+        "principlismqa__knowledge-mcqa.json",
+        "principlismqa__README.md",
+        "principlismqa__LICENSE"
+      ],
+      "license_evidence": [
+        "sources/principlismqa/README.md",
+        "sources/principlismqa/LICENSE"
+      ],
+      "evaluation_limits": "模型构题与筛选可能引入偏差；少量情境题只提供探索性覆盖，不能代表国际伦理共识或法律意见。"
+    },
+    {
+      "id": "uci_cryotherapy",
+      "name": "UCI Cryotherapy",
+      "url": "https://archive.ics.uci.edu/dataset/429/cryotherapy+dataset",
+      "distribution": "reference_only",
+      "reason": "官网 CC-BY-4.0 与原 XLSX 内嵌用户协议研究用途限制冲突；未导入。证据位置 Cryotherapy.xlsx!xl/embeddings/Microsoft_Word_Document1.docx。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_license"
+    },
+    {
+      "id": "uci_immunotherapy",
+      "name": "UCI Immunotherapy",
+      "url": "https://archive.ics.uci.edu/dataset/428/immunotherapy+dataset",
+      "distribution": "reference_only",
+      "reason": "原作者使用条件含研究用途限制；不依据外层 CC-BY 标签假定可任意再分发。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_license"
+    },
+    {
+      "id": "cictd",
+      "name": "CICTD",
+      "url": "https://github.com/860844175/CICTD",
+      "distribution": "reference_only",
+      "reason": "基于 MIMIC-IV 构建；仓库代码 MIT 不解除原始临床数据访问与再分发限制。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_access"
+    },
+    {
+      "id": "medllmbenchmark",
+      "name": "medLLMbenchmark",
+      "url": "https://github.com/BIMSBbioinfo/medLLMbenchmark",
+      "distribution": "reference_only",
+      "reason": "分诊构建流程依赖 MIMIC-IV/ED/Note；不能公开打包基础病例。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_access"
+    },
+    {
+      "id": "meddec",
+      "name": "MedDec",
+      "url": "https://github.com/CLU-UML/MedDec",
+      "distribution": "reference_only",
+      "reason": "医学决策抽取标注来自 MIMIC-III 出院记录；代码许可不授权重分发基础记录。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_access"
+    },
+    {
+      "id": "medethicsqa",
+      "name": "MedEthicsQA",
+      "url": "https://github.com/JianhuiWei7/MedEthicsQA",
+      "distribution": "reference_only",
+      "reason": "5,623 MCQ 大部分源于 Quizlet、Lecturio 等第三方题库；发布方 NC 声明未解决这些底层题目的许可链。小部分来自现有开放题库，不另当新增任务。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_provenance"
+    },
+    {
+      "id": "bedsidebench",
+      "name": "BedsideBench",
+      "url": "https://huggingface.co/datasets/doximity/bedside-bench",
+      "distribution": "reference_only",
+      "reason": "公开部分为自由作答和评分 rubric；不自行构造闭集候选及新答案。",
+      "checked_on": "2026-10-11",
+      "review_status": "outside_scope"
+    },
+    {
+      "id": "pediabench",
+      "name": "PediaBench",
+      "url": "https://github.com/ACMISLab/PediaBench",
+      "distribution": "reference_only",
+      "reason": "未确认可用于本次公开再分发的数据许可，暂不收录。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_license"
+    },
+    {
+      "id": "medhalt",
+      "name": "MedHALT",
+      "url": "https://github.com/medhalt/medhalt",
+      "distribution": "reference_only",
+      "reason": "NOTA 的统一缺项标签及虚构问题不能替代真实信息充分性任务；回答核验与已覆盖错误核验有重合，不据此扩增任务数。",
+      "checked_on": "2026-10-11",
+      "review_status": "outside_scope"
+    },
+    {
+      "id": "lcmdc",
+      "name": "LCMDC",
+      "url": "https://zenodo.org/records/13771008",
+      "distribution": "reference_only",
+      "reason": "对话科室标签不能直接认定为临床审核的首诊推荐金标；未确认与 department_routing 定义一致的授权标注子集。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_target"
+    },
+    {
+      "id": "medtriage",
+      "name": "MedTriage",
+      "url": "https://doi.org/10.1038/s41746-026-02433-8",
+      "distribution": "reference_only",
+      "reason": "论文说明专科分诊评测，但本轮未获取可锁定且明确允许再分发的完整病例与金标文件，不凭论文规模计入题数。",
+      "checked_on": "2026-10-11",
+      "review_status": "blocked_access"
     }
   ]
 }

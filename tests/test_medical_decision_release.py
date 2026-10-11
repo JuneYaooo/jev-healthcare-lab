@@ -39,7 +39,7 @@ class ReleaseTests(unittest.TestCase):
         core = [json.loads(line) for line in self.files["samples.jsonl"].splitlines()]
         nc = [json.loads(line) for line in self.nc_files["samples.jsonl"].splitlines()]
         self.assertEqual({r["provenance"]["distribution"] for r in core}, {"open"})
-        self.assertEqual({r["provenance"]["source_id"] for r in nc}, {"ddi", "tcm_sd", "e3c", "ct_ebm_sp", "care_bench"})
+        self.assertEqual({r["provenance"]["source_id"] for r in nc}, {"ddi", "tcm_sd", "e3c", "ct_ebm_sp", "care_bench", "pmr_synth"})
         self.assertFalse({r["id"] for r in core} & {r["id"] for r in nc})
         original = {r["id"]: r for r in release.data.read_jsonl(release.data.DEFAULT / "samples.jsonl")}
         self.assertEqual({r["id"]: r for r in core + nc}, original)

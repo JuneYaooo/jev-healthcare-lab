@@ -1,22 +1,22 @@
 {
-  "version": "0.7.0",
+  "version": "0.8.0",
   "seed": 20261010,
-  "total_tasks": 81,
-  "ready_tasks": 52,
-  "partial_tasks": 11,
-  "empty_tasks": 18,
-  "records": 5726,
-  "unique_source_groups": 3693,
+  "total_tasks": 89,
+  "ready_tasks": 53,
+  "partial_tasks": 20,
+  "empty_tasks": 16,
+  "records": 5907,
+  "unique_source_groups": 3773,
   "languages": {
     "es": 1058,
-    "en": 3524,
-    "zh": 1144
+    "en": 3658,
+    "zh": 1191
   },
   "distribution_counts": {
-    "open": 4183,
-    "research_noncommercial": 1543
+    "open": 4334,
+    "research_noncommercial": 1573
   },
-  "historical_material_matches": 577,
+  "historical_material_matches": 677,
   "adapter_exclusions": {
     "aci:unmapped_or_short_section": 304,
     "medquad:outside_fixed_intent_vocabulary": 17458,
@@ -1722,6 +1722,86 @@
       "procedure_component_link",
       "severity_link"
     ],
+    "longhealth:patient_08": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_04": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_05": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_12": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_10": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_14": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_11": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_18": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_03": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_02": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_07": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_20": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_06": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_17": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_01": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_15": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_16": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_13": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_19": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
+    "longhealth:patient_09": [
+      "input_sufficiency",
+      "long_record_evidence"
+    ],
     "zh_exam_case:70533eccc0c8ddc7c0a259cd": [
       "case_etiology",
       "clinical_grade"
@@ -2101,6 +2181,10 @@
     ],
     "zh_exam_case:55d95f13673dc8e9dbd15fd7": [
       "case_complication",
+      "medication_choice"
+    ],
+    "zh_exam_case:8b6e9a7ed31dfa3d596e14f9": [
+      "followup_plan",
       "medication_choice"
     ],
     "maccrobat:28151860": [
@@ -3545,11 +3629,13 @@
       "id": "input_sufficiency",
       "dimension": "rules",
       "title": "决策资料充分性",
-      "definition": "判断计算或决策所需信息是否充分且无未解决冲突。",
+      "definition": "判断给定临床记录是否包含回答目标问题的证据；当前以 LongHealth 缺失证据协议覆盖记录信息充分性，不覆盖计算缺项或冲突消解。",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。",
+      "source_ids": [
+        "longhealth"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "cmedcalc",
         "care_bench"
@@ -3559,22 +3645,29 @@
         "rules"
       ],
       "decision_stage": "material_judgment",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "count": 100,
+      "groups": 20,
+      "status": "ready",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 100,
+        "unique_consistent_pool": 100,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 100,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
-      "historical_material_matches": 0
+      "label_counts": {
+        "no": 50,
+        "yes": 50
+      },
+      "language_counts": {
+        "en": 100
+      },
+      "source_counts": {
+        "longhealth": 100
+      },
+      "historical_material_matches": 100
     },
     {
       "id": "clinical_grade",
@@ -4971,28 +5064,37 @@
       ],
       "decision_mode": "material",
       "decision_stage": "material_judgment",
-      "definition": "给定两条患者消息，选择需要更优先处理的一条。",
+      "definition": "给定两条患者消息及各自病历背景，选择应优先处理的消息；当前子集为人工合成消息及上游临床人员比较标注。",
       "target_count": 100,
-      "source_ids": [],
+      "source_ids": [
+        "pmr_synth"
+      ],
       "candidate_source_ids": [
         "pmr_bench"
       ],
-      "missing_reason": "PMR-Reddit 的原等级经 GPT-5 推导，并非逐对人工金标；本轮不纳入主评测。",
-      "count": 0,
-      "groups": 0,
-      "status": "empty",
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "count": 30,
+      "groups": 30,
+      "status": "partial",
       "sampling": {
-        "raw_pool": 0,
-        "unique_consistent_pool": 0,
+        "raw_pool": 30,
+        "unique_consistent_pool": 30,
         "conflicting_rows_removed": 0,
         "duplicate_requests_removed": 0,
         "group_cap": 5,
-        "upstream_adapter_pool": 0,
+        "upstream_adapter_pool": 30,
         "local_training_matches_excluded": 0
       },
-      "label_counts": {},
-      "language_counts": {},
-      "source_counts": {},
+      "label_counts": {
+        "Patient #1": 20,
+        "Patient #2": 10
+      },
+      "language_counts": {
+        "en": 30
+      },
+      "source_counts": {
+        "pmr_synth": 30
+      },
       "historical_material_matches": 0
     },
     {
@@ -7287,6 +7389,377 @@
         "cmb": 8
       },
       "historical_material_matches": 0
+    },
+    {
+      "id": "followup_plan",
+      "title": "随访方案选择",
+      "definition": "根据完整病例选择复查项目或随访时机；不等同待办是否完成或逾期。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa",
+        "medmcqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 6,
+      "groups": 6,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 6,
+        "unique_consistent_pool": 6,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 6,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "D": 1,
+        "ope": 1,
+        "opc": 2,
+        "B": 1,
+        "E": 1
+      },
+      "language_counts": {
+        "zh": 5,
+        "en": 1
+      },
+      "source_counts": {
+        "cmb": 3,
+        "cnmleqa": 2,
+        "medmcqa": 1
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "monitoring_target",
+      "title": "病情监测指标选择",
+      "definition": "根据病例选择当前最应监测的变量或观察重点，不进行新诊断。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 5,
+      "groups": 5,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 5,
+        "unique_consistent_pool": 5,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 5,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "E": 3,
+        "A": 1,
+        "C": 1
+      },
+      "language_counts": {
+        "zh": 5
+      },
+      "source_counts": {
+        "cmb": 5
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "rehabilitation_choice",
+      "title": "康复训练方案选择",
+      "definition": "根据功能状态或术后阶段选择原题中的训练方案。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 4,
+      "groups": 4,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 4,
+        "unique_consistent_pool": 4,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 4,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "D": 2,
+        "A": 1,
+        "E": 1
+      },
+      "language_counts": {
+        "zh": 4
+      },
+      "source_counts": {
+        "cmb": 4
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "prevention_choice",
+      "title": "个体预防方案选择",
+      "definition": "根据病例、暴露或复发风险，选择预防行动；不评价预防等级概念。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa",
+        "medmcqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 13,
+      "groups": 13,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 13,
+        "unique_consistent_pool": 13,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 13,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "B": 5,
+        "D": 3,
+        "opd": 1,
+        "A": 1,
+        "opb": 1,
+        "opc": 1,
+        "E": 1
+      },
+      "language_counts": {
+        "zh": 12,
+        "en": 1
+      },
+      "source_counts": {
+        "cmb": 10,
+        "cnmleqa": 2,
+        "medmcqa": 1
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "infection_precaution",
+      "title": "感染防控措施选择",
+      "definition": "根据患者或病区情境选择隔离、无菌操作、消毒或阻断传播措施。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 5,
+      "groups": 5,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 5,
+        "unique_consistent_pool": 5,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 5,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "opc": 1,
+        "B": 1,
+        "A": 2,
+        "E": 1
+      },
+      "language_counts": {
+        "zh": 5
+      },
+      "source_counts": {
+        "cnmleqa": 1,
+        "cmb": 4
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "patient_counseling",
+      "title": "患者教育与沟通选择",
+      "definition": "根据情境选择教育重点、教育方式或沟通表达；仅选择上游选项，不生成话术。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 11,
+      "groups": 11,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 11,
+        "unique_consistent_pool": 11,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 11,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "C": 4,
+        "D": 4,
+        "A": 1,
+        "E": 2
+      },
+      "language_counts": {
+        "zh": 11
+      },
+      "source_counts": {
+        "cmb": 11
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "administration_route_choice",
+      "title": "给药途径与方法选择",
+      "definition": "根据给药情境选择途径或实施方法；不等同从原文提取给药途径。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 4,
+      "groups": 4,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 4,
+        "unique_consistent_pool": 4,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 4,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "opa": 1,
+        "C": 2,
+        "E": 1
+      },
+      "language_counts": {
+        "zh": 4
+      },
+      "source_counts": {
+        "cnmleqa": 1,
+        "cmb": 3
+      },
+      "historical_material_matches": 0
+    },
+    {
+      "id": "consent_action",
+      "title": "知情与隐私处置选择",
+      "definition": "根据情境选择知情同意、隐私披露或尊重患者意愿的具体行动；不评价伦理原则名称。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "principlismqa"
+      ],
+      "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice",
+      "count": 3,
+      "groups": 3,
+      "status": "partial",
+      "sampling": {
+        "raw_pool": 3,
+        "unique_consistent_pool": 3,
+        "conflicting_rows_removed": 0,
+        "duplicate_requests_removed": 0,
+        "group_cap": 5,
+        "upstream_adapter_pool": 3,
+        "local_training_matches_excluded": 0
+      },
+      "label_counts": {
+        "C": 2,
+        "A": 1
+      },
+      "language_counts": {
+        "en": 2,
+        "zh": 1
+      },
+      "source_counts": {
+        "principlismqa": 2,
+        "cmb": 1
+      },
+      "historical_material_matches": 0
     }
   ],
   "scenarios": [
@@ -7295,8 +7768,8 @@
       "title": "接诊与分诊",
       "scope": "识别就诊诉求、资料缺口及处理优先级。",
       "defined_tasks": 7,
-      "populated_tasks": 4,
-      "records": 400
+      "populated_tasks": 6,
+      "records": 530
     },
     {
       "id": "testing",
@@ -7318,25 +7791,25 @@
       "id": "treatment",
       "title": "治疗与用药",
       "scope": "判断治疗选择、用药关系及患者特异性适宜性。",
-      "defined_tasks": 15,
-      "populated_tasks": 12,
-      "records": 939
+      "defined_tasks": 16,
+      "populated_tasks": 13,
+      "records": 943
     },
     {
       "id": "inpatient",
       "title": "住院与护理",
       "scope": "核对病情证据、操作执行和病情恶化风险。",
-      "defined_tasks": 12,
-      "populated_tasks": 9,
-      "records": 631
+      "defined_tasks": 14,
+      "populated_tasks": 11,
+      "records": 641
     },
     {
       "id": "followup",
       "title": "出院与随访",
       "scope": "识别后续行动、完成状态和出院后的风险。",
-      "defined_tasks": 4,
-      "populated_tasks": 2,
-      "records": 200
+      "defined_tasks": 8,
+      "populated_tasks": 6,
+      "records": 234
     },
     {
       "id": "trials",
@@ -7350,9 +7823,9 @@
       "id": "quality",
       "title": "病历与医疗质量控制",
       "scope": "识别文书类别、错误、隐私与证据不一致。",
-      "defined_tasks": 11,
-      "populated_tasks": 9,
-      "records": 900
+      "defined_tasks": 12,
+      "populated_tasks": 10,
+      "records": 903
     }
   ]
 }

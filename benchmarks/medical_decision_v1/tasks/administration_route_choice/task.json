@@ -1,0 +1,45 @@
+{
+  "id": "administration_route_choice",
+  "title": "给药途径与方法选择",
+  "definition": "根据给药情境选择途径或实施方法；不等同从原文提取给药途径。",
+  "dimension": "clinical",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "cnmleqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "treatment",
+  "ability_tags": [
+    "clinical",
+    "workflow"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 4,
+  "groups": 4,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 4,
+    "unique_consistent_pool": 4,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 4,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "opa": 1,
+    "C": 2,
+    "E": 1
+  },
+  "language_counts": {
+    "zh": 4
+  },
+  "source_counts": {
+    "cnmleqa": 1,
+    "cmb": 3
+  },
+  "historical_material_matches": 0
+}

@@ -1,0 +1,409 @@
+{
+  "review_scope": "Task fit, textual completeness and near-duplicate screening; not independent clinical review. All answers read from pinned upstream resources.",
+  "items": [
+    {
+      "source": "cmb",
+      "split": "official_test",
+      "index": 2988,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json",
+      "question_sha256": "5087e57177607f6693047123838dec54cec5ecf52c861f21c82a2b6be0dc8d1a"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 123306,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "4c80967202d7ac41b0c48bdfc4446e888bd1a24c50f2362a5e05d20bc0c02194"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 123446,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "085fbab3685610d9d91a044689e5ebc43bc32d55a619f54750a1170bddcaf328"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 123727,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "443c930194442922c6247cadaadf33dd92640e2513ce7e04f3d063c211d7945e"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 124880,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "b7f94f889f0721b1b844cc3c75f086a9ed3713d3faa20bdd0b1e3020533f4834"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 130220,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "830fac510ff9319777101caf829b687b1a68720380c717d0e97d58ec04589b30"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 130333,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "b36a7492ae254cf75e1487c329e2842344045969ab7a7d7ff57282872c72dc92"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 130347,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "f615cbab270e31f20411ae99e32dcbd0c6d5bc363ef5c4130da0765baa8408de"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 131110,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "1f8446a44c5f362120a6a5406c65d498cda87e08d777349b05a928d51d8b8224"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 136059,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "1ad94267ad0995c2547fabdb59a41ecc2e8c96535c0b58e4d8086440ffa63e3b"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 258203,
+      "task": "patient_counseling",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "4c27c99fe6343a15f827fb6c3dc973f775cd0c31ab59e3a890fc7149da15a03d"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 46949,
+      "task": "monitoring_target",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "cbdf160939afecb14efb4ef910b2b62101a8faf4027f4b33ce0b460da537e1cd"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 54958,
+      "task": "monitoring_target",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "f1de71e3318db129797bb20cb78965e805aae663407cbd7ba5cdd10eee5e1379"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 72635,
+      "task": "monitoring_target",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "e371eb2770b4314ecc76cd83730e0ea02a0d679d6f38ab460641a7d352902e39"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 79686,
+      "task": "monitoring_target",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "57937d95a2c874387e159847fde20849f706c6d18b749952d772229e2493613a"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 234821,
+      "task": "monitoring_target",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "4318994f97db5ddfb9f2f42e6937df11acef256197614b309900a9b6e3530359"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 20807,
+      "task": "rehabilitation_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "5be8df5f868084a82bc5808935598a0020f92d206b8f888754e0160d876fc3f5"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 57948,
+      "task": "rehabilitation_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "1c450f990fe10122dcdae861e2d594f9d9620122e78423bb6968c20ace952b58"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 130694,
+      "task": "rehabilitation_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "8b2211ec1c0cc5fd49fd2167d5532d001ca91b5caa00283eff7d3cf29bc9055d"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 171686,
+      "task": "rehabilitation_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "41a16e6b35a8ba7f99a94786f5e065aedb8b1041321a70a83c2abdb3975c5fda"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 57476,
+      "task": "administration_route_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "1e0e8fd5f03b4296256f2f16e9508f85c2913b634581f0db4bda412c4a12d402"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 126011,
+      "task": "administration_route_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "3f04c733cc8c560bd515318c842959035ff76f2ec098eafc90f5c0611dddaa35"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 144598,
+      "task": "administration_route_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "a315ffb62900622db4d77494fb1268be68c25c71d1fd9bb7795a9c78fca90ca3"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 6450,
+      "task": "administration_route_choice",
+      "member": null,
+      "question_sha256": "4b6031c6a9d5406f38c9245c6d55afa21096f270d4c294eb54feb900777c93fd"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 35495,
+      "task": "followup_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "0b335e54bf191d60ea208f3e1bd797e9ff01cfc9bd78f1a1ae1124b61306a36c"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 63835,
+      "task": "followup_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "cbf767bdc96e1e0682d8146458e51e2e55abc5fb7e90a46000ae7b4cc8fa77ff"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 77452,
+      "task": "followup_plan",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "9ef141df9854472b78306730c60e23d2f9f300929a2329f05922d17b931e928b"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 425,
+      "task": "followup_plan",
+      "member": null,
+      "question_sha256": "d487a64ae42fe7af31da17fcfcf42e27ba269f95820926ca2ed90fb8f3e86539"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 4538,
+      "task": "followup_plan",
+      "member": null,
+      "question_sha256": "28febeecd0e4f1afc1c42c10b00c779e5fa2248c2349085feb9699d3131b4192"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 49762,
+      "task": "consent_action",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "594c6bebdd67751b66e89f8c0054e8b736492a1586c9a7fc5e469271459502ce"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 52,
+      "task": "infection_precaution",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "a587c322ee6d8582bb04698ecc58f3aec6dfecab8dd992229f7453fb5b1d9e3f"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 119925,
+      "task": "infection_precaution",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "680ad175fa05cbe396741fd5eac8fb4c62b25a04c8498fbcd9ea7f3525021250"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 127570,
+      "task": "infection_precaution",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "11bc7c8169fd07c869c1e358189dbefce9863c6aa9d1e2109ce9b6410abd12d9"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 132911,
+      "task": "infection_precaution",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "11709a98fd68459d16a898a158134aceb10a87720746bd8b5eec1fe54dee2ef8"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 428,
+      "task": "infection_precaution",
+      "member": null,
+      "question_sha256": "d6145911ae7f2115c397f0887de9c6eb3c6be73d1f57076ba6f3ef54e067ca52"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 1961,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "222e8976c45cb27860ebad7afab09d0b833b05ea9f2fa26adc86fc94c8a0d5c6"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 5304,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "5ec5d1a25e7c4a207f59ae2076919761faf10fd79fddf06595d96bef1961cff0"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 17553,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "21657e18a4c0fc13e3a83e9af7c1181d39bf2c5effcc67d764d35511a8098d9c"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 48418,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "f1ad778f6e776017e80136e7b7806d10d6115eb6bbba43d8bba0d6d8fa5de96d"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 58097,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "f9fbd066b56f9165206553d9b697d59d442ab57a1ad29df2bfb892d4d16da204"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 64888,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "4eb3dc3b56a0633c6a7c454dda4d5588f3866c55bb05e69089a55f4be4098369"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 70583,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "77ae412dd4a95db75c9d05064df5b4cf0141e90697f3a245962f48de3c35fbeb"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 123099,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "5114e881d755b4786415e7fd9d16178747fa467f9b46f8520c9429e9b726c726"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 133359,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "ba2568c6c1772a6ecaa3d977286c4d8de6b0334ac01db52a8ea087d0b82d2109"
+    },
+    {
+      "source": "cmb",
+      "split": "upstream_train_reserved_for_local_evaluation",
+      "index": 243819,
+      "task": "prevention_choice",
+      "member": "CMB/CMB-Exam/CMB-train/CMB-train-merge.json",
+      "question_sha256": "2db75ecbbc795ae8aaa4a58919d1e8327df12bbbb07f01990174a95b1ec61d4a"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 2928,
+      "task": "prevention_choice",
+      "member": null,
+      "question_sha256": "c5b3214e4879276fc3f8c69afed9d3b07dbadeb77ac2b1066be1679e8407a02d"
+    },
+    {
+      "source": "cnmleqa",
+      "split": "published_benchmark_no_official_split",
+      "index": 3875,
+      "task": "prevention_choice",
+      "member": null,
+      "question_sha256": "255878c4cf76bd6d41942deb8fd2fc4a80dd2e6193b6ac8c5d9c25a3e9e38995"
+    },
+    {
+      "source": "medmcqa",
+      "index": 584,
+      "task": "prevention_choice",
+      "question_sha256": "f70d30c40fbe34c96bce3709d5b2acb791687b66c68e84e70179bcc2fb766305",
+      "split": "official_validation"
+    },
+    {
+      "source": "medmcqa",
+      "index": 2636,
+      "task": "followup_plan",
+      "question_sha256": "38ec1086b1baf148a76d6f2f3657124af8f7f9d2e0ed20020e9716434db47322",
+      "split": "official_validation"
+    },
+    {
+      "source": "principlismqa",
+      "index": 116,
+      "task": "consent_action",
+      "question_sha256": "81b5a883b85aa7065c4cd3be09713dadf1568aad60b0311b1268bd12b3f96d86",
+      "split": "published_benchmark_no_official_split"
+    },
+    {
+      "source": "principlismqa",
+      "index": 503,
+      "task": "consent_action",
+      "question_sha256": "deb32b0f26595d02f72d4e87e4083de8db69d4675e991bc9e273fdfa4210c14d",
+      "split": "published_benchmark_no_official_split"
+    }
+  ]
+}

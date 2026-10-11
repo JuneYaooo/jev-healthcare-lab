@@ -97,6 +97,15 @@ def package_files(dataset, distribution):
     for resource in lock:
         if resource.get('snapshot_path'):
             files[resource['snapshot_path']] = data.locked_source_bytes(dataset, resource)
+    export_file = dataset / 'table_exports.json'
+    if export_file.exists():
+        exports = [e for e in json.loads(export_file.read_text())['exports'] if e['source_id'] in selected_sources]
+        js('table_exports.json', {'exports': exports})
+        for entry in exports:
+            raw = checked_path(dataset, entry['path']).read_bytes()
+            if hashlib.sha256(raw).hexdigest() != entry['sha256']:
+                raise ValueError('Changed decoded table')
+            files[entry['path']] = raw
     for name in ["medical_decision_dataset.py", "medical_decision_release.py"]:
         files["tools/" + name] = (ROOT / "scripts" / name).read_bytes()
     files["LICENSE-CODE.txt"] = (ROOT / "LICENSE").read_bytes()

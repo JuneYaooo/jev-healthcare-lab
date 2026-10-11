@@ -96,9 +96,11 @@
 
 材料性质：20 个虚构患者；100 道题不是 100 个患者。
 
-答案依据：沿用发布问题、五个选项和 correct 字段。
+答案依据：沿用发布问题、五个选项和 correct 字段。 信息充分性来自同版本 task2.py 的 answer_docs 有/无协议，机械投影为 yes/no，不创作临床答案。
 
 许可与来源快照：[longhealth__README.md](sources/longhealth/longhealth__README.md)、[longhealth__LICENSE](sources/longhealth/longhealth__LICENSE)。
+
+评测范围：信息充分性子集使用固定的两个异患者干扰文档和完整证据文档；不同于原始随机十次、token 截断协议。100 个问题共享 20 个虚构患者及干扰材料，应按患者分组，不能声称 100 个独立患者。
 
 ## MedCalc-Bench GitHub test release
 
@@ -259,20 +261,6 @@
 来源：[发布方](https://open.fda.gov/apis/drug/label/)。
 
 状态：仅引用，未收录题目。可作规则材料，尚无对应患者判断题与金标
-
-## MedMCQA
-
-来源：[发布方](https://github.com/medmcqa/medmcqa)。
-
-状态：仅引用，未收录题目。需要逐题筛选临床情境与任务类型，核对数据卡与仓库划分数量差异；不混入纯知识记忆题。
-
-核验日期：2026-10-10；结论：需任务筛选。
-
-[发布证据](https://huggingface.co/datasets/openlifescienceai/medmcqa)；许可：Apache-2.0（发布数据卡）；GitHub 代码 MIT。
-
-材料性质：考试题与原选项答案；不是真实临床结局。
-
-答案依据：已有单选金标，但按科目划分，不直接提供诊断/检查/治疗决策标签。
 
 ## PMR-Bench Reddit Test Pairs
 
@@ -891,3 +879,117 @@ The problem is important for the following reasons. Despite high-quality evidenc
 许可与来源快照：[figshare-metadata.json](sources/tcmeval_pa/figshare-metadata.json)。
 
 评测范围：固定发布版本的上游答案；未作本项目独立临床或现行规范核验。数据许可按 Figshare 数据记录，区别于论文或仓库其他内容许可。
+
+## PMR-Synth annotated pairs
+
+来源：[发布方](https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated)。
+
+引用：Gatto et al. (2026)，[论文/项目](https://arxiv.org/abs/2601.13178)。
+
+数据许可：[CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/)；分发类别：`research_noncommercial`。
+
+材料性质：人工合成患者消息，配对去标识病历背景；不能称为真实患者发出的消息。
+
+答案依据：沿用 Label 字段的 Patient #1 / Patient #2；每条消息与病历最多出现一次。
+
+许可与来源快照：[README.md](sources/pmr_synth/README.md)。
+
+评测范围：公开 INBOX_A/B 与论文 train/test 的对应未确认；不得视为未暴露官方测试集。保留原始 inbox 标记；60 条消息至多组成 30 个不重复材料的比较，仍只来自两个收件箱。
+
+## MedMCQA
+
+来源：[发布方](https://huggingface.co/datasets/openlifescienceai/medmcqa)。
+
+引用：Pal, Umapathi and Sankarasubbu (2022)，[论文/项目](https://proceedings.mlr.press/v174/pal22a.html)。
+
+数据许可：[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)；分发类别：`open`。
+
+材料性质：印度医学考试题；不是患者观察队列。
+
+答案依据：仅用官方 validation、choice_type=single；cop 的 0–3 原样映射 opa–opd。
+
+许可与来源快照：[README.md](sources/medmcqa/README.md)。
+
+评测范围：采用数据卡 Apache-2.0，而非代码仓库许可。仅固定范围清单病例题，未独立核验现行临床规范。
+
+## PrinciplismQA
+
+来源：[发布方](https://github.com/FreedomIntelligence/PrinciplismQA)。
+
+引用：Hong et al. (2026)，[论文/项目](https://aclanthology.org/2026.findings-acl.1806/)。
+
+数据许可：[MIT](https://opensource.org/license/mit)；分发类别：`open`。
+
+材料性质：上游模型根据医学伦理教材构造题目，经医学专家审核；不是实际临床记录。
+
+答案依据：保留固定清单中处置选择题的原问题、选项及 correct_answer；不纳入开放式问答或原则分类题。
+
+许可与来源快照：[README.md](sources/principlismqa/README.md)、[LICENSE](sources/principlismqa/LICENSE)。
+
+评测范围：模型构题与筛选可能引入偏差；少量情境题只提供探索性覆盖，不能代表国际伦理共识或法律意见。
+
+## UCI Cryotherapy
+
+来源：[发布方](https://archive.ics.uci.edu/dataset/429/cryotherapy+dataset)。
+
+状态：仅引用，未收录题目。官网 CC-BY-4.0 与原 XLSX 内嵌用户协议研究用途限制冲突；未导入。证据位置 Cryotherapy.xlsx!xl/embeddings/Microsoft_Word_Document1.docx。
+
+## UCI Immunotherapy
+
+来源：[发布方](https://archive.ics.uci.edu/dataset/428/immunotherapy+dataset)。
+
+状态：仅引用，未收录题目。原作者使用条件含研究用途限制；不依据外层 CC-BY 标签假定可任意再分发。
+
+## CICTD
+
+来源：[发布方](https://github.com/860844175/CICTD)。
+
+状态：仅引用，未收录题目。基于 MIMIC-IV 构建；仓库代码 MIT 不解除原始临床数据访问与再分发限制。
+
+## medLLMbenchmark
+
+来源：[发布方](https://github.com/BIMSBbioinfo/medLLMbenchmark)。
+
+状态：仅引用，未收录题目。分诊构建流程依赖 MIMIC-IV/ED/Note；不能公开打包基础病例。
+
+## MedDec
+
+来源：[发布方](https://github.com/CLU-UML/MedDec)。
+
+状态：仅引用，未收录题目。医学决策抽取标注来自 MIMIC-III 出院记录；代码许可不授权重分发基础记录。
+
+## MedEthicsQA
+
+来源：[发布方](https://github.com/JianhuiWei7/MedEthicsQA)。
+
+状态：仅引用，未收录题目。5,623 MCQ 大部分源于 Quizlet、Lecturio 等第三方题库；发布方 NC 声明未解决这些底层题目的许可链。小部分来自现有开放题库，不另当新增任务。
+
+## BedsideBench
+
+来源：[发布方](https://huggingface.co/datasets/doximity/bedside-bench)。
+
+状态：仅引用，未收录题目。公开部分为自由作答和评分 rubric；不自行构造闭集候选及新答案。
+
+## PediaBench
+
+来源：[发布方](https://github.com/ACMISLab/PediaBench)。
+
+状态：仅引用，未收录题目。未确认可用于本次公开再分发的数据许可，暂不收录。
+
+## MedHALT
+
+来源：[发布方](https://github.com/medhalt/medhalt)。
+
+状态：仅引用，未收录题目。NOTA 的统一缺项标签及虚构问题不能替代真实信息充分性任务；回答核验与已覆盖错误核验有重合，不据此扩增任务数。
+
+## LCMDC
+
+来源：[发布方](https://zenodo.org/records/13771008)。
+
+状态：仅引用，未收录题目。对话科室标签不能直接认定为临床审核的首诊推荐金标；未确认与 department_routing 定义一致的授权标注子集。
+
+## MedTriage
+
+来源：[发布方](https://doi.org/10.1038/s41746-026-02433-8)。
+
+状态：仅引用，未收录题目。论文说明专科分诊评测，但本轮未获取可锁定且明确允许再分发的完整病例与金标文件，不凭论文规模计入题数。

@@ -10805,6 +10805,87 @@
       "sha256": "579f7f14bfb727813a171945823d03b5300437058390d91ca8d1c22f78602f49",
       "bytes": 4784,
       "snapshot_path": "sources/tcmeval_pa/figshare-metadata.json"
+    },
+    {
+      "source": "pmr_synth",
+      "name": "pmr_synth__INBOX_A-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated/resolve/0a0347fdc9cd0639348ffa54fe3988a7b45b2a18/data/INBOX_A-00000-of-00001.parquet",
+      "version": "0a0347fdc9cd0639348ffa54fe3988a7b45b2a18",
+      "sha256": "f381a6f2ec8e55214086282e7ffe7f7bd94ec737535ccb91dae86db50cdd8dc2",
+      "bytes": 58905,
+      "snapshot_path": "sources/pmr_synth/INBOX_A-00000-of-00001.parquet"
+    },
+    {
+      "source": "pmr_synth",
+      "name": "pmr_synth__INBOX_B-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated/resolve/0a0347fdc9cd0639348ffa54fe3988a7b45b2a18/data/INBOX_B-00000-of-00001.parquet",
+      "version": "0a0347fdc9cd0639348ffa54fe3988a7b45b2a18",
+      "sha256": "f86e0619c6d8355e20ef2054214e639e025a8c6cbb5fcb557bf27477fc6f4a46",
+      "bytes": 60405,
+      "snapshot_path": "sources/pmr_synth/INBOX_B-00000-of-00001.parquet"
+    },
+    {
+      "source": "pmr_synth",
+      "name": "pmr_synth__README.md",
+      "url": "https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated/resolve/0a0347fdc9cd0639348ffa54fe3988a7b45b2a18/README.md",
+      "version": "0a0347fdc9cd0639348ffa54fe3988a7b45b2a18",
+      "sha256": "dde120df4606cd771fcc18d5b8686e685d5f5e60733614f303557b9e692e78e3",
+      "bytes": 555,
+      "snapshot_path": "sources/pmr_synth/README.md"
+    },
+    {
+      "source": "medmcqa",
+      "name": "medmcqa__validation-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/openlifescienceai/medmcqa/resolve/91c6572c454088bf71b679ad90aa8dffcd0d5868/data/validation-00000-of-00001.parquet",
+      "version": "91c6572c454088bf71b679ad90aa8dffcd0d5868",
+      "sha256": "b768a1ea34afc9f80d3106d9b21f80fa8a00ec450a1f6cd641af72ca9e591021",
+      "bytes": 1476104,
+      "snapshot_path": "sources/medmcqa/validation-00000-of-00001.parquet"
+    },
+    {
+      "source": "medmcqa",
+      "name": "medmcqa__README.md",
+      "url": "https://huggingface.co/datasets/openlifescienceai/medmcqa/resolve/91c6572c454088bf71b679ad90aa8dffcd0d5868/README.md",
+      "version": "91c6572c454088bf71b679ad90aa8dffcd0d5868",
+      "sha256": "aedb19bd3b6b4ba5b3a371d4aa61aac2195eb6239357d3b733345f62d9104d6a",
+      "bytes": 10700,
+      "snapshot_path": "sources/medmcqa/README.md"
+    },
+    {
+      "source": "principlismqa",
+      "name": "principlismqa__knowledge-mcqa.json",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/PrinciplismQA/3538461406b045fa4bc777ac0c6e45fcb5e72968/data/knowledge-mcqa.json",
+      "version": "3538461406b045fa4bc777ac0c6e45fcb5e72968",
+      "sha256": "7d35b7b4219d66e407a31caf0e1c6ff89991d68f1b0e56a1685caee039490ebf",
+      "bytes": 2845394,
+      "snapshot_path": "sources/principlismqa/knowledge-mcqa.json"
+    },
+    {
+      "source": "principlismqa",
+      "name": "principlismqa__README.md",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/PrinciplismQA/3538461406b045fa4bc777ac0c6e45fcb5e72968/README.md",
+      "version": "3538461406b045fa4bc777ac0c6e45fcb5e72968",
+      "sha256": "36c16bcaad3da252ccb53d9f75d1e0002aa5786a426666f6fa12f06b579e0472",
+      "bytes": 12872,
+      "snapshot_path": "sources/principlismqa/README.md"
+    },
+    {
+      "source": "principlismqa",
+      "name": "principlismqa__LICENSE",
+      "url": "https://raw.githubusercontent.com/FreedomIntelligence/PrinciplismQA/3538461406b045fa4bc777ac0c6e45fcb5e72968/LICENSE",
+      "version": "3538461406b045fa4bc777ac0c6e45fcb5e72968",
+      "sha256": "ef841d140c491cc58561e2554975a96f6f1901d44d55bc8364d3cdada8852b94",
+      "bytes": 1067,
+      "snapshot_path": "sources/principlismqa/LICENSE"
+    },
+    {
+      "source": "longhealth",
+      "name": "longhealth__task2.py",
+      "url": "https://raw.githubusercontent.com/kbressem/LongHealth/479922279ce8fa528fe2cd87d854c6a2f8365d21/task2.py",
+      "version": "479922279ce8fa528fe2cd87d854c6a2f8365d21",
+      "sha256": "90d07ecc951f59b6a489b3574cd242876a3bae193e97744066c473bd538ddfde",
+      "bytes": 2787,
+      "snapshot_path": "sources/longhealth/task2.py"
     }
   ]
 }

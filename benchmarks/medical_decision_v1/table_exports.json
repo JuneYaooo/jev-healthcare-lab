@@ -1,0 +1,28 @@
+{
+  "exports": [
+    {
+      "source_id": "pmr_synth",
+      "resource": "pmr_synth__INBOX_A-00000-of-00001.parquet",
+      "path": "sources/pmr_synth/INBOX_A-00000-of-00001.json",
+      "sha256": "2b130aab5178e1f2f9705a592164b534d5a939ad0efb3fb71ccf70c224ead34d",
+      "rows": 435,
+      "decoder": "pyarrow.parquet.read_table(...).to_pylist(); JSON UTF-8, unchanged values and row order"
+    },
+    {
+      "source_id": "pmr_synth",
+      "resource": "pmr_synth__INBOX_B-00000-of-00001.parquet",
+      "path": "sources/pmr_synth/INBOX_B-00000-of-00001.json",
+      "sha256": "6a4e44fbf44a53b34bc3933e492028d6ea89f975c299e582e7e998941582c2de",
+      "rows": 434,
+      "decoder": "pyarrow.parquet.read_table(...).to_pylist(); JSON UTF-8, unchanged values and row order"
+    },
+    {
+      "source_id": "medmcqa",
+      "resource": "medmcqa__validation-00000-of-00001.parquet",
+      "path": "sources/medmcqa/validation-00000-of-00001.json",
+      "sha256": "ba1517214222f3e1df1aab1d117f3f35971c9b816afca94070b64b2315889775",
+      "rows": 4183,
+      "decoder": "pyarrow.parquet.read_table(...).to_pylist(); JSON UTF-8, unchanged values and row order"
+    }
+  ]
+}

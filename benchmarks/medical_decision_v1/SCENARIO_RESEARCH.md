@@ -8,7 +8,7 @@
 
 任务：事实主体归属、医疗问题意图、决策资料充分性、当前分诊与升级行动、候选科室分流、患者消息紧急性比较、孕产风险等级识别。
 
-已有题目来源：[CARE-Bench](https://github.com/ningkko/CARE-bench)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[MedQuAD](https://github.com/abachaa/MedQuAD)、[Maternal Health Risk](https://archive.ics.uci.edu/dataset/863/maternal+health+risk)。
+已有题目来源：[CARE-Bench](https://github.com/ningkko/CARE-bench)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[LongHealth](https://github.com/kbressem/LongHealth)、[MedQuAD](https://github.com/abachaa/MedQuAD)、[PMR-Synth annotated pairs](https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated)、[Maternal Health Risk](https://archive.ics.uci.edu/dataset/863/maternal+health+risk)。
 
 ### [PMR-Bench Reddit Test Pairs](https://arxiv.org/abs/2601.13178)
 
@@ -168,18 +168,6 @@
 
 已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)、[LabQAR](https://doi.org/10.6084/m9.figshare.29189894)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)。
 
-### [MedMCQA](https://github.com/medmcqa/medmcqa)
-
-材料：考试题与原选项答案；不是真实临床结局。
-
-金标：已有单选金标，但按科目划分，不直接提供诊断/检查/治疗决策标签。
-
-许可：Apache-2.0（发布数据卡）；GitHub 代码 MIT。
-
-状态：需任务筛选。需要逐题筛选临床情境与任务类型，核对数据卡与仓库划分数量差异；不混入纯知识记忆题。
-
-[核验依据](https://huggingface.co/datasets/openlifescienceai/medmcqa)。
-
 ### [MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)
 
 材料：公开发表的临床病例报告；原病例被编辑整理，不等同医院原始 EHR。
@@ -322,18 +310,6 @@
 
 已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[DDXPlus](https://doi.org/10.6084/m9.figshare.20043374)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[MedCalc-Bench GitHub test release](https://github.com/ncbi-nlp/MedCalc-Bench)、[NUBes SAMPLE-001](https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus)、[TCM-SD](https://github.com/borororo/zy-bert)、[TCMEval-SDT](https://doi.org/10.6084/m9.figshare.27184596.v5)。
 
-### [MedMCQA](https://github.com/medmcqa/medmcqa)
-
-材料：考试题与原选项答案；不是真实临床结局。
-
-金标：已有单选金标，但按科目划分，不直接提供诊断/检查/治疗决策标签。
-
-许可：Apache-2.0（发布数据卡）；GitHub 代码 MIT。
-
-状态：需任务筛选。需要逐题筛选临床情境与任务类型，核对数据卡与仓库划分数量差异；不混入纯知识记忆题。
-
-[核验依据](https://huggingface.co/datasets/openlifescienceai/medmcqa)。
-
 ### [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)
 
 材料：中文医疗考试病例题；不是医院原始病历。只选病例决策单选题，排除 CMB-Clin 自由生成任务。
@@ -472,21 +448,9 @@
 
 判断治疗选择、用药关系及患者特异性适宜性。
 
-任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌选择、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测、给药途径关联、用药或操作频次关联、药物剂型关联、补液方案选择、药物基因结果用药建议匹配、试验干预效果方向判定、处方审核处置选择。
+任务：用药状态与变更、药物相互作用关系、药物与剂量关联、患者特异性禁忌选择、剂量适宜性、治疗方案选择、用药方案选择、治疗相关不良事件预测、给药途径关联、用药或操作频次关联、药物剂型关联、补液方案选择、药物基因结果用药建议匹配、试验干预效果方向判定、处方审核处置选择、给药途径与方法选择。
 
 已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[DDI Corpus 2013](https://github.com/isegura/DDICorpus)、[Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[TCMEval-PA](https://doi.org/10.6084/m9.figshare.29651261.v3)。
-
-### [MedMCQA](https://github.com/medmcqa/medmcqa)
-
-材料：考试题与原选项答案；不是真实临床结局。
-
-金标：已有单选金标，但按科目划分，不直接提供诊断/检查/治疗决策标签。
-
-许可：Apache-2.0（发布数据卡）；GitHub 代码 MIT。
-
-状态：需任务筛选。需要逐题筛选临床情境与任务类型，核对数据卡与仓库划分数量差异；不混入纯知识记忆题。
-
-[核验依据](https://huggingface.co/datasets/openlifescienceai/medmcqa)。
 
 ### [CT-ADE-SOC / CT-ADE-PT](https://github.com/ds4dh/CT-ADE)
 
@@ -658,7 +622,7 @@
 
 核对病情证据、操作执行和病情恶化风险。
 
-任务：患者与记录身份匹配、长病历证据选择、医疗操作进度、单次给药执行状态、脓毒症提前预警、术后转归去向选择、子操作与所属操作关联、临床事件持续性、病例并发症判断、护理措施选择、病例营养方案选择、护理体位选择。
+任务：患者与记录身份匹配、长病历证据选择、医疗操作进度、单次给药执行状态、脓毒症提前预警、术后转归去向选择、子操作与所属操作关联、临床事件持续性、病例并发症判断、护理措施选择、病例营养方案选择、护理体位选择、病情监测指标选择、感染防控措施选择。
 
 已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[LongHealth](https://github.com/kbressem/LongHealth)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[PhysioNet Challenge 2019](https://physionet.org/content/challenge-2019/1.0.0/)、[Post-Operative Patient](https://archive.ics.uci.edu/dataset/82/post+operative+patient)。
 
@@ -744,9 +708,9 @@
 
 识别后续行动、完成状态和出院后的风险。
 
-任务：随访行动与完成状态、出院后 30 天内再入院预测、出院待办行动类别、90 日死亡结局预测。
+任务：随访行动与完成状态、出院后 30 天内再入院预测、出院待办行动类别、90 日死亡结局预测、随访方案选择、康复训练方案选择、个体预防方案选择、患者教育与沟通选择。
 
-已有题目来源：[Diabetes 130-US Hospitals for Years 1999-2008](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008)、[Heart Failure Clinical Records](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records)。
+已有题目来源：[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[MedMCQA](https://huggingface.co/datasets/openlifescienceai/medmcqa)、[Diabetes 130-US Hospitals for Years 1999-2008](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008)、[Heart Failure Clinical Records](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records)。
 
 ### [CLIP 出院行动标注](https://physionet.org/content/mimic-iii-clinical-action/1.0.0/)
 
@@ -852,9 +816,9 @@ The problem is important for the following reasons. Despite high-quality evidenc
 
 识别文书类别、错误、隐私与证据不一致。
 
-任务：病历章节类别、医学术语归一化、医疗叙述错误检出、医疗叙述错误定位、研究论断证据关系、医疗材料隐私候选、病历论断支持关系、同一临床事件指代关联、文本因果结果关联、否定或推测线索作用对象、临床时间表达类别。
+任务：病历章节类别、医学术语归一化、医疗叙述错误检出、医疗叙述错误定位、研究论断证据关系、医疗材料隐私候选、病历论断支持关系、同一临床事件指代关联、文本因果结果关联、否定或推测线索作用对象、临床时间表达类别、知情与隐私处置选择。
 
-已有题目来源：[ACI-Bench](https://github.com/microsoft/clinical_visit_note_summarization_corpus)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[MEDDOCAN / SPACCC](https://github.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN)、[MEDEC-MS](https://github.com/abachaa/MEDEC)、[MedErrBench CN](https://github.com/congboma/MedErrBench)、[SciFact](https://github.com/allenai/scifact)。
+已有题目来源：[ACI-Bench](https://github.com/microsoft/clinical_visit_note_summarization_corpus)、[CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3)、[E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus)、[MACCROBAT2020](https://doi.org/10.6084/m9.figshare.9764942.v2)、[MEDDOCAN / SPACCC](https://github.com/PlanTL-GOB-ES/SPACCC_MEDDOCAN)、[MEDEC-MS](https://github.com/abachaa/MEDEC)、[MedErrBench CN](https://github.com/congboma/MedErrBench)、[PrinciplismQA](https://github.com/FreedomIntelligence/PrinciplismQA)、[SciFact](https://github.com/allenai/scifact)。
 
 ### [MedNLI](https://physionet.org/content/mednli/1.0.0/)
 

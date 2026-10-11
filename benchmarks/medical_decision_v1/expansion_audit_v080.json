@@ -1,0 +1,379 @@
+{
+  "checked_date": "2026-10-11",
+  "scope": "Scenario-based text/structured medical choices with upstream answers and redistributable inputs. Not an exhaustive inventory of all medical datasets.",
+  "rounds": [
+    {
+      "round": 1,
+      "focus": "既有候选的许可、金标与数据划分",
+      "outcome": "采纳 PMR-Synth，排除 UCI 许可冲突及 MIMIC 派生限制"
+    },
+    {
+      "round": 2,
+      "focus": "中文病例全量关键词筛查；英文验证题与医学伦理题",
+      "outcome": "新增八类任务，固定 51 道原题清单"
+    },
+    {
+      "round": 3,
+      "focus": "原始长病历缺失证据协议与残余空缺检索",
+      "outcome": "补信息充分性；剩余候选受限于许可、访问、原金标或任务重复"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "pmr_synth",
+      "name": "PMR-Synth",
+      "url": "https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated",
+      "result": "adopted",
+      "finding": "人工合成消息的直接人工配对金标可用；30 个无重复消息/病历的比较；A/B 与官方训练测试对应未知，显式标注。"
+    },
+    {
+      "source_id": "medmcqa",
+      "name": "MedMCQA",
+      "url": "https://huggingface.co/datasets/openlifescienceai/medmcqa",
+      "result": "adopted",
+      "finding": "完整验证集筛查；保留两个符合新增任务定义的 single 原标注病例题；不取 multi 类型或缺情境题。"
+    },
+    {
+      "source_id": "principlismqa",
+      "name": "PrinciplismQA",
+      "url": "https://github.com/FreedomIntelligence/PrinciplismQA",
+      "result": "adopted",
+      "finding": "2,182 道 MCQA 中筛查处置情境，保留两个知情/隐私行动题；模型构题、专家核验及 MIT 数据声明分别记录。"
+    },
+    {
+      "source_id": "longhealth",
+      "name": "LongHealth",
+      "url": "https://github.com/kbressem/LongHealth",
+      "result": "adopted",
+      "finding": "同版本 task2.py 提供证据存在/缺失协议；固定化适配，不伪装原始整套随机协议成绩。"
+    },
+    {
+      "source_id": "cmb",
+      "name": "CMB / CNMLEQA",
+      "url": "https://github.com/FreedomIntelligence/CMB",
+      "result": "adopted",
+      "finding": "新关键词候选 216 道，逐条检查问题意图、完整性、近重复与明显矛盾，47 道加入八类任务；不改上游答案。"
+    },
+    {
+      "source_id": "uci_cryotherapy",
+      "name": "UCI Cryotherapy",
+      "url": "https://archive.ics.uci.edu/dataset/429/cryotherapy+dataset",
+      "result": "blocked_license",
+      "finding": "官网 CC-BY-4.0 与原 XLSX 内嵌用户协议研究用途限制冲突；未导入。证据位置 Cryotherapy.xlsx!xl/embeddings/Microsoft_Word_Document1.docx。"
+    },
+    {
+      "source_id": "uci_immunotherapy",
+      "name": "UCI Immunotherapy",
+      "url": "https://archive.ics.uci.edu/dataset/428/immunotherapy+dataset",
+      "result": "blocked_license",
+      "finding": "原作者使用条件含研究用途限制；不依据外层 CC-BY 标签假定可任意再分发。"
+    },
+    {
+      "source_id": "cictd",
+      "name": "CICTD",
+      "url": "https://github.com/860844175/CICTD",
+      "result": "blocked_access",
+      "finding": "基于 MIMIC-IV 构建；仓库代码 MIT 不解除原始临床数据访问与再分发限制。"
+    },
+    {
+      "source_id": "medllmbenchmark",
+      "name": "medLLMbenchmark",
+      "url": "https://github.com/BIMSBbioinfo/medLLMbenchmark",
+      "result": "blocked_access",
+      "finding": "分诊构建流程依赖 MIMIC-IV/ED/Note；不能公开打包基础病例。"
+    },
+    {
+      "source_id": "meddec",
+      "name": "MedDec",
+      "url": "https://github.com/CLU-UML/MedDec",
+      "result": "blocked_access",
+      "finding": "医学决策抽取标注来自 MIMIC-III 出院记录；代码许可不授权重分发基础记录。"
+    },
+    {
+      "source_id": "medethicsqa",
+      "name": "MedEthicsQA",
+      "url": "https://github.com/JianhuiWei7/MedEthicsQA",
+      "result": "blocked_provenance",
+      "finding": "5,623 MCQ 大部分源于 Quizlet、Lecturio 等第三方题库；发布方 NC 声明未解决这些底层题目的许可链。小部分来自现有开放题库，不另当新增任务。"
+    },
+    {
+      "source_id": "bedsidebench",
+      "name": "BedsideBench",
+      "url": "https://huggingface.co/datasets/doximity/bedside-bench",
+      "result": "outside_scope",
+      "finding": "公开部分为自由作答和评分 rubric；不自行构造闭集候选及新答案。"
+    },
+    {
+      "source_id": "pediabench",
+      "name": "PediaBench",
+      "url": "https://github.com/ACMISLab/PediaBench",
+      "result": "blocked_license",
+      "finding": "未确认可用于本次公开再分发的数据许可，暂不收录。"
+    },
+    {
+      "source_id": "medhalt",
+      "name": "MedHALT",
+      "url": "https://github.com/medhalt/medhalt",
+      "result": "outside_scope",
+      "finding": "NOTA 的统一缺项标签及虚构问题不能替代真实信息充分性任务；回答核验与已覆盖错误核验有重合，不据此扩增任务数。"
+    },
+    {
+      "source_id": "lcmdc",
+      "name": "LCMDC",
+      "url": "https://zenodo.org/records/13771008",
+      "result": "blocked_target",
+      "finding": "对话科室标签不能直接认定为临床审核的首诊推荐金标；未确认与 department_routing 定义一致的授权标注子集。"
+    },
+    {
+      "source_id": "medtriage",
+      "name": "MedTriage",
+      "url": "https://doi.org/10.1038/s41746-026-02433-8",
+      "result": "blocked_access",
+      "finding": "论文说明专科分诊评测，但本轮未获取可锁定且明确允许再分发的完整病例与金标文件，不凭论文规模计入题数。"
+    },
+    {
+      "source_id": "clip",
+      "name": "CLIP",
+      "url": "https://physionet.org/content/mimic-iii-clinical-action/1.0.0/",
+      "result": "blocked_access",
+      "finding": "行动类型标签适合随访待办，但基础 MIMIC-III 记录需授权，保留空缺。"
+    },
+    {
+      "source_id": "cmed",
+      "name": "CMED",
+      "url": "https://n2c2.dbmi.hms.harvard.edu/2022-track-1",
+      "result": "blocked_access",
+      "finding": "药物变更状态属于目标任务，但 n2c2 临床材料访问条件仍阻止本次开放打包；沿用先前核验。"
+    }
+  ],
+  "remaining_gaps": [
+    {
+      "task_id": "diagnosis_verification",
+      "result": "empty",
+      "finding": "FHIR 有核实状态定义；E3C 的实际/假设/不确定是事件属性，不能等同疑似/确诊/排除四分类。未找到匹配且可开放分发的原金标。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        },
+        {
+          "source_id": "e3c",
+          "url": "https://github.com/hltfbk/E3C-Corpus"
+        }
+      ]
+    },
+    {
+      "task_id": "medication_status",
+      "result": "empty",
+      "finding": "CMED/n2c2 原标注相关，但临床文本受协议限制；未取得可公开再分发的替代语料。",
+      "sources": [
+        {
+          "source_id": "cmed",
+          "url": "https://n2c2.dbmi.hms.harvard.edu/2022-track-1"
+        },
+        {
+          "source_id": "n2c2",
+          "url": "https://n2c2.dbmi.hms.harvard.edu/data-sets"
+        }
+      ]
+    },
+    {
+      "task_id": "patient_identity",
+      "result": "empty",
+      "finding": "FEBRL 是合成人口学匹配，MIMIC 演示 ID 连接不是身份可确定性评测；缺医疗证据、冲突及不确定金标。",
+      "sources": [
+        {
+          "source_id": "febrl",
+          "url": "https://recordlinkage.readthedocs.io/en/latest/ref-datasets.html"
+        },
+        {
+          "source_id": "mimic_iv_demo",
+          "url": "https://physionet.org/content/mimic-iv-demo/2.2/"
+        }
+      ]
+    },
+    {
+      "task_id": "specimen_lineage",
+      "result": "empty",
+      "finding": "FHIR Specimen.parent 提供字段和示例；未找到同物、派生、无关、未知四类的开放标注病例。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        }
+      ]
+    },
+    {
+      "task_id": "terminology",
+      "result": "empty",
+      "finding": "MeDAL 原摘要版权尚未闭合；IMCS21 未明确数据许可；CBLUE 的术语材料及授权需按任务核验，不用代码许可证代替。",
+      "sources": [
+        {
+          "source_id": "medal",
+          "url": "https://github.com/McGill-NLP/medal"
+        },
+        {
+          "source_id": "imcs21",
+          "url": "https://github.com/lemuria-wchen/imcs21"
+        },
+        {
+          "source_id": "cblue",
+          "url": "https://github.com/CBLUEbenchmark/CBLUE"
+        }
+      ]
+    },
+    {
+      "task_id": "unit_equivalence",
+      "result": "empty",
+      "finding": "UCUM 提供换算依据，本轮未找到独立标注的医疗数值等价题集；不自行改数值生成金标。",
+      "sources": [
+        {
+          "source_id": "ucum",
+          "url": "https://ucum.org/ucum"
+        }
+      ]
+    },
+    {
+      "task_id": "dose_appropriateness",
+      "result": "empty",
+      "finding": "openFDA 是药品说明书规则；尚缺患者肝肾功能、具体处方及独立剂量适宜性金标。",
+      "sources": [
+        {
+          "source_id": "openfda",
+          "url": "https://open.fda.gov/apis/drug/label/"
+        },
+        {
+          "source_id": "cmedcalc",
+          "url": "https://github.com/Zhihong-Zhu/CMedCalc-Bench"
+        }
+      ]
+    },
+    {
+      "task_id": "critical_result_escalation",
+      "result": "empty",
+      "finding": "现有规则/分诊数据不提供机构危急值阈值版本、复核条件及升级等级的匹配金标。",
+      "sources": [
+        {
+          "source_id": "openfda",
+          "url": "https://open.fda.gov/apis/drug/label/"
+        },
+        {
+          "source_id": "care_bench",
+          "url": "https://github.com/ningkko/CARE-bench"
+        }
+      ]
+    },
+    {
+      "task_id": "procedure_progress",
+      "result": "empty",
+      "finding": "操作状态标准与 E3C 事件时态不同；未找到完整覆盖计划、进行、完成、取消、目标未达成的开放金标。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        },
+        {
+          "source_id": "e3c",
+          "url": "https://github.com/hltfbk/E3C-Corpus"
+        }
+      ]
+    },
+    {
+      "task_id": "administration_status",
+      "result": "empty",
+      "finding": "MIMIC 演示为真实结构化事件；尚缺跨医嘱、配药、给入的可判定证据与统一答案协议，留空。",
+      "sources": [
+        {
+          "source_id": "mimic_iv_demo",
+          "url": "https://physionet.org/content/mimic-iv-demo/2.2/"
+        },
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        }
+      ]
+    },
+    {
+      "task_id": "followup_action",
+      "result": "empty",
+      "finding": "CLIP 标注行动片段与类别，不标注是否已完成或逾期；原文另受 MIMIC 协议限制。",
+      "sources": [
+        {
+          "source_id": "clip",
+          "url": "https://physionet.org/content/mimic-iii-clinical-action/1.0.0/"
+        }
+      ]
+    },
+    {
+      "task_id": "report_stage",
+      "result": "empty",
+      "finding": "FHIR DiagnosticReport.status 是状态标准，未找到具有独立状态答案的开放临床报告集。",
+      "sources": [
+        {
+          "source_id": "fhir_workflow",
+          "url": "https://hl7.org/fhir/R4/"
+        }
+      ]
+    },
+    {
+      "task_id": "department_routing",
+      "result": "empty",
+      "finding": "RD-Triage 有多答案及多上游来源需分别核权；ClinicalMC/MedJourney 数据许可未闭合；中文问诊科室字段不等于最佳首诊科室。",
+      "sources": [
+        {
+          "source_id": "rd_triage",
+          "url": "https://github.com/zhelishisongjie/RD-Triage"
+        },
+        {
+          "source_id": "clinicalmc",
+          "url": "https://github.com/hzyuezh/ClinicalMPD"
+        },
+        {
+          "source_id": "medjourney",
+          "url": "https://github.com/Medical-AI-Learning/MedJourney"
+        },
+        {
+          "source_id": "chinese_medical_dialogue",
+          "url": "https://github.com/Toyhom/Chinese-medical-dialogue-data"
+        }
+      ]
+    },
+    {
+      "task_id": "followup_item_type",
+      "result": "empty",
+      "finding": "CLIP 任务匹配，但基于 MIMIC 文本，需要凭证和 DUA，不能公开复制原文。",
+      "sources": [
+        {
+          "source_id": "clip",
+          "url": "https://physionet.org/content/mimic-iii-clinical-action/1.0.0/"
+        }
+      ]
+    },
+    {
+      "task_id": "adverse_event_prediction",
+      "result": "empty",
+      "finding": "CT-ADE 的数据许可声明未解决 MedDRA SOC/PT 术语及底层材料全部再分发边界；本轮保留引用。",
+      "sources": [
+        {
+          "source_id": "ct_ade",
+          "url": "https://github.com/ds4dh/CT-ADE"
+        }
+      ]
+    },
+    {
+      "task_id": "clinical_statement_support",
+      "result": "empty",
+      "finding": "MedNLI 原病历受控；NLI4CT 是试验报告二分类且原仓库数据许可不明确，不能替代病历三分类。",
+      "sources": [
+        {
+          "source_id": "mednli",
+          "url": "https://physionet.org/content/mednli/1.0.0/"
+        },
+        {
+          "source_id": "nli4ct",
+          "url": "https://github.com/ai-systems/nli4ct"
+        }
+      ]
+    }
+  ]
+}

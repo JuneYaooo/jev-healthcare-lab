@@ -1372,9 +1372,11 @@ class Builder:
                          article_attribution=article['attribution'], annotation_consensus='All valid labels agree',
                          grouping_unit='publication', patient_record=False)
 
-    def chinese_scenario_additions(self):
+    def chinese_scenario_additions(self, selection_file="selection_v070.json", source_filter=None):
         """Pinned scope-reviewed questions; answers are always read from upstream."""
-        selection = json.loads((self.config / 'selection_v070.json').read_text())['items']
+        selection = json.loads((self.config / selection_file).read_text())['items']
+        if source_filter is not None:
+            selection = [x for x in selection if x['source'] in source_filter]
         answer_file = 'cmb__CMB-test-choice-answer.json'
         answers = {r['id']: (i, r) for i, r in enumerate(json.loads(self.path(answer_file).read_text()))}
         with zipfile.ZipFile(self.path('cmb__CMB.zip')) as archive:
@@ -1384,7 +1386,7 @@ class Builder:
         for item in selection:
             sid, index, task = item['source'], item['index'], item['task']
             locator = {'json_index': index, 'answer_field': 'answer'}
-            metadata = {'eligibility': 'fixed_scope_review_v070', 'independent_clinical_review': False}
+            metadata = {'eligibility': 'fixed_scope_review_v070' if selection_file == 'selection_v070.json' else 'fixed_scope_review_v080', 'independent_clinical_review': False}
             if sid == 'cmb':
                 file = 'cmb__CMB.zip'; original = members[item['member']][index]
                 question, options = original['question'], original['option']
@@ -1453,6 +1455,97 @@ class Builder:
                          label_mapping='membership in original expert multi-select answer; one positive and one negative candidate per case',
                          grouping_unit='case', independent_patient_claim=False)
 
+    def decoded_table(self, name):
+        """A frozen lossless Parquet export; original bytes remain authoritative."""
+        self.path(name)
+        entries = json.loads((self.config / 'table_exports.json').read_text())['exports']
+        entry = next(x for x in entries if x['resource'] == name)
+        path = (self.config / entry['path']).resolve()
+        if not path.is_relative_to(self.config.resolve()) or file_sha(path) != entry['sha256']:
+            raise ValueError('Unverified table export: ' + name)
+        rows = json.loads(path.read_text())
+        if len(rows) != entry['rows']:
+            raise ValueError('Changed table row count')
+        return rows
+
+    def scenario_additions_v080(self):
+        selection = json.loads((self.config / 'selection_v080.json').read_text())['items']
+        # Reuse the exact source-join implementation; the frozen v0.7 list is untouched.
+        self.chinese_scenario_additions('selection_v080.json', {'cmb', 'cnmleqa'})
+        tables = {'medmcqa': ('medmcqa__validation-00000-of-00001.parquet', self.decoded_table('medmcqa__validation-00000-of-00001.parquet')),
+                  'principlismqa': ('principlismqa__knowledge-mcqa.json', json.loads(self.path('principlismqa__knowledge-mcqa.json').read_text()))}
+        for item in selection:
+            sid = item['source']
+            if sid not in tables:
+                continue
+            file, rows = tables[sid]; row = rows[item['index']]
+            if digest(row['question']) != item['question_sha256']:
+                raise ValueError('Changed scope-reviewed question')
+            if sid == 'medmcqa':
+                if row['choice_type'] != 'single' or row['cop'] not in range(4):
+                    raise ValueError('Not an upstream single-answer question')
+                options = {key: row[key] for key in ['opa', 'opb', 'opc', 'opd']}
+                gold = list(options)[row['cop']]; field = 'cop'
+            else:
+                options, gold, field = row['options'], row['correct_answer'], 'correct_answer'
+            self.add(item['task'], sid, row['id'], row['id'], {'clinical_question': row['question']}, options, gold,
+                     file, {'row_index_zero_based': item['index'], 'upstream_id': row['id'], 'answer_field': field}, item['split'],
+                     eligibility='fixed_scope_review_v080', independent_clinical_review=False)
+
+    def message_priority(self):
+        pairs = []
+        for inbox in 'AB':
+            file = f'pmr_synth__INBOX_{inbox}-00000-of-00001.parquet'
+            for index, row in enumerate(self.decoded_table(file)):
+                if row['Label'] not in {'Patient #1', 'Patient #2'}:
+                    raise ValueError('Unknown urgency label')
+                pairs.append((file, inbox, index, row))
+        used_messages, used_ehrs = set(), set()
+        for file, inbox, index, row in sorted(pairs, key=lambda x: digest([SEED, x[0], x[2]])):
+            messages = [digest(row[f'MSG #{i}']) for i in [1, 2]]
+            ehrs = [digest(row[f'EHR #{i}']) for i in [1, 2]]
+            if len(set(messages)) != 2 or len(set(ehrs)) != 2 or used_messages.intersection(messages) or used_ehrs.intersection(ehrs):
+                continue
+            used_messages.update(messages); used_ehrs.update(ehrs)
+            self.add('message_urgency_pair', 'pmr_synth', f'{inbox}:{index}', digest(sorted(messages))[:24],
+                     {'patient_1': {'message': row['MSG #1'], 'ehr': row['EHR #1']},
+                      'patient_2': {'message': row['MSG #2'], 'ehr': row['EHR #2']}},
+                     {'Patient #1': 'Prioritize patient 1', 'Patient #2': 'Prioritize patient 2'}, row['Label'], file,
+                     {'row_index_zero_based': index, 'inbox': 'INBOX_' + inbox, 'answer_field': 'Label'},
+                     'published_inboxes_train_test_mapping_unresolved', original_inbox='INBOX_' + inbox,
+                     message_hashes=messages, ehr_hashes=ehrs, upstream_partition_mapping_unresolved=True,
+                     independent_patient_claim=False, pair_selection='seeded greedy matching without repeated message or EHR')
+
+    def record_sufficiency(self):
+        file = 'longhealth__data_benchmark_v5.json'; protocol = 'longhealth__task2.py'
+        self.path(protocol)
+        patients = json.loads(self.path(file).read_text())
+        for patient_index, (pid, patient) in enumerate(sorted(patients.items())):
+            other = sorted([key for key in patients if key != pid], key=lambda k: digest([SEED, pid, k]))[:2]
+            distractions = [(key, sorted(patients[key]['texts'])[0]) for key in other]
+            questions = sorted(patient['questions'], key=lambda q: digest([SEED, pid, q['No']]))[:5]
+            for index, q in enumerate(questions):
+                present = (index + patient_index) % 2 == 0
+                evidence = sorted(q['answer_location'])
+                if not evidence or any(key not in patient['texts'] for key in evidence):
+                    raise ValueError('Invalid answer-location annotation')
+                documents = {p + '/' + key: patients[p]['texts'][key] for p, key in distractions}
+                if present:
+                    documents.update({pid + '/' + key: patient['texts'][key] for key in evidence})
+                # Hide machine IDs; randomize display order without looking at answer text.
+                ordered = sorted(documents, key=lambda k: digest([SEED, pid, q['No'], k]))
+                self.add('input_sufficiency', 'longhealth', f"{pid}:{q['No']}:{int(present)}", pid,
+                         {'target_patient': patient['name'], 'question': q['question'],
+                          'documents': [{'document': i + 1, 'text': documents[k]} for i, k in enumerate(ordered)]},
+                         {'yes': 'Evidence needed to answer is present', 'no': 'Required patient evidence is absent'},
+                         'yes' if present else 'no', file,
+                         {'patient_key': pid, 'question_No': q['No'], 'answer_location_keys': evidence,
+                          'evidence_included': present, 'display_document_keys': ordered,
+                          'supporting_resources': [protocol]}, 'published_benchmark_controlled_evidence_ablation',
+                         stratum=pid, original_answer=q['correct'], fictional_patient=True,
+                         gold_mapping='binary projection of upstream task2.py answer_docs present/absent protocol',
+                         grouping_unit='target fictional patient; distractor records are shared', independent_patient_claim=False)
+
     def run(self):
         for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams", "relation_expansion", "e3c_attributes", "care_triage", "clinical_outcomes", "chinese_decision_expansion", "cnmle_decision_expansion"]:
             getattr(self, name)()
@@ -1461,7 +1554,7 @@ class Builder:
         print('Prepared privacy_and_sepsis', flush=True)
         self.reference_ranges()
         print('Prepared reference_ranges', flush=True)
-        for method in ['laboratory_values', 'pharmacogenomic_rules', 'trial_comparative_effects', 'chinese_scenario_additions', 'tcm_pathogenesis']:
+        for method in ['laboratory_values', 'pharmacogenomic_rules', 'trial_comparative_effects', 'chinese_scenario_additions', 'tcm_pathogenesis', 'scenario_additions_v080', 'message_priority', 'record_sufficiency']:
             getattr(self, method)()
             print('Prepared', method, flush=True)
         return self.pools
@@ -1668,6 +1761,7 @@ def generate_docs(output, builder, summary):
               "新中文任务从 CMB 官方测试、验证及训练文件和 CNMLEQA 固定版本选题；上游训练文件逐题标为 upstream_train_reserved_for_local_evaluation，不能作为已训练过该题库模型的盲测证据。原有 2,200 条完整记录保持不变，见 [v0.3.0 身份索引](history/v0.3.0_sample_identity.json)。\n",
               "[v0.4.0 来源与适配协议](../../docs/EXPANSION_V040.md) 说明小样本任务、数据许可、结局预测时点、删失处理及模型比较范围。\n",
               "v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。\n",
+              "v0.8.0 新增八类场景决策任务，并补入消息优先级、记录信息充分性两个空缺。保留 v0.7.0 的 5,726 条完整记录。协议与检索边界见 [扩展记录](../../docs/EXPANSION_V080.md)。\n",
               "v0.7.0 新增病机候选核验、处方审核处置、营养方案及护理体位四类任务；原有 5,594 条完整记录保持不变。病机任务的 100 个判断来自 50 个病例，不能按 100 个独立病例解释。详见 [扩展协议](../../docs/EXPANSION_V070.md)。\n",
               "v0.6.0 新增检验数值判读、药物基因检测功能表型、基因结果用药建议匹配、试验干预效果方向 4 类任务。分别采用 LabQAR Set 2、CPIC CC0 规则快照和 Evidence Inference 官方测试中的 CC-BY 文章。前版 5,210 条完整记录保持不变；见 [适配协议](../../docs/EXPANSION_V060.md)。\n",
               "## 训练隔离与历史使用\n",

@@ -1,0 +1,45 @@
+{
+  "id": "consent_action",
+  "title": "知情与隐私处置选择",
+  "definition": "根据情境选择知情同意、隐私披露或尊重患者意愿的具体行动；不评价伦理原则名称。",
+  "dimension": "clinical",
+  "decision_mode": "clinical",
+  "target_count": 100,
+  "source_ids": [
+    "cmb",
+    "principlismqa"
+  ],
+  "missing_reason": "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。",
+  "candidate_source_ids": [],
+  "primary_scenario": "quality",
+  "ability_tags": [
+    "clinical",
+    "workflow"
+  ],
+  "decision_stage": "clinical_choice",
+  "count": 3,
+  "groups": 3,
+  "status": "partial",
+  "sampling": {
+    "raw_pool": 3,
+    "unique_consistent_pool": 3,
+    "conflicting_rows_removed": 0,
+    "duplicate_requests_removed": 0,
+    "group_cap": 5,
+    "upstream_adapter_pool": 3,
+    "local_training_matches_excluded": 0
+  },
+  "label_counts": {
+    "C": 2,
+    "A": 1
+  },
+  "language_counts": {
+    "en": 2,
+    "zh": 1
+  },
+  "source_counts": {
+    "principlismqa": 2,
+    "cmb": 1
+  },
+  "historical_material_matches": 0
+}

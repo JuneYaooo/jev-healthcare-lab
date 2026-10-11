@@ -42,7 +42,7 @@ python3 scripts/medical_decision_dataset.py export --output work/requests.jsonl
 python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/scores.json
 ```
 
-默认只处理开放核心集。若使用完整 5,726 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
+默认只处理开放核心集。若使用完整 5,907 题，在上述命令加 `--include-research`，并遵守研究附加来源的许可。独立包内的评分工具自动按该包范围计分。
 
 评分规则见 [评测方法](EVALUATION.md)，来源与许可见 [来源登记](../benchmarks/medical_decision_v1/SOURCES.md)。
 
@@ -51,3 +51,5 @@ v0.5.0 原始复建另需 MEDDOCAN 固定仓库归档、LabQAR Set 1 和 PhysioN
 v0.6.0 另需 LabQAR Set 2 和 Evidence Inference 固定版本归档（约 164 MB）。CPIC 的 API 原始响应已随仓库/开放包冻结，`fetch` 与 `trace --fetch-source` 优先核验包内快照，不要求在线 API 仍返回相同内容。文章原许可和署名逐篇保留；详见 [扩展协议](EXPANSION_V060.md)。
 
 v0.7.0 的 TCMEval-SDT 测试问题/答案、TCMEval-PA 原始 Excel 和许可元数据随仓库及开放包冻结。营养、体位和处方处置的范围清单在 `selection_v070.json`，清单哈希变动需按新版本处理。标准库即可重建，无需安装 Excel 库。详见 [扩展协议](EXPANSION_V070.md)。
+
+v0.8.0 的 Parquet 原文件与解码 JSON 一同冻结；`table_exports.json` 分开记录解码路径、行数及 SHA-256，逐题 locator 使用原表零基行号。重建读取已核验的解码文件，无需 Parquet 依赖。若要独立验证解码，另装 PyArrow 后运行 `python3 scripts/verify_source_tables.py`；此可选检查逐值比较原始 Parquet 与 JSON，不联网、不修改数据。详情见 [扩展协议](EXPANSION_V080.md)。

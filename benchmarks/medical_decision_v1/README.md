@@ -1,10 +1,10 @@
-# Jev 医疗决策评测集 v0.7.0
+# Jev 医疗决策评测集 v0.8.0
 
 给定医疗材料、规则或候选项，评估可明确计分的分类、状态、关系、证据和方案选择。每题只有一个决策输出，使用 Jev `choice` 请求格式；不要求生成病历、建议或解释。
 
-**8 个医疗场景 · 81 个任务定义 · 52 个任务各 100 题 · 11 个不足 100 题 · 18 个留空 · 共 5,726 题。**
+**8 个医疗场景 · 89 个任务定义 · 53 个任务各 100 题 · 20 个不足 100 题 · 16 个留空 · 共 5,907 题。**
 
-开放许可核心部分 4,183 题；非商业研究附加部分 1,543 题。当前 8 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 3,524 题、es 1,058 题、zh 1,144 题。
+开放许可核心部分 4,334 题；非商业研究附加部分 1,573 题。当前 8 个场景有题目，不代表场景工作流完整覆盖；语言分布为 en 3,658 题、es 1,058 题、zh 1,191 题。
 
 [全部题目](samples.jsonl) · [无答案请求](requests.jsonl) · [答案](answers.jsonl) · [来源与许可](SOURCES.md) · [场景任务定义](taxonomy.json) · [按场景寻找数据](SCENARIO_RESEARCH.md) · [构建统计](summary.json)
 
@@ -16,14 +16,14 @@
 
 | 场景 | 有题任务 / 定义任务 | 题数 |
 | --- | ---: | ---: |
-| 接诊与分诊 | 4 / 7 | 400 |
+| 接诊与分诊 | 6 / 7 | 530 |
 | 检查与检验 | 6 / 10 | 556 |
 | 诊断与鉴别 | 13 / 14 | 1300 |
-| 治疗与用药 | 12 / 15 | 939 |
-| 住院与护理 | 9 / 12 | 631 |
-| 出院与随访 | 2 / 4 | 200 |
+| 治疗与用药 | 13 / 16 | 943 |
+| 住院与护理 | 11 / 14 | 641 |
+| 出院与随访 | 6 / 8 | 234 |
 | 临床试验筛选 | 8 / 8 | 800 |
-| 病历与医疗质量控制 | 9 / 11 | 900 |
+| 病历与医疗质量控制 | 10 / 12 | 903 |
 
 ## 任务目录
 
@@ -37,10 +37,10 @@
 | --- | ---: | --- | --- |
 | [事实主体归属](tasks/experiencer/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及主体片段，选择原标注角色：患者、家属或其他人。只评价文本角色。 |
 | [医疗问题意图](tasks/query_intent/task.json) | 100 / 100 | [MedQuAD](https://github.com/abachaa/MedQuAD) | 给定医疗问题，判断其信息需求类别。 |
-| [决策资料充分性](tasks/input_sufficiency/task.json) | 0 / 0 | [CMedCalc-Bench](https://github.com/Zhihong-Zhu/CMedCalc-Bench)、[CARE-Bench](https://github.com/ningkko/CARE-bench) | CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。 |
+| [决策资料充分性](tasks/input_sufficiency/task.json) | 100 / 20 | [LongHealth](https://github.com/kbressem/LongHealth) | 判断给定临床记录是否包含回答目标问题的证据；当前以 LongHealth 缺失证据协议覆盖记录信息充分性，不覆盖计算缺项或冲突消解。 |
 | [当前分诊与升级行动](tasks/triage_urgency/task.json) | 100 / 62 | [CARE-Bench](https://github.com/ningkko/CARE-bench) | 仅根据当前已披露消息，选择澄清信息、自护监测、非紧急就医或紧急就医；不生成建议文本。 |
 | [候选科室分流](tasks/department_routing/task.json) | 0 / 0 | [MedJourney](https://github.com/Medical-AI-Learning/MedJourney)、[RD-Triage](https://github.com/zhelishisongjie/RD-Triage)、[ClinicalMC / ClinicalMPD](https://github.com/hzyuezh/ClinicalMPD)、[Chinese-medical-dialogue-data](https://github.com/Toyhom/Chinese-medical-dialogue-data) | RD-Triage 有多答案及多上游来源需分别核权；ClinicalMC/MedJourney 数据许可未闭合；中文问诊科室字段不等于最佳首诊科室。 |
-| [患者消息紧急性比较](tasks/message_urgency_pair/task.json) | 0 / 0 | [PMR-Bench Reddit Test Pairs](https://arxiv.org/abs/2601.13178) | PMR-Reddit 的原等级经 GPT-5 推导，并非逐对人工金标；本轮不纳入主评测。 |
+| [患者消息紧急性比较](tasks/message_urgency_pair/task.json) | 30 / 30 | [PMR-Synth annotated pairs](https://huggingface.co/datasets/PortalPal-AI/PMP-Synth-AllPairs-Annotated) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 | [孕产风险等级识别](tasks/maternal_risk/task.json) | 100 / 100 | [Maternal Health Risk](https://archive.ics.uci.edu/dataset/863/maternal+health+risk) | 根据孕产记录的年龄与生命体征，选择发布数据标注的低、中、高风险；不等同经过验证的母婴结局预测。 |
 
 ### 检查与检验
@@ -102,6 +102,7 @@
 | [药物基因结果用药建议匹配](tasks/pgx_guideline_recommendation/task.json) | 100 / 25 | [CPIC curated pharmacogenomic tables](https://www.clinpgx.org/cpic) | 给定药物、人群及基因结果，选择 CPIC 固定快照中对应的原始用药建议；不外推为完整个体处方。 |
 | [试验干预效果方向判定](tasks/trial_effect_direction/task.json) | 100 / 100 | [Evidence Inference 2.0 — CC-BY article subset](https://github.com/jayded/evidence-inference) | 根据完整试验报告，判断指定干预相对对照对指定结局的报告结果：显著降低、无显著差异或显著升高。方向不等同临床优劣。 |
 | [处方审核处置选择](tasks/prescription_audit_action/task.json) | 11 / 11 | [TCMEval-PA](https://doi.org/10.6084/m9.figshare.29651261.v3) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [给药途径与方法选择](tasks/administration_route_choice/task.json) | 4 / 4 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 住院与护理
 
@@ -121,6 +122,8 @@
 | [护理措施选择](tasks/nursing_priority/task.json) | 42 / 42 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 | [病例营养方案选择](tasks/nutrition_plan/task.json) | 11 / 11 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 | [护理体位选择](tasks/positioning_choice/task.json) | 10 / 10 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [病情监测指标选择](tasks/monitoring_target/task.json) | 5 / 5 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [感染防控措施选择](tasks/infection_precaution/task.json) | 5 / 5 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 出院与随访
 
@@ -132,6 +135,10 @@
 | [出院后 30 天内再入院预测](tasks/readmission_30d/task.json) | 100 / 100 | [Diabetes 130-US Hospitals for Years 1999-2008](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) | 根据出院时结构化资料，预测是否被记录为 30 天内再入院。限糖尿病住院后回家人群，预测观察结局而非最优行动。 |
 | [出院待办行动类别](tasks/followup_item_type/task.json) | 0 / 0 | [CLIP 出院行动标注](https://physionet.org/content/mimic-iii-clinical-action/1.0.0/) | CLIP 任务匹配，但基于 MIMIC 文本，需要凭证和 DUA，不能公开复制原文。 |
 | [90 日死亡结局预测](tasks/mortality_90d/task.json) | 100 / 100 | [Heart Failure Clinical Records](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records) | 根据基线心衰记录预测 90 日内死亡；不提供随访长度；90 日前无死亡但失访者已排除。 |
+| [随访方案选择](tasks/followup_plan/task.json) | 6 / 6 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[MedMCQA](https://huggingface.co/datasets/openlifescienceai/medmcqa) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [康复训练方案选择](tasks/rehabilitation_choice/task.json) | 4 / 4 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [个体预防方案选择](tasks/prevention_choice/task.json) | 13 / 13 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465)、[MedMCQA](https://huggingface.co/datasets/openlifescienceai/medmcqa) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
+| [患者教育与沟通选择](tasks/patient_counseling/task.json) | 11 / 11 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[CNMLEQA-10k（中文案例分析子集）](https://doi.org/10.5281/zenodo.18951465) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ### 临床试验筛选
 
@@ -165,6 +172,7 @@
 | [文本因果结果关联](tasks/cause_effect_link/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及原因片段，从原文候选中选择原 Causes 唯一关联的结果；不推断未标注因果，也不认定患者级药物因果。 |
 | [否定或推测线索作用对象](tasks/assertion_cue_target/task.json) | 100 / 100 | [CT-EBM-SP v3](https://github.com/lcampillos/ct-ebm-sp-v3) | 给定试验文本及否定或推测线索，从原文候选中选择原 Negation/Speculation 唯一关联的对象。 |
 | [临床时间表达类别](tasks/clinical_time_type/task.json) | 100 / 41 | [E3C English Layer 1](https://github.com/hltfbk/E3C-Corpus) | 给定病例及时间片段，选择原 E3C TIMEX3 类别：时长、周期集合、日期、数量时间或前后表达。 |
+| [知情与隐私处置选择](tasks/consent_action/task.json) | 3 / 3 | [CMB-Exam（中文病例单选子集）](https://github.com/FreedomIntelligence/CMB)、[PrinciplismQA](https://github.com/FreedomIntelligence/PrinciplismQA) | 去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。 |
 
 ## 版本、抽样和答案
 
@@ -188,13 +196,15 @@ v0.4.0 增加 E3C、CT-EBM-SP、CARE-Bench 及 UCI 结构化来源，并扩展�
 
 v0.5.0 对此前 21 个空任务逐项复核：MEDDOCAN 补入 100 道词级隐私判断，PhysioNet 2019 补入 100 道固定时点脓毒症预测，LabQAR 补入 72 道参考区间条件匹配。其他 18 项仍为空；详见 [逐项核验](../../docs/GAP_AUDIT_V050.md) 和 [机器可读记录](gap_audit.json)。原有 4,938 条完整记录保持不变。
 
+v0.8.0 新增八类场景决策任务，并补入消息优先级、记录信息充分性两个空缺。保留 v0.7.0 的 5,726 条完整记录。协议与检索边界见 [扩展记录](../../docs/EXPANSION_V080.md)。
+
 v0.7.0 新增病机候选核验、处方审核处置、营养方案及护理体位四类任务；原有 5,594 条完整记录保持不变。病机任务的 100 个判断来自 50 个病例，不能按 100 个独立病例解释。详见 [扩展协议](../../docs/EXPANSION_V070.md)。
 
 v0.6.0 新增检验数值判读、药物基因检测功能表型、基因结果用药建议匹配、试验干预效果方向 4 类任务。分别采用 LabQAR Set 2、CPIC CC0 规则快照和 Evidence Inference 官方测试中的 CC-BY 文章。前版 5,210 条完整记录保持不变；见 [适配协议](../../docs/EXPANSION_V060.md)。
 
 ## 训练隔离与历史使用
 
-[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；577 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。
+[筛查索引](exposure_index.json) 固定列出本地训练文件及哈希。选中题目没有命中该索引的精确/窗口指纹；677 道题的材料或片段命中过往主评测指纹（通用片段可能误报）。新抽样不等于从未见过的新病例，不能把这部分称为全新盲测。SciFact 额外排除与官方训练声明共用的文档。
 
 该筛查不证明不存在改写、翻译、患者级关联或基础模型预训练暴露。`summary.json` 记录任务间共享来源组；跨任务统计应按组处理，不把共享文档的不同题当作独立患者。后续训练材料应反向检查本评测集，版本冻结后不根据成绩挑换题。
 

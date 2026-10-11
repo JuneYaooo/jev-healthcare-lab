@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "created": "2026-10-10",
   "seed": 20261010,
   "dimensions": [
@@ -313,11 +313,13 @@
       "id": "input_sufficiency",
       "dimension": "rules",
       "title": "决策资料充分性",
-      "definition": "判断计算或决策所需信息是否充分且无未解决冲突。",
+      "definition": "判断给定临床记录是否包含回答目标问题的证据；当前以 LongHealth 缺失证据协议覆盖记录信息充分性，不覆盖计算缺项或冲突消解。",
       "decision_mode": "material",
       "target_count": 100,
-      "source_ids": [],
-      "missing_reason": "CMedCalc 数据再分发许可未明确；CARE-Bench 的 need_info 是分诊行动标签，不能代表计算要素齐全及冲突消解。",
+      "source_ids": [
+        "longhealth"
+      ],
+      "missing_reason": "",
       "candidate_source_ids": [
         "cmedcalc",
         "care_bench"
@@ -919,13 +921,15 @@
       ],
       "decision_mode": "material",
       "decision_stage": "material_judgment",
-      "definition": "给定两条患者消息，选择需要更优先处理的一条。",
+      "definition": "给定两条患者消息及各自病历背景，选择应优先处理的消息；当前子集为人工合成消息及上游临床人员比较标注。",
       "target_count": 100,
-      "source_ids": [],
+      "source_ids": [
+        "pmr_synth"
+      ],
       "candidate_source_ids": [
         "pmr_bench"
       ],
-      "missing_reason": "PMR-Reddit 的原等级经 GPT-5 推导，并非逐对人工金标；本轮不纳入主评测。"
+      "missing_reason": ""
     },
     {
       "id": "deterioration_prediction",
@@ -1584,6 +1588,168 @@
       "primary_scenario": "inpatient",
       "ability_tags": [
         "classification"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "followup_plan",
+      "title": "随访方案选择",
+      "definition": "根据完整病例选择复查项目或随访时机；不等同待办是否完成或逾期。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa",
+        "medmcqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "monitoring_target",
+      "title": "病情监测指标选择",
+      "definition": "根据病例选择当前最应监测的变量或观察重点，不进行新诊断。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "rehabilitation_choice",
+      "title": "康复训练方案选择",
+      "definition": "根据功能状态或术后阶段选择原题中的训练方案。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "prevention_choice",
+      "title": "个体预防方案选择",
+      "definition": "根据病例、暴露或复发风险，选择预防行动；不评价预防等级概念。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa",
+        "medmcqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "infection_precaution",
+      "title": "感染防控措施选择",
+      "definition": "根据患者或病区情境选择隔离、无菌操作、消毒或阻断传播措施。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "inpatient",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "patient_counseling",
+      "title": "患者教育与沟通选择",
+      "definition": "根据情境选择教育重点、教育方式或沟通表达；仅选择上游选项，不生成话术。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "followup",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "administration_route_choice",
+      "title": "给药途径与方法选择",
+      "definition": "根据给药情境选择途径或实施方法；不等同从原文提取给药途径。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "cnmleqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "treatment",
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "decision_stage": "clinical_choice"
+    },
+    {
+      "id": "consent_action",
+      "title": "知情与隐私处置选择",
+      "definition": "根据情境选择知情同意、隐私披露或尊重患者意愿的具体行动；不评价伦理原则名称。",
+      "dimension": "clinical",
+      "decision_mode": "clinical",
+      "target_count": 100,
+      "source_ids": [
+        "cmb",
+        "principlismqa"
+      ],
+      "missing_reason": "",
+      "candidate_source_ids": [],
+      "primary_scenario": "quality",
+      "ability_tags": [
+        "clinical",
+        "workflow"
       ],
       "decision_stage": "clinical_choice"
     }
