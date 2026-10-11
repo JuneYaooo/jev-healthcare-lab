@@ -49,10 +49,21 @@ def link(title, target):
     return f"[{inline(title)}]({target})"
 
 
-def table(headers, rows):
-    lines = ["| " + " | ".join(headers) + " |", "| " + " | ".join(["---"] * len(headers)) + " |"]
+def table(headers, rows, numeric_from=None):
+    align = ['---:' if numeric_from is not None and i >= numeric_from else '---' for i in range(len(headers))]
+    lines = ["| " + " | ".join(headers) + " |", "| " + " | ".join(align) + " |"]
     lines.extend("| " + " | ".join(map(inline, row)) + " |" for row in rows)
     return "\n".join(lines)
+
+
+def best_cells(values, *, higher=True, precision=2, percent=False):
+    """Highlight displayed extrema; retain ties, but avoid bolding an all-equal row."""
+    displayed = [None if v is None else f'{v * (100 if percent else 1):.{precision}f}' for v in values]
+    numbers = {float(v) for v in displayed if v is not None}
+    best = (max(numbers) if higher else min(numbers)) if numbers else None
+    return ['—' if v is None else
+            ('**' + v + ('%' if percent else '') + '**' if len(numbers) > 1 and float(v) == best
+             else v + ('%' if percent else '')) for v in displayed]
 
 
 def block(value, *, compact=False):
@@ -116,11 +127,15 @@ def render():
 
     def model_task_table(family):
         rows = []
-        for model, m in comparison['models'].items():
+        models = list(comparison['models'].values())
+        scores = best_cells([m['tasks'][family]['accuracy'] for m in models], percent=True)
+        time_cells = {key: best_cells([m['tasks'][family]['timing'][key] for m in models], higher=False, precision=3)
+                      for key in ['mean_elapsed_s', 'p50_elapsed_s', 'p95_elapsed_s', 'task_wall_s']}
+        for index, (model, m) in enumerate(comparison['models'].items()):
             q = m['tasks'][family]
             t = q['timing']
-            rows.append([m['label'], f"{q['accuracy'] * 100:.2f}%", f"{t['success']} / {t['total']}",
-                *[f"{t[key]:.3f}" if t[key] is not None else '—' for key in
+            rows.append([m['label'], scores[index], f"{t['success']} / {t['total']}",
+                *[time_cells[key][index] for key in
                   ['mean_elapsed_s', 'p50_elapsed_s', 'p95_elapsed_s', 'task_wall_s']],
                 ' / '.join(str(t['status_counts'].get(status, 0)) for status in
                            ['timeout', 'request_error', 'invalid_answer']),
@@ -128,7 +143,7 @@ def render():
                 link('配置', f'../../results/clinical-20261012/{model}/config.json') + ' · '
                 + link('响应', f'../../results/clinical-20261012/{model}/responses.jsonl') + ' · '
                 + link('评分', f'../../results/clinical-20261012/{model}/scores.json')])
-        return table(['模型', '准确率', '有效回答 / 题数', '平均秒', 'P50 秒', 'P95 秒', '任务总秒',
+        return '加粗表示本任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。\n\n' + table(['模型', '准确率 ↑', '有效回答 / 题数', '平均秒 ↓', 'P50 秒 ↓', 'P95 秒 ↓', '任务总秒 ↓',
                       '超时 / 请求失败 / 无效回答', '重试次数', '原始记录'], rows)
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
@@ -344,26 +359,46 @@ def render():
         '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
         table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
         '## 场景与任务',
-        '任务名称链接到说明页，包含任务定义、输入样例、选项与原答案；数据集名称链接到来源、引用与许可。来源后的数字为实际题数，† 表示非商业附加来源。“可参与汇总”只代表达到最低题量门槛，不表示已通过临床验证。' + (' 各模型列为 **任务准确率 / 平均完整决策耗时（秒）**，失败计错；空任务显示 —。点击任务名称查看分位耗时、任务总耗时、失败情况与原始记录。' if comparison else ''),
+        '先看 **准确率 ↑**，再看 **平均用时 ↓**。每个场景分成两张表，模型顺序保持一致。**加粗**表示该任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。',
+        '用时单位为秒，包含网络、响应处理和重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“探索”的任务不足 20 题，不进入汇总；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
         table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
     for sid, scene in scenes.items():
-        model_headers = [m['label'] for m in comparison['models'].values()] if comparison else []
-        parts.extend([f"### {scene['title']}", table(['任务', '能力维度', '题数', '状态', '数据集来源（题数）'] + model_headers, [
+        scene_families = [f for f in families if f['scenario'] == sid]
+        parts.append(f"### {scene['title']}")
+        if comparison:
+            models = list(comparison['models'].values())
+            headers = ['任务', '题数'] + [m['label'] for m in models]
+            for timing, heading in [(False, '准确率 ↑ · 越高越好'), (True, '平均用时 ↓ · 秒，越低越好')]:
+                rows = []
+                for f in scene_families:
+                    results = [m['tasks'].get(f['id']) for m in models]
+                    values = [None if q is None else q['timing']['mean_elapsed_s'] if timing else q['accuracy'] for q in results]
+                    cells = best_cells(values, higher=not timing, precision=3 if timing else 2, percent=not timing)
+                    cells = [cell + (' ⚠' if q and q['timing']['success'] < q['timing']['total'] else '') for cell, q in zip(cells, results)]
+                    count = str(f['records']) + (' · 探索' if f['status'] == 'exploratory' else ' · 待补' if not f['records'] else '')
+                    rows.append([link(f['title'], f"docs/tasks/{f['id']}.md"), count] + cells)
+                parts.extend([f'**{heading}**', table(headers, rows, numeric_from=1)])
+        source_table = table(['任务', '能力维度', '题数', '状态', '数据集来源（题数）'], [
             [link(f['title'], f"docs/tasks/{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']],
              '；'.join(link(sources[source]['name'], f'docs/datasets/{source}.md') + ('†' if sources[source]['distribution']=='research_noncommercial' else '') + f'（{n}）' for source,n in sorted(f['sources'].items())) or '待补数据']
-            + ([f"{m['tasks'][f['id']]['accuracy'] * 100:.2f}% / {m['tasks'][f['id']]['timing']['mean_elapsed_s']:.3f}s"
-                if f['id'] in m['tasks'] else '—' for m in comparison['models'].values()] if comparison else [])
-            for f in families if f['scenario'] == sid])])
+            for f in scene_families])
+        if comparison:
+            parts.append('<details>\n<summary>数据来源与能力维度</summary>\n\n' + source_table + '\n\n† 非商业附加来源。来源后的数字为实际题数。\n\n</details>')
+        else:
+            parts.append(source_table)
     parts.extend(['## 模型得分与耗时对比',
         '每个模型使用相同题目、候选项和许可范围，分别报告逐任务准确率、完整决策耗时（均值、P50、P95）、任务总耗时及失败率。多阶段调用、工具与重试计入完整决策耗时，运行配置随结果保存。',
         '病例诊断的两个来源子集合并为一个任务。汇总先对场景内达到 20 题的任务等权，再对有分数场景等权；不足 20 题仅给探索结果，空任务不计零分。题量门槛按本次所选许可范围计算。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。',
         '详细口径见 [评测方法](docs/EVALUATION.md)。'])
     if comparison:
-        parts.extend([table(['模型', '临床主分数', '平均完整耗时（秒）', 'P95（秒）', '有效回答 / 题数'], [
-            [m['label'], f"{m['primary_clinical_score'] * 100:.2f}%", f"{m['timing']['mean_elapsed_s']:.3f}",
-             f"{m['timing']['p95_elapsed_s']:.3f}", f"{m['timing']['success']} / {m['timing']['total']}"]
-            for m in comparison['models'].values()]),
-            '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
+        models = list(comparison['models'].values())
+        scores = best_cells([m['primary_clinical_score'] for m in models], percent=True)
+        means = best_cells([m['timing']['mean_elapsed_s'] for m in models], higher=False, precision=3)
+        p95s = best_cells([m['timing']['p95_elapsed_s'] for m in models], higher=False, precision=3)
+        parts.extend([table(['模型', '临床主分数 ↑', '平均秒 ↓', 'P95 秒 ↓', '有效回答 / 题数'], [
+            [m['label'], scores[i], means[i], p95s[i], f"{m['timing']['success']} / {m['timing']['total']}"]
+            for i, m in enumerate(models)], numeric_from=1),
+            '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
             '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-20261012/README.md)'])
     parts.extend(['## 许可', '代码采用 [MIT](LICENSE)。第三方数据保留原许可，代码许可不覆盖题目材料；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
     output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'

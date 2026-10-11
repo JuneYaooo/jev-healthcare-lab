@@ -39,10 +39,12 @@
 
 有效回答表示返回合法选项，不代表正确；平均值和分位数包含已启动题目的失败耗时。任务总秒为含并发调度的墙钟时间，不是单题耗时之和。响应链接包含该模型全部题目，可按本页任务的题目 ID 查找。
 
-| 模型 | 准确率 | 有效回答 / 题数 | 平均秒 | P50 秒 | P95 秒 | 任务总秒 | 超时 / 请求失败 / 无效回答 | 重试次数 | 原始记录 |
+加粗表示本任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。
+
+| 模型 | 准确率 ↑ | 有效回答 / 题数 | 平均秒 ↓ | P50 秒 ↓ | P95 秒 ↓ | 任务总秒 ↓ | 超时 / 请求失败 / 无效回答 | 重试次数 | 原始记录 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| JEV 1.13 | 55.00% | 100 / 100 | 0.993 | 0.930 | 1.278 | 12.980 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/jev-1.13.0/config.json) · [响应](../../results/clinical-20261012/jev-1.13.0/responses.jsonl) · [评分](../../results/clinical-20261012/jev-1.13.0/scores.json) |
-| DeepSeek V4.1 Flash | 54.00% | 100 / 100 | 0.492 | 0.449 | 0.740 | 6.775 | 0 / 0 / 0 | 1 | [配置](../../results/clinical-20261012/deepseek-flash/config.json) · [响应](../../results/clinical-20261012/deepseek-flash/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-flash/scores.json) |
+| JEV 1.13 | **55.00%** | 100 / 100 | 0.993 | 0.930 | 1.278 | 12.980 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/jev-1.13.0/config.json) · [响应](../../results/clinical-20261012/jev-1.13.0/responses.jsonl) · [评分](../../results/clinical-20261012/jev-1.13.0/scores.json) |
+| DeepSeek V4.1 Flash | 54.00% | 100 / 100 | **0.492** | **0.449** | **0.740** | **6.775** | 0 / 0 / 0 | 1 | [配置](../../results/clinical-20261012/deepseek-flash/config.json) · [响应](../../results/clinical-20261012/deepseek-flash/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-flash/scores.json) |
 | DeepSeek V4 Pro | 51.00% | 100 / 100 | 1.084 | 1.023 | 1.718 | 13.954 | 0 / 0 / 0 | 1 | [配置](../../results/clinical-20261012/deepseek-v4-pro/config.json) · [响应](../../results/clinical-20261012/deepseek-v4-pro/responses.jsonl) · [评分](../../results/clinical-20261012/deepseek-v4-pro/scores.json) |
 | Qwen3.5-9B | 39.00% | 100 / 100 | 0.865 | 0.689 | 1.692 | 11.128 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/qwen3.5-9b/config.json) · [响应](../../results/clinical-20261012/qwen3.5-9b/responses.jsonl) · [评分](../../results/clinical-20261012/qwen3.5-9b/scores.json) |
 | Qwen3.8-27B | 54.00% | 100 / 100 | 3.176 | 1.820 | 8.361 | 40.282 | 0 / 0 / 0 | 0 | [配置](../../results/clinical-20261012/qwen3.8-27b/config.json) · [响应](../../results/clinical-20261012/qwen3.8-27b/responses.jsonl) · [评分](../../results/clinical-20261012/qwen3.8-27b/scores.json) |
