@@ -1,0 +1,405 @@
+{
+  "created_at": "2026-10-12T03:41:55.899392+00:00",
+  "seed": 20261012,
+  "models": [
+    "jev-1.13.0",
+    "deepseek-flash"
+  ],
+  "cells": [
+    {
+      "suite": "concurrency",
+      "level": 8,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 1,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 32,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 16,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 16,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 64,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 100,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 32,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 8,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 50,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 1,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 50,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 10,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 200,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 64,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 100,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 200,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 1,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 1,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 10,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 16,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 8,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 64,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 10,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 16,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 32,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 100,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 200,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 8,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 1,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 1,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 10,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 64,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 100,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 1,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 50,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 1,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 32,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 50,
+      "repeat": 1,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 200,
+      "repeat": 1,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 50,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 1,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 1,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 200,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 8,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 64,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 32,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 32,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 1,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 8,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 10,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 64,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 10,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 200,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 100,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 1,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "fanout",
+      "level": 50,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "concurrency",
+      "level": 16,
+      "repeat": 2,
+      "model": "jev-1.13.0"
+    },
+    {
+      "suite": "concurrency",
+      "level": 16,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    },
+    {
+      "suite": "fanout",
+      "level": 100,
+      "repeat": 2,
+      "model": "deepseek-flash"
+    }
+  ],
+  "dataset_manifest_sha256": "808e20677344d244872f0e55ef3230d87faafc080d0bfd0f2a16cdad9042e906",
+  "runner_sha256": "a939e5e95228b0078b386d99f7596715639071823f5a442d0dd4e4f0441b7d55",
+  "python": "3.13.2",
+  "requests_version": "2.34.2",
+  "timeout_s": 120,
+  "max_attempts": 1,
+  "thinking": "disabled for Flash",
+  "pricing": {
+    "as_of": "2026-10-12",
+    "currency": "USD",
+    "sources": [
+      "https://docs.typesafe.ai/models",
+      "https://api-docs.deepseek.com/quick_start/pricing/"
+    ],
+    "jev_input_per_million": 0.042,
+    "flash_off_peak": {
+      "hit": 0.003,
+      "miss": 0.15,
+      "output": 0.6
+    },
+    "flash_peak": {
+      "hit": 0.006,
+      "miss": 0.3,
+      "output": 1.2
+    },
+    "policy": "List-price lower/upper bounds, not invoices; provider tokenizers differ. Missing usage is unpriced."
+  },
+  "prompt_policy": "Clinical single-question requests exactly reuse the clinical runner payload; synthetic fanout uses SYSTEM in the archived runner.",
+  "transport": "requests.Session per worker, persistent HTTP/1.1 connections, retries=0; new sessions per cell.",
+  "timing": "Service includes serialization, HTTP and validation; queue separate. Batch includes scheduling and session cleanup, excludes archive disk writes.",
+  "load": "Finite closed-loop batch, not open-loop arrival-rate or sustained capacity test.",
+  "cache": "No local response reuse; provider caching uncontrolled, report token usage. Repeats reuse prompts.",
+  "warmup": "No unrecorded warmup. First request/connection included in each cell.",
+  "smoke": false,
+  "clinical_count": 128
+}

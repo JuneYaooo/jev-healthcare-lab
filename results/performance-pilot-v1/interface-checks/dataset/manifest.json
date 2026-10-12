@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "seed": 20261012,
+  "clinical_count": 128,
+  "clinical_tasks": {
+    "administration_route_choice": 4,
+    "case_complication": 6,
+    "case_etiology": 6,
+    "clinical_grade": 6,
+    "consent_action": 3,
+    "diagnosis_choice": 6,
+    "examination_choice": 6,
+    "fluid_plan": 6,
+    "followup_plan": 6,
+    "infection_precaution": 5,
+    "medication_choice": 6,
+    "monitoring_target": 5,
+    "nursing_priority": 6,
+    "nutrition_plan": 6,
+    "patient_contraindication": 6,
+    "patient_counseling": 6,
+    "pgx_guideline_recommendation": 5,
+    "positioning_choice": 5,
+    "prevention_choice": 5,
+    "rehabilitation_choice": 4,
+    "synthetic_diagnosis": 5,
+    "tcm_pathogenesis_candidate": 5,
+    "treatment_choice": 5,
+    "trial_referral": 5
+  },
+  "source_manifest_sha256": "23148b081d5ef3152406a09f418ee035298d8ad47eb0fcc6202ddbbeaba385a8",
+  "sampling": "Round-robin by task, SHA256(seed,id) order within task; open clinical subset only.",
+  "fanout": "Three fictional 200-record document-routing boards; fixed state across question counts. Deterministic rule gold, no clinical efficacy claims.",
+  "files": {
+    "clinical.jsonl": "50d3f38e3822360cb4c4d6c8f9abd078acac5888ca1df4fd0f1ca5a372f067b8",
+    "fanout.jsonl": "70bb04f7c48869a53c5f8fd6c08041fcadd9a1df245952d36214988bdf07e11b"
+  }
+}

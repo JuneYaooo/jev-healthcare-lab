@@ -1,0 +1,3 @@
+requests>=2.32,<3
+# Only required to render the optional result chart.
+matplotlib>=3.9,<4

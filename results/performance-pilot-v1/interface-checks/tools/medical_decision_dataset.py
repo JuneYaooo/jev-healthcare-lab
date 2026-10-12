@@ -1,0 +1,2108 @@
+"""Build and score the decision-only medical benchmark. Standard library, no API calls.
+
+The source lock, taxonomy, and adapters are versioned separately from old results.
+Labels are copied or mechanically mapped from upstream annotations, never generated.
+"""
+from __future__ import annotations
+
+import argparse
+import ast
+import collections
+import csv
+import hashlib
+import io
+import json
+import re
+import tarfile
+import unicodedata
+import urllib.request
+import xml.etree.ElementTree as ET
+import zipfile
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT = ROOT / "benchmarks/medical_decision_v1"
+CACHE = ROOT / "work/decision-benchmark-v1/raw"
+SEED = 20261010
+
+
+def dumps(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def digest(value):
+    return hashlib.sha256(dumps(value).encode()).hexdigest()
+
+
+def file_sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def write_json(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
+
+
+def write_jsonl(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(dumps(row) + "\n" for row in rows))
+
+
+def read_jsonl(path):
+    with path.open() as f:
+        for line in f:
+            if line.strip():
+                yield json.loads(line)
+
+
+def norm(text):
+    return re.sub(r"\s+", "", unicodedata.normalize("NFKC", text)).casefold()
+
+
+def strings(value):
+    if isinstance(value, str):
+        yield value
+        # SFT user messages often wrap the material in serialized JSON.
+        if value.lstrip().startswith(("{", "[")):
+            try:
+                yield from strings(json.loads(value))
+            except (ValueError, RecursionError):
+                pass
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from strings(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from strings(item)
+
+
+def signatures(value):
+    """Exact material (including short questions) plus three 160-character windows."""
+    result = set()
+    for text in strings(value):
+        text = norm(text)
+        if len(text) < 24:
+            continue
+        result.add(digest(text))
+        if len(text) >= 160:
+            for start in {0, (len(text) - 160) // 2, len(text) - 160}:
+                result.add(digest(text[start:start + 160]))
+    return result
+
+
+def chinese_exam_task(question):
+    """Conservative question-intent filter, not a clinical answer generator."""
+    if len(question) < 60 or not re.search(r"患者|患儿|病人|\d+\s*岁", question):
+        return None
+    if re.search(r"如图|见图|图示|上图|下图|附图|见表|如下表|如下图|(?:CT|心电图|胸片|影像|图像).{0,6}如下", question):
+        return None
+    end = question.rstrip("。！？?\n（）() ")
+    tail = re.split(r"[。；;！？?\n]", end)[-1][-35:]
+    if re.search(r"不正确|错误|不宜|不适宜|不适合|不应|不能|不包括|不支持|不考虑|不可能|不是|不属于|最不|除外|表现|机制|疗程|时间|不良反应|原则|剂量|途径|频次|频率|治疗目标|治疗目的|多长|多少", tail):
+        return None
+    if re.search(r"药物|用药|抗生素|方剂", tail) and re.search(r"首选|选用|宜用|选择|最适宜|最合适|最佳", tail):
+        return "medication_choice"
+    if ("检查" in tail and re.search(r"首选|进一步|确诊|明确诊断|最有价值|最有助|最重要", tail)
+            and not re.search(r"检查结果|检查发现|检查示", tail)):
+        return "examination_choice"
+    if (not re.search(r"护理|依据|根据", tail)
+            and re.search(r"(?:最可能|最有可能|初步|首先考虑|应考虑|可能的).{0,8}诊断|诊断(?:是|为|应为|可能为|首先考虑)", tail)):
+        return "diagnosis_choice"
+    if (not re.search(r"护理|心理|宣教|沟通", tail) and re.search(r"治疗|处理|措施|手术", tail)
+            and re.search(r"首选|最佳|最有效|最合适|最适宜|首先|选择|采取|立即", tail)):
+        return "treatment_choice"
+    return None
+
+
+def join_cmb_answers(questions, answers):
+    """Join on original ID and verify metadata; never rely on row order."""
+    index = {}
+    for position, answer in enumerate(answers):
+        if answer["id"] in index:
+            raise ValueError("Duplicate CMB answer ID")
+        index[answer["id"]] = (position, answer)
+    seen = set()
+    for position, question in enumerate(questions):
+        uid = question["id"]
+        if uid in seen or uid not in index:
+            raise ValueError("Duplicate or unmatched CMB question ID")
+        seen.add(uid)
+        answer_position, answer = index[uid]
+        if any(question[key] != answer[key] for key in ["exam_type", "exam_class", "exam_subject", "question_type"]):
+            raise ValueError("CMB question/answer metadata mismatch")
+        yield position, answer_position, question, answer
+    if seen != set(index):
+        raise ValueError("Unmatched CMB answer ID")
+
+
+def mortality_at_horizon(row, horizon):
+    """Do not silently turn right-censored observations into negatives."""
+    time, died = float(row['time']), int(row['DEATH_EVENT'])
+    if died and time <= horizon:
+        return 'yes'
+    if time >= horizon:
+        return 'no'
+    return None
+
+
+SEPSIS_FEATURES = {
+    'HR': 'Heart rate (beats/min)', 'O2Sat': 'Pulse oximetry (%)',
+    'Temp': 'Temperature (degrees Celsius)', 'SBP': 'Systolic BP (mm Hg)',
+    'MAP': 'Mean arterial pressure (mm Hg)', 'DBP': 'Diastolic BP (mm Hg)',
+    'Resp': 'Respiration rate (breaths/min)', 'EtCO2': 'End-tidal CO2 (mm Hg)',
+    'Hct': 'Hematocrit (%)', 'Hgb': 'Hemoglobin (g/dL)',
+    'WBC': 'White blood cell count (count*10^3/microliter)',
+    'Platelets': 'Platelets (count*10^3/microliter)',
+    'Creatinine': 'Creatinine (mg/dL)', 'BUN': 'Blood urea nitrogen (mg/dL)',
+    'Glucose': 'Glucose (mg/dL)', 'Potassium': 'Potassium (mmol/L)',
+    'Age': 'Age (years; source de-identification retained)',
+    'Gender': 'Source coding: female 0, male 1',
+}
+
+
+def sepsis_at_24h(rows):
+    """Undo the upstream six-hour label shift; observe until the event or horizon.
+
+    An initial positive is left-censored. A short stay is not a negative.
+    This is a fixed-landmark outcome task, not the official hourly challenge score.
+    """
+    if len(rows) < 12:
+        return None
+    if any(float(r['ICULOS']) != i for i, r in enumerate(rows, 1)):
+        return None
+    labels = [r['SepsisLabel'] for r in rows]
+    if any(x not in {'0', '1'} for x in labels) or labels != sorted(labels):
+        return None
+    first = labels.index('1') + 1 if '1' in labels else None
+    if first == 1 or (first is not None and first + 6 <= 12):
+        return None
+    if first is not None and first + 6 <= 24:
+        return 'yes' if len(rows) >= first + 6 else None
+    return 'no' if len(rows) >= 24 else None
+
+
+def privacy_token_candidates(text, entities):
+    """Upstream span membership, including explicit BIO-style outside positions.
+
+    Use the same tokenization for both classes to avoid a span-length shortcut.
+    A boundary-crossing token is ambiguous and never receives a negative label.
+    """
+    if not entities or not all(valid_span(text, e) for e in entities.values()):
+        return []
+    candidates = []
+    for token in re.finditer(r"\w+(?:[-'’]\w+)*", text):
+        if len(token.group()) < 2:
+            continue
+        overlap = [(uid, e) for uid, e in entities.items()
+                   if token.start() < e['end'] and e['start'] < token.end()]
+        if overlap and not all(e['start'] <= token.start() < token.end() <= e['end'] for _, e in overlap):
+            continue
+        candidates.append({'start': token.start(), 'end': token.end(), 'text': token.group(),
+                           'gold': 'yes' if overlap else 'no',
+                           'annotation_ids': sorted(uid for uid, _ in overlap)})
+    return candidates
+
+
+def labqar_context(question):
+    pattern = (r"For the lab test '([^']+)' measuring in '([^']+)' in Specimen '([^']+)' "
+               r"for '([^']+)' and '([^']+)'(?: with the condition '([^']+)')?"
+               r"(?: in the category '([^']+)')?, what is the correct lower and upper bound "
+               r"range values in SI reference range\?")
+    match = re.fullmatch(pattern, question)
+    if not match:
+        return None
+    test, unit, specimen, sex, age, condition, category = match.groups()
+    # The source repeats CBC components as standalone tests; one common source group.
+    if test == 'Complete blood count (CBC)' and category in {'Hematocrit', 'Hemoglobin', 'Red blood cell count'}:
+        test, category = category, None
+    if test == 'Erythrocyte count' and category == 'Red blood cell count':
+        test, category = category, None
+    return {'test': test, 'unit': unit, 'category': category,
+            'specimen': specimen, 'sex': sex, 'age_group': age, 'condition': condition}
+
+
+def expanded_chinese_task(question):
+    if len(question) < 60 or not re.search(r'患者|患儿|病人|\d+\s*岁', question):
+        return None
+    if re.search(r'如图|见图|图示|上图|下图|附图|见表|如下表|如下图|(?:CT|心电图|胸片|影像|图像).{0,6}如下', question):
+        return None
+    if re.search(r'(?:白细|红细|血红|肌酐|血钠|血钾)[1-9][．、]', question):
+        return None
+    end = question.rstrip('。！？?\n（）() ：: ')
+    tail = re.split(r'[。；;！？?\n，,]', end)[-1][-55:]
+    if re.search(r'不属于|不常见|不正确|错误|不包括|不是|除外|最不|不足以|目的|理由|保存|放入|发生在|何时', tail):
+        return None
+    if re.search(r'禁忌|不宜|不应使用|不应选用|不适宜选用', tail) and re.search(r'药|治疗|检查|检査|手术|使用|选用', tail):
+        return 'patient_contraindication'
+    if re.search(r'不应|不能', tail):
+        return None
+    if re.search(r'分期|分级|分度', tail) and re.search(r'为|是|属|判断|评估', tail) and not re.search(r'治疗|药物|手术|措施', tail):
+        return 'clinical_grade'
+    if ('并发症' in tail and re.search(r'可能|首先考虑|易发生|易出现|常见|应警惕|并发症.{0,8}(?:是|为|有)', tail)
+            and not re.search(r'预防|避免|处理|治疗|护理|原因|病因|机制', tail)):
+        return 'case_complication'
+    if (re.search(r'(?:病因|致病原因|发病原因|致病因素).{0,10}(?:为|是|考虑|缺乏)|(?:最可能|主要|最常见).{0,6}原因|原因.{0,6}(?:是|为|考虑)', tail)
+            and not re.search(r'检查|检査|治疗|措施|诊断依据|最有意义|代谢障碍|病因不明|结论', tail)):
+        return 'case_etiology'
+    if (re.search(r'护理措施|护理干预|护理方法|护士', tail) and re.search(r'首要|首先|优先|最重要|最适宜|最合适|正确|应采取', tail)
+            and not re.search(r'诊断|问题|依据|目的|目标|原则|解释|讲解|考虑|发生|工作|记录|沟通', tail)):
+        return 'nursing_priority'
+    if re.search(r'补液|补充液体|输液量', tail) and re.search(r'应|是|为|选择|首选|宜', tail) and not re.search(r'诊断|原因|指标|效果|张力', tail):
+        return 'fluid_plan'
+    return None
+
+
+def locked_source_bytes(config, entry):
+    """Prefer a hash-verified frozen response when the upstream API is mutable."""
+    if entry.get('snapshot_path'):
+        path = (config / entry['snapshot_path']).resolve()
+        if not path.is_relative_to(config.resolve()):
+            raise ValueError('Snapshot outside dataset')
+        raw = path.read_bytes()
+    else:
+        request = urllib.request.Request(entry['url'], headers={'User-Agent': 'Jev-Medical-Decision-Benchmark'})
+        with urllib.request.urlopen(request, timeout=60) as response:
+            raw = response.read()
+    if hashlib.sha256(raw).hexdigest() != entry['sha256']:
+        raise ValueError('Source hash changed; refusing replacement: ' + entry['name'])
+    return raw
+
+
+def fetch(config, cache):
+    cache.mkdir(parents=True, exist_ok=True)
+    lock = json.loads((config / "sources.lock.json").read_text())
+    for entry in lock["files"]:
+        path = cache / entry["name"]
+        if path.exists() and file_sha(path) == entry["sha256"]:
+            continue
+        path.write_bytes(locked_source_bytes(config, entry))
+    print("Verified", len(lock["files"]), "source files")
+
+
+def read_prescription_sheet(path):
+    """Read the locked upstream XLSX without optional workbook dependencies."""
+    ns = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    with zipfile.ZipFile(path) as z:
+        sheets = ET.fromstring(z.read('xl/workbook.xml')).find('s:sheets', ns)
+        if len(sheets) != 1 or sheets[0].get('name') != '单选-多选':
+            raise ValueError('Changed prescription workbook layout')
+        shared = []
+        if 'xl/sharedStrings.xml' in z.namelist():
+            shared = [''.join(x.itertext()) for x in ET.fromstring(z.read('xl/sharedStrings.xml'))]
+        root = ET.fromstring(z.read('xl/worksheets/sheet1.xml'))
+    rows = {}
+    for row in root.findall('s:sheetData/s:row', ns):
+        values = {}
+        for cell in row.findall('s:c', ns):
+            if cell.find('s:f', ns) is not None:
+                raise ValueError('Unexpected formula in source dataset')
+            value = cell.findtext('s:v', default='', namespaces=ns)
+            if cell.get('t') == 's':
+                value = shared[int(value)]
+            elif cell.get('t') == 'inlineStr':
+                value = ''.join(cell.find('s:is', ns).itertext())
+            values[re.match(r'[A-Z]+', cell.get('r'))[0]] = value
+        rows[int(row.get('r'))] = values
+    header = rows.pop(1)
+    if list(header.values()) != ['ID', 'Question', 'Candidate Answers', 'Answer', 'Explanation', 'Category', 'Rule_ID', 'Rule_summary']:
+        raise ValueError('Changed prescription dataset schema')
+    return {i: {name: row.get(col, '') for col, name in header.items()} for i, row in rows.items()}
+
+
+class Builder:
+    def __init__(self, config, cache):
+        self.config, self.cache = config, cache
+        self.taxonomy = json.loads((config / "taxonomy.json").read_text())
+        self.tasks = {x["id"]: x for x in self.taxonomy["tasks"]}
+        self.sources = {x["id"]: x for x in json.loads((config / "sources.json").read_text())["sources"]}
+        self.lock = {x["name"]: x for x in json.loads((config / "sources.lock.json").read_text())["files"]}
+        self.pools = collections.defaultdict(list)
+        self.exclusions = collections.Counter()
+
+    def path(self, name):
+        path = self.cache / name
+        if file_sha(path) != self.lock[name]["sha256"]:
+            raise ValueError("Unverified source: " + name)
+        return path
+
+    def csv(self, name):
+        return list(csv.DictReader(io.StringIO(self.path(name).read_text(encoding="utf-8-sig"))))
+
+    def add(self, task, source, uid, group, state, criteria, gold, file, locator,
+            split, language="en", stratum=None, **metadata):
+        criteria = {str(k): str(v) for k, v in criteria.items()}
+        gold = str(gold)
+        if gold not in criteria or len(criteria) < 2:
+            raise ValueError((task, uid, "invalid target or vocabulary"))
+        request = {"state": state, "questions": {"decision": {
+            "type": "choice", "instructions": self.tasks[task]["definition"], "criteria": criteria}}}
+        card, resource = self.sources[source], self.lock[file]
+        self.pools[task].append({
+            "id": task + ":" + source + ":" + str(uid), "task": task,
+            "dimension": self.tasks[task]["dimension"], "decision_mode": self.tasks[task]["decision_mode"],
+            "primary_scenario": self.tasks[task]["primary_scenario"],
+            "ability_tags": self.tasks[task]["ability_tags"],
+            "decision_stage": self.tasks[task]["decision_stage"],
+            "language": language, "group_id": source + ":" + str(group),
+            "request": request, "gold": gold, "request_sha256": digest(request),
+            "provenance": {"source_id": source, "source_url": card["url"],
+                "upstream_id": str(uid), "upstream_group": str(group), "split": split,
+                "resource": file, "resource_url": resource["url"], "resource_sha256": resource["sha256"],
+                "version": resource["version"], "locator": locator,
+                "data_license": card["data_license"], "distribution": card["distribution"],
+                "material_kind": card["material_kind"], "gold_origin": "upstream_annotation",
+                "independent_clinical_review": False},
+            "metadata": metadata, "sampling_stratum": str(stratum if stratum is not None else gold)})
+
+    def errors(self):
+        for sid, name, language in [
+            ("medec", "medec__MEDEC-MS_MEDEC-MS-TestSet-with-GroundTruth-and-ErrorType.csv", "en"),
+            ("mederr", "mederr__datasets_test_reviewed_data_CN_test.csv", "zh")]:
+            for i, row in enumerate(self.csv(name)):
+                if row["Error Flag"] not in {"0", "1"}:
+                    self.exclusions[sid + ":missing_error_gold"] += 1
+                    continue
+                uid = row["Text ID"]
+                common = dict(file=name, locator={"csv_row": i + 2, "text_id": uid}, split="official_test", language=language)
+                self.add("clinical_error_detection", sid, uid, uid, {"clinical_text": row["Text"]},
+                         {"0": "No annotated medical error", "1": "Contains an annotated medical error"},
+                         row["Error Flag"], stratum=sid + ":" + row["Error Flag"], **common)
+                if row["Error Flag"] != "1":
+                    continue
+                sentences = {}
+                for line in row["Sentences"].splitlines():
+                    match = re.fullmatch(r"\s*(\d+)\s+(.+)", line)
+                    if match:
+                        sentences[match[1]] = match[2]
+                target = row["Error Sentence ID"].strip()
+                if target not in sentences or len(sentences) < 2:
+                    self.exclusions[sid + ":unparseable_sentence_id"] += 1
+                    continue
+                self.add("clinical_error_location", sid, uid, uid,
+                         {"clinical_text": row["Text"], "sentences": sentences},
+                         {key: "Sentence " + key for key in sentences}, target,
+                         stratum=sid, **common)
+
+    def sections(self):
+        # Fixed semantic groups, based on upstream section headings, not the correct option.
+        groups = {
+            "history": ["CHIEF COMPLAINT", "HISTORY OF PRESENT ILLNESS", "PAST MEDICAL HISTORY", "PAST SURGICAL HISTORY", "SOCIAL HISTORY", "FAMILY HISTORY", "REVIEW OF SYSTEMS", "MEDICATIONS", "ALLERGIES"],
+            "exam": ["PHYSICAL EXAMINATION", "PHYSICAL EXAM", "VITALS", "VITAL SIGNS"],
+            "results": ["RESULTS", "LABORATORY RESULTS", "LABORATORY DATA", "IMAGING", "LABS"],
+            "assessment_plan": ["ASSESSMENT", "PLAN", "ASSESSMENT AND PLAN", "ASSESSMENT/PLAN"]}
+        mapping = {name: group for group, names in groups.items() for name in names}
+        criteria = {"history": "History, symptoms, medications or allergies", "exam": "Physical examination or vital signs",
+                    "results": "Laboratory, imaging or diagnostic results", "assessment_plan": "Assessment or plan"}
+        for file in sorted(self.lock):
+            if not file.startswith("aci_bench__data_") or not file.endswith(".csv"):
+                continue
+            for i, row in enumerate(self.csv(file)):
+                note = row["note"]
+                headings = list(re.finditer(r"(?m)^([A-Z][A-Z /&-]{2,}):?\s*$", note))
+                for j, heading in enumerate(headings):
+                    name = heading[1].strip()
+                    end = headings[j + 1].start() if j + 1 < len(headings) else len(note)
+                    text = note[heading.end():end].strip()
+                    if name not in mapping or len(norm(text)) < 30:
+                        self.exclusions["aci:unmapped_or_short_section"] += 1
+                        continue
+                    uid = row["encounter_id"] + ":" + str(j)
+                    self.add("note_section", "aci_bench", uid, row["encounter_id"], {"section_text": text},
+                             criteria, mapping[name], file, {"csv_row": i + 2, "encounter_id": row["encounter_id"], "heading": name},
+                             "official_test_1_2_3", adaptation="Removed original heading; mapped section titles into four fixed categories.")
+
+    def medquad(self):
+        file = "medquad.zip"
+        # Same twelve-category intent vocabulary for all examples; no reference answer sent.
+        labels = ["information", "symptoms", "treatment", "prevention", "causes", "exams and tests", "susceptibility", "outlook", "complications", "inheritance", "frequency", "research"]
+        criteria = {x: x for x in labels}
+        with zipfile.ZipFile(self.path(file)) as archive:
+            for member in sorted(archive.namelist()):
+                if not member.endswith(".xml"):
+                    continue
+                root = ET.fromstring(archive.read(member))
+                source_url = root.attrib.get("url", "")
+                for qa in root.findall(".//QAPair"):
+                    question = qa.find("Question")
+                    if question is None or not question.text:
+                        continue
+                    label = question.attrib.get("qtype", "")
+                    if label not in criteria:
+                        self.exclusions["medquad:outside_fixed_intent_vocabulary"] += 1
+                        continue
+                    uid = member + ":" + qa.attrib.get("pid", "")
+                    self.add("query_intent", "medquad", uid, source_url or member,
+                             {"question": question.text}, criteria, label, file,
+                             {"zip_member": member, "qa_pid": qa.attrib.get("pid"), "original_page": source_url},
+                             "published_corpus_no_official_split")
+
+    def longhealth(self):
+        file = "longhealth__data_benchmark_v5.json"
+        for pid, patient in json.loads(self.path(file).read_text()).items():
+            for q in patient["questions"]:
+                criteria = {key: q["answer_" + key] for key in "abcde"}
+                matches = [key for key, value in criteria.items() if value == q["correct"]]
+                if len(matches) != 1:
+                    self.exclusions["longhealth:nonunique_correct_option"] += 1
+                    continue
+                self.add("long_record_evidence", "longhealth", pid + ":" + str(q["No"]), pid,
+                         {"documents": patient["texts"], "question": q["question"]}, criteria, matches[0],
+                         file, {"patient_key": pid, "question_No": q["No"]}, "published_benchmark",
+                         stratum=pid, fictional_patient=True)
+
+    def medcalc(self):
+        file = "medcalc__datasets_test_data.csv"
+        ranges = {"21": (3, 15), "45": (0, 5), "51": (0, 4), "4": (0, 9), "33": (0, 5)}
+        for i, row in enumerate(self.csv(file)):
+            cid = row["Calculator ID"]
+            if cid not in ranges:
+                continue
+            low, high = ranges[cid]
+            try:
+                value = float(row["Ground Truth Answer"])
+                if value != int(value) or not low <= value <= high:
+                    raise ValueError()
+            except ValueError:
+                self.exclusions["medcalc:out_of_range_gold"] += 1
+                continue
+            criteria = {str(j): str(j) for j in range(low, high + 1)}
+            self.add("bounded_score", "medcalc", row["Row Number"], row["Note ID"],
+                     {"patient_note": row["Patient Note"], "question": row["Question"]}, criteria, str(int(value)),
+                     file, {"csv_row": i + 2, "row_number": row["Row Number"], "note_id": row["Note ID"]},
+                     "official_github_test", stratum=cid, calculator=row["Calculator Name"],
+                     note_type=row["Note Type"], note="Uses original GitHub release, not the inaccessible HF Verified file.")
+
+    def trialgpt(self):
+        file = "trialgpt__dataset_sigir_retrieved_trials.json"
+        criteria = {"0": "Irrelevant: would not refer", "1": "Potential: consider referral after further investigation", "2": "Eligible: highly likely to refer"}
+        for patient in json.loads(self.path(file).read_text()):
+            for label in criteria:
+                for trial in patient[label]:
+                    uid = patient["patient_id"] + ":" + trial["NCTID"]
+                    state = {"patient": patient["patient"], "trial": {k: trial[k] for k in ["brief_title", "brief_summary", "inclusion_criteria", "exclusion_criteria"]}}
+                    self.add("trial_referral", "trialgpt", uid, patient["patient_id"], state, criteria, label,
+                             file, {"patient_id": patient["patient_id"], "nct_id": trial["NCTID"], "relevance": label},
+                             "sigir_judged_pool", trial_id=trial["NCTID"], grouping_unit="synthetic_patient")
+
+    def ddi(self):
+        file = "ddi__DDICorpus-2013.zip"
+        criteria = {"none": "No annotated interaction", "mechanism": "Pharmacokinetic mechanism", "effect": "Pharmacodynamic effect", "advise": "Advice or recommendation about joint use", "int": "Interaction without specified mechanism or effect"}
+        with zipfile.ZipFile(self.path(file)) as archive:
+            for member in sorted(archive.namelist()):
+                if "Test for DDI Extraction task" not in member or not member.endswith(".xml"):
+                    continue
+                doc = ET.fromstring(archive.read(member))
+                for sentence in doc.findall("sentence"):
+                    entities = {x.attrib["id"]: x.attrib for x in sentence.findall("entity")}
+                    for pair in sentence.findall("pair"):
+                        p = pair.attrib
+                        label = p.get("type") if p.get("ddi") == "true" else "none"
+                        if label not in criteria:
+                            self.exclusions["ddi:unknown_label"] += 1
+                            continue
+                        state = {"sentence": sentence.attrib["text"], "drug_1": entities[p["e1"]]["text"], "drug_2": entities[p["e2"]]["text"]}
+                        self.add("drug_interaction", "ddi", p["id"], doc.attrib["id"], state, criteria, label,
+                                 file, {"zip_member": member, "pair_id": p["id"]}, "official_test")
+
+    def nubes(self):
+        criteria = {"negative": "Negated or absent", "uncertain": "Possible or uncertain"}
+        for file in sorted(self.lock):
+            if not file.startswith("nubes__NUBes_") or not file.endswith(".ann"):
+                continue
+            text_file = file[:-4] + ".txt"
+            text = self.path(text_file).read_text()
+            ents, relations = brat(self.path(file).read_text())
+            for rid, kind, left, right in relations:
+                if kind != "Scope" or left not in ents or right not in ents:
+                    continue
+                cue, target = ents[left], ents[right]
+                label = "negative" if cue["type"].startswith("Neg") else "uncertain" if cue["type"].startswith("Uncert") else None
+                if label is None:
+                    continue
+                low = min(cue["start"], target["start"])
+                high = max(cue["end"], target["end"])
+                start = text.rfind("\n", 0, low) + 1
+                end = text.find("\n", high)
+                end = len(text) if end == -1 else end
+                excerpt = text[start:end]
+                if "\n" in excerpt or not valid_span(text, target) or not valid_span(text, cue):
+                    self.exclusions["nubes:discontinuous_or_cross_sentence"] += 1
+                    continue
+                self.add("assertion_scope", "nubes", file + ":" + rid, digest([file, start]),
+                         {"excerpt": excerpt, "target": target["text"]}, criteria, label,
+                         file, {"relation_id": rid, "target_id": right, "text_resource": text_file, "sentence_start": start},
+                         "SAMPLE-001_no_official_patient_split", language="es", grouping_unit="shuffled_sentence_not_patient")
+
+    def chia(self):
+        file = "chia_without_scope.zip"
+        entity_types = ["Condition", "Drug", "Procedure", "Measurement", "Observation", "Device", "Person", "Temporal", "Value", "Qualifier", "Negation", "Reference_point", "Multiplier", "Mood", "Visit"]
+        relation_types = ["Has_value", "Has_temporal", "Has_qualifier", "Has_context", "Has_negation", "Has_index", "Has_multiplier", "Has_mood", "Subsumes"]
+        with zipfile.ZipFile(self.path(file)) as archive:
+            for member in sorted(archive.namelist()):
+                if not member.endswith(".ann"):
+                    continue
+                text = archive.read(member[:-4] + ".txt").decode("utf-8-sig")
+                raw_ann = archive.read(member).decode("utf-8-sig")
+                ents, relations = brat(raw_ann)
+                group = Path(member).name.split("_")[0]
+                common = dict(file=file, split="published_corpus_no_official_split")
+                for eid, entity in ents.items():
+                    if entity["type"] not in entity_types or not valid_span(text, entity):
+                        continue
+                    self.add("criterion_entity_type", "chia", member + ":" + eid, group,
+                             {"criteria_text": text, "target": entity["text"], "start": entity["start"], "end_exclusive": entity["end"]},
+                             {x: x for x in entity_types}, entity["type"], locator={"zip_member": member, "entity_id": eid}, **common)
+                # BRAT equivalence-style OR groups contain two or more arguments.
+                for line_no, line in enumerate(raw_ann.splitlines()):
+                    parts = line.split()
+                    if len(parts) >= 4 and parts[:2] == ["*", "OR"]:
+                        args = parts[2:]
+                        for i, left in enumerate(args):
+                            for right in args[i + 1:]:
+                                relations.append(("OR-" + str(line_no) + "-" + left + "-" + right, "OR", left, right))
+                pair_labels = collections.defaultdict(set)
+                for _, kind, left, right in relations:
+                    pair_labels[(left, right)].add(kind)
+                for rid, kind, left, right in relations:
+                    if left not in ents or right not in ents or len(pair_labels[(left, right)]) != 1:
+                        continue
+                    a, b = ents[left], ents[right]
+                    if not valid_span(text, a) or not valid_span(text, b):
+                        continue
+                    task = "criterion_boolean" if kind in {"AND", "OR"} else "criterion_relation"
+                    vocabulary = ["AND", "OR"] if task == "criterion_boolean" else relation_types
+                    if kind not in vocabulary:
+                        continue
+                    state = {"criteria_text": text, "entity_1": {k: a[k] for k in ["text", "start", "end"]}, "entity_2": {k: b[k] for k in ["text", "start", "end"]}}
+                    self.add(task, "chia", member + ":" + rid, group, state, {x: x for x in vocabulary}, kind,
+                             locator={"zip_member": member, "relation_id": rid, "entity_ids": [left, right]},
+                             annotation_scope="Only upstream annotated positive relations; no synthetic no-relation negatives.", **common)
+
+    def frd(self):
+        file = "frd__data_ner_test_processed_medical_ner.tsv"
+        for i, line in enumerate(self.path(file).read_text().splitlines()):
+            annotations, text = line.split("\t", 1)
+            for j, annotation in enumerate(annotations.split(",")):
+                start, end, kind = annotation.split(":")
+                if kind not in {"upper_bound", "lower_bound"}:
+                    continue
+                start, end = int(start) - 1, int(end) - 1
+                if not 0 <= start < end <= len(text):
+                    self.exclusions["frd:invalid_span"] += 1
+                    continue
+                self.add("criterion_bound", "frd", str(i + 1) + ":" + str(j), digest(norm(text)),
+                         {"criterion": text, "target": text[start:end], "start": start, "end_exclusive": end},
+                         {"upper_bound": "Upper bound / maximum", "lower_bound": "Lower bound / minimum"}, kind,
+                         file, {"line": i + 1, "annotation_index": j, "original_annotation": annotation},
+                         "official_test", grouping_unit="criterion_NCT_not_in_processed_release", normalized_numbers=True)
+
+    def scifact(self):
+        file = "scifact__data.tar.gz"
+        with tarfile.open(self.path(file)) as archive:
+            def rows(suffix):
+                member = next(x for x in archive.getnames() if x.endswith(suffix))
+                return [json.loads(line) for line in archive.extractfile(member) if line.strip()]
+            corpus = {str(x["doc_id"]): x for x in rows("corpus.jsonl")}
+            train = rows("claims_train.jsonl")
+            train_docs = {str(doc) for claim in train for doc in claim["cited_doc_ids"]}
+            for claim in rows("claims_dev.jsonl"):
+                for doc_id in claim["cited_doc_ids"]:
+                    doc_id = str(doc_id)
+                    if doc_id in train_docs:
+                        self.exclusions["scifact:document_shared_with_upstream_train"] += 1
+                        continue
+                    evidence = claim["evidence"].get(doc_id, [])
+                    labels = {item["label"] for item in evidence}
+                    if len(labels) > 1:
+                        self.exclusions["scifact:ambiguous_label"] += 1
+                        continue
+                    gold = next(iter(labels)) if labels else "NOT_ENOUGH_INFO"
+                    doc = corpus[doc_id]
+                    self.add("claim_support", "scifact", str(claim["id"]) + ":" + doc_id, doc_id,
+                             {"claim": claim["claim"], "title": doc["title"], "abstract": " ".join(doc["abstract"])},
+                             {"SUPPORT": "Supports the claim", "CONTRADICT": "Contradicts the claim", "NOT_ENOUGH_INFO": "No annotated support or contradiction in this abstract"},
+                             gold, file, {"claim_id": claim["id"], "doc_id": doc_id}, "official_dev_document_disjoint_from_upstream_train")
+
+    def ddxplus(self):
+        file = "ddxplus__release_test_patients.zip"
+        evidences = json.loads(self.path("ddxplus__release_evidences.json").read_text())
+        conditions = json.loads(self.path("ddxplus__release_conditions.json").read_text())
+        labels = sorted({v["cond-name-eng"] for v in conditions.values()})
+        criteria = {"d" + str(i): label for i, label in enumerate(labels)}
+        reverse = {v: k for k, v in criteria.items()}
+        # Hash sample from the complete released test CSV, not a downloaded prefix.
+        with zipfile.ZipFile(self.path(file)) as archive:
+            member = archive.namelist()[0]
+            raw_pool = []
+            for i, row in enumerate(csv.DictReader(io.TextIOWrapper(archive.open(member)))):
+                raw_pool.append((digest([SEED, "ddxplus", i]), i, row))
+            for _, i, row in sorted(raw_pool)[:1000]:
+                observed = []
+                for encoded in ast.literal_eval(row["EVIDENCES"]):
+                    key, _, value = encoded.partition("_@_")
+                    evidence = evidences[key]
+                    meanings = evidence.get("value_meaning", {})
+                    meaning = meanings.get(value, value)
+                    if isinstance(meaning, dict):
+                        meaning = meaning.get("en", meaning.get("english", value))
+                    observed.append({"question": evidence["question_en"], "value": meaning if value else "present"})
+                self.add("synthetic_diagnosis", "ddxplus", str(i + 1), str(i + 1),
+                         {"age": int(row["AGE"]), "sex": row["SEX"], "observed_evidence": observed}, criteria,
+                         reverse[row["PATHOLOGY"]], file, {"zip_member": member, "csv_row": i + 2}, "official_test",
+                         raw_test_rows=len(raw_pool), candidate_pool_note="Seeded hash preselection of 1000 from the complete official test CSV.")
+
+    def tcm(self):
+        file = "tcm_sd__test.json"
+        rows = list(read_jsonl(self.path(file)))
+        # Vocabulary comes from all released test labels, never individual target-based distractors.
+        labels = sorted({r["norm_syndrome"] for r in rows})
+        for i, row in enumerate(rows):
+            state = {k: row[k] for k in ["chief_complaint", "description", "detection"]}
+            # Remove literal answer mentions conservatively; retain original wording otherwise.
+            if row["norm_syndrome"] in dumps(state):
+                self.exclusions["tcm:literal_gold_in_material"] += 1
+                continue
+            self.add("tcm_syndrome", "tcm_sd", str(i + 1), digest(str(row["user_id"])), state,
+                     {label: label for label in labels}, row["norm_syndrome"], file,
+                     {"jsonl_line": i + 1, "patient_key_sha256": digest(str(row["user_id"]))}, "official_test", language="zh",
+                     stratum="natural_test_distribution")
+
+    def maccrobat(self):
+        file = "maccrobat__MACCROBAT2020.zip"
+        with zipfile.ZipFile(self.path(file)) as archive:
+            for member in sorted(archive.namelist()):
+                if not member.endswith(".ann") or member.startswith("__MACOSX"):
+                    continue
+                text = archive.read(member[:-4] + ".txt").decode("utf-8-sig")
+                annotation = archive.read(member).decode("utf-8-sig")
+                entities, relations = brat(annotation)
+                events = {}
+                for line in annotation.splitlines():
+                    if line.startswith("E"):
+                        eid, body = line.split("\t", 1)
+                        events[eid] = body.split()[0].split(":", 1)[1]
+                links = collections.defaultdict(set)
+                for rid, kind, a, b in relations:
+                    a, b = events.get(a, a), events.get(b, b)
+                    if kind == "MODIFY" and a in entities and b in entities:
+                        links[a].add((b, rid))
+                for task, modifier_type, target_type in [
+                    ("lab_link", "Lab_value", "Diagnostic_procedure"),
+                    ("dose_link", "Dosage", "Medication")]:
+                    candidates = {eid: ent for eid, ent in entities.items()
+                                  if ent["type"] == target_type and valid_span(text, ent)}
+                    if len(candidates) < 2:
+                        continue
+                    options = {eid: f"{ent['text']} [characters {ent['start']}:{ent['end']}]"
+                               for eid, ent in sorted(candidates.items())}
+                    for eid, targets in links.items():
+                        ent = entities[eid]
+                        if ent["type"] != modifier_type or not valid_span(text, ent):
+                            continue
+                        if task == "lab_link" and not re.search(r"\d", ent["text"]):
+                            self.exclusions["maccrobat:non_numeric_result"] += 1
+                            continue
+                        matches = {target for target, _ in targets if target in candidates}
+                        if len(matches) != 1:
+                            self.exclusions["maccrobat:ambiguous_or_unusable_" + task] += 1
+                            continue
+                        gold = next(iter(matches))
+                        self.add(task, "maccrobat", member + ":" + eid, Path(member).stem,
+                                 {"case_report": text, "target": {k: ent[k] for k in ["text", "start", "end"]}},
+                                 options, gold, file,
+                                 {"zip_member": member, "modifier_id": eid, "linked_entity_id": gold,
+                                  "relation_ids": sorted(rid for target, rid in targets if target == gold)},
+                                 "published_corpus_no_official_split", stratum="natural_distribution",
+                                 adaptation="Resolve event IDs to text anchors; unique original MODIFY link; all valid same-type entities are options.")
+
+    def chinese_exams(self):
+        file, answers_file = "cmb__CMB.zip", "cmb__CMB-test-choice-answer.json"
+        member = "CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json"
+        with zipfile.ZipFile(self.path(file)) as archive:
+            questions = json.loads(archive.read(member))
+        answers = json.loads(self.path(answers_file).read_text())
+        # The archive includes C-type and multiple-answer items. Some C-type
+        # metadata was relabeled in the answer release; these are out of scope.
+        question_positions = {row["id"]: i for i, row in enumerate(questions)}
+        answer_positions = {row["id"]: i for i, row in enumerate(answers)}
+        if len(question_positions) != len(questions) or len(answer_positions) != len(answers):
+            raise ValueError("Duplicate CMB source IDs")
+        eligible_ids = {row["id"] for row in questions if row["question_type"] == "单项选择题"}
+        self.exclusions["cmb:out_of_scope_question_type"] += len(questions) - len(eligible_ids)
+        questions = [row for row in questions if row["id"] in eligible_ids]
+        answers = [row for row in answers if row["id"] in eligible_ids]
+        candidates = []
+        for i, j, row, answer in join_cmb_answers(questions, answers):
+            i, j = question_positions[row["id"]], answer_positions[row["id"]]
+            if row["question_type"] != "单项选择题" or answer["answer"] not in row["option"]:
+                self.exclusions["cmb:non_single_choice"] += 1
+                continue
+            candidates.append(("cmb", row["id"], row["question"], row["option"], answer["answer"], file,
+                {"zip_member": member, "json_index": i, "question_id": row["id"],
+                 "supporting_resources": [answers_file], "answer_json_index": j, "answer_field": "answer"},
+                "official_test", {"exam_type": row["exam_type"], "exam_class": row["exam_class"], "exam_subject": row["exam_subject"]}))
+        file = "cnmleqa__CNMLEQA-10k.json"
+        for i, row in enumerate(json.loads(self.path(file).read_text())):
+            if row["question_type"] != "案例分析":
+                self.exclusions["cnmleqa:knowledge_question"] += 1
+                continue
+            options = {key: row[key] for key in ["opa", "opb", "opc", "opd", "ope"]}
+            candidates.append(("cnmleqa", row["id"], row["question"], options, row["answer"], file,
+                {"json_index": i, "question_id": row["id"], "answer_field": "answer", "original_source": row["source"]},
+                "published_benchmark_no_official_split", {"original_source": row["source"], "exam_year": row.get("year"),
+                 "original_question_type": row["question_type"]}))
+        identities = collections.defaultdict(set)
+        for source, uid, question, options, gold, *rest in candidates:
+            key = digest([norm(question), sorted(norm(v) for v in options.values())])
+            identities[key].add(norm(options[gold]))
+        seen = set()
+        for source, uid, question, options, gold, file, locator, split, metadata in candidates:
+            task = chinese_exam_task(question)
+            if task is None or len(options) != 5 or len(set(options.values())) != 5 or any(not str(v).strip() for v in options.values()):
+                self.exclusions[source + ":incomplete_or_outside_decision_filter"] += 1
+                continue
+            key = digest([norm(question), sorted(norm(v) for v in options.values())])
+            if len(identities[key]) != 1 or key in seen:
+                self.exclusions[source + ":duplicate_or_conflicting_exam_item"] += 1
+                continue
+            seen.add(key)
+            # Keep one vocabulary per source; preserve original option order and labels.
+            self.add(task, source, uid, uid, {"clinical_question": question}, options, gold, file, locator,
+                     split, language="zh", stratum=source + ":" + gold,
+                     eligibility="case_vignette_and_explicit_decision_query_v1", **metadata)
+            # Shared case prefixes across the two exam collections are one conservative group.
+            prefix = re.sub(r"[^\w]", "", norm(question))[:60]
+            self.pools[task][-1]["group_id"] = "zh_exam_case:" + digest(prefix)[:24]
+
+    def relation_expansion(self):
+        """Closed candidate selection from positive, explicit source relations."""
+        for sid, file in [('maccrobat', 'maccrobat__MACCROBAT2020.zip'), ('ct_ebm_sp', 'ct_ebm_sp__corpus.zip')]:
+            with zipfile.ZipFile(self.path(file)) as archive:
+                for member in sorted(archive.namelist()):
+                    if not member.endswith('.ann') or member.startswith('__MACOSX'):
+                        continue
+                    if sid == 'ct_ebm_sp' and not any('/brat/' + part + '/' in member for part in ['test', 'dev']):
+                        continue
+                    text = archive.read(member[:-4] + '.txt').decode('utf-8-sig')
+                    annotation = archive.read(member).decode('utf-8-sig')
+                    entities, relations = brat(annotation)
+                    entities = {k: v for k, v in entities.items() if valid_span(text, v)}
+                    events, attributes, overlaps = {}, [], []
+                    for line in annotation.splitlines():
+                        bits = line.split('\t')
+                        if line.startswith('E') and len(bits) > 1:
+                            events[bits[0]] = bits[1].split()[0].split(':', 1)[1]
+                        elif line.startswith('A') and len(bits) > 1:
+                            body = bits[1].split()
+                            if len(body) == 3:
+                                attributes.append((bits[0], *body))
+                        elif line.startswith('*\tOVERLAP '):
+                            overlaps.append(bits[1].split()[1:])
+                    resolved = [(rid, kind, events.get(a, a), events.get(b, b)) for rid, kind, a, b in relations]
+                    resolved = [r for r in resolved if r[2] in entities and r[3] in entities and r[2] != r[3]]
+                    group = Path(member).stem
+                    split = ('official_test' if '/brat/test/' in member else 'official_dev') if sid == 'ct_ebm_sp' else 'published_corpus_no_official_split'
+                    language = 'es' if sid == 'ct_ebm_sp' else 'en'
+                    common = dict(file=file, split=split, language=language)
+                    def add(task, uid, state, options, gold, locator, **extra):
+                        self.add(task, sid, member + ':' + uid, group, state, options, gold,
+                                 locator={'zip_member': member, **locator}, **common, **extra)
+                    def mention(eid):
+                        return {k: entities[eid][k] for k in ['text', 'start', 'end']}
+                    if sid == 'maccrobat':
+                        for aid, kind, target, value in attributes:
+                            target = events.get(target, target)
+                            if kind == 'TREND' and target in entities and value in {'INC', 'DEC', 'CHANGE'}:
+                                add('result_trend', aid, {'case_report': text, 'target': mention(target)},
+                                    {'INC': 'Increasing', 'DEC': 'Decreasing', 'CHANGE': 'Changed'}, value,
+                                    {'attribute_id': aid, 'target_id': target})
+                        temporal = collections.defaultdict(set)
+                        for rid, kind, a, b in resolved:
+                            if kind in {'BEFORE', 'AFTER'}:
+                                temporal[a, b].add(kind)
+                        for group_ids in overlaps:
+                            # Every pair is explicitly in the source OVERLAP set;
+                            # use adjacent pairs to avoid expanding quadratic cliques.
+                            ids = [events.get(x, x) for x in group_ids]
+                            for a, b in zip(ids, ids[1:]):
+                                if a in entities and b in entities and a != b:
+                                    temporal[a, b].add('OVERLAP')
+                        for (a, b), labels in temporal.items():
+                            if len(labels) != 1:
+                                continue
+                            add('event_temporal_order', a + ':' + b,
+                                {'case_report': text, 'event_1': mention(a), 'event_2': mention(b)},
+                                {'BEFORE': 'Before', 'AFTER': 'After', 'OVERLAP': 'Overlaps'}, next(iter(labels)),
+                                {'event_1': a, 'event_2': b, 'annotation_kind': 'BEFORE/AFTER relation or explicit OVERLAP set'})
+                        event_types = {'Diagnostic_procedure', 'Sign_symptom', 'Disease_disorder', 'Medication',
+                                       'Therapeutic_procedure', 'Clinical_event', 'Outcome', 'Activity', 'Other_event', 'Coreference'}
+                        configs = [
+                            ('event_coreference', {'IDENTICAL'}, False, None, event_types),
+                            ('anatomical_site_link', {'MODIFY'}, True, event_types, {'Biological_structure'}),
+                            ('severity_link', {'MODIFY'}, False, {'Severity'}, event_types),
+                            ('event_date_link', {'MODIFY'}, False, {'Date', 'Time'}, event_types),
+                            ('procedure_component_link', {'SUB_PROCEDURE'}, False,
+                             {'Diagnostic_procedure', 'Therapeutic_procedure'}, {'Diagnostic_procedure', 'Therapeutic_procedure'}),
+                        ]
+                    else:
+                        for aid, kind, target, value in attributes:
+                            if split == 'official_test' and kind == 'Experiencer' and target in entities and value in {'Patient', 'Family_member', 'Other'}:
+                                add('experiencer', aid, {'trial_text': text, 'target': mention(target)},
+                                    {'Patient': 'Patient / participant', 'Family_member': 'Family member', 'Other': 'Other'}, value,
+                                    {'attribute_id': aid, 'target_id': target})
+                        configs = [
+                            ('route_link', {'Has_Route_or_Mode'}, True, {'Route'}, {'CHEM', 'CONC', 'DEVI', 'PHYS', 'PROC'}),
+                            ('frequency_link', {'Has_Frequency'}, True, {'Frequency'}, {'CHEM', 'CONC', 'DISO', 'Food', 'PHYS', 'PROC'}),
+                            ('duration_link', {'Has_Duration_or_Interval'}, True, {'Duration'},
+                             {'CHEM', 'CONC', 'DEVI', 'DISO', 'Food', 'LIVB', 'Observation', 'PHYS', 'PROC', 'Quantifier_or_Qualifier'}),
+                            ('drug_form_link', {'Has_Drug_Form'}, True, {'Form'}, {'CHEM', 'CONC', 'PROC'}),
+                            ('cause_effect_link', {'Causes'}, False, None, {'CONC', 'DISO', 'Observation', 'PHYS', 'PROC'}),
+                            ('combination_link', {'Combined_with'}, False, None, {'CHEM', 'DEVI', 'Food', 'LIVB', 'PROC', 'Route'}),
+                            ('indication_link', {'Used_for'}, False, None, None),
+                            ('assertion_cue_target', {'Negation', 'Speculation'}, False, {'Neg_cue', 'Spec_cue'},
+                             set(entities[e]['type'] for e in entities) - {'Neg_cue', 'Spec_cue'}),
+                        ]
+                    for task, kinds, reverse, query_types, candidate_types in configs:
+                        if split == 'official_dev' and task not in {'frequency_link', 'drug_form_link'}:
+                            continue
+                        links = collections.defaultdict(set)
+                        relation_ids = collections.defaultdict(list)
+                        for rid, kind, a, b in resolved:
+                            if kind not in kinds:
+                                continue
+                            if reverse:
+                                a, b = b, a
+                            if query_types is not None and entities[a]['type'] not in query_types:
+                                continue
+                            links[a].add(b)
+                            relation_ids[a, b].append(rid)
+                        for a, targets in links.items():
+                            # Ambiguous annotations remain excluded, even if one
+                            # target falls outside the permitted candidate types.
+                            if len(targets) != 1:
+                                self.exclusions[sid + ':' + task + ':nonunique_target'] += 1
+                                continue
+                            candidates = {eid: ent for eid, ent in entities.items() if eid != a and
+                                          (candidate_types is None or ent['type'] in candidate_types)}
+                            gold = next(iter(targets))
+                            if gold not in candidates or len(candidates) < 2:
+                                continue
+                            options = {eid: f"{ent['text']} [characters {ent['start']}:{ent['end']}]"
+                                       for eid, ent in sorted(candidates.items())}
+                            add(task, a, {'clinical_text': text, 'target': mention(a)}, options, gold,
+                                {'query_entity_id': a, 'answer_entity_id': gold, 'relation_ids': relation_ids[a, gold],
+                                 'direction_reversed': reverse}, stratum='natural_distribution',
+                                adaptation='All valid entities of prespecified candidate types; unique explicit relation; no invented negatives.')
+
+    def e3c_attributes(self):
+        split_file = 'e3c__train_test_split.txt'
+        train_ids = set(re.findall(r"'([^']+)'", self.path(split_file).read_text()))
+        specs = [
+            ('temporality', 'EVENT', 'docTimeRel', {'BEFORE': 'Before document time', 'AFTER': 'After document time',
+                'CONTAINS': 'Contains document time', 'IS-CONTAINED': 'Contained in document time', 'OVERLAP': 'Overlaps document time'}),
+            ('event_permanence', 'EVENT', 'permanence', {'FINITE': 'Finite', 'PERMANENT': 'Permanent'}),
+            ('clinical_time_type', 'TIMEX3', 'timex3Class', {'DURATION': 'Duration', 'SET': 'Recurring time set',
+                'DATE': 'Date', 'QUANTIFIER': 'Time quantity', 'PREPOSTEXP': 'Before/after expression'}),
+        ]
+        for file in sorted(self.lock):
+            if not re.fullmatch(r'e3c__EN\d+\.xml', file):
+                continue
+            docid = file[5:-4]
+            assert docid not in train_ids
+            root = ET.fromstring(self.path(file).read_bytes())
+            sofa = next(x for x in root if x.tag.endswith('}Sofa'))
+            text = sofa.attrib['sofaString']
+            meta = next(x for x in root if x.tag.endswith('}METADATA')).attrib
+            nodes = {x.attrib.get('{http://www.omg.org/XMI}id'): x for x in root}
+            event_nodes = {key: x for key, x in nodes.items() if x.tag.endswith('}EVENT')}
+            def span(node):
+                start, end = int(node.get('begin')), int(node.get('end'))
+                prefix = text.encode('utf-16-le')[:start * 2].decode('utf-16-le')
+                value = text.encode('utf-16-le')[start * 2:end * 2].decode('utf-16-le')
+                return {'text': value, 'start': len(prefix), 'end': len(prefix) + len(value)}
+            for uid, node in nodes.items():
+                if not node.tag.endswith('}TIMEX3') or not node.get('timexLink'):
+                    continue
+                links = [nodes[key] for key in node.get('timexLink').split()]
+                targets = {x.get('target') for x in links}
+                if len(targets) != 1 or not targets <= event_nodes.keys() or len(event_nodes) < 2:
+                    continue
+                options = {key: f"{span(x)['text']} [characters {span(x)['start']}:{span(x)['end']}]"
+                           for key, x in sorted(event_nodes.items())}
+                self.add('event_date_link', 'e3c', docid + ':' + uid, docid,
+                         {'case_report': text, 'target': span(node), 'annotated_relation_types': sorted({x.get('role') for x in links})},
+                         options, next(iter(targets)), file,
+                         {'xmi_id': uid, 'relation_attribute': 'timexLink', 'target_xmi_id': next(iter(targets)),
+                          'supporting_resources': [split_file]}, 'official_test', stratum='natural_distribution',
+                         original_document={k: meta.get(k) for k in ['docDOI', 'docAuthor', 'docLicense', 'docUrl']})
+            for task, tag, attr, options in specs:
+                for node in root:
+                    if not node.tag.endswith('}' + tag) or node.get(attr) not in options:
+                        continue
+                    start, end = int(node.get('begin')), int(node.get('end'))
+                    # UIMA offsets are UTF-16 code units, not Python code points.
+                    prefix = text.encode('utf-16-le')[:start * 2].decode('utf-16-le')
+                    target = text.encode('utf-16-le')[start * 2:end * 2].decode('utf-16-le')
+                    if not target.strip():
+                        continue
+                    uid = node.attrib['{http://www.omg.org/XMI}id']
+                    state = {'case_report': text, 'target': {'text': target, 'start': len(prefix), 'end': len(prefix) + len(target)}}
+                    if task == 'temporality':
+                        state['document_time'] = meta.get('docTime')
+                    self.add(task, 'e3c', docid + ':' + uid, docid, state, options, node.get(attr), file,
+                             {'xmi_id': uid, 'attribute': attr, 'utf16_begin': start, 'utf16_end': end,
+                              'supporting_resources': [split_file]}, 'official_test',
+                             original_document={k: meta.get(k) for k in ['docDOI', 'docAuthor', 'docLicense', 'docUrl']})
+
+    def care_triage(self):
+        file, cases_file = 'care_bench__evaluation_prefixes_public.jsonl', 'care_bench__cases_public.jsonl'
+        cases = {x['case_id']: x for x in read_jsonl(self.path(cases_file))}
+        options = {'0A_NO_ESCALATION_INFO_NEEDED': 'Ask for necessary clarification',
+                   '0B_NO_ESCALATION_SELF_CARE_MONITOR': 'Self-care or monitoring',
+                   '1A_ESCALATION_NONURGENT_CARE': 'Nonurgent professional care',
+                   '1B_ESCALATION_URGENT_CARE': 'Urgent or emergency care'}
+        for i, row in enumerate(read_jsonl(self.path(file))):
+            if row['split'] != 'public_test_1':
+                continue
+            case = cases[row['case_id']]
+            turns = [r['patient_text'] for r in case['extended_conversation'] if r['round_id'] <= row['round_id']]
+            assert turns == row['input_patient_turns']
+            self.add('triage_urgency', 'care_bench', row['prefix_id'], row['case_id'],
+                     {'patient_messages_so_far': turns}, options, row['gold_label'], file,
+                     {'jsonl_line': i + 1, 'prefix_id': row['prefix_id'], 'case_id': row['case_id'],
+                      'supporting_resources': [cases_file]}, 'official_public_test_1',
+                     original_source=case['original_source'], original_source_dataset=row['source_dataset'],
+                     adaptation='Only disclosed patient turns; no reference response, future turns, or construction metadata.')
+
+    def clinical_outcomes(self):
+        for sid, task in [('uci_diabetes', 'readmission_30d'), ('uci_heart_failure', 'mortality_90d'),
+                          ('uci_postoperative', 'postoperative_disposition'), ('uci_maternal', 'maternal_risk')]:
+            file = sid + '__data.zip'
+            definitions_file = sid + '__metadata.json'
+            definitions = json.loads(self.path(definitions_file).read_text())['data']['variables']
+            with zipfile.ZipFile(self.path(file)) as archive:
+                if sid == 'uci_postoperative':
+                    member = 'post-operative.data'
+                    keys = ['L-CORE', 'L-SURF', 'L-O2', 'L-BP', 'SURF-STBL', 'CORE-STBL', 'BP-STBL', 'COMFORT', 'ADM-DECS']
+                    rows = list(csv.DictReader(io.StringIO(archive.read(member).decode()), fieldnames=keys))
+                else:
+                    member = next(n for n in archive.namelist() if n.lower().endswith('.csv') and n != 'IDS_mapping.csv')
+                    rows = list(csv.DictReader(io.StringIO(archive.read(member).decode('utf-8-sig'))))
+                mapping = {}
+                if sid == 'uci_diabetes':
+                    name = None
+                    for line in csv.reader(io.StringIO(archive.read('IDS_mapping.csv').decode())):
+                        if not line or not line[0]:
+                            continue
+                        if line[0].endswith('_id'):
+                            name = line[0]; mapping[name] = {}
+                        elif name and line[0].strip().isdigit():
+                            mapping[name][line[0]] = line[1]
+            seen_patients = set()
+            for i, original in enumerate(rows):
+                row = {k: v.strip() for k, v in original.items()}
+                metadata = {}
+                if sid == 'uci_diabetes':
+                    if row['discharge_disposition_id'] != '1':
+                        continue
+                    group = digest(row['patient_nbr'])
+                    if group in seen_patients:
+                        continue
+                    seen_patients.add(group)
+                    state = {k: v for k, v in row.items() if k not in {'readmitted', 'encounter_id', 'patient_nbr'}}
+                    for k, values in mapping.items():
+                        if k in state:
+                            state[k] = values.get(state[k], state[k])
+                    options = {'yes': 'Recorded readmission within 30 days', 'no': 'No recorded readmission within 30 days'}
+                    gold = 'yes' if row['readmitted'] == '<30' else 'no'
+                    metadata = {'prediction_time': 'discharge_to_home', 'patient_key_sha256': group,
+                                'cohort': 'First eligible row per patient in source file; discharge_disposition_id=1'}
+                elif sid == 'uci_heart_failure':
+                    target = mortality_at_horizon(row, 90)
+                    if target is None:
+                        self.exclusions['uci_heart_failure:censored_before_90_days'] += 1
+                        continue
+                    state = {k: v for k, v in row.items() if k not in {'time', 'DEATH_EVENT'}}
+                    options = {'yes': 'Death by day 90', 'no': 'Observed alive through day 90'}
+                    gold = target
+                    group = digest(state)
+                    metadata = {'prediction_time': 'baseline', 'horizon_days': 90,
+                                'gold_mapping': 'DEATH_EVENT=1 and time<=90; negative if followup>=90 and no death by 90; earlier censoring excluded'}
+                elif sid == 'uci_postoperative':
+                    gold = row['ADM-DECS']
+                    if gold not in {'I', 'S', 'A'}:
+                        continue
+                    state = {k: v for k, v in row.items() if k != 'ADM-DECS'}
+                    options = {'I': 'Intensive care unit', 'S': 'Prepared to go home', 'A': 'General hospital floor'}
+                    group = digest(state)
+                    metadata = {'prediction_time': 'postoperative_recovery', 'patient_id_unavailable': True}
+                else:
+                    gold = row['RiskLevel']
+                    state = {k: v for k, v in row.items() if k != 'RiskLevel'}
+                    options = {'low risk': 'Low risk', 'mid risk': 'Intermediate risk', 'high risk': 'High risk'}
+                    group = digest(state)
+                    metadata = {'prediction_time': 'cross_sectional', 'patient_id_unavailable': True,
+                                'label_caveat': 'Published risk class, not independently observed maternal outcome'}
+                state = {k: None if v == '?' else v for k, v in state.items()}
+                # Natural prevalence for observational predictions; balancing
+                # would make this tiny sample unsuitable for prevalence claims.
+                codebook = {x['name']: {k: x.get(k) for k in ['description', 'units']}
+                            for x in definitions if x['name'] in state and x['role'] == 'Feature'}
+                self.add(task, sid, str(i + 1), group, {'clinical_features': state, 'feature_definitions': codebook}, options, gold, file,
+                         {'zip_member': member, 'csv_row': i + (1 if sid == 'uci_postoperative' else 2),
+                          'supporting_resources': [definitions_file]},
+                         'published_corpus_no_official_split', stratum='natural_distribution', **metadata)
+
+    def chinese_decision_expansion(self):
+        file = 'cmb__CMB.zip'
+        test_member = 'CMB/CMB-Exam/CMB-test/CMB-test-choice-question-merge.json'
+        answer_file = 'cmb__CMB-test-choice-answer.json'
+        answer_rows = json.loads(self.path(answer_file).read_text())
+        answers = {r['id']: r for r in answer_rows}
+        answer_positions = {r['id']: i for i, r in enumerate(answer_rows)}
+        candidates = []
+        with zipfile.ZipFile(self.path(file)) as archive:
+            for split, member in [('official_test', test_member),
+                                  ('official_validation', 'CMB/CMB-Exam/CMB-val/CMB-val-merge.json'),
+                                  ('upstream_train_reserved_for_local_evaluation', 'CMB/CMB-Exam/CMB-train/CMB-train-merge.json')]:
+                for i, row in enumerate(json.loads(archive.read(member))):
+                    if row['question_type'] != '单项选择题':
+                        continue
+                    question = row['question']
+                    task = expanded_chinese_task(question)
+                    if not task:
+                        continue
+                    options = row['option']
+                    answer = answers[row['id']]['answer'] if split == 'official_test' else row['answer']
+                    if (len(options) not in {4, 5} or answer not in options or any(not x.strip() for x in options.values())
+                            or len({norm(x) for x in options.values()}) != len(options)):
+                        continue
+                    candidates.append((task, split, member, i, row, answer))
+        by_question = collections.defaultdict(list)
+        for item in candidates:
+            by_question[digest([re.sub(r'[^\w]', '', norm(item[4]['question'])), sorted(re.sub(r'[^\w]', '', norm(v)) for v in item[4]['option'].values())])].append(item)
+        previous_questions = {norm(r['request']['state']['clinical_question'])
+                              for r in read_jsonl(self.config / 'samples.jsonl')
+                              if 'clinical_question' in r['request']['state'] and r['task'] in
+                              {'diagnosis_choice', 'examination_choice', 'treatment_choice', 'medication_choice'}}
+        for versions in by_question.values():
+            if len({norm(x[4]['option'][x[5]]) for x in versions}) != 1:
+                self.exclusions['cmb:expanded_conflicting_gold'] += len(versions)
+                continue
+            task, split, member, i, row, gold = versions[0]
+            if norm(row['question']) in previous_questions:
+                continue
+            locator = {'zip_member': member, 'json_index': i, 'answer_field': 'answer'}
+            if split == 'official_test':
+                locator.update(question_id=row['id'], answer_json_index=answer_positions[row['id']], supporting_resources=[answer_file])
+                assert all(row[k] == answers[row['id']][k] for k in ['exam_type', 'exam_class', 'exam_subject', 'question_type'])
+            uid = split + ':' + str(i)
+            self.add(task, 'cmb', uid, digest(re.sub(r'[^\w]', '', norm(row['question']))[:60])[:24],
+                     {'clinical_question': row['question']}, row['option'], gold, file, locator, split,
+                     language='zh', stratum=gold, eligibility='case_and_explicit_new_decision_intent_v1',
+                     exam_type=row['exam_type'], exam_class=row['exam_class'], exam_subject=row['exam_subject'],
+                     upstream_training_partition=(split == 'upstream_train_reserved_for_local_evaluation'))
+            self.pools[task][-1]['group_id'] = 'zh_exam_case:' + digest(re.sub(r'[^\w]', '', norm(row['question']))[:60])[:24]
+
+    def cnmle_decision_expansion(self):
+        file = 'cnmleqa__CNMLEQA-10k.json'
+        new_tasks = {'patient_contraindication', 'clinical_grade', 'case_etiology', 'case_complication', 'nursing_priority', 'fluid_plan'}
+        old_questions = {norm(r['request']['state']['clinical_question'])
+                         for r in read_jsonl(self.config / 'samples.jsonl')
+                         if r['task'] in {'diagnosis_choice', 'examination_choice', 'treatment_choice', 'medication_choice'}}
+        for i, row in enumerate(json.loads(self.path(file).read_text())):
+            if row['question_type'] != '案例分析' or norm(row['question']) in old_questions:
+                continue
+            task = expanded_chinese_task(row['question'])
+            if task not in new_tasks:
+                continue
+            options = {key: row[key] for key in ['opa', 'opb', 'opc', 'opd', 'ope']}
+            if len({norm(v) for v in options.values()}) != 5 or any(not v.strip() for v in options.values()):
+                continue
+            self.add(task, 'cnmleqa', row['id'], row['id'], {'clinical_question': row['question']}, options, row['answer'], file,
+                     {'json_index': i, 'question_id': row['id'], 'answer_field': 'answer', 'original_source': row['source']},
+                     'published_benchmark_no_official_split', language='zh', stratum='cnmleqa:' + row['answer'],
+                     original_source=row['source'], exam_year=row.get('year'), original_question_type=row['question_type'],
+                     eligibility='case_and_explicit_new_decision_intent_v1', upstream_training_partition=False)
+            self.pools[task][-1]['group_id'] = 'zh_exam_case:' + digest(re.sub(r'[^\w]', '', norm(row['question']))[:60])[:24]
+        priority = {'official_test': 0, 'official_validation': 1, 'published_benchmark_no_official_split': 2,
+                    'upstream_train_reserved_for_local_evaluation': 3}
+        for task in new_tasks:
+            items = collections.defaultdict(list)
+            for row in self.pools[task]:
+                request = row['request']
+                key = digest([re.sub(r'[^\w]', '', norm(request['state']['clinical_question'])),
+                              sorted(re.sub(r'[^\w]', '', norm(v)) for v in request['questions']['decision']['criteria'].values())])
+                items[key].append(row)
+            unique = []
+            for versions in items.values():
+                if len({norm(r['request']['questions']['decision']['criteria'][r['gold']]) for r in versions}) != 1:
+                    self.exclusions['zh_expansion:conflicting_gold'] += len(versions)
+                    continue
+                unique.append(min(versions, key=lambda r: (priority[r['provenance']['split']], r['id'])))
+            self.pools[task] = unique
+
+    def privacy_and_sepsis(self):
+        source = 'meddocan'
+        name = 'meddocan__corpus.zip'
+        with zipfile.ZipFile(self.path(name)) as archive:
+            for member in sorted(archive.namelist()):
+                if '/corpus/test/brat/' not in member or not member.endswith('.ann'):
+                    continue
+                text = archive.read(member[:-4] + '.txt').decode('utf-8')
+                annotations = archive.read(member).decode('utf-8')
+                entities, _ = brat(annotations)
+                # Reject partial parsing rather than assigning a false outside label.
+                if len(entities) != sum(line.startswith('T') for line in annotations.splitlines()):
+                    self.exclusions['meddocan:unparsed_document'] += 1
+                    continue
+                candidates = privacy_token_candidates(text, entities)
+                group = Path(member).stem
+                for gold in ['yes', 'no']:
+                    pool = [c for c in candidates if c['gold'] == gold]
+                    if not pool:
+                        continue
+                    c = min(pool, key=lambda x: digest([SEED, source, group, x['start'], x['end']]))
+                    self.add('privacy_candidate', source, f"{group}:{c['start']}:{c['end']}", group,
+                             {'clinical_text': text, 'target': {k: c[k] for k in ['text', 'start', 'end']},
+                              'annotation_scope': 'MEDDOCAN PHI: patient and professional names, ages, sex, dates, addresses, locations, institutions, contact details and identifiers. Judge this target token in context.'},
+                             {'yes': 'Inside a PHI span under MEDDOCAN annotation rules',
+                              'no': 'Outside all PHI spans under MEDDOCAN annotation rules'}, gold,
+                             name, {'annotation_member': member, 'text_member': member[:-4] + '.txt',
+                                    'start': c['start'], 'end': c['end'], 'annotation_ids': c['annotation_ids']},
+                             'official_test', language='es',
+                             label_mapping='fully contained in upstream PHI span vs closed-world outside; crossing tokens excluded',
+                             candidate_unit='word_token', original_document_id=group)
+        source = 'sepsis2019'
+        for name in self.sources[source]['resources']:
+            if not name.endswith('.psv'):
+                continue
+            rows = list(csv.DictReader(io.StringIO(self.path(name).read_text()), delimiter='|'))
+            gold = sepsis_at_24h(rows)
+            if gold is None:
+                self.exclusions['sepsis2019:outside_landmark_cohort_or_invalid'] += 1
+                continue
+            history = [{'hour': i, **{k: None if r[k] == 'NaN' else float(r[k])
+                                      for k in SEPSIS_FEATURES}} for i, r in enumerate(rows[:12], 1)]
+            if not any(r[k] is not None for r in history for k in ['HR', 'SBP', 'Resp', 'Temp']):
+                self.exclusions['sepsis2019:no_observed_vitals_before_landmark'] += 1
+                continue
+            uid = name.removeprefix('sepsis2019__').removesuffix('.psv')
+            self.add('deterioration_prediction', source, uid, uid,
+                     {'prediction_hour': 12, 'outcome_window_hours': {'after': 12, 'through': 24},
+                      'hourly_observations': history, 'feature_definitions': SEPSIS_FEATURES,
+                      'missing_value_meaning': 'null = no recorded measurement; no imputation'},
+                     {'yes': 'Challenge-defined sepsis onset occurs in hours (12,24]',
+                      'no': 'No challenge-defined sepsis onset in hours (12,24]'}, gold,
+                     name, {'input_data_rows_one_based': [1, 12], 'outcome_column': 'SepsisLabel',
+                            'onset_mapping': 'first positive row hour + 6; initial positive excluded',
+                            'followup_requirement': 'observed through inferred onset or hour 24'},
+                     'upstream_train_reserved_for_local_evaluation',
+                     prediction_protocol='icu12h_onset_by24h_v1', upstream_hospital='A',
+                     candidate_frame='1000 records selected by fixed filename hash before reading labels',
+                     cohort='complete hours 1-12; follow-up through onset or hour 24; no onset by hour 12; first label not positive',
+                     label_mapping='source six-hour-advanced label converted to inferred onset; not independent physician adjudication')
+
+    def reference_ranges(self):
+        source, name = 'labqar', 'labqar__Set_1.json'
+        groups = collections.defaultdict(list)
+        for index, row in enumerate(json.loads(self.path(name).read_text())):
+            context = labqar_context(row['Question'])
+            answer = row['Answer'].strip()
+            if context is None or not re.fullmatch(r'(?:[<>≤≥]=?\s*\d+(?:\.\d+)?|\d+(?:\.\d+)?\s*[-–]\s*\d+(?:\.\d+)?)', answer):
+                self.exclusions['labqar:unparsed_context_or_noninterval'] += 1
+                continue
+            key = (context['test'], context['unit'], context['category'])
+            groups[key].append((index, row, context, answer))
+        for key, rows in groups.items():
+            by_context = collections.defaultdict(set)
+            for _, _, context, answer in rows:
+                by_context[dumps(context)].add(answer)
+            clean = [r for r in rows if len(by_context[dumps(r[2])]) == 1]
+            self.exclusions['labqar:conflicting_context_rows'] += len(rows) - len(clean)
+            ranges = sorted({r[3] for r in clean})
+            if len(ranges) < 2:
+                self.exclusions['labqar:no_alternative_interval'] += len(clean)
+                continue
+            references = sorted({dumps({**r[2], 'range': r[3]}) for r in clean})
+            criteria = {f'range_{i}': answer + ' ' + key[1] for i, answer in enumerate(ranges)}
+            for index, row, context, answer in clean:
+                self.add('reference_range', source, row['ID'], digest([key[0], key[2]])[:20],
+                         {'target_context': context, 'reference_entries': [json.loads(x) for x in references],
+                          'rule': 'Select the interval matching the target context in these source reference entries; do not infer a diagnosis or apply it as a universal laboratory standard.'},
+                         criteria, f'range_{ranges.index(answer)}', name,
+                         {'json_index': index, 'upstream_id': row['ID'],
+                          'reference_json_indices': sorted(r[0] for r in clean)},
+                         'published_corpus_reserved_for_evaluation', stratum='context_matching',
+                         original_question=row['Question'], original_answer=row['Answer'],
+                         label_mapping='original Set 1 answer -> fixed candidate intervals for same test, unit and category',
+                         coverage='population/specimen/condition matching; no unknown or method-specific validation cases')
+
+    def laboratory_values(self):
+        name = 'labqar__Set_2.json'
+        for i, row in enumerate(json.loads(self.path(name).read_text())):
+            bounds = row['reference_range']
+            low, high = bounds.get('lower_bound'), bounds.get('upper_bound')
+            match = re.search(r"a value in 'SI reference range' is (-?\d+(?:\.\d+)?)\.", row['Question'])
+            test = re.search(r"For the lab test '([^']+)'", row['Question'])
+            if low is None or high is None or not low < high or not match or not test:
+                self.exclusions['labqar_set2:ambiguous_interval_or_question'] += 1
+                continue
+            value = float(match[1])
+            options = dict(re.findall(r'([A-C]): (High|Normal|Low)', row['Choices']))
+            expected = 'Low' if value < low else 'High' if value > high else 'Normal'
+            # Boundary conventions are unspecified in the original Set 2.
+            if (value in {low, high} or set(options.values()) != {'High', 'Normal', 'Low'}
+                    or options.get(row['Answer']) != expected):
+                self.exclusions['labqar_set2:boundary_or_inconsistent_gold'] += 1
+                continue
+            self.add('lab_value_classification', 'labqar', row['ID'], 'set2:' + test[1],
+                     {'question': row['Question'], 'provided_reference_interval': bounds}, options, row['Answer'], name,
+                     {'json_index': i, 'upstream_id': row['ID']}, 'published_corpus_reserved_for_evaluation',
+                     stratum=expected, label_mapping='Original Set 2 option key; arithmetic used only to reject inconsistent items',
+                     numeric_value=value, patient_measurement=False)
+
+    def pharmacogenomic_rules(self):
+        result_file, lookup_file = 'cpic__gene_result.json', 'cpic__gene_result_lookup.json'
+        results = {r['id']: r for r in json.loads(self.path(result_file).read_text())}
+        vocab = collections.defaultdict(set)
+        for row in results.values():
+            vocab[row['genesymbol']].add(row['result'])
+        for i, row in enumerate(json.loads(self.path(lookup_file).read_text())):
+            result = results[row['phenotypeid']]
+            gene = result['genesymbol']
+            labels = sorted(vocab[gene])
+            if len(labels) < 2 or not row['lookupkey']:
+                continue
+            options = {f'phenotype_{j}': label for j, label in enumerate(labels)}
+            self.add('pgx_function_phenotype', 'cpic', row['id'], 'gene:' + gene,
+                     {'gene': gene, 'genetic_findings': row['lookupkey'],
+                      'allele_function_1': row['function1'], 'allele_function_2': row['function2'],
+                      'allele_activity_1': row['activityvalue1'], 'allele_activity_2': row['activityvalue2'],
+                      'total_activity_score': row['totalactivityscore'], 'reference_snapshot': 'CPIC API v1, 2026-10-10'},
+                     options, f'phenotype_{labels.index(result["result"])}', lookup_file,
+                     {'json_index': i, 'lookup_id': row['id'], 'gene_result_id': result['id'],
+                      'supporting_resources': [result_file]}, 'curated_rules_no_patient_split',
+                     stratum=gene, original_result=result['result'], gene_result_version=result['version'],
+                     grouping_unit='gene', patient_record=False)
+        name = 'cpic__recommendation_view.json'
+        rows = json.loads(self.path(name).read_text())
+        groups = collections.defaultdict(list)
+        for i, row in enumerate(rows):
+            if not row['lookupkey'] or not row['drugrecommendation'] or not row['population']:
+                continue
+            groups[(row['guidelineurl'], row['drugname'], row['population'])].append((i, row))
+        for key, group in groups.items():
+            by_input = collections.defaultdict(set)
+            for _, row in group:
+                by_input[dumps(row['lookupkey'])].add(row['drugrecommendation'])
+            clean = [(i, row) for i, row in group if len(by_input[dumps(row['lookupkey'])]) == 1]
+            self.exclusions['cpic:conflicting_recommendations'] += len(group) - len(clean)
+            labels = sorted({row['drugrecommendation'] for _, row in clean})
+            if len(labels) < 2:
+                self.exclusions['cpic:no_alternative_recommendation'] += len(clean)
+                continue
+            options = {f'action_{i}': label for i, label in enumerate(labels)}
+            for i, row in clean:
+                self.add('pgx_guideline_recommendation', 'cpic', row['recommendationid'], 'guideline:' + key[0],
+                         {'drug': row['drugname'], 'population': row['population'], 'gene_results': row['lookupkey'],
+                          'guideline': row['guidelinename'], 'reference_snapshot': 'CPIC API v1, 2026-10-10'},
+                         options, f'action_{labels.index(row["drugrecommendation"])}', name,
+                         {'json_index': i, 'recommendation_id': row['recommendationid'],
+                          'candidate_json_indices': [n for n, _ in clean]}, 'curated_rules_no_patient_split',
+                         stratum=row['drugname'], guideline_url=row['guidelineurl'],
+                         recommendation_classification=row['classification'], source_comments=row['comments'],
+                         grouping_unit='guideline', patient_record=False)
+
+    def trial_comparative_effects(self):
+        name = 'evidence_inference__corpus.zip'
+        options = {'-1': 'Significantly decreased', '0': 'No significant difference', '1': 'Significantly increased'}
+        with zipfile.ZipFile(self.path(name)) as archive:
+            prefix = archive.namelist()[0].split('/')[0] + '/annotations/'
+            read = lambda member: archive.read(prefix + member).decode('utf-8-sig')
+            test = set(read('splits/test_article_ids.txt').split())
+            guide = read('README.md')
+            flagged = set(re.findall(r'\d+', guide.split('### Incorrect:')[1]))
+            annotations = collections.defaultdict(list)
+            for i, row in enumerate(csv.DictReader(io.StringIO(read('annotations_merged.csv')))):
+                if row['PMCID'] in test and row['Valid Label'] == 'True':
+                    annotations[row['PromptID']].append((i + 2, row))
+            articles = {}
+            for i, prompt in enumerate(csv.DictReader(io.StringIO(read('prompts_merged.csv')))):
+                pid, pmc = prompt['PromptID'], prompt['PMCID']
+                if pmc not in test or pid in flagged:
+                    continue
+                anns = annotations.get(pid, [])
+                codes = {r['Label Code'] for _, r in anns}
+                if (len(codes) != 1 or not codes <= set(options)
+                        or not any(r['Valid Reasoning'] == 'True' for _, r in anns)):
+                    self.exclusions['evidence_inference:unverified_or_conflicting'] += 1
+                    continue
+                assert all(r['PMCID'] == pmc and r['Label'].lower() == options[r['Label Code']].lower() for _, r in anns)
+                if pmc not in articles:
+                    root = ET.fromstring(read(f'xml_files/PMC{pmc}.nxml'))
+                    licenses = root.findall('./front/article-meta/permissions/license')
+                    valid = [node for node in licenses if re.fullmatch(r'https?://creativecommons.org/licenses/by/[0-9.]+/?', node.get('{http://www.w3.org/1999/xlink}href', ''))]
+                    if not valid:
+                        articles[pmc] = None
+                    else:
+                        meta = root.find('./front/article-meta')
+                        articles[pmc] = {
+                            'text': read(f'txt_files/PMC{pmc}.txt'),
+                            'attribution': {'pmcid': 'PMC' + pmc,
+                                'title': ''.join(meta.find('title-group/article-title').itertext()),
+                                'authors': [' '.join(''.join(x.itertext()).split()) for x in meta.findall('contrib-group/contrib/name')],
+                                'doi': next((x.text for x in meta.findall('article-id') if x.get('pub-id-type') == 'doi'), None),
+                                'license_url': valid[0].get('{http://www.w3.org/1999/xlink}href'),
+                                'license_statement': ''.join(valid[0].itertext()),
+                                'source_url': 'https://pmc.ncbi.nlm.nih.gov/articles/PMC' + pmc + '/'}}
+                article = articles[pmc]
+                if article is None:
+                    self.exclusions['evidence_inference:article_without_explicit_cc_by'] += 1
+                    continue
+                gold = next(iter(codes))
+                self.add('trial_effect_direction', 'evidence_inference', pid, 'PMC' + pmc,
+                         {'trial_report': article['text'], 'intervention': prompt['Intervention'],
+                          'comparator': prompt['Comparator'], 'outcome': prompt['Outcome']}, options, gold, name,
+                         {'zip_member': prefix + 'prompts_merged.csv', 'csv_row': i + 2, 'prompt_id': pid,
+                          'annotation_member': prefix + 'annotations_merged.csv', 'annotation_csv_rows': [n for n, _ in anns],
+                          'text_member': prefix + f'txt_files/PMC{pmc}.txt',
+                          'license_member': prefix + f'xml_files/PMC{pmc}.nxml',
+                          'split_member': prefix + 'splits/test_article_ids.txt'}, 'official_test_articles',
+                         article_attribution=article['attribution'], annotation_consensus='All valid labels agree',
+                         grouping_unit='publication', patient_record=False)
+
+    def chinese_scenario_additions(self, selection_file="selection_v070.json", source_filter=None):
+        """Pinned scope-reviewed questions; answers are always read from upstream."""
+        selection = json.loads((self.config / selection_file).read_text())['items']
+        if source_filter is not None:
+            selection = [x for x in selection if x['source'] in source_filter]
+        answer_file = 'cmb__CMB-test-choice-answer.json'
+        answers = {r['id']: (i, r) for i, r in enumerate(json.loads(self.path(answer_file).read_text()))}
+        with zipfile.ZipFile(self.path('cmb__CMB.zip')) as archive:
+            members = {x['member']: json.loads(archive.read(x['member'])) for x in selection if x['source'] == 'cmb'}
+        cnmle = json.loads(self.path('cnmleqa__CNMLEQA-10k.json').read_text())
+        pa = read_prescription_sheet(self.path('tcmeval_pa__TCMEval-PA.xlsx'))
+        for item in selection:
+            sid, index, task = item['source'], item['index'], item['task']
+            locator = {'json_index': index, 'answer_field': 'answer'}
+            metadata = {'eligibility': 'fixed_scope_review_v070' if selection_file == 'selection_v070.json' else 'fixed_scope_review_v080', 'independent_clinical_review': False}
+            if sid == 'cmb':
+                file = 'cmb__CMB.zip'; original = members[item['member']][index]
+                question, options = original['question'], original['option']
+                split = item['split']; uid = split + ':' + str(index)
+                locator['zip_member'] = item['member']
+                if split == 'official_test':
+                    ai, answer = answers[original['id']]
+                    if any(original[k] != answer[k] for k in ['exam_type', 'exam_class', 'exam_subject', 'question_type']):
+                        raise ValueError('CMB answer join mismatch')
+                    gold = answer['answer']
+                    locator.update(question_id=original['id'], answer_json_index=ai, supporting_resources=[answer_file])
+                else:
+                    gold = original['answer']
+                metadata['upstream_training_partition'] = split == 'upstream_train_reserved_for_local_evaluation'
+            elif sid == 'cnmleqa':
+                file = 'cnmleqa__CNMLEQA-10k.json'; original = cnmle[index]
+                question, gold = original['question'], original['answer']
+                options = {k: original[k] for k in ['opa', 'opb', 'opc', 'opd', 'ope']}
+                split, uid = item['split'], original['id']
+                locator['question_id'] = uid
+            else:
+                file = 'tcmeval_pa__TCMEval-PA.xlsx'; original = pa[item['xlsx_row']]
+                question, gold = original['Question'], original['Answer']
+                options = dict(re.findall(r'(?:^|\n)\s*([A-E])\.\s*(.*?)(?=\n\s*[A-E]\. |$)', original['Candidate Answers'], re.S))
+                options = {k: v.strip() for k, v in options.items()}
+                uid = original['ID']; split = 'published_benchmark_no_official_split'
+                locator = {'xlsx_sheet': '单选-多选', 'xlsx_row': item['xlsx_row'], 'upstream_id': uid, 'answer_column': 'D'}
+                metadata.update(rule_id=original['Rule_ID'], rule_summary=original['Rule_summary'],
+                                upstream_explanation=original['Explanation'])
+            if digest(question) != item['question_sha256'] or gold not in options or len(options) not in {4, 5}:
+                raise ValueError('Changed or malformed selected source item')
+            group = digest(re.sub(r'[^\w]', '', norm(question))[:60])[:24]
+            self.add(task, sid, uid, group, {'clinical_question': question}, options, gold,
+                     file, locator, split, language='zh', **metadata)
+            if sid in {'cmb', 'cnmleqa'}:
+                self.pools[task][-1]['group_id'] = 'zh_exam_case:' + group
+
+    def tcm_pathogenesis(self):
+        question_file, answer_file = 'tcmeval_sdt__Test_TCM_Data_v1.json', 'tcmeval_sdt__Test_data_result.txt'
+        questions = json.loads(self.path(question_file).read_text())
+        answers = {}
+        for line_number, line in enumerate(self.path(answer_file).read_text().splitlines(), 1):
+            if not line.strip():
+                continue
+            fields = line.split('@')
+            if len(fields) != 5 or fields[0] in answers:
+                raise ValueError('Malformed or duplicate TCMEval answer ID')
+            answers[fields[0]] = (line_number, fields[2])
+        if {r['Medical Record ID'] for r in questions} != set(answers) or len(questions) != len(answers):
+            raise ValueError('Unmatched TCMEval test IDs')
+        for i, row in enumerate(questions):
+            uid = row['Medical Record ID']; line, original_gold = answers[uid]
+            options = dict(x.split(':', 1) for x in row['Options of TCM Pathogenesis'].split(';'))
+            selected = set(original_gold.split(';'))
+            if not selected or not selected < set(options):
+                raise ValueError('Invalid TCMEval multi-select gold')
+            for label, candidates in [('yes', selected), ('no', set(options) - selected)]:
+                key = min(candidates, key=lambda k: digest([SEED, uid, k]))
+                self.add('tcm_pathogenesis_candidate', 'tcmeval_sdt', uid + ':' + key, uid,
+                         {'clinical_case': row['Clinical Data'], 'original_candidates': options,
+                          'target_candidate': {'key': key, 'text': options[key]}},
+                         {'yes': '属于上游专家所选病机集合', 'no': '不属于本题上游所选病机集合'}, label,
+                         question_file, {'json_index': i, 'case_id': uid, 'supporting_resources': [answer_file],
+                                         'answer_line': line, 'answer_field_zero_based': 2},
+                         'official_test', language='zh', original_selected_keys=sorted(selected),
+                         label_mapping='membership in original expert multi-select answer; one positive and one negative candidate per case',
+                         grouping_unit='case', independent_patient_claim=False)
+
+    def decoded_table(self, name):
+        """A frozen lossless Parquet export; original bytes remain authoritative."""
+        self.path(name)
+        entries = json.loads((self.config / 'table_exports.json').read_text())['exports']
+        entry = next(x for x in entries if x['resource'] == name)
+        path = (self.config / entry['path']).resolve()
+        if not path.is_relative_to(self.config.resolve()) or file_sha(path) != entry['sha256']:
+            raise ValueError('Unverified table export: ' + name)
+        rows = json.loads(path.read_text())
+        if len(rows) != entry['rows']:
+            raise ValueError('Changed table row count')
+        return rows
+
+    def scenario_additions_v080(self):
+        selection = json.loads((self.config / 'selection_v080.json').read_text())['items']
+        # Reuse the exact source-join implementation; the frozen v0.7 list is untouched.
+        self.chinese_scenario_additions('selection_v080.json', {'cmb', 'cnmleqa'})
+        tables = {'medmcqa': ('medmcqa__validation-00000-of-00001.parquet', self.decoded_table('medmcqa__validation-00000-of-00001.parquet')),
+                  'principlismqa': ('principlismqa__knowledge-mcqa.json', json.loads(self.path('principlismqa__knowledge-mcqa.json').read_text()))}
+        for item in selection:
+            sid = item['source']
+            if sid not in tables:
+                continue
+            file, rows = tables[sid]; row = rows[item['index']]
+            if digest(row['question']) != item['question_sha256']:
+                raise ValueError('Changed scope-reviewed question')
+            if sid == 'medmcqa':
+                if row['choice_type'] != 'single' or row['cop'] not in range(4):
+                    raise ValueError('Not an upstream single-answer question')
+                options = {key: row[key] for key in ['opa', 'opb', 'opc', 'opd']}
+                gold = list(options)[row['cop']]; field = 'cop'
+            else:
+                options, gold, field = row['options'], row['correct_answer'], 'correct_answer'
+            self.add(item['task'], sid, row['id'], row['id'], {'clinical_question': row['question']}, options, gold,
+                     file, {'row_index_zero_based': item['index'], 'upstream_id': row['id'], 'answer_field': field}, item['split'],
+                     eligibility='fixed_scope_review_v080', independent_clinical_review=False)
+
+    def message_priority(self):
+        pairs = []
+        for inbox in 'AB':
+            file = f'pmr_synth__INBOX_{inbox}-00000-of-00001.parquet'
+            for index, row in enumerate(self.decoded_table(file)):
+                if row['Label'] not in {'Patient #1', 'Patient #2'}:
+                    raise ValueError('Unknown urgency label')
+                pairs.append((file, inbox, index, row))
+        used_messages, used_ehrs = set(), set()
+        for file, inbox, index, row in sorted(pairs, key=lambda x: digest([SEED, x[0], x[2]])):
+            messages = [digest(row[f'MSG #{i}']) for i in [1, 2]]
+            ehrs = [digest(row[f'EHR #{i}']) for i in [1, 2]]
+            if len(set(messages)) != 2 or len(set(ehrs)) != 2 or used_messages.intersection(messages) or used_ehrs.intersection(ehrs):
+                continue
+            used_messages.update(messages); used_ehrs.update(ehrs)
+            self.add('message_urgency_pair', 'pmr_synth', f'{inbox}:{index}', digest(sorted(messages))[:24],
+                     {'patient_1': {'message': row['MSG #1'], 'ehr': row['EHR #1']},
+                      'patient_2': {'message': row['MSG #2'], 'ehr': row['EHR #2']}},
+                     {'Patient #1': 'Prioritize patient 1', 'Patient #2': 'Prioritize patient 2'}, row['Label'], file,
+                     {'row_index_zero_based': index, 'inbox': 'INBOX_' + inbox, 'answer_field': 'Label'},
+                     'published_inboxes_train_test_mapping_unresolved', original_inbox='INBOX_' + inbox,
+                     message_hashes=messages, ehr_hashes=ehrs, upstream_partition_mapping_unresolved=True,
+                     independent_patient_claim=False, pair_selection='seeded greedy matching without repeated message or EHR')
+
+    def record_sufficiency(self):
+        file = 'longhealth__data_benchmark_v5.json'; protocol = 'longhealth__task2.py'
+        self.path(protocol)
+        patients = json.loads(self.path(file).read_text())
+        for patient_index, (pid, patient) in enumerate(sorted(patients.items())):
+            other = sorted([key for key in patients if key != pid], key=lambda k: digest([SEED, pid, k]))[:2]
+            distractions = [(key, sorted(patients[key]['texts'])[0]) for key in other]
+            questions = sorted(patient['questions'], key=lambda q: digest([SEED, pid, q['No']]))[:5]
+            for index, q in enumerate(questions):
+                present = (index + patient_index) % 2 == 0
+                evidence = sorted(q['answer_location'])
+                if not evidence or any(key not in patient['texts'] for key in evidence):
+                    raise ValueError('Invalid answer-location annotation')
+                documents = {p + '/' + key: patients[p]['texts'][key] for p, key in distractions}
+                if present:
+                    documents.update({pid + '/' + key: patient['texts'][key] for key in evidence})
+                # Hide machine IDs; randomize display order without looking at answer text.
+                ordered = sorted(documents, key=lambda k: digest([SEED, pid, q['No'], k]))
+                self.add('input_sufficiency', 'longhealth', f"{pid}:{q['No']}:{int(present)}", pid,
+                         {'target_patient': patient['name'], 'question': q['question'],
+                          'documents': [{'document': i + 1, 'text': documents[k]} for i, k in enumerate(ordered)]},
+                         {'yes': 'Evidence needed to answer is present', 'no': 'Required patient evidence is absent'},
+                         'yes' if present else 'no', file,
+                         {'patient_key': pid, 'question_No': q['No'], 'answer_location_keys': evidence,
+                          'evidence_included': present, 'display_document_keys': ordered,
+                          'supporting_resources': [protocol]}, 'published_benchmark_controlled_evidence_ablation',
+                         stratum=pid, original_answer=q['correct'], fictional_patient=True,
+                         gold_mapping='binary projection of upstream task2.py answer_docs present/absent protocol',
+                         grouping_unit='target fictional patient; distractor records are shared', independent_patient_claim=False)
+
+    def run(self):
+        for name in ["nubes", "ddi", "sections", "medquad", "errors", "longhealth", "medcalc", "trialgpt", "chia", "frd", "scifact", "ddxplus", "tcm", "maccrobat", "chinese_exams", "relation_expansion", "e3c_attributes", "care_triage", "clinical_outcomes", "chinese_decision_expansion", "cnmle_decision_expansion"]:
+            getattr(self, name)()
+            print("Prepared", name, flush=True)
+        self.privacy_and_sepsis()
+        print('Prepared privacy_and_sepsis', flush=True)
+        self.reference_ranges()
+        print('Prepared reference_ranges', flush=True)
+        for method in ['laboratory_values', 'pharmacogenomic_rules', 'trial_comparative_effects', 'chinese_scenario_additions', 'tcm_pathogenesis', 'scenario_additions_v080', 'message_priority', 'record_sufficiency']:
+            getattr(self, method)()
+            print('Prepared', method, flush=True)
+        return self.pools
+
+
+def brat(text):
+    entities, relations = {}, []
+    for line in text.splitlines():
+        fields = line.split("\t")
+        if line.startswith("T") and len(fields) >= 3:
+            match = re.fullmatch(r"(\S+) (\d+) (\d+)", fields[1])
+            if match:
+                entities[fields[0]] = dict(type=match[1], start=int(match[2]), end=int(match[3]), text=fields[2])
+        elif line.startswith("R") and len(fields) >= 2:
+            match = re.fullmatch(r"(\S+) Arg1:(\S+) Arg2:(\S+)", fields[1].strip())
+            if match:
+                relations.append((fields[0], match[1], match[2], match[3]))
+    return entities, relations
+
+
+def valid_span(text, entity):
+    return 0 <= entity["start"] < entity["end"] <= len(text) and text[entity["start"]:entity["end"]] == entity["text"]
+
+
+def make_exposure_index(config, repo):
+    index = {"method": "NFKC, whitespace removal, casefold; exact strings >=24 chars and start/middle/end 160-character windows",
+             "limitations": "Exact/window screening only; no claim of semantic, translated, patient-level or foundation-model contamination freedom.",
+             "training_files": [], "historical_files": []}
+    train, history = set(), set()
+    for path in sorted((repo / "training").rglob("train.jsonl")):
+        if any(part in {"jev", "sft", "inputs", "grounded_sft"} for part in path.parts):
+            continue
+        index["training_files"].append({"path": str(path.relative_to(repo)), "sha256": file_sha(path)})
+        for row in read_jsonl(path):
+            train.update(signatures(row))
+    for path in sorted((repo / "scenarios").glob("*/*/samples.jsonl")):
+        index["historical_files"].append({"path": str(path.relative_to(repo)), "sha256": file_sha(path)})
+        for row in read_jsonl(path):
+            history.update(signatures(row["request"]["state"]))
+    index["training_signatures"] = sorted(train)
+    index["historical_signatures"] = sorted(history)
+    write_json(config / "exposure_index.json", index)
+    print("Indexed", len(index["training_files"]), "training files and", len(index["historical_files"]), "historical tasks")
+
+
+def select_rows(rows, n=100, max_per_group=5):
+    """Balanced deterministic strata, initially one question per source group.
+
+    A scarce stratum is exhausted before its remaining quota goes elsewhere. The
+    group cap increases from one to five only if necessary. No duplicates/padding.
+    """
+    by_request = collections.defaultdict(list)
+    for row in rows:
+        by_request[row["request_sha256"]].append(row)
+    clean, conflicts = [], 0
+    for candidates in by_request.values():
+        if len({r["gold"] for r in candidates}) != 1:
+            conflicts += len(candidates)
+            continue
+        clean.append(min(candidates, key=lambda r: digest([SEED, r["id"]])))
+    clean.sort(key=lambda r: digest([SEED, r["task"], r["id"]]))
+    pools = collections.defaultdict(list)
+    for row in clean:
+        pools[row["sampling_stratum"]].append(row)
+    selected, chosen = [], set()
+    groups, strata = collections.Counter(), collections.Counter()
+    for cap in range(1, max_per_group + 1):
+        while len(selected) < n:
+            progress = False
+            for key in sorted(pools, key=lambda k: (strata[k], digest([SEED, k]))):
+                candidate = next((r for r in pools[key] if r["id"] not in chosen and groups[r["group_id"]] < cap), None)
+                if candidate is None:
+                    continue
+                selected.append(candidate)
+                chosen.add(candidate["id"])
+                groups[candidate["group_id"]] += 1
+                strata[key] += 1
+                progress = True
+                if len(selected) == n:
+                    break
+            if not progress:
+                break
+        if len(selected) == n:
+            break
+    return sorted(selected, key=lambda r: digest([SEED, "output", r["id"]])), {
+        "raw_pool": len(rows), "unique_consistent_pool": len(clean), "conflicting_rows_removed": conflicts,
+        "duplicate_requests_removed": len(rows) - len(clean) - conflicts, "group_cap": max_per_group}
+
+
+def build(config, cache, output):
+    builder = Builder(config, cache)
+    pools = builder.run()
+    exposure = json.loads((config / "exposure_index.json").read_text())
+    train, history = set(exposure["training_signatures"]), set(exposure["historical_signatures"])
+    all_rows, task_reports = [], []
+    for task in builder.taxonomy["tasks"]:
+        raw = pools.get(task["id"], [])
+        clean = []
+        blocked = 0
+        for row in raw:
+            sig = signatures(row["request"]["state"])
+            if sig & train:
+                blocked += 1
+                continue
+            row["exposure"] = {"local_training_signature_match": False,
+                               "historical_material_signature_match": bool(sig & history),
+                               "screening": "frozen_exposure_index"}
+            clean.append(row)
+        selected, sampling = select_rows(clean, task["target_count"])
+        report = {**task, "count": len(selected), "groups": len({r["group_id"] for r in selected}),
+                  "status": "ready" if len(selected) == task["target_count"] else "partial" if selected else "empty",
+                  "sampling": {**sampling, "upstream_adapter_pool": len(raw), "local_training_matches_excluded": blocked},
+                  "label_counts": dict(collections.Counter(r["gold"] for r in selected)),
+                  "language_counts": dict(collections.Counter(r["language"] for r in selected)),
+                  "source_counts": dict(collections.Counter(r["provenance"]["source_id"] for r in selected)),
+                  "historical_material_matches": sum(r["exposure"]["historical_material_signature_match"] for r in selected)}
+        if raw and len(selected) < task["target_count"]:
+            report["missing_reason"] = "去重、训练重合筛查和来源分组限制后不足目标数量；保留实际数量。"
+        if task["source_ids"] and not raw:
+            raise ValueError("Adapter yielded no records for configured source task: " + task["id"])
+        task_reports.append(report)
+        all_rows.extend(selected)
+        write_jsonl(output / "tasks" / task["id"] / "samples.jsonl", selected)
+        write_json(output / "tasks" / task["id"] / "task.json", report)
+    write_jsonl(output / "samples.jsonl", all_rows)
+    write_jsonl(output / "requests.jsonl", ({"id": r["id"], "task": r["task"], "request": r["request"]} for r in all_rows))
+    write_jsonl(output / "answers.jsonl", ({"id": r["id"], "gold": r["gold"], "group_id": r["group_id"]} for r in all_rows))
+    # Source sharing across tasks is recorded, rather than counted as independent patients.
+    membership = collections.defaultdict(set)
+    for row in all_rows:
+        membership[row["group_id"]].add(row["task"])
+    summary = {"version": builder.taxonomy["version"], "seed": SEED, "total_tasks": len(task_reports),
+               "ready_tasks": sum(t["status"] == "ready" for t in task_reports),
+               "partial_tasks": sum(t["status"] == "partial" for t in task_reports),
+               "empty_tasks": sum(t["status"] == "empty" for t in task_reports),
+               "records": len(all_rows), "unique_source_groups": len(membership),
+               "languages": dict(collections.Counter(r["language"] for r in all_rows)),
+               "distribution_counts": dict(collections.Counter(r["provenance"]["distribution"] for r in all_rows)),
+               "historical_material_matches": sum(r["exposure"]["historical_material_signature_match"] for r in all_rows),
+               "adapter_exclusions": dict(builder.exclusions),
+               "shared_source_groups": {g: sorted(tasks) for g, tasks in membership.items() if len(tasks) > 1},
+               "tasks": task_reports}
+    summary["scenarios"] = [{**scene,
+        "defined_tasks": sum(t["primary_scenario"] == scene["id"] for t in task_reports),
+        "populated_tasks": sum(t["primary_scenario"] == scene["id"] and t["count"] > 0 for t in task_reports),
+        "records": sum(t["count"] for t in task_reports if t["primary_scenario"] == scene["id"])}
+        for scene in builder.taxonomy["scenarios"]]
+    write_json(output / "summary.json", summary)
+    generate_docs(output, builder, summary)
+    files = [p for p in output.rglob("*") if p.is_file() and p.name not in {"manifest.json", "validation.json"}]
+    write_json(output / "manifest.json", {"version": builder.taxonomy["version"], "builder_sha256": file_sha(Path(__file__)), "files": {
+        str(p.relative_to(output)): {"sha256": file_sha(p), "bytes": p.stat().st_size} for p in sorted(files)}})
+    return summary
+
+
+def generate_docs(output, builder, summary):
+    source_lines = ["# 数据来源与引用\n", "各来源分别保留其数据许可。`research_noncommercial` 为研究/非商业附加部分，不计入默认开放许可核心分数。\n"]
+    for sid, source in builder.sources.items():
+        source_lines += ["## " + source["name"] + "\n", "来源：[发布方](" + source["url"] + ")。\n"]
+        if source["distribution"] == "reference_only":
+            source_lines += ["状态：仅引用，未收录题目。" + source["reason"] + "\n"]
+            if source.get("evidence_url"):
+                source_lines += [f"核验日期：{source['checked_on']}；结论：{source['review_status']}。\n",
+                                 f"[发布证据]({source['evidence_url']})；许可：{source['data_license']}。\n",
+                                 "材料性质：" + source["authenticity"] + "\n",
+                                 "答案依据：" + source["gold_provenance"] + "\n"]
+            continue
+        source_lines += [f"引用：{source['attribution']}，[论文/项目]({source['citation_url']})。\n",
+                         f"数据许可：[{source['data_license']}]({source['license_url']})；分发类别：`{source['distribution']}`。\n",
+                         "材料性质：" + source["authenticity"] + "\n", "答案依据：" + source["gold_provenance"] + "\n",
+                         "许可与来源快照：" + "、".join(f"[{Path(p).name}]({p})" for p in source["license_evidence"]) + "。\n"]
+        if source.get('evaluation_limits'):
+            source_lines.append('评测范围：' + source['evaluation_limits'] + '\n')
+    (output / "SOURCES.md").write_text("\n".join(source_lines))
+    inventory = evaluation_inventory(output)
+    write_json(output / "evaluation-summary.json", inventory)
+    main = inventory["clinical"]
+    lines = ["# 医疗决策数据底稿", "",
+        "[项目首页](../../README.md) · [主评测任务](../../docs/tasks/README.md) · [辅助任务](../../docs/tasks/AUXILIARY.md) · [下载整理包](../../releases/README.md)", "",
+        f"主评测有 {main['defined_families']} 个任务定义、{main['populated_families']} 个有题任务，共 {main['records']:,} 题。诊断的考试与模拟病例合为一个任务，按来源分层。", "",
+        "本目录 samples.jsonl、requests.jsonl、answers.jsonl 是包含主评测、辅助及暂停任务的完整溯源底稿。模型评测应使用下方按范围导出的请求或下载对应整理包，不能把底稿全部题目当作临床主评测。", "",
+        "| 范围 | 定义任务 | 有题任务 | 题数 |", "| --- | ---: | ---: | ---: |"]
+    for key, title in [("clinical", "临床主评测"), ("auxiliary", "辅助评测"), ("suspended", "暂停使用")]:
+        item = inventory[key]
+        lines.append(f"| {title} | {item['defined_families']} | {item['populated_families']} | {item['records']} |")
+    lines += ["", "[执行范围与任务合并规则](evaluation_scope.json) · [范围统计](evaluation-summary.json) · [全部来源](SOURCES.md) · [来源锁定](sources.lock.json)", "",
+        "## 导出与评分", "", "```bash",
+        "python3 scripts/medical_decision_dataset.py export --output work/clinical-requests.jsonl",
+        "python3 scripts/medical_decision_dataset.py score --predictions work/predictions.jsonl --output work/clinical-scores.json",
+        "python3 scripts/medical_decision_dataset.py export --scope auxiliary --output work/auxiliary-requests.jsonl",
+        "```", "",
+        "默认仅处理临床主评测的开放许可部分。需要相应非商业数据时添加 --include-research。辅助范围必须显式传入 --scope auxiliary；暂停任务不导出、不评分。", "",
+        "数据复建命令与来源筛查见 [复建说明](../../docs/REPRODUCING.md)；评分口径见 [评测方法](../../docs/EVALUATION.md)。源题 ID、请求和原金标保留用于追溯；范围变化由独立策略文件及其哈希记录。"]
+    (output / "README.md").write_text("\n".join(lines) + "\n")
+    research = ["# 按医疗场景寻找任务与数据\n", "各来源的核验日期见来源登记。仅有数据可下载，不表示已满足当前任务的题目、答案、许可与隔离要求。以下为新增来源的采用状态和剩余步骤；已采用来源也可只覆盖某个场景的局部任务。\n"]
+    for scene in builder.taxonomy["scenarios"]:
+        relevant = [t for t in summary["tasks"] if t["primary_scenario"] == scene["id"]]
+        research += ["## " + scene["title"] + "\n", scene["scope"] + "\n",
+                     "任务：" + "、".join(t["title"] for t in relevant) + "。\n"]
+        adopted = sorted({sid for t in relevant if t["count"] for sid in t["source_ids"]})
+        research += ["已有题目来源：" + ("、".join(f"[{builder.sources[sid]['name']}]({builder.sources[sid]['url']})" for sid in adopted) or "暂无") + "。\n"]
+        for source in builder.sources.values():
+            if scene["id"] not in source.get("scenario_ids", []):
+                continue
+            research += [f"### [{source['name']}]({source['url']})\n",
+                         "材料：" + source["authenticity"] + "\n", "金标：" + source["gold_provenance"] + "\n",
+                         "许可：" + source["data_license"] + "。\n"]
+            if source["distribution"] == "reference_only":
+                research += [f"状态：{source['review_status']}。{source['reason']}\n", f"[核验依据]({source['evidence_url']})。\n"]
+            else:
+                research += ["状态：已采用。抽样和转换见任务目录及逐题来源定位。\n"]
+    (output / "SCENARIO_RESEARCH.md").write_text("\n".join(research))
+
+
+def validate(dataset):
+    evaluation_policy(dataset)
+    manifest = json.loads((dataset / "manifest.json").read_text())
+    if "evaluation_scope.json" not in manifest["files"]:
+        raise ValueError("Evaluation scope missing from manifest")
+    for name, record in manifest["files"].items():
+        if file_sha(dataset / name) != record["sha256"]:
+            raise ValueError("Manifest mismatch: " + name)
+    taxonomy = json.loads((dataset / "taxonomy.json").read_text())
+    definitions = {x["id"]: x for x in taxonomy["tasks"]}
+    scenarios = {x["id"] for x in taxonomy["scenarios"]}
+    abilities = {x["id"] for x in taxonomy["dimensions"]}
+    assert len(scenarios) == 8 and len(definitions) == len(taxonomy["tasks"])
+    sources = {x["id"]: x for x in json.loads((dataset / "sources.json").read_text())["sources"]}
+    resources = {x["name"]: x for x in json.loads((dataset / "sources.lock.json").read_text())["files"]}
+    for task in definitions.values():
+        assert task["primary_scenario"] in scenarios
+        assert task["dimension"] in task["ability_tags"] and set(task["ability_tags"]) <= abilities
+        assert set(task["source_ids"] + task["candidate_source_ids"]) <= set(sources)
+    for card in sources.values():
+        if card["distribution"] != "reference_only":
+            assert card["license_evidence"] and all((dataset / p).is_file() for p in card["license_evidence"])
+    rows = list(read_jsonl(dataset / "samples.jsonl"))
+    ids = set()
+    by_task = collections.defaultdict(list)
+    exposure = json.loads((dataset / "exposure_index.json").read_text())
+    train = set(exposure["training_signatures"])
+    for row in rows:
+        if row["id"] in ids:
+            raise ValueError("Duplicate ID: " + row["id"])
+        ids.add(row["id"])
+        by_task[row["task"]].append(row)
+        assert row["task"] in definitions
+        assert row["dimension"] == definitions[row["task"]]["dimension"]
+        assert row["primary_scenario"] == definitions[row["task"]]["primary_scenario"]
+        assert row["ability_tags"] == definitions[row["task"]]["ability_tags"]
+        assert row["decision_stage"] == definitions[row["task"]]["decision_stage"]
+        assert set(row["request"]) == {"state", "questions"}
+        assert set(row["request"]["questions"]) == {"decision"}
+        question = row["request"]["questions"]["decision"]
+        assert question["type"] == "choice" and row["gold"] in question["criteria"]
+        assert row["request_sha256"] == digest(row["request"])
+        assert not signatures(row["request"]["state"]) & train
+        card = sources[row["provenance"]["source_id"]]
+        assert card["distribution"] != "reference_only"
+        assert card["data_license"] == row["provenance"]["data_license"]
+        assert card["distribution"] == row["provenance"]["distribution"]
+        assert row["provenance"]["resource_sha256"] == resources[row["provenance"]["resource"]]["sha256"]
+        forbidden = {"gold", "correct", "corrected_text", "ground_truth_answer", "error_flag", "error_sentence_id"}
+        def keys(value):
+            if isinstance(value, dict):
+                for key, val in value.items():
+                    yield str(key).lower()
+                    yield from keys(val)
+            elif isinstance(value, list):
+                for item in value:
+                    yield from keys(item)
+        assert not set(keys(row["request"]["state"])) & forbidden
+    for task in definitions:
+        part = list(read_jsonl(dataset / "tasks" / task / "samples.jsonl"))
+        report = json.loads((dataset / "tasks" / task / "task.json").read_text())
+        assert part == by_task[task]
+        assert len(part) == report["count"] <= definitions[task]["target_count"]
+        assert len({r["request_sha256"] for r in part}) == len(part)
+        assert max(collections.Counter(r["group_id"] for r in part).values(), default=0) <= 5
+        assert bool(part) == (report["status"] != "empty")
+    requests = list(read_jsonl(dataset / "requests.jsonl"))
+    assert requests == [{"id": r["id"], "task": r["task"], "request": r["request"]} for r in rows]
+    assert list(read_jsonl(dataset / "answers.jsonl")) == [{"id": r["id"], "gold": r["gold"], "group_id": r["group_id"]} for r in rows]
+    now = {r["id"]: {"request_sha256": r["request_sha256"], "gold": r["gold"]} for r in rows}
+    for baseline in sorted((dataset / "history").glob("*_sample_identity.json")):
+        previous = json.loads(baseline.read_text())
+        assert all(now.get(uid) == identity for uid, identity in previous.items()), "Existing frozen questions changed: " + baseline.name
+    result = {"passed": True, "records": len(rows), "task_definitions": len(definitions),
+              "checks": ["manifest hashes", "unique IDs", "per-task counts", "label membership", "request-only export", "answer separation", "source licenses", "no training fingerprint matches", "group cap", "empty-task representation", "primary scenario and ability tags", "all frozen question identities preserved"]}
+    write_json(dataset / "validation.json", result)
+    return result
+
+
+def evaluation_policy(dataset):
+    policy = json.loads((dataset / "evaluation_scope.json").read_text())
+    taxonomy = json.loads((dataset / "taxonomy.json").read_text())
+    definitions = {t["id"]: t for t in taxonomy["tasks"]}
+    if set(policy["tasks"]) != set(definitions):
+        raise ValueError("Evaluation scope must cover every task exactly once")
+    if policy["minimum_summary_questions"] < 1:
+        raise ValueError("Invalid summary sample threshold")
+    families = {}
+    for tid, rule in policy["tasks"].items():
+        if rule["scope"] not in {"clinical", "auxiliary", "suspended"} or rule["label_semantics"] not in {"fixed", "per_question"}:
+            raise ValueError("Invalid evaluation rule: " + tid)
+        signature = (rule["scope"], definitions[tid]["primary_scenario"], rule["family_title"], rule["label_semantics"])
+        if families.setdefault(rule["family"], signature) != signature:
+            raise ValueError("Inconsistent task family: " + rule["family"])
+    return policy
+
+
+def evaluation_rows(dataset, include_research=False, scope="clinical"):
+    if scope not in {"clinical", "auxiliary"}:
+        raise ValueError("Choose clinical or auxiliary; suspended tasks cannot be evaluated")
+    policy = evaluation_policy(dataset)
+    return [r for r in read_jsonl(dataset / "samples.jsonl")
+            if policy["tasks"][r["task"]]["scope"] == scope
+            and (include_research or r["provenance"]["distribution"] == "open")]
+
+
+def evaluation_inventory(dataset):
+    policy = evaluation_policy(dataset)
+    taxonomy = json.loads((dataset / "taxonomy.json").read_text())
+    definitions = {t["id"]: t for t in taxonomy["tasks"]}
+    rows = list(read_jsonl(dataset / "samples.jsonl"))
+    output = {}
+    for scope in ["clinical", "auxiliary", "suspended"]:
+        families = {}
+        for tid, rule in policy["tasks"].items():
+            if rule["scope"] != scope:
+                continue
+            item = families.setdefault(rule["family"], {"id": rule["family"], "title": rule["family_title"],
+                "scenario": definitions[tid]["primary_scenario"], "task_ids": [], "ability_tags": set()})
+            item["task_ids"].append(tid)
+            item["ability_tags"].update(definitions[tid]["ability_tags"])
+        selected = [r for r in rows if policy["tasks"][r["task"]]["scope"] == scope]
+        for item in families.values():
+            part = [r for r in selected if r["task"] in item["task_ids"]]
+            item.update(records=len(part), ability_tags=sorted(item["ability_tags"]),
+                        sources=dict(collections.Counter(r["provenance"]["source_id"] for r in part)),
+                        languages=dict(collections.Counter(r["language"] for r in part)),
+                        distribution=dict(collections.Counter(r["provenance"]["distribution"] for r in part)),
+                        small_sample=0 < len(part) < policy.get("small_sample_warning_questions", 20),
+                        status="empty" if not part else "exploratory" if len(part) < policy["minimum_summary_questions"] else "summary_eligible")
+        output[scope] = {"defined_families": len(families), "populated_families": sum(x["records"] > 0 for x in families.values()),
+            "records": len(selected), "distribution": dict(collections.Counter(r["provenance"]["distribution"] for r in selected)),
+            "languages": dict(collections.Counter(r["language"] for r in selected)),
+            "sources": dict(collections.Counter(r["provenance"]["source_id"] for r in selected)), "families": list(families.values())}
+    return output
+
+
+def metrics(rows, predictions, semantic_labels=False, positive_label=None):
+    if semantic_labels:
+        meanings = collections.defaultdict(set)
+        for row in rows:
+            for key, value in row["request"]["questions"]["decision"]["criteria"].items():
+                meanings[key].add(value)
+        if any(len(values) > 1 for values in meanings.values()):
+            raise ValueError("Fixed semantic labels have inconsistent option meanings")
+    tp, fp, fn = collections.Counter(), collections.Counter(), collections.Counter()
+    groups = collections.defaultdict(list)
+    correct = missing = invalid = 0
+    labels = sorted({r["gold"] for r in rows})
+    candidates = {k for r in rows for k in r["request"]["questions"]["decision"]["criteria"]}
+    for row in rows:
+        pred = predictions.get(row["id"])
+        if row["id"] not in predictions:
+            missing += 1
+        elif pred not in row["request"]["questions"]["decision"]["criteria"]:
+            invalid += 1
+        good = pred == row["gold"]
+        groups[row["group_id"]].append(good)
+        correct += good
+        if good:
+            tp[row["gold"]] += 1
+        else:
+            fp[pred] += 1
+            fn[row["gold"]] += 1
+    per_class = {label: {"support": tp[label] + fn[label], "recall": tp[label] / (tp[label] + fn[label]),
+                         "f1": 2 * tp[label] / (2 * tp[label] + fp[label] + fn[label])} for label in labels}
+    result = {"n": len(rows), "correct": correct, "accuracy": correct / len(rows),
+            "label_semantics": "fixed" if semantic_labels else "per_question",
+            "macro_f1": sum(x["f1"] for x in per_class.values()) / len(per_class) if semantic_labels else None,
+            "balanced_accuracy": sum(x["recall"] for x in per_class.values()) / len(per_class) if semantic_labels else None,
+            "missing": missing, "invalid": invalid, "per_class": per_class if semantic_labels else {},
+            "candidate_labels_without_gold": sorted(candidates - set(labels)),
+            "groups": len(groups), "groups_all_correct": sum(all(x) for x in groups.values()),
+            "group_all_correct_rate": sum(all(x) for x in groups.values()) / len(groups)}
+    if semantic_labels:
+        confusion = collections.defaultdict(collections.Counter)
+        for row in rows:
+            pred = predictions.get(row["id"])
+            bucket = "<missing>" if row["id"] not in predictions else pred if pred in row["request"]["questions"]["decision"]["criteria"] else "<invalid>"
+            confusion[row["gold"]][bucket] += 1
+        gold_counts = collections.Counter(r["gold"] for r in rows)
+        majority, n = gold_counts.most_common(1)[0]
+        result.update(confusion={k: dict(v) for k, v in confusion.items()},
+                      sample_majority_label=majority, sample_majority_accuracy=n / len(rows))
+        if positive_label is not None:
+            negative = [r for r in rows if r["gold"] != positive_label]
+            result["positive_recall"] = per_class.get(positive_label, {}).get("recall")
+            result["specificity"] = sum(predictions.get(r["id"]) == r["gold"] for r in negative) / len(negative) if negative else None
+    return result
+
+
+def score(dataset, prediction_path, include_research=False, scope="clinical"):
+    policy = evaluation_policy(dataset)
+    rows = evaluation_rows(dataset, include_research, scope)
+    known = {r["id"] for r in rows}
+    if not rows:
+        raise ValueError("No records in selected evaluation scope and license slice")
+    predictions = {}
+    for record in read_jsonl(prediction_path):
+        if not isinstance(record, dict) or not isinstance(record.get("id"), str):
+            raise ValueError("Prediction must be an object with a string ID")
+        uid = record.get("id")
+        if uid not in known or uid in predictions:
+            raise ValueError("Unknown, out-of-scope or duplicate prediction ID: " + str(uid))
+        value = record.get("choice")
+        if value is None:
+            try:
+                value = record["response"]["answers"]["decision"]["choice"]
+            except (KeyError, TypeError):
+                value = None
+        # A numeric value, explanation, list or malformed response is not a valid option key.
+        predictions[uid] = value if isinstance(value, str) else None
+    tasks = collections.defaultdict(list)
+    for row in rows:
+        tasks[row["task"]].append(row)
+    results = {task: metrics(items, predictions, policy["tasks"][task]["label_semantics"] == "fixed",
+                             policy["tasks"][task].get("positive_label")) for task, items in sorted(tasks.items())}
+    family_rows = collections.defaultdict(list)
+    for row in rows:
+        family_rows[policy["tasks"][row["task"]]["family"]].append(row)
+    family_results = {}
+    for family, items in sorted(family_rows.items()):
+        rule = policy["tasks"][items[0]["task"]]
+        family_results[family] = {**metrics(items, predictions, rule["label_semantics"] == "fixed", rule.get("positive_label")),
+            "title": rule["family_title"], "task_ids": sorted({r["task"] for r in items}),
+            "summary_eligible": len(items) >= policy["minimum_summary_questions"],
+            "small_sample": len(items) < policy.get("small_sample_warning_questions", 20)}
+    for tid, result in results.items():
+        result.update(title=policy["tasks"][tid]["title"], family=policy["tasks"][tid]["family"],
+                      exploratory=not family_results[policy["tasks"][tid]["family"]]["summary_eligible"],
+                      small_sample=family_results[policy["tasks"][tid]["family"]]["small_sample"])
+    aggregate = {}
+    for name, key in [("primary_scenario", lambda r: r["primary_scenario"]),
+                      ("decision_stage", lambda r: r["decision_stage"]),
+                      ("dimension", lambda r: r["dimension"]), ("decision_mode", lambda r: r["decision_mode"]),
+                      ("material_kind", lambda r: r["provenance"]["material_kind"]), ("language", lambda r: r["language"]),
+                      ("distribution", lambda r: r["provenance"]["distribution"]),
+                      ("upstream_split", lambda r: r["provenance"].get("split", "unspecified")),
+                      ("sample_completeness", lambda r: "at_least_100" if len(tasks[r["task"]]) >= 100 else "below_100"),
+                      ("historical_material_match", lambda r: str(r["exposure"]["historical_material_signature_match"]).lower())]:
+        parts = collections.defaultdict(lambda: collections.defaultdict(list))
+        for row in rows:
+            parts[key(row)][row["task"]].append(row)
+        aggregate[name] = {value: {"n": sum(len(x) for x in groups.values()), "tasks": len(groups),
+                                   "task_macro_accuracy": sum(metrics(items, predictions)["accuracy"] for items in groups.values()) / len(groups)}
+                           for value, groups in parts.items()}
+    taxonomy = json.loads((dataset / "taxonomy.json").read_text())
+    scoped_taxonomy = {**taxonomy, "tasks": []}
+    seen = set()
+    for task in taxonomy["tasks"]:
+        rule = policy["tasks"][task["id"]]
+        if rule["scope"] == scope and rule["family"] not in seen:
+            scoped_taxonomy["tasks"].append({"id": rule["family"], "primary_scenario": task["primary_scenario"]})
+            seen.add(rule["family"])
+    eligible = {f: v for f, v in family_results.items() if v["summary_eligible"]}
+    scene_scores = scenario_scores(scoped_taxonomy, eligible, family_rows)
+    for scene in taxonomy["scenarios"]:
+        present = [f for f, part in family_rows.items() if part[0]["primary_scenario"] == scene["id"]]
+        scene_scores[scene["id"]].update(populated_families=len(present),
+            exploratory_families=sum(not family_results[f]["summary_eligible"] for f in present),
+            small_sample_families=sum(family_results[f]["small_sample"] for f in present),
+            all_records=sum(len(family_rows[f]) for f in present))
+    covered = [s["task_macro_accuracy"] for s in scene_scores.values() if s["task_macro_accuracy"] is not None]
+    ability_parts = collections.defaultdict(lambda: collections.defaultdict(list))
+    for row in rows:
+        for tag in row["ability_tags"]:
+            ability_parts[tag][row["task"]].append(row)
+    aggregate["ability_tags_overlapping"] = {tag: {"tasks": len(parts), "n": sum(len(items) for items in parts.values()),
+        "task_macro_accuracy": sum(metrics(items, predictions)["accuracy"] for items in parts.values()) / len(parts)}
+        for tag, parts in ability_parts.items()}
+    return {"dataset_version": taxonomy["version"],
+            "dataset_manifest_sha256": file_sha(dataset / "manifest.json"),
+            "predictions_sha256": file_sha(prediction_path),
+            "evaluation_scope": scope, "scope_policy_sha256": file_sha(dataset / "evaluation_scope.json"),
+            "evaluated_ids_sha256": digest(sorted(known)), "minimum_summary_questions": policy["minimum_summary_questions"],
+            "small_sample_warning_questions": policy.get("small_sample_warning_questions", 20),
+            "include_research": include_research, "records": len(rows),
+            "scored_tasks": len(family_results), "scored_subtasks": len(results), "summary_eligible_tasks": len(eligible),
+            "task_macro_accuracy": sum(r["accuracy"] for r in eligible.values()) / len(eligible) if eligible else None,
+            "scenario_macro_accuracy": sum(covered) / len(covered) if covered else None,
+            "covered_scenarios": len(covered), "defined_scenarios": len(taxonomy["scenarios"]), "scenarios": scene_scores,
+            "primary_clinical_score": sum(covered) / len(covered) if covered and scope == "clinical" else None,
+            "tasks": results, "task_families": family_results, "stratified": aggregate,
+            "note": "Summaries follow minimum_summary_questions; small_sample is a warning only and does not exclude tasks. Auxiliary scores are not clinical scores. Fixed semantic labels alone receive F1/recall; source and ability strata are descriptive only."}
+
+
+def scenario_scores(taxonomy, results, tasks):
+    output = {}
+    for scene in taxonomy["scenarios"]:
+        defined = [t["id"] for t in taxonomy["tasks"] if t["primary_scenario"] == scene["id"]]
+        present = [tid for tid in defined if tid in results]
+        output[scene["id"]] = {"title": scene["title"], "defined_tasks": len(defined), "scored_tasks": len(present),
+            "records": sum(len(tasks[tid]) for tid in present),
+            "task_macro_accuracy": sum(results[tid]["accuracy"] for tid in present) / len(present) if present else None}
+    return output
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("command", choices=["fetch", "index", "build", "validate", "export", "score"])
+    parser.add_argument("--dataset", type=Path, default=DEFAULT)
+    parser.add_argument("--cache", type=Path, default=CACHE)
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--predictions", type=Path)
+    parser.add_argument("--include-research", action="store_true")
+    parser.add_argument("--scope", choices=["clinical", "auxiliary"], default="clinical")
+    args = parser.parse_args()
+    if args.command == "fetch":
+        fetch(args.dataset, args.cache)
+    elif args.command == "index":
+        make_exposure_index(args.dataset, ROOT)
+    elif args.command == "build":
+        if args.output and args.output != args.dataset:
+            raise SystemExit("Build in a copied dataset directory using --dataset; config and output must stay together.")
+        summary = build(args.dataset, args.cache, args.dataset)
+        print(dumps({k: v for k, v in summary.items() if k not in {"tasks", "shared_source_groups", "adapter_exclusions"}}))
+        print(dumps(validate(args.dataset)))
+    elif args.command == "validate":
+        print(dumps(validate(args.dataset)))
+    elif args.command == "export":
+        if not args.output:
+            parser.error("export requires --output")
+        validate(args.dataset)
+        rows = evaluation_rows(args.dataset, args.include_research, args.scope)
+        write_jsonl(args.output, ({"id": r["id"], "task": r["task"], "request": r["request"]} for r in rows))
+        print("Exported", len(rows), "requests")
+    elif args.command == "score":
+        if not args.predictions or not args.output:
+            parser.error("score requires --predictions and --output")
+        validate(args.dataset)
+        result = score(args.dataset, args.predictions, args.include_research, args.scope)
+        write_json(args.output, result)
+        print(dumps({k: v for k, v in result.items() if k not in {"tasks", "stratified"}}))
+
+
+if __name__ == "__main__":
+    main()

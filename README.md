@@ -338,6 +338,8 @@
 
 [全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)
 
+以上耗时仅对应单题 Choice、8 路并发；不代表多问题或高并发性能。[补充性能测试](docs/PERFORMANCE_RESULTS.md)另测 1～64 路并发及单请求 1～200 问，并报告有效吞吐、完整率和用量成本。
+
 ## 许可
 
 第三方数据保留各自的原始许可；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。

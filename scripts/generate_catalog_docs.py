@@ -412,7 +412,8 @@ def render():
             [m['label'], scores[i], means[i], p95s[i], f"{m['timing']['success']} / {m['timing']['total']}"]
             for i, m in enumerate(models)], numeric_from=1),
             '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
-            '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)'])
+            '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)',
+            '以上耗时仅对应单题 Choice、8 路并发；不代表多问题或高并发性能。[补充性能测试](docs/PERFORMANCE_RESULTS.md)另测 1～64 路并发及单请求 1～200 问，并报告有效吞吐、完整率和用量成本。'])
     parts.extend(['## 许可', '第三方数据保留各自的原始许可；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
     output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
     return output
