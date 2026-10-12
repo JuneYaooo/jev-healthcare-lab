@@ -1,0 +1,6 @@
+{
+  "reason": "DNS diagnostic: system getaddrinfo(api.typesafe.ai) took 30.004s in both AF_INET and AF_UNSPEC; api.deepseek.com 0.005s. Abort load; resolve DNS before subsequent controlled run.",
+  "completed_or_skipped_cells": 13,
+  "inflight_records_retained": false,
+  "note": "SIGINT stopped active cell; unfinished cell requests and cost are not fully captured. This archive is an incomplete environment pilot, never a formal throughput comparison."
+}

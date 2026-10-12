@@ -1,0 +1,541 @@
+{
+  "records": [
+    {
+      "item_id": "case_complication/b8/0",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 3.333398490212858e-05,
+      "admission_wait_s": 2.2958993213251233e-05,
+      "started_at": "2026-10-12T08:22:56.347516+00:00",
+      "decisions": 8,
+      "request_sha256": "24adc438d46426958137fba5e33b1906d577357117edbeca8cdba6515e306bf1",
+      "provider_request_sha256": "692e79763c3546931caab84d6ddcc2329604442943f71d377c0d4791ed487cde",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 7,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 1034,
+      "response_headers": {
+        "x-typesafe-request-id": "req_01a12f352eea7590a247abe5fd9b15ac"
+      },
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "q000": {
+            "type": "choice",
+            "choice": "C",
+            "confidence": 0.89,
+            "probabilities": {
+              "A": 0.01,
+              "B": 0.07,
+              "C": 0.91,
+              "D": 0.0,
+              "E": 0.01
+            }
+          },
+          "q001": {
+            "type": "choice",
+            "choice": "B",
+            "confidence": 0.61,
+            "probabilities": {
+              "A": 0.2,
+              "B": 0.69,
+              "C": 0.08,
+              "D": 0.02,
+              "E": 0.01
+            }
+          },
+          "q002": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 1.0,
+              "E": 0.0
+            }
+          },
+          "q003": {
+            "type": "choice",
+            "choice": "opa",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 1.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 0.0
+            }
+          },
+          "q004": {
+            "type": "choice",
+            "choice": "opc",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 1.0,
+              "opd": 0.0,
+              "ope": 0.0
+            }
+          },
+          "q005": {
+            "type": "choice",
+            "choice": "B",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0,
+              "E": 0.0
+            }
+          },
+          "q006": {
+            "type": "choice",
+            "choice": "E",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0,
+              "E": 1.0
+            }
+          },
+          "q007": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 1.0,
+              "ope": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 2527,
+          "output_tokens": 426
+        }
+      },
+      "elapsed_s": 0.741768250009045,
+      "ended_at": "2026-10-12T08:22:57.089284+00:00",
+      "completion_s": 0.7418015839939471
+    },
+    {
+      "item_id": "case_complication/b8/1",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 2.8292008209973574e-05,
+      "admission_wait_s": 1.18750031106174e-05,
+      "started_at": "2026-10-12T08:22:57.089369+00:00",
+      "decisions": 8,
+      "request_sha256": "50ef46f277b3907c06fab1a65f58c9918034326fbd46f53b03823e3550464eb2",
+      "provider_request_sha256": "770ef87dcfa8d3babbddb65760dc0382df0742c2bf8ee04f3a46a71f73207823",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 1075,
+      "response_headers": {
+        "x-typesafe-request-id": "req_01a12f352ff17ef2b43e08bae1d56c08"
+      },
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "q000": {
+            "type": "choice",
+            "choice": "opc",
+            "confidence": 0.92,
+            "probabilities": {
+              "opa": 0.05,
+              "opb": 0.0,
+              "opc": 0.94,
+              "opd": 0.0,
+              "ope": 0.01
+            }
+          },
+          "q001": {
+            "type": "choice",
+            "choice": "opb",
+            "confidence": 0.94,
+            "probabilities": {
+              "opa": 0.01,
+              "opb": 0.95,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 0.04
+            }
+          },
+          "q002": {
+            "type": "choice",
+            "choice": "opa",
+            "confidence": 0.92,
+            "probabilities": {
+              "opa": 0.9400000000000001,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.06,
+              "ope": 0.0
+            }
+          },
+          "q003": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 1.0,
+              "E": 0.0
+            }
+          },
+          "q004": {
+            "type": "choice",
+            "choice": "B",
+            "confidence": 0.94,
+            "probabilities": {
+              "A": 0.03,
+              "B": 0.95,
+              "C": 0.02,
+              "D": 0.0,
+              "E": 0.0
+            }
+          },
+          "q005": {
+            "type": "choice",
+            "choice": "opa",
+            "confidence": 0.85,
+            "probabilities": {
+              "opa": 0.88,
+              "opb": 0.07,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 0.05
+            }
+          },
+          "q006": {
+            "type": "choice",
+            "choice": "C",
+            "confidence": 0.91,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.93,
+              "D": 0.07,
+              "E": 0.0
+            }
+          },
+          "q007": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 0.99,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.01,
+              "C": 0.0,
+              "D": 0.99,
+              "E": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 2562,
+          "output_tokens": 428
+        }
+      },
+      "elapsed_s": 0.2625282499939203,
+      "ended_at": "2026-10-12T08:22:57.351905+00:00",
+      "completion_s": 0.2625565420021303
+    },
+    {
+      "item_id": "case_complication/b8/2",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 1.783299376256764e-05,
+      "admission_wait_s": 8.665985660627484e-06,
+      "started_at": "2026-10-12T08:22:57.351982+00:00",
+      "decisions": 8,
+      "request_sha256": "034d56023bd2b0a86c4839f40ad31f32ca4fb9d181bf5711d7398d719fd1dd40",
+      "provider_request_sha256": "844f604a124c64b31033867b0b9426066a505bbe554fc459b2bcc6b1dc0e4f0e",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 1044,
+      "response_headers": {
+        "x-typesafe-request-id": "req_01a12f3530ec7a888d40a9dff99fd828"
+      },
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "q000": {
+            "type": "choice",
+            "choice": "E",
+            "confidence": 0.99,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.01,
+              "E": 0.99
+            }
+          },
+          "q001": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 0.65,
+            "probabilities": {
+              "opa": 0.09,
+              "opb": 0.03,
+              "opc": 0.13,
+              "opd": 0.72,
+              "ope": 0.03
+            }
+          },
+          "q002": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 0.79,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.17,
+              "D": 0.83,
+              "E": 0.0
+            }
+          },
+          "q003": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 1.0,
+              "E": 0.0
+            }
+          },
+          "q004": {
+            "type": "choice",
+            "choice": "C",
+            "confidence": 0.37,
+            "probabilities": {
+              "A": 0.14,
+              "B": 0.05,
+              "C": 0.5,
+              "D": 0.01,
+              "E": 0.3
+            }
+          },
+          "q005": {
+            "type": "choice",
+            "choice": "ope",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 1.0
+            }
+          },
+          "q006": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 0.97,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.01,
+              "opd": 0.98,
+              "ope": 0.01
+            }
+          },
+          "q007": {
+            "type": "choice",
+            "choice": "A",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0,
+              "E": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 2510,
+          "output_tokens": 427
+        }
+      },
+      "elapsed_s": 0.2723686670069583,
+      "ended_at": "2026-10-12T08:22:57.624352+00:00",
+      "completion_s": 0.27238650000072084
+    },
+    {
+      "item_id": "case_complication/b8/3",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 4.0000013541430235e-06,
+      "admission_wait_s": 2.1659943740814924e-06,
+      "started_at": "2026-10-12T08:22:57.624368+00:00",
+      "decisions": 8,
+      "request_sha256": "50184ab1d92d8628b8a87f4404d8512a9a2a9f1c5d7d151f64889bee90940766",
+      "provider_request_sha256": "5386ead1dc7ae61f96dacb0608d08ebaaab0343c24dbf82b3588975ed9b313d2",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 7,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 1054,
+      "response_headers": {
+        "x-typesafe-request-id": "req_01a12f3531fc7c09a598b7f6a28637df"
+      },
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "q000": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 1.0,
+              "ope": 0.0
+            }
+          },
+          "q001": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 0.97,
+            "probabilities": {
+              "A": 0.01,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.98,
+              "E": 0.01
+            }
+          },
+          "q002": {
+            "type": "choice",
+            "choice": "C",
+            "confidence": 0.99,
+            "probabilities": {
+              "A": 0.01,
+              "B": 0.0,
+              "C": 0.99,
+              "D": 0.0,
+              "E": 0.0
+            }
+          },
+          "q003": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 0.99,
+            "probabilities": {
+              "A": 0.01,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.99,
+              "E": 0.0
+            }
+          },
+          "q004": {
+            "type": "choice",
+            "choice": "ope",
+            "confidence": 0.99,
+            "probabilities": {
+              "opa": 0.01,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 0.99
+            }
+          },
+          "q005": {
+            "type": "choice",
+            "choice": "B",
+            "confidence": 0.36,
+            "probabilities": {
+              "A": 0.06,
+              "B": 0.49,
+              "C": 0.07,
+              "D": 0.02,
+              "E": 0.36
+            }
+          },
+          "q006": {
+            "type": "choice",
+            "choice": "opa",
+            "confidence": 0.57,
+            "probabilities": {
+              "opa": 0.66,
+              "opb": 0.04,
+              "opc": 0.03,
+              "opd": 0.27,
+              "ope": 0.0
+            }
+          },
+          "q007": {
+            "type": "choice",
+            "choice": "E",
+            "confidence": 0.66,
+            "probabilities": {
+              "A": 0.05,
+              "B": 0.06,
+              "C": 0.07,
+              "D": 0.09,
+              "E": 0.73
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 2446,
+          "output_tokens": 426
+        }
+      },
+      "elapsed_s": 0.2387248750019353,
+      "ended_at": "2026-10-12T08:22:57.863098+00:00",
+      "completion_s": 0.23872887500328943
+    }
+  ],
+  "token_estimates": {
+    "case_complication/b8/0": 2780,
+    "case_complication/b8/1": 2819,
+    "case_complication/b8/2": 2761,
+    "case_complication/b8/3": 2691,
+    "routing/board-0-q1": 17757,
+    "routing/board-0-q10": 19377,
+    "routing/board-0-q50": 26577,
+    "routing/board-0-q100": 35577,
+    "routing/board-0-q200": 53577,
+    "routing/board-1-q1": 17765,
+    "routing/board-1-q10": 19385,
+    "routing/board-1-q50": 26585,
+    "routing/board-1-q100": 35585,
+    "routing/board-1-q200": 53585,
+    "routing/board-2-q1": 17772,
+    "routing/board-2-q10": 19392,
+    "routing/board-2-q50": 26592,
+    "routing/board-2-q100": 35592,
+    "routing/board-2-q200": 53592
+  }
+}

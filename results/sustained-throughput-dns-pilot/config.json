@@ -1,0 +1,823 @@
+{
+  "created_at": "2026-10-12T08:13:16.404319+00:00",
+  "families": [
+    {
+      "id": "case_complication",
+      "title": "病例并发症判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "medication_choice",
+      "title": "用药方案选择",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "diagnosis",
+      "title": "病例诊断选择",
+      "available": 200,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          24,
+          8
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "tcm_syndrome",
+      "title": "中医证型判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          9,
+          9,
+          9,
+          5
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "research_noncommercial": 32
+      }
+    }
+  ],
+  "cells": [
+    {
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "routing_200",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "routing_200",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 0,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "tcm_syndrome",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "diagnosis",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "medication_choice",
+      "model": "jev-1.13.0",
+      "concurrency": 64,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 8
+    },
+    {
+      "family": "routing_200",
+      "model": "jev-1.13.0",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "concurrency": 8,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "routing_200",
+      "model": "jev-1.13.0",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    },
+    {
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "concurrency": 32,
+      "repeat": 1,
+      "window_s": 30,
+      "warmup_s": 5,
+      "target": 200
+    }
+  ],
+  "smoke": false,
+  "seed": 2026101203,
+  "python": "3.13.2",
+  "aiohttp": "3.14.5",
+  "limits": {
+    "as_of": "2026-10-12",
+    "sources": [
+      "https://docs.typesafe.ai/models",
+      "https://api-docs.deepseek.com/quick_start/rate_limit/"
+    ],
+    "jev_published_requests_per_s": 80,
+    "jev_published_input_tokens_per_s": 100000,
+    "jev_client_requests_per_s": 76,
+    "jev_client_input_tokens_per_s": 95000,
+    "flash_published_concurrency": 2500,
+    "policy": "Respect published account quotas, do not rotate keys or bypass 429. Client pacing is visible, not attributed to model compute."
+  },
+  "pricing": {
+    "as_of": "2026-10-12",
+    "currency": "USD",
+    "sources": [
+      "https://docs.typesafe.ai/models",
+      "https://api-docs.deepseek.com/quick_start/pricing/"
+    ],
+    "jev_input_per_million": 0.042,
+    "flash_off_peak": {
+      "hit": 0.003,
+      "miss": 0.15,
+      "output": 0.6
+    },
+    "flash_peak": {
+      "hit": 0.006,
+      "miss": 0.3,
+      "output": 1.2
+    },
+    "policy": "List-price lower/upper bounds, not invoices; provider tokenizers differ. Missing usage is unpriced."
+  },
+  "timeout_total_s": 30,
+  "max_requests_per_cell": 5000,
+  "max_cost_upper_usd": 25,
+  "workloads_sha256": "268b63f258c5bb2ebf05ceee370ddc4ec658430108d627c5cdb3b58d3b0bc2ef",
+  "clinical_manifest_sha256": "9932e42a1d5817674733932c3fcf30761e343a5149692a85eff7055b16594bf4",
+  "synthetic_manifest_sha256": "808e20677344d244872f0e55ef3230d87faafc080d0bfd0f2a16cdad9042e906",
+  "transport": "aiohttp HTTP/1.1, one reused pool per model, 128 sockets, no retries, trust_env=False, models measured sequentially.",
+  "load": "Closed-loop sustained multi-question requests: a worker immediately requests another packet after response. Not an open-loop arrival/SLA capacity test.",
+  "measurement": "5s warmup then 30s fixed completion window by default. Drain responses are retained but not counted as window completions. Admitted cohort defines accuracy, latency, failure and cost.",
+  "cache": "Finite original panels repeat; calibration and warmup may populate provider caches. Cache usage retained, no cold-cache claim.",
+  "synthetic_scope": "routing_200 is a deterministic non-clinical 200-question board; performance only, never medical accuracy."
+}

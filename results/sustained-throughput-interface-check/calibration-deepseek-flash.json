@@ -1,0 +1,225 @@
+{
+  "records": [
+    {
+      "item_id": "case_complication/b8/0",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 2.258300082758069e-05,
+      "admission_wait_s": 1.3457989552989602e-05,
+      "started_at": "2026-10-12T08:11:52.333133+00:00",
+      "decisions": 8,
+      "request_sha256": "24adc438d46426958137fba5e33b1906d577357117edbeca8cdba6515e306bf1",
+      "provider_request_sha256": "1b197d77955eeeab29e58788fde45ab6ad8bd59c39a5abbb56da9ca9937d41d3",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 6,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 591,
+      "response_headers": {},
+      "response": {
+        "id": "a201a585-9ff6-496c-bd4f-d9a184a4d0b7",
+        "object": "chat.completion",
+        "created": 1791792712,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"C\",\"q001\":\"A\",\"q002\":\"D\",\"q003\":\"opa\",\"q004\":\"opc\",\"q005\":\"B\",\"q006\":\"E\",\"q007\":\"opd\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1536,
+          "completion_tokens": 43,
+          "total_tokens": 1579,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 256
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 1.2612714579736348,
+      "ended_at": "2026-10-12T08:11:53.594403+00:00",
+      "completion_s": 1.2612940409744624
+    },
+    {
+      "item_id": "case_complication/b8/1",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 3.541994374245405e-06,
+      "admission_wait_s": 1.8750142771750689e-06,
+      "started_at": "2026-10-12T08:11:53.594421+00:00",
+      "decisions": 8,
+      "request_sha256": "50ef46f277b3907c06fab1a65f58c9918034326fbd46f53b03823e3550464eb2",
+      "provider_request_sha256": "273a11c2cd42b33168e242c6a53e770a8bd2d0c14500e418849220f288ad045c",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 593,
+      "response_headers": {},
+      "response": {
+        "id": "9b098c66-e42d-46bf-a6fe-cdc27522a249",
+        "object": "chat.completion",
+        "created": 1791792713,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opc\",\"q001\":\"opb\",\"q002\":\"opa\",\"q003\":\"D\",\"q004\":\"B\",\"q005\":\"opa\",\"q006\":\"C\",\"q007\":\"D\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1552,
+          "completion_tokens": 43,
+          "total_tokens": 1595,
+          "prompt_tokens_details": {
+            "cached_tokens": 1408
+          },
+          "prompt_cache_hit_tokens": 1408,
+          "prompt_cache_miss_tokens": 144
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.5677877080161124,
+      "ended_at": "2026-10-12T08:11:54.162217+00:00",
+      "completion_s": 0.5677912500104867
+    },
+    {
+      "item_id": "case_complication/b8/2",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 1.9750004867091775e-05,
+      "admission_wait_s": 1.200000406242907e-05,
+      "started_at": "2026-10-12T08:11:54.162296+00:00",
+      "decisions": 8,
+      "request_sha256": "034d56023bd2b0a86c4839f40ad31f32ca4fb9d181bf5711d7398d719fd1dd40",
+      "provider_request_sha256": "d3326811dcb1daf3b39b82e65cf6beff393f2bb84b5e10a651fe7a566b2e9c80",
+      "status": "invalid_answer",
+      "valid_decisions": 7,
+      "correct_decisions": 5,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 589,
+      "response_headers": {},
+      "response": {
+        "id": "c130a0eb-b9b8-4b5e-83b4-832316e3f118",
+        "object": "chat.completion",
+        "created": 1791792714,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"E\",\"q001\":\"opd\",\"q002\":\"C\",\"q003\":\"D\",\"q004\":\"E\",\"q005\":\"ope\",\"q006\":\"d\",\"q007\":\"A\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1485,
+          "completion_tokens": 42,
+          "total_tokens": 1527,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 205
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.8418737499741837,
+      "ended_at": "2026-10-12T08:11:55.004178+00:00",
+      "completion_s": 0.8418934999790508
+    },
+    {
+      "item_id": "case_complication/b8/3",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 1.6499980119988322e-05,
+      "admission_wait_s": 9.58298915065825e-06,
+      "started_at": "2026-10-12T08:11:55.004242+00:00",
+      "decisions": 8,
+      "request_sha256": "50184ab1d92d8628b8a87f4404d8512a9a2a9f1c5d7d151f64889bee90940766",
+      "provider_request_sha256": "b13203eee6407ce46452ede07f65de60a73834763efbca97d0f4789dac32b243",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 5,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 591,
+      "response_headers": {},
+      "response": {
+        "id": "0057060b-16f2-4b10-b92d-600f8483073f",
+        "object": "chat.completion",
+        "created": 1791792715,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opd\",\"q001\":\"D\",\"q002\":\"C\",\"q003\":\"D\",\"q004\":\"ope\",\"q005\":\"C\",\"q006\":\"opc\",\"q007\":\"C\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1477,
+          "completion_tokens": 43,
+          "total_tokens": 1520,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 197
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.6543898330128286,
+      "ended_at": "2026-10-12T08:11:55.658637+00:00",
+      "completion_s": 0.6544063329929486
+    }
+  ],
+  "token_estimates": {
+    "case_complication/b8/0": 5952,
+    "case_complication/b8/1": 6056,
+    "case_complication/b8/2": 5914,
+    "case_complication/b8/3": 5826,
+    "routing/board-0-q1": 17757,
+    "routing/board-0-q10": 19377,
+    "routing/board-0-q50": 26577,
+    "routing/board-0-q100": 35577,
+    "routing/board-0-q200": 53577,
+    "routing/board-1-q1": 17765,
+    "routing/board-1-q10": 19385,
+    "routing/board-1-q50": 26585,
+    "routing/board-1-q100": 35585,
+    "routing/board-1-q200": 53585,
+    "routing/board-2-q1": 17772,
+    "routing/board-2-q10": 19392,
+    "routing/board-2-q50": 26592,
+    "routing/board-2-q100": 35592,
+    "routing/board-2-q200": 53592
+  }
+}

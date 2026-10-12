@@ -42,17 +42,30 @@ class TaskPerformanceArchiveTests(unittest.TestCase):
         root = report.runner.ROOT
         readme = (root / 'README.md').read_text()
         self.assertNotIn('## 多问题与并发性能补充', readme)
-        self.assertEqual(readme.count('| 任务与测试题数 | 处理方式 | 模型 | 准确率 |'), 8)
-        self.assertEqual(readme.count('| JEV 1.13 |'), 52)
-        self.assertEqual(readme.count('| Flash |'), 52)
+        sustained = (root / 'results/sustained-throughput-v1/comparison.json').exists()
+        if sustained:
+            self.assertEqual(readme.count('| 配置并发 | 模型 | 判断／秒 ↑ |'), 5)
+            self.assertEqual(readme.count('| JEV 1.13 |'), 14)
+            self.assertEqual(readme.count('| Flash |'), 14)
+            self.assertIn('每请求 8 题', readme)
+            self.assertIn('客户端配额保护', readme)
+            self.assertIn('同一份病历一次读取', readme)
+        else:
+            self.assertEqual(readme.count('| 任务与测试题数 | 处理方式 | 模型 | 准确率 |'), 8)
+            self.assertEqual(readme.count('| JEV 1.13 |'), 52)
+            self.assertEqual(readme.count('| Flash |'), 52)
         self.assertNotIn('## 模型得分与耗时对比', readme)
         self.assertNotIn('全量准确率：五模型比较', readme)
         self.assertNotIn('jev-medical-score-time-v1.svg', readme)
-        self.assertIn('多题请求同时并发的组合尚未测试', readme)
+        if not sustained:
+            self.assertIn('多题请求同时并发的组合尚未测试', readme)
         manifest = report.runner.verify_dataset(report.runner.DATASET)
         for family in manifest['families']:
             page = (root / 'docs/tasks' / (family['id'] + '.md')).read_text()
             self.assertIn('## 多问题与并发性能', page)
+            if sustained and family['id'] in {'case_complication','medication_choice','diagnosis','tcm_syndrome'}:
+                self.assertIn('### 持续多题并发', page)
+                self.assertIn('### 历史有限批次测试', page)
             if family['selected']:
                 self.assertIn(f"固定本任务 {family['selected']} 道原题", page)
             else:

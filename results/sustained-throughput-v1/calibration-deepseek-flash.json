@@ -1,0 +1,1587 @@
+{
+  "records": [
+    {
+      "item_id": "case_complication/b8/0",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 1.9625003915280104e-05,
+      "admission_wait_s": 1.1958007235080004e-05,
+      "started_at": "2026-10-12T08:23:46.718558+00:00",
+      "decisions": 8,
+      "request_sha256": "24adc438d46426958137fba5e33b1906d577357117edbeca8cdba6515e306bf1",
+      "provider_request_sha256": "1b197d77955eeeab29e58788fde45ab6ad8bd59c39a5abbb56da9ca9937d41d3",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 7,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 591,
+      "response_headers": {},
+      "response": {
+        "id": "40cd5c0d-4053-4798-9dde-0b247694006c",
+        "object": "chat.completion",
+        "created": 1791793426,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"C\",\"q001\":\"B\",\"q002\":\"D\",\"q003\":\"opa\",\"q004\":\"opc\",\"q005\":\"B\",\"q006\":\"E\",\"q007\":\"opd\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1536,
+          "completion_tokens": 43,
+          "total_tokens": 1579,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 256
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.5951421660138294,
+      "ended_at": "2026-10-12T08:23:47.313703+00:00",
+      "completion_s": 0.5951617910177447
+    },
+    {
+      "item_id": "case_complication/b8/1",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 1.7041980754584074e-05,
+      "admission_wait_s": 9.499985026195645e-06,
+      "started_at": "2026-10-12T08:23:47.313862+00:00",
+      "decisions": 8,
+      "request_sha256": "50ef46f277b3907c06fab1a65f58c9918034326fbd46f53b03823e3550464eb2",
+      "provider_request_sha256": "273a11c2cd42b33168e242c6a53e770a8bd2d0c14500e418849220f288ad045c",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 593,
+      "response_headers": {},
+      "response": {
+        "id": "83704fcf-8ec1-4466-b95c-16849f7e9f5f",
+        "object": "chat.completion",
+        "created": 1791793427,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opc\",\"q001\":\"opb\",\"q002\":\"opa\",\"q003\":\"D\",\"q004\":\"B\",\"q005\":\"opa\",\"q006\":\"C\",\"q007\":\"D\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1552,
+          "completion_tokens": 43,
+          "total_tokens": 1595,
+          "prompt_tokens_details": {
+            "cached_tokens": 1408
+          },
+          "prompt_cache_hit_tokens": 1408,
+          "prompt_cache_miss_tokens": 144
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.8704436249972787,
+      "ended_at": "2026-10-12T08:23:48.184314+00:00",
+      "completion_s": 0.8704606669780333
+    },
+    {
+      "item_id": "case_complication/b8/2",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 1.854199217632413e-05,
+      "admission_wait_s": 1.0624993592500687e-05,
+      "started_at": "2026-10-12T08:23:48.184384+00:00",
+      "decisions": 8,
+      "request_sha256": "034d56023bd2b0a86c4839f40ad31f32ca4fb9d181bf5711d7398d719fd1dd40",
+      "provider_request_sha256": "d3326811dcb1daf3b39b82e65cf6beff393f2bb84b5e10a651fe7a566b2e9c80",
+      "status": "invalid_answer",
+      "valid_decisions": 7,
+      "correct_decisions": 5,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 589,
+      "response_headers": {},
+      "response": {
+        "id": "c85fe097-98fc-4083-8bf1-d15a2ec1daab",
+        "object": "chat.completion",
+        "created": 1791793428,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"E\",\"q001\":\"opd\",\"q002\":\"C\",\"q003\":\"D\",\"q004\":\"E\",\"q005\":\"ope\",\"q006\":\"d\",\"q007\":\"A\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1485,
+          "completion_tokens": 42,
+          "total_tokens": 1527,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 205
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.9051928749831859,
+      "ended_at": "2026-10-12T08:23:49.089586+00:00",
+      "completion_s": 0.9052114169753622
+    },
+    {
+      "item_id": "case_complication/b8/3",
+      "family": "case_complication",
+      "model": "deepseek-flash",
+      "http_start_s": 1.6375008272007108e-05,
+      "admission_wait_s": 1.0040996130555868e-05,
+      "started_at": "2026-10-12T08:23:49.089644+00:00",
+      "decisions": 8,
+      "request_sha256": "50184ab1d92d8628b8a87f4404d8512a9a2a9f1c5d7d151f64889bee90940766",
+      "provider_request_sha256": "b13203eee6407ce46452ede07f65de60a73834763efbca97d0f4789dac32b243",
+      "status": "invalid_answer",
+      "valid_decisions": 3,
+      "correct_decisions": 2,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 591,
+      "response_headers": {},
+      "response": {
+        "id": "bb72af2e-6021-4dc3-84ed-e89ec0536b13",
+        "object": "chat.completion",
+        "created": 1791793429,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opd\",\"q001\":\"d\",\"q002\":\"c\",\"q003\":\"d\",\"q004\":\"ope\",\"q005\":\"e\",\"q006\":\"opc\",\"q007\":\"e\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1477,
+          "completion_tokens": 43,
+          "total_tokens": 1520,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 197
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.7846584159997292,
+      "ended_at": "2026-10-12T08:23:49.874311+00:00",
+      "completion_s": 0.7846747910080012
+    },
+    {
+      "item_id": "medication_choice/b8/0",
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "http_start_s": 1.5999976312741637e-05,
+      "admission_wait_s": 9.957992006093264e-06,
+      "started_at": "2026-10-12T08:23:49.874370+00:00",
+      "decisions": 8,
+      "request_sha256": "2dd4fa1e1a655441565c72c7541ba50b35c21aa1bf497b24caf5230189d99abd",
+      "provider_request_sha256": "62f032d8f2d45213bb3956e66aa396d566a0d796555ac4c026c43baaac8f55a9",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 6,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 601,
+      "response_headers": {},
+      "response": {
+        "id": "a1e66215-408c-4e02-b22d-4e2342ad991a",
+        "object": "chat.completion",
+        "created": 1791793429,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opa\",\"q001\":\"opd\",\"q002\":\"opb\",\"q003\":\"opa\",\"q004\":\"opa\",\"q005\":\"ope\",\"q006\":\"opa\",\"q007\":\"opd\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1552,
+          "completion_tokens": 44,
+          "total_tokens": 1596,
+          "prompt_tokens_details": {
+            "cached_tokens": 1408
+          },
+          "prompt_cache_hit_tokens": 1408,
+          "prompt_cache_miss_tokens": 144
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.7877181250078138,
+      "ended_at": "2026-10-12T08:23:50.662097+00:00",
+      "completion_s": 0.7877341249841265
+    },
+    {
+      "item_id": "medication_choice/b8/1",
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "http_start_s": 1.8874998204410076e-05,
+      "admission_wait_s": 1.1124997399747372e-05,
+      "started_at": "2026-10-12T08:23:50.662166+00:00",
+      "decisions": 8,
+      "request_sha256": "392fb39f595a44dda7ded46dba03c011ca676fe66fa56f32e9a08d739ed0fb13",
+      "provider_request_sha256": "0d2ef0fb6951cd4f02950f80f1d119cc920ff9bb5f3dea2919a9bd5547e6d300",
+      "status": "invalid_answer",
+      "valid_decisions": 7,
+      "correct_decisions": 6,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 595,
+      "response_headers": {},
+      "response": {
+        "id": "d8e0cdb4-ee6c-4e33-80bf-2c2c0eebd203",
+        "object": "chat.completion",
+        "created": 1791793430,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opb\",\"q001\":\"opb\",\"q002\":\"B\",\"q003\":\"B\",\"q004\":\"a\",\"q005\":\"opc\",\"q006\":\"opa\",\"q007\":\"opb\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1534,
+          "completion_tokens": 45,
+          "total_tokens": 1579,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 254
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.8286959590041079,
+      "ended_at": "2026-10-12T08:23:51.490870+00:00",
+      "completion_s": 0.8287148340023123
+    },
+    {
+      "item_id": "medication_choice/b8/2",
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "http_start_s": 1.4417018974199891e-05,
+      "admission_wait_s": 9.292009053751826e-06,
+      "started_at": "2026-10-12T08:23:51.490923+00:00",
+      "decisions": 8,
+      "request_sha256": "b0c051231c260b2ce500201e3a0adf0286d91ed4aa0f15607150cd459c8db832",
+      "provider_request_sha256": "84f7634697483ba0159dd7f12f4a295d135d142f09a30485ae53f44bd19126bc",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 6,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 601,
+      "response_headers": {},
+      "response": {
+        "id": "f43c046e-889c-41fe-8dfb-f6bdee790940",
+        "object": "chat.completion",
+        "created": 1791793431,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opd\",\"q001\":\"opb\",\"q002\":\"opd\",\"q003\":\"opb\",\"q004\":\"opa\",\"q005\":\"opb\",\"q006\":\"ope\",\"q007\":\"opb\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1540,
+          "completion_tokens": 47,
+          "total_tokens": 1587,
+          "prompt_tokens_details": {
+            "cached_tokens": 1406
+          },
+          "prompt_cache_hit_tokens": 1406,
+          "prompt_cache_miss_tokens": 134
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.6181386660027783,
+      "ended_at": "2026-10-12T08:23:52.109068+00:00",
+      "completion_s": 0.6181530830217525
+    },
+    {
+      "item_id": "medication_choice/b8/3",
+      "family": "medication_choice",
+      "model": "deepseek-flash",
+      "http_start_s": 1.2415985111147165e-05,
+      "admission_wait_s": 7.166003342717886e-06,
+      "started_at": "2026-10-12T08:23:52.109115+00:00",
+      "decisions": 8,
+      "request_sha256": "c6c1341eb1e655fa1a55949c278a5299189403bf7efc235f3d6a41d00aede937",
+      "provider_request_sha256": "05801f1b53939b53f53b1842ad098859a21b390766512201c29fe2b774d91b94",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 6,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 599,
+      "response_headers": {},
+      "response": {
+        "id": "4f52faa2-1771-4334-aa6a-aa41ca5df379",
+        "object": "chat.completion",
+        "created": 1791793432,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"opd\",\"q001\":\"opc\",\"q002\":\"opd\",\"q003\":\"opc\",\"q004\":\"ope\",\"q005\":\"C\",\"q006\":\"opa\",\"q007\":\"opa\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1510,
+          "completion_tokens": 45,
+          "total_tokens": 1555,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 230
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 1.0098619170021266,
+      "ended_at": "2026-10-12T08:23:53.118988+00:00",
+      "completion_s": 1.0098743329872377
+    },
+    {
+      "item_id": "diagnosis/b8/0",
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "http_start_s": 1.9041995983570814e-05,
+      "admission_wait_s": 1.0749994544312358e-05,
+      "started_at": "2026-10-12T08:23:53.119059+00:00",
+      "decisions": 8,
+      "request_sha256": "0323d225fcc5cc3825589fb6334269806fcd892343a13a7ab4c8143be175fc37",
+      "provider_request_sha256": "4faea0b0bfe2a7dd94d2deeb1890345df6d8e46a4f02d70b4fd26646d8070649",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 6,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 597,
+      "response_headers": {},
+      "response": {
+        "id": "658fd739-d4d7-48c0-bbd3-d916e6718bad",
+        "object": "chat.completion",
+        "created": 1791793433,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"d0\",\"q001\":\"d41\",\"q002\":\"opb\",\"q003\":\"opb\",\"q004\":\"d7\",\"q005\":\"d40\",\"q006\":\"D\",\"q007\":\"opc\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4223,
+          "completion_tokens": 48,
+          "total_tokens": 4271,
+          "prompt_tokens_details": {
+            "cached_tokens": 3968
+          },
+          "prompt_cache_hit_tokens": 3968,
+          "prompt_cache_miss_tokens": 255
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.8235814160143491,
+      "ended_at": "2026-10-12T08:23:53.942651+00:00",
+      "completion_s": 0.8236004580103327
+    },
+    {
+      "item_id": "diagnosis/b8/1",
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "http_start_s": 1.866600359790027e-05,
+      "admission_wait_s": 1.0957999620586634e-05,
+      "started_at": "2026-10-12T08:23:53.942720+00:00",
+      "decisions": 8,
+      "request_sha256": "ac81526b95fc18f7d484967aa7fb429e7cf47646f9ed77a9b5142b9d195f1ccc",
+      "provider_request_sha256": "0b0b0d55a33c0f2c7340e0d562283bbc498788897dc99b6e40517a3288159498",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 5,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 600,
+      "response_headers": {},
+      "response": {
+        "id": "a1925c01-cc1b-4491-ad6d-56ea58ea16c4",
+        "object": "chat.completion",
+        "created": 1791793434,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"d36\",\"q001\":\"d17\",\"q002\":\"d30\",\"q003\":\"d48\",\"q004\":\"d44\",\"q005\":\"d32\",\"q006\":\"d3\",\"q007\":\"d23\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 6508,
+          "completion_tokens": 49,
+          "total_tokens": 6557,
+          "prompt_tokens_details": {
+            "cached_tokens": 6272
+          },
+          "prompt_cache_hit_tokens": 6272,
+          "prompt_cache_miss_tokens": 236
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.9950474170036614,
+      "ended_at": "2026-10-12T08:23:54.937776+00:00",
+      "completion_s": 0.9950660830072593
+    },
+    {
+      "item_id": "diagnosis/b8/2",
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "http_start_s": 1.5375000657513738e-05,
+      "admission_wait_s": 9.332987247034907e-06,
+      "started_at": "2026-10-12T08:23:54.937834+00:00",
+      "decisions": 8,
+      "request_sha256": "a6a6b8ad8a39f091277b065a57c7c53cb09ef7680dec726e59821c3d8cba1fec",
+      "provider_request_sha256": "a82bb58f18dd682a8ad0821cfe3634ccb919cee506dcc5d494f9ae6d1bd2f4ee",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 596,
+      "response_headers": {},
+      "response": {
+        "id": "a9e6aa7c-224d-484b-8dfe-b30d7cb234a0",
+        "object": "chat.completion",
+        "created": 1791793435,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"d8\",\"q001\":\"d40\",\"q002\":\"d17\",\"q003\":\"d32\",\"q004\":\"ope\",\"q005\":\"A\",\"q006\":\"A\",\"q007\":\"d46\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4957,
+          "completion_tokens": 46,
+          "total_tokens": 5003,
+          "prompt_tokens_details": {
+            "cached_tokens": 4736
+          },
+          "prompt_cache_hit_tokens": 4736,
+          "prompt_cache_miss_tokens": 221
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.6984276669973042,
+      "ended_at": "2026-10-12T08:23:55.636267+00:00",
+      "completion_s": 0.6984430419979617
+    },
+    {
+      "item_id": "diagnosis/b8/3",
+      "family": "diagnosis",
+      "model": "deepseek-flash",
+      "http_start_s": 8.208007784560323e-06,
+      "admission_wait_s": 4.6660134103149176e-06,
+      "started_at": "2026-10-12T08:23:55.636299+00:00",
+      "decisions": 8,
+      "request_sha256": "72494227936b7aa066bdf978530911487caa43024a261e0af5eab2b0e0f77efd",
+      "provider_request_sha256": "147550853c16c19b89630c9490ffca6ef7b99266a64f38416423bd3715b3aaa2",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 7,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 592,
+      "response_headers": {},
+      "response": {
+        "id": "21903a44-8fff-4b85-9084-46244c6b7dec",
+        "object": "chat.completion",
+        "created": 1791793435,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"d1\",\"q001\":\"A\",\"q002\":\"opc\",\"q003\":\"B\",\"q004\":\"E\",\"q005\":\"C\",\"q006\":\"opb\",\"q007\":\"opd\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 2112,
+          "completion_tokens": 45,
+          "total_tokens": 2157,
+          "prompt_tokens_details": {
+            "cached_tokens": 1920
+          },
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 192
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.795482291985536,
+      "ended_at": "2026-10-12T08:23:56.431787+00:00",
+      "completion_s": 0.7954904999933206
+    },
+    {
+      "item_id": "tcm_syndrome/b8/0",
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "http_start_s": 8.333998266607523e-06,
+      "admission_wait_s": 4.708999767899513e-06,
+      "started_at": "2026-10-12T08:23:56.431817+00:00",
+      "decisions": 8,
+      "request_sha256": "9312e885e25f4c88280cab679167b912168de430b0a7c11dbd469baab9dd57e6",
+      "provider_request_sha256": "3007f2c83a728bda5d57af0f863ecf72b754e7bafe8dc5b04659d379b3f5caff",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 701,
+      "response_headers": {},
+      "response": {
+        "id": "a5d59f25-d627-44b9-9fa1-b902db4629ac",
+        "object": "chat.completion",
+        "created": 1791793436,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"痰热壅肺证\",\"q001\":\"热毒蕴结证\",\"q002\":\"肝阳上亢证\",\"q003\":\"痰浊上蒙证\",\"q004\":\"气阴两虚证\",\"q005\":\"痰湿蕴肺证\",\"q006\":\"肝阳上亢证\",\"q007\":\"风痰上扰证\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 15642,
+          "completion_tokens": 74,
+          "total_tokens": 15716,
+          "prompt_tokens_details": {
+            "cached_tokens": 15488
+          },
+          "prompt_cache_hit_tokens": 15488,
+          "prompt_cache_miss_tokens": 154
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.9784969160100445,
+      "ended_at": "2026-10-12T08:23:57.410324+00:00",
+      "completion_s": 0.9785052500083111
+    },
+    {
+      "item_id": "tcm_syndrome/b8/1",
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "http_start_s": 1.604200224392116e-05,
+      "admission_wait_s": 9.584007784724236e-06,
+      "started_at": "2026-10-12T08:23:57.410383+00:00",
+      "decisions": 8,
+      "request_sha256": "0009ada613451bb9d4f0172ff696d4f2f55a48efb09be0cc1fc6480070a7b00b",
+      "provider_request_sha256": "11c07f7a08242f20bfae8f82653df7686f1ae12394f8381bbbee545fe59c162d",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 6,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 701,
+      "response_headers": {},
+      "response": {
+        "id": "3e4a1385-9e5f-41ee-8287-67d87bdbed94",
+        "object": "chat.completion",
+        "created": 1791793437,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"气滞血瘀证\",\"q001\":\"湿热瘀阻证\",\"q002\":\"脾肾阳虚证\",\"q003\":\"湿热下注证\",\"q004\":\"气虚血瘀证\",\"q005\":\"湿热下注证\",\"q006\":\"气虚血瘀证\",\"q007\":\"气虚血瘀证\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 16063,
+          "completion_tokens": 66,
+          "total_tokens": 16129,
+          "prompt_tokens_details": {
+            "cached_tokens": 15872
+          },
+          "prompt_cache_hit_tokens": 15872,
+          "prompt_cache_miss_tokens": 191
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.7144768330035731,
+      "ended_at": "2026-10-12T08:23:58.124870+00:00",
+      "completion_s": 0.714492875005817
+    },
+    {
+      "item_id": "tcm_syndrome/b8/2",
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "http_start_s": 2.0417006453499198e-05,
+      "admission_wait_s": 1.170899486169219e-05,
+      "started_at": "2026-10-12T08:23:58.124947+00:00",
+      "decisions": 8,
+      "request_sha256": "0439186e1e203715f56816932ce475c150266111a8edc59c36d33547339b10fd",
+      "provider_request_sha256": "efe20e48c52c88fdec1e47adbf4599d1673696922e372f3fb2daed2d7d09eac5",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 4,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 695,
+      "response_headers": {},
+      "response": {
+        "id": "bf3fa898-4af7-45c3-9edb-9f01c782c462",
+        "object": "chat.completion",
+        "created": 1791793438,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"气虚血瘀证\",\"q001\":\"心肺气虚证\",\"q002\":\"气滞血瘀证\",\"q003\":\"寒湿阻络证\",\"q004\":\"湿热下注证\",\"q005\":\"肾虚证\",\"q006\":\"脾胃虚弱证\",\"q007\":\"湿热下注证\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 15874,
+          "completion_tokens": 64,
+          "total_tokens": 15938,
+          "prompt_tokens_details": {
+            "cached_tokens": 15740
+          },
+          "prompt_cache_hit_tokens": 15740,
+          "prompt_cache_miss_tokens": 134
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.6040234999964014,
+      "ended_at": "2026-10-12T08:23:58.728979+00:00",
+      "completion_s": 0.6040439170028549
+    },
+    {
+      "item_id": "tcm_syndrome/b8/3",
+      "family": "tcm_syndrome",
+      "model": "deepseek-flash",
+      "http_start_s": 2.0292005501687527e-05,
+      "admission_wait_s": 1.2832984793931246e-05,
+      "started_at": "2026-10-12T08:23:58.729054+00:00",
+      "decisions": 8,
+      "request_sha256": "c95dfaf393ed97ed1020924bca6924312afa165c3dc4032aeebfe7b351f1e853",
+      "provider_request_sha256": "d8fbfd7b75fcb0c505fc8d64d34c814abcf71648dd4e907df6fdcad1622c4604",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 2,
+      "complete_valid": true,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 695,
+      "response_headers": {},
+      "response": {
+        "id": "8fe7e279-87c6-4fdd-bbb2-0c711b96210d",
+        "object": "chat.completion",
+        "created": 1791793438,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"湿热下注证\",\"q001\":\"风痰上扰证\",\"q002\":\"肾虚证\",\"q003\":\"肝胃不和证\",\"q004\":\"肝胃郁热证\",\"q005\":\"风寒湿阻证\",\"q006\":\"气虚血瘀证\",\"q007\":\"湿热下注证\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 15494,
+          "completion_tokens": 66,
+          "total_tokens": 15560,
+          "prompt_tokens_details": {
+            "cached_tokens": 15360
+          },
+          "prompt_cache_hit_tokens": 15360,
+          "prompt_cache_miss_tokens": 134
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.9520821659825742,
+      "ended_at": "2026-10-12T08:23:59.681142+00:00",
+      "completion_s": 0.9521024579880759
+    },
+    {
+      "item_id": "routing/board-0-q1",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.0666979253292084e-05,
+      "admission_wait_s": 1.220798003487289e-05,
+      "started_at": "2026-10-12T08:23:59.681217+00:00",
+      "decisions": 1,
+      "request_sha256": "e08c45e8326cd433de974e67f3a3a6b0b0529c43c185e27d11ed6ef36c635380",
+      "provider_request_sha256": "9389955ae53c27d7043e59a0e6383e61c152a3aaf02f58f832392c0b43609c02",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 483,
+      "response_headers": {},
+      "response": {
+        "id": "3d7ad07a-6dae-4e4f-969f-1435a4861c52",
+        "object": "chat.completion",
+        "created": 1791793440,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"ready\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4387,
+          "completion_tokens": 6,
+          "total_tokens": 4393,
+          "prompt_tokens_details": {
+            "cached_tokens": 4224
+          },
+          "prompt_cache_hit_tokens": 4224,
+          "prompt_cache_miss_tokens": 163
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.7011731250095181,
+      "ended_at": "2026-10-12T08:24:00.382395+00:00",
+      "completion_s": 0.7011937919887714
+    },
+    {
+      "item_id": "routing/board-0-q10",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.8040998838841915e-05,
+      "admission_wait_s": 1.0707997716963291e-05,
+      "started_at": "2026-10-12T08:24:00.382466+00:00",
+      "decisions": 10,
+      "request_sha256": "9c0f3d0e8871085e2ea4cd43c17107b03d38b215ccda6ef181863c9746eecebb",
+      "provider_request_sha256": "cad0c6a3c15975a4d86ad2e949d73170b974d571b382304bebe9ecea4e21dce2",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 767,
+      "response_headers": {},
+      "response": {
+        "id": "6bc91437-22b3-4045-854d-b89b1b308d38",
+        "object": "chat.completion",
+        "created": 1791793440,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"ready\",\"q001\":\"request_documents\",\"q002\":\"wait_for_authorization\",\"q003\":\"manual_review\",\"q004\":\"wait_for_authorization\",\"q005\":\"ready\",\"q006\":\"request_documents\",\"q007\":\"request_documents\",\"q008\":\"wait_for_authorization\",\"q009\":\"wait_for_authorization\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4819,
+          "completion_tokens": 75,
+          "total_tokens": 4894,
+          "prompt_tokens_details": {
+            "cached_tokens": 4608
+          },
+          "prompt_cache_hit_tokens": 4608,
+          "prompt_cache_miss_tokens": 211
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.7678688750020228,
+      "ended_at": "2026-10-12T08:24:01.150338+00:00",
+      "completion_s": 0.7678869160008617
+    },
+    {
+      "item_id": "routing/board-0-q50",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.429201802238822e-05,
+      "admission_wait_s": 7.95800588093698e-06,
+      "started_at": "2026-10-12T08:24:01.150397+00:00",
+      "decisions": 50,
+      "request_sha256": "c9b86dd5ee92b99ee7ba21b781ad6ad51d2a00749df9f49416f44d4e5420a2e0",
+      "provider_request_sha256": "eb0c7655637bb2da0ff7c0094307d19ba1940c647fe423836b1d838ead7d0a72",
+      "status": "success",
+      "valid_decisions": 50,
+      "correct_decisions": 50,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 1216,
+      "response_headers": {},
+      "response": {
+        "id": "c57ff881-9467-49db-a0b8-fba67ac25139",
+        "object": "chat.completion",
+        "created": 1791793441,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"D\",\"q001\":\"B\",\"q002\":\"C\",\"q003\":\"A\",\"q004\":\"C\",\"q005\":\"D\",\"q006\":\"B\",\"q007\":\"B\",\"q008\":\"C\",\"q009\":\"C\",\"q010\":\"A\",\"q011\":\"B\",\"q012\":\"A\",\"q013\":\"A\",\"q014\":\"B\",\"q015\":\"A\",\"q016\":\"C\",\"q017\":\"D\",\"q018\":\"A\",\"q019\":\"A\",\"q020\":\"D\",\"q021\":\"B\",\"q022\":\"C\",\"q023\":\"C\",\"q024\":\"D\",\"q025\":\"C\",\"q026\":\"D\",\"q027\":\"A\",\"q028\":\"B\",\"q029\":\"A\",\"q030\":\"C\",\"q031\":\"C\",\"q032\":\"D\",\"q033\":\"B\",\"q034\":\"A\",\"q035\":\"A\",\"q036\":\"C\",\"q037\":\"B\",\"q038\":\"C\",\"q039\":\"C\",\"q040\":\"B\",\"q041\":\"A\",\"q042\":\"C\",\"q043\":\"A\",\"q044\":\"A\",\"q045\":\"C\",\"q046\":\"D\",\"q047\":\"D\",\"q048\":\"B\",\"q049\":\"C\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 6739,
+          "completion_tokens": 251,
+          "total_tokens": 6990,
+          "prompt_tokens_details": {
+            "cached_tokens": 6528
+          },
+          "prompt_cache_hit_tokens": 6528,
+          "prompt_cache_miss_tokens": 211
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 1.0421873329905793,
+      "ended_at": "2026-10-12T08:24:02.192590+00:00",
+      "completion_s": 1.0422016250086017
+    },
+    {
+      "item_id": "routing/board-0-q100",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.0625011529773474e-05,
+      "admission_wait_s": 1.129199517890811e-05,
+      "started_at": "2026-10-12T08:24:02.192662+00:00",
+      "decisions": 100,
+      "request_sha256": "b6b6a4cceb93fa222b574468d13657f5d4b0eafc0eded071f65b29eee8d04324",
+      "provider_request_sha256": "7afa2bf1f77ba715155780a6781dff8d11bb00b3874ccb8fa9428a4db577a480",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 3321,
+      "response_headers": {},
+      "response": {
+        "id": "9d2ba31e-067b-4057-a778-6744f8a2b5f7",
+        "object": "chat.completion",
+        "created": 1791793442,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"ready\",\"q001\":\"request_documents\",\"q002\":\"wait_for_authorization\",\"q003\":\"manual_review\",\"q004\":\"wait_for_authorization\",\"q005\":\"ready\",\"q006\":\"request_documents\",\"q007\":\"request_documents\",\"q008\":\"wait_for_authorization\",\"q009\":\"wait_for_authorization\",\"q010\":\"manual_review\",\"q011\":\"request_documents\",\"q012\":\"manual_review\",\"q013\":\"manual_review\",\"q014\":\"request_documents\",\"q015\":\"manual_review\",\"q016\":\"wait_for_authorization\",\"q017\":\"ready\",\"q018\":\"manual_review\",\"q019\":\"manual_review\",\"q020\":\"ready\",\"q021\":\"request_documents\",\"q022\":\"wait_for_authorization\",\"q023\":\"wait_for_authorization\",\"q024\":\"ready\",\"q025\":\"wait_for_authorization\",\"q026\":\"ready\",\"q027\":\"manual_review\",\"q028\":\"request_documents\",\"q029\":\"manual_review\",\"q030\":\"wait_for_authorization\",\"q031\":\"wait_for_authorization\",\"q032\":\"ready\",\"q033\":\"request_documents\",\"q034\":\"manual_review\",\"q035\":\"manual_review\",\"q036\":\"wait_for_authorization\",\"q037\":\"request_documents\",\"q038\":\"wait_for_authorization\",\"q039\":\"wait_for_authorization\",\"q040\":\"request_documents\",\"q041\":\"manual_review\",\"q042\":\"wait_for_authorization\",\"q043\":\"manual_review\",\"q044\":\"manual_review\",\"q045\":\"wait_for_authorization\",\"q046\":\"ready\",\"q047\":\"ready\",\"q048\":\"request_documents\",\"q049\":\"wait_for_authorization\",\"q050\":\"ready\",\"q051\":\"manual_review\",\"q052\":\"request_documents\",\"q053\":\"manual_review\",\"q054\":\"manual_review\",\"q055\":\"request_documents\",\"q056\":\"manual_review\",\"q057\":\"wait_for_authorization\",\"q058\":\"request_documents\",\"q059\":\"manual_review\",\"q060\":\"ready\",\"q061\":\"request_documents\",\"q062\":\"request_documents\",\"q063\":\"manual_review\",\"q064\":\"wait_for_authorization\",\"q065\":\"manual_review\",\"q066\":\"manual_review\",\"q067\":\"wait_for_authorization\",\"q068\":\"wait_for_authorization\",\"q069\":\"manual_review\",\"q070\":\"ready\",\"q071\":\"request_documents\",\"q072\":\"manual_review\",\"q073\":\"ready\",\"q074\":\"ready\",\"q075\":\"wait_for_authorization\",\"q076\":\"request_documents\",\"q077\":\"manual_review\",\"q078\":\"manual_review\",\"q079\":\"wait_for_authorization\",\"q080\":\"request_documents\",\"q081\":\"request_documents\",\"q082\":\"ready\",\"q083\":\"ready\",\"q084\":\"ready\",\"q085\":\"request_documents\",\"q086\":\"ready\",\"q087\":\"wait_for_authorization\",\"q088\":\"ready\",\"q089\":\"ready\",\"q090\":\"wait_for_authorization\",\"q091\":\"wait_for_authorization\",\"q092\":\"wait_for_authorization\",\"q093\":\"manual_review\",\"q094\":\"ready\",\"q095\":\"request_documents\",\"q096\":\"wait_for_authorization\",\"q097\":\"manual_review\",\"q098\":\"manual_review\",\"q099\":\"ready\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 9139,
+          "completion_tokens": 711,
+          "total_tokens": 9850,
+          "prompt_tokens_details": {
+            "cached_tokens": 8960
+          },
+          "prompt_cache_hit_tokens": 8960,
+          "prompt_cache_miss_tokens": 179
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 2.623677208001027,
+      "ended_at": "2026-10-12T08:24:04.816347+00:00",
+      "completion_s": 2.6236978330125567
+    },
+    {
+      "item_id": "routing/board-0-q200",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.9083003280684352e-05,
+      "admission_wait_s": 1.1333002476021647e-05,
+      "started_at": "2026-10-12T08:24:04.816421+00:00",
+      "decisions": 200,
+      "request_sha256": "c5bdba15c92e73fb53e71779cb0b4d5a829be4496a290a42b460413d88e3b178",
+      "provider_request_sha256": "9015c52f4faf54f9125ce53d1ca8f06bb220d6e0f7f0084d74d52e4be71410db",
+      "status": "success",
+      "valid_decisions": 200,
+      "correct_decisions": 200,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 3471,
+      "response_headers": {},
+      "response": {
+        "id": "063c9fa4-c79d-49e4-8ab4-db69f3d76877",
+        "object": "chat.completion",
+        "created": 1791793444,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"D\",\"q001\":\"B\",\"q002\":\"C\",\"q003\":\"A\",\"q004\":\"C\",\"q005\":\"D\",\"q006\":\"B\",\"q007\":\"B\",\"q008\":\"C\",\"q009\":\"C\",\"q010\":\"A\",\"q011\":\"B\",\"q012\":\"A\",\"q013\":\"A\",\"q014\":\"B\",\"q015\":\"A\",\"q016\":\"C\",\"q017\":\"D\",\"q018\":\"A\",\"q019\":\"A\",\"q020\":\"D\",\"q021\":\"B\",\"q022\":\"C\",\"q023\":\"C\",\"q024\":\"D\",\"q025\":\"C\",\"q026\":\"D\",\"q027\":\"A\",\"q028\":\"B\",\"q029\":\"A\",\"q030\":\"C\",\"q031\":\"C\",\"q032\":\"D\",\"q033\":\"B\",\"q034\":\"A\",\"q035\":\"A\",\"q036\":\"C\",\"q037\":\"B\",\"q038\":\"C\",\"q039\":\"C\",\"q040\":\"B\",\"q041\":\"A\",\"q042\":\"C\",\"q043\":\"A\",\"q044\":\"A\",\"q045\":\"C\",\"q046\":\"D\",\"q047\":\"D\",\"q048\":\"B\",\"q049\":\"C\",\"q050\":\"D\",\"q051\":\"A\",\"q052\":\"B\",\"q053\":\"A\",\"q054\":\"A\",\"q055\":\"B\",\"q056\":\"A\",\"q057\":\"C\",\"q058\":\"B\",\"q059\":\"A\",\"q060\":\"D\",\"q061\":\"B\",\"q062\":\"B\",\"q063\":\"A\",\"q064\":\"C\",\"q065\":\"A\",\"q066\":\"A\",\"q067\":\"C\",\"q068\":\"C\",\"q069\":\"A\",\"q070\":\"D\",\"q071\":\"B\",\"q072\":\"A\",\"q073\":\"D\",\"q074\":\"D\",\"q075\":\"C\",\"q076\":\"B\",\"q077\":\"A\",\"q078\":\"A\",\"q079\":\"C\",\"q080\":\"B\",\"q081\":\"B\",\"q082\":\"D\",\"q083\":\"D\",\"q084\":\"D\",\"q085\":\"B\",\"q086\":\"D\",\"q087\":\"C\",\"q088\":\"D\",\"q089\":\"D\",\"q090\":\"C\",\"q091\":\"C\",\"q092\":\"C\",\"q093\":\"A\",\"q094\":\"D\",\"q095\":\"B\",\"q096\":\"C\",\"q097\":\"A\",\"q098\":\"A\",\"q099\":\"D\",\"q100\":\"B\",\"q101\":\"C\",\"q102\":\"C\",\"q103\":\"A\",\"q104\":\"B\",\"q105\":\"B\",\"q106\":\"A\",\"q107\":\"B\",\"q108\":\"B\",\"q109\":\"D\",\"q110\":\"B\",\"q111\":\"D\",\"q112\":\"B\",\"q113\":\"D\",\"q114\":\"C\",\"q115\":\"B\",\"q116\":\"B\",\"q117\":\"D\",\"q118\":\"C\",\"q119\":\"A\",\"q120\":\"B\",\"q121\":\"D\",\"q122\":\"B\",\"q123\":\"A\",\"q124\":\"C\",\"q125\":\"B\",\"q126\":\"D\",\"q127\":\"D\",\"q128\":\"C\",\"q129\":\"B\",\"q130\":\"C\",\"q131\":\"A\",\"q132\":\"D\",\"q133\":\"D\",\"q134\":\"B\",\"q135\":\"B\",\"q136\":\"B\",\"q137\":\"A\",\"q138\":\"B\",\"q139\":\"B\",\"q140\":\"C\",\"q141\":\"C\",\"q142\":\"A\",\"q143\":\"D\",\"q144\":\"C\",\"q145\":\"D\",\"q146\":\"B\",\"q147\":\"D\",\"q148\":\"B\",\"q149\":\"B\",\"q150\":\"C\",\"q151\":\"D\",\"q152\":\"C\",\"q153\":\"A\",\"q154\":\"B\",\"q155\":\"A\",\"q156\":\"A\",\"q157\":\"C\",\"q158\":\"C\",\"q159\":\"A\",\"q160\":\"B\",\"q161\":\"B\",\"q162\":\"C\",\"q163\":\"A\",\"q164\":\"C\",\"q165\":\"A\",\"q166\":\"C\",\"q167\":\"D\",\"q168\":\"D\",\"q169\":\"D\",\"q170\":\"A\",\"q171\":\"C\",\"q172\":\"D\",\"q173\":\"B\",\"q174\":\"A\",\"q175\":\"C\",\"q176\":\"B\",\"q177\":\"D\",\"q178\":\"A\",\"q179\":\"D\",\"q180\":\"D\",\"q181\":\"D\",\"q182\":\"D\",\"q183\":\"D\",\"q184\":\"C\",\"q185\":\"C\",\"q186\":\"C\",\"q187\":\"D\",\"q188\":\"B\",\"q189\":\"A\",\"q190\":\"A\",\"q191\":\"B\",\"q192\":\"D\",\"q193\":\"D\",\"q194\":\"D\",\"q195\":\"D\",\"q196\":\"A\",\"q197\":\"A\",\"q198\":\"C\",\"q199\":\"A\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 13939,
+          "completion_tokens": 1001,
+          "total_tokens": 14940,
+          "prompt_tokens_details": {
+            "cached_tokens": 13696
+          },
+          "prompt_cache_hit_tokens": 13696,
+          "prompt_cache_miss_tokens": 243
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 3.816884708008729,
+      "ended_at": "2026-10-12T08:24:08.633315+00:00",
+      "completion_s": 3.8169037910120096
+    },
+    {
+      "item_id": "routing/board-1-q1",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.783299376256764e-05,
+      "admission_wait_s": 9.707990102469921e-06,
+      "started_at": "2026-10-12T08:24:08.633375+00:00",
+      "decisions": 1,
+      "request_sha256": "e04a481f324a0b185e4ef5146adcad9745ff6d60bebf99f1bc91c7fa029af609",
+      "provider_request_sha256": "913e42d90cb293f9468bf02f47ee6c97405d420f65b7498947b6584263573f07",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 483,
+      "response_headers": {},
+      "response": {
+        "id": "b148b1e2-e3c3-4b3a-a0d6-79aa19262e3a",
+        "object": "chat.completion",
+        "created": 1791793448,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"ready\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4387,
+          "completion_tokens": 6,
+          "total_tokens": 4393,
+          "prompt_tokens_details": {
+            "cached_tokens": 4224
+          },
+          "prompt_cache_hit_tokens": 4224,
+          "prompt_cache_miss_tokens": 163
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.5002045420114882,
+      "ended_at": "2026-10-12T08:24:09.133586+00:00",
+      "completion_s": 0.5002223750052508
+    },
+    {
+      "item_id": "routing/board-1-q10",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.258399035781622e-05,
+      "admission_wait_s": 1.2459000572562218e-05,
+      "started_at": "2026-10-12T08:24:09.133664+00:00",
+      "decisions": 10,
+      "request_sha256": "f056c8d98ca86ed2f8bf5eca4a05330bd326b20517071a879137806f7497ebe4",
+      "provider_request_sha256": "0a32f9d08925a00ea920a6d74ebd191a36c606f6eced8293c6ed96ea1f03cb4d",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 717,
+      "response_headers": {},
+      "response": {
+        "id": "c9597bed-6fff-48ce-84b7-ca1b16765b8c",
+        "object": "chat.completion",
+        "created": 1791793449,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"ready\",\"q001\":\"ready\",\"q002\":\"wait_for_authorization\",\"q003\":\"ready\",\"q004\":\"request_documents\",\"q005\":\"wait_for_authorization\",\"q006\":\"manual_review\",\"q007\":\"ready\",\"q008\":\"ready\",\"q009\":\"manual_review\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4819,
+          "completion_tokens": 65,
+          "total_tokens": 4884,
+          "prompt_tokens_details": {
+            "cached_tokens": 4608
+          },
+          "prompt_cache_hit_tokens": 4608,
+          "prompt_cache_miss_tokens": 211
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.4993631659890525,
+      "ended_at": "2026-10-12T08:24:09.633033+00:00",
+      "completion_s": 0.4993857499794103
+    },
+    {
+      "item_id": "routing/board-1-q50",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.0583014702424407e-05,
+      "admission_wait_s": 1.1541997082531452e-05,
+      "started_at": "2026-10-12T08:24:09.633108+00:00",
+      "decisions": 50,
+      "request_sha256": "e0202df7147b5e297cc43c137b582435879d6a888a1b3969e520251382f77b4e",
+      "provider_request_sha256": "6c27a1957d968f28e7fe9384fab26f8dda6e3aafa5ee1a0da5612cbb6864ea52",
+      "status": "success",
+      "valid_decisions": 50,
+      "correct_decisions": 50,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 1216,
+      "response_headers": {},
+      "response": {
+        "id": "9d1be510-e635-4a56-a541-b88856adcd92",
+        "object": "chat.completion",
+        "created": 1791793449,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"D\",\"q001\":\"D\",\"q002\":\"C\",\"q003\":\"D\",\"q004\":\"B\",\"q005\":\"C\",\"q006\":\"A\",\"q007\":\"D\",\"q008\":\"D\",\"q009\":\"A\",\"q010\":\"B\",\"q011\":\"A\",\"q012\":\"A\",\"q013\":\"C\",\"q014\":\"C\",\"q015\":\"A\",\"q016\":\"C\",\"q017\":\"A\",\"q018\":\"A\",\"q019\":\"B\",\"q020\":\"A\",\"q021\":\"A\",\"q022\":\"A\",\"q023\":\"D\",\"q024\":\"A\",\"q025\":\"A\",\"q026\":\"B\",\"q027\":\"B\",\"q028\":\"C\",\"q029\":\"D\",\"q030\":\"D\",\"q031\":\"C\",\"q032\":\"A\",\"q033\":\"B\",\"q034\":\"C\",\"q035\":\"D\",\"q036\":\"C\",\"q037\":\"D\",\"q038\":\"C\",\"q039\":\"A\",\"q040\":\"C\",\"q041\":\"B\",\"q042\":\"A\",\"q043\":\"D\",\"q044\":\"A\",\"q045\":\"D\",\"q046\":\"C\",\"q047\":\"C\",\"q048\":\"B\",\"q049\":\"D\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 6739,
+          "completion_tokens": 251,
+          "total_tokens": 6990,
+          "prompt_tokens_details": {
+            "cached_tokens": 6528
+          },
+          "prompt_cache_hit_tokens": 6528,
+          "prompt_cache_miss_tokens": 211
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 1.3810087499732617,
+      "ended_at": "2026-10-12T08:24:11.014123+00:00",
+      "completion_s": 1.3810293329879642
+    },
+    {
+      "item_id": "routing/board-1-q100",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.824999344535172e-05,
+      "admission_wait_s": 1.0666990419849753e-05,
+      "started_at": "2026-10-12T08:24:11.014189+00:00",
+      "decisions": 100,
+      "request_sha256": "eea0a38180a15c31e1d0b0161b2da383fe68baf4f49118bdf1d421ded0546d68",
+      "provider_request_sha256": "13d9e9af60ff5921ef595e05727fc8d79a28a6dd1fb0e63530de81e860c05ca9",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 3244,
+      "response_headers": {},
+      "response": {
+        "id": "379985a3-298e-409e-976a-971b14682971",
+        "object": "chat.completion",
+        "created": 1791793451,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"ready\",\"q001\":\"ready\",\"q002\":\"wait_for_authorization\",\"q003\":\"ready\",\"q004\":\"request_documents\",\"q005\":\"wait_for_authorization\",\"q006\":\"manual_review\",\"q007\":\"ready\",\"q008\":\"ready\",\"q009\":\"manual_review\",\"q010\":\"request_documents\",\"q011\":\"manual_review\",\"q012\":\"manual_review\",\"q013\":\"wait_for_authorization\",\"q014\":\"wait_for_authorization\",\"q015\":\"manual_review\",\"q016\":\"wait_for_authorization\",\"q017\":\"manual_review\",\"q018\":\"manual_review\",\"q019\":\"request_documents\",\"q020\":\"manual_review\",\"q021\":\"manual_review\",\"q022\":\"manual_review\",\"q023\":\"ready\",\"q024\":\"manual_review\",\"q025\":\"manual_review\",\"q026\":\"request_documents\",\"q027\":\"request_documents\",\"q028\":\"wait_for_authorization\",\"q029\":\"ready\",\"q030\":\"ready\",\"q031\":\"wait_for_authorization\",\"q032\":\"manual_review\",\"q033\":\"request_documents\",\"q034\":\"wait_for_authorization\",\"q035\":\"ready\",\"q036\":\"wait_for_authorization\",\"q037\":\"ready\",\"q038\":\"wait_for_authorization\",\"q039\":\"manual_review\",\"q040\":\"wait_for_authorization\",\"q041\":\"request_documents\",\"q042\":\"manual_review\",\"q043\":\"ready\",\"q044\":\"manual_review\",\"q045\":\"ready\",\"q046\":\"wait_for_authorization\",\"q047\":\"wait_for_authorization\",\"q048\":\"request_documents\",\"q049\":\"ready\",\"q050\":\"ready\",\"q051\":\"request_documents\",\"q052\":\"request_documents\",\"q053\":\"ready\",\"q054\":\"request_documents\",\"q055\":\"request_documents\",\"q056\":\"wait_for_authorization\",\"q057\":\"manual_review\",\"q058\":\"manual_review\",\"q059\":\"request_documents\",\"q060\":\"wait_for_authorization\",\"q061\":\"ready\",\"q062\":\"wait_for_authorization\",\"q063\":\"request_documents\",\"q064\":\"wait_for_authorization\",\"q065\":\"request_documents\",\"q066\":\"request_documents\",\"q067\":\"wait_for_authorization\",\"q068\":\"ready\",\"q069\":\"manual_review\",\"q070\":\"ready\",\"q071\":\"manual_review\",\"q072\":\"manual_review\",\"q073\":\"manual_review\",\"q074\":\"ready\",\"q075\":\"request_documents\",\"q076\":\"request_documents\",\"q077\":\"request_documents\",\"q078\":\"manual_review\",\"q079\":\"request_documents\",\"q080\":\"wait_for_authorization\",\"q081\":\"wait_for_authorization\",\"q082\":\"request_documents\",\"q083\":\"ready\",\"q084\":\"request_documents\",\"q085\":\"wait_for_authorization\",\"q086\":\"ready\",\"q087\":\"wait_for_authorization\",\"q088\":\"ready\",\"q089\":\"manual_review\",\"q090\":\"manual_review\",\"q091\":\"manual_review\",\"q092\":\"ready\",\"q093\":\"manual_review\",\"q094\":\"ready\",\"q095\":\"ready\",\"q096\":\"request_documents\",\"q097\":\"ready\",\"q098\":\"request_documents\",\"q099\":\"ready\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 9139,
+          "completion_tokens": 691,
+          "total_tokens": 9830,
+          "prompt_tokens_details": {
+            "cached_tokens": 8960
+          },
+          "prompt_cache_hit_tokens": 8960,
+          "prompt_cache_miss_tokens": 179
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 2.596861333004199,
+      "ended_at": "2026-10-12T08:24:13.611063+00:00",
+      "completion_s": 2.5968795829976443
+    },
+    {
+      "item_id": "routing/board-1-q200",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.13750172406435e-05,
+      "admission_wait_s": 1.2791017070412636e-05,
+      "started_at": "2026-10-12T08:24:13.611137+00:00",
+      "decisions": 200,
+      "request_sha256": "964a69447dbd0703c55196d64a350d493987aeda8322a91bdf93e13b280e4518",
+      "provider_request_sha256": "be7022fb5c277e9d6e252176e0f1d7233d1eec91d828bb183b07c9d8f8b1c924",
+      "status": "success",
+      "valid_decisions": 200,
+      "correct_decisions": 200,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 3471,
+      "response_headers": {},
+      "response": {
+        "id": "4506750a-2f6a-435b-ac3c-0bdf09ce1561",
+        "object": "chat.completion",
+        "created": 1791793453,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"D\",\"q001\":\"D\",\"q002\":\"C\",\"q003\":\"D\",\"q004\":\"B\",\"q005\":\"C\",\"q006\":\"A\",\"q007\":\"D\",\"q008\":\"D\",\"q009\":\"A\",\"q010\":\"B\",\"q011\":\"A\",\"q012\":\"A\",\"q013\":\"C\",\"q014\":\"C\",\"q015\":\"A\",\"q016\":\"C\",\"q017\":\"A\",\"q018\":\"A\",\"q019\":\"B\",\"q020\":\"A\",\"q021\":\"A\",\"q022\":\"A\",\"q023\":\"D\",\"q024\":\"A\",\"q025\":\"A\",\"q026\":\"B\",\"q027\":\"B\",\"q028\":\"C\",\"q029\":\"D\",\"q030\":\"D\",\"q031\":\"C\",\"q032\":\"A\",\"q033\":\"B\",\"q034\":\"C\",\"q035\":\"D\",\"q036\":\"C\",\"q037\":\"D\",\"q038\":\"C\",\"q039\":\"A\",\"q040\":\"C\",\"q041\":\"B\",\"q042\":\"A\",\"q043\":\"D\",\"q044\":\"A\",\"q045\":\"D\",\"q046\":\"C\",\"q047\":\"C\",\"q048\":\"B\",\"q049\":\"D\",\"q050\":\"D\",\"q051\":\"B\",\"q052\":\"B\",\"q053\":\"D\",\"q054\":\"B\",\"q055\":\"B\",\"q056\":\"C\",\"q057\":\"A\",\"q058\":\"A\",\"q059\":\"B\",\"q060\":\"C\",\"q061\":\"D\",\"q062\":\"C\",\"q063\":\"B\",\"q064\":\"C\",\"q065\":\"B\",\"q066\":\"B\",\"q067\":\"C\",\"q068\":\"D\",\"q069\":\"A\",\"q070\":\"D\",\"q071\":\"A\",\"q072\":\"A\",\"q073\":\"A\",\"q074\":\"D\",\"q075\":\"B\",\"q076\":\"B\",\"q077\":\"B\",\"q078\":\"A\",\"q079\":\"B\",\"q080\":\"C\",\"q081\":\"C\",\"q082\":\"B\",\"q083\":\"D\",\"q084\":\"B\",\"q085\":\"C\",\"q086\":\"D\",\"q087\":\"C\",\"q088\":\"D\",\"q089\":\"A\",\"q090\":\"A\",\"q091\":\"A\",\"q092\":\"D\",\"q093\":\"A\",\"q094\":\"D\",\"q095\":\"D\",\"q096\":\"B\",\"q097\":\"D\",\"q098\":\"B\",\"q099\":\"D\",\"q100\":\"B\",\"q101\":\"D\",\"q102\":\"B\",\"q103\":\"A\",\"q104\":\"A\",\"q105\":\"C\",\"q106\":\"B\",\"q107\":\"A\",\"q108\":\"D\",\"q109\":\"B\",\"q110\":\"B\",\"q111\":\"C\",\"q112\":\"C\",\"q113\":\"C\",\"q114\":\"A\",\"q115\":\"B\",\"q116\":\"C\",\"q117\":\"B\",\"q118\":\"A\",\"q119\":\"D\",\"q120\":\"A\",\"q121\":\"D\",\"q122\":\"B\",\"q123\":\"A\",\"q124\":\"A\",\"q125\":\"A\",\"q126\":\"C\",\"q127\":\"C\",\"q128\":\"B\",\"q129\":\"D\",\"q130\":\"C\",\"q131\":\"D\",\"q132\":\"A\",\"q133\":\"A\",\"q134\":\"A\",\"q135\":\"B\",\"q136\":\"C\",\"q137\":\"D\",\"q138\":\"A\",\"q139\":\"A\",\"q140\":\"D\",\"q141\":\"C\",\"q142\":\"B\",\"q143\":\"C\",\"q144\":\"B\",\"q145\":\"B\",\"q146\":\"B\",\"q147\":\"D\",\"q148\":\"B\",\"q149\":\"C\",\"q150\":\"C\",\"q151\":\"C\",\"q152\":\"C\",\"q153\":\"C\",\"q154\":\"C\",\"q155\":\"D\",\"q156\":\"B\",\"q157\":\"D\",\"q158\":\"D\",\"q159\":\"A\",\"q160\":\"C\",\"q161\":\"D\",\"q162\":\"B\",\"q163\":\"C\",\"q164\":\"D\",\"q165\":\"B\",\"q166\":\"C\",\"q167\":\"B\",\"q168\":\"D\",\"q169\":\"D\",\"q170\":\"D\",\"q171\":\"B\",\"q172\":\"D\",\"q173\":\"D\",\"q174\":\"B\",\"q175\":\"B\",\"q176\":\"D\",\"q177\":\"C\",\"q178\":\"C\",\"q179\":\"C\",\"q180\":\"A\",\"q181\":\"A\",\"q182\":\"C\",\"q183\":\"C\",\"q184\":\"A\",\"q185\":\"A\",\"q186\":\"B\",\"q187\":\"A\",\"q188\":\"C\",\"q189\":\"C\",\"q190\":\"D\",\"q191\":\"C\",\"q192\":\"A\",\"q193\":\"B\",\"q194\":\"D\",\"q195\":\"A\",\"q196\":\"D\",\"q197\":\"B\",\"q198\":\"B\",\"q199\":\"A\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 13939,
+          "completion_tokens": 1001,
+          "total_tokens": 14940,
+          "prompt_tokens_details": {
+            "cached_tokens": 13696
+          },
+          "prompt_cache_hit_tokens": 13696,
+          "prompt_cache_miss_tokens": 243
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 3.863398707995657,
+      "ended_at": "2026-10-12T08:24:17.474553+00:00",
+      "completion_s": 3.8634200830128975
+    },
+    {
+      "item_id": "routing/board-2-q1",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.058298559859395e-05,
+      "admission_wait_s": 1.18750031106174e-05,
+      "started_at": "2026-10-12T08:24:17.474633+00:00",
+      "decisions": 1,
+      "request_sha256": "81030b937e9f4dbe2bf6598c45f665ca67424fd6637661a83e8a197531414e27",
+      "provider_request_sha256": "1a4009d8c603a8290f4bc99e56a2d0276f1ba5220adfe0bf5cb1a5c266ae1833",
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 479,
+      "response_headers": {},
+      "response": {
+        "id": "98083793-8b0e-4399-b144-bf989e63582e",
+        "object": "chat.completion",
+        "created": 1791793457,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"A\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4387,
+          "completion_tokens": 6,
+          "total_tokens": 4393,
+          "prompt_tokens_details": {
+            "cached_tokens": 4224
+          },
+          "prompt_cache_hit_tokens": 4224,
+          "prompt_cache_miss_tokens": 163
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.48297483401256613,
+      "ended_at": "2026-10-12T08:24:17.957616+00:00",
+      "completion_s": 0.48299541699816473
+    },
+    {
+      "item_id": "routing/board-2-q10",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 2.154201501980424e-05,
+      "admission_wait_s": 1.1791998986154795e-05,
+      "started_at": "2026-10-12T08:24:17.957690+00:00",
+      "decisions": 10,
+      "request_sha256": "07b6d5c98cbea3d6c96420a419182318efe521972e3324f1135d7d64da8a61a4",
+      "provider_request_sha256": "fb78a1bcf4d7d7930bb39d26fea86faf3ea8c6728f5461b5753fc38499ec3cdc",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 719,
+      "response_headers": {},
+      "response": {
+        "id": "b5a8cb12-2f2a-42ce-93c5-9f7c1ece0174",
+        "object": "chat.completion",
+        "created": 1791793458,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"manual_review\",\"q001\":\"manual_review\",\"q002\":\"request_documents\",\"q003\":\"ready\",\"q004\":\"ready\",\"q005\":\"manual_review\",\"q006\":\"ready\",\"q007\":\"manual_review\",\"q008\":\"manual_review\",\"q009\":\"request_documents\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4819,
+          "completion_tokens": 65,
+          "total_tokens": 4884,
+          "prompt_tokens_details": {
+            "cached_tokens": 4608
+          },
+          "prompt_cache_hit_tokens": 4608,
+          "prompt_cache_miss_tokens": 211
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 0.767986541002756,
+      "ended_at": "2026-10-12T08:24:18.725683+00:00",
+      "completion_s": 0.7680080830177758
+    },
+    {
+      "item_id": "routing/board-2-q50",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.591601176187396e-05,
+      "admission_wait_s": 1.0207993909716606e-05,
+      "started_at": "2026-10-12T08:24:18.725748+00:00",
+      "decisions": 50,
+      "request_sha256": "cfc572371f3765d7e89402959e5f9ff7af75538f57340836746a2c4b44ef24a8",
+      "provider_request_sha256": "e2a6775644fb760e669ffeb1816f48ac33c6cfcd3884d1e7262875986ea35dce",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 1871,
+      "response_headers": {},
+      "response": {
+        "id": "0fa39636-9ab3-4b80-89af-5f31bb55eed5",
+        "object": "chat.completion",
+        "created": 1791793458,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"manual_review\",\"q001\":\"manual_review\",\"q002\":\"request_documents\",\"q003\":\"ready\",\"q004\":\"ready\",\"q005\":\"manual_review\",\"q006\":\"ready\",\"q007\":\"manual_review\",\"q008\":\"manual_review\",\"q009\":\"request_documents\",\"q010\":\"ready\",\"q011\":\"wait_for_authorization\",\"q012\":\"wait_for_authorization\",\"q013\":\"wait_for_authorization\",\"q014\":\"ready\",\"q015\":\"ready\",\"q016\":\"manual_review\",\"q017\":\"manual_review\",\"q018\":\"ready\",\"q019\":\"request_documents\",\"q020\":\"manual_review\",\"q021\":\"request_documents\",\"q022\":\"request_documents\",\"q023\":\"ready\",\"q024\":\"request_documents\",\"q025\":\"manual_review\",\"q026\":\"manual_review\",\"q027\":\"manual_review\",\"q028\":\"request_documents\",\"q029\":\"manual_review\",\"q030\":\"wait_for_authorization\",\"q031\":\"manual_review\",\"q032\":\"request_documents\",\"q033\":\"request_documents\",\"q034\":\"request_documents\",\"q035\":\"request_documents\",\"q036\":\"request_documents\",\"q037\":\"manual_review\",\"q038\":\"manual_review\",\"q039\":\"wait_for_authorization\",\"q040\":\"request_documents\",\"q041\":\"ready\",\"q042\":\"request_documents\",\"q043\":\"ready\",\"q044\":\"request_documents\",\"q045\":\"wait_for_authorization\",\"q046\":\"request_documents\",\"q047\":\"request_documents\",\"q048\":\"request_documents\",\"q049\":\"wait_for_authorization\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 6739,
+          "completion_tokens": 345,
+          "total_tokens": 7084,
+          "prompt_tokens_details": {
+            "cached_tokens": 6528
+          },
+          "prompt_cache_hit_tokens": 6528,
+          "prompt_cache_miss_tokens": 211
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 1.7629349589988124,
+      "ended_at": "2026-10-12T08:24:20.488695+00:00",
+      "completion_s": 1.7629508750105742
+    },
+    {
+      "item_id": "routing/board-2-q100",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.8291000742465258e-05,
+      "admission_wait_s": 1.0375020792707801e-05,
+      "started_at": "2026-10-12T08:24:20.488763+00:00",
+      "decisions": 100,
+      "request_sha256": "55ec5cd799dbb7d9aa8f0dc9eb420a457bb249ce0d3771e86733cc2857046916",
+      "provider_request_sha256": "095abc6db1e6f417b018803c009eab48fe3c786bcc1454ed4dd5ec33c8a670e2",
+      "status": "invalid_answer",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "http_status": 200,
+      "response_bytes": 3336,
+      "response_headers": {},
+      "response": {
+        "id": "304be9e3-83db-4a31-af2b-84ca77428b32",
+        "object": "chat.completion",
+        "created": 1791793460,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"manual_review\",\"q001\":\"manual_review\",\"q002\":\"request_documents\",\"q003\":\"ready\",\"q004\":\"ready\",\"q005\":\"manual_review\",\"q006\":\"ready\",\"q007\":\"manual_review\",\"q008\":\"manual_review\",\"q009\":\"request_documents\",\"q010\":\"ready\",\"q011\":\"wait_for_authorization\",\"q012\":\"wait_for_authorization\",\"q013\":\"wait_for_authorization\",\"q014\":\"ready\",\"q015\":\"ready\",\"q016\":\"manual_review\",\"q017\":\"manual_review\",\"q018\":\"ready\",\"q019\":\"request_documents\",\"q020\":\"manual_review\",\"q021\":\"request_documents\",\"q022\":\"request_documents\",\"q023\":\"ready\",\"q024\":\"request_documents\",\"q025\":\"manual_review\",\"q026\":\"manual_review\",\"q027\":\"manual_review\",\"q028\":\"request_documents\",\"q029\":\"manual_review\",\"q030\":\"wait_for_authorization\",\"q031\":\"manual_review\",\"q032\":\"request_documents\",\"q033\":\"request_documents\",\"q034\":\"request_documents\",\"q035\":\"request_documents\",\"q036\":\"request_documents\",\"q037\":\"manual_review\",\"q038\":\"manual_review\",\"q039\":\"wait_for_authorization\",\"q040\":\"request_documents\",\"q041\":\"ready\",\"q042\":\"request_documents\",\"q043\":\"ready\",\"q044\":\"request_documents\",\"q045\":\"wait_for_authorization\",\"q046\":\"request_documents\",\"q047\":\"request_documents\",\"q048\":\"request_documents\",\"q049\":\"wait_for_authorization\",\"q050\":\"request_documents\",\"q051\":\"request_documents\",\"q052\":\"manual_review\",\"q053\":\"ready\",\"q054\":\"manual_review\",\"q055\":\"ready\",\"q056\":\"ready\",\"q057\":\"manual_review\",\"q058\":\"manual_review\",\"q059\":\"wait_for_authorization\",\"q060\":\"wait_for_authorization\",\"q061\":\"ready\",\"q062\":\"wait_for_authorization\",\"q063\":\"wait_for_authorization\",\"q064\":\"request_documents\",\"q065\":\"manual_review\",\"q066\":\"ready\",\"q067\":\"wait_for_authorization\",\"q068\":\"wait_for_authorization\",\"q069\":\"request_documents\",\"q070\":\"manual_review\",\"q071\":\"wait_for_authorization\",\"q072\":\"ready\",\"q073\":\"request_documents\",\"q074\":\"ready\",\"q075\":\"wait_for_authorization\",\"q076\":\"request_documents\",\"q077\":\"ready\",\"q078\":\"wait_for_authorization\",\"q079\":\"manual_review\",\"q080\":\"wait_for_authorization\",\"q081\":\"wait_for_authorization\",\"q082\":\"ready\",\"q083\":\"wait_for_authorization\",\"q084\":\"wait_for_authorization\",\"q085\":\"ready\",\"q086\":\"wait_for_authorization\",\"q087\":\"request_documents\",\"q088\":\"request_documents\",\"q089\":\"ready\",\"q090\":\"request_documents\",\"q091\":\"manual_review\",\"q092\":\"ready\",\"q093\":\"wait_for_authorization\",\"q094\":\"wait_for_authorization\",\"q095\":\"request_documents\",\"q096\":\"wait_for_authorization\",\"q097\":\"manual_review\",\"q098\":\"wait_for_authorization\",\"q099\":\"wait_for_authorization\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 9139,
+          "completion_tokens": 709,
+          "total_tokens": 9848,
+          "prompt_tokens_details": {
+            "cached_tokens": 8960
+          },
+          "prompt_cache_hit_tokens": 8960,
+          "prompt_cache_miss_tokens": 179
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 2.496714625012828,
+      "ended_at": "2026-10-12T08:24:22.985491+00:00",
+      "completion_s": 2.4967329160135705
+    },
+    {
+      "item_id": "routing/board-2-q200",
+      "family": "routing_200",
+      "model": "deepseek-flash",
+      "http_start_s": 1.6582984244450927e-05,
+      "admission_wait_s": 9.374984074383974e-06,
+      "started_at": "2026-10-12T08:24:22.985550+00:00",
+      "decisions": 200,
+      "request_sha256": "1a54db5d97b7562eb5e4a328fe81b0641e98631b2dd1a417eba489f58802f2c2",
+      "provider_request_sha256": "5dec4c70fe826a6a8c644a39195f68fea6cebd63ea0eaac85b89a2a7bc8198a4",
+      "status": "success",
+      "valid_decisions": 200,
+      "correct_decisions": 200,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 3471,
+      "response_headers": {},
+      "response": {
+        "id": "0cf54ef7-5775-447d-a6b3-d4651c5f983a",
+        "object": "chat.completion",
+        "created": 1791793463,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"q000\":\"A\",\"q001\":\"A\",\"q002\":\"B\",\"q003\":\"D\",\"q004\":\"D\",\"q005\":\"A\",\"q006\":\"D\",\"q007\":\"A\",\"q008\":\"A\",\"q009\":\"B\",\"q010\":\"D\",\"q011\":\"C\",\"q012\":\"C\",\"q013\":\"C\",\"q014\":\"D\",\"q015\":\"D\",\"q016\":\"A\",\"q017\":\"A\",\"q018\":\"D\",\"q019\":\"B\",\"q020\":\"A\",\"q021\":\"B\",\"q022\":\"B\",\"q023\":\"D\",\"q024\":\"B\",\"q025\":\"A\",\"q026\":\"A\",\"q027\":\"A\",\"q028\":\"B\",\"q029\":\"A\",\"q030\":\"C\",\"q031\":\"A\",\"q032\":\"B\",\"q033\":\"B\",\"q034\":\"B\",\"q035\":\"B\",\"q036\":\"B\",\"q037\":\"A\",\"q038\":\"A\",\"q039\":\"C\",\"q040\":\"B\",\"q041\":\"D\",\"q042\":\"B\",\"q043\":\"D\",\"q044\":\"B\",\"q045\":\"C\",\"q046\":\"B\",\"q047\":\"B\",\"q048\":\"B\",\"q049\":\"C\",\"q050\":\"B\",\"q051\":\"B\",\"q052\":\"A\",\"q053\":\"D\",\"q054\":\"A\",\"q055\":\"D\",\"q056\":\"D\",\"q057\":\"A\",\"q058\":\"A\",\"q059\":\"C\",\"q060\":\"C\",\"q061\":\"D\",\"q062\":\"C\",\"q063\":\"C\",\"q064\":\"B\",\"q065\":\"A\",\"q066\":\"D\",\"q067\":\"C\",\"q068\":\"C\",\"q069\":\"B\",\"q070\":\"A\",\"q071\":\"C\",\"q072\":\"D\",\"q073\":\"B\",\"q074\":\"D\",\"q075\":\"C\",\"q076\":\"B\",\"q077\":\"D\",\"q078\":\"C\",\"q079\":\"A\",\"q080\":\"C\",\"q081\":\"C\",\"q082\":\"D\",\"q083\":\"C\",\"q084\":\"C\",\"q085\":\"D\",\"q086\":\"C\",\"q087\":\"B\",\"q088\":\"B\",\"q089\":\"D\",\"q090\":\"B\",\"q091\":\"A\",\"q092\":\"D\",\"q093\":\"C\",\"q094\":\"C\",\"q095\":\"B\",\"q096\":\"C\",\"q097\":\"A\",\"q098\":\"C\",\"q099\":\"C\",\"q100\":\"C\",\"q101\":\"B\",\"q102\":\"A\",\"q103\":\"C\",\"q104\":\"B\",\"q105\":\"C\",\"q106\":\"D\",\"q107\":\"D\",\"q108\":\"A\",\"q109\":\"B\",\"q110\":\"A\",\"q111\":\"A\",\"q112\":\"C\",\"q113\":\"C\",\"q114\":\"B\",\"q115\":\"D\",\"q116\":\"C\",\"q117\":\"A\",\"q118\":\"D\",\"q119\":\"A\",\"q120\":\"A\",\"q121\":\"B\",\"q122\":\"B\",\"q123\":\"B\",\"q124\":\"C\",\"q125\":\"B\",\"q126\":\"D\",\"q127\":\"D\",\"q128\":\"A\",\"q129\":\"B\",\"q130\":\"C\",\"q131\":\"B\",\"q132\":\"D\",\"q133\":\"C\",\"q134\":\"A\",\"q135\":\"A\",\"q136\":\"B\",\"q137\":\"A\",\"q138\":\"D\",\"q139\":\"C\",\"q140\":\"A\",\"q141\":\"A\",\"q142\":\"C\",\"q143\":\"D\",\"q144\":\"C\",\"q145\":\"A\",\"q146\":\"D\",\"q147\":\"A\",\"q148\":\"B\",\"q149\":\"D\",\"q150\":\"D\",\"q151\":\"D\",\"q152\":\"C\",\"q153\":\"A\",\"q154\":\"C\",\"q155\":\"C\",\"q156\":\"A\",\"q157\":\"D\",\"q158\":\"B\",\"q159\":\"B\",\"q160\":\"A\",\"q161\":\"D\",\"q162\":\"B\",\"q163\":\"D\",\"q164\":\"D\",\"q165\":\"B\",\"q166\":\"A\",\"q167\":\"D\",\"q168\":\"D\",\"q169\":\"D\",\"q170\":\"A\",\"q171\":\"B\",\"q172\":\"A\",\"q173\":\"A\",\"q174\":\"B\",\"q175\":\"A\",\"q176\":\"C\",\"q177\":\"D\",\"q178\":\"A\",\"q179\":\"B\",\"q180\":\"C\",\"q181\":\"B\",\"q182\":\"D\",\"q183\":\"D\",\"q184\":\"C\",\"q185\":\"D\",\"q186\":\"C\",\"q187\":\"C\",\"q188\":\"B\",\"q189\":\"D\",\"q190\":\"C\",\"q191\":\"A\",\"q192\":\"C\",\"q193\":\"D\",\"q194\":\"D\",\"q195\":\"C\",\"q196\":\"B\",\"q197\":\"A\",\"q198\":\"D\",\"q199\":\"C\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 13939,
+          "completion_tokens": 1001,
+          "total_tokens": 14940,
+          "prompt_tokens_details": {
+            "cached_tokens": 13696
+          },
+          "prompt_cache_hit_tokens": 13696,
+          "prompt_cache_miss_tokens": 243
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "elapsed_s": 3.618591959006153,
+      "ended_at": "2026-10-12T08:24:26.604163+00:00",
+      "completion_s": 3.6186085419903975
+    }
+  ],
+  "token_estimates": {
+    "case_complication/b8/0": 5952,
+    "case_complication/b8/1": 6056,
+    "case_complication/b8/2": 5914,
+    "case_complication/b8/3": 5826,
+    "medication_choice/b8/0": 5726,
+    "medication_choice/b8/1": 5548,
+    "medication_choice/b8/2": 5581,
+    "medication_choice/b8/3": 5492,
+    "diagnosis/b8/0": 15619,
+    "diagnosis/b8/1": 23538,
+    "diagnosis/b8/2": 18283,
+    "diagnosis/b8/3": 7743,
+    "tcm_syndrome/b8/0": 53033,
+    "tcm_syndrome/b8/1": 54948,
+    "tcm_syndrome/b8/2": 53753,
+    "tcm_syndrome/b8/3": 52784,
+    "routing/board-0-q1": 17757,
+    "routing/board-0-q10": 19377,
+    "routing/board-0-q50": 26577,
+    "routing/board-0-q100": 35577,
+    "routing/board-0-q200": 53577,
+    "routing/board-1-q1": 17765,
+    "routing/board-1-q10": 19385,
+    "routing/board-1-q50": 26585,
+    "routing/board-1-q100": 35585,
+    "routing/board-1-q200": 53585,
+    "routing/board-2-q1": 17772,
+    "routing/board-2-q10": 19392,
+    "routing/board-2-q50": 26592,
+    "routing/board-2-q100": 35592,
+    "routing/board-2-q200": 53592
+  }
+}

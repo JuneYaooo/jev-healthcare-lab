@@ -224,6 +224,12 @@ def render():
     performance = read_json(performance_path) if performance_path.exists() else None
     if performance and performance['dataset_manifest_sha256'] != data.file_sha(ROOT / 'benchmarks/task_performance_v1/manifest.json'):
         raise ValueError('Task performance uses an outdated workload')
+    throughput_path = ROOT / 'results/sustained-throughput-v1/comparison.json'
+    throughput = read_json(throughput_path) if throughput_path.exists() else None
+    if throughput:
+        import render_throughput_docs as throughput_docs
+        if throughput['config']['clinical_manifest_sha256'] != data.file_sha(ROOT / 'benchmarks/task_performance_v1/manifest.json'):
+            raise ValueError('Sustained throughput uses an outdated workload')
 
     def model_task_table(family):
         rows = []
@@ -283,13 +289,18 @@ def render():
             return []
         item = performance['families'][family]
         parts = ['## 多问题与并发性能']
+        if throughput:
+            if family in {f['id'] for f in throughput['config']['families']}:
+                parts.extend(throughput_docs.task_intro(throughput, family))
+            else:
+                parts += ['持续多题并发尚未测试。以下为历史有限批次结果，不作为高并发高吞吐证据。', '### 历史有限批次测试']
         if not item['selected']:
             return parts + ['本任务尚无可用原题，多问题与并发测试均待补；不以其他任务或合成规则结果代填。']
         parts += [f"固定本任务 {item['selected']} 道原题，每种模式、每个模型各运行三轮；各模式使用完全相同的题目与金标。单题原始输入保持不变，多题把不同原题材料放入各自记录，并要求逐题独立判断。这是同任务多病例／多材料批量判断，不是同一患者新增多项临床判断。",
                   '取样结果用于性能与批量准确率比较，不替代上方全题量的临床成绩。包含非商业材料的任务继承原来源许可。JEV 与 Flash 使用各自原生接口，Flash 关闭思考并返回题号到选项键的精简 JSON；其他三模型尚未进行本轮性能测试。',
                   '表中整组耗时为三轮完成整组题目的墙钟均值，吞吐为三轮有效／正确决策总数除以三轮墙钟总和，包含失败拖尾。单请求题数为实际值；超过上下文预算会拆包，材料不截断。并发是同时请求数，不是单请求问题数。']
         findings = task_findings(family)
-        parts.insert(1, '本轮多题结果（固定最大打包档，对比 Flash）：' + '；'.join(findings[1:]) + '。具体准确率与费用仅对应下述性能子集，不代表全量成绩或其他调用方式。')
+        parts.append('历史多题结果（固定最大打包档，对比 Flash）：' + '；'.join(findings[1:]) + '。具体准确率与费用仅对应下述性能子集，不代表全量成绩或其他调用方式。')
         if item['small_sample']:
             parts.append('**小样本任务：** 重复运行只观察性能波动，不增加独立题目数，不能据此稳定估计临床准确率或尾延迟。')
         rows, detail_rows, cost_rows = [], [], []
@@ -494,7 +505,9 @@ def render():
     status_names = {'empty': '待补', 'exploratory': '探索性', 'summary_eligible': '计入总分'}
     parts = ['# 临床主评测任务', '[返回首页](../../README.md) · [辅助与暂停任务](AUXILIARY.md) · [数据集目录](../datasets/README.md)',
              f"共 {clinical['defined_families']} 个任务定义、{clinical['populated_families']} 个有题任务，{clinical['records']:,} 题。病例诊断的两个来源子集合并计分；所有有题任务均计入总分，少于 20 题仅标记小样本。状态按完整临床范围展示，实际评分按本次许可子集计算题数与成绩。"]
-    if performance:
+    if throughput:
+        parts.append('病例并发症、用药方案、病例诊断和中医证型任务页新增持续多题并发结果：每请求 8 题，配置 8／32／64 并发，持续补入请求。其余任务的持续负载尚未测试。[持续负载协议](../SUSTAINED_THROUGHPUT.md)。原单题与有限批次成绩作为历史记录保留。')
+    elif performance:
         parts.append('每个任务页包含原单题结果，以及 JEV／Flash 在同一原题子集上的多题打包、逐题并发、准确率、完整率与成本。三轮结果和全部档位按任务保留；空任务标记待补。[测试协议](../TASK_PERFORMANCE.md)。')
     for scene_id, scene in scenes.items():
         parts.extend([f"## {scene['title']}", table(['任务说明', '能力维度', '题数', '状态'], [
@@ -535,7 +548,7 @@ def render():
             for sid, s in sources.items() if s['distribution'] == distribution])])
     output[ROOT / 'docs/datasets/README.md'] = '\n\n'.join(parts) + '\n'
 
-    output[ROOT / 'README.md'] = render_performance_readme(performance, scenes, families)
+    output[ROOT / 'README.md'] = throughput_docs.render(throughput) if throughput else render_performance_readme(performance, scenes, families)
     return output
 
 

@@ -1,0 +1,321 @@
+{
+  "records": [
+    {
+      "item_id": "case_complication/b8/0",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 7.542024832218885e-06,
+      "admission_wait_s": 4.167028237134218e-06,
+      "started_at": "2026-10-12T08:11:20.922425+00:00",
+      "decisions": 8,
+      "request_sha256": "24adc438d46426958137fba5e33b1906d577357117edbeca8cdba6515e306bf1",
+      "provider_request_sha256": "692e79763c3546931caab84d6ddcc2329604442943f71d377c0d4791ed487cde",
+      "status": "timeout",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "elapsed_s": 10.283434541983297,
+      "ended_at": "2026-10-12T08:11:31.205918+00:00",
+      "completion_s": 10.28344208400813
+    },
+    {
+      "item_id": "case_complication/b8/1",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 3.2957992516458035e-05,
+      "admission_wait_s": 1.6457983292639256e-05,
+      "started_at": "2026-10-12T08:11:31.206028+00:00",
+      "decisions": 8,
+      "request_sha256": "50ef46f277b3907c06fab1a65f58c9918034326fbd46f53b03823e3550464eb2",
+      "provider_request_sha256": "770ef87dcfa8d3babbddb65760dc0382df0742c2bf8ee04f3a46a71f73207823",
+      "status": "timeout",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "elapsed_s": 10.997881749994121,
+      "ended_at": "2026-10-12T08:11:42.203935+00:00",
+      "completion_s": 10.997914707986638
+    },
+    {
+      "item_id": "case_complication/b8/2",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 1.3834011042490602e-05,
+      "admission_wait_s": 7.124996045604348e-06,
+      "started_at": "2026-10-12T08:11:42.203988+00:00",
+      "decisions": 8,
+      "request_sha256": "034d56023bd2b0a86c4839f40ad31f32ca4fb9d181bf5711d7398d719fd1dd40",
+      "provider_request_sha256": "844f604a124c64b31033867b0b9426066a505bbe554fc459b2bcc6b1dc0e4f0e",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 1058,
+      "response_headers": {
+        "x-typesafe-request-id": "req_01a12f2b085e74d5b620286fc999811d"
+      },
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "q000": {
+            "type": "choice",
+            "choice": "E",
+            "confidence": 0.99,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.01,
+              "E": 0.99
+            }
+          },
+          "q001": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 0.59,
+            "probabilities": {
+              "opa": 0.1,
+              "opb": 0.04,
+              "opc": 0.14,
+              "opd": 0.67,
+              "ope": 0.04
+            }
+          },
+          "q002": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 0.78,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.18,
+              "D": 0.8200000000000001,
+              "E": 0.0
+            }
+          },
+          "q003": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 1.0,
+              "E": 0.0
+            }
+          },
+          "q004": {
+            "type": "choice",
+            "choice": "C",
+            "confidence": 0.42,
+            "probabilities": {
+              "A": 0.12,
+              "B": 0.04,
+              "C": 0.54,
+              "D": 0.01,
+              "E": 0.29
+            }
+          },
+          "q005": {
+            "type": "choice",
+            "choice": "ope",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 1.0
+            }
+          },
+          "q006": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 0.99,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.99,
+              "ope": 0.01
+            }
+          },
+          "q007": {
+            "type": "choice",
+            "choice": "A",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0,
+              "E": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 2510,
+          "output_tokens": 427
+        }
+      },
+      "elapsed_s": 9.660524250008166,
+      "ended_at": "2026-10-12T08:11:51.864530+00:00",
+      "completion_s": 9.660538084019208
+    },
+    {
+      "item_id": "case_complication/b8/3",
+      "family": "case_complication",
+      "model": "jev-1.13.0",
+      "http_start_s": 1.8082995666190982e-05,
+      "admission_wait_s": 9.083014447242022e-06,
+      "started_at": "2026-10-12T08:11:51.864597+00:00",
+      "decisions": 8,
+      "request_sha256": "50184ab1d92d8628b8a87f4404d8512a9a2a9f1c5d7d151f64889bee90940766",
+      "provider_request_sha256": "5386ead1dc7ae61f96dacb0608d08ebaaab0343c24dbf82b3588975ed9b313d2",
+      "status": "success",
+      "valid_decisions": 8,
+      "correct_decisions": 8,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 1049,
+      "response_headers": {
+        "x-typesafe-request-id": "req_01a12f2b0a097d54966c1060f462b68e"
+      },
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "q000": {
+            "type": "choice",
+            "choice": "opd",
+            "confidence": 1.0,
+            "probabilities": {
+              "opa": 0.0,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 1.0,
+              "ope": 0.0
+            }
+          },
+          "q001": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 1.0,
+            "probabilities": {
+              "A": 0.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 1.0,
+              "E": 0.0
+            }
+          },
+          "q002": {
+            "type": "choice",
+            "choice": "C",
+            "confidence": 0.99,
+            "probabilities": {
+              "A": 0.01,
+              "B": 0.0,
+              "C": 0.99,
+              "D": 0.0,
+              "E": 0.0
+            }
+          },
+          "q003": {
+            "type": "choice",
+            "choice": "D",
+            "confidence": 0.97,
+            "probabilities": {
+              "A": 0.01,
+              "B": 0.01,
+              "C": 0.0,
+              "D": 0.98,
+              "E": 0.0
+            }
+          },
+          "q004": {
+            "type": "choice",
+            "choice": "ope",
+            "confidence": 0.99,
+            "probabilities": {
+              "opa": 0.01,
+              "opb": 0.0,
+              "opc": 0.0,
+              "opd": 0.0,
+              "ope": 0.99
+            }
+          },
+          "q005": {
+            "type": "choice",
+            "choice": "E",
+            "confidence": 0.3,
+            "probabilities": {
+              "A": 0.07,
+              "B": 0.42,
+              "C": 0.06,
+              "D": 0.01,
+              "E": 0.44
+            }
+          },
+          "q006": {
+            "type": "choice",
+            "choice": "opa",
+            "confidence": 0.68,
+            "probabilities": {
+              "opa": 0.74,
+              "opb": 0.04,
+              "opc": 0.02,
+              "opd": 0.2,
+              "ope": 0.0
+            }
+          },
+          "q007": {
+            "type": "choice",
+            "choice": "E",
+            "confidence": 0.68,
+            "probabilities": {
+              "A": 0.05,
+              "B": 0.06,
+              "C": 0.07,
+              "D": 0.08,
+              "E": 0.74
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 2446,
+          "output_tokens": 426
+        }
+      },
+      "elapsed_s": 0.45853525001439266,
+      "ended_at": "2026-10-12T08:11:52.323140+00:00",
+      "completion_s": 0.45855333301005885
+    }
+  ],
+  "token_estimates": {
+    "case_complication/b8/0": 5952,
+    "case_complication/b8/1": 6056,
+    "case_complication/b8/2": 2761,
+    "case_complication/b8/3": 2691,
+    "routing/board-0-q1": 17757,
+    "routing/board-0-q10": 19377,
+    "routing/board-0-q50": 26577,
+    "routing/board-0-q100": 35577,
+    "routing/board-0-q200": 53577,
+    "routing/board-1-q1": 17765,
+    "routing/board-1-q10": 19385,
+    "routing/board-1-q50": 26585,
+    "routing/board-1-q100": 35585,
+    "routing/board-1-q200": 53585,
+    "routing/board-2-q1": 17772,
+    "routing/board-2-q10": 19392,
+    "routing/board-2-q50": 26592,
+    "routing/board-2-q100": 35592,
+    "routing/board-2-q200": 53592
+  }
+}

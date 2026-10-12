@@ -1,0 +1,3017 @@
+{
+  "config": {
+    "created_at": "2026-10-12T08:23:34.040173+00:00",
+    "families": [
+      {
+        "id": "case_complication",
+        "title": "病例并发症判断",
+        "available": 100,
+        "selected": 32,
+        "batch_targets": [
+          1,
+          8,
+          32
+        ],
+        "concurrency": [
+          1,
+          8,
+          32
+        ],
+        "packet_sizes": {
+          "1": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "8": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "32": [
+            32
+          ]
+        },
+        "small_sample": false,
+        "distribution": {
+          "open": 32
+        }
+      },
+      {
+        "id": "medication_choice",
+        "title": "用药方案选择",
+        "available": 100,
+        "selected": 32,
+        "batch_targets": [
+          1,
+          8,
+          32
+        ],
+        "concurrency": [
+          1,
+          8,
+          32
+        ],
+        "packet_sizes": {
+          "1": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "8": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "32": [
+            32
+          ]
+        },
+        "small_sample": false,
+        "distribution": {
+          "open": 32
+        }
+      },
+      {
+        "id": "diagnosis",
+        "title": "病例诊断选择",
+        "available": 200,
+        "selected": 32,
+        "batch_targets": [
+          1,
+          8,
+          32
+        ],
+        "concurrency": [
+          1,
+          8,
+          32
+        ],
+        "packet_sizes": {
+          "1": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "8": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "32": [
+            24,
+            8
+          ]
+        },
+        "small_sample": false,
+        "distribution": {
+          "open": 32
+        }
+      },
+      {
+        "id": "tcm_syndrome",
+        "title": "中医证型判断",
+        "available": 100,
+        "selected": 32,
+        "batch_targets": [
+          1,
+          8,
+          32
+        ],
+        "concurrency": [
+          1,
+          8,
+          32
+        ],
+        "packet_sizes": {
+          "1": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "8": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "32": [
+            9,
+            9,
+            9,
+            5
+          ]
+        },
+        "small_sample": false,
+        "distribution": {
+          "research_noncommercial": 32
+        }
+      }
+    ],
+    "cells": [
+      {
+        "family": "tcm_syndrome",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "routing_200",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "routing_200",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "routing_200",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "routing_200",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "diagnosis",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 0,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "tcm_syndrome",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "diagnosis",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "case_complication",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "deepseek-flash",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "medication_choice",
+        "model": "jev-1.13.0",
+        "concurrency": 64,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 8
+      },
+      {
+        "family": "routing_200",
+        "model": "jev-1.13.0",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "routing_200",
+        "model": "deepseek-flash",
+        "concurrency": 8,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "routing_200",
+        "model": "jev-1.13.0",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      },
+      {
+        "family": "routing_200",
+        "model": "deepseek-flash",
+        "concurrency": 32,
+        "repeat": 1,
+        "window_s": 30,
+        "warmup_s": 5,
+        "target": 200
+      }
+    ],
+    "smoke": false,
+    "seed": 2026101203,
+    "python": "3.13.2",
+    "aiohttp": "3.14.5",
+    "limits": {
+      "as_of": "2026-10-12",
+      "sources": [
+        "https://docs.typesafe.ai/models",
+        "https://api-docs.deepseek.com/quick_start/rate_limit/"
+      ],
+      "jev_published_requests_per_s": 80,
+      "jev_published_input_tokens_per_s": 100000,
+      "jev_client_requests_per_s": 76,
+      "jev_client_input_tokens_per_s": 95000,
+      "flash_published_concurrency": 2500,
+      "policy": "Respect published account quotas, do not rotate keys or bypass 429. Client pacing is visible, not attributed to model compute."
+    },
+    "pricing": {
+      "as_of": "2026-10-12",
+      "currency": "USD",
+      "sources": [
+        "https://docs.typesafe.ai/models",
+        "https://api-docs.deepseek.com/quick_start/pricing/"
+      ],
+      "jev_input_per_million": 0.042,
+      "flash_off_peak": {
+        "hit": 0.003,
+        "miss": 0.15,
+        "output": 0.6
+      },
+      "flash_peak": {
+        "hit": 0.006,
+        "miss": 0.3,
+        "output": 1.2
+      },
+      "policy": "List-price lower/upper bounds, not invoices; provider tokenizers differ. Missing usage is unpriced."
+    },
+    "timeout_total_s": 30,
+    "timeout_connect_s": 10,
+    "max_requests_per_cell": 5000,
+    "max_cost_upper_usd": 25,
+    "workloads_sha256": "268b63f258c5bb2ebf05ceee370ddc4ec658430108d627c5cdb3b58d3b0bc2ef",
+    "clinical_manifest_sha256": "9932e42a1d5817674733932c3fcf30761e343a5149692a85eff7055b16594bf4",
+    "synthetic_manifest_sha256": "808e20677344d244872f0e55ef3230d87faafc080d0bfd0f2a16cdad9042e906",
+    "transport": "aiohttp HTTP/1.1, one reused pool per model, 128 sockets, 15s idle keepalive, no retries, trust_env=False, models measured sequentially.",
+    "dns": "System DNS resolved once per provider before calibration, frozen for this run. No custom address, endpoint, Host or TLS override. Lookup latency recorded separately.",
+    "load": "Closed-loop sustained multi-question requests: a worker immediately requests another packet after response. Not an open-loop arrival/SLA capacity test.",
+    "measurement": "5s warmup then 30s fixed completion window by default. Drain responses are retained but not counted as window completions. Admitted cohort defines accuracy, latency, failure and cost.",
+    "cache": "Finite original panels repeat; calibration and warmup may populate provider caches. Cache usage retained, no cold-cache claim.",
+    "synthetic_scope": "routing_200 is a deterministic non-clinical 200-question board; performance only, never medical accuracy."
+  },
+  "status": {
+    "finished_at": "2026-10-12T08:54:17.580776+00:00",
+    "fatal": null,
+    "finished_cells": 56,
+    "planned_cells": 56,
+    "cost_upper_usd": 5.999370071999986
+  },
+  "modes": [
+    {
+      "family": "tcm_syndrome",
+      "concurrency": 8,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 1,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 66.93333333333334,
+          "accuracy": 0.45634920634920634,
+          "cost": {
+            "usd_lower": 0.027744269999999998,
+            "usd_upper": 0.055488539999999996,
+            "unpriced_requests": 1,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 1.3213875420042314,
+          "mean_http_concurrency": 7.999401508211546
+        }
+      ],
+      "omitted": [
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ],
+      "window_s": 30,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 252,
+      "accuracy": 0.45634920634920634,
+      "valid_per_s": 66.93333333333334,
+      "correct_per_s": 30.6,
+      "cohort_valid_rate": 0.996031746031746,
+      "cohort_accuracy_among_valid": 0.4581673306772908,
+      "complete_packets_per_s": 8.366666666666667,
+      "throughput_range": [
+        66.93333333333334,
+        66.93333333333334
+      ],
+      "complete_rate": 0.996031746031746,
+      "response_p95_s": 1.321377084008418,
+      "end_to_end_p95_s": 1.3213875420042314,
+      "admission_wait_mean_s": 8.067483519433096e-06,
+      "mean_http_concurrency": 7.999401508211546,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.004708583001047373,
+      "status_counts": {
+        "success": 251,
+        "request_error": 1
+      },
+      "http_counts": {
+        "200": 251,
+        "none": 1
+      },
+      "cache_hit_ratio": 0.9902759792557593,
+      "usage": {
+        "completion_tokens": 17023,
+        "prompt_cache_hit_tokens": 3919240,
+        "prompt_cache_miss_tokens": 38485,
+        "prompt_tokens": 3957725,
+        "total_tokens": 3974748
+      },
+      "cost": {
+        "usd_lower": 0.027744269999999998,
+        "usd_upper": 0.055488539999999996,
+        "unpriced_requests": 1,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "tcm_syndrome",
+      "concurrency": 8,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 22.933333333333334,
+          "accuracy": 0.3483495670995671,
+          "cost": {
+            "usd_lower": 0.10806570600000012,
+            "usd_upper": 0.10806570600000012,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.15892015588235311,
+            "usd_per_1000_valid_upper": 0.15892015588235311,
+            "usd_per_1000_correct_lower": 0.4559734430379752,
+            "usd_per_1000_correct_upper": 0.4559734430379752
+          },
+          "end_to_end_p95_s": 3.038886750000529,
+          "mean_http_concurrency": 1.1626436568340675
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 22.666666666666668,
+          "accuracy": 0.3482142857142857,
+          "cost": {
+            "usd_lower": 0.10806570600000012,
+            "usd_upper": 0.10806570600000012,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.15892015588235311,
+            "usd_per_1000_valid_upper": 0.15892015588235311,
+            "usd_per_1000_correct_lower": 0.4559734430379752,
+            "usd_per_1000_correct_upper": 0.4559734430379752
+          },
+          "end_to_end_p95_s": 2.9277332079946063,
+          "mean_http_concurrency": 1.2203448762651532
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 170,
+      "accuracy": 0.3482819264069264,
+      "valid_per_s": 22.8,
+      "correct_per_s": 8.0,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.34852941176470587,
+      "complete_packets_per_s": 2.85,
+      "throughput_range": [
+        22.666666666666668,
+        22.933333333333334
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.6283034579828382,
+      "end_to_end_p95_s": 3.010435123986099,
+      "admission_wait_mean_s": 2.392960168100784,
+      "mean_http_concurrency": 1.1914942665496104,
+      "max_http_concurrency": 3,
+      "event_loop_lag_max_s": 0.005194708006456494,
+      "status_counts": {
+        "success": 170
+      },
+      "http_counts": {
+        "200": 170
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5145986,
+        "output_tokens": 2423982
+      },
+      "cost": {
+        "usd_lower": 0.2161314119999994,
+        "usd_upper": 0.2161314119999994,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.1589201558823525,
+        "usd_per_1000_valid_upper": 0.1589201558823525,
+        "usd_per_1000_correct_lower": 0.45597344303797344,
+        "usd_per_1000_correct_upper": 0.45597344303797344
+      }
+    },
+    {
+      "family": "tcm_syndrome",
+      "concurrency": 32,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 1,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 243.46666666666667,
+          "accuracy": 0.46292219700452003,
+          "cost": {
+            "usd_lower": 0.10090880399999935,
+            "usd_upper": 0.2018176079999987,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.013815553669222255,
+            "usd_per_1000_valid_upper": 0.02763110733844451,
+            "usd_per_1000_correct_lower": 0.029863511097957783,
+            "usd_per_1000_correct_upper": 0.059727022195915566
+          },
+          "end_to_end_p95_s": 1.3674318749981467,
+          "mean_http_concurrency": 31.998300107031053
+        }
+      ],
+      "omitted": [
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ],
+      "window_s": 30,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 913,
+      "accuracy": 0.46292219700452003,
+      "valid_per_s": 243.46666666666667,
+      "correct_per_s": 112.56666666666666,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.4626232201533406,
+      "complete_packets_per_s": 30.433333333333334,
+      "throughput_range": [
+        243.46666666666667,
+        243.46666666666667
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 1.3674272919888608,
+      "end_to_end_p95_s": 1.3674318749981467,
+      "admission_wait_mean_s": 6.134056266619613e-06,
+      "mean_http_concurrency": 31.998300107031053,
+      "max_http_concurrency": 32,
+      "event_loop_lag_max_s": 0.006636707985308021,
+      "status_counts": {
+        "success": 913
+      },
+      "http_counts": {
+        "200": 913
+      },
+      "cache_hit_ratio": 0.9902809655212462,
+      "usage": {
+        "completion_tokens": 61920,
+        "prompt_cache_hit_tokens": 14256368,
+        "prompt_cache_miss_tokens": 139918,
+        "prompt_tokens": 14396286,
+        "total_tokens": 14458206
+      },
+      "cost": {
+        "usd_lower": 0.10090880399999935,
+        "usd_upper": 0.2018176079999987,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.013815553669222255,
+        "usd_per_1000_valid_upper": 0.02763110733844451,
+        "usd_per_1000_correct_lower": 0.029863511097957783,
+        "usd_per_1000_correct_upper": 0.059727022195915566
+      }
+    },
+    {
+      "family": "tcm_syndrome",
+      "concurrency": 32,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 22.933333333333334,
+          "accuracy": 0.3438176406926407,
+          "cost": {
+            "usd_lower": 0.10806570600000012,
+            "usd_upper": 0.10806570600000012,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.15892015588235311,
+            "usd_per_1000_valid_upper": 0.15892015588235311,
+            "usd_per_1000_correct_lower": 0.4618192564102569,
+            "usd_per_1000_correct_upper": 0.4618192564102569
+          },
+          "end_to_end_p95_s": 11.61905520799337,
+          "mean_http_concurrency": 1.4156023570278193
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 22.4,
+          "accuracy": 0.34679383116883117,
+          "cost": {
+            "usd_lower": 0.10806570600000012,
+            "usd_upper": 0.10806570600000012,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.15892015588235311,
+            "usd_per_1000_valid_upper": 0.15892015588235311,
+            "usd_per_1000_correct_lower": 0.4579055338983056,
+            "usd_per_1000_correct_upper": 0.4579055338983056
+          },
+          "end_to_end_p95_s": 11.354593083000509,
+          "mean_http_concurrency": 1.2372927721007727
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 170,
+      "accuracy": 0.34530573593073594,
+      "valid_per_s": 22.666666666666668,
+      "correct_per_s": 7.85,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.34558823529411764,
+      "complete_packets_per_s": 2.8333333333333335,
+      "throughput_range": [
+        22.4,
+        22.933333333333334
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.7920437499997206,
+      "end_to_end_p95_s": 11.56909687499865,
+      "admission_wait_mean_s": 10.215830077484133,
+      "mean_http_concurrency": 1.3264475645642961,
+      "max_http_concurrency": 3,
+      "event_loop_lag_max_s": 0.012877625005785376,
+      "status_counts": {
+        "success": 170
+      },
+      "http_counts": {
+        "200": 170
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5145986,
+        "output_tokens": 2423989
+      },
+      "cost": {
+        "usd_lower": 0.2161314119999994,
+        "usd_upper": 0.2161314119999994,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.1589201558823525,
+        "usd_per_1000_valid_upper": 0.1589201558823525,
+        "usd_per_1000_correct_lower": 0.45985406808510515,
+        "usd_per_1000_correct_upper": 0.45985406808510515
+      }
+    },
+    {
+      "family": "tcm_syndrome",
+      "concurrency": 64,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 22.933333333333334,
+          "accuracy": 0.34375,
+          "cost": {
+            "usd_lower": 0.10806570600000011,
+            "usd_upper": 0.10806570600000011,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.1589201558823531,
+            "usd_per_1000_valid_upper": 0.1589201558823531,
+            "usd_per_1000_correct_lower": 0.46181925641025684,
+            "usd_per_1000_correct_upper": 0.46181925641025684
+          },
+          "end_to_end_p95_s": 22.64058449998265,
+          "mean_http_concurrency": 1.403325941604756
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 22.933333333333334,
+          "accuracy": 0.3438176406926407,
+          "cost": {
+            "usd_lower": 0.10806570600000012,
+            "usd_upper": 0.10806570600000012,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.15892015588235311,
+            "usd_per_1000_valid_upper": 0.15892015588235311,
+            "usd_per_1000_correct_lower": 0.4618192564102569,
+            "usd_per_1000_correct_upper": 0.4618192564102569
+          },
+          "end_to_end_p95_s": 22.514384666021215,
+          "mean_http_concurrency": 1.2869452720963939
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 170,
+      "accuracy": 0.3437838203463203,
+      "valid_per_s": 22.933333333333334,
+      "correct_per_s": 7.9,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.34411764705882353,
+      "complete_packets_per_s": 2.8666666666666667,
+      "throughput_range": [
+        22.933333333333334,
+        22.933333333333334
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.7896472499996889,
+      "end_to_end_p95_s": 22.60172416601563,
+      "admission_wait_mean_s": 17.23979349553496,
+      "mean_http_concurrency": 1.345135606850575,
+      "max_http_concurrency": 3,
+      "event_loop_lag_max_s": 0.0029822920041624457,
+      "status_counts": {
+        "success": 170
+      },
+      "http_counts": {
+        "200": 170
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5145986,
+        "output_tokens": 2423994
+      },
+      "cost": {
+        "usd_lower": 0.21613141199999938,
+        "usd_upper": 0.21613141199999938,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.15892015588235248,
+        "usd_per_1000_valid_upper": 0.15892015588235248,
+        "usd_per_1000_correct_lower": 0.4618192564102551,
+        "usd_per_1000_correct_upper": 0.4618192564102551
+      }
+    },
+    {
+      "family": "tcm_syndrome",
+      "concurrency": 64,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 0,
+      "repeat_metrics": [],
+      "omitted": [
+        {
+          "repeat": 0,
+          "reason": "service_error_circuit",
+          "trigger_at_s": 20.263576666009612,
+          "phase": "load"
+        },
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ]
+    },
+    {
+      "family": "medication_choice",
+      "concurrency": 8,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 1,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 46.233333333333334,
+          "accuracy": 0.689453125,
+          "cost": {
+            "usd_lower": 0.010626551999999992,
+            "usd_upper": 0.021253103999999984,
+            "unpriced_requests": 13,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 2.017187749996083,
+          "mean_http_concurrency": 7.9995761333945365
+        }
+      ],
+      "omitted": [
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ],
+      "window_s": 30,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 192,
+      "accuracy": 0.689453125,
+      "valid_per_s": 46.233333333333334,
+      "correct_per_s": 35.43333333333333,
+      "cohort_valid_rate": 0.8977864583333334,
+      "cohort_accuracy_among_valid": 0.7679477882523568,
+      "complete_packets_per_s": 4.266666666666667,
+      "throughput_range": [
+        46.233333333333334,
+        46.233333333333334
+      ],
+      "complete_rate": 0.6614583333333334,
+      "response_p95_s": 2.017178000009153,
+      "end_to_end_p95_s": 2.017187749996083,
+      "admission_wait_mean_s": 7.514572492558121e-06,
+      "mean_http_concurrency": 7.9995761333945365,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.0037831249937880784,
+      "status_counts": {
+        "request_error": 13,
+        "success": 127,
+        "invalid_answer": 52
+      },
+      "http_counts": {
+        "none": 13,
+        "200": 179
+      },
+      "cache_hit_ratio": 0.8777988062308925,
+      "usage": {
+        "completion_tokens": 8111,
+        "prompt_cache_hit_tokens": 241184,
+        "prompt_cache_miss_tokens": 33576,
+        "prompt_tokens": 274760,
+        "total_tokens": 282871
+      },
+      "cost": {
+        "usd_lower": 0.010626551999999992,
+        "usd_upper": 0.021253103999999984,
+        "unpriced_requests": 13,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "medication_choice",
+      "concurrency": 8,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 196.26666666666668,
+          "accuracy": 0.7680027173913043,
+          "cost": {
+            "usd_lower": 0.07520889599999986,
+            "usd_upper": 0.07520889599999986,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.012773249999999976,
+            "usd_per_1000_valid_upper": 0.012773249999999976,
+            "usd_per_1000_correct_lower": 0.01663177708978325,
+            "usd_per_1000_correct_upper": 0.01663177708978325
+          },
+          "end_to_end_p95_s": 0.42032958296476863,
+          "mean_http_concurrency": 7.623339072267602
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 230.4,
+          "accuracy": 0.7698206018518519,
+          "cost": {
+            "usd_lower": 0.08828870399999994,
+            "usd_upper": 0.08828870399999994,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.012773249999999991,
+            "usd_per_1000_valid_upper": 0.012773249999999991,
+            "usd_per_1000_correct_lower": 0.016592502161247875,
+            "usd_per_1000_correct_upper": 0.016592502161247875
+          },
+          "end_to_end_p95_s": 0.33356312598334625,
+          "mean_http_concurrency": 7.567412440133436
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 1600,
+      "accuracy": 0.7689843749999999,
+      "valid_per_s": 213.33333333333334,
+      "correct_per_s": 164.01666666666668,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.768984375,
+      "complete_packets_per_s": 26.666666666666668,
+      "throughput_range": [
+        196.26666666666668,
+        230.4
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.3683006660139654,
+      "end_to_end_p95_s": 0.3884886249725241,
+      "admission_wait_mean_s": 0.015127511438022339,
+      "mean_http_concurrency": 7.59537575620052,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.0030762089882045984,
+      "status_counts": {
+        "success": 1600
+      },
+      "http_counts": {
+        "200": 1600
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 3892800,
+        "output_tokens": 699728
+      },
+      "cost": {
+        "usd_lower": 0.1634976000000017,
+        "usd_upper": 0.1634976000000017,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.012773250000000133,
+        "usd_per_1000_valid_upper": 0.012773250000000133,
+        "usd_per_1000_correct_lower": 0.016610545565376583,
+        "usd_per_1000_correct_upper": 0.016610545565376583
+      }
+    },
+    {
+      "family": "medication_choice",
+      "concurrency": 32,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 1,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 108.36666666666666,
+          "accuracy": 0.7057995495495496,
+          "cost": {
+            "usd_lower": 0.025252644000000078,
+            "usd_upper": 0.050505288000000155,
+            "unpriced_requests": 21,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 4.669036959006917,
+          "mean_http_concurrency": 31.999240981964977
+        }
+      ],
+      "omitted": [
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ],
+      "window_s": 30,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 444,
+      "accuracy": 0.7057995495495496,
+      "valid_per_s": 108.36666666666666,
+      "correct_per_s": 83.0,
+      "cohort_valid_rate": 0.920045045045045,
+      "cohort_accuracy_among_valid": 0.7671358629130967,
+      "complete_packets_per_s": 10.233333333333333,
+      "throughput_range": [
+        108.36666666666666,
+        108.36666666666666
+      ],
+      "complete_rate": 0.6959459459459459,
+      "response_p95_s": 4.669033334008418,
+      "end_to_end_p95_s": 4.669036959006917,
+      "admission_wait_mean_s": 5.727839396075086e-06,
+      "mean_http_concurrency": 31.999240981964977,
+      "max_http_concurrency": 32,
+      "event_loop_lag_max_s": 0.0028177919739391655,
+      "status_counts": {
+        "success": 309,
+        "invalid_answer": 114,
+        "request_error": 21
+      },
+      "http_counts": {
+        "200": 423,
+        "none": 21
+      },
+      "cache_hit_ratio": 0.876237135638134,
+      "usage": {
+        "completion_tokens": 19161,
+        "prompt_cache_hit_tokens": 568748,
+        "prompt_cache_miss_tokens": 80332,
+        "prompt_tokens": 649080,
+        "total_tokens": 668241
+      },
+      "cost": {
+        "usd_lower": 0.025252644000000078,
+        "usd_upper": 0.050505288000000155,
+        "unpriced_requests": 21,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "medication_choice",
+      "concurrency": 32,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 272.0,
+          "accuracy": 0.7670750038296569,
+          "cost": {
+            "usd_lower": 0.10433085600000004,
+            "usd_upper": 0.10433085600000004,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.01277312144955926,
+            "usd_per_1000_valid_upper": 0.01277312144955926,
+            "usd_per_1000_correct_lower": 0.016655628352490428,
+            "usd_per_1000_correct_upper": 0.016655628352490428
+          },
+          "end_to_end_p95_s": 1.0901917500013951,
+          "mean_http_concurrency": 10.615853987453738
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 276.26666666666665,
+          "accuracy": 0.7665299227799228,
+          "cost": {
+            "usd_lower": 0.10586469600000005,
+            "usd_upper": 0.10586469600000005,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.012773250000000007,
+            "usd_per_1000_valid_upper": 0.012773250000000007,
+            "usd_per_1000_correct_lower": 0.016663733039508903,
+            "usd_per_1000_correct_upper": 0.016663733039508903
+          },
+          "end_to_end_p95_s": 0.9709002089803107,
+          "mean_http_concurrency": 8.664089692080355
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 2057,
+      "accuracy": 0.7667998706131238,
+      "valid_per_s": 274.1333333333333,
+      "correct_per_s": 210.15,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.7667112299465241,
+      "complete_packets_per_s": 34.266666666666666,
+      "throughput_range": [
+        272.0,
+        276.26666666666665
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.37435537498095073,
+      "end_to_end_p95_s": 1.020428791991435,
+      "admission_wait_mean_s": 0.6546369640695522,
+      "mean_http_concurrency": 9.639971839767046,
+      "max_http_concurrency": 25,
+      "event_loop_lag_max_s": 0.0029975420038681477,
+      "status_counts": {
+        "success": 2057
+      },
+      "http_counts": {
+        "200": 2057
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5004656,
+        "output_tokens": 899581
+      },
+      "cost": {
+        "usd_lower": 0.2101955520000036,
+        "usd_upper": 0.2101955520000036,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.012773186193485877,
+        "usd_per_1000_valid_upper": 0.012773186193485877,
+        "usd_per_1000_correct_lower": 0.01665970928112892,
+        "usd_per_1000_correct_upper": 0.01665970928112892
+      }
+    },
+    {
+      "family": "medication_choice",
+      "concurrency": 64,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 272.8,
+          "accuracy": 0.7685049019607844,
+          "cost": {
+            "usd_lower": 0.10422972000000004,
+            "usd_upper": 0.10422972000000004,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.012773250000000005,
+            "usd_per_1000_valid_upper": 0.012773250000000005,
+            "usd_per_1000_correct_lower": 0.016620908945941645,
+            "usd_per_1000_correct_upper": 0.016620908945941645
+          },
+          "end_to_end_p95_s": 2.053487665980356,
+          "mean_http_concurrency": 10.623784699466585
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 276.0,
+          "accuracy": 0.7668918918918919,
+          "cost": {
+            "usd_lower": 0.10586469600000004,
+            "usd_upper": 0.10586469600000004,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.012773250000000005,
+            "usd_per_1000_valid_upper": 0.012773250000000005,
+            "usd_per_1000_correct_lower": 0.016655867841409697,
+            "usd_per_1000_correct_upper": 0.016655867841409697
+          },
+          "end_to_end_p95_s": 1.9052592090156395,
+          "mean_http_concurrency": 8.800937186164083
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 2056,
+      "accuracy": 0.7676921206225681,
+      "valid_per_s": 274.4,
+      "correct_per_s": 210.68333333333334,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.7676921206225681,
+      "complete_packets_per_s": 34.3,
+      "throughput_range": [
+        272.8,
+        276.0
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.3966891659947578,
+      "end_to_end_p95_s": 1.969388750003418,
+      "admission_wait_mean_s": 1.5835919771354086,
+      "mean_http_concurrency": 9.712360942815334,
+      "max_http_concurrency": 21,
+      "event_loop_lag_max_s": 0.009425833006389439,
+      "status_counts": {
+        "success": 2056
+      },
+      "http_counts": {
+        "200": 2056
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5002248,
+        "output_tokens": 899147
+      },
+      "cost": {
+        "usd_lower": 0.2100944160000036,
+        "usd_upper": 0.2100944160000036,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.012773250000000217,
+        "usd_per_1000_valid_upper": 0.012773250000000217,
+        "usd_per_1000_correct_lower": 0.01663850605844647,
+        "usd_per_1000_correct_upper": 0.01663850605844647
+      }
+    },
+    {
+      "family": "medication_choice",
+      "concurrency": 64,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 0,
+      "repeat_metrics": [],
+      "omitted": [
+        {
+          "repeat": 0,
+          "reason": "service_error_circuit",
+          "trigger_at_s": 15.199142792000202,
+          "phase": "load"
+        },
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ]
+    },
+    {
+      "family": "routing_200",
+      "concurrency": 8,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 233.33333333333334,
+          "accuracy": 0.923076923076923,
+          "cost": {
+            "usd_lower": 0.02441296800000002,
+            "usd_upper": 0.04882593600000004,
+            "unpriced_requests": 3,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 14.770813083014218,
+          "mean_http_concurrency": 7.999899305594348
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 420.0,
+          "accuracy": 0.9841269841269842,
+          "cost": {
+            "usd_lower": 0.043640832000000074,
+            "usd_upper": 0.08728166400000015,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.003463558095238101,
+            "usd_per_1000_valid_upper": 0.006927116190476202,
+            "usd_per_1000_correct_lower": 0.003463558095238101,
+            "usd_per_1000_correct_upper": 0.006927116190476202
+          },
+          "end_to_end_p95_s": 3.9781587080215104,
+          "mean_http_concurrency": 7.999834464095572
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 600,
+      "packet_sizes": [
+        200
+      ],
+      "cohort_requests": 103,
+      "accuracy": 0.961064425770308,
+      "valid_per_s": 326.6666666666667,
+      "correct_per_s": 326.6666666666667,
+      "cohort_valid_rate": 0.9611650485436893,
+      "cohort_accuracy_among_valid": 1.0,
+      "complete_packets_per_s": 1.6333333333333333,
+      "throughput_range": [
+        233.33333333333334,
+        420.0
+      ],
+      "complete_rate": 0.9611650485436893,
+      "response_p95_s": 8.907315666991053,
+      "end_to_end_p95_s": 8.90732637498877,
+      "admission_wait_mean_s": 9.06956113097303e-06,
+      "mean_http_concurrency": 7.99986688484496,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.005800999992061406,
+      "status_counts": {
+        "request_error": 3,
+        "success": 99,
+        "invalid_answer": 1
+      },
+      "http_counts": {
+        "none": 3,
+        "200": 100
+      },
+      "cache_hit_ratio": 0.9825668986297439,
+      "usage": {
+        "completion_tokens": 100500,
+        "prompt_cache_hit_tokens": 1369600,
+        "prompt_cache_miss_tokens": 24300,
+        "prompt_tokens": 1393900,
+        "total_tokens": 1494400
+      },
+      "cost": {
+        "usd_lower": 0.06805380000000007,
+        "usd_upper": 0.13610760000000013,
+        "unpriced_requests": 3,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "routing_200",
+      "concurrency": 8,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 700.0,
+          "accuracy": 1.0,
+          "cost": {
+            "usd_lower": 0.10750059599999981,
+            "usd_upper": 0.10750059599999981,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.004931219999999991,
+            "usd_per_1000_valid_upper": 0.004931219999999991,
+            "usd_per_1000_correct_lower": 0.004931219999999991,
+            "usd_per_1000_correct_upper": 0.004931219999999991
+          },
+          "end_to_end_p95_s": 4.095705292013008,
+          "mean_http_concurrency": 4.298544016471714
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 733.3333333333334,
+          "accuracy": 1.0,
+          "cost": {
+            "usd_lower": 0.1084868399999998,
+            "usd_upper": 0.1084868399999998,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.004931219999999991,
+            "usd_per_1000_valid_upper": 0.004931219999999991,
+            "usd_per_1000_correct_lower": 0.004931219999999991,
+            "usd_per_1000_correct_upper": 0.004931219999999991
+          },
+          "end_to_end_p95_s": 2.4866972510062624,
+          "mean_http_concurrency": 1.8023624748350509
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 600,
+      "packet_sizes": [
+        200
+      ],
+      "cohort_requests": 219,
+      "accuracy": 1.0,
+      "valid_per_s": 716.6666666666666,
+      "correct_per_s": 716.6666666666666,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 1.0,
+      "complete_packets_per_s": 3.5833333333333335,
+      "throughput_range": [
+        700.0,
+        733.3333333333334
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 2.6251789999951143,
+      "end_to_end_p95_s": 3.5529019170207903,
+      "admission_wait_mean_s": 1.3651596554670618,
+      "mean_http_concurrency": 3.0504532456533826,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.005876624985830858,
+      "status_counts": {
+        "success": 219
+      },
+      "http_counts": {
+        "200": 219
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5142558,
+        "output_tokens": 1971657
+      },
+      "cost": {
+        "usd_lower": 0.2159874359999995,
+        "usd_upper": 0.2159874359999995,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.004931219999999989,
+        "usd_per_1000_valid_upper": 0.004931219999999989,
+        "usd_per_1000_correct_lower": 0.004931219999999989,
+        "usd_per_1000_correct_upper": 0.004931219999999989
+      }
+    },
+    {
+      "family": "routing_200",
+      "concurrency": 32,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 1186.6666666666667,
+          "accuracy": 0.9259259259259259,
+          "cost": {
+            "usd_lower": 0.12510111599999968,
+            "usd_upper": 0.25020223199999936,
+            "unpriced_requests": 7,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 13.507236166013172,
+          "mean_http_concurrency": 31.999607038725905
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 1640.0,
+          "accuracy": 0.9648426812585499,
+          "cost": {
+            "usd_lower": 0.17576332799999933,
+            "usd_upper": 0.35152665599999866,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.003557962105263144,
+            "usd_per_1000_valid_upper": 0.007115924210526288,
+            "usd_per_1000_correct_lower": 0.003557962105263144,
+            "usd_per_1000_correct_upper": 0.007115924210526288
+          },
+          "end_to_end_p95_s": 4.327477166021708,
+          "mean_http_concurrency": 31.99944955552734
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 600,
+      "packet_sizes": [
+        200
+      ],
+      "cohort_requests": 445,
+      "accuracy": 0.9483191244936211,
+      "valid_per_s": 1413.3333333333333,
+      "correct_per_s": 1413.3333333333333,
+      "cohort_valid_rate": 0.9483146067415731,
+      "cohort_accuracy_among_valid": 1.0,
+      "complete_packets_per_s": 7.066666666666666,
+      "throughput_range": [
+        1186.6666666666667,
+        1640.0
+      ],
+      "complete_rate": 0.9483146067415731,
+      "response_p95_s": 10.397455333004473,
+      "end_to_end_p95_s": 10.39745975000551,
+      "admission_wait_mean_s": 7.15310112416242e-06,
+      "mean_http_concurrency": 31.999528297126623,
+      "max_http_concurrency": 32,
+      "event_loop_lag_max_s": 0.007967042009113356,
+      "status_counts": {
+        "success": 422,
+        "invalid_answer": 16,
+        "request_error": 7
+      },
+      "http_counts": {
+        "200": 438,
+        "none": 7
+      },
+      "cache_hit_ratio": 0.9825668986297439,
+      "usage": {
+        "completion_tokens": 444838,
+        "prompt_cache_hit_tokens": 5998848,
+        "prompt_cache_miss_tokens": 106434,
+        "prompt_tokens": 6105282,
+        "total_tokens": 6550120
+      },
+      "cost": {
+        "usd_lower": 0.3008644439999985,
+        "usd_upper": 0.601728887999997,
+        "unpriced_requests": 7,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "routing_200",
+      "concurrency": 32,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 806.6666666666666,
+          "accuracy": 1.0,
+          "cost": {
+            "usd_lower": 0.1084868399999998,
+            "usd_upper": 0.1084868399999998,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.004931219999999991,
+            "usd_per_1000_valid_upper": 0.004931219999999991,
+            "usd_per_1000_correct_lower": 0.004931219999999991,
+            "usd_per_1000_correct_upper": 0.004931219999999991
+          },
+          "end_to_end_p95_s": 9.020160665968433,
+          "mean_http_concurrency": 2.6359949723361447
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 726.6666666666666,
+          "accuracy": 1.0,
+          "cost": {
+            "usd_lower": 0.10750059599999981,
+            "usd_upper": 0.10750059599999981,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.004931219999999991,
+            "usd_per_1000_valid_upper": 0.004931219999999991,
+            "usd_per_1000_correct_lower": 0.004931219999999991,
+            "usd_per_1000_correct_upper": 0.004931219999999991
+          },
+          "end_to_end_p95_s": 9.089678707998246,
+          "mean_http_concurrency": 1.8174389553363046
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 600,
+      "packet_sizes": [
+        200
+      ],
+      "cohort_requests": 219,
+      "accuracy": 1.0,
+      "valid_per_s": 766.6666666666666,
+      "correct_per_s": 766.6666666666666,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 1.0,
+      "complete_packets_per_s": 3.8333333333333335,
+      "throughput_range": [
+        726.6666666666666,
+        806.6666666666666
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 1.0534157500078436,
+      "end_to_end_p95_s": 9.060040999029297,
+      "admission_wait_mean_s": 7.786286731548533,
+      "mean_http_concurrency": 2.2267169638362247,
+      "max_http_concurrency": 14,
+      "event_loop_lag_max_s": 0.0063215409754775465,
+      "status_counts": {
+        "success": 219
+      },
+      "http_counts": {
+        "200": 219
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5142558,
+        "output_tokens": 1971657
+      },
+      "cost": {
+        "usd_lower": 0.2159874359999995,
+        "usd_upper": 0.2159874359999995,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.004931219999999989,
+        "usd_per_1000_valid_upper": 0.004931219999999989,
+        "usd_per_1000_correct_lower": 0.004931219999999989,
+        "usd_per_1000_correct_upper": 0.004931219999999989
+      }
+    },
+    {
+      "family": "diagnosis",
+      "concurrency": 8,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 1,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 72.36666666666666,
+          "accuracy": 0.8246700310559005,
+          "cost": {
+            "usd_lower": 0.02062832999999998,
+            "usd_upper": 0.04125665999999996,
+            "unpriced_requests": 2,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 1.1590209169953596,
+          "mean_http_concurrency": 7.999346512386304
+        }
+      ],
+      "omitted": [
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ],
+      "window_s": 30,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 278,
+      "accuracy": 0.8246700310559005,
+      "valid_per_s": 72.36666666666666,
+      "correct_per_s": 60.833333333333336,
+      "cohort_valid_rate": 0.9788669064748201,
+      "cohort_accuracy_among_valid": 0.842443729903537,
+      "complete_packets_per_s": 8.366666666666667,
+      "throughput_range": [
+        72.36666666666666,
+        72.36666666666666
+      ],
+      "complete_rate": 0.8992805755395683,
+      "response_p95_s": 1.1590185840032063,
+      "end_to_end_p95_s": 1.1590209169953596,
+      "admission_wait_mean_s": 8.016650832137562e-06,
+      "mean_http_concurrency": 7.999346512386304,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.003699249995406717,
+      "status_counts": {
+        "success": 250,
+        "invalid_answer": 26,
+        "request_error": 2
+      },
+      "http_counts": {
+        "200": 276,
+        "none": 2
+      },
+      "cache_hit_ratio": 0.9492653390808383,
+      "usage": {
+        "completion_tokens": 12946,
+        "prompt_cache_hit_tokens": 1167360,
+        "prompt_cache_miss_tokens": 62391,
+        "prompt_tokens": 1229751,
+        "total_tokens": 1242697
+      },
+      "cost": {
+        "usd_lower": 0.02062832999999998,
+        "usd_upper": 0.04125665999999996,
+        "unpriced_requests": 2,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "diagnosis",
+      "concurrency": 8,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 85.33333333333333,
+          "accuracy": 0.8125,
+          "cost": {
+            "usd_lower": 0.1071672000000001,
+            "usd_upper": 0.1071672000000001,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.04186218750000004,
+            "usd_per_1000_valid_upper": 0.04186218750000004,
+            "usd_per_1000_correct_lower": 0.05152269230769236,
+            "usd_per_1000_correct_upper": 0.05152269230769236
+          },
+          "end_to_end_p95_s": 0.8602585839689709,
+          "mean_http_concurrency": 3.4104262790991924
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 85.86666666666666,
+          "accuracy": 0.8125,
+          "cost": {
+            "usd_lower": 0.1076875800000001,
+            "usd_upper": 0.1076875800000001,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.041804184782608736,
+            "usd_per_1000_valid_upper": 0.041804184782608736,
+            "usd_per_1000_correct_lower": 0.051402186157517946,
+            "usd_per_1000_correct_upper": 0.051402186157517946
+          },
+          "end_to_end_p95_s": 0.8448082079994492,
+          "mean_http_concurrency": 3.3413084207626524
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 642,
+      "accuracy": 0.8125,
+      "valid_per_s": 85.6,
+      "correct_per_s": 69.58333333333333,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.8128894080996885,
+      "complete_packets_per_s": 10.7,
+      "throughput_range": [
+        85.33333333333333,
+        85.86666666666666
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.4404220829892438,
+      "end_to_end_p95_s": 0.8585925420047715,
+      "admission_wait_mean_s": 0.43212120658241143,
+      "mean_http_concurrency": 3.3758673499309224,
+      "max_http_concurrency": 6,
+      "event_loop_lag_max_s": 0.0034624579711817205,
+      "status_counts": {
+        "success": 642
+      },
+      "http_counts": {
+        "200": 642
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5115590,
+        "output_tokens": 1419073
+      },
+      "cost": {
+        "usd_lower": 0.21485478000000022,
+        "usd_upper": 0.21485478000000022,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.041833095794392566,
+        "usd_per_1000_valid_upper": 0.041833095794392566,
+        "usd_per_1000_correct_lower": 0.05146222275449107,
+        "usd_per_1000_correct_upper": 0.05146222275449107
+      }
+    },
+    {
+      "family": "diagnosis",
+      "concurrency": 32,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 1,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 166.43333333333334,
+          "accuracy": 0.821510736196319,
+          "cost": {
+            "usd_lower": 0.04750404000000018,
+            "usd_upper": 0.09500808000000036,
+            "unpriced_requests": 16,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 4.32665408399771,
+          "mean_http_concurrency": 31.99884275830312
+        }
+      ],
+      "omitted": [
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ],
+      "window_s": 30,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 652,
+      "accuracy": 0.821510736196319,
+      "valid_per_s": 166.43333333333334,
+      "correct_per_s": 141.76666666666668,
+      "cohort_valid_rate": 0.963957055214724,
+      "cohort_accuracy_among_valid": 0.8522275258552108,
+      "complete_packets_per_s": 19.166666666666668,
+      "throughput_range": [
+        166.43333333333334,
+        166.43333333333334
+      ],
+      "complete_rate": 0.8895705521472392,
+      "response_p95_s": 4.3266441249870695,
+      "end_to_end_p95_s": 4.32665408399771,
+      "admission_wait_mean_s": 5.858810779215779e-06,
+      "mean_http_concurrency": 31.99884275830312,
+      "max_http_concurrency": 32,
+      "event_loop_lag_max_s": 0.0041994170169346035,
+      "status_counts": {
+        "success": 580,
+        "invalid_answer": 56,
+        "request_error": 16
+      },
+      "http_counts": {
+        "200": 636,
+        "none": 16
+      },
+      "cache_hit_ratio": 0.9490121548215071,
+      "usage": {
+        "completion_tokens": 29841,
+        "prompt_cache_hit_tokens": 2676480,
+        "prompt_cache_miss_tokens": 143800,
+        "prompt_tokens": 2820280,
+        "total_tokens": 2850121
+      },
+      "cost": {
+        "usd_lower": 0.04750404000000018,
+        "usd_upper": 0.09500808000000036,
+        "unpriced_requests": 16,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "diagnosis",
+      "concurrency": 32,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 86.4,
+          "accuracy": 0.8125,
+          "cost": {
+            "usd_lower": 0.1066646280000001,
+            "usd_upper": 0.1066646280000001,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.041796484326018846,
+            "usd_per_1000_valid_upper": 0.041796484326018846,
+            "usd_per_1000_correct_lower": 0.05145423444283651,
+            "usd_per_1000_correct_upper": 0.05145423444283651
+          },
+          "end_to_end_p95_s": 4.152829958999064,
+          "mean_http_concurrency": 7.507162390227313
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 86.13333333333334,
+          "accuracy": 0.8125,
+          "cost": {
+            "usd_lower": 0.1075392780000001,
+            "usd_upper": 0.1075392780000001,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.0418766658878505,
+            "usd_per_1000_valid_upper": 0.0418766658878505,
+            "usd_per_1000_correct_lower": 0.051528163871586055,
+            "usd_per_1000_correct_upper": 0.051528163871586055
+          },
+          "end_to_end_p95_s": 3.1567575839872006,
+          "mean_http_concurrency": 3.778067919414025
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 640,
+      "accuracy": 0.8125,
+      "valid_per_s": 86.26666666666667,
+      "correct_per_s": 70.08333333333333,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.8125,
+      "complete_packets_per_s": 10.783333333333333,
+      "throughput_range": [
+        86.13333333333334,
+        86.4
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 1.2055179579765536,
+      "end_to_end_p95_s": 3.6469694999977946,
+      "admission_wait_mean_s": 2.458792559018002,
+      "mean_http_concurrency": 5.642615154820669,
+      "max_http_concurrency": 16,
+      "event_loop_lag_max_s": 0.002959709003334865,
+      "status_counts": {
+        "success": 640
+      },
+      "http_counts": {
+        "200": 640
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5100093,
+        "output_tokens": 1414648
+      },
+      "cost": {
+        "usd_lower": 0.21420390600000022,
+        "usd_upper": 0.21420390600000022,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.041836700390625044,
+        "usd_per_1000_valid_upper": 0.041836700390625044,
+        "usd_per_1000_correct_lower": 0.05149132355769236,
+        "usd_per_1000_correct_upper": 0.05149132355769236
+      }
+    },
+    {
+      "family": "diagnosis",
+      "concurrency": 64,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 85.6,
+          "accuracy": 0.8125,
+          "cost": {
+            "usd_lower": 0.1071672000000001,
+            "usd_upper": 0.1071672000000001,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.04186218750000004,
+            "usd_per_1000_valid_upper": 0.04186218750000004,
+            "usd_per_1000_correct_lower": 0.05152269230769236,
+            "usd_per_1000_correct_upper": 0.05152269230769236
+          },
+          "end_to_end_p95_s": 6.183774208009709,
+          "mean_http_concurrency": 3.6063933215026434
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 85.86666666666666,
+          "accuracy": 0.8125,
+          "cost": {
+            "usd_lower": 0.1075392780000001,
+            "usd_upper": 0.1075392780000001,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.0418766658878505,
+            "usd_per_1000_valid_upper": 0.0418766658878505,
+            "usd_per_1000_correct_lower": 0.051528163871586055,
+            "usd_per_1000_correct_upper": 0.051528163871586055
+          },
+          "end_to_end_p95_s": 6.127424875012366,
+          "mean_http_concurrency": 3.508953592860295
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 641,
+      "accuracy": 0.8125,
+      "valid_per_s": 85.73333333333333,
+      "correct_per_s": 69.7,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.8125975039001561,
+      "complete_packets_per_s": 10.716666666666667,
+      "throughput_range": [
+        85.6,
+        85.86666666666666
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.48472933398443274,
+      "end_to_end_p95_s": 6.165101166989189,
+      "admission_wait_mean_s": 5.644827453648538,
+      "mean_http_concurrency": 3.5576734571814694,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.0036077499971725047,
+      "status_counts": {
+        "success": 641
+      },
+      "http_counts": {
+        "200": 641
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5112059,
+        "output_tokens": 1418249
+      },
+      "cost": {
+        "usd_lower": 0.21470647800000023,
+        "usd_upper": 0.21470647800000023,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.04186943798751955,
+        "usd_per_1000_valid_upper": 0.04186943798751955,
+        "usd_per_1000_correct_lower": 0.051525432685385224,
+        "usd_per_1000_correct_upper": 0.051525432685385224
+      }
+    },
+    {
+      "family": "diagnosis",
+      "concurrency": 64,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 0,
+      "repeat_metrics": [],
+      "omitted": [
+        {
+          "repeat": 0,
+          "reason": "service_error_circuit",
+          "trigger_at_s": 39.46781341699534,
+          "phase": "drain"
+        },
+        {
+          "repeat": 1,
+          "reason": "service_error_circuit"
+        }
+      ]
+    },
+    {
+      "family": "case_complication",
+      "concurrency": 8,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 42.8,
+          "accuracy": 0.7076841787439614,
+          "cost": {
+            "usd_lower": 0.010800804000000015,
+            "usd_upper": 0.02160160800000003,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.00837271627906978,
+            "usd_per_1000_valid_upper": 0.01674543255813956,
+            "usd_per_1000_correct_lower": 0.010516849074975671,
+            "usd_per_1000_correct_upper": 0.021033698149951343
+          },
+          "end_to_end_p95_s": 3.0912756669858936,
+          "mean_http_concurrency": 7.999562887495268
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 63.9,
+          "accuracy": 0.6782570422535211,
+          "cost": {
+            "usd_lower": 0.01697312400000004,
+            "usd_upper": 0.03394624800000008,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.008812629283489118,
+            "usd_per_1000_valid_upper": 0.017625258566978236,
+            "usd_per_1000_correct_lower": 0.011014356911096717,
+            "usd_per_1000_correct_upper": 0.022028713822193433
+          },
+          "end_to_end_p95_s": 1.0662788750196341,
+          "mean_http_concurrency": 7.999262113888593
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 465,
+      "accuracy": 0.6896735926908341,
+      "valid_per_s": 53.35,
+      "correct_per_s": 42.55,
+      "cohort_valid_rate": 0.864516129032258,
+      "cohort_accuracy_among_valid": 0.7985074626865671,
+      "complete_packets_per_s": 3.816666666666667,
+      "throughput_range": [
+        42.8,
+        63.9
+      ],
+      "complete_rate": 0.4989247311827957,
+      "response_p95_s": 1.80899266700726,
+      "end_to_end_p95_s": 1.8089979590149596,
+      "admission_wait_mean_s": 8.489979964290414e-06,
+      "mean_http_concurrency": 7.99941250069193,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.002977750002173707,
+      "status_counts": {
+        "invalid_answer": 233,
+        "success": 232
+      },
+      "http_counts": {
+        "200": 465
+      },
+      "cache_hit_ratio": 0.8675257907846996,
+      "usage": {
+        "completion_tokens": 19945,
+        "prompt_cache_hit_tokens": 610176,
+        "prompt_cache_miss_tokens": 93176,
+        "prompt_tokens": 703352,
+        "total_tokens": 723297
+      },
+      "cost": {
+        "usd_lower": 0.02777392800000002,
+        "usd_upper": 0.05554785600000004,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.00863617164179105,
+        "usd_per_1000_valid_upper": 0.0172723432835821,
+        "usd_per_1000_correct_lower": 0.010815392523364494,
+        "usd_per_1000_correct_upper": 0.02163078504672899
+      }
+    },
+    {
+      "family": "case_complication",
+      "concurrency": 8,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 154.66666666666666,
+          "accuracy": 0.9579741379310345,
+          "cost": {
+            "usd_lower": 0.06117405000000015,
+            "usd_upper": 0.06117405000000015,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.013184062500000033,
+            "usd_per_1000_valid_upper": 0.013184062500000033,
+            "usd_per_1000_correct_lower": 0.013762440944881923,
+            "usd_per_1000_correct_upper": 0.013762440944881923
+          },
+          "end_to_end_p95_s": 0.6093412500049453,
+          "mean_http_concurrency": 7.653496353184649
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 205.06666666666666,
+          "accuracy": 0.9580078125,
+          "cost": {
+            "usd_lower": 0.08110901399999929,
+            "usd_upper": 0.08110901399999929,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.013184170026007688,
+            "usd_per_1000_valid_upper": 0.013184170026007688,
+            "usd_per_1000_correct_lower": 0.013763620227388307,
+            "usd_per_1000_correct_upper": 0.013763620227388307
+          },
+          "end_to_end_p95_s": 0.46064549998845905,
+          "mean_http_concurrency": 7.590067475210526
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 1349,
+      "accuracy": 0.9579933234421365,
+      "valid_per_s": 179.86666666666667,
+      "correct_per_s": 172.3,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.9579318013343218,
+      "complete_packets_per_s": 22.483333333333334,
+      "throughput_range": [
+        154.66666666666666,
+        205.06666666666666
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.5024033339868765,
+      "end_to_end_p95_s": 0.527015707019018,
+      "admission_wait_mean_s": 0.016756385212063064,
+      "mean_http_concurrency": 7.621781914197587,
+      "max_http_concurrency": 8,
+      "event_loop_lag_max_s": 0.23216012501507066,
+      "status_counts": {
+        "success": 1349
+      },
+      "http_counts": {
+        "200": 1349
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 3387692,
+        "output_tokens": 575685
+      },
+      "cost": {
+        "usd_lower": 0.14228306399999757,
+        "usd_upper": 0.14228306399999757,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.013184123795403778,
+        "usd_per_1000_valid_upper": 0.013184123795403778,
+        "usd_per_1000_correct_lower": 0.013763113174695064,
+        "usd_per_1000_correct_upper": 0.013763113174695064
+      }
+    },
+    {
+      "family": "case_complication",
+      "concurrency": 32,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 259.9,
+          "accuracy": 0.6911874359959037,
+          "cost": {
+            "usd_lower": 0.0667356659999998,
+            "usd_upper": 0.1334713319999996,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.008551469246540211,
+            "usd_per_1000_valid_upper": 0.017102938493080422,
+            "usd_per_1000_correct_lower": 0.010805645401554374,
+            "usd_per_1000_correct_upper": 0.021611290803108748
+          },
+          "end_to_end_p95_s": 1.1996907079883385,
+          "mean_http_concurrency": 31.997606124854066
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 247.1,
+          "accuracy": 0.6831199228968746,
+          "cost": {
+            "usd_lower": 0.06404054999999974,
+            "usd_upper": 0.12808109999999948,
+            "unpriced_requests": 6,
+            "usd_per_1000_valid_lower": null,
+            "usd_per_1000_valid_upper": null,
+            "usd_per_1000_correct_lower": null,
+            "usd_per_1000_correct_upper": null
+          },
+          "end_to_end_p95_s": 1.3169428750115912,
+          "mean_http_concurrency": 31.998047068786885
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 2196,
+      "accuracy": 0.6872272522551106,
+      "valid_per_s": 253.5,
+      "correct_per_s": 201.43333333333334,
+      "cohort_valid_rate": 0.8651525500910747,
+      "cohort_accuracy_among_valid": 0.7944601618527535,
+      "complete_packets_per_s": 19.0,
+      "throughput_range": [
+        247.1,
+        259.9
+      ],
+      "complete_rate": 0.517304189435337,
+      "response_p95_s": 1.2410957920073997,
+      "end_to_end_p95_s": 1.241100876010023,
+      "admission_wait_mean_s": 6.3962335466112065e-06,
+      "mean_http_concurrency": 31.997826596820474,
+      "max_http_concurrency": 32,
+      "event_loop_lag_max_s": 0.005274957977235317,
+      "status_counts": {
+        "invalid_answer": 1054,
+        "success": 1136,
+        "request_error": 6
+      },
+      "http_counts": {
+        "200": 2190,
+        "none": 6
+      },
+      "cache_hit_ratio": 0.8674999094301344,
+      "usage": {
+        "completion_tokens": 93871,
+        "prompt_cache_hit_tokens": 2873472,
+        "prompt_cache_miss_tokens": 438888,
+        "prompt_tokens": 3312360,
+        "total_tokens": 3406231
+      },
+      "cost": {
+        "usd_lower": 0.1307762160000011,
+        "usd_upper": 0.2615524320000022,
+        "unpriced_requests": 6,
+        "usd_per_1000_valid_lower": null,
+        "usd_per_1000_valid_upper": null,
+        "usd_per_1000_correct_lower": null,
+        "usd_per_1000_correct_upper": null
+      }
+    },
+    {
+      "family": "case_complication",
+      "concurrency": 32,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 265.3333333333333,
+          "accuracy": 0.9587098393574297,
+          "cost": {
+            "usd_lower": 0.10483758599999818,
+            "usd_upper": 0.10483758599999818,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.0131838010563378,
+            "usd_per_1000_valid_upper": 0.0131838010563378,
+            "usd_per_1000_correct_lower": 0.013752798898071386,
+            "usd_per_1000_correct_upper": 0.013752798898071386
+          },
+          "end_to_end_p95_s": 1.0827670829894487,
+          "mean_http_concurrency": 10.516707798367133
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 268.0,
+          "accuracy": 0.9584163346613546,
+          "cost": {
+            "usd_lower": 0.10589438999999813,
+            "usd_upper": 0.10589438999999813,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.013184062499999767,
+            "usd_per_1000_valid_upper": 0.013184062499999767,
+            "usd_per_1000_correct_lower": 0.013756091192517294,
+            "usd_per_1000_correct_upper": 0.013756091192517294
+          },
+          "end_to_end_p95_s": 1.006782333017327,
+          "mean_http_concurrency": 8.54374280795649
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 1998,
+      "accuracy": 0.9585625,
+      "valid_per_s": 266.6666666666667,
+      "correct_per_s": 255.66666666666666,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.958521021021021,
+      "complete_packets_per_s": 33.333333333333336,
+      "throughput_range": [
+        265.3333333333333,
+        268.0
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.3527027500094846,
+      "end_to_end_p95_s": 1.023676417011302,
+      "admission_wait_mean_s": 0.6740942011732899,
+      "mean_http_concurrency": 9.530225303161812,
+      "max_http_concurrency": 32,
+      "event_loop_lag_max_s": 0.014125834015430883,
+      "status_counts": {
+        "success": 1998
+      },
+      "http_counts": {
+        "200": 1998
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5017428,
+        "output_tokens": 852645
+      },
+      "cost": {
+        "usd_lower": 0.21073197599999888,
+        "usd_upper": 0.21073197599999888,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.013183932432432361,
+        "usd_per_1000_valid_upper": 0.013183932432432361,
+        "usd_per_1000_correct_lower": 0.013754453103583242,
+        "usd_per_1000_correct_upper": 0.013754453103583242
+      }
+    },
+    {
+      "family": "case_complication",
+      "concurrency": 64,
+      "model": "jev-1.13.0",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 267.73333333333335,
+          "accuracy": 0.9574203187250996,
+          "cost": {
+            "usd_lower": 0.10589438999999813,
+            "usd_upper": 0.10589438999999813,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.013184062499999767,
+            "usd_per_1000_valid_upper": 0.013184062499999767,
+            "usd_per_1000_correct_lower": 0.01377040182054592,
+            "usd_per_1000_correct_upper": 0.01377040182054592
+          },
+          "end_to_end_p95_s": 1.986388374993112,
+          "mean_http_concurrency": 9.570489638053308
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 267.2,
+          "accuracy": 0.959375,
+          "cost": {
+            "usd_lower": 0.10568623799999814,
+            "usd_upper": 0.10568623799999814,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.013184410928143481,
+            "usd_per_1000_valid_upper": 0.013184410928143481,
+            "usd_per_1000_correct_lower": 0.013743333940181813,
+            "usd_per_1000_correct_upper": 0.013743333940181813
+          },
+          "end_to_end_p95_s": 1.9659310419810936,
+          "mean_http_concurrency": 8.48785244327931
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 2006,
+      "accuracy": 0.9583957085828343,
+      "valid_per_s": 267.46666666666664,
+      "correct_per_s": 256.3333333333333,
+      "cohort_valid_rate": 1.0,
+      "cohort_accuracy_among_valid": 0.9583748753738783,
+      "complete_packets_per_s": 33.43333333333333,
+      "throughput_range": [
+        267.2,
+        267.73333333333335
+      ],
+      "complete_rate": 1.0,
+      "response_p95_s": 0.3297180420195218,
+      "end_to_end_p95_s": 1.9744822090142407,
+      "admission_wait_mean_s": 1.642118124656419,
+      "mean_http_concurrency": 9.02917104066631,
+      "max_http_concurrency": 19,
+      "event_loop_lag_max_s": 0.0029393750010058284,
+      "status_counts": {
+        "success": 2006
+      },
+      "http_counts": {
+        "200": 2006
+      },
+      "cache_hit_ratio": null,
+      "usage": {
+        "input_tokens": 5037634,
+        "output_tokens": 856061
+      },
+      "cost": {
+        "usd_lower": 0.2115806279999989,
+        "usd_upper": 0.2115806279999989,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.013184236540378796,
+        "usd_per_1000_valid_upper": 0.013184236540378796,
+        "usd_per_1000_correct_lower": 0.013756867880364038,
+        "usd_per_1000_correct_upper": 0.013756867880364038
+      }
+    },
+    {
+      "family": "case_complication",
+      "concurrency": 64,
+      "model": "deepseek-flash",
+      "attempted_repeats": 2,
+      "full_repeats": 2,
+      "repeat_metrics": [
+        {
+          "repeat": 0,
+          "valid_per_s": 535.3333333333334,
+          "accuracy": 0.6968210691618849,
+          "cost": {
+            "usd_lower": 0.13562836200000072,
+            "usd_upper": 0.27125672400000145,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.008438273004417391,
+            "usd_per_1000_valid_upper": 0.016876546008834783,
+            "usd_per_1000_correct_lower": 0.010716526706700437,
+            "usd_per_1000_correct_upper": 0.021433053413400873
+          },
+          "end_to_end_p95_s": 1.1224646250193473,
+          "mean_http_concurrency": 63.99546765030245
+        },
+        {
+          "repeat": 1,
+          "valid_per_s": 513.0333333333333,
+          "accuracy": 0.6811835106382979,
+          "cost": {
+            "usd_lower": 0.13476441600000058,
+            "usd_upper": 0.26952883200000116,
+            "unpriced_requests": 0,
+            "usd_per_1000_valid_lower": 0.008753778239688249,
+            "usd_per_1000_valid_upper": 0.017507556479376497,
+            "usd_per_1000_correct_lower": 0.010961803806735039,
+            "usd_per_1000_correct_upper": 0.021923607613470078
+          },
+          "end_to_end_p95_s": 1.157006374996854,
+          "mean_http_concurrency": 63.996568491625176
+        }
+      ],
+      "omitted": [],
+      "window_s": 60,
+      "unique_decisions": 32,
+      "packet_sizes": [
+        8
+      ],
+      "cohort_requests": 4526,
+      "accuracy": 0.6890216743524133,
+      "valid_per_s": 524.1833333333333,
+      "correct_per_s": 415.8,
+      "cohort_valid_rate": 0.8690897039328325,
+      "cohort_accuracy_among_valid": 0.7928689462310919,
+      "complete_packets_per_s": 39.05,
+      "throughput_range": [
+        513.0333333333333,
+        535.3333333333334
+      ],
+      "complete_rate": 0.5190013256738842,
+      "response_p95_s": 1.1351548749953508,
+      "end_to_end_p95_s": 1.1351588329998776,
+      "admission_wait_mean_s": 5.746502748707419e-06,
+      "mean_http_concurrency": 63.996018070963814,
+      "max_http_concurrency": 64,
+      "event_loop_lag_max_s": 0.02341879197047092,
+      "status_counts": {
+        "invalid_answer": 2177,
+        "success": 2349
+      },
+      "http_counts": {
+        "200": 4526
+      },
+      "cache_hit_ratio": 0.8674458450385628,
+      "usage": {
+        "completion_tokens": 194111,
+        "prompt_cache_hit_tokens": 5938176,
+        "prompt_cache_miss_tokens": 907411,
+        "prompt_tokens": 6845587,
+        "total_tokens": 7039698
+      },
+      "cost": {
+        "usd_lower": 0.2703927779999924,
+        "usd_upper": 0.5407855559999848,
+        "unpriced_requests": 0,
+        "usd_per_1000_valid_lower": 0.008592626731917897,
+        "usd_per_1000_valid_upper": 0.017185253463835794,
+        "usd_per_1000_correct_lower": 0.010837385891783263,
+        "usd_per_1000_correct_upper": 0.021674771783566527
+      }
+    }
+  ],
+  "measured_requests": 29537,
+  "calibration_requests": 62,
+  "cells": 56,
+  "full_cells": 44
+}

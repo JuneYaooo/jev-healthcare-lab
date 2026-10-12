@@ -1,0 +1,20 @@
+{"cell":0,"concurrency":8,"event":"start","family":"tcm_syndrome","model":"deepseek-flash","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":0,"correct_per_s":30.866666666666667,"cost_upper_usd_so_far":0.1118,"event":"finish","stop":null,"valid_per_s":66.4}
+{"cell":1,"concurrency":8,"event":"start","family":"tcm_syndrome","model":"jev-1.13.0","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":1,"correct_per_s":0.7333333333333333,"cost_upper_usd_so_far":0.1233,"event":"finish","stop":"service_error_circuit","valid_per_s":2.4}
+{"cell":2,"concurrency":32,"event":"start","family":"tcm_syndrome","model":"deepseek-flash","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":2,"correct_per_s":87.23333333333333,"cost_upper_usd_so_far":0.3209,"event":"finish","stop":null,"valid_per_s":192.26666666666668}
+{"cell":5,"concurrency":64,"event":"start","family":"tcm_syndrome","model":"deepseek-flash","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":5,"correct_per_s":36.5,"cost_upper_usd_so_far":0.4188,"event":"finish","stop":null,"valid_per_s":79.2}
+{"cell":6,"concurrency":8,"event":"start","family":"medication_choice","model":"deepseek-flash","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":6,"correct_per_s":23.4,"cost_upper_usd_so_far":0.4349,"event":"finish","stop":null,"valid_per_s":30.233333333333334}
+{"cell":7,"concurrency":8,"event":"start","family":"medication_choice","model":"jev-1.13.0","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":7,"correct_per_s":1.8666666666666667,"cost_upper_usd_so_far":0.4359,"event":"finish","stop":"service_error_circuit","valid_per_s":2.4}
+{"cell":8,"concurrency":32,"event":"start","family":"medication_choice","model":"deepseek-flash","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":8,"correct_per_s":63.733333333333334,"cost_upper_usd_so_far":0.478,"event":"finish","stop":null,"valid_per_s":82.86666666666666}
+{"cell":11,"concurrency":64,"event":"start","family":"medication_choice","model":"deepseek-flash","repeat":0,"target":8,"total":56,"warmup_s":5,"window_s":30}
+{"cell":11,"correct_per_s":93.26666666666667,"cost_upper_usd_so_far":0.5417,"event":"finish","stop":null,"valid_per_s":121.03333333333333}
+{"cell":12,"concurrency":8,"event":"start","family":"routing_200","model":"deepseek-flash","repeat":0,"target":200,"total":56,"warmup_s":5,"window_s":30}
+{"cell":12,"correct_per_s":93.33333333333333,"cost_upper_usd_so_far":0.5739,"event":"finish","stop":null,"valid_per_s":93.33333333333333}
+{"cell":13,"concurrency":8,"event":"start","family":"routing_200","model":"jev-1.13.0","repeat":0,"target":200,"total":56,"warmup_s":5,"window_s":30}
+KeyboardInterrupt: environment pilot interrupted; see interruption.json.
