@@ -33,7 +33,13 @@ def metrics():
         scenes.append({'title': scene['title'], 'records': sum(f['records'] for f in families),
                        'tasks': len(families), 'small_tasks': sum(f['small_sample'] for f in families),
                        'values': [sum(m['tasks'][f['id']]['accuracy'] for f in families) / len(families) * 100
-                                  for _, m in models]})
+                                  for _, m in models],
+                       'mean_seconds': [sum(m['tasks'][f['id']]['timing']['mean_elapsed_s'] *
+                                            m['tasks'][f['id']]['timing']['attempted'] for f in families) /
+                                        sum(m['tasks'][f['id']]['timing']['attempted'] for f in families)
+                                        for _, m in models],
+                       'attempted': [sum(m['tasks'][f['id']]['timing']['attempted'] for f in families)
+                                     for _, m in models]})
     for i, (_, model) in enumerate(models):
         assert math.isclose(sum(s['values'][i] for s in scenes) / len(scenes),
                             model['primary_clinical_score'] * 100, abs_tol=1e-10)
@@ -142,6 +148,36 @@ def draw_charts(data, font):
     fig.text(.045, .056, '所有模型使用相同题目；最终请求失败与无效回答计错。完整样例、来源与结果见任务页。', fontsize=11, color=MUTED)
     fig.text(.045, .021, '白色描边为该场景最高值；并列均标记，全部相同不标记。', fontsize=10, color=MUTED)
     save(fig, 'jev-medical-scenario-accuracy-v1')
+
+    fig = canvas('医疗决策场景评测：JEV 与其他模型的作答用时',
+                 '覆盖 8 类医疗场景，与 DeepSeek、Qwen 同题比较｜每格为平均单题用时（秒），越低越快')
+    ax = fig.add_axes([.30, .18, .64, .59], facecolor=BG)
+    times = [s['mean_seconds'] for s in scenes]
+    upper = math.ceil(max(v for row in times for v in row))
+    ax.imshow(times, cmap=cmap.reversed(), vmin=0, vmax=upper, aspect='auto')
+    ax.set_xticks(range(len(models)), [by_id[m['id']] for m in models], fontsize=12)
+    ax.xaxis.tick_top()
+    ax.set_yticks(range(len(scenes)),
+                  [f"{s['title']}\n{s['records']} 题 · {s['tasks']} 任务" +
+                   (f" · {s['small_tasks']} 小样本" if s['small_tasks'] else '') for s in scenes], fontsize=11)
+    ax.tick_params(length=0, pad=12)
+    for i, row in enumerate(times):
+        rounded = [round(v, 3) for v in row]
+        for j, value in enumerate(row):
+            ax.text(j, i, f'{value:.3f}', ha='center', va='center', fontsize=16,
+                    color=BG if value <= upper * .35 else INK, weight='bold')
+            if max(rounded) != min(rounded) and rounded[j] == min(rounded):
+                ax.add_patch(Rectangle((j-.45, i-.43), .9, .86, fill=False, edgecolor=INK, linewidth=1.7))
+    ax.set_xticks([i-.5 for i in range(len(models)+1)], minor=True)
+    ax.set_yticks([i-.5 for i in range(len(scenes)+1)], minor=True)
+    ax.grid(which='minor', color=BG, linewidth=5)
+    ax.tick_params(which='minor', length=0)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    fig.text(.045, .10, '按场景内实际启动题目逐题平均；包含网络、等待、响应处理及最终失败题的耗时。', fontsize=12, color=MUTED)
+    fig.text(.045, .056, '用时受平台与网络条件影响，不等同于纯模型推理速度。小样本 = 单任务不足 20 题。', fontsize=11, color=MUTED)
+    fig.text(.045, .021, f'全图统一色阶：0–{upper} 秒，颜色越亮越快；描边为场景内最短用时（按显示精度，并列均标记）。', fontsize=10, color=MUTED)
+    save(fig, 'jev-medical-scenario-time-v1')
 
 
 def draw_motion(data, font):
