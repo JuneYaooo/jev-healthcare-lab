@@ -1,630 +1,208 @@
 # Jev Healthcare Lab
 
-![医疗决策场景 · JEV 评测：使用医疗决策类题目比较准确率与用时；8 个场景，29 个任务，26 项有题，1,514 道题](assets/readme/jev-medical-evaluation-v1.gif)
+**评估 JEV 在医疗任务批量处理中的准确率、速度和成本。** 按具体任务比较优势与短板，观察它在哪些判断上更有价值。
 
-本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率、完整运行耗时和单位正确判断成本。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。
+本轮比较 **JEV 1.13 与 DeepSeek V4.1 Flash**，覆盖 8 个医疗场景、26 个有题任务、566 道固定原题。每项设置重复三轮，共 10,656 次正式请求。
 
-评测按 **8 个医疗场景、29 个任务**组织：从接诊与分诊、检查与检验、诊断与鉴别，到治疗与用药、住院与护理、出院与随访，并涵盖临床试验筛选和病历与医疗质量控制。
+[优势与短板](#优势与短板) · [场景与任务](#场景与任务) · [测试范围](#测试范围) · [原始结果](results/task-performance-v1/README.md)
 
-目前 **26 个任务有题，共 1,514 题**（中文 1,080 题），来自 11 个数据来源；另有 3 个任务待补。任务另按 7 个能力标签标注。全部有题任务计入总分，其中 11 个不足 20 题，标记为小样本。已完成 5 个模型的同题评测。
+## 优势与短板
 
-[场景与任务](#场景与任务) · [评测方案：请求与提示词](docs/EVALUATION.md) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)
+以下是本轮相同题目、相同处理方式下的观测，不代表所有医疗任务或所有运行环境。
 
-## 评测速览
+| 观察 | 医疗任务 | 证据与限制 |
+| --- | --- | --- |
+| 两种模式均有优势 | [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能) | 多题准确率 JEV 93.75%、Flash 57.29%；完成整组分别耗时 0.334、1.174 秒。并发时分别为 0.587、1.055 秒，JEV 准确率仍较高。两种模式的单位正确判断成本均较低。 |
+| 判断与速度均有优势，部分成本待核算 | [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)、[用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能) | 两种模式下 JEV 的准确率更高、整组耗时更短。多题模式成本更低；并发记录有请求缺少用量，不能确认完整成本。 |
+| 优势取决于处理方式 | [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)、[患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)、[疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能) | 多题模式下 JEV 更准、更快、成本更低；并发模式的速度优势未复现，不能概括为始终更快。 |
+| 准确率仍有劣势 | [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)、[患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)、[中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能) | 两种模式下 JEV 准确率均低于 Flash。例如病例诊断并发准确率为 81.25%，Flash 为 90.62%。部分设置中的速度优势不代表判断质量更好。 |
+| 多题成本与准确率均不占优 | [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能) | 多题准确率 JEV 32.29%、Flash 39.58%；每千次正确判断成本分别为 $0.4922、$0.0834–0.1668。两种模式下，两模型准确率都不足 40%。 |
 
-**JEV 1.13 本轮主分数最高：77.41%**，领先第二名 3.42 个百分点。原单题评测中，**DeepSeek V4.1 Flash 平均用时最短：0.509 秒/题**。
-
-![医疗决策场景 · JEV 评测：五个模型的临床主分数与平均用时对比，完整数值见下方模型得分与耗时表](assets/readme/jev-medical-score-time-v1.svg)
-
-![医疗决策场景 · JEV 评测：八个场景的模型得分热力图，标注题数、小样本任务数和场景最高值，完整结果见各任务表](assets/readme/jev-medical-scenario-accuracy-v1.svg)
-
-![医疗决策场景 · JEV 评测：八个场景的平均单题用时热力图，单位为秒，越低越快，描边标记各场景最短用时](assets/readme/jev-medical-scenario-time-v1.svg)
-
-主分数按场景内任务等权、再对场景等权计算；全部 26 个有题任务计入。11 个任务不足 20 题，医疗质量控制场景仅 3 题。以上为本轮观测结果，不代表统计显著性或临床有效性；用时受网络和平台服务条件影响。
-
-[完整模型结果](docs/MODEL_RESULTS.md) · [逐题原始记录](results/clinical-v1/README.md) · [图表数据](assets/readme/metrics-v1.json)
-
-## 能力维度
-
-场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。
-
-| 能力维度 | 关联任务数（含待补） |
-| --- | --- |
-| 分类与标准化 | 3 |
-| 临床候选方案 | 15 |
-| 资格与适宜性 | 4 |
-| 证据与一致性 | 1 |
-| 风险与升级 | 4 |
-| 规则与数值 | 2 |
-| 流程与下一步行动 | 9 |
+延迟也有明显波动：部分 JEV 请求出现约 30 秒的长尾，已计入整组耗时。各任务详情保留逐轮范围、失败与原始响应；小幅速度差异不代表稳定优势。
 
 ## 场景与任务
 
-每个任务先看三个问题：JEV 判断是否更准、完成同样的题目是否更快、每次正确判断是否更便宜。下表列本轮观测结果；五模型分数、绝对耗时、费用和调用方式见展开数据及任务详情。相对排名不等于已经达到业务或临床可用标准。
+**每行是一种处理方式下，一个模型完成该任务整组题目的结果。** 同任务两模型使用相同题目和金标。准确率越高越好，整组耗时和单位正确判断成本越低越好。
 
-全量准确率来自五模型的原单题评测。多题的准确率、速度、成本来自 JEV 与 Flash 在同一任务最多 32 道原题上的三轮测试，统一使用预先规定的最大打包档，不挑选最快档；长材料按相同规则拆包。这些结论仅对应多题设置，其他调用方式可能不同。费用为总调用费用除以正确判断数，区间覆盖 Flash 闲时与高峰价格；用量缺失或无正确答案时不作成本比较。其他三模型尚无本轮多题与费用对比。[测试协议](docs/TASK_PERFORMANCE.md)。
+多题：一次请求包含多道题，长材料按相同规则拆包。并发：每个请求含 1 题，同时发送多个请求。
 
-用时单位为秒，包含网络与响应处理；原单题评测含重试，逐任务性能测试不自动重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。
-
-| 医疗场景 | 有题任务 / 定义任务 | 题数 |
-| --- | --- | --- |
-| 接诊与分诊 | 2 / 3 | 130 |
-| 检查与检验 | 1 / 2 | 100 |
-| 诊断与鉴别 | 5 / 5 | 600 |
-| 治疗与用药 | 6 / 7 | 374 |
-| 住院与护理 | 6 / 6 | 173 |
-| 出院与随访 | 4 / 4 | 34 |
-| 临床试验筛选 | 1 / 1 | 100 |
-| 病历与医疗质量控制 | 1 / 1 | 3 |
+**耗时**是完成全部题目的三轮平均总秒数；**成本**是估算美元／千次正确判断，包含答错所消耗的费用，Flash 区间对应闲时至高峰价格。⚠ 表示该行存在失败或无效回答，已计错；“待核算”表示用量不完整，不代表免费。
 
 ### 接诊与分诊
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md) | JEV 63.00%；最高 65.00% | JEV 58.33%，Flash 59.38% | JEV 耗时多 351.1% | JEV 成本低 41.8%–70.9% |
-| [首诊科室选择](docs/tasks/department_routing.md) | 待补 | 待补 | 待补 | 待补 |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md) | JEV 63.33%；本轮最高（含并列） | JEV 65.56%，Flash 62.22% | JEV 耗时少 50.4% | JEV 成本低 18.4%–59.2% |
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 58.33% | 10.547 | 0.0198 |
+| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 59.38% | 2.338 | 0.0341–0.0681 |
+| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 55.21% | 0.809 | 0.0374 |
+| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 43.75% | 1.388 | 0.0819–0.1638 |
+| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 多题：每包 3–9 题 | JEV 1.13 | 65.56% | 1.688 | 0.0739 |
+| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 多题：每包 3–9 题 | Flash | 62.22% | 3.401 | 0.0906–0.1812 |
+| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 并发：同时 30 个请求 | JEV 1.13 | 64.44% | 1.196 | 0.0876 |
+| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 并发：同时 30 个请求 | Flash | 55.56% ⚠ | 2.812 | 待核算 |
 
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md) | 100 | 63.00% | 61.00% | 57.00% | 50.00% ⚠ | **65.00%** |
-| [首诊科室选择](docs/tasks/department_routing.md) | 0 · 待补 | — | — | — | — | — |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md) | 30 | **63.33%** | 50.00% | **63.33%** | **63.33%** | 50.00% |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md) | 100 | 0.971 | **0.511** | 1.003 | 1.075 ⚠ | 2.201 |
-| [首诊科室选择](docs/tasks/department_routing.md) | 0 · 待补 | — | — | — | — | — |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md) | 30 | 0.906 | **0.496** | 1.306 | 1.020 | 2.728 |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 56.25% | 18.921 | 43.75% | 21.671 |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 58.33% | 10.547 | 59.38% | 2.338 |
-| [首诊科室选择](docs/tasks/department_routing.md#多问题与并发性能) | 待补 | — | — | — | — |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 逐题串行（每次 1 题） | 62.22% | 19.635 | 56.67% | 19.430 |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 多题打包（每次 3–9 题） | 65.56% | 1.688 | 62.22% | 3.401 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 56.25% | 18.921 | 43.75% | 21.671 |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 55.21% | 0.809 | 43.75% | 1.388 |
-| [首诊科室选择](docs/tasks/department_routing.md#多问题与并发性能) | 待补 | — | — | — | — |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 依次提问（答完再问下一题） | 62.22% | 19.635 | 56.67% | 19.430 |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md#多问题与并发性能)（30 题） | 同时提问（最多 30 个请求） | 64.44% | 1.196 | 55.56% ⚠ | 2.812 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [分诊与就医紧急程度判断](docs/tasks/triage_urgency.md) | 风险与升级 | 100 | 计入总分 | [CARE-Bench](docs/datasets/care_bench.md)†（100） |
-| [首诊科室选择](docs/tasks/department_routing.md) | 临床候选方案 | 0 | 待补 | 待补数据 |
-| [患者消息处理优先级](docs/tasks/message_urgency_pair.md) | 风险与升级 | 30 | 计入总分 | [PMR-Synth annotated pairs](docs/datasets/pmr_synth.md)†（30） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+待补数据：[首诊科室选择](docs/tasks/department_routing.md#多问题与并发性能)。
 
 ### 检查与检验
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [危急检验结果处置选择](docs/tasks/critical_result_escalation.md) | 待补 | 待补 | 待补 | 待补 |
-| [检查方案选择](docs/tasks/examination_choice.md) | JEV 88.00%；本轮最高（含并列） | JEV 80.21%，Flash 38.54% ⚠ | JEV 耗时少 65.3% | JEV 成本低 52.7%–76.3% |
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 80.21% | 0.404 | 0.0141 |
+| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 38.54% ⚠ | 1.164 | 0.0299–0.0598 |
+| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 87.50% | 1.136 | 0.0233 |
+| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 84.38% ⚠ | 1.023 | 待核算 |
 
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [危急检验结果处置选择](docs/tasks/critical_result_escalation.md) | 0 · 待补 | — | — | — | — | — |
-| [检查方案选择](docs/tasks/examination_choice.md) | 100 | **88.00%** | 81.00% ⚠ | 74.00% | 60.00% | 74.00% |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [危急检验结果处置选择](docs/tasks/critical_result_escalation.md) | 0 · 待补 | — | — | — | — | — |
-| [检查方案选择](docs/tasks/examination_choice.md) | 100 | 0.954 | **0.479** ⚠ | 0.954 | 1.188 | 2.366 |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [危急检验结果处置选择](docs/tasks/critical_result_escalation.md#多问题与并发性能) | 待补 | — | — | — | — |
-| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 87.50% | 8.817 | 85.42% ⚠ | 20.961 |
-| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 80.21% | 0.404 | 38.54% ⚠ | 1.164 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [危急检验结果处置选择](docs/tasks/critical_result_escalation.md#多问题与并发性能) | 待补 | — | — | — | — |
-| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 87.50% | 8.817 | 85.42% ⚠ | 20.961 |
-| [检查方案选择](docs/tasks/examination_choice.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 87.50% | 1.136 | 84.38% ⚠ | 1.023 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [危急检验结果处置选择](docs/tasks/critical_result_escalation.md) | 风险与升级 | 0 | 待补 | 待补数据 |
-| [检查方案选择](docs/tasks/examination_choice.md) | 临床候选方案 | 100 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（19）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（81） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+待补数据：[危急检验结果处置选择](docs/tasks/critical_result_escalation.md#多问题与并发性能)。
 
 ### 诊断与鉴别
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md) | JEV 62.00%；本轮最高（含并列） | JEV 60.42%，Flash 34.38% | JEV 耗时少 56.0% | JEV 成本低 47.4%–73.7% |
-| [病例诊断选择](docs/tasks/diagnosis.md) | JEV 79.50%；最高 84.00% | JEV 81.25%，Flash 85.42% | JEV 耗时少 13.9% | 取决于 Flash 闲时／高峰价格 |
-| [中医证型判断](docs/tasks/tcm_syndrome.md) | JEV 38.00%；本轮最高（含并列） | JEV 32.29%，Flash 39.58% | JEV 耗时少 37.2% | JEV 成本更高（2.95–5.90 倍） |
-| [病例病因判断](docs/tasks/case_etiology.md) | JEV 84.00%；本轮最高（含并列） | JEV 73.96%，Flash 80.21% ⚠ | JEV 耗时少 56.3% | 取决于 Flash 闲时／高峰价格 |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md) | JEV 67.00%；最高 79.00% | JEV 69.79%，Flash 83.33% | JEV 耗时少 8.4% | 取决于 Flash 闲时／高峰价格 |
-
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md) | 100 | **62.00%** | 50.00% ⚠ | 53.00% | 34.00% ⚠ | 43.00% |
-| [病例诊断选择](docs/tasks/diagnosis.md) | 200 | 79.50% | **84.00%** | 81.00% | 66.00% | 77.00% |
-| [中医证型判断](docs/tasks/tcm_syndrome.md) | 100 | **38.00%** | 37.00% | 30.00% | 29.00% ⚠ | 31.00% |
-| [病例病因判断](docs/tasks/case_etiology.md) | 100 | **84.00%** | **84.00%** | **84.00%** | 66.00% | 81.00% |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md) | 100 | 67.00% | 76.00% | **79.00%** | 70.00% | 75.00% |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md) | 100 | 1.336 | **0.470** ⚠ | 0.949 | 1.469 ⚠ | 2.685 |
-| [病例诊断选择](docs/tasks/diagnosis.md) | 200 | 1.047 | **0.586** | 0.994 | 1.283 | 3.025 |
-| [中医证型判断](docs/tasks/tcm_syndrome.md) | 100 | 3.838 | **0.546** | 1.162 | 1.143 ⚠ | 4.763 |
-| [病例病因判断](docs/tasks/case_etiology.md) | 100 | 3.744 | **0.478** | 1.012 | 1.585 | 1.808 |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md) | 100 | 1.666 | **0.430** | 1.101 | 1.012 | 3.760 |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 65.62% | 8.865 | 46.88% ⚠ | 20.762 |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 60.42% | 0.551 | 34.38% | 1.252 |
-| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 80.21% | 9.474 | 90.62% | 20.742 |
-| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 多题打包（每次 8–24 题） | 81.25% | 1.566 | 85.42% | 1.819 |
-| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 39.58% | 8.342 | 36.46% | 21.351 |
-| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 多题打包（每次 5–9 题） | 32.29% | 2.593 | 39.58% | 4.128 |
-| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 78.12% | 9.212 | 78.12% | 20.631 |
-| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 73.96% | 0.595 | 80.21% ⚠ | 1.360 |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 65.62% | 8.936 | 81.25% | 20.166 |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 69.79% | 1.108 | 83.33% | 1.209 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 65.62% | 8.865 | 46.88% ⚠ | 20.762 |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 65.62% | 1.157 | 46.88% ⚠ | 1.095 |
-| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 80.21% | 9.474 | 90.62% | 20.742 |
-| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 81.25% | 1.839 | 90.62% | 1.414 |
-| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 39.58% | 8.342 | 36.46% | 21.351 |
-| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 39.58% | 1.034 | 36.46% ⚠ | 7.578 |
-| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 78.12% | 9.212 | 78.12% | 20.631 |
-| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 78.12% | 0.353 | 84.38% | 1.026 |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 65.62% | 8.936 | 81.25% | 20.166 |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 64.58% | 1.456 | 80.21% ⚠ | 1.427 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md) | 规则与数值 | 100 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（70）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（30） |
-| [病例诊断选择](docs/tasks/diagnosis.md) | 临床候选方案 | 200 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（50）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（50）；[DDXPlus](docs/datasets/ddxplus.md)（100） |
-| [中医证型判断](docs/tasks/tcm_syndrome.md) | 临床候选方案 | 100 | 计入总分 | [TCM-SD](docs/datasets/tcm_sd.md)†（100） |
-| [病例病因判断](docs/tasks/case_etiology.md) | 临床候选方案 | 100 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（50）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（50） |
-| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md) | 分类与标准化 | 100 | 计入总分 | [TCMEval-SDT](docs/datasets/tcmeval_sdt.md)（100） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 60.42% | 0.551 | 0.0197 |
+| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 34.38% | 1.252 | 0.0374–0.0749 |
+| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 65.62% | 1.157 | 0.0319 |
+| [疾病分期与严重程度判断](docs/tasks/clinical_grade.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 46.88% ⚠ | 1.095 | 0.0770–0.1541 |
+| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 多题：每包 8–24 题 | JEV 1.13 | 81.25% | 1.566 | 0.0507 |
+| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 多题：每包 8–24 题 | Flash | 85.42% | 1.819 | 0.0381–0.0762 |
+| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 81.25% | 1.839 | 0.0614 |
+| [病例诊断选择](docs/tasks/diagnosis.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 90.62% | 1.414 | 0.0366–0.0731 |
+| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 多题：每包 5–9 题 | JEV 1.13 | 32.29% | 2.593 | 0.4922 |
+| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 多题：每包 5–9 题 | Flash | 39.58% | 4.128 | 0.0834–0.1668 |
+| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 39.58% | 1.034 | 0.4218 |
+| [中医证型判断](docs/tasks/tcm_syndrome.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 36.46% ⚠ | 7.578 | 待核算 |
+| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 73.96% | 0.595 | 0.0166 |
+| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 80.21% ⚠ | 1.360 | 0.0160–0.0320 |
+| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 78.12% | 0.353 | 0.0274 |
+| [病例病因判断](docs/tasks/case_etiology.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 84.38% | 1.026 | 0.0416–0.0832 |
+| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 69.79% | 1.108 | 0.0297 |
+| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 83.33% | 1.209 | 0.0230–0.0460 |
+| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 64.58% | 1.456 | 0.0461 |
+| [中医候选病机判断](docs/tasks/tcm_pathogenesis_candidate.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 80.21% ⚠ | 1.427 | 待核算 |
 
 ### 治疗与用药
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md) | JEV 79.63%；本轮最高（含并列） | JEV 70.83%，Flash 61.46% ⚠ | JEV 耗时少 51.9% | JEV 成本低 18.8%–59.4% |
-| [患者剂量适宜性判断](docs/tasks/dose_appropriateness.md) | 待补 | 待补 | 待补 | 待补 |
-| [治疗方案选择](docs/tasks/treatment_choice.md) | JEV 78.00%；最高 82.00% | JEV 84.38%，Flash 75.00% | JEV 耗时多 1.2% | JEV 成本低 8.3%–54.2% |
-| [用药方案选择](docs/tasks/medication_choice.md) | JEV 83.00%；本轮最高（含并列） | JEV 77.08%，Flash 67.71% ⚠ | JEV 耗时少 60.3% | JEV 成本低 15.5%–57.8% |
-| [补液方案选择](docs/tasks/fluid_plan.md)（小样本） | JEV 50.00%；最高 56.25% | JEV 70.83%，Flash 41.67% ⚠ | JEV 耗时少 37.8% | JEV 成本低 32.3%–66.2% |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md) | JEV 55.00%；本轮最高（含并列） | JEV 63.54%，Flash 48.96% | JEV 耗时少 48.8% | JEV 成本低 25.2%–62.6% |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md)（小样本） | JEV 75.00%；本轮最高（含并列） | JEV 100.00%，Flash 75.00% | JEV 耗时少 25.8% | JEV 成本低 42.3%–71.2% |
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 70.83% | 0.565 | 0.0164 |
+| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 61.46% ⚠ | 1.173 | 0.0203–0.0405 |
+| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 76.04% ⚠ | 3.566 | 待核算 |
+| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 67.71% | 0.934 | 0.0526–0.1053 |
+| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 84.38% | 1.079 | 0.0140 |
+| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 75.00% | 1.066 | 0.0153–0.0305 |
+| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 84.38% | 0.603 | 0.0247 |
+| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 78.12% | 1.014 | 0.0446–0.0892 |
+| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 77.08% | 0.497 | 0.0152 |
+| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 67.71% ⚠ | 1.253 | 0.0180–0.0360 |
+| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 84.38% | 0.584 | 0.0246 |
+| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 82.29% ⚠ | 5.737 | 待核算 |
+| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 多题：每包 16 题 | JEV 1.13 | 70.83% | 0.476 | 0.0191 |
+| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 多题：每包 16 题 | Flash | 41.67% ⚠ | 0.765 | 0.0282–0.0564 |
+| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 并发：同时 16 个请求 | JEV 1.13 | 54.17% | 0.499 | 0.0410 |
+| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 并发：同时 16 个请求 | Flash | 56.25% ⚠ | 0.875 | 0.0565–0.1129 |
+| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 63.54% | 0.765 | 0.0318 |
+| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 48.96% | 1.493 | 0.0425–0.0849 |
+| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 62.50% | 11.021 | 0.0469 |
+| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 52.08% ⚠ | 1.374 | 待核算 |
+| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 多题：每包 4 题 | JEV 1.13 | 100.00% | 0.590 | 0.0138 |
+| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 多题：每包 4 题 | Flash | 75.00% | 0.795 | 0.0240–0.0480 |
+| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 并发：同时 4 个请求 | JEV 1.13 | 83.33% | 1.180 | 0.0246 |
+| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 并发：同时 4 个请求 | Flash | 100.00% | 0.776 | 0.0388–0.0776 |
 
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md) | 54 | **79.63%** | 74.07% | 66.67% | 46.30% | 64.81% |
-| [患者剂量适宜性判断](docs/tasks/dose_appropriateness.md) | 0 · 待补 | — | — | — | — | — |
-| [治疗方案选择](docs/tasks/treatment_choice.md) | 100 | 78.00% | **82.00%** | 74.00% | 51.00% | 72.00% |
-| [用药方案选择](docs/tasks/medication_choice.md) | 100 | **83.00%** | 80.00% | 72.00% | 47.00% | 73.00% |
-| [补液方案选择](docs/tasks/fluid_plan.md) | 16 · 小样本 | 50.00% | **56.25%** ⚠ | 50.00% | 18.75% | 31.25% |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md) | 100 | **55.00%** | 54.00% | 51.00% | 39.00% | 54.00% |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md) | 4 · 小样本 | **75.00%** | **75.00%** | **75.00%** | 50.00% | 50.00% |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md) | 54 | 1.009 | **0.487** | 0.951 | 0.729 | 1.701 |
-| [患者剂量适宜性判断](docs/tasks/dose_appropriateness.md) | 0 · 待补 | — | — | — | — | — |
-| [治疗方案选择](docs/tasks/treatment_choice.md) | 100 | 0.923 | **0.454** | 0.946 | 0.861 | 2.486 |
-| [用药方案选择](docs/tasks/medication_choice.md) | 100 | 0.960 | **0.519** | 0.978 | 1.217 | 1.595 |
-| [补液方案选择](docs/tasks/fluid_plan.md) | 16 · 小样本 | 0.980 | **0.589** ⚠ | 0.910 | 2.595 | 1.992 |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md) | 100 | 0.993 | **0.492** | 1.084 | 0.865 | 3.176 |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md) | 4 · 小样本 | 0.946 | **0.576** | 0.883 | 1.762 | 1.334 |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 78.12% | 9.396 | 72.92% | 20.679 |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 70.83% | 0.565 | 61.46% ⚠ | 1.173 |
-| [患者剂量适宜性判断](docs/tasks/dose_appropriateness.md#多问题与并发性能) | 待补 | — | — | — | — |
-| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 84.38% | 8.397 | 75.00% | 20.481 |
-| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 84.38% | 1.079 | 75.00% | 1.066 |
-| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 84.38% | 8.040 | 83.33% | 19.127 |
-| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 77.08% | 0.497 | 67.71% ⚠ | 1.253 |
-| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 逐题串行（每次 1 题） | 56.25% | 14.507 | 56.25% ⚠ | 9.756 |
-| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 多题打包（每次 16 题） | 70.83% | 0.476 | 41.67% ⚠ | 0.765 |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 62.50% | 8.345 | 52.08% | 20.748 |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 63.54% | 0.765 | 48.96% | 1.493 |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 逐题串行（每次 1 题） | 83.33% | 11.398 | 100.00% | 2.297 |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 多题打包（每次 4 题） | 100.00% | 0.590 | 75.00% | 0.795 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 78.12% | 9.396 | 72.92% | 20.679 |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 76.04% ⚠ | 3.566 | 67.71% | 0.934 |
-| [患者剂量适宜性判断](docs/tasks/dose_appropriateness.md#多问题与并发性能) | 待补 | — | — | — | — |
-| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 84.38% | 8.397 | 75.00% | 20.481 |
-| [治疗方案选择](docs/tasks/treatment_choice.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 84.38% | 0.603 | 78.12% | 1.014 |
-| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 84.38% | 8.040 | 83.33% | 19.127 |
-| [用药方案选择](docs/tasks/medication_choice.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 84.38% | 0.584 | 82.29% ⚠ | 5.737 |
-| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 依次提问（答完再问下一题） | 56.25% | 14.507 | 56.25% ⚠ | 9.756 |
-| [补液方案选择](docs/tasks/fluid_plan.md#多问题与并发性能)（16 题，小样本） | 同时提问（最多 16 个请求） | 54.17% | 0.499 | 56.25% ⚠ | 0.875 |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 62.50% | 8.345 | 52.08% | 20.748 |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 62.50% | 11.021 | 52.08% ⚠ | 1.374 |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 依次提问（答完再问下一题） | 83.33% | 11.398 | 100.00% | 2.297 |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md#多问题与并发性能)（4 题，小样本） | 同时提问（最多 4 个请求） | 83.33% | 1.180 | 100.00% | 0.776 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [患者方案禁忌判断](docs/tasks/patient_contraindication.md) | 资格与适宜性 | 54 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（33）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（21） |
-| [患者剂量适宜性判断](docs/tasks/dose_appropriateness.md) | 资格与适宜性 | 0 | 待补 | 待补数据 |
-| [治疗方案选择](docs/tasks/treatment_choice.md) | 临床候选方案 | 100 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（46）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（54） |
-| [用药方案选择](docs/tasks/medication_choice.md) | 临床候选方案 | 100 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（12）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（88） |
-| [补液方案选择](docs/tasks/fluid_plan.md) | 规则与数值 | 16 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（9）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（7） |
-| [药物基因结果对应的指南建议选择](docs/tasks/pgx_guideline_recommendation.md) | 资格与适宜性 | 100 | 计入总分 | [CPIC curated pharmacogenomic tables](docs/datasets/cpic.md)（100） |
-| [给药途径与实施方法选择](docs/tasks/administration_route_choice.md) | 临床候选方案、流程与下一步行动 | 4 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（3）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（1） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+待补数据：[患者剂量适宜性判断](docs/tasks/dose_appropriateness.md#多问题与并发性能)。
 
 ### 住院与护理
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [病例并发症判断](docs/tasks/case_complication.md) | JEV 93.00%；本轮最高（含并列） | JEV 93.75%，Flash 57.29% ⚠ | JEV 耗时少 71.5% | JEV 成本低 40.5%–70.3% |
-| [护理措施选择](docs/tasks/nursing_priority.md) | JEV 85.71%；本轮最高（含并列） | JEV 85.42%，Flash 72.92% | JEV 耗时少 51.9% | JEV 成本低 7.2%–53.6% |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md)（小样本） | JEV 72.73%；本轮最高（含并列） | JEV 72.73%，Flash 81.82% | JEV 耗时少 19.7% | 取决于 Flash 闲时／高峰价格 |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md)（小样本） | JEV 90.00%；本轮最高（含并列） | JEV 100.00%，Flash 73.33% ⚠ | JEV 耗时多 0.6% | JEV 成本低 23.8%–61.9% |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md)（小样本） | JEV 80.00%；最高 100.00% | JEV 80.00%，Flash 100.00% | JEV 耗时少 62.7% | 取决于 Flash 闲时／高峰价格 |
-| [感染防控措施选择](docs/tasks/infection_precaution.md)（小样本） | JEV 100.00%；本轮最高（含并列） | JEV 100.00%，Flash 93.33% | JEV 耗时少 49.0% | JEV 成本低 20.5%–60.3% |
-
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [病例并发症判断](docs/tasks/case_complication.md) | 100 | **93.00%** | 89.00% | 89.00% | 70.00% | 84.00% |
-| [护理措施选择](docs/tasks/nursing_priority.md) | 42 | **85.71%** | 73.81% | 80.95% | 71.43% | 83.33% |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md) | 11 · 小样本 | **72.73%** | **72.73%** | **72.73%** | 45.45% | 45.45% |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md) | 10 · 小样本 | **90.00%** | 80.00% | **90.00%** | 60.00% | 70.00% |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md) | 5 · 小样本 | 80.00% | **100.00%** | 80.00% | 60.00% | 60.00% |
-| [感染防控措施选择](docs/tasks/infection_precaution.md) | 5 · 小样本 | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [病例并发症判断](docs/tasks/case_complication.md) | 100 | 1.018 | **0.439** | 0.960 | 1.173 | 2.439 |
-| [护理措施选择](docs/tasks/nursing_priority.md) | 42 | 0.918 | **0.452** | 0.966 | 0.869 | 7.995 |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md) | 11 · 小样本 | 0.848 | **0.445** | 1.165 | 1.335 | 1.470 |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md) | 10 · 小样本 | 0.985 | **0.474** | 0.740 | 0.967 | 1.409 |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md) | 5 · 小样本 | 0.843 | **0.433** | 1.363 | 0.716 | 4.005 |
-| [感染防控措施选择](docs/tasks/infection_precaution.md) | 5 · 小样本 | 0.990 | **0.465** | 0.945 | 1.124 | 1.498 |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 94.79% | 8.324 | 90.62% | 20.166 |
-| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 93.75% | 0.334 | 57.29% ⚠ | 1.174 |
-| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 90.62% | 8.920 | 68.75% | 19.366 |
-| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 多题打包（每次 32 题） | 85.42% | 0.608 | 72.92% | 1.265 |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 逐题串行（每次 1 题） | 72.73% | 2.706 | 78.79% | 7.174 |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 多题打包（每次 11 题） | 72.73% | 0.706 | 81.82% | 0.880 |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 逐题串行（每次 1 题） | 93.33% | 2.635 | 80.00% | 6.564 |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 多题打包（每次 10 题） | 100.00% | 0.861 | 73.33% ⚠ | 0.856 |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 逐题串行（每次 1 题） | 80.00% | 1.362 | 100.00% | 3.009 |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 多题打包（每次 5 题） | 80.00% | 0.233 | 100.00% | 0.623 |
-| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 逐题串行（每次 1 题） | 100.00% | 1.794 | 100.00% | 3.357 |
-| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 多题打包（每次 5 题） | 100.00% | 0.408 | 93.33% | 0.800 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 94.79% | 8.324 | 90.62% | 20.166 |
-| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 93.75% | 0.587 | 89.58% | 1.055 |
-| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 90.62% | 8.920 | 68.75% | 19.366 |
-| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 90.62% | 0.473 | 65.62% ⚠ | 1.070 |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 依次提问（答完再问下一题） | 72.73% | 2.706 | 78.79% | 7.174 |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 同时提问（最多 11 个请求） | 72.73% | 0.327 | 78.79% | 0.901 |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 依次提问（答完再问下一题） | 93.33% | 2.635 | 80.00% | 6.564 |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 同时提问（最多 10 个请求） | 96.67% | 0.704 | 80.00% | 0.869 |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 依次提问（答完再问下一题） | 80.00% | 1.362 | 100.00% | 3.009 |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 同时提问（最多 5 个请求） | 80.00% | 10.458 | 100.00% | 0.796 |
-| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 依次提问（答完再问下一题） | 100.00% | 1.794 | 100.00% | 3.357 |
-| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 同时提问（最多 5 个请求） | 100.00% | 0.449 | 100.00% | 0.806 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [病例并发症判断](docs/tasks/case_complication.md) | 风险与升级 | 100 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（64）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（36） |
-| [护理措施选择](docs/tasks/nursing_priority.md) | 流程与下一步行动 | 42 | 计入总分 | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（42） |
-| [营养与饮食方案选择](docs/tasks/nutrition_plan.md) | 分类与标准化 | 11 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（10）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（1） |
-| [护理与操作体位选择](docs/tasks/positioning_choice.md) | 分类与标准化 | 10 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（8）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（2） |
-| [病情监测与疗效判断](docs/tasks/monitoring_target.md) | 临床候选方案、流程与下一步行动 | 5 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（5） |
-| [感染防控措施选择](docs/tasks/infection_precaution.md) | 临床候选方案、流程与下一步行动 | 5 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（4）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（1） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 93.75% | 0.334 | 0.0130 |
+| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 57.29% ⚠ | 1.174 | 0.0218–0.0436 |
+| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 93.75% | 0.587 | 0.0226 |
+| [病例并发症判断](docs/tasks/case_complication.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 89.58% | 1.055 | 0.0388–0.0777 |
+| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | JEV 1.13 | 85.42% | 0.608 | 0.0142 |
+| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 多题：每包 32 题 | Flash | 72.92% | 1.265 | 0.0153–0.0306 |
+| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 90.62% | 0.473 | 0.0234 |
+| [护理措施选择](docs/tasks/nursing_priority.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 65.62% ⚠ | 1.070 | 待核算 |
+| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 多题：每包 11 题 | JEV 1.13 | 72.73% | 0.706 | 0.0185 |
+| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 多题：每包 11 题 | Flash | 81.82% | 0.880 | 0.0137–0.0275 |
+| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 并发：同时 11 个请求 | JEV 1.13 | 72.73% | 0.327 | 0.0300 |
+| [营养与饮食方案选择](docs/tasks/nutrition_plan.md#多问题与并发性能)（11 题，小样本） | 并发：同时 11 个请求 | Flash | 78.79% | 0.901 | 0.0436–0.0872 |
+| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 多题：每包 10 题 | JEV 1.13 | 100.00% | 0.861 | 0.0113 |
+| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 多题：每包 10 题 | Flash | 73.33% ⚠ | 0.856 | 0.0149–0.0298 |
+| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 并发：同时 10 个请求 | JEV 1.13 | 96.67% | 0.704 | 0.0203 |
+| [护理与操作体位选择](docs/tasks/positioning_choice.md#多问题与并发性能)（10 题，小样本） | 并发：同时 10 个请求 | Flash | 80.00% | 0.869 | 0.0440–0.0880 |
+| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 多题：每包 5 题 | JEV 1.13 | 80.00% | 0.233 | 0.0159 |
+| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 多题：每包 5 题 | Flash | 100.00% | 0.623 | 0.0156–0.0312 |
+| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 并发：同时 5 个请求 | JEV 1.13 | 80.00% | 10.458 | 0.0249 |
+| [病情监测与疗效判断](docs/tasks/monitoring_target.md#多问题与并发性能)（5 题，小样本） | 并发：同时 5 个请求 | Flash | 100.00% | 0.796 | 0.0371–0.0743 |
+| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 多题：每包 5 题 | JEV 1.13 | 100.00% | 0.408 | 0.0141 |
+| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 多题：每包 5 题 | Flash | 93.33% | 0.800 | 0.0178–0.0355 |
+| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 并发：同时 5 个请求 | JEV 1.13 | 100.00% | 0.449 | 0.0213 |
+| [感染防控措施选择](docs/tasks/infection_precaution.md#多问题与并发性能)（5 题，小样本） | 并发：同时 5 个请求 | Flash | 100.00% | 0.806 | 0.0368–0.0737 |
 
 ### 出院与随访
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md)（小样本） | JEV 83.33%；本轮最高（含并列） | JEV 83.33%，Flash 66.67% | JEV 耗时多 30.0% | JEV 成本低 35.9%–68.0% |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md)（小样本） | JEV 100.00%；本轮最高（含并列） | JEV 100.00%，Flash 100.00% | JEV 耗时少 56.5% | JEV 成本低 19.3%–59.6% |
-| [预防措施选择](docs/tasks/prevention_choice.md)（小样本） | JEV 84.62%；最高 92.31% | JEV 84.62%，Flash 76.92% | JEV 耗时少 9.2% | JEV 成本低 0.4%–50.2% |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md)（小样本） | JEV 100.00%；本轮最高（含并列） | JEV 90.91%，Flash 84.85% | JEV 耗时多 1368.9% | 取决于 Flash 闲时／高峰价格 |
-
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md) | 6 · 小样本 | **83.33%** | 66.67% | **83.33%** | 50.00% | **83.33%** |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md) | 4 · 小样本 | **100.00%** | 50.00% | 75.00% | 75.00% | 50.00% |
-| [预防措施选择](docs/tasks/prevention_choice.md) | 13 · 小样本 | 84.62% | 84.62% | 84.62% | 76.92% | **92.31%** |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md) | 11 · 小样本 | **100.00%** | 90.91% | 90.91% | **100.00%** | 90.91% |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md) | 6 · 小样本 | 0.989 | **0.468** | 0.983 | 0.709 | 5.576 |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md) | 4 · 小样本 | 0.860 | **0.503** | 0.963 | 0.630 | 1.835 |
-| [预防措施选择](docs/tasks/prevention_choice.md) | 13 · 小样本 | 0.898 | **0.432** | 0.881 | 0.720 | 1.407 |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md) | 11 · 小样本 | 1.140 | **0.423** | 3.157 | 1.043 | 1.674 |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 逐题串行（每次 1 题） | 83.33% | 1.964 | 66.67% | 3.743 |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 多题打包（每次 6 题） | 83.33% | 0.919 | 66.67% | 0.707 |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 逐题串行（每次 1 题） | 100.00% | 1.103 | 50.00% | 2.531 |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 多题打包（每次 4 题） | 100.00% | 0.273 | 100.00% | 0.628 |
-| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 逐题串行（每次 1 题） | 87.18% | 3.471 | 76.92% | 8.071 |
-| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 多题打包（每次 13 题） | 84.62% | 0.869 | 76.92% | 0.957 |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 逐题串行（每次 1 题） | 100.00% | 2.917 | 84.85% | 7.176 |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 多题打包（每次 11 题） | 90.91% | 10.628 | 84.85% | 0.723 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 依次提问（答完再问下一题） | 83.33% | 1.964 | 66.67% | 3.743 |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 同时提问（最多 6 个请求） | 83.33% | 0.453 | 66.67% | 0.914 |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 依次提问（答完再问下一题） | 100.00% | 1.103 | 50.00% | 2.531 |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 同时提问（最多 4 个请求） | 100.00% | 0.277 | 50.00% | 0.689 |
-| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 依次提问（答完再问下一题） | 87.18% | 3.471 | 76.92% | 8.071 |
-| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 同时提问（最多 13 个请求） | 87.18% | 0.672 | 76.92% | 0.957 |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 依次提问（答完再问下一题） | 100.00% | 2.917 | 84.85% | 7.176 |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 同时提问（最多 11 个请求） | 100.00% | 0.555 | 93.94% | 0.989 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [复查项目与随访时机选择](docs/tasks/followup_plan.md) | 临床候选方案、流程与下一步行动 | 6 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（3）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（2）；[MedMCQA](docs/datasets/medmcqa.md)（1） |
-| [康复训练方案选择](docs/tasks/rehabilitation_choice.md) | 临床候选方案、流程与下一步行动 | 4 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（4） |
-| [预防措施选择](docs/tasks/prevention_choice.md) | 临床候选方案、流程与下一步行动 | 13 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（10）；[CNMLEQA-10k（中文案例分析子集）](docs/datasets/cnmleqa.md)（2）；[MedMCQA](docs/datasets/medmcqa.md)（1） |
-| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md) | 临床候选方案、流程与下一步行动 | 11 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（11） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 多题：每包 6 题 | JEV 1.13 | 83.33% | 0.919 | 0.0153 |
+| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 多题：每包 6 题 | Flash | 66.67% | 0.707 | 0.0239–0.0478 |
+| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 并发：同时 6 个请求 | JEV 1.13 | 83.33% | 0.453 | 0.0244 |
+| [复查项目与随访时机选择](docs/tasks/followup_plan.md#多问题与并发性能)（6 题，小样本） | 并发：同时 6 个请求 | Flash | 66.67% | 0.914 | 0.0553–0.1107 |
+| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 多题：每包 4 题 | JEV 1.13 | 100.00% | 0.273 | 0.0148 |
+| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 多题：每包 4 题 | Flash | 100.00% | 0.628 | 0.0184–0.0367 |
+| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 并发：同时 4 个请求 | JEV 1.13 | 100.00% | 0.277 | 0.0215 |
+| [康复训练方案选择](docs/tasks/rehabilitation_choice.md#多问题与并发性能)（4 题，小样本） | 并发：同时 4 个请求 | Flash | 50.00% | 0.689 | 0.0693–0.1387 |
+| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 多题：每包 13 题 | JEV 1.13 | 84.62% | 0.869 | 0.0151 |
+| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 多题：每包 13 题 | Flash | 76.92% | 0.957 | 0.0152–0.0304 |
+| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 并发：同时 13 个请求 | JEV 1.13 | 87.18% | 0.672 | 0.0245 |
+| [预防措施选择](docs/tasks/prevention_choice.md#多问题与并发性能)（13 题，小样本） | 并发：同时 13 个请求 | Flash | 76.92% | 0.957 | 0.0455–0.0909 |
+| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 多题：每包 11 题 | JEV 1.13 | 90.91% | 10.628 | 0.0152 |
+| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 多题：每包 11 题 | Flash | 84.85% | 0.723 | 0.0119–0.0239 |
+| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 并发：同时 11 个请求 | JEV 1.13 | 100.00% | 0.555 | 0.0222 |
+| [健康教育与沟通行动选择](docs/tasks/patient_counseling.md#多问题与并发性能)（11 题，小样本） | 并发：同时 11 个请求 | Flash | 93.94% | 0.989 | 0.0366–0.0732 |
 
 ### 临床试验筛选
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md) | JEV 53.00%；最高 60.00% | JEV 50.00%，Flash 55.21% | JEV 耗时少 46.0% | 取决于 Flash 闲时／高峰价格 |
-
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
-
-**准确率 ↑ · 越高越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md) | 100 | 53.00% | **60.00%** | 58.00% | 50.00% ⚠ | 58.00% ⚠ |
-
-**平均用时 ↓ · 秒，越低越好**
-
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md) | 100 | 1.046 | **0.698** | 1.282 | 3.040 ⚠ | 2.092 ⚠ |
-
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 逐题串行（每次 1 题） | 53.12% | 9.286 | 60.42% ⚠ | 21.551 |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 多题打包（每次 2–17 题） | 50.00% | 1.427 | 55.21% | 2.642 |
-
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
-
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 依次提问（答完再问下一题） | 53.12% | 9.286 | 60.42% ⚠ | 21.551 |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 同时提问（最多 32 个请求） | 53.12% | 0.583 | 61.46% ⚠ | 1.488 |
-
-</details>
-
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md) | 资格与适宜性、证据与一致性 | 100 | 计入总分 | [TrialGPT SIGIR](docs/datasets/trialgpt.md)（100） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 多题：每包 2–17 题 | JEV 1.13 | 50.00% | 1.427 | 0.0529 |
+| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 多题：每包 2–17 题 | Flash | 55.21% | 2.642 | 0.0526–0.1052 |
+| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | JEV 1.13 | 53.12% | 0.583 | 0.0655 |
+| [患者临床试验初筛与转介判断](docs/tasks/trial_referral.md#多问题与并发性能)（32 题） | 并发：同时 32 个请求 | Flash | 61.46% ⚠ | 1.488 | 待核算 |
 
 ### 病历与医疗质量控制
 
-| 任务 | 全量准确率：五模型比较 | 多题准确率：JEV 与 Flash | 多题速度：JEV 相比 Flash | 多题成本：每次正确判断 |
-| --- | --- | --- | --- | --- |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md)（小样本） | JEV 100.00%；本轮最高（含并列） | JEV 100.00%，Flash 100.00% | JEV 耗时多 1239.4% | JEV 成本低 31.0%–65.5% |
+| 任务与测试题数 | 处理方式 | 模型 | 准确率 | 整组耗时（秒） | 成本（美元／千次正确） |
+| --- | --- | --- | ---: | ---: | ---: |
+| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 多题：每包 3 题 | JEV 1.13 | 100.00% | 10.449 | 0.0145 |
+| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 多题：每包 3 题 | Flash | 100.00% | 0.780 | 0.0211–0.0421 |
+| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 并发：同时 3 个请求 | JEV 1.13 | 100.00% | 0.289 | 0.0202 |
+| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 并发：同时 3 个请求 | Flash | 100.00% | 0.792 | 0.0283–0.0565 |
 
-<details>
-<summary>展开五模型分数、耗时和多题／并发测试数据</summary>
+## 测试范围
 
-**准确率 ↑ · 越高越好**
+- 从原有 1,514 道医疗题中，按固定规则在每个任务抽取最多 32 道，共 566 道；不改金标，不复制题目凑并发。11 个任务不足 20 题，三轮重复不增加独立病例数。
 
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md) | 3 · 小样本 | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
+- 两组独立测试：多题使用预先规定的最大打包档、并发 1；并发使用本任务最高并发档、每请求 1 题。没有按结果挑选最快档。**多题请求同时并发的组合尚未测试**，现有结果也不是持续负载容量测试。
 
-**平均用时 ↓ · 秒，越低越好**
+- 多题材料来自同任务的不同病例或记录；尚未覆盖同一患者的多项临床判断。长材料拆包后，耗时仍包含完成全部题目的时间。
 
-| 任务 | 题数 | JEV 1.13 | DeepSeek V4.1 Flash | DeepSeek V4 Pro | Qwen3.5-9B | Qwen3.8-27B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md) | 3 · 小样本 | 0.906 | **0.350** | 0.967 | 0.606 | 5.022 |
+- Flash 关闭思考并输出精简 JSON；JEV 使用原生 questions。连接预热、关闭自动重试，网络延迟和失败拖尾均保留。
 
-**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。
+- 费用按归档的 2026-10-12 价目与实际 usage 估算，包含缓存计费影响，不是账单金额。只有 JEV／Flash 完成了这轮多题与并发评测，不能把优势外推到其他模型。
 
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 逐题串行（每次 1 题） | 100.00% | 0.877 | 100.00% | 2.018 |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 多题打包（每次 3 题） | 100.00% | 10.449 | 100.00% | 0.780 |
+- 公开题库成绩用于模型比较，不等同于临床有效性验证。结果来自考试、模拟或规则材料，任务来源及适用边界见详情。
 
-**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。
+## 数据与复核
 
-| 任务与测试题数 | 测试方式 | JEV 1.13 准确率 | JEV 1.13 全部题目耗时（秒） | DeepSeek V4.1 Flash 准确率 | DeepSeek V4.1 Flash 全部题目耗时（秒） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 依次提问（答完再问下一题） | 100.00% | 0.877 | 100.00% | 2.018 |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md#多问题与并发性能)（3 题，小样本） | 同时提问（最多 3 个请求） | 100.00% | 0.289 | 100.00% | 0.792 |
+[任务与样例](docs/tasks/README.md) · [数据来源](docs/datasets/README.md) · [完整测试协议](docs/TASK_PERFORMANCE.md) · [逐轮原始结果](results/task-performance-v1/README.md) · [历史五模型评测](docs/MODEL_RESULTS.md)
 
-</details>
+原题、金标、请求、原始响应和运行配置均保留。多题及并发成绩使用同一性能子集，未与历史全量成绩混算。
 
-<details>
-<summary>数据来源与能力维度</summary>
-
-| 任务 | 能力维度 | 题数 | 状态 | 数据集来源（题数） |
-| --- | --- | --- | --- | --- |
-| [知情同意与隐私处置选择](docs/tasks/consent_action.md) | 临床候选方案、流程与下一步行动 | 3 | 计入总分（小样本） | [CMB-Exam（中文病例单选子集）](docs/datasets/cmb.md)（1）；[PrinciplismQA](docs/datasets/principlismqa.md)（2） |
-
-† 非商业附加来源。来源后的数字为实际题数。
-
-</details>
-
-## 模型得分与耗时对比
-
-每个模型使用相同题目、候选项和许可范围，分别报告逐任务准确率、完整决策耗时（均值、P50、P95）、任务总耗时及失败率。多阶段调用、工具与重试计入完整决策耗时，运行配置随结果保存。
-
-病例诊断的两个来源子集合并为一个任务。汇总先对场景内所有有题任务等权，再对有分数场景等权；小样本同样计入，空任务不计零分。小样本任务与其他任务具有相同权重，个别题目对其成绩的影响更大。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。
-
-请求格式、完整提示词、模型参数、重试与计分计时口径见 [评测方案](docs/EVALUATION.md)。
-
-| 模型 | 临床主分数 ↑ | 平均秒 ↓ | P95 秒 ↓ | 有效回答 / 题数 |
-| --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | **77.41%** | 1.426 | 4.092 | 1514 / 1514 |
-| DeepSeek V4.1 Flash | 73.99% | **0.509** | **0.759** | 1505 / 1514 |
-| DeepSeek V4 Pro | 73.91% | 1.045 | 1.522 | 1514 / 1514 |
-| Qwen3.5-9B | 63.12% | 1.280 | 4.098 | 1493 / 1514 |
-| Qwen3.8-27B | 70.17% | 2.800 | 6.496 | 1513 / 1514 |
-
-生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。
-
-[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)
-
-以上汇总仅对应原单题 Choice、8 路并发配置。多题打包与并发性能已按任务展示在各场景表中；原全量准确率与性能子集准确率不混算。[逐任务性能协议](docs/TASK_PERFORMANCE.md)。
+```bash
+python3 scripts/build_task_performance_report.py --check
+python3 scripts/generate_catalog_docs.py --check
+```
 
 ## 许可
 
-第三方数据保留各自的原始许可；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。
+第三方数据保留各自的原始许可，包括非商业研究限制；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和任务来源页。

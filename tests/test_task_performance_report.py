@@ -42,8 +42,13 @@ class TaskPerformanceArchiveTests(unittest.TestCase):
         root = report.runner.ROOT
         readme = (root / 'README.md').read_text()
         self.assertNotIn('## 多问题与并发性能补充', readme)
-        self.assertEqual(readme.count('**同任务多题打包'), 8)
-        self.assertEqual(readme.count('**逐题并发'), 8)
+        self.assertEqual(readme.count('| 任务与测试题数 | 处理方式 | 模型 | 准确率 |'), 8)
+        self.assertEqual(readme.count('| JEV 1.13 |'), 52)
+        self.assertEqual(readme.count('| Flash |'), 52)
+        self.assertNotIn('## 模型得分与耗时对比', readme)
+        self.assertNotIn('全量准确率：五模型比较', readme)
+        self.assertNotIn('jev-medical-score-time-v1.svg', readme)
+        self.assertIn('多题请求同时并发的组合尚未测试', readme)
         manifest = report.runner.verify_dataset(report.runner.DATASET)
         for family in manifest['families']:
             page = (root / 'docs/tasks' / (family['id'] + '.md')).read_text()

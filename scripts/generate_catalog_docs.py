@@ -110,6 +110,101 @@ def example_sections(row):
     return parts
 
 
+
+def render_performance_readme(performance, scenes, families):
+    """Present medical-task outcomes; historical single-question runs stay linked."""
+    if not performance:
+        return '# Jev Healthcare Lab\n\n多题与并发评测尚无完整结果。[任务与数据集](docs/tasks/README.md)。\n'
+
+    def modes(fid, kind):
+        f = performance['families'][fid]
+        batch, concurrency = (max(f['batch_targets']), 1) if kind == 'batch' else (1, max(f['concurrency']))
+        return [next(m for m in f['modes'] if m['batch'] == batch and
+                     m['concurrency'] == concurrency and m['model'] == model)
+                for model in ['jev-1.13.0', 'deepseek-flash']]
+
+    def cost_text(mode):
+        c = mode['cost']
+        lo, hi = c['usd_per_1000_correct_lower'], c['usd_per_1000_correct_upper']
+        if c['unpriced_requests'] or lo is None:
+            return '待核算' if c['unpriced_requests'] else '无正确结果'
+        return f'{lo:.4f}' if lo == hi else f'{lo:.4f}–{hi:.4f}'
+
+    def task_link(fid):
+        return link(performance['families'][fid]['title'], f'docs/tasks/{fid}.md#多问题与并发性能')
+
+    cj, cf = modes('case_complication', 'batch')
+    pj, pf = modes('case_complication', 'concurrent')
+    tj, tf = modes('tcm_syndrome', 'batch')
+    diagnosis_j, diagnosis_f = modes('diagnosis', 'concurrent')
+    selected = sum(f['selected'] for f in performance['families'].values())
+    populated = sum(bool(f['selected']) for f in performance['families'].values())
+    small = sum(bool(f['selected']) and f['small_sample'] for f in performance['families'].values())
+    parts = [
+        '# Jev Healthcare Lab',
+        '**评估 JEV 在医疗任务批量处理中的准确率、速度和成本。** 按具体任务比较优势与短板，观察它在哪些判断上更有价值。',
+        f'本轮比较 **JEV 1.13 与 DeepSeek V4.1 Flash**，覆盖 {len(scenes)} 个医疗场景、{populated} 个有题任务、{selected} 道固定原题。每项设置重复三轮，共 {performance["measured_requests"]:,} 次正式请求。',
+        '[优势与短板](#优势与短板) · [场景与任务](#场景与任务) · [测试范围](#测试范围) · [原始结果](results/task-performance-v1/README.md)',
+        '## 优势与短板',
+        '以下是本轮相同题目、相同处理方式下的观测，不代表所有医疗任务或所有运行环境。',
+        table(['观察', '医疗任务', '证据与限制'], [
+            ['两种模式均有优势', task_link('case_complication'),
+             f'多题准确率 JEV {cj["accuracy"]:.2%}、Flash {cf["accuracy"]:.2%}；完成整组分别耗时 {cj["mean_batch_wall_s"]:.3f}、{cf["mean_batch_wall_s"]:.3f} 秒。并发时分别为 {pj["mean_batch_wall_s"]:.3f}、{pf["mean_batch_wall_s"]:.3f} 秒，JEV 准确率仍较高。两种模式的单位正确判断成本均较低。'],
+            ['判断与速度均有优势，部分成本待核算', task_link('nursing_priority') + '、' + task_link('medication_choice'),
+             '两种模式下 JEV 的准确率更高、整组耗时更短。多题模式成本更低；并发记录有请求缺少用量，不能确认完整成本。'],
+            ['优势取决于处理方式', task_link('examination_choice') + '、' + task_link('patient_contraindication') + '、' + task_link('clinical_grade'),
+             '多题模式下 JEV 更准、更快、成本更低；并发模式的速度优势未复现，不能概括为始终更快。'],
+            ['准确率仍有劣势', task_link('diagnosis') + '、' + task_link('trial_referral') + '、' + task_link('tcm_pathogenesis_candidate'),
+             f'两种模式下 JEV 准确率均低于 Flash。例如病例诊断并发准确率为 {diagnosis_j["accuracy"]:.2%}，Flash 为 {diagnosis_f["accuracy"]:.2%}。部分设置中的速度优势不代表判断质量更好。'],
+            ['多题成本与准确率均不占优', task_link('tcm_syndrome'),
+             f'多题准确率 JEV {tj["accuracy"]:.2%}、Flash {tf["accuracy"]:.2%}；每千次正确判断成本分别为 ${cost_text(tj)}、${cost_text(tf)}。两种模式下，两模型准确率都不足 40%。'],
+        ]),
+        '延迟也有明显波动：部分 JEV 请求出现约 30 秒的长尾，已计入整组耗时。各任务详情保留逐轮范围、失败与原始响应；小幅速度差异不代表稳定优势。',
+        '## 场景与任务',
+        '**每行是一种处理方式下，一个模型完成该任务整组题目的结果。** 同任务两模型使用相同题目和金标。准确率越高越好，整组耗时和单位正确判断成本越低越好。',
+        '多题：一次请求包含多道题，长材料按相同规则拆包。并发：每个请求含 1 题，同时发送多个请求。',
+        '**耗时**是完成全部题目的三轮平均总秒数；**成本**是估算美元／千次正确判断，包含答错所消耗的费用，Flash 区间对应闲时至高峰价格。⚠ 表示该行存在失败或无效回答，已计错；“待核算”表示用量不完整，不代表免费。',
+    ]
+    for sid, scene in scenes.items():
+        parts.append(f'### {scene["title"]}')
+        rows, pending = [], []
+        for family in [f for f in families if f['scenario'] == sid]:
+            f = performance['families'][family['id']]
+            if not f['selected']:
+                pending.append(task_link(family['id']))
+                continue
+            name = task_link(family['id']) + f'（{f["selected"]} 题' + ('，小样本' if f['small_sample'] else '') + '）'
+            for kind in ['batch', 'concurrent']:
+                pair = modes(family['id'], kind)
+                sizes = pair[0]['packet_sizes']
+                packet_count = str(min(sizes)) if min(sizes) == max(sizes) else f'{min(sizes)}–{max(sizes)}'
+                label = f'多题：每包 {packet_count} 题' if kind == 'batch' else f'并发：同时 {pair[0]["concurrency"]} 个请求'
+                for model_name, mode in zip(['JEV 1.13', 'Flash'], pair):
+                    flag = ' ⚠' if mode['complete_requests'] < mode['requests'] else ''
+                    rows.append([name, label, model_name, f'{mode["accuracy"]:.2%}' + flag,
+                                 f'{mode["mean_batch_wall_s"]:.3f}', cost_text(mode)])
+        if rows:
+            parts.append(table(['任务与测试题数', '处理方式', '模型', '准确率', '整组耗时（秒）', '成本（美元／千次正确）'], rows, numeric_from=3))
+        if pending:
+            parts.append('待补数据：' + '、'.join(pending) + '。')
+    parts += [
+        '## 测试范围',
+        f'- 从原有 1,514 道医疗题中，按固定规则在每个任务抽取最多 32 道，共 {selected} 道；不改金标，不复制题目凑并发。{small} 个任务不足 20 题，三轮重复不增加独立病例数。',
+        '- 两组独立测试：多题使用预先规定的最大打包档、并发 1；并发使用本任务最高并发档、每请求 1 题。没有按结果挑选最快档。**多题请求同时并发的组合尚未测试**，现有结果也不是持续负载容量测试。',
+        '- 多题材料来自同任务的不同病例或记录；尚未覆盖同一患者的多项临床判断。长材料拆包后，耗时仍包含完成全部题目的时间。',
+        '- Flash 关闭思考并输出精简 JSON；JEV 使用原生 questions。连接预热、关闭自动重试，网络延迟和失败拖尾均保留。',
+        '- 费用按归档的 2026-10-12 价目与实际 usage 估算，包含缓存计费影响，不是账单金额。只有 JEV／Flash 完成了这轮多题与并发评测，不能把优势外推到其他模型。',
+        '- 公开题库成绩用于模型比较，不等同于临床有效性验证。结果来自考试、模拟或规则材料，任务来源及适用边界见详情。',
+        '## 数据与复核',
+        '[任务与样例](docs/tasks/README.md) · [数据来源](docs/datasets/README.md) · [完整测试协议](docs/TASK_PERFORMANCE.md) · [逐轮原始结果](results/task-performance-v1/README.md) · [历史五模型评测](docs/MODEL_RESULTS.md)',
+        '原题、金标、请求、原始响应和运行配置均保留。多题及并发成绩使用同一性能子集，未与历史全量成绩混算。',
+        '```bash\npython3 scripts/build_task_performance_report.py --check\npython3 scripts/generate_catalog_docs.py --check\n```',
+        '## 许可',
+        '第三方数据保留各自的原始许可，包括非商业研究限制；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和任务来源页。',
+    ]
+    return '\n\n'.join(parts) + '\n'
+
+
 def render():
     taxonomy = read_json(DATA / "taxonomy.json")
     tasks = {t["id"]: t for t in taxonomy["tasks"]}
@@ -183,18 +278,6 @@ def render():
             accuracy += ' ⚠'
         return [full_cell, accuracy, speed, cost]
 
-    def scene_findings(scene_families):
-        if not performance:
-            return []
-        rows = []
-        for family in scene_families:
-            label = link(family['title'], f"docs/tasks/{family['id']}.md")
-            if family['small_sample'] and family['records']:
-                label += '（小样本）'
-            rows.append([label] + task_findings(family['id']))
-        return [table(['任务', '全量准确率：五模型比较', '多题准确率：JEV 与 Flash',
-                       '多题速度：JEV 相比 Flash', '多题成本：每次正确判断'], rows)]
-
     def performance_details(family):
         if not performance:
             return []
@@ -240,48 +323,6 @@ def render():
             '\n\n按归档价目与实际 usage 估算；Flash 含缓存命中与输出费用，区间对应闲时至高峰价格。缺用量时不填完整单位成本，非账单费用。\n\n</details>')
         parts.append('连接池显式预热并跨单元复用，网络与供应商缓存仍会影响结果；各模式是有限批次测试，不能外推持续服务容量。[完整协议](../TASK_PERFORMANCE.md) · [冻结题目](../../benchmarks/task_performance_v1/README.md) · [运行配置](../../results/task-performance-v1/config.json)')
         return parts
-
-    def scene_performance(scene_families):
-        if not performance:
-            return []
-        batch_rows, concurrency_rows = [], []
-        for family in scene_families:
-            item = performance['families'][family['id']]
-            name = link(family['title'], f"docs/tasks/{family['id']}.md#多问题与并发性能")
-            n = item['selected']
-            if not n:
-                batch_rows.append([name, '待补', '—', '—', '—', '—'])
-                concurrency_rows.append([name, '待补', '—', '—', '—', '—'])
-                continue
-            batch = max(item['batch_targets'])
-            concurrency = max(item['concurrency'])
-            batches = [next(m for m in item['modes'] if m['batch'] == batch and m['concurrency'] == 1 and m['model'] == model)
-                       for model in performance['models']]
-            baselines = [next(m for m in item['modes'] if m['batch'] == 1 and m['concurrency'] == 1 and m['model'] == model)
-                         for model in performance['models']]
-            concurrent = [next(m for m in item['modes'] if m['batch'] == 1 and m['concurrency'] == concurrency and m['model'] == model)
-                          for model in performance['models']]
-            flag = lambda m: ' ⚠' if m['complete_requests'] < m['requests'] else ''
-            name += f"（{n} 题" + ('，小样本' if item['small_sample'] else '') + '）'
-            for label, modes in [('逐题串行（每次 1 题）', baselines),
-                                 (f'多题打包（每次 {packet_range(batches[0])} 题）', batches)]:
-                values = []
-                for mode in modes:
-                    values.extend([f"{mode['accuracy']:.2%}{flag(mode)}", f"{mode['mean_batch_wall_s']:.3f}"])
-                batch_rows.append([name, label] + values)
-            for label, modes in [('依次提问（答完再问下一题）', baselines),
-                                 (f'同时提问（最多 {concurrency} 个请求）', concurrent)]:
-                values = []
-                for mode in modes:
-                    values.extend([f"{mode['accuracy']:.2%}{flag(mode)}", f"{mode['mean_batch_wall_s']:.3f}"])
-                concurrency_rows.append([name, label] + values)
-        names = [comparison['models'][m]['label'] for m in performance['models']]
-        return ['**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。',
-                table(['任务与测试题数', '测试方式'] +
-                      [heading for name in names for heading in [name + ' 准确率', name + ' 全部题目耗时（秒）']], batch_rows, numeric_from=2),
-                '**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。',
-                table(['任务与测试题数', '测试方式'] +
-                      [heading for name in names for heading in [name + ' 准确率', name + ' 全部题目耗时（秒）']], concurrency_rows, numeric_from=2)]
 
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
@@ -494,80 +535,7 @@ def render():
             for sid, s in sources.items() if s['distribution'] == distribution])])
     output[ROOT / 'docs/datasets/README.md'] = '\n\n'.join(parts) + '\n'
 
-    used_tags = sorted({d for f in families for d in f['ability_tags']})
-    parts = ['# Jev Healthcare Lab',
-        '![医疗决策场景 · JEV 评测：使用医疗决策类题目比较准确率与用时；8 个场景，29 个任务，26 项有题，1,514 道题](assets/readme/jev-medical-evaluation-v1.gif)',
-        '本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率、完整运行耗时和单位正确判断成本。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。',
-        f"评测按 **{len(scenes)} 个医疗场景、{clinical['defined_families']} 个任务**组织：从接诊与分诊、检查与检验、诊断与鉴别，到治疗与用药、住院与护理、出院与随访，并涵盖临床试验筛选和病历与医疗质量控制。",
-        f"目前 **{clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题**（中文 {clinical['languages'].get('zh', 0):,} 题），来自 {len(clinical['sources'])} 个数据来源；另有 {sum(f['status'] == 'empty' for f in families)} 个任务待补。任务另按 {len(used_tags)} 个能力标签标注。全部有题任务计入总分，其中 {sum(f['small_sample'] for f in families)} 个不足 20 题，标记为小样本。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
-        '[场景与任务](#场景与任务) · [评测方案：请求与提示词](docs/EVALUATION.md) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)',
-        '## 能力维度',
-        '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
-        table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
-        '## 场景与任务',
-        '每个任务先看三个问题：JEV 判断是否更准、完成同样的题目是否更快、每次正确判断是否更便宜。下表列本轮观测结果；五模型分数、绝对耗时、费用和调用方式见展开数据及任务详情。相对排名不等于已经达到业务或临床可用标准。',
-        '全量准确率来自五模型的原单题评测。多题的准确率、速度、成本来自 JEV 与 Flash 在同一任务最多 32 道原题上的三轮测试，统一使用预先规定的最大打包档，不挑选最快档；长材料按相同规则拆包。这些结论仅对应多题设置，其他调用方式可能不同。费用为总调用费用除以正确判断数，区间覆盖 Flash 闲时与高峰价格；用量缺失或无正确答案时不作成本比较。其他三模型尚无本轮多题与费用对比。[测试协议](docs/TASK_PERFORMANCE.md)。',
-        '用时单位为秒，包含网络与响应处理；原单题评测含重试，逐任务性能测试不自动重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
-        table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
-    if comparison:
-        ranked = sorted(comparison['models'].values(), key=lambda m: -m['primary_clinical_score'])
-        best, second = ranked[:2]
-        fastest = min(ranked, key=lambda m: m['timing']['mean_elapsed_s'])
-        parts[parts.index('## 能力维度'):parts.index('## 能力维度')] = [
-            '## 评测速览',
-            f"**{best['label']} 本轮主分数最高：{best['primary_clinical_score']:.2%}**，领先第二名 {(best['primary_clinical_score']-second['primary_clinical_score'])*100:.2f} 个百分点。原单题评测中，**{fastest['label']} 平均用时最短：{fastest['timing']['mean_elapsed_s']:.3f} 秒/题**。",
-            '![医疗决策场景 · JEV 评测：五个模型的临床主分数与平均用时对比，完整数值见下方模型得分与耗时表](assets/readme/jev-medical-score-time-v1.svg)',
-            '![医疗决策场景 · JEV 评测：八个场景的模型得分热力图，标注题数、小样本任务数和场景最高值，完整结果见各任务表](assets/readme/jev-medical-scenario-accuracy-v1.svg)',
-            '![医疗决策场景 · JEV 评测：八个场景的平均单题用时热力图，单位为秒，越低越快，描边标记各场景最短用时](assets/readme/jev-medical-scenario-time-v1.svg)',
-            '主分数按场景内任务等权、再对场景等权计算；全部 26 个有题任务计入。11 个任务不足 20 题，医疗质量控制场景仅 3 题。以上为本轮观测结果，不代表统计显著性或临床有效性；用时受网络和平台服务条件影响。',
-            '[完整模型结果](docs/MODEL_RESULTS.md) · [逐题原始记录](results/clinical-v1/README.md) · [图表数据](assets/readme/metrics-v1.json)']
-    for sid, scene in scenes.items():
-        scene_families = [f for f in families if f['scenario'] == sid]
-        parts.append(f"### {scene['title']}")
-        parts.extend(scene_findings(scene_families))
-        if performance:
-            parts.append('<details>\n<summary>展开五模型分数、耗时和多题／并发测试数据</summary>')
-        if comparison:
-            models = list(comparison['models'].values())
-            headers = ['任务', '题数'] + [m['label'] for m in models]
-            for timing, heading in [(False, '准确率 ↑ · 越高越好'), (True, '平均用时 ↓ · 秒，越低越好')]:
-                rows = []
-                for f in scene_families:
-                    results = [m['tasks'].get(f['id']) for m in models]
-                    values = [None if q is None else q['timing']['mean_elapsed_s'] if timing else q['accuracy'] for q in results]
-                    cells = best_cells(values, higher=not timing, precision=3 if timing else 2, percent=not timing)
-                    cells = [cell + (' ⚠' if q and q['timing']['success'] < q['timing']['total'] else '') for cell, q in zip(cells, results)]
-                    count = str(f['records']) + (' · 小样本' if f['small_sample'] else ' · 待补' if not f['records'] else '')
-                    rows.append([link(f['title'], f"docs/tasks/{f['id']}.md"), count] + cells)
-                parts.extend([f'**{heading}**', table(headers, rows, numeric_from=1)])
-        parts.extend(scene_performance(scene_families))
-        if performance:
-            parts.append('</details>')
-        source_table = table(['任务', '能力维度', '题数', '状态', '数据集来源（题数）'], [
-            [link(f['title'], f"docs/tasks/{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']] + ('（小样本）' if f['small_sample'] else ''),
-             '；'.join(link(sources[source]['name'], f'docs/datasets/{source}.md') + ('†' if sources[source]['distribution']=='research_noncommercial' else '') + f'（{n}）' for source,n in sorted(f['sources'].items())) or '待补数据']
-            for f in scene_families])
-        if comparison:
-            parts.append('<details>\n<summary>数据来源与能力维度</summary>\n\n' + source_table + '\n\n† 非商业附加来源。来源后的数字为实际题数。\n\n</details>')
-        else:
-            parts.append(source_table)
-    parts.extend(['## 模型得分与耗时对比',
-        '每个模型使用相同题目、候选项和许可范围，分别报告逐任务准确率、完整决策耗时（均值、P50、P95）、任务总耗时及失败率。多阶段调用、工具与重试计入完整决策耗时，运行配置随结果保存。',
-        '病例诊断的两个来源子集合并为一个任务。汇总先对场景内所有有题任务等权，再对有分数场景等权；小样本同样计入，空任务不计零分。小样本任务与其他任务具有相同权重，个别题目对其成绩的影响更大。固定语义分类额外报告 F1、召回、混淆矩阵与多数类基线；A/B/C 等随题变化的选项不报告临床类别 F1。',
-        '请求格式、完整提示词、模型参数、重试与计分计时口径见 [评测方案](docs/EVALUATION.md)。'])
-    if comparison:
-        models = list(comparison['models'].values())
-        scores = best_cells([m['primary_clinical_score'] for m in models], percent=True)
-        means = best_cells([m['timing']['mean_elapsed_s'] for m in models], higher=False, precision=3)
-        p95s = best_cells([m['timing']['p95_elapsed_s'] for m in models], higher=False, precision=3)
-        parts.extend([table(['模型', '临床主分数 ↑', '平均秒 ↓', 'P95 秒 ↓', '有效回答 / 题数'], [
-            [m['label'], scores[i], means[i], p95s[i], f"{m['timing']['success']} / {m['timing']['total']}"]
-            for i, m in enumerate(models)], numeric_from=1),
-            '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
-            '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)',
-            '以上汇总仅对应原单题 Choice、8 路并发配置。多题打包与并发性能已按任务展示在各场景表中；原全量准确率与性能子集准确率不混算。[逐任务性能协议](docs/TASK_PERFORMANCE.md)。'])
-    parts.extend(['## 许可', '第三方数据保留各自的原始许可；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
-    output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
+    output[ROOT / 'README.md'] = render_performance_readme(performance, scenes, families)
     return output
 
 
