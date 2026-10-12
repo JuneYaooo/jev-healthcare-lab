@@ -225,20 +225,19 @@ def render():
                 for mode in modes:
                     values.extend([f"{mode['accuracy']:.2%}{flag(mode)}", f"{mode['mean_batch_wall_s']:.3f}"])
                 batch_rows.append([name, label] + values)
-            for label, modes in [('逐题串行（同时 1 个请求）', baselines),
-                                 (f'逐题并发（同时 {concurrency} 个请求）', concurrent)]:
+            for label, modes in [('依次提问（答完再问下一题）', baselines),
+                                 (f'同时提问（最多 {concurrency} 个请求）', concurrent)]:
                 values = []
                 for mode in modes:
-                    values.extend([f"{mode['valid_decisions_per_s']:.2f}",
-                                   f"{mode['correct_decisions_per_s']:.2f}{flag(mode)}"])
+                    values.extend([f"{mode['accuracy']:.2%}{flag(mode)}", f"{mode['mean_batch_wall_s']:.3f}"])
                 concurrency_rows.append([name, label] + values)
         names = [comparison['models'][m]['label'] for m in performance['models']]
         return ['**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。',
                 table(['任务与测试题数', '测试方式'] +
                       [heading for name in names for heading in [name + ' 准确率', name + ' 全部题目耗时（秒）']], batch_rows, numeric_from=2),
-                '**逐题并发**：每个请求仍只含 1 题，比较依次发送和同时发送多个请求。有效表示返回合法选项，正确表示与标准答案一致；吞吐单位均为题/秒，越高越好。并发结果展示本任务最高并发档。',
+                '**逐题并发**：同一批题，每个请求只问 1 题。“依次提问”要等上一题答完再问下一题；“同时提问”让多个请求一起处理。比较做完全部题目需要多久、准确率是否变化。耗时为三轮平均总时间；同时提问展示本任务最高并发档。',
                 table(['任务与测试题数', '测试方式'] +
-                      [heading for name in names for heading in [name + ' 有效（题/秒）', name + ' 正确（题/秒）']], concurrency_rows, numeric_from=2)]
+                      [heading for name in names for heading in [name + ' 准确率', name + ' 全部题目耗时（秒）']], concurrency_rows, numeric_from=2)]
 
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
@@ -463,7 +462,7 @@ def render():
         table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
         '## 场景与任务',
         '每个场景先列原单题评测的准确率与平均耗时，再按任务列多题打包与并发性能。**加粗**表示原单题表的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。',
-        '逐任务性能测试固定抽取最多 32 道原题，各模式运行三轮，JEV 与 Flash 使用相同题目和金标。多题打包对照同一子集逐题与最大打包档的准确率及整组平均耗时，逐题并发对照并发 1 到最高并发档的有效／正确决策吞吐；全部档位、失败和成本见任务详情。空任务保留待补，小任务不复制题目凑数。其他三模型尚未进行本轮性能测试。[参数与数据协议](docs/TASK_PERFORMANCE.md)。',
+        '逐任务性能测试固定抽取最多 32 道原题，各模式运行三轮，JEV 与 Flash 使用相同题目和金标。多题打包比较逐题请求和多题合并请求；逐题并发比较依次提问和同时提问。两张表都展示准确率及做完全部题目的平均总耗时。首页展示最大打包档和最高并发档；全部档位、详细吞吐、失败和成本见任务详情。空任务保留待补，小任务不复制题目凑数。其他三模型尚未进行本轮性能测试。[参数与数据协议](docs/TASK_PERFORMANCE.md)。',
         '用时单位为秒，包含网络与响应处理；原单题评测含重试，逐任务性能测试不自动重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
         table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
     if comparison:
