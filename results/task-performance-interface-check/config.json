@@ -1,0 +1,70 @@
+{
+  "created_at": "2026-10-12T05:35:49.076392+00:00",
+  "cells": [
+    {
+      "family": "clinical_grade",
+      "batch": 8,
+      "concurrency": 1,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "family": "clinical_grade",
+      "batch": 8,
+      "concurrency": 1,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    },
+    {
+      "family": "trial_referral",
+      "batch": 8,
+      "concurrency": 1,
+      "repeat": 0,
+      "model": "jev-1.13.0"
+    },
+    {
+      "family": "trial_referral",
+      "batch": 8,
+      "concurrency": 1,
+      "repeat": 0,
+      "model": "deepseek-flash"
+    }
+  ],
+  "seed": 2026101202,
+  "models": [
+    "jev-1.13.0",
+    "deepseek-flash"
+  ],
+  "dataset_manifest_sha256": "9932e42a1d5817674733932c3fcf30761e343a5149692a85eff7055b16594bf4",
+  "runner_sha256": "7dcd3ad487dc1c6f3e62d2e47d4f9e8143fd0a6e6904838a46739fd3c64978b0",
+  "timeout_s": 60,
+  "python": "3.13.2",
+  "requests": "2.34.2",
+  "smoke": true,
+  "max_attempts": 1,
+  "pricing": {
+    "as_of": "2026-10-12",
+    "currency": "USD",
+    "sources": [
+      "https://docs.typesafe.ai/models",
+      "https://api-docs.deepseek.com/quick_start/pricing/"
+    ],
+    "jev_input_per_million": 0.042,
+    "flash_off_peak": {
+      "hit": 0.003,
+      "miss": 0.15,
+      "output": 0.6
+    },
+    "flash_peak": {
+      "hit": 0.006,
+      "miss": 0.3,
+      "output": 1.2
+    },
+    "policy": "List-price lower/upper bounds, not invoices; provider tokenizers differ. Missing usage is unpriced."
+  },
+  "transport": "32 persistent threads and worker-local HTTP/1.1 sessions per model, retained across cells. Models run sequentially.",
+  "warmup": "One non-clinical color question per worker before measured cells; raw warmup results saved, not scored.",
+  "timing": "Service includes serialization, HTTP and validation; queue recorded separately. Cell wall excludes archive writes, includes all failures. No retries.",
+  "cache": "Provider prompt caching uncontrolled, repeated source panels may hit cache; usage retained.",
+  "load": "Finite per-task closed-loop batches, not sustained capacity. Same sample panel in all modes."
+}

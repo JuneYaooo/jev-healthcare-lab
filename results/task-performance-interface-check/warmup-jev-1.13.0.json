@@ -1,0 +1,1202 @@
+{
+  "wall_s": 10.047936209011823,
+  "records": [
+    {
+      "id": "warmup-0",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078314+00:00",
+      "queue_s": 2.679199678823352e-05,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.157578+00:00",
+      "elapsed_s": 1.0792938329977915,
+      "completion_s": 1.0793206249945797
+    },
+    {
+      "id": "warmup-1",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078381+00:00",
+      "queue_s": 9.483401663601398e-05,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.397932+00:00",
+      "elapsed_s": 1.3195676659815945,
+      "completion_s": 1.3196624999982305
+    },
+    {
+      "id": "warmup-4",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078487+00:00",
+      "queue_s": 0.0002019170206040144,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.372147+00:00",
+      "elapsed_s": 1.2936624169815332,
+      "completion_s": 1.2938643340021372
+    },
+    {
+      "id": "warmup-2",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078423+00:00",
+      "queue_s": 0.00013749999925494194,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.363764+00:00",
+      "elapsed_s": 1.2853405000059865,
+      "completion_s": 1.2854780000052415
+    },
+    {
+      "id": "warmup-3",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078462+00:00",
+      "queue_s": 0.00017679200391285121,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.363532+00:00",
+      "elapsed_s": 1.28507779201027,
+      "completion_s": 1.285254584014183
+    },
+    {
+      "id": "warmup-8",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078568+00:00",
+      "queue_s": 0.00028375000692903996,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.203813+00:00",
+      "elapsed_s": 1.1252677089942154,
+      "completion_s": 1.1255514590011444
+    },
+    {
+      "id": "warmup-5",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078509+00:00",
+      "queue_s": 0.0002246249932795763,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.373509+00:00",
+      "elapsed_s": 1.2950013340159785,
+      "completion_s": 1.295225959009258
+    },
+    {
+      "id": "warmup-17",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078739+00:00",
+      "queue_s": 0.0004541249945759773,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.144859+00:00",
+      "elapsed_s": 1.0661265840171836,
+      "completion_s": 1.0665807090117596
+    },
+    {
+      "id": "warmup-6",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078530+00:00",
+      "queue_s": 0.00024500000290572643,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "timeout",
+      "valid_decisions": 0,
+      "correct_decisions": 0,
+      "complete_valid": false,
+      "all_correct": false,
+      "error_type": "ReadTimeout",
+      "ended_at": "2026-10-12T05:35:59.125992+00:00",
+      "elapsed_s": 10.047483750007814,
+      "completion_s": 10.04772875001072
+    },
+    {
+      "id": "warmup-7",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078549+00:00",
+      "queue_s": 0.0002641669998411089,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.373716+00:00",
+      "elapsed_s": 1.2951658749952912,
+      "completion_s": 1.2954300419951323
+    },
+    {
+      "id": "warmup-31",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.079017+00:00",
+      "queue_s": 0.0007324590114876628,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.386196+00:00",
+      "elapsed_s": 1.3071872500004247,
+      "completion_s": 1.3079197090119123
+    },
+    {
+      "id": "warmup-13",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078666+00:00",
+      "queue_s": 0.0003816249954979867,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.131709+00:00",
+      "elapsed_s": 1.053047792025609,
+      "completion_s": 1.053429417021107
+    },
+    {
+      "id": "warmup-21",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078813+00:00",
+      "queue_s": 0.0005286250088829547,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.165520+00:00",
+      "elapsed_s": 1.0867234590114094,
+      "completion_s": 1.0872520840202924
+    },
+    {
+      "id": "warmup-27",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078922+00:00",
+      "queue_s": 0.0006380419945344329,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.142034+00:00",
+      "elapsed_s": 1.0631233750027604,
+      "completion_s": 1.0637614169972949
+    },
+    {
+      "id": "warmup-9",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078587+00:00",
+      "queue_s": 0.0003021669981535524,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.115008+00:00",
+      "elapsed_s": 1.0364305000111926,
+      "completion_s": 1.0367326670093462
+    },
+    {
+      "id": "warmup-10",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078607+00:00",
+      "queue_s": 0.0003223750100005418,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.367874+00:00",
+      "elapsed_s": 1.289271749992622,
+      "completion_s": 1.2895941250026226
+    },
+    {
+      "id": "warmup-18",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078759+00:00",
+      "queue_s": 0.0004750420048367232,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.374409+00:00",
+      "elapsed_s": 1.295649833016796,
+      "completion_s": 1.2961248750216328
+    },
+    {
+      "id": "warmup-22",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078831+00:00",
+      "queue_s": 0.0005463340203277767,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.167785+00:00",
+      "elapsed_s": 1.0889601659728214,
+      "completion_s": 1.0895064999931492
+    },
+    {
+      "id": "warmup-11",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078629+00:00",
+      "queue_s": 0.00034262501867488027,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.373622+00:00",
+      "elapsed_s": 1.294994208990829,
+      "completion_s": 1.295336834009504
+    },
+    {
+      "id": "warmup-25",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078884+00:00",
+      "queue_s": 0.0005996669933665544,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.157963+00:00",
+      "elapsed_s": 1.0790813750063535,
+      "completion_s": 1.07968104199972
+    },
+    {
+      "id": "warmup-14",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078684+00:00",
+      "queue_s": 0.0003996250161435455,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.422663+00:00",
+      "elapsed_s": 1.344003292004345,
+      "completion_s": 1.3444029170204885
+    },
+    {
+      "id": "warmup-12",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078648+00:00",
+      "queue_s": 0.0003636250039562583,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.359397+00:00",
+      "elapsed_s": 1.2807645839930046,
+      "completion_s": 1.281128208996961
+    },
+    {
+      "id": "warmup-15",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078701+00:00",
+      "queue_s": 0.000416958995629102,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.178820+00:00",
+      "elapsed_s": 1.1001349160214886,
+      "completion_s": 1.1005518750171177
+    },
+    {
+      "id": "warmup-16",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078719+00:00",
+      "queue_s": 0.00043454201659187675,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.363662+00:00",
+      "elapsed_s": 1.2849427500041202,
+      "completion_s": 1.285377292020712
+    },
+    {
+      "id": "warmup-28",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078940+00:00",
+      "queue_s": 0.0006560000183526427,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.359560+00:00",
+      "elapsed_s": 1.2806210419803392,
+      "completion_s": 1.2812770419986919
+    },
+    {
+      "id": "warmup-19",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078777+00:00",
+      "queue_s": 0.0004929590213578194,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.371982+00:00",
+      "elapsed_s": 1.293223915999988,
+      "completion_s": 1.293716875021346
+    },
+    {
+      "id": "warmup-24",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078867+00:00",
+      "queue_s": 0.0005825840053148568,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.416570+00:00",
+      "elapsed_s": 1.3377236250089481,
+      "completion_s": 1.338306209014263
+    },
+    {
+      "id": "warmup-20",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078796+00:00",
+      "queue_s": 0.0005112920189276338,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.134106+00:00",
+      "elapsed_s": 1.055315707984846,
+      "completion_s": 1.0558270000037737
+    },
+    {
+      "id": "warmup-23",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078849+00:00",
+      "queue_s": 0.0005651670217048377,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.157807+00:00",
+      "elapsed_s": 1.0789614169916604,
+      "completion_s": 1.0795265840133652
+    },
+    {
+      "id": "warmup-29",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078958+00:00",
+      "queue_s": 0.000673250004183501,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.373381+00:00",
+      "elapsed_s": 1.294424291991163,
+      "completion_s": 1.2950975419953465
+    },
+    {
+      "id": "warmup-26",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078904+00:00",
+      "queue_s": 0.0006191669963300228,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.130236+00:00",
+      "elapsed_s": 1.0513455830223393,
+      "completion_s": 1.0519647500186693
+    },
+    {
+      "id": "warmup-30",
+      "family": "interface-check",
+      "model": "jev-1.13.0",
+      "started_at": "2026-10-12T05:35:49.078975+00:00",
+      "queue_s": 0.0006904590118210763,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "d0b897f88bcaf13d607bc3db1e372497389171061b5606122757f0d213c2c907",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 183,
+      "response": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "decision": {
+            "type": "choice",
+            "choice": "blue",
+            "confidence": 1.0,
+            "probabilities": {
+              "blue": 1.0,
+              "red": 0.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 31
+        }
+      },
+      "ended_at": "2026-10-12T05:35:50.383797+00:00",
+      "elapsed_s": 1.3048251660075039,
+      "completion_s": 1.305515625019325
+    }
+  ]
+}

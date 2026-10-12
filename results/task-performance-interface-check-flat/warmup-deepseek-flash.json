@@ -1,0 +1,1541 @@
+{
+  "wall_s": 1.0812486670038197,
+  "records": [
+    {
+      "id": "warmup-0",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.849475+00:00",
+      "queue_s": 1.8208986148238182e-05,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "0a277fcc-380e-4cde-a1fc-6a6569a39958",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.717020+00:00",
+      "elapsed_s": 0.8675992909993511,
+      "completion_s": 0.8676174999854993
+    },
+    {
+      "id": "warmup-1",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.849658+00:00",
+      "queue_s": 0.00022233399795368314,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "f01d7b65-025e-4a09-9198-bde8d2b44e39",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.648848+00:00",
+      "elapsed_s": 0.7992184159811586,
+      "completion_s": 0.7994407499791123
+    },
+    {
+      "id": "warmup-13",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.854519+00:00",
+      "queue_s": 0.005089666985440999,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "afe89ee7-be59-4456-a6f7-b75e787cc973",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.647686+00:00",
+      "elapsed_s": 0.7932055830024183,
+      "completion_s": 0.7982952499878593
+    },
+    {
+      "id": "warmup-2",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.849773+00:00",
+      "queue_s": 0.0003369170008227229,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "6d946eaa-67d5-4c93-ac73-a3e5c3785640",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.558259+00:00",
+      "elapsed_s": 0.708522874978371,
+      "completion_s": 0.7088597919791937
+    },
+    {
+      "id": "warmup-19",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.858171+00:00",
+      "queue_s": 0.00873345899162814,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "37716240-fbf0-4626-93c8-f558d13fde0a",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.553113+00:00",
+      "elapsed_s": 0.6949870829994325,
+      "completion_s": 0.7037205419910606
+    },
+    {
+      "id": "warmup-27",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.860617+00:00",
+      "queue_s": 0.01119445898802951,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "ca40b7a8-8e32-40d2-bf25-6a0411c2606e",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.653860+00:00",
+      "elapsed_s": 0.7932690000161529,
+      "completion_s": 0.8044634590041824
+    },
+    {
+      "id": "warmup-3",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.850449+00:00",
+      "queue_s": 0.0010180840035900474,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "11f81a54-1685-4e62-8dcd-1767607b5d17",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.920138+00:00",
+      "elapsed_s": 1.0697102079866454,
+      "completion_s": 1.0707282919902354
+    },
+    {
+      "id": "warmup-30",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.862288+00:00",
+      "queue_s": 0.012866459001088515,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "e06d89e2-22e3-4f83-9082-f0400882e880",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.838747+00:00",
+      "elapsed_s": 0.9764942909823731,
+      "completion_s": 0.9893607499834616
+    },
+    {
+      "id": "warmup-4",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.850875+00:00",
+      "queue_s": 0.0014435839839279652,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "b616eb5b-dde7-42e1-a162-9503319b7548",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.456529+00:00",
+      "elapsed_s": 0.6057138750038575,
+      "completion_s": 0.6071574589877855
+    },
+    {
+      "id": "warmup-14",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.854991+00:00",
+      "queue_s": 0.005554749979637563,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "01121813-0884-4140-a65e-3e0ba1eba37b",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.534578+00:00",
+      "elapsed_s": 0.6796255420194939,
+      "completion_s": 0.6851802919991314
+    },
+    {
+      "id": "warmup-20",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.858413+00:00",
+      "queue_s": 0.008984791988041252,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "5954ebed-3a8b-4b93-9be9-d7c71604288d",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.672318+00:00",
+      "elapsed_s": 0.8139302500057966,
+      "completion_s": 0.8229150419938378
+    },
+    {
+      "id": "warmup-5",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.851281+00:00",
+      "queue_s": 0.001843499980168417,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "0c9583ee-9224-46f6-91b2-258b2ff34c0c",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.612255+00:00",
+      "elapsed_s": 0.7610232920269482,
+      "completion_s": 0.7628667920071166
+    },
+    {
+      "id": "warmup-15",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.855389+00:00",
+      "queue_s": 0.0059560420049820095,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "f540d6c4-d714-4a6d-a7ea-0fa3ddf34f8f",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.818168+00:00",
+      "elapsed_s": 0.9628195829864126,
+      "completion_s": 0.9687756249913946
+    },
+    {
+      "id": "warmup-21",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.858852+00:00",
+      "queue_s": 0.009419167006853968,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "b1e2d4b3-1313-452a-a5bd-1bfa468d3f3d",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.543061+00:00",
+      "elapsed_s": 0.6842525829852093,
+      "completion_s": 0.6936717499920633
+    },
+    {
+      "id": "warmup-6",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.851759+00:00",
+      "queue_s": 0.0023246250057127327,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "c8e225c9-f692-4f96-bb08-ca23cec8a397",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.792928+00:00",
+      "elapsed_s": 0.9412170419818722,
+      "completion_s": 0.9435416669875849
+    },
+    {
+      "id": "warmup-16",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.856165+00:00",
+      "queue_s": 0.006729624990839511,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "b901f379-ad63-4aba-a2a5-cbc516ea2ac9",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.774132+00:00",
+      "elapsed_s": 0.9180105839914177,
+      "completion_s": 0.9247402089822572
+    },
+    {
+      "id": "warmup-28",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.861426+00:00",
+      "queue_s": 0.012001666997093707,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "fc851d95-366d-4bc6-b63b-be10df305423",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.531199+00:00",
+      "elapsed_s": 0.6698050829872955,
+      "completion_s": 0.6818067499843892
+    },
+    {
+      "id": "warmup-22",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.859229+00:00",
+      "queue_s": 0.009794041980057955,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "30c63377-8a33-486e-a636-262fbcfbb40d",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.671914+00:00",
+      "elapsed_s": 0.8127344170061406,
+      "completion_s": 0.8225284589861985
+    },
+    {
+      "id": "warmup-23",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.859344+00:00",
+      "queue_s": 0.009907750005368143,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "09c7a673-87ee-4538-9a84-15da7ce0fffb",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.726750+00:00",
+      "elapsed_s": 0.867452249978669,
+      "completion_s": 0.8773599999840371
+    },
+    {
+      "id": "warmup-7",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.852396+00:00",
+      "queue_s": 0.0029442090017255396,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "7d621944-2688-401f-9992-bbd3e0a31e51",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.627313+00:00",
+      "elapsed_s": 0.7749802499893121,
+      "completion_s": 0.7779244589910377
+    },
+    {
+      "id": "warmup-8",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.852549+00:00",
+      "queue_s": 0.003113291983027011,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "ef71f146-231e-4c82-929c-782faf82dbcd",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.794317+00:00",
+      "elapsed_s": 0.9418045000056736,
+      "completion_s": 0.9449177919887006
+    },
+    {
+      "id": "warmup-9",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.852689+00:00",
+      "queue_s": 0.003242542006773874,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "75869907-922f-4066-b420-b0baf01f07b6",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.545089+00:00",
+      "elapsed_s": 0.6924460000009276,
+      "completion_s": 0.6956885420077015
+    },
+    {
+      "id": "warmup-24",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.859956+00:00",
+      "queue_s": 0.010518499999307096,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "6dc43094-460c-4b98-abc8-043e04a1640d",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.525847+00:00",
+      "elapsed_s": 0.6659437920025084,
+      "completion_s": 0.6764622920018155
+    },
+    {
+      "id": "warmup-17",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.856760+00:00",
+      "queue_s": 0.007322083984035999,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "468c5fba-311d-4c62-ba3f-4c9df3625151",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.654170+00:00",
+      "elapsed_s": 0.7974439160025213,
+      "completion_s": 0.8047659999865573
+    },
+    {
+      "id": "warmup-25",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.860273+00:00",
+      "queue_s": 0.010844042000826448,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "45d7f44d-a311-4157-a599-3bad425e7cad",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.716650+00:00",
+      "elapsed_s": 0.8564195829967503,
+      "completion_s": 0.8672636249975767
+    },
+    {
+      "id": "warmup-31",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.862427+00:00",
+      "queue_s": 0.013006749999476597,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "9c23d4b5-8e8c-44a2-b402-a3c3ae77c36c",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.699846+00:00",
+      "elapsed_s": 0.8374424589856062,
+      "completion_s": 0.8504492089850828
+    },
+    {
+      "id": "warmup-10",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.853409+00:00",
+      "queue_s": 0.00395916699199006,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "ee9e7a16-b8b4-4de6-9170-311ce34843ac",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.554748+00:00",
+      "elapsed_s": 0.7013876250130124,
+      "completion_s": 0.7053467920050025
+    },
+    {
+      "id": "warmup-26",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.860335+00:00",
+      "queue_s": 0.010910124983638525,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "f2342535-3a83-41cf-a541-80c8cf9fcad6",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.509513+00:00",
+      "elapsed_s": 0.6492165840172675,
+      "completion_s": 0.660126709000906
+    },
+    {
+      "id": "warmup-18",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.857435+00:00",
+      "queue_s": 0.007998416986083612,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "62c407f2-7711-4310-b056-d86a061cd6e6",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.930606+00:00",
+      "elapsed_s": 1.0731995420064777,
+      "completion_s": 1.0811979589925613
+    },
+    {
+      "id": "warmup-11",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.853989+00:00",
+      "queue_s": 0.004554833984002471,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "ddddc06b-6378-4404-9594-1ad338ba3f3a",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.568250+00:00",
+      "elapsed_s": 0.7142975830065552,
+      "completion_s": 0.7188524169905577
+    },
+    {
+      "id": "warmup-12",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.854091+00:00",
+      "queue_s": 0.004659041995182633,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "86e1b3a1-edf8-4235-95be-4369d6b9fdc4",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.695963+00:00",
+      "elapsed_s": 0.8419197500043083,
+      "completion_s": 0.8465787919994909
+    },
+    {
+      "id": "warmup-29",
+      "family": "interface-check",
+      "model": "deepseek-flash",
+      "started_at": "2026-10-12T05:37:01.862153+00:00",
+      "queue_s": 0.012731791997794062,
+      "request_sha256": "7ef6b4e88701705474186ee0d240d84378c763dbb4c9876502d5efc76d94d374",
+      "provider_request_sha256": "10616bbc85ac78c3b76c329ef4a6b7c7c46e638ae53808eb185496751e25a7d8",
+      "decisions": 1,
+      "status": "success",
+      "valid_decisions": 1,
+      "correct_decisions": 1,
+      "complete_valid": true,
+      "all_correct": true,
+      "http_status": 200,
+      "response_bytes": 476,
+      "response": {
+        "id": "570d6204-83a8-4adb-bebe-cb758745efe6",
+        "object": "chat.completion",
+        "created": 1791783422,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"choice\":\"blue\"}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 5,
+          "total_tokens": 143,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 138
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "ended_at": "2026-10-12T05:37:02.531448+00:00",
+      "elapsed_s": 0.6693092079949565,
+      "completion_s": 0.6820409999927506
+    }
+  ]
+}

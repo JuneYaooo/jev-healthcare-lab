@@ -1,0 +1,1423 @@
+{
+  "version": 1,
+  "seed": 2026101202,
+  "repeats": 3,
+  "families": [
+    {
+      "id": "clinical_grade",
+      "title": "疾病分期与严重程度判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "trial_referral",
+      "title": "患者临床试验初筛与转介判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          17,
+          13,
+          2
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "patient_contraindication",
+      "title": "患者方案禁忌判断",
+      "available": 54,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "dose_appropriateness",
+      "title": "患者剂量适宜性判断",
+      "available": 0,
+      "selected": 0,
+      "batch_targets": [],
+      "concurrency": [],
+      "packet_sizes": {},
+      "small_sample": true,
+      "distribution": {}
+    },
+    {
+      "id": "triage_urgency",
+      "title": "分诊与就医紧急程度判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "research_noncommercial": 32
+      }
+    },
+    {
+      "id": "critical_result_escalation",
+      "title": "危急检验结果处置选择",
+      "available": 0,
+      "selected": 0,
+      "batch_targets": [],
+      "concurrency": [],
+      "packet_sizes": {},
+      "small_sample": true,
+      "distribution": {}
+    },
+    {
+      "id": "diagnosis",
+      "title": "病例诊断选择",
+      "available": 200,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          24,
+          8
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "examination_choice",
+      "title": "检查方案选择",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "treatment_choice",
+      "title": "治疗方案选择",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "medication_choice",
+      "title": "用药方案选择",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "tcm_syndrome",
+      "title": "中医证型判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          9,
+          9,
+          9,
+          5
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "research_noncommercial": 32
+      }
+    },
+    {
+      "id": "department_routing",
+      "title": "首诊科室选择",
+      "available": 0,
+      "selected": 0,
+      "batch_targets": [],
+      "concurrency": [],
+      "packet_sizes": {},
+      "small_sample": true,
+      "distribution": {}
+    },
+    {
+      "id": "message_urgency_pair",
+      "title": "患者消息处理优先级",
+      "available": 30,
+      "selected": 30,
+      "batch_targets": [
+        1,
+        8,
+        30
+      ],
+      "concurrency": [
+        1,
+        8,
+        30
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          6
+        ],
+        "30": [
+          9,
+          9,
+          9,
+          3
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "research_noncommercial": 30
+      }
+    },
+    {
+      "id": "case_etiology",
+      "title": "病例病因判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "case_complication",
+      "title": "病例并发症判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "nursing_priority",
+      "title": "护理措施选择",
+      "available": 42,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "fluid_plan",
+      "title": "补液方案选择",
+      "available": 16,
+      "selected": 16,
+      "batch_targets": [
+        1,
+        8,
+        16
+      ],
+      "concurrency": [
+        1,
+        8,
+        16
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8
+        ],
+        "16": [
+          16
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 16
+      }
+    },
+    {
+      "id": "pgx_guideline_recommendation",
+      "title": "药物基因结果对应的指南建议选择",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "tcm_pathogenesis_candidate",
+      "title": "中医候选病机判断",
+      "available": 100,
+      "selected": 32,
+      "batch_targets": [
+        1,
+        8,
+        32
+      ],
+      "concurrency": [
+        1,
+        8,
+        32
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "32": [
+          32
+        ]
+      },
+      "small_sample": false,
+      "distribution": {
+        "open": 32
+      }
+    },
+    {
+      "id": "nutrition_plan",
+      "title": "营养与饮食方案选择",
+      "available": 11,
+      "selected": 11,
+      "batch_targets": [
+        1,
+        8,
+        11
+      ],
+      "concurrency": [
+        1,
+        8,
+        11
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          3
+        ],
+        "11": [
+          11
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 11
+      }
+    },
+    {
+      "id": "positioning_choice",
+      "title": "护理与操作体位选择",
+      "available": 10,
+      "selected": 10,
+      "batch_targets": [
+        1,
+        8,
+        10
+      ],
+      "concurrency": [
+        1,
+        8,
+        10
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          2
+        ],
+        "10": [
+          10
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 10
+      }
+    },
+    {
+      "id": "followup_plan",
+      "title": "复查项目与随访时机选择",
+      "available": 6,
+      "selected": 6,
+      "batch_targets": [
+        1,
+        6
+      ],
+      "concurrency": [
+        1,
+        6
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "6": [
+          6
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 6
+      }
+    },
+    {
+      "id": "monitoring_target",
+      "title": "病情监测与疗效判断",
+      "available": 5,
+      "selected": 5,
+      "batch_targets": [
+        1,
+        5
+      ],
+      "concurrency": [
+        1,
+        5
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "5": [
+          5
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 5
+      }
+    },
+    {
+      "id": "rehabilitation_choice",
+      "title": "康复训练方案选择",
+      "available": 4,
+      "selected": 4,
+      "batch_targets": [
+        1,
+        4
+      ],
+      "concurrency": [
+        1,
+        4
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "4": [
+          4
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 4
+      }
+    },
+    {
+      "id": "prevention_choice",
+      "title": "预防措施选择",
+      "available": 13,
+      "selected": 13,
+      "batch_targets": [
+        1,
+        8,
+        13
+      ],
+      "concurrency": [
+        1,
+        8,
+        13
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          5
+        ],
+        "13": [
+          13
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 13
+      }
+    },
+    {
+      "id": "infection_precaution",
+      "title": "感染防控措施选择",
+      "available": 5,
+      "selected": 5,
+      "batch_targets": [
+        1,
+        5
+      ],
+      "concurrency": [
+        1,
+        5
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "5": [
+          5
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 5
+      }
+    },
+    {
+      "id": "patient_counseling",
+      "title": "健康教育与沟通行动选择",
+      "available": 11,
+      "selected": 11,
+      "batch_targets": [
+        1,
+        8,
+        11
+      ],
+      "concurrency": [
+        1,
+        8,
+        11
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "8": [
+          8,
+          3
+        ],
+        "11": [
+          11
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 11
+      }
+    },
+    {
+      "id": "administration_route_choice",
+      "title": "给药途径与实施方法选择",
+      "available": 4,
+      "selected": 4,
+      "batch_targets": [
+        1,
+        4
+      ],
+      "concurrency": [
+        1,
+        4
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "4": [
+          4
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 4
+      }
+    },
+    {
+      "id": "consent_action",
+      "title": "知情同意与隐私处置选择",
+      "available": 3,
+      "selected": 3,
+      "batch_targets": [
+        1,
+        3
+      ],
+      "concurrency": [
+        1,
+        3
+      ],
+      "packet_sizes": {
+        "1": [
+          1,
+          1,
+          1
+        ],
+        "3": [
+          3
+        ]
+      },
+      "small_sample": true,
+      "distribution": {
+        "open": 3
+      }
+    }
+  ],
+  "source_manifest_sha256": "23148b081d5ef3152406a09f418ee035298d8ad47eb0fcc6202ddbbeaba385a8",
+  "scope_policy_sha256": "afae5570975e25a3c4efee5a31bcfc284e11ee293af67f859fde373e0775269e",
+  "sampling": "First min(32,N) by SHA256(seed,id) independently within each clinical family, including research/noncommercial records.",
+  "packing": "Each original state is nested unchanged under its question ID. Original criteria/gold preserved, isolation instruction prepended. Greedy split at 31k state-plus-largest-question bytes / 63k request bytes. No truncation or padding.",
+  "files": {
+    "inputs.jsonl": "c4152ecf62223448cbcee9165b2cf68b20f2fed0ae3c0e199a8458e0490ffe35",
+    "packets.jsonl": "8946a52903b7dd070afe4f5db4faab072a5b4bf08999d7849a19799b3c808bdd"
+  }
+}

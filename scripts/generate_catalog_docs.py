@@ -125,6 +125,11 @@ def render():
     if comparison and comparison['scope_policy_sha256'] != data.file_sha(DATA / 'evaluation_scope.json'):
         raise ValueError('Model comparison uses an outdated scope policy')
 
+    performance_path = ROOT / 'results/task-performance-v1/comparison.json'
+    performance = read_json(performance_path) if performance_path.exists() else None
+    if performance and performance['dataset_manifest_sha256'] != data.file_sha(ROOT / 'benchmarks/task_performance_v1/manifest.json'):
+        raise ValueError('Task performance uses an outdated workload')
+
     def model_task_table(family):
         rows = []
         models = list(comparison['models'].values())
@@ -144,6 +149,86 @@ def render():
                 + link('评分', f'../../results/clinical-v1/{model}/scores.json')])
         return '加粗表示本任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。\n\n' + table(['模型', '准确率 ↑', '有效回答 / 题数', '平均秒 ↓', 'P50 秒 ↓', 'P95 秒 ↓', '任务总秒 ↓',
                       '超时 / 请求失败 / 无效回答', '原始记录'], rows)
+    def packet_range(mode):
+        sizes = mode['packet_sizes']
+        return str(min(sizes)) if min(sizes) == max(sizes) else f"{min(sizes)}–{max(sizes)}"
+
+    def performance_details(family):
+        if not performance:
+            return []
+        item = performance['families'][family]
+        parts = ['## 多问题与并发性能']
+        if not item['selected']:
+            return parts + ['本任务尚无可用原题，多问题与并发测试均待补；不以其他任务或合成规则结果代填。']
+        parts += [f"固定本任务 {item['selected']} 道原题，每种模式、每个模型各运行三轮；各模式使用完全相同的题目与金标。单题原始输入保持不变，多题把不同原题材料放入各自记录，并要求逐题独立判断。这是同任务多病例／多材料批量判断，不是同一患者新增多项临床判断。",
+                  '取样结果用于性能与批量准确率比较，不替代上方全题量的临床成绩。包含非商业材料的任务继承原来源许可。JEV 与 Flash 使用各自原生接口，Flash 关闭思考并返回题号到选项键的精简 JSON；其他三模型尚未进行本轮性能测试。',
+                  '表中整组耗时为三轮完成整组题目的墙钟均值，吞吐为三轮有效／正确决策总数除以三轮墙钟总和，包含失败拖尾。单请求题数为实际值；超过上下文预算会拆包，材料不截断。并发是同时请求数，不是单请求问题数。']
+        if item['small_sample']:
+            parts.append('**小样本任务：** 重复运行只观察性能波动，不增加独立题目数，不能据此稳定估计临床准确率或尾延迟。')
+        rows, detail_rows, cost_rows = [], [], []
+        for mode in item['modes']:
+            name = comparison['models'][mode['model']]['label']
+            kind = '逐题' if mode['batch'] == 1 else '多题打包'
+            failed = mode['requests'] - mode['complete_requests']
+            rows.append([kind, mode['concurrency'], packet_range(mode), name,
+                         f"{mode['accuracy']:.2%}", f"{mode['mean_batch_wall_s']:.3f}",
+                         f"{mode['valid_decisions_per_s']:.2f} / {mode['correct_decisions_per_s']:.2f}",
+                         f"{mode['complete_requests']} / {mode['requests']}", failed])
+            detail_rows.append([f"{kind} B≤{mode['batch']} / C{mode['concurrency']}", name,
+                f"{min(mode['wall_per_repeat_s']):.3f}–{max(mode['wall_per_repeat_s']):.3f}",
+                f"{mode['p50_s']:.3f}", f"{mode['p95_s']:.3f}" if mode['requests'] >= 20 else '样本不足',
+                f"{mode['max_elapsed_s']:.3f}", mode['http_429'],
+                ' / '.join(str(mode['status_counts'].get(k, 0)) for k in ['request_error', 'timeout', 'invalid_answer']),
+                ' · '.join(link(f'轮{i + 1}', '../../results/task-performance-v1/' + filename) for i, filename in enumerate(mode['records_files']))])
+            cost = mode['cost']
+            if cost['unpriced_requests'] or cost['usd_per_1000_correct_lower'] is None:
+                unit = '—'
+            else:
+                lo, hi = cost['usd_per_1000_correct_lower'], cost['usd_per_1000_correct_upper']
+                unit = f'{lo:.4f}' if lo == hi else f'{lo:.4f}–{hi:.4f}'
+            cost_rows.append([f"{kind} B≤{mode['batch']} / C{mode['concurrency']}", name, unit, cost['unpriced_requests']])
+        parts.append(table(['模式', '并发', '每请求实际题数', '模型', '准确率', '整组平均秒', '有效 / 正确决策每秒', '完整包 / 请求', '失败或无效请求'], rows))
+        parts.append('<details>\n<summary>重复波动、请求耗时、失败与原始响应</summary>\n\n' +
+            table(['模式', '模型', '整组秒范围', '请求 P50 秒', '请求 P95 秒', '最长请求秒', '429', '请求失败 / 超时 / 无效', '原始响应'], detail_rows) +
+            '\n\n请求耗时包含完整接收与校验，不含客户端排队；整组耗时包含排队。少于 20 次请求不展示 P95。\n\n</details>')
+        parts.append('<details>\n<summary>每千次正确决策成本</summary>\n\n' +
+            table(['模式', '模型', '估算 USD / 千次正确决策', '缺用量请求'], cost_rows) +
+            '\n\n按归档价目与实际 usage 估算；Flash 含缓存命中与输出费用，区间对应闲时至高峰价格。缺用量时不填完整单位成本，非账单费用。\n\n</details>')
+        parts.append('连接池显式预热并跨单元复用，网络与供应商缓存仍会影响结果；各模式是有限批次测试，不能外推持续服务容量。[完整协议](../TASK_PERFORMANCE.md) · [冻结题目](../../benchmarks/task_performance_v1/README.md) · [运行配置](../../results/task-performance-v1/config.json)')
+        return parts
+
+    def scene_performance(scene_families):
+        if not performance:
+            return []
+        batch_rows, concurrency_rows = [], []
+        for family in scene_families:
+            item = performance['families'][family['id']]
+            name = link(family['title'], f"docs/tasks/{family['id']}.md#多问题与并发性能")
+            n = item['selected']
+            if not n:
+                batch_rows.append([name, '待补', '—', '—', '—'])
+                concurrency_rows.append([name, '待补', '—', '—', '—'])
+                continue
+            batch = max(item['batch_targets'])
+            concurrency = max(item['concurrency'])
+            batches = [next(m for m in item['modes'] if m['batch'] == batch and m['concurrency'] == 1 and m['model'] == model)
+                       for model in performance['models']]
+            baselines = [next(m for m in item['modes'] if m['batch'] == 1 and m['concurrency'] == 1 and m['model'] == model)
+                         for model in performance['models']]
+            concurrent = [next(m for m in item['modes'] if m['batch'] == 1 and m['concurrency'] == concurrency and m['model'] == model)
+                          for model in performance['models']]
+            flag = lambda m: ' ⚠' if m['complete_requests'] < m['requests'] else ''
+            count = f"{n}" + (' · 小样本' if item['small_sample'] else '')
+            batch_rows.append([name, count, packet_range(batches[0])] +
+                [f"准确率 {base['accuracy']:.2%}{flag(base)} → {m['accuracy']:.2%}{flag(m)}<br>秒 {base['mean_batch_wall_s']:.3f} → {m['mean_batch_wall_s']:.3f}" for base, m in zip(baselines, batches)])
+            concurrency_rows.append([name, count, concurrency] +
+                [f"有效 {base['valid_decisions_per_s']:.2f} → {m['valid_decisions_per_s']:.2f}<br>正确 {base['correct_decisions_per_s']:.2f}{flag(base)} → {m['correct_decisions_per_s']:.2f}{flag(m)}" for base, m in zip(baselines, concurrent)])
+        names = [comparison['models'][m]['label'] for m in performance['models']]
+        return ['**同任务多题打包 · 单题 → 多题**（同一取样、均为并发 1；准确率与整组平均秒，展示最大打包档）',
+                table(['任务', '取样题数', '每请求实际题数'] + names, batch_rows, numeric_from=1),
+                '**逐题并发 · 有效 / 正确决策每秒**（并发 1 → 本任务最高并发档，同一取样）',
+                table(['任务', '取样题数', '实际并发'] + names, concurrency_rows, numeric_from=1)]
+
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
     by_task, by_source = defaultdict(list), defaultdict(list)
@@ -201,6 +286,7 @@ def render():
                     '以下为合并后的病例诊断任务成绩，两个来源子集共 200 题；逐来源结果保存在评分文件中。' if rule['family'] == 'diagnosis' else '以下成绩使用本页全部已收录题目；耗时包括请求、响应处理及重试等待。',
                     '有效回答表示返回合法选项，不代表正确；平均值和分位数包含已启动题目的失败耗时。任务总秒为含并发调度的墙钟时间，不是单题耗时之和。响应链接包含该模型全部题目，可按本页任务的题目 ID 查找。',
                     model_task_table(rule['family'])])
+                parts.extend(performance_details(rule['family']))
             parts.extend(example_sections(example(rows)))
             parts.extend([
                 "## 覆盖与使用边界",
@@ -224,6 +310,8 @@ def render():
                 "**样例待补。** 尚无符合此任务定义的可用题目，不提供虚构输入、选项或答案。",
                 prose(task.get("missing_reason") or "尚无可用于本任务的已核验数据。"),
             ])
+            if rule["scope"] == "clinical":
+                parts.extend(performance_details(rule["family"]))
         candidates = sorted((set(task.get("source_ids", [])) | set(task.get("candidate_source_ids", []))) - set(source_counts))
         if candidates:
             parts.extend([
@@ -311,6 +399,8 @@ def render():
     status_names = {'empty': '待补', 'exploratory': '探索性', 'summary_eligible': '计入总分'}
     parts = ['# 临床主评测任务', '[返回首页](../../README.md) · [辅助与暂停任务](AUXILIARY.md) · [数据集目录](../datasets/README.md)',
              f"共 {clinical['defined_families']} 个任务定义、{clinical['populated_families']} 个有题任务，{clinical['records']:,} 题。病例诊断的两个来源子集合并计分；所有有题任务均计入总分，少于 20 题仅标记小样本。状态按完整临床范围展示，实际评分按本次许可子集计算题数与成绩。"]
+    if performance:
+        parts.append('每个任务页包含原单题结果，以及 JEV／Flash 在同一原题子集上的多题打包、逐题并发、准确率、完整率与成本。三轮结果和全部档位按任务保留；空任务标记待补。[测试协议](../TASK_PERFORMANCE.md)。')
     for scene_id, scene in scenes.items():
         parts.extend([f"## {scene['title']}", table(['任务说明', '能力维度', '题数', '状态'], [
             [link(f['title'], f"{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']] + ('（小样本）' if f['small_sample'] else '')]
@@ -334,6 +424,7 @@ def render():
     parts.extend(example_sections(example(by_task['diagnosis_choice'])))
     if comparison:
         parts.extend(['## 模型结果', '两个诊断来源合并为 200 题。有效回答不代表答对；任务总秒为墙钟时间，单题平均值与分位数包含失败耗时。响应链接包含该模型全部题目。', model_task_table('diagnosis'), '[完整得分、耗时与运行条件](../MODEL_RESULTS.md)'])
+        parts.extend(performance_details('diagnosis'))
     parts.extend(['## 评测边界', '考试病例与模拟病例分别报告，不能把模拟患者当成真实患者。候选数量与题型不同，比较模型时冻结同一批题目和选项。', '[返回首页](../../README.md)'])
     output[ROOT / 'docs/tasks/diagnosis.md'] = '\n\n'.join(parts) + '\n'
 
@@ -360,8 +451,9 @@ def render():
         '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
         table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
         '## 场景与任务',
-        '先看 **准确率 ↑**，再看 **平均用时 ↓**。每个场景分成两张表，模型顺序保持一致。**加粗**表示该任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。',
-        '用时单位为秒，包含网络、响应处理和重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
+        '每个场景先列原单题评测的准确率与平均耗时，再按任务列多题打包与并发性能。**加粗**表示原单题表的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。',
+        '逐任务性能测试固定抽取最多 32 道原题，各模式运行三轮，JEV 与 Flash 使用相同题目和金标。多题打包对照同一子集逐题与最大打包档的准确率及整组平均耗时，逐题并发对照并发 1 到最高并发档的有效／正确决策吞吐；全部档位、失败和成本见任务详情。空任务保留待补，小任务不复制题目凑数。其他三模型尚未进行本轮性能测试。[参数与数据协议](docs/TASK_PERFORMANCE.md)。',
+        '用时单位为秒，包含网络与响应处理；原单题评测含重试，逐任务性能测试不自动重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
         table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
     if comparison:
         ranked = sorted(comparison['models'].values(), key=lambda m: -m['primary_clinical_score'])
@@ -369,7 +461,7 @@ def render():
         fastest = min(ranked, key=lambda m: m['timing']['mean_elapsed_s'])
         parts[parts.index('## 能力维度'):parts.index('## 能力维度')] = [
             '## 评测速览',
-            f"**{best['label']} 本轮主分数最高：{best['primary_clinical_score']:.2%}**，领先第二名 {(best['primary_clinical_score']-second['primary_clinical_score'])*100:.2f} 个百分点。**{fastest['label']} 平均用时最短：{fastest['timing']['mean_elapsed_s']:.3f} 秒/题**。",
+            f"**{best['label']} 本轮主分数最高：{best['primary_clinical_score']:.2%}**，领先第二名 {(best['primary_clinical_score']-second['primary_clinical_score'])*100:.2f} 个百分点。原单题评测中，**{fastest['label']} 平均用时最短：{fastest['timing']['mean_elapsed_s']:.3f} 秒/题**。",
             '![医疗决策场景 · JEV 评测：五个模型的临床主分数与平均用时对比，完整数值见下方模型得分与耗时表](assets/readme/jev-medical-score-time-v1.svg)',
             '![医疗决策场景 · JEV 评测：八个场景的模型得分热力图，标注题数、小样本任务数和场景最高值，完整结果见各任务表](assets/readme/jev-medical-scenario-accuracy-v1.svg)',
             '![医疗决策场景 · JEV 评测：八个场景的平均单题用时热力图，单位为秒，越低越快，描边标记各场景最短用时](assets/readme/jev-medical-scenario-time-v1.svg)',
@@ -391,6 +483,7 @@ def render():
                     count = str(f['records']) + (' · 小样本' if f['small_sample'] else ' · 待补' if not f['records'] else '')
                     rows.append([link(f['title'], f"docs/tasks/{f['id']}.md"), count] + cells)
                 parts.extend([f'**{heading}**', table(headers, rows, numeric_from=1)])
+        parts.extend(scene_performance(scene_families))
         source_table = table(['任务', '能力维度', '题数', '状态', '数据集来源（题数）'], [
             [link(f['title'], f"docs/tasks/{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']] + ('（小样本）' if f['small_sample'] else ''),
              '；'.join(link(sources[source]['name'], f'docs/datasets/{source}.md') + ('†' if sources[source]['distribution']=='research_noncommercial' else '') + f'（{n}）' for source,n in sorted(f['sources'].items())) or '待补数据']
@@ -413,22 +506,7 @@ def render():
             for i, m in enumerate(models)], numeric_from=1),
             '生成式对照模型均关闭思考；每模型并发 8。主分数为场景等权汇总，不是全部题目的简单准确率。加粗仅标记本轮较优数值，不代表差异具有统计显著性。耗时为实际 API 调用的客户端时间，包含网络和重试；不同服务商和运行时段分别记录。',
             '[全部逐任务得分与耗时](docs/MODEL_RESULTS.md) · [原始响应与运行配置](results/clinical-v1/README.md)',
-            '以上耗时仅对应单题 Choice、8 路并发；不代表多问题或高并发性能。[补充性能测试](docs/PERFORMANCE_RESULTS.md)另测 1～64 路并发及单请求 1～200 问，并报告有效吞吐、完整率和用量成本。'])
-    performance_path = ROOT / 'results/performance-v1/comparison.json'
-    if performance_path.exists():
-        performance = read_json(performance_path)
-        fanout = {(r['level'], r['model']): r for r in performance if r['suite'] == 'fanout'}
-        parts.extend([
-            '## 多问题与并发性能补充',
-            '补充测试共 3,870 次请求，每档三轮。**本轮验证了合成规则任务中的单请求多问题延迟优势；持续高并发吞吐优势尚未验证充分。**',
-            '固定同一份含 200 条记录的合成文档受理看板，只增加不同问题的数量。下表为完整响应耗时中位数，包含全部结果接收与校验；Flash 关闭思考。',
-            table(['单请求问题数', 'JEV 1.13（秒）', 'DeepSeek V4.1 Flash（秒）'], [
-                [n, f"{fanout[n, 'jev-1.13.0']['p50_s']:.2f}", f"{fanout[n, 'deepseek-flash']['p50_s']:.2f}"]
-                for n in [1, 10, 50, 100, 200]], numeric_from=1),
-            '200 问时双方三轮均全部答对，JEV 的耗时随问题数增加较少。这是明确规则下的性能结果，不代表真实病历多字段判断能力，也不计入临床主分数。',
-            '并发组复用 128 道原有临床题，测试 1、8、16、32、64 路并发。JEV 出现 3 次超时和 1 次连接失败；计入全部长尾后，16、32、64 路的整批有效吞吐低于 Flash。64 路每批仅约两波请求，且测量包含客户端与网络影响，不能据此判断持续服务容量或把失败归因于模型推理。验证持续吞吐还需更长时间、更多请求及充分预热的负载测试。',
-            '![并发有效吞吐与多问题完整响应时间](assets/performance/performance-v1.svg)',
-            '[完整性能结果与失败明细](docs/PERFORMANCE_RESULTS.md) · [测试协议与数据说明](docs/PERFORMANCE.md) · [逐请求原始记录](results/performance-v1/README.md)'])
+            '以上汇总仅对应原单题 Choice、8 路并发配置。多题打包与并发性能已按任务展示在各场景表中；原全量准确率与性能子集准确率不混算。[逐任务性能协议](docs/TASK_PERFORMANCE.md)。'])
     parts.extend(['## 许可', '第三方数据保留各自的原始许可；见 [第三方声明](THIRD_PARTY_NOTICES.md) 和包内 LICENSE-DATA.md。'])
     output[ROOT / 'README.md'] = '\n\n'.join(parts) + '\n'
     return output
