@@ -153,6 +153,48 @@ def render():
         sizes = mode['packet_sizes']
         return str(min(sizes)) if min(sizes) == max(sizes) else f"{min(sizes)}–{max(sizes)}"
 
+    def task_findings(family):
+        item = performance['families'][family]
+        if not item['selected']:
+            return ['待补'] * 4
+        full = comparison['models']['jev-1.13.0']['tasks'][family]['accuracy']
+        highest = max(m['tasks'][family]['accuracy'] for m in comparison['models'].values())
+        full_cell = f'JEV {full:.2%}；' + ('本轮最高（含并列）' if full == highest else f'最高 {highest:.2%}')
+        jev, flash = [next(m for m in item['modes'] if m['model'] == model and
+                          m['batch'] == max(item['batch_targets']) and m['concurrency'] == 1)
+                      for model in ['jev-1.13.0', 'deepseek-flash']]
+        accuracy = f"JEV {jev['accuracy']:.2%}，Flash {flash['accuracy']:.2%}"
+        ratio = jev['mean_batch_wall_s'] / flash['mean_batch_wall_s']
+        speed = f'JEV 耗时少 {1 - ratio:.1%}' if ratio < 1 else f'JEV 耗时多 {ratio - 1:.1%}' if ratio > 1 else '耗时相同'
+        jc, fc = jev['cost'], flash['cost']
+        jl, jh = jc['usd_per_1000_correct_lower'], jc['usd_per_1000_correct_upper']
+        fl, fh = fc['usd_per_1000_correct_lower'], fc['usd_per_1000_correct_upper']
+        if jc['unpriced_requests'] or fc['unpriced_requests'] or None in (jl, jh, fl, fh):
+            cost = '数据不足，暂不比较'
+        elif jh < fl:
+            cost = f'JEV 成本低 {1 - jh / fl:.1%}–{1 - jl / fh:.1%}'
+        elif jl > fh:
+            cost = f'JEV 成本更高（{jl / fh:.2f}–{jh / fl:.2f} 倍）' if fl else 'JEV 成本更高'
+        elif jl == jh == fl == fh:
+            cost = '成本相同'
+        else:
+            cost = '取决于 Flash 闲时／高峰价格'
+        if any(m['complete_requests'] < m['requests'] for m in [jev, flash]):
+            accuracy += ' ⚠'
+        return [full_cell, accuracy, speed, cost]
+
+    def scene_findings(scene_families):
+        if not performance:
+            return []
+        rows = []
+        for family in scene_families:
+            label = link(family['title'], f"docs/tasks/{family['id']}.md")
+            if family['small_sample'] and family['records']:
+                label += '（小样本）'
+            rows.append([label] + task_findings(family['id']))
+        return [table(['任务', '全量准确率：五模型比较', '多题准确率：JEV 与 Flash',
+                       '多题速度：JEV 相比 Flash', '多题成本：每次正确判断'], rows)]
+
     def performance_details(family):
         if not performance:
             return []
@@ -163,6 +205,8 @@ def render():
         parts += [f"固定本任务 {item['selected']} 道原题，每种模式、每个模型各运行三轮；各模式使用完全相同的题目与金标。单题原始输入保持不变，多题把不同原题材料放入各自记录，并要求逐题独立判断。这是同任务多病例／多材料批量判断，不是同一患者新增多项临床判断。",
                   '取样结果用于性能与批量准确率比较，不替代上方全题量的临床成绩。包含非商业材料的任务继承原来源许可。JEV 与 Flash 使用各自原生接口，Flash 关闭思考并返回题号到选项键的精简 JSON；其他三模型尚未进行本轮性能测试。',
                   '表中整组耗时为三轮完成整组题目的墙钟均值，吞吐为三轮有效／正确决策总数除以三轮墙钟总和，包含失败拖尾。单请求题数为实际值；超过上下文预算会拆包，材料不截断。并发是同时请求数，不是单请求问题数。']
+        findings = task_findings(family)
+        parts.insert(1, '本轮多题结果（固定最大打包档，对比 Flash）：' + '；'.join(findings[1:]) + '。具体准确率与费用仅对应下述性能子集，不代表全量成绩或其他调用方式。')
         if item['small_sample']:
             parts.append('**小样本任务：** 重复运行只观察性能波动，不增加独立题目数，不能据此稳定估计临床准确率或尾延迟。')
         rows, detail_rows, cost_rows = [], [], []
@@ -453,7 +497,7 @@ def render():
     used_tags = sorted({d for f in families for d in f['ability_tags']})
     parts = ['# Jev Healthcare Lab',
         '![医疗决策场景 · JEV 评测：使用医疗决策类题目比较准确率与用时；8 个场景，29 个任务，26 项有题，1,514 道题](assets/readme/jev-medical-evaluation-v1.gif)',
-        '本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率和完整运行耗时。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。',
+        '本项目从公开数据集中筛选并整理医疗决策类题目，用于评测 **JEV 模型在医疗场景中的决策表现**，并与其他模型逐任务比较准确率、完整运行耗时和单位正确判断成本。题目要求模型根据病例、检查结果或规则材料，从给定候选中选择判断或行动。',
         f"评测按 **{len(scenes)} 个医疗场景、{clinical['defined_families']} 个任务**组织：从接诊与分诊、检查与检验、诊断与鉴别，到治疗与用药、住院与护理、出院与随访，并涵盖临床试验筛选和病历与医疗质量控制。",
         f"目前 **{clinical['populated_families']} 个任务有题，共 {clinical['records']:,} 题**（中文 {clinical['languages'].get('zh', 0):,} 题），来自 {len(clinical['sources'])} 个数据来源；另有 {sum(f['status'] == 'empty' for f in families)} 个任务待补。任务另按 {len(used_tags)} 个能力标签标注。全部有题任务计入总分，其中 {sum(f['small_sample'] for f in families)} 个不足 20 题，标记为小样本。" + (f"已完成 {len(comparison['models'])} 个模型的同题评测。" if comparison else '当前尚无模型对比成绩。'),
         '[场景与任务](#场景与任务) · [评测方案：请求与提示词](docs/EVALUATION.md) · [任务说明与样例](docs/tasks/README.md) · [数据集说明与样例](docs/datasets/README.md) · [辅助任务](docs/tasks/AUXILIARY.md)',
@@ -461,8 +505,8 @@ def render():
         '场景表示医疗流程环节；能力标签描述判断方式，可以重叠。任务是逐项比较的单位，数据来源或语言子集不重复算作独立任务。',
         table(['能力维度', '关联任务数（含待补）'], [[dimensions[d], sum(d in f['ability_tags'] for f in families)] for d in used_tags]),
         '## 场景与任务',
-        '每个场景先列原单题评测的准确率与平均耗时，再按任务列多题打包与并发性能。**加粗**表示原单题表的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。',
-        '逐任务性能测试固定抽取最多 32 道原题，各模式运行三轮，JEV 与 Flash 使用相同题目和金标。多题打包比较逐题请求和多题合并请求；逐题并发比较依次提问和同时提问。两张表都展示准确率及做完全部题目的平均总耗时。首页展示最大打包档和最高并发档；全部档位、详细吞吐、失败和成本见任务详情。空任务保留待补，小任务不复制题目凑数。其他三模型尚未进行本轮性能测试。[参数与数据协议](docs/TASK_PERFORMANCE.md)。',
+        '每个任务先看三个问题：JEV 判断是否更准、完成同样的题目是否更快、每次正确判断是否更便宜。下表列本轮观测结果；五模型分数、绝对耗时、费用和调用方式见展开数据及任务详情。相对排名不等于已经达到业务或临床可用标准。',
+        '全量准确率来自五模型的原单题评测。多题的准确率、速度、成本来自 JEV 与 Flash 在同一任务最多 32 道原题上的三轮测试，统一使用预先规定的最大打包档，不挑选最快档；长材料按相同规则拆包。这些结论仅对应多题设置，其他调用方式可能不同。费用为总调用费用除以正确判断数，区间覆盖 Flash 闲时与高峰价格；用量缺失或无正确答案时不作成本比较。其他三模型尚无本轮多题与费用对比。[测试协议](docs/TASK_PERFORMANCE.md)。',
         '用时单位为秒，包含网络与响应处理；原单题评测含重试，逐任务性能测试不自动重试。⚠ 表示该模型在此任务有请求失败或无效回答，失败计错且耗时保留；不能只凭较短用时判断优劣。标为“小样本”的任务不足 20 题，仍计入总分，结果可能波动较大；— 表示尚无数据。点击任务名称查看详情，展开场景末尾的来源表查看数据集。',
         table(['医疗场景', '有题任务 / 定义任务', '题数'], [[s['title'], f"{sum(f['records'] > 0 for f in families if f['scenario'] == sid)} / {sum(f['scenario'] == sid for f in families)}", sum(f['records'] for f in families if f['scenario'] == sid)] for sid, s in scenes.items()])]
     if comparison:
@@ -480,6 +524,9 @@ def render():
     for sid, scene in scenes.items():
         scene_families = [f for f in families if f['scenario'] == sid]
         parts.append(f"### {scene['title']}")
+        parts.extend(scene_findings(scene_families))
+        if performance:
+            parts.append('<details>\n<summary>展开五模型分数、耗时和多题／并发测试数据</summary>')
         if comparison:
             models = list(comparison['models'].values())
             headers = ['任务', '题数'] + [m['label'] for m in models]
@@ -494,6 +541,8 @@ def render():
                     rows.append([link(f['title'], f"docs/tasks/{f['id']}.md"), count] + cells)
                 parts.extend([f'**{heading}**', table(headers, rows, numeric_from=1)])
         parts.extend(scene_performance(scene_families))
+        if performance:
+            parts.append('</details>')
         source_table = table(['任务', '能力维度', '题数', '状态', '数据集来源（题数）'], [
             [link(f['title'], f"docs/tasks/{f['id']}.md"), '、'.join(dimensions[d] for d in f['ability_tags']), f['records'], status_names[f['status']] + ('（小样本）' if f['small_sample'] else ''),
              '；'.join(link(sources[source]['name'], f'docs/datasets/{source}.md') + ('†' if sources[source]['distribution']=='research_noncommercial' else '') + f'（{n}）' for source,n in sorted(f['sources'].items())) or '待补数据']
