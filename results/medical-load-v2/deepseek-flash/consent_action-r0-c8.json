@@ -1,0 +1,11 @@
+{
+  "family": "consent_action",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 25.67432412499329,
+  "stop": null,
+  "raw_file": "consent_action-r0-c8.jsonl.gz"
+}

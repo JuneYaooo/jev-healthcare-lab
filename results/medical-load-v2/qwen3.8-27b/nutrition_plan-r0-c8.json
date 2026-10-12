@@ -1,0 +1,11 @@
+{
+  "family": "nutrition_plan",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 61.57605287496699,
+  "stop": null,
+  "raw_file": "nutrition_plan-r0-c8.jsonl.gz"
+}

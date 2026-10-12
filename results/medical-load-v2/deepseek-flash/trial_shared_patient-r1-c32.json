@@ -1,0 +1,11 @@
+{
+  "family": "trial_shared_patient",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 27.085062792000826,
+  "stop": null,
+  "raw_file": "trial_shared_patient-r1-c32.jsonl.gz"
+}

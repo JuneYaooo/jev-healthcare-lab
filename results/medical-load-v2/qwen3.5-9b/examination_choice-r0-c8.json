@@ -1,0 +1,11 @@
+{
+  "family": "examination_choice",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.30438074999256,
+  "stop": null,
+  "raw_file": "examination_choice-r0-c8.jsonl.gz"
+}

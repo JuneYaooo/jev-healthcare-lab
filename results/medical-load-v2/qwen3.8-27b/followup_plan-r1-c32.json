@@ -1,0 +1,11 @@
+{
+  "family": "followup_plan",
+  "model": "qwen3.8-27b",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.00257920799777,
+  "stop": null,
+  "raw_file": "followup_plan-r1-c32.jsonl.gz"
+}

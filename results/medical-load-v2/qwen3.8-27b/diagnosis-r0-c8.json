@@ -1,0 +1,11 @@
+{
+  "family": "diagnosis",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 33.494666666666674,
+  "warmup_s": 3,
+  "wall_s": 36.497245666978415,
+  "stop": null,
+  "raw_file": "diagnosis-r0-c8.jsonl.gz"
+}

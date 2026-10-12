@@ -1,0 +1,11 @@
+{
+  "family": "tcm_pathogenesis_candidate",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.960926167026628,
+  "stop": null,
+  "raw_file": "tcm_pathogenesis_candidate-r0-c32.jsonl.gz"
+}

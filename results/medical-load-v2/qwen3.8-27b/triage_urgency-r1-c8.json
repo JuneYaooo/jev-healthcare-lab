@@ -1,0 +1,11 @@
+{
+  "family": "triage_urgency",
+  "model": "qwen3.8-27b",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.59957395802485,
+  "stop": null,
+  "raw_file": "triage_urgency-r1-c8.jsonl.gz"
+}

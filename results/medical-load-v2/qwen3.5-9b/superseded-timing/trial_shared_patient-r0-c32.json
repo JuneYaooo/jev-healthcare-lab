@@ -1,0 +1,11 @@
+{
+  "family": "trial_shared_patient",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 22.951333333333334,
+  "warmup_s": 3,
+  "wall_s": 26.35759324999526,
+  "stop": null,
+  "raw_file": "trial_shared_patient-r0-c32.jsonl.gz"
+}

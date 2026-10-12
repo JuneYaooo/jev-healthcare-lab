@@ -1,0 +1,11 @@
+{
+  "family": "trial_referral",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20.883333333333336,
+  "warmup_s": 3,
+  "wall_s": 29.789769832976162,
+  "stop": null,
+  "raw_file": "trial_referral-r0-c8.jsonl.gz"
+}

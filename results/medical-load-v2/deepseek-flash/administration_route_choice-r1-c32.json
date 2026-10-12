@@ -1,0 +1,11 @@
+{
+  "family": "administration_route_choice",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.42407141701551,
+  "stop": null,
+  "raw_file": "administration_route_choice-r1-c32.jsonl.gz"
+}

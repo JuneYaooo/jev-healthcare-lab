@@ -1,0 +1,11 @@
+{
+  "family": "clinical_grade",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 38.182075958000496,
+  "stop": null,
+  "raw_file": "clinical_grade-r0-c8.jsonl.gz"
+}

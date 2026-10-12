@@ -1,0 +1,11 @@
+{
+  "family": "prevention_choice",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 25.124561957956757,
+  "stop": null,
+  "raw_file": "prevention_choice-r0-c32.jsonl.gz"
+}

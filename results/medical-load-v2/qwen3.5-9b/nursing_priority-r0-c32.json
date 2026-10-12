@@ -1,0 +1,11 @@
+{
+  "family": "nursing_priority",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.00196408299962,
+  "stop": null,
+  "raw_file": "nursing_priority-r0-c32.jsonl.gz"
+}

@@ -1,0 +1,11 @@
+{
+  "family": "tcm_syndrome",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 61.22072045796085,
+  "stop": null,
+  "raw_file": "tcm_syndrome-r1-c32.jsonl.gz"
+}

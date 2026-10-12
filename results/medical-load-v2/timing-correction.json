@@ -1,0 +1,4 @@
+{
+  "recorded_at": "2026-10-12T15:12:03.523849+00:00",
+  "reason": "Rate-limited workers can finish admissions before the planned boundary. Corrected runner waits to the full observation boundary and drains previous-task quota reservations before the new window starts. All previous Qwen load windows are retained under superseded-timing and excluded; quality responses are retained. Flash has no token pacing; completed valid Flash windows are unchanged."
+}

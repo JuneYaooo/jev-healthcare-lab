@@ -1,0 +1,11 @@
+{
+  "family": "infection_precaution",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 28.865345541969873,
+  "stop": null,
+  "raw_file": "infection_precaution-r0-c8.jsonl.gz"
+}

@@ -1,0 +1,11 @@
+{
+  "family": "infection_precaution",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.731037958001252,
+  "stop": null,
+  "raw_file": "infection_precaution-r0-c32.jsonl.gz"
+}

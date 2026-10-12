@@ -1,0 +1,11 @@
+{
+  "family": "trial_referral",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 26.361103000002913,
+  "stop": null,
+  "raw_file": "trial_referral-r0-c8.jsonl.gz"
+}

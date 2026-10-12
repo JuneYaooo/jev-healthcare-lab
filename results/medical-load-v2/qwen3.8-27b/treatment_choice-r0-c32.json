@@ -1,0 +1,11 @@
+{
+  "family": "treatment_choice",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 27.0663787079975,
+  "stop": null,
+  "raw_file": "treatment_choice-r0-c32.jsonl.gz"
+}

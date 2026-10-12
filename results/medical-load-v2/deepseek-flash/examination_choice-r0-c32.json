@@ -1,0 +1,11 @@
+{
+  "family": "examination_choice",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 25.19843166699866,
+  "stop": null,
+  "raw_file": "examination_choice-r0-c32.jsonl.gz"
+}

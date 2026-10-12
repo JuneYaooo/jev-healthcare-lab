@@ -1,0 +1,57 @@
+{
+  "item_id": "clinical_grade/b8/0",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-12T14:12:07.129304+00:00",
+  "queued_s": 1.6600824892520905e-07,
+  "http_start_s": 6.879097782075405e-05,
+  "request_sha256": "7f950c79220cc41bc46f38b59549cc4d08bfa4993192b060222afb8814c2bf5a",
+  "decisions": 8,
+  "http_status": 200,
+  "response": {
+    "id": "74c469b9-44c5-4e0d-ae92-4ccd9fde3978",
+    "object": "chat.completion",
+    "created": 1791814327,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"q000\":\"C\",\"q001\":\"C\",\"q002\":\"D\",\"q003\":\"D\",\"q004\":\"opc\",\"q005\":\"D\",\"q006\":\"D\",\"q007\":\"C\"}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1451,
+      "completion_tokens": 42,
+      "total_tokens": 1493,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 1451
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "completion_s": 0.887455832969863,
+  "http_s": 0.8873870419920422,
+  "end_to_end_s": 0.887455666961614,
+  "predicted": {
+    "q000": "C",
+    "q001": "C",
+    "q002": "D",
+    "q003": "D",
+    "q004": "opc",
+    "q005": "D",
+    "q006": "D",
+    "q007": "C"
+  },
+  "valid": 8,
+  "correct": 2,
+  "cost_cny": [
+    0.001634696205,
+    0.00326939241
+  ]
+}

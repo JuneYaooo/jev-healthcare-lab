@@ -1,0 +1,11 @@
+{
+  "family": "patient_contraindication",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 31.37481441698037,
+  "stop": null,
+  "raw_file": "patient_contraindication-r1-c32.jsonl.gz"
+}

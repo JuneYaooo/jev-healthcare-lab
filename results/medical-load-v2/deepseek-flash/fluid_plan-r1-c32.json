@@ -1,0 +1,11 @@
+{
+  "family": "fluid_plan",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 40.588874875043985,
+  "stop": null,
+  "raw_file": "fluid_plan-r1-c32.jsonl.gz"
+}

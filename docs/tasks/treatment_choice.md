@@ -28,96 +28,54 @@
 
 ## 如何作答与评分
 
-根据材料从 `request.questions.decision.criteria` 选择一个选项键。`gold` 不向模型发送。缺失或无效回答按错计。按各题候选独立评分，只报告准确率和来源组结果；不对局部选项键计算临床类别 F1。
+根据材料从 `request.questions.decision.criteria` 选择一个选项键。`gold` 不向模型发送。缺失或无效回答按错计。本轮指标见下方任务表；固定临床类别与题内位置选项分开处理。
 
-合并任务后，本次所选许可范围内所有有题任务均计入所属范围的汇总分。少于 20 题标记为小样本，成绩可能波动较大；该标记不影响计分，辅助任务不计入临床主分数。
+本轮按任务报告；少于 20 题作为探索性结果，不计入首页汇总图。
 
-本轮各模型使用相同题目进行测试；完整计时与失败明细见 [模型对比](../MODEL_RESULTS.md)。
-
-## 模型结果
-
-以下成绩使用本页全部已收录题目；耗时包括请求、响应处理及重试等待。
-
-有效回答表示返回合法选项，不代表正确；平均值和分位数包含已启动题目的失败耗时。任务总秒为含并发调度的墙钟时间，不是单题耗时之和。响应链接包含该模型全部题目，可按本页任务的题目 ID 查找。
-
-加粗表示本任务的最高准确率或最短用时；按显示精度并列时同时加粗，全部相同则不标记。
-
-| 模型 | 准确率 ↑ | 有效回答 / 题数 | 平均秒 ↓ | P50 秒 ↓ | P95 秒 ↓ | 任务总秒 ↓ | 超时 / 请求失败 / 无效回答 | 原始记录 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| JEV 1.13 | 78.00% | 100 / 100 | 0.923 | 0.885 | 1.122 | 12.639 | 0 / 0 / 0 | [配置](../../results/clinical-v1/jev-1.13.0/config.json) · [响应](../../results/clinical-v1/jev-1.13.0/responses.jsonl) · [评分](../../results/clinical-v1/jev-1.13.0/scores.json) |
-| DeepSeek V4.1 Flash | **82.00%** | 100 / 100 | **0.454** | **0.439** | **0.640** | **6.052** | 0 / 0 / 0 | [配置](../../results/clinical-v1/deepseek-flash/config.json) · [响应](../../results/clinical-v1/deepseek-flash/responses.jsonl) · [评分](../../results/clinical-v1/deepseek-flash/scores.json) |
-| DeepSeek V4 Pro | 74.00% | 100 / 100 | 0.946 | 0.923 | 1.279 | 12.260 | 0 / 0 / 0 | [配置](../../results/clinical-v1/deepseek-v4-pro/config.json) · [响应](../../results/clinical-v1/deepseek-v4-pro/responses.jsonl) · [评分](../../results/clinical-v1/deepseek-v4-pro/scores.json) |
-| Qwen3.5-9B | 51.00% | 100 / 100 | 0.861 | 0.627 | 2.070 | 12.156 | 0 / 0 / 0 | [配置](../../results/clinical-v1/qwen3.5-9b/config.json) · [响应](../../results/clinical-v1/qwen3.5-9b/responses.jsonl) · [评分](../../results/clinical-v1/qwen3.5-9b/scores.json) |
-| Qwen3.8-27B | 72.00% | 100 / 100 | 2.486 | 1.781 | 7.001 | 31.418 | 0 / 0 / 0 | [配置](../../results/clinical-v1/qwen3.8-27b/config.json) · [响应](../../results/clinical-v1/qwen3.8-27b/responses.jsonl) · [评分](../../results/clinical-v1/qwen3.8-27b/scores.json) |
+当前比较的材料、计分和额度条件见[医疗多问题评估方法](../MEDICAL_LOAD.md)。
 
 ## 多问题与并发性能
 
-持续多题并发尚未测试。以下为历史有限批次结果，不作为高并发高吞吐证据。
+<a id="treatment_choice"></a>
 
-### 历史有限批次测试
+### 当前多题评测
 
-固定本任务 32 道原题，每种模式、每个模型各运行三轮；各模式使用完全相同的题目与金标。单题原始输入保持不变，多题把不同原题材料放入各自记录，并要求逐题独立判断。这是同任务多病例／多材料批量判断，不是同一患者新增多项临床判断。
+**表 11｜治疗方案选择：100 项独立判断，100 个来源组；每请求最多 8 项。准确率测试配置 8 并发，负载测试配置 32 并发。**
 
-取样结果用于性能与批量准确率比较，不替代上方全题量的临床成绩。包含非商业材料的任务继承原来源许可。JEV 与 Flash 使用各自原生接口，Flash 关闭思考并返回题号到选项键的精简 JSON；其他三模型尚未进行本轮性能测试。
+| 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
+| --- | ---: | ---: | ---: | ---: |
+| JEV 1.13 | — | — | — | — |
+| DeepSeek V4.1 Flash | 73.00 | 178.57 | 3.063 | 0.214–0.428 |
+| Qwen3.5-9B | 57.00 | 4.40 | 6.105 | 0.126 |
+| Qwen3.8-27B | 72.00 | 2.00 | — | 0.704 |
 
-表中整组耗时为三轮完成整组题目的墙钟均值，吞吐为三轮有效／正确决策总数除以三轮墙钟总和，包含失败拖尾。单请求题数为实际值；超过上下文预算会拆包，材料不截断。并发是同时请求数，不是单请求问题数。
+准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-历史多题结果（固定最大打包档，对比 Flash）：JEV 84.38%，Flash 75.00%；JEV 耗时多 1.2%；JEV 成本低 8.3%–54.2%。具体准确率与费用仅对应下述性能子集，不代表全量成绩或其他调用方式。
-
-| 模式 | 并发 | 每请求实际题数 | 模型 | 准确率 | 整组平均秒 | 有效 / 正确决策每秒 | 完整包 / 请求 | 失败或无效请求 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 逐题 | 1 | 1 | JEV 1.13 | 84.38% | 8.397 | 3.81 / 3.22 | 96 / 96 | 0 |
-| 逐题 | 1 | 1 | DeepSeek V4.1 Flash | 75.00% | 20.481 | 1.56 / 1.17 | 96 / 96 | 0 |
-| 逐题 | 8 | 1 | JEV 1.13 | 84.38% | 1.689 | 18.95 / 15.99 | 96 / 96 | 0 |
-| 逐题 | 8 | 1 | DeepSeek V4.1 Flash | 75.00% | 3.076 | 10.40 / 7.80 | 96 / 96 | 0 |
-| 逐题 | 32 | 1 | JEV 1.13 | 84.38% | 0.603 | 53.09 / 44.79 | 96 / 96 | 0 |
-| 逐题 | 32 | 1 | DeepSeek V4.1 Flash | 78.12% | 1.014 | 31.57 / 24.66 | 96 / 96 | 0 |
-| 多题打包 | 1 | 8 | JEV 1.13 | 90.62% | 0.997 | 32.11 / 29.10 | 12 / 12 | 0 |
-| 多题打包 | 1 | 8 | DeepSeek V4.1 Flash | 72.92% | 3.158 | 9.71 / 7.39 | 8 / 12 | 4 |
-| 多题打包 | 1 | 32 | JEV 1.13 | 84.38% | 1.079 | 29.65 / 25.02 | 3 / 3 | 0 |
-| 多题打包 | 1 | 32 | DeepSeek V4.1 Flash | 75.00% | 1.066 | 30.02 / 22.51 | 3 / 3 | 0 |
+![治疗方案选择的并发吞吐对比](../../docs/assets/medical-load-v2/treatment_choice.svg)
 
 <details>
-<summary>重复波动、请求耗时、失败与原始响应</summary>
+<summary>查看本任务的两个并发档</summary>
 
-| 模式 | 模型 | 整组秒范围 | 请求 P50 秒 | 请求 P95 秒 | 最长请求秒 | 429 | 请求失败 / 超时 / 无效 | 原始响应 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 逐题 B≤1 / C1 | JEV 1.13 | 7.896–9.310 | 0.254 | 0.308 | 0.641 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-150.jsonl) · [轮2](../../results/task-performance-v1/cell-259.jsonl) · [轮3](../../results/task-performance-v1/cell-532.jsonl) |
-| 逐题 B≤1 / C1 | DeepSeek V4.1 Flash | 18.324–21.914 | 0.599 | 1.049 | 1.394 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-055.jsonl) · [轮2](../../results/task-performance-v1/cell-251.jsonl) · [轮3](../../results/task-performance-v1/cell-698.jsonl) |
-| 逐题 B≤1 / C8 | JEV 1.13 | 1.180–2.106 | 0.274 | 0.986 | 1.582 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-061.jsonl) · [轮2](../../results/task-performance-v1/cell-254.jsonl) · [轮3](../../results/task-performance-v1/cell-617.jsonl) |
-| 逐题 B≤1 / C8 | DeepSeek V4.1 Flash | 2.977–3.177 | 0.629 | 0.905 | 1.220 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-084.jsonl) · [轮2](../../results/task-performance-v1/cell-362.jsonl) · [轮3](../../results/task-performance-v1/cell-687.jsonl) |
-| 逐题 B≤1 / C32 | JEV 1.13 | 0.332–1.131 | 0.261 | 0.584 | 1.123 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-191.jsonl) · [轮2](../../results/task-performance-v1/cell-334.jsonl) · [轮3](../../results/task-performance-v1/cell-579.jsonl) |
-| 逐题 B≤1 / C32 | DeepSeek V4.1 Flash | 0.874–1.178 | 0.645 | 0.959 | 1.173 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-149.jsonl) · [轮2](../../results/task-performance-v1/cell-265.jsonl) · [轮3](../../results/task-performance-v1/cell-552.jsonl) |
-| 多题打包 B≤8 / C1 | JEV 1.13 | 0.933–1.055 | 0.240 | 样本不足 | 0.286 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-169.jsonl) · [轮2](../../results/task-performance-v1/cell-419.jsonl) · [轮3](../../results/task-performance-v1/cell-520.jsonl) |
-| 多题打包 B≤8 / C1 | DeepSeek V4.1 Flash | 2.876–3.399 | 0.796 | 样本不足 | 0.998 | 0 | 0 / 0 / 4 | [轮1](../../results/task-performance-v1/cell-041.jsonl) · [轮2](../../results/task-performance-v1/cell-462.jsonl) · [轮3](../../results/task-performance-v1/cell-628.jsonl) |
-| 多题打包 B≤32 / C1 | JEV 1.13 | 0.281–1.976 | 0.981 | 样本不足 | 1.976 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-180.jsonl) · [轮2](../../results/task-performance-v1/cell-395.jsonl) · [轮3](../../results/task-performance-v1/cell-485.jsonl) |
-| 多题打包 B≤32 / C1 | DeepSeek V4.1 Flash | 0.913–1.198 | 1.087 | 样本不足 | 1.198 | 0 | 0 / 0 / 0 | [轮1](../../results/task-performance-v1/cell-210.jsonl) · [轮2](../../results/task-performance-v1/cell-311.jsonl) · [轮3](../../results/task-performance-v1/cell-539.jsonl) |
+**表 11a｜治疗方案选择：每请求最多 8 项，负载题集 32 项，各档两轮。**
 
-请求耗时包含完整接收与校验，不含客户端排队；整组耗时包含排队。少于 20 次请求不展示 P95。
+| 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
+| --- | ---: | ---: | ---: | ---: |
+| JEV 1.13 | 8 | — | — | — |
+| DeepSeek V4.1 Flash | 8 | 66.12 | 1.330 | 7.99 |
+| Qwen3.5-9B | 8 | 4.40 | 4.483 | 1.22 |
+| Qwen3.8-27B | 8 | 2.17 | — | 1.86 |
+| JEV 1.13 | 32 | — | — | — |
+| DeepSeek V4.1 Flash | 32 | 178.57 | 3.063 | 31.99 |
+| Qwen3.5-9B | 32 | 4.40 | 6.105 | 1.31 |
+| Qwen3.8-27B | 32 | 2.00 | — | 1.78 |
+
+配置并发是工作器上限；实际在途请求可能因账户额度更少。P95 不含客户端额度等待；不足 20 个完整响应时不报告 P95。
 
 </details>
 
-<details>
-<summary>每千次正确决策成本</summary>
+[评估方法](../../docs/MEDICAL_LOAD.md) · [原始记录与计价依据](../../results/medical-load-v2/README.md)
 
-| 模式 | 模型 | 估算 USD / 千次正确决策 | 缺用量请求 |
-| --- | --- | --- | --- |
-| 逐题 B≤1 / C1 | JEV 1.13 | 0.0247 | 0 |
-| 逐题 B≤1 / C1 | DeepSeek V4.1 Flash | 0.0464–0.0928 | 0 |
-| 逐题 B≤1 / C8 | JEV 1.13 | 0.0247 | 0 |
-| 逐题 B≤1 / C8 | DeepSeek V4.1 Flash | 0.0464–0.0928 | 0 |
-| 逐题 B≤1 / C32 | JEV 1.13 | 0.0247 | 0 |
-| 逐题 B≤1 / C32 | DeepSeek V4.1 Flash | 0.0446–0.0892 | 0 |
-| 多题打包 B≤8 / C1 | JEV 1.13 | 0.0142 | 0 |
-| 多题打包 B≤8 / C1 | DeepSeek V4.1 Flash | 0.0213–0.0426 | 0 |
-| 多题打包 B≤32 / C1 | JEV 1.13 | 0.0140 | 0 |
-| 多题打包 B≤32 / C1 | DeepSeek V4.1 Flash | 0.0153–0.0305 | 0 |
-
-按归档价目与实际 usage 估算；Flash 含缓存命中与输出费用，区间对应闲时至高峰价格。缺用量时不填完整单位成本，非账单费用。
-
-</details>
-
-连接池显式预热并跨单元复用，网络与供应商缓存仍会影响结果；各模式是有限批次测试，不能外推持续服务容量。[完整协议](../TASK_PERFORMANCE.md) · [冻结题目](../../benchmarks/task_performance_v1/README.md) · [运行配置](../../results/task-performance-v1/config.json)
+[历史单题测试](../MODEL_RESULTS.md) · [历史有限批次测试](../TASK_PERFORMANCE.md)；与本轮分开归档。
 
 ## 收录样例
 

@@ -1,0 +1,11 @@
+{
+  "family": "fluid_plan",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.101410790986847,
+  "stop": null,
+  "raw_file": "fluid_plan-r0-c8.jsonl.gz"
+}

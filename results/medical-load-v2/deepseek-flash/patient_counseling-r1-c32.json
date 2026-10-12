@@ -1,0 +1,11 @@
+{
+  "family": "patient_counseling",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.09832920896588,
+  "stop": null,
+  "raw_file": "patient_counseling-r1-c32.jsonl.gz"
+}

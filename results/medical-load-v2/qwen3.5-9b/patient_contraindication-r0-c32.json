@@ -1,0 +1,11 @@
+{
+  "family": "patient_contraindication",
+  "model": "qwen3.5-9b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.447699250013102,
+  "stop": null,
+  "raw_file": "patient_contraindication-r0-c32.jsonl.gz"
+}

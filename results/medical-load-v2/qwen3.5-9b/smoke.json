@@ -1,0 +1,59 @@
+{
+  "item_id": "clinical_grade/b8/0",
+  "model": "qwen3.5-9b",
+  "started_at": "2026-10-12T14:12:07.129462+00:00",
+  "queued_s": 1.6705598682165146e-07,
+  "http_start_s": 6.495800334960222e-05,
+  "request_sha256": "f7019f7d3ee7fded42a2257052a0b099a79634d7fbfede47ed02a3046f1be1ca",
+  "decisions": 8,
+  "http_status": 200,
+  "response": {
+    "id": "01a13074dc228a679bb68ec223ebdcc9",
+    "object": "chat.completion",
+    "created": 1791814327,
+    "model": "Qwen/Qwen3.5-9B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"q000\":\"D\",\"q001\":\"B\",\"q002\":\"D\",\"q003\":\"C\",\"q004\":\"C\",\"q005\":\"B\",\"q006\":\"E\",\"q007\":\"C\"}"
+        },
+        "finish_reason": "stop",
+        "logprobs": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1447,
+      "completion_tokens": 57,
+      "total_tokens": 1504,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 1447
+    },
+    "system_fingerprint": ""
+  },
+  "completion_s": 3.012712708034087,
+  "http_s": 3.0126477500307374,
+  "end_to_end_s": 3.0127125409781,
+  "predicted": {
+    "q000": "D",
+    "q001": "B",
+    "q002": "D",
+    "q003": "C",
+    "q005": "B",
+    "q006": "E",
+    "q007": "C"
+  },
+  "valid": 7,
+  "correct": 5,
+  "cost_cny": [
+    0.0009515,
+    0.0009515
+  ]
+}

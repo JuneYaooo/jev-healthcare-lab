@@ -1,0 +1,11 @@
+{
+  "family": "tcm_syndrome",
+  "model": "qwen3.8-27b",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 120,
+  "warmup_s": 3,
+  "wall_s": 124.78091995796422,
+  "stop": null,
+  "raw_file": "tcm_syndrome-r1-c8.jsonl.gz"
+}

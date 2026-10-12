@@ -1,0 +1,11 @@
+{
+  "family": "prevention_choice",
+  "model": "qwen3.8-27b",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.771863542031497,
+  "stop": null,
+  "raw_file": "prevention_choice-r1-c8.jsonl.gz"
+}

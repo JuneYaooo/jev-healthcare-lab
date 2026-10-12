@@ -1,0 +1,11 @@
+{
+  "family": "case_etiology",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.89722433302086,
+  "stop": null,
+  "raw_file": "case_etiology-r0-c8.jsonl.gz"
+}

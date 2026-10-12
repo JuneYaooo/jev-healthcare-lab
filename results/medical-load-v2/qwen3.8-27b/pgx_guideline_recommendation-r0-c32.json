@@ -1,0 +1,11 @@
+{
+  "family": "pgx_guideline_recommendation",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 28.00933333333333,
+  "warmup_s": 3,
+  "wall_s": 109.77561304200208,
+  "stop": null,
+  "raw_file": "pgx_guideline_recommendation-r0-c32.jsonl.gz"
+}

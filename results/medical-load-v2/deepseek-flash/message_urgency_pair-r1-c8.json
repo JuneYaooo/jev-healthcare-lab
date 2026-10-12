@@ -1,0 +1,11 @@
+{
+  "family": "message_urgency_pair",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.868205834005494,
+  "stop": null,
+  "raw_file": "message_urgency_pair-r1-c8.jsonl.gz"
+}

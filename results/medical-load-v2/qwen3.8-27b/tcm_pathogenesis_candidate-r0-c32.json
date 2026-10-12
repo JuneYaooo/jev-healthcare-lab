@@ -1,0 +1,11 @@
+{
+  "family": "tcm_pathogenesis_candidate",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 24.636,
+  "warmup_s": 3,
+  "wall_s": 114.17715891700936,
+  "stop": null,
+  "raw_file": "tcm_pathogenesis_candidate-r0-c32.jsonl.gz"
+}

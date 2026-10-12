@@ -43,7 +43,19 @@ class TaskPerformanceArchiveTests(unittest.TestCase):
         readme = (root / 'README.md').read_text()
         self.assertNotIn('## 多问题与并发性能补充', readme)
         sustained = (root / 'results/sustained-throughput-v1/comparison.json').exists()
-        if sustained:
+        medical = (root / 'results/medical-load-v2/comparison.json').exists()
+        if medical:
+            current = json.loads((root / 'results/medical-load-v2/comparison.json').read_text())
+            self.assertIn('| 医疗场景 | 具体任务 | 独立题量 | 模型 |', readme)
+            self.assertIn('overview.png', readme)
+            for fid, family in current['families'].items():
+                self.assertIn(f"[{family['title']}](#{fid})", readme)
+                self.assertIn(f"{family['decisions']} 项独立判断", readme)
+            for model in current['models'].values():
+                self.assertIn(model['label'], readme)
+            for obsolete in ['失败或无效请求', '完整包 / 请求', '有效 / 正确决策每秒']:
+                self.assertNotIn(obsolete, readme)
+        elif sustained:
             self.assertEqual(readme.count('| 配置并发 | 模型 | 判断／秒 ↑ |'), 5)
             self.assertEqual(readme.count('| JEV 1.13 |'), 14)
             self.assertEqual(readme.count('| Flash |'), 14)
@@ -57,18 +69,22 @@ class TaskPerformanceArchiveTests(unittest.TestCase):
         self.assertNotIn('## 模型得分与耗时对比', readme)
         self.assertNotIn('全量准确率：五模型比较', readme)
         self.assertNotIn('jev-medical-score-time-v1.svg', readme)
-        if not sustained:
+        if not sustained and not medical:
             self.assertIn('多题请求同时并发的组合尚未测试', readme)
         manifest = report.runner.verify_dataset(report.runner.DATASET)
         for family in manifest['families']:
             page = (root / 'docs/tasks' / (family['id'] + '.md')).read_text()
             self.assertIn('## 多问题与并发性能', page)
-            if sustained and family['id'] in {'case_complication','medication_choice','diagnosis','tcm_syndrome'}:
+            if medical and family['selected']:
+                self.assertIn('查看本任务的两个并发档', page)
+                self.assertNotIn('失败或无效请求', page)
+                self.assertIn('Qwen3.8-27B', page)
+            elif sustained and family['id'] in {'case_complication','medication_choice','diagnosis','tcm_syndrome'}:
                 self.assertIn('### 持续多题并发', page)
                 self.assertIn('### 历史有限批次测试', page)
-            if family['selected']:
+            if family['selected'] and not medical:
                 self.assertIn(f"固定本任务 {family['selected']} 道原题", page)
-            else:
+            elif not family['selected']:
                 self.assertIn('测试均待补', page)
 
 

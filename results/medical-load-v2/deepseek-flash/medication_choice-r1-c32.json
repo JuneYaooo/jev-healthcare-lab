@@ -1,0 +1,11 @@
+{
+  "family": "medication_choice",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.798312333005015,
+  "stop": null,
+  "raw_file": "medication_choice-r1-c32.jsonl.gz"
+}

@@ -1,0 +1,11 @@
+{
+  "family": "case_etiology",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 112.99698699999135,
+  "stop": null,
+  "raw_file": "case_etiology-r0-c32.jsonl.gz"
+}

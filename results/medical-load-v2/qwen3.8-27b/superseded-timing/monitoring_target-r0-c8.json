@@ -1,0 +1,11 @@
+{
+  "family": "monitoring_target",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 25.27920891699614,
+  "stop": null,
+  "raw_file": "monitoring_target-r0-c8.jsonl.gz"
+}

@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-12T14:38:41.388531+00:00",
+  "reason": "Pre-HTTP connection failures affected multiple providers. Fresh DNS requests recovered. Switched from indefinitely frozen addresses to ordinary system DNS with 60s cache, clear on connection failure; add a 10-of-20 service-error circuit. Prior windows with at least half pre-HTTP connection failures or a stop condition excluded and retained; same cells rerun. Connector failures are unbilled because no HTTP request was sent. Other missing usage keeps conservative budget reservations.",
+  "excluded_cells": [
+    "deepseek-flash/excluded/case_etiology-r0-c32.json",
+    "deepseek-flash/excluded/case_etiology-r0-c8.json",
+    "deepseek-flash/excluded/pgx_guideline_recommendation-r0-c32.json",
+    "deepseek-flash/excluded/pgx_guideline_recommendation-r0-c8.json",
+    "deepseek-flash/excluded/tcm_pathogenesis_candidate-r0-c32.json"
+  ],
+  "uniform_rule": "Exclude any window that would meet the 10 HTTP errors in a rolling 20-request circuit; apply identically to earlier and resumed measurements."
+}

@@ -1,0 +1,11 @@
+{
+  "family": "patient_counseling",
+  "model": "qwen3.8-27b",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.000993208028376,
+  "stop": null,
+  "raw_file": "patient_counseling-r1-c32.jsonl.gz"
+}

@@ -1,0 +1,928 @@
+{
+  "version": 2,
+  "created_at": "2026-10-12T14:12:06.940048+00:00",
+  "seed": 2026101204,
+  "models": [
+    "jev-1.13.0",
+    "deepseek-flash",
+    "qwen3.5-9b",
+    "qwen3.8-27b"
+  ],
+  "families": [
+    {
+      "id": "clinical_grade",
+      "title": "疾病分期与严重程度判断",
+      "scenario": "diagnosis",
+      "task_ids": [
+        "clinical_grade"
+      ],
+      "ability_tags": [
+        "rules"
+      ],
+      "records": 100,
+      "sources": {
+        "cmb": 70,
+        "cnmleqa": 30
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 99,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "clinical_grade/b8/0",
+        "clinical_grade/b8/1",
+        "clinical_grade/b8/2",
+        "clinical_grade/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "trial_referral",
+      "title": "患者临床试验初筛与转介判断",
+      "scenario": "trials",
+      "task_ids": [
+        "trial_referral"
+      ],
+      "ability_tags": [
+        "eligibility",
+        "evidence"
+      ],
+      "records": 100,
+      "sources": {
+        "trialgpt": 100
+      },
+      "languages": {
+        "en": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 58,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "trial_referral/b8/0",
+        "trial_referral/b8/1",
+        "trial_referral/b8/2",
+        "trial_referral/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "patient_contraindication",
+      "title": "患者方案禁忌判断",
+      "scenario": "treatment",
+      "task_ids": [
+        "patient_contraindication"
+      ],
+      "ability_tags": [
+        "eligibility"
+      ],
+      "records": 54,
+      "sources": {
+        "cnmleqa": 21,
+        "cmb": 33
+      },
+      "languages": {
+        "zh": 54
+      },
+      "distribution": {
+        "open": 54
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 53,
+      "decisions": 54,
+      "batch": 8,
+      "load_ids": [
+        "patient_contraindication/b8/0",
+        "patient_contraindication/b8/1",
+        "patient_contraindication/b8/2",
+        "patient_contraindication/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "triage_urgency",
+      "title": "分诊与就医紧急程度判断",
+      "scenario": "intake",
+      "task_ids": [
+        "triage_urgency"
+      ],
+      "ability_tags": [
+        "risk"
+      ],
+      "records": 100,
+      "sources": {
+        "care_bench": 100
+      },
+      "languages": {
+        "en": 100
+      },
+      "distribution": {
+        "research_noncommercial": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 62,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "triage_urgency/b8/0",
+        "triage_urgency/b8/1",
+        "triage_urgency/b8/2",
+        "triage_urgency/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "diagnosis",
+      "title": "病例诊断选择",
+      "scenario": "diagnosis",
+      "task_ids": [
+        "synthetic_diagnosis",
+        "diagnosis_choice"
+      ],
+      "ability_tags": [
+        "clinical"
+      ],
+      "records": 200,
+      "sources": {
+        "ddxplus": 100,
+        "cmb": 50,
+        "cnmleqa": 50
+      },
+      "languages": {
+        "en": 100,
+        "zh": 100
+      },
+      "distribution": {
+        "open": 200
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 200,
+      "decisions": 200,
+      "batch": 8,
+      "load_ids": [
+        "diagnosis/b8/0",
+        "diagnosis/b8/1",
+        "diagnosis/b8/2",
+        "diagnosis/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "examination_choice",
+      "title": "检查方案选择",
+      "scenario": "testing",
+      "task_ids": [
+        "examination_choice"
+      ],
+      "ability_tags": [
+        "clinical"
+      ],
+      "records": 100,
+      "sources": {
+        "cnmleqa": 81,
+        "cmb": 19
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 100,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "examination_choice/b8/0",
+        "examination_choice/b8/1",
+        "examination_choice/b8/2",
+        "examination_choice/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "treatment_choice",
+      "title": "治疗方案选择",
+      "scenario": "treatment",
+      "task_ids": [
+        "treatment_choice"
+      ],
+      "ability_tags": [
+        "clinical"
+      ],
+      "records": 100,
+      "sources": {
+        "cmb": 46,
+        "cnmleqa": 54
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 100,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "treatment_choice/b8/0",
+        "treatment_choice/b8/1",
+        "treatment_choice/b8/2",
+        "treatment_choice/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "medication_choice",
+      "title": "用药方案选择",
+      "scenario": "treatment",
+      "task_ids": [
+        "medication_choice"
+      ],
+      "ability_tags": [
+        "clinical"
+      ],
+      "records": 100,
+      "sources": {
+        "cnmleqa": 88,
+        "cmb": 12
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 100,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "medication_choice/b8/0",
+        "medication_choice/b8/1",
+        "medication_choice/b8/2",
+        "medication_choice/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "tcm_syndrome",
+      "title": "中医证型判断",
+      "scenario": "diagnosis",
+      "task_ids": [
+        "tcm_syndrome"
+      ],
+      "ability_tags": [
+        "clinical"
+      ],
+      "records": 100,
+      "sources": {
+        "tcm_sd": 100
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "research_noncommercial": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 100,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "tcm_syndrome/b8/0",
+        "tcm_syndrome/b8/1",
+        "tcm_syndrome/b8/2",
+        "tcm_syndrome/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "message_urgency_pair",
+      "title": "患者消息处理优先级",
+      "scenario": "intake",
+      "task_ids": [
+        "message_urgency_pair"
+      ],
+      "ability_tags": [
+        "risk"
+      ],
+      "records": 30,
+      "sources": {
+        "pmr_synth": 30
+      },
+      "languages": {
+        "en": 30
+      },
+      "distribution": {
+        "research_noncommercial": 30
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 30,
+      "decisions": 30,
+      "batch": 8,
+      "load_ids": [
+        "message_urgency_pair/b8/0",
+        "message_urgency_pair/b8/1",
+        "message_urgency_pair/b8/2",
+        "message_urgency_pair/b8/3"
+      ],
+      "load_decisions": 30
+    },
+    {
+      "id": "case_etiology",
+      "title": "病例病因判断",
+      "scenario": "diagnosis",
+      "task_ids": [
+        "case_etiology"
+      ],
+      "ability_tags": [
+        "clinical"
+      ],
+      "records": 100,
+      "sources": {
+        "cnmleqa": 50,
+        "cmb": 50
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 100,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "case_etiology/b8/0",
+        "case_etiology/b8/1",
+        "case_etiology/b8/2",
+        "case_etiology/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "case_complication",
+      "title": "病例并发症判断",
+      "scenario": "inpatient",
+      "task_ids": [
+        "case_complication"
+      ],
+      "ability_tags": [
+        "risk"
+      ],
+      "records": 100,
+      "sources": {
+        "cnmleqa": 36,
+        "cmb": 64
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 96,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "case_complication/b8/0",
+        "case_complication/b8/1",
+        "case_complication/b8/2",
+        "case_complication/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "nursing_priority",
+      "title": "护理措施选择",
+      "scenario": "inpatient",
+      "task_ids": [
+        "nursing_priority"
+      ],
+      "ability_tags": [
+        "workflow"
+      ],
+      "records": 42,
+      "sources": {
+        "cmb": 42
+      },
+      "languages": {
+        "zh": 42
+      },
+      "distribution": {
+        "open": 42
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 42,
+      "decisions": 42,
+      "batch": 8,
+      "load_ids": [
+        "nursing_priority/b8/0",
+        "nursing_priority/b8/1",
+        "nursing_priority/b8/2",
+        "nursing_priority/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "fluid_plan",
+      "title": "补液方案选择",
+      "scenario": "treatment",
+      "task_ids": [
+        "fluid_plan"
+      ],
+      "ability_tags": [
+        "rules"
+      ],
+      "records": 16,
+      "sources": {
+        "cmb": 9,
+        "cnmleqa": 7
+      },
+      "languages": {
+        "zh": 16
+      },
+      "distribution": {
+        "open": 16
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 15,
+      "decisions": 16,
+      "batch": 8,
+      "load_ids": [
+        "fluid_plan/b8/0",
+        "fluid_plan/b8/1"
+      ],
+      "load_decisions": 16
+    },
+    {
+      "id": "pgx_guideline_recommendation",
+      "title": "药物基因结果对应的指南建议选择",
+      "scenario": "treatment",
+      "task_ids": [
+        "pgx_guideline_recommendation"
+      ],
+      "ability_tags": [
+        "eligibility"
+      ],
+      "records": 100,
+      "sources": {
+        "cpic": 100
+      },
+      "languages": {
+        "en": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 25,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "pgx_guideline_recommendation/b8/0",
+        "pgx_guideline_recommendation/b8/1",
+        "pgx_guideline_recommendation/b8/2",
+        "pgx_guideline_recommendation/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "tcm_pathogenesis_candidate",
+      "title": "中医候选病机判断",
+      "scenario": "diagnosis",
+      "task_ids": [
+        "tcm_pathogenesis_candidate"
+      ],
+      "ability_tags": [
+        "classification"
+      ],
+      "records": 100,
+      "sources": {
+        "tcmeval_sdt": 100
+      },
+      "languages": {
+        "zh": 100
+      },
+      "distribution": {
+        "open": 100
+      },
+      "small_sample": false,
+      "status": "summary_eligible",
+      "cases": 50,
+      "decisions": 100,
+      "batch": 8,
+      "load_ids": [
+        "tcm_pathogenesis_candidate/b8/0",
+        "tcm_pathogenesis_candidate/b8/1",
+        "tcm_pathogenesis_candidate/b8/2",
+        "tcm_pathogenesis_candidate/b8/3"
+      ],
+      "load_decisions": 32
+    },
+    {
+      "id": "nutrition_plan",
+      "title": "营养与饮食方案选择",
+      "scenario": "inpatient",
+      "task_ids": [
+        "nutrition_plan"
+      ],
+      "ability_tags": [
+        "classification"
+      ],
+      "records": 11,
+      "sources": {
+        "cmb": 10,
+        "cnmleqa": 1
+      },
+      "languages": {
+        "zh": 11
+      },
+      "distribution": {
+        "open": 11
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 11,
+      "decisions": 11,
+      "batch": 8,
+      "load_ids": [
+        "nutrition_plan/b8/0",
+        "nutrition_plan/b8/1"
+      ],
+      "load_decisions": 11
+    },
+    {
+      "id": "positioning_choice",
+      "title": "护理与操作体位选择",
+      "scenario": "inpatient",
+      "task_ids": [
+        "positioning_choice"
+      ],
+      "ability_tags": [
+        "classification"
+      ],
+      "records": 10,
+      "sources": {
+        "cnmleqa": 2,
+        "cmb": 8
+      },
+      "languages": {
+        "zh": 10
+      },
+      "distribution": {
+        "open": 10
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 10,
+      "decisions": 10,
+      "batch": 8,
+      "load_ids": [
+        "positioning_choice/b8/0",
+        "positioning_choice/b8/1"
+      ],
+      "load_decisions": 10
+    },
+    {
+      "id": "followup_plan",
+      "title": "复查项目与随访时机选择",
+      "scenario": "followup",
+      "task_ids": [
+        "followup_plan"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 6,
+      "sources": {
+        "cmb": 3,
+        "cnmleqa": 2,
+        "medmcqa": 1
+      },
+      "languages": {
+        "zh": 5,
+        "en": 1
+      },
+      "distribution": {
+        "open": 6
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 6,
+      "decisions": 6,
+      "batch": 8,
+      "load_ids": [
+        "followup_plan/b8/0"
+      ],
+      "load_decisions": 6
+    },
+    {
+      "id": "monitoring_target",
+      "title": "病情监测与疗效判断",
+      "scenario": "inpatient",
+      "task_ids": [
+        "monitoring_target"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 5,
+      "sources": {
+        "cmb": 5
+      },
+      "languages": {
+        "zh": 5
+      },
+      "distribution": {
+        "open": 5
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 5,
+      "decisions": 5,
+      "batch": 8,
+      "load_ids": [
+        "monitoring_target/b8/0"
+      ],
+      "load_decisions": 5
+    },
+    {
+      "id": "rehabilitation_choice",
+      "title": "康复训练方案选择",
+      "scenario": "followup",
+      "task_ids": [
+        "rehabilitation_choice"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 4,
+      "sources": {
+        "cmb": 4
+      },
+      "languages": {
+        "zh": 4
+      },
+      "distribution": {
+        "open": 4
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 4,
+      "decisions": 4,
+      "batch": 8,
+      "load_ids": [
+        "rehabilitation_choice/b8/0"
+      ],
+      "load_decisions": 4
+    },
+    {
+      "id": "prevention_choice",
+      "title": "预防措施选择",
+      "scenario": "followup",
+      "task_ids": [
+        "prevention_choice"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 13,
+      "sources": {
+        "cmb": 10,
+        "cnmleqa": 2,
+        "medmcqa": 1
+      },
+      "languages": {
+        "zh": 12,
+        "en": 1
+      },
+      "distribution": {
+        "open": 13
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 13,
+      "decisions": 13,
+      "batch": 8,
+      "load_ids": [
+        "prevention_choice/b8/0",
+        "prevention_choice/b8/1"
+      ],
+      "load_decisions": 13
+    },
+    {
+      "id": "infection_precaution",
+      "title": "感染防控措施选择",
+      "scenario": "inpatient",
+      "task_ids": [
+        "infection_precaution"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 5,
+      "sources": {
+        "cnmleqa": 1,
+        "cmb": 4
+      },
+      "languages": {
+        "zh": 5
+      },
+      "distribution": {
+        "open": 5
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 5,
+      "decisions": 5,
+      "batch": 8,
+      "load_ids": [
+        "infection_precaution/b8/0"
+      ],
+      "load_decisions": 5
+    },
+    {
+      "id": "patient_counseling",
+      "title": "健康教育与沟通行动选择",
+      "scenario": "followup",
+      "task_ids": [
+        "patient_counseling"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 11,
+      "sources": {
+        "cmb": 11
+      },
+      "languages": {
+        "zh": 11
+      },
+      "distribution": {
+        "open": 11
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 11,
+      "decisions": 11,
+      "batch": 8,
+      "load_ids": [
+        "patient_counseling/b8/0",
+        "patient_counseling/b8/1"
+      ],
+      "load_decisions": 11
+    },
+    {
+      "id": "administration_route_choice",
+      "title": "给药途径与实施方法选择",
+      "scenario": "treatment",
+      "task_ids": [
+        "administration_route_choice"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 4,
+      "sources": {
+        "cnmleqa": 1,
+        "cmb": 3
+      },
+      "languages": {
+        "zh": 4
+      },
+      "distribution": {
+        "open": 4
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 4,
+      "decisions": 4,
+      "batch": 8,
+      "load_ids": [
+        "administration_route_choice/b8/0"
+      ],
+      "load_decisions": 4
+    },
+    {
+      "id": "consent_action",
+      "title": "知情同意与隐私处置选择",
+      "scenario": "quality",
+      "task_ids": [
+        "consent_action"
+      ],
+      "ability_tags": [
+        "clinical",
+        "workflow"
+      ],
+      "records": 3,
+      "sources": {
+        "principlismqa": 2,
+        "cmb": 1
+      },
+      "languages": {
+        "en": 2,
+        "zh": 1
+      },
+      "distribution": {
+        "open": 3
+      },
+      "small_sample": true,
+      "status": "summary_eligible",
+      "cases": 3,
+      "decisions": 3,
+      "batch": 8,
+      "load_ids": [
+        "consent_action/b8/0"
+      ],
+      "load_decisions": 3
+    },
+    {
+      "id": "trial_shared_patient",
+      "title": "同一患者的多项试验转介筛选",
+      "scenario": "trials",
+      "cases": 8,
+      "decisions": 64,
+      "batch": 8,
+      "small_sample": true,
+      "load_ids": [
+        "trial_shared_patient/b8/0",
+        "trial_shared_patient/b8/1",
+        "trial_shared_patient/b8/2",
+        "trial_shared_patient/b8/3"
+      ],
+      "load_decisions": 32
+    }
+  ],
+  "concurrency": [
+    8,
+    32
+  ],
+  "repeats": 2,
+  "window_s": 20,
+  "warmup_s": 3,
+  "timeout_s": 90,
+  "budget_cny": 120,
+  "quality_concurrency": 8,
+  "rates": {
+    "jev-1.13.0": [
+      76,
+      90000
+    ],
+    "deepseek-flash": [
+      null,
+      null
+    ],
+    "qwen3.5-9b": [
+      15,
+      1200
+    ],
+    "qwen3.8-27b": [
+      15,
+      600
+    ]
+  },
+  "clinical_manifest_sha256": "23148b081d5ef3152406a09f418ee035298d8ad47eb0fcc6202ddbbeaba385a8",
+  "trial_resource_sha256": "8516049da9f4663b1288086532cc885da232532bd2e081a2b70f54fb035ddb81",
+  "packets_sha256": "a6c5252d2968545ac61bc6d0f0c3f13370ab99e3b52cff3f7b479d6cb78c1423",
+  "quality": "All unique decisions once, batches <=8, API-only retries up to 3; invalid output is wrong.",
+  "load": "First up to four preselected packets per task; continuous closed-loop workers, two repeats, C8/C32. Window=max(20s,4*largest calibrated token reservation / token rate), capped at 120s. Same model window at both C levels. No response reuse.",
+  "pricing": "Quality-pass usage per 1000 unique decisions. Flash offpeak/peak bounds. Load replay costs archived separately.",
+  "limits": "Smooth admission within published quotas; Qwen reserves prompt plus max output. Configured concurrency is only a ceiling.",
+  "shared_patient": "8 hash-selected SIGIR synthetic patients, 8 hash-selected trials each, upstream 0/1/2 gold unchanged. Overlap with existing referral pool possible; not added to overall 26-task mean."
+}

@@ -1,0 +1,11 @@
+{
+  "family": "clinical_grade",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 55.71779583301395,
+  "stop": null,
+  "raw_file": "clinical_grade-r1-c32.jsonl.gz"
+}

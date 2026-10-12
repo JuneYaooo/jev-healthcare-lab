@@ -1,0 +1,11 @@
+{
+  "family": "monitoring_target",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.659372749971226,
+  "stop": null,
+  "raw_file": "monitoring_target-r1-c8.jsonl.gz"
+}

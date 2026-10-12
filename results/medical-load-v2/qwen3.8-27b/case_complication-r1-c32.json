@@ -1,0 +1,11 @@
+{
+  "family": "case_complication",
+  "model": "qwen3.8-27b",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.697109500004444,
+  "stop": null,
+  "raw_file": "case_complication-r1-c32.jsonl.gz"
+}

@@ -1,0 +1,11 @@
+{
+  "family": "consent_action",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 112.00160237500677,
+  "stop": null,
+  "raw_file": "consent_action-r0-c32.jsonl.gz"
+}

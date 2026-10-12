@@ -1,0 +1,11 @@
+{
+  "family": "nursing_priority",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.972682291991077,
+  "stop": null,
+  "raw_file": "nursing_priority-r0-c32.jsonl.gz"
+}

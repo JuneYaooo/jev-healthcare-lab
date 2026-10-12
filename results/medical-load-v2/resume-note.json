@@ -1,0 +1,5 @@
+{
+  "recorded_at": "2026-10-12T14:18:03.832803+00:00",
+  "reason": "Replace byte-bound initial admission reservations with conservative historical per-question token usage plus packing overhead. Predictions and prices still use only new responses. Completed quality packets and completed load windows retained. Interrupted load window excluded and rerun. In-flight calls may have billed unobserved usage.",
+  "extra_budget_reserve_cny": 6
+}

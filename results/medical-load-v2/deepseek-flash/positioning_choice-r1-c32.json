@@ -1,0 +1,11 @@
+{
+  "family": "positioning_choice",
+  "model": "deepseek-flash",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.749169959046412,
+  "stop": null,
+  "raw_file": "positioning_choice-r1-c32.jsonl.gz"
+}

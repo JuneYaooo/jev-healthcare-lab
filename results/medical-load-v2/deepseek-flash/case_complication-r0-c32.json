@@ -1,0 +1,11 @@
+{
+  "family": "case_complication",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.364903915964533,
+  "stop": null,
+  "raw_file": "case_complication-r0-c32.jsonl.gz"
+}

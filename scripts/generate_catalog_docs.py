@@ -230,6 +230,12 @@ def render():
         import render_throughput_docs as throughput_docs
         if throughput['config']['clinical_manifest_sha256'] != data.file_sha(ROOT / 'benchmarks/task_performance_v1/manifest.json'):
             raise ValueError('Sustained throughput uses an outdated workload')
+    medical_path = ROOT / 'results/medical-load-v2/comparison.json'
+    medical = read_json(medical_path) if medical_path.exists() else None
+    if medical:
+        import render_medical_load_docs as medical_docs
+        if medical['config']['clinical_manifest_sha256'] != data.file_sha(DATA / 'manifest.json'):
+            raise ValueError('Medical load benchmark uses an outdated dataset')
 
     def model_task_table(family):
         rows = []
@@ -285,6 +291,11 @@ def render():
         return [full_cell, accuracy, speed, cost]
 
     def performance_details(family):
+        if medical:
+            if family in medical['families']:
+                index = list(medical['families']).index(family) + 2
+                return ['## 多问题与并发性能', *medical_docs.task_sections(medical, family, index)]
+            return ['## 多问题与并发性能', '本任务尚无可用原题，多问题与并发测试均待补。']
         if not performance:
             return []
         item = performance['families'][family]
@@ -383,11 +394,14 @@ def render():
             ]))
             parts.extend([
                 "## 如何作答与评分",
-                "根据材料从 `request.questions.decision.criteria` 选择一个选项键。`gold` 不向模型发送。缺失或无效回答按错计。" + ("固定语义标签计算准确率、宏 F1、召回与混淆矩阵。" if rule["label_semantics"] == "fixed" else "按各题候选独立评分，只报告准确率和来源组结果；不对局部选项键计算临床类别 F1。"),
-                "暂停任务仅保留来源与构造示例，不导出、不评分。" if rule["scope"] == "suspended" else "合并任务后，本次所选许可范围内所有有题任务均计入所属范围的汇总分。少于 20 题标记为小样本，成绩可能波动较大；该标记不影响计分，辅助任务不计入临床主分数。",
-                "本轮各模型使用相同题目进行测试；完整计时与失败明细见 [模型对比](../MODEL_RESULTS.md)。" if comparison and rule['scope'] == 'clinical' else "后续比较模型时，使用相同题目子集，分别记录本任务得分、完整决策耗时与失败率。计时口径见 [评测方法](../EVALUATION.md#耗时测量与结果记录)。当前没有该任务的模型对比成绩。",
+                "根据材料从 `request.questions.decision.criteria` 选择一个选项键。`gold` 不向模型发送。缺失或无效回答按错计。" + ("本轮指标见下方任务表；固定临床类别与题内位置选项分开处理。" if medical and rule['scope'] == 'clinical' else ("固定语义标签计算准确率、宏 F1、召回与混淆矩阵。" if rule["label_semantics"] == "fixed" else "按各题候选独立评分，只报告准确率和来源组结果；不对局部选项键计算临床类别 F1。")),
+                ("本轮按任务报告；少于 20 题作为探索性结果，不计入首页汇总图。" if medical and rule['scope'] == 'clinical' else ("暂停任务仅保留来源与构造示例，不导出、不评分。" if rule["scope"] == "suspended" else "合并任务后，本次所选许可范围内所有有题任务均计入所属范围的汇总分。少于 20 题标记为小样本，成绩可能波动较大；该标记不影响计分，辅助任务不计入临床主分数。")),
+                ("当前比较的材料、计分和额度条件见[医疗多问题评估方法](../MEDICAL_LOAD.md)。" if medical and rule['scope'] == 'clinical' else ("本轮各模型使用相同题目进行测试；完整计时与失败明细见 [模型对比](../MODEL_RESULTS.md)。" if comparison and rule['scope'] == 'clinical' else "后续比较模型时，使用相同题目子集，分别记录本任务得分、完整决策耗时与失败率。计时口径见 [评测方法](../EVALUATION.md#耗时测量与结果记录)。当前没有该任务的模型对比成绩。")),
             ])
-            if comparison and rule['scope'] == 'clinical':
+            if medical and rule['scope'] == 'clinical':
+                parts.extend(performance_details(rule['family']))
+                parts.append('[历史单题测试](../MODEL_RESULTS.md) · [历史有限批次测试](../TASK_PERFORMANCE.md)；与本轮分开归档。')
+            elif comparison and rule['scope'] == 'clinical':
                 parts.extend(['## 模型结果',
                     '以下为合并后的病例诊断任务成绩，两个来源子集共 200 题；逐来源结果保存在评分文件中。' if rule['family'] == 'diagnosis' else '以下成绩使用本页全部已收录题目；耗时包括请求、响应处理及重试等待。',
                     '有效回答表示返回合法选项，不代表正确；平均值和分位数包含已启动题目的失败耗时。任务总秒为含并发调度的墙钟时间，不是单题耗时之和。响应链接包含该模型全部题目，可按本页任务的题目 ID 查找。',
@@ -504,8 +518,10 @@ def render():
     families = clinical['families']
     status_names = {'empty': '待补', 'exploratory': '探索性', 'summary_eligible': '计入总分'}
     parts = ['# 临床主评测任务', '[返回首页](../../README.md) · [辅助与暂停任务](AUXILIARY.md) · [数据集目录](../datasets/README.md)',
-             f"共 {clinical['defined_families']} 个任务定义、{clinical['populated_families']} 个有题任务，{clinical['records']:,} 题。病例诊断的两个来源子集合并计分；所有有题任务均计入总分，少于 20 题仅标记小样本。状态按完整临床范围展示，实际评分按本次许可子集计算题数与成绩。"]
-    if throughput:
+             f"共 {clinical['defined_families']} 个任务定义、{clinical['populated_families']} 个有题任务，{clinical['records']:,} 题。病例诊断的两个来源子集合并计分。" + ("本轮逐任务展示，首页图仅汇总至少 20 题的既有任务；下方状态是原始数据集的登记状态。" if medical else "所有有题任务均计入总分，少于 20 题仅标记小样本。状态按完整临床范围展示，实际评分按本次许可子集计算题数与成绩。")]
+    if medical:
+        parts.append('所有 26 个有题任务均列出四模型多问题与持续并发测试状态，另加[同一患者的多项试验筛选](trial_shared_patient.md)。每请求最多 8 项，配置并发 8／32，各两轮；题量、准确率、速度和成本按任务展示。[当前评估方法](../MEDICAL_LOAD.md)。')
+    elif throughput:
         parts.append('病例并发症、用药方案、病例诊断和中医证型任务页新增持续多题并发结果：每请求 8 题，配置 8／32／64 并发，持续补入请求。其余任务的持续负载尚未测试。[持续负载协议](../SUSTAINED_THROUGHPUT.md)。原单题与有限批次成绩作为历史记录保留。')
     elif performance:
         parts.append('每个任务页包含原单题结果，以及 JEV／Flash 在同一原题子集上的多题打包、逐题并发、准确率、完整率与成本。三轮结果和全部档位按任务保留；空任务标记待补。[测试协议](../TASK_PERFORMANCE.md)。')
@@ -530,7 +546,9 @@ def render():
              table(['来源子集与完整样例', '题数'], [[task_link(tid), len(by_task[tid])] for tid in diagnosis['task_ids']]),
              '## 样例与来源', '两个来源子集的说明页分别给出完整输入、原选项、标准答案和溯源。以下为考试病例子集中的一题：']
     parts.extend(example_sections(example(by_task['diagnosis_choice'])))
-    if comparison:
+    if medical:
+        parts.extend(performance_details('diagnosis'))
+    elif comparison:
         parts.extend(['## 模型结果', '两个诊断来源合并为 200 题。有效回答不代表答对；任务总秒为墙钟时间，单题平均值与分位数包含失败耗时。响应链接包含该模型全部题目。', model_task_table('diagnosis'), '[完整得分、耗时与运行条件](../MODEL_RESULTS.md)'])
         parts.extend(performance_details('diagnosis'))
     parts.extend(['## 评测边界', '考试病例与模拟病例分别报告，不能把模拟患者当成真实患者。候选数量与题型不同，比较模型时冻结同一批题目和选项。', '[返回首页](../../README.md)'])
@@ -548,7 +566,16 @@ def render():
             for sid, s in sources.items() if s['distribution'] == distribution])])
     output[ROOT / 'docs/datasets/README.md'] = '\n\n'.join(parts) + '\n'
 
-    output[ROOT / 'README.md'] = throughput_docs.render(throughput) if throughput else render_performance_readme(performance, scenes, families)
+    if medical:
+        output[ROOT / 'README.md'] = medical_docs.render(medical)
+        output[ROOT / 'docs/MEDICAL_LOAD.md'] = medical_docs.protocol(medical)
+        output[ROOT / 'results/medical-load-v2/README.md'] = medical_docs.archive_readme(medical)
+        output[ROOT / 'docs/tasks/trial_shared_patient.md'] = '\n\n'.join([
+            '# 同一患者的多项试验转介筛选', '[返回首页](../../README.md) · [原始来源](../datasets/trialgpt.md)',
+            '## 多问题与并发性能',
+            *medical_docs.task_sections(medical, 'trial_shared_patient', list(medical['families']).index('trial_shared_patient') + 2)]) + '\n'
+    else:
+        output[ROOT / 'README.md'] = throughput_docs.render(throughput) if throughput else render_performance_readme(performance, scenes, families)
     return output
 
 

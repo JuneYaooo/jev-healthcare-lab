@@ -1,0 +1,11 @@
+{
+  "family": "message_urgency_pair",
+  "model": "qwen3.8-27b",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 70.77,
+  "warmup_s": 3,
+  "wall_s": 103.08782733301632,
+  "stop": null,
+  "raw_file": "message_urgency_pair-r0-c8.jsonl.gz"
+}

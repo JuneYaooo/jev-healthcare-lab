@@ -1,0 +1,11 @@
+{
+  "family": "followup_plan",
+  "model": "deepseek-flash",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.312817667028867,
+  "stop": null,
+  "raw_file": "followup_plan-r0-c8.jsonl.gz"
+}
