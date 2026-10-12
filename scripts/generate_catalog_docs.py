@@ -206,8 +206,8 @@ def render():
             name = link(family['title'], f"docs/tasks/{family['id']}.md#多问题与并发性能")
             n = item['selected']
             if not n:
-                batch_rows.append([name, '待补', '—', '—', '—'])
-                concurrency_rows.append([name, '待补', '—', '—', '—'])
+                batch_rows.append([name, '待补', '—', '—', '—', '—'])
+                concurrency_rows.append([name, '待补', '—', '—', '—', '—'])
                 continue
             batch = max(item['batch_targets'])
             concurrency = max(item['concurrency'])
@@ -218,16 +218,27 @@ def render():
             concurrent = [next(m for m in item['modes'] if m['batch'] == 1 and m['concurrency'] == concurrency and m['model'] == model)
                           for model in performance['models']]
             flag = lambda m: ' ⚠' if m['complete_requests'] < m['requests'] else ''
-            count = f"{n}" + (' · 小样本' if item['small_sample'] else '')
-            batch_rows.append([name, count, packet_range(batches[0])] +
-                [f"准确率 {base['accuracy']:.2%}{flag(base)} → {m['accuracy']:.2%}{flag(m)}<br>秒 {base['mean_batch_wall_s']:.3f} → {m['mean_batch_wall_s']:.3f}" for base, m in zip(baselines, batches)])
-            concurrency_rows.append([name, count, concurrency] +
-                [f"有效 {base['valid_decisions_per_s']:.2f} → {m['valid_decisions_per_s']:.2f}<br>正确 {base['correct_decisions_per_s']:.2f}{flag(base)} → {m['correct_decisions_per_s']:.2f}{flag(m)}" for base, m in zip(baselines, concurrent)])
+            name += f"（{n} 题" + ('，小样本' if item['small_sample'] else '') + '）'
+            for label, modes in [('逐题串行（每次 1 题）', baselines),
+                                 (f'多题打包（每次 {packet_range(batches[0])} 题）', batches)]:
+                values = []
+                for mode in modes:
+                    values.extend([f"{mode['accuracy']:.2%}{flag(mode)}", f"{mode['mean_batch_wall_s']:.3f}"])
+                batch_rows.append([name, label] + values)
+            for label, modes in [('逐题串行（同时 1 个请求）', baselines),
+                                 (f'逐题并发（同时 {concurrency} 个请求）', concurrent)]:
+                values = []
+                for mode in modes:
+                    values.extend([f"{mode['valid_decisions_per_s']:.2f}",
+                                   f"{mode['correct_decisions_per_s']:.2f}{flag(mode)}"])
+                concurrency_rows.append([name, label] + values)
         names = [comparison['models'][m]['label'] for m in performance['models']]
-        return ['**同任务多题打包 · 单题 → 多题**（同一取样、均为并发 1；准确率与整组平均秒，展示最大打包档）',
-                table(['任务', '取样题数', '每请求实际题数'] + names, batch_rows, numeric_from=1),
-                '**逐题并发 · 有效 / 正确决策每秒**（并发 1 → 本任务最高并发档，同一取样）',
-                table(['任务', '取样题数', '实际并发'] + names, concurrency_rows, numeric_from=1)]
+        return ['**同任务多题打包**：同一批题分别逐题发送和打包发送，两种方式都一次只发一个请求。耗时是做完该任务所列全部题目的总时间（三轮平均），不是每题耗时。多题展示最大打包档；材料过长时拆成多包。',
+                table(['任务与测试题数', '测试方式'] +
+                      [heading for name in names for heading in [name + ' 准确率', name + ' 全部题目耗时（秒）']], batch_rows, numeric_from=2),
+                '**逐题并发**：每个请求仍只含 1 题，比较依次发送和同时发送多个请求。有效表示返回合法选项，正确表示与标准答案一致；吞吐单位均为题/秒，越高越好。并发结果展示本任务最高并发档。',
+                table(['任务与测试题数', '测试方式'] +
+                      [heading for name in names for heading in [name + ' 有效（题/秒）', name + ' 正确（题/秒）']], concurrency_rows, numeric_from=2)]
 
     for tid, task in tasks.items():
         task["title"] = rules[tid]["title"]
