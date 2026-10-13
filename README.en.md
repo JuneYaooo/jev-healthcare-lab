@@ -1255,4 +1255,4 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 [Task definition and data](docs/tasks/consent_action.md) · [Evaluation methods](docs/MEDICAL_LOAD.md) · [Raw records and pricing](results/medical-load-jev-gateway-v1/README.md)
 
-[Linux.do community](https://linux.do/)
+Community: [Linux.do](https://linux.do/)
