@@ -1,0 +1,11 @@
+{
+  "family": "nutrition_plan",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.195007666014135,
+  "stop": null,
+  "raw_file": "nutrition_plan-r1-c8.jsonl.gz"
+}

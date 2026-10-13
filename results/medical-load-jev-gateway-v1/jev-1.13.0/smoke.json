@@ -1,0 +1,135 @@
+{
+  "item_id": "clinical_grade/b8/0",
+  "model": "jev-1.13.0",
+  "started_at": "2026-10-13T02:38:34.024502+00:00",
+  "queued_s": 1.2500095181167126e-06,
+  "http_start_s": 7.18749943189323e-05,
+  "request_sha256": "bf97571a28babce0182307e5b2bb0f6ef7b1f48efdf55576f31062fce7e7930a",
+  "decisions": 8,
+  "http_status": 200,
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "q000": {
+        "type": "choice",
+        "choice": "C",
+        "confidence": 0.36,
+        "probabilities": {
+          "A": 0.01,
+          "B": 0.19,
+          "C": 0.49,
+          "D": 0.2,
+          "E": 0.11
+        }
+      },
+      "q001": {
+        "type": "choice",
+        "choice": "C",
+        "confidence": 0.73,
+        "probabilities": {
+          "A": 0.0,
+          "B": 0.12,
+          "C": 0.78,
+          "D": 0.06,
+          "E": 0.04
+        }
+      },
+      "q002": {
+        "type": "choice",
+        "choice": "D",
+        "confidence": 0.5,
+        "probabilities": {
+          "A": 0.0,
+          "B": 0.0,
+          "C": 0.01,
+          "D": 0.6,
+          "E": 0.39
+        }
+      },
+      "q003": {
+        "type": "choice",
+        "choice": "C",
+        "confidence": 0.41,
+        "probabilities": {
+          "A": 0.0,
+          "B": 0.23,
+          "C": 0.53,
+          "D": 0.12,
+          "E": 0.12
+        }
+      },
+      "q004": {
+        "type": "choice",
+        "choice": "opc",
+        "confidence": 0.85,
+        "probabilities": {
+          "opa": 0.06,
+          "opb": 0.01,
+          "opc": 0.88,
+          "opd": 0.04,
+          "ope": 0.01
+        }
+      },
+      "q005": {
+        "type": "choice",
+        "choice": "D",
+        "confidence": 0.32,
+        "probabilities": {
+          "A": 0.01,
+          "B": 0.44,
+          "C": 0.07,
+          "D": 0.45999999999999996,
+          "E": 0.02
+        }
+      },
+      "q006": {
+        "type": "choice",
+        "choice": "C",
+        "confidence": 0.16,
+        "probabilities": {
+          "A": 0.02,
+          "B": 0.1,
+          "C": 0.33,
+          "D": 0.32,
+          "E": 0.23
+        }
+      },
+      "q007": {
+        "type": "choice",
+        "choice": "D",
+        "confidence": 0.35,
+        "probabilities": {
+          "A": 0.0,
+          "B": 0.02,
+          "C": 0.44,
+          "D": 0.48,
+          "E": 0.06
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 2312,
+      "output_tokens": 421
+    }
+  },
+  "completion_s": 2.3779602920403704,
+  "http_s": 2.3778884170460515,
+  "end_to_end_s": 2.3779590420308523,
+  "predicted": {
+    "q000": "C",
+    "q001": "C",
+    "q002": "D",
+    "q003": "C",
+    "q004": "opc",
+    "q005": "D",
+    "q006": "C",
+    "q007": "D"
+  },
+  "valid": 8,
+  "correct": 4,
+  "cost_cny": [
+    0.0006536361552,
+    0.0006536361552
+  ],
+  "channel": "https://ai.xiaohaima-edu.com/v1/systemone"
+}

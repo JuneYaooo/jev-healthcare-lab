@@ -1,0 +1,11 @@
+{
+  "family": "nursing_priority",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 26.001825000043027,
+  "stop": null,
+  "raw_file": "nursing_priority-r1-c32.jsonl.gz"
+}

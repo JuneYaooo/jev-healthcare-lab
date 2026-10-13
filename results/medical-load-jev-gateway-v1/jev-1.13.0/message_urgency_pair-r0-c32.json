@@ -1,0 +1,11 @@
+{
+  "family": "message_urgency_pair",
+  "model": "jev-1.13.0",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.195308916969225,
+  "stop": null,
+  "raw_file": "message_urgency_pair-r0-c32.jsonl.gz"
+}

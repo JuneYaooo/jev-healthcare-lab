@@ -1,0 +1,11 @@
+{
+  "family": "patient_counseling",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.949109375011176,
+  "stop": null,
+  "raw_file": "patient_counseling-r1-c32.jsonl.gz"
+}

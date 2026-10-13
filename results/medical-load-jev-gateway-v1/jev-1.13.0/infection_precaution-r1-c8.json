@@ -1,0 +1,11 @@
+{
+  "family": "infection_precaution",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.733477791014593,
+  "stop": null,
+  "raw_file": "infection_precaution-r1-c8.jsonl.gz"
+}

@@ -9,6 +9,28 @@ import run_medical_load as run
 ROOT = run.ROOT
 
 
+def current_report_path():
+    gateway = ROOT / 'results/medical-load-jev-gateway-v1/comparison.json'
+    return gateway if gateway.exists() else ROOT / 'results/medical-load-v2/comparison.json'
+
+
+def archive_path(report):
+    return report.get('gateway', {}).get('archive', 'results/medical-load-v2')
+
+
+def asset_path(report):
+    return 'docs/assets/' + archive_path(report).split('/')[-1]
+
+
+def channel_note(report):
+    if not report.get('gateway'):
+        return ''
+    return ('JEV 为小海马中转实测：请求 `jev-latest`，逐条核对返回版本为 `jev-1.13.0`，'
+            '后端身份未独立验证。延迟与吞吐包含中转及共享服务影响；不能据此推断官方直连的极限性能。'
+            'JEV 成本按返回 usage 与官方标价折算，中转实际计费未知。'
+            'Flash、Qwen 沿用 2026-10-12 的同题实测，JEV 于 2026-10-13 补测（日期均为 UTC），未同时运行。')
+
+
 def number(value, digits=2, percent=False):
     return '—' if value is None else f'{value * (100 if percent else 1):.{digits}f}'
 
@@ -55,7 +77,7 @@ def task_sections(report, fid, index, *, root=False):
         parts.append('这是候选病机的判断任务，按既有标注计分；不能由此推导自由生成辨证与处方的能力。')
     if fid == 'message_urgency_pair':
         parts.append('本任务严格区分原始选项键，例如 `Patient #1` 不能改写成 `Patient_1`。这类输出合约错误也按错计，因此成绩同时反映判断和接口可直接使用的程度，不能全部归因于医学推理差异。')
-    parts.append(f'![{title}的并发吞吐对比]({prefix}docs/assets/medical-load-v2/{fid}.svg)')
+    parts.append(f'![{title}的并发吞吐对比]({prefix}{asset_path(report)}/{fid}.svg)')
     detail = []
     for c in ('8', '32'):
         for model in report['config']['models']:
@@ -67,7 +89,9 @@ def task_sections(report, fid, index, *, root=False):
                  + table(['模型', '配置并发', '吞吐量 (判断/秒) ↑', '完整响应 P95 (秒) ↓', '实际平均同时请求数'], detail)
                  + '\n\n配置并发是工作器上限；实际在途请求可能因账户额度更少。P95 不含客户端额度等待；不足 20 个完整响应时不报告 P95。\n\n</details>')
     parts.append((f'[任务定义与数据]({prefix}docs/tasks/{fid}.md) · ' if root else '')
-                 + f'[评估方法]({prefix}docs/MEDICAL_LOAD.md) · [原始记录与计价依据]({prefix}results/medical-load-v2/README.md)')
+                 + f'[评估方法]({prefix}docs/MEDICAL_LOAD.md) · [原始记录与计价依据]({prefix}{archive_path(report)}/README.md)')
+    if report.get('gateway') and not root:
+        parts.append('JEV 经小海马中转，返回版本为 `jev-1.13.0`；成本按官方标价估算，非中转账单。渠道与测试日期差异见评估方法。')
     return parts
 
 
@@ -83,14 +107,34 @@ def overview_rows(report):
     return rows
 
 
+def gateway_findings(report):
+    if not report.get('gateway'):
+        return []
+    statements = []
+    for fid in ('patient_contraindication', 'medication_choice', 'tcm_syndrome'):
+        family = report['families'][fid]
+        j, f = (family['models'][m] for m in ('jev-1.13.0', 'deepseek-flash'))
+        if any(v['quality']['accuracy'] is None or v['load']['32']['throughput'] is None for v in (j, f)):
+            return []
+        jt, ft = j['load']['32']['throughput'], f['load']['32']['throughput']
+        speed = '更高' if jt > ft else '更低' if jt < ft else '相同'
+        statements.append(
+            f"- [{family['title']}](#{fid})：JEV 准确率 {number(j['quality']['accuracy'], percent=True)}%，"
+            f"Flash 为 {number(f['quality']['accuracy'], percent=True)}%；本次 JEV 的 32 并发吞吐{speed}。")
+    return ['三项任务体现出不同取舍（完整速度、成本及 Qwen 对比见表 1）：', '\n'.join(statements)]
+
+
 def render(report):
     complete = [report['models'][m]['label'] for m in report['config']['models']
                 if all(f['models'][m]['quality']['complete'] for f in report['families'].values())]
     parts = ['# Jev Healthcare Lab',
              '比较 JEV、DeepSeek Flash 与 Qwen 在具体医疗决策任务上的**准确率、持续吞吐和使用成本**。每次请求同时处理多项判断，多个请求持续并发；结果按医疗任务分别呈现。',
-             '![医疗决策准确率、成本与吞吐对比](docs/assets/medical-load-v2/overview.png)',
+             f'![医疗决策准确率、成本与吞吐对比]({asset_path(report)}/overview.png)',
              '本轮覆盖 26 个既有医疗任务的 1,514 项判断，另加 8 位模拟患者的 64 项试验转介判断。数据包含考试病例、模拟患者与公开标注，尚非临床部署验证。',
              '完整题集已完成的模型：' + '、'.join(complete) + '。']
+    if report.get('gateway'):
+        parts.append(channel_note(report))
+        parts.extend(gateway_findings(report))
     missing = [report['models'][m]['label'] for m in report['config']['models'] if m not in [k for k in report['config']['models']
                if all(f['models'][k]['quality']['complete'] for f in report['families'].values())]]
     if missing:
@@ -100,14 +144,14 @@ def render(report):
               '**表 1｜医疗任务总览。准确率与成本来自完整题集的 8 并发多题测试；吞吐取预先指定的 32 并发档、两轮持续负载结果。点击任务进入详细结果。**',
               table(['医疗场景', '具体任务', '独立题量', '模型', '准确率 (%) ↑', '吞吐量 (判断/秒) ↑', '成本 (元/千项判断) ↓'], overview_rows(report), numeric_columns={2, 4, 5, 6}),
               '“—”表示本轮未获得完整数据或样本不足。独立题量指不重复的判断项，不表示统计独立，也不等于独立患者数；患者／来源组数见每个任务表题。少于 20 题仅作探索性比较。三个空任务（剂量适宜性、危急值升级、就诊科室分流）暂不计分。',
-              '[评估方法与适用边界](docs/MEDICAL_LOAD.md) · [数据集与许可](docs/datasets/README.md) · [原始响应与复算](results/medical-load-v2/README.md)']
+              f'[评估方法与适用边界](docs/MEDICAL_LOAD.md) · [数据集与许可](docs/datasets/README.md) · [原始响应与复算]({archive_path(report)}/README.md)']
     for index, fid in enumerate(report['families'], 2):
         parts += task_sections(report, fid, index, root=True)
     return '\n\n'.join(parts) + '\n'
 
 
 def protocol(report):
-    return '''# 医疗多问题与持续并发评估
+    content = '''# 医疗多问题与持续并发评估
 
 [返回结果](../README.md) · [冻结配置](../results/medical-load-v2/config.json)
 
@@ -157,6 +201,14 @@ JEV 客户端上限为 76 请求／秒、9 万输入 token／秒；Flash 配置�
 
 并发图点为两轮合并吞吐，竖线为两轮观察范围，不是置信区间。没有做显著性检验；数据量较小、源标注未经独立临床复核的结果，不据此声称临床优越性。
 '''
+    if report.get('gateway'):
+        content = content.replace('results/medical-load-v2/config.json', archive_path(report) + '/config.json')
+        content = content.replace('各模型同时运行各自的测试队列，同一模型各窗口顺序执行；共用同一客户端，结果仍包含网络与平台因素。',
+                                  'Flash 与 Qwen 沿用原测试队列；JEV 中转另行补测，同一模型各窗口顺序执行。题包哈希与计分方法一致，但测试日期与平台不同。')
+        content = content.replace('JEV 客户端上限为 76 请求／秒、9 万输入 token／秒；',
+                                  'JEV 中转额度未知，不套用官方直连接口限额；客户端最多 32 个在途请求，收到限流信号后退避，触发服务熔断即停止；')
+        content += '\n## 接入渠道与版本\n\n' + channel_note(report) + '\n'
+    return content
 
 
 def visuals(report):
@@ -169,7 +221,7 @@ def visuals(report):
         plt.rcParams['font.family'] = FontProperties(fname=fontpath).get_name()
     plt.rcParams.update({'axes.spines.top': False, 'axes.spines.right': False,
                          'axes.unicode_minus': False, 'svg.fonttype': 'none'})
-    directory = ROOT / 'docs/assets/medical-load-v2'
+    directory = ROOT / asset_path(report)
     directory.mkdir(parents=True, exist_ok=True)
     colors = dict(zip(report['config']['models'], ['#087f5b', '#3366cc', '#c07914', '#8b5fa6']))
     for fid, family in report['families'].items():
@@ -216,8 +268,10 @@ def visuals(report):
         for ax, x in points:
             ax.scatter(x, accuracy, color=colors[model], s=90, zorder=3)
             detail = f'¥{price(costs)} / 千项' if ax is axes[0] else f'{x:.2f} 判断/秒'
+            below = bool(report.get('gateway')) and ax is axes[1] and model == 'deepseek-flash'
             ax.annotate(f'{label}\n{accuracy:.2f}% · {detail}', (x, accuracy),
-                        xytext=(6, 9), textcoords='offset points', fontsize=9)
+                        xytext=(6, -12) if below else (6, 9), va='top' if below else 'bottom',
+                        textcoords='offset points', fontsize=9)
     for ax in axes:
         ax.set_ylabel('任务平均准确率（%）↑')
         ax.grid(alpha=.16)
@@ -238,6 +292,34 @@ def visuals(report):
 
 
 def archive_readme(report):
+    if report.get('gateway'):
+        return f'''# JEV 中转医疗多问题与并发测试
+
+[结果总览](../../README.md) · [评估方法](../../docs/MEDICAL_LOAD.md)
+
+{channel_note(report)}
+
+27 个任务、1,578 项判断，沿用[原测试归档](../medical-load-v2/README.md)完全相同的题包和金标。JEV 的原始响应在本目录；Flash 与两款 Qwen 的原始响应继续保存在原归档。汇总文件记录两个来源，不将旧响应当作重新调用。
+
+- [配置与渠道](config.json)、[题包](packets.jsonl)、[逐题来源](lineage.jsonl)、[价格快照](pricing.json)。
+- [JEV 原始响应](jev-1.13.0/)、[合并复算结果](comparison.json)、[文件哈希](archive_manifest.json)、[中转适配源码](source/)。公共运行器沿用原归档中的冻结源码。
+- 固定题集用于准确率与成本；预先选定的题包用于每任务 8／32 并发、各两轮持续负载。中断或不完整窗口不进入性能比较。
+
+```bash
+.venv/bin/python scripts/run_jev_gateway.py --check
+.venv/bin/python scripts/generate_catalog_docs.py --check
+```
+
+重新生成报告、图表和文档不调用模型：
+
+```bash
+.venv/bin/python scripts/run_jev_gateway.py --report
+.venv/bin/python scripts/render_medical_load_docs.py
+.venv/bin/python scripts/generate_catalog_docs.py
+```
+
+运行测试使用本地 `JEV_GATEWAY_API_KEY`，调用命令为 `.venv/bin/python scripts/run_jev_gateway.py`。已完成题包和窗口可续跑复用；需要重新测量时应建立独立归档。费用保护按官方标价等价用量设置，不能保证中转的实际账单上限。
+'''
     return f'''# 医疗多问题与持续并发原始记录
 
 [结果总览](../../README.md) · [方法](../../docs/MEDICAL_LOAD.md)
@@ -271,6 +353,6 @@ def archive_readme(report):
 
 
 if __name__ == '__main__':
-    source = ROOT / 'results/medical-load-v2/comparison.json'
+    source = current_report_path()
     visuals(json.loads(source.read_text()))
     print('Rendered medical-load overview and task charts')

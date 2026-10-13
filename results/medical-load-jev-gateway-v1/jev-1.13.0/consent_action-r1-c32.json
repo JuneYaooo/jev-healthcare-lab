@@ -1,0 +1,11 @@
+{
+  "family": "consent_action",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.42711958300788,
+  "stop": null,
+  "raw_file": "consent_action-r1-c32.jsonl.gz"
+}

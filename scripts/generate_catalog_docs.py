@@ -230,10 +230,10 @@ def render():
         import render_throughput_docs as throughput_docs
         if throughput['config']['clinical_manifest_sha256'] != data.file_sha(ROOT / 'benchmarks/task_performance_v1/manifest.json'):
             raise ValueError('Sustained throughput uses an outdated workload')
-    medical_path = ROOT / 'results/medical-load-v2/comparison.json'
+    import render_medical_load_docs as medical_docs
+    medical_path = medical_docs.current_report_path()
     medical = read_json(medical_path) if medical_path.exists() else None
     if medical:
-        import render_medical_load_docs as medical_docs
         if medical['config']['clinical_manifest_sha256'] != data.file_sha(DATA / 'manifest.json'):
             raise ValueError('Medical load benchmark uses an outdated dataset')
 
@@ -569,7 +569,7 @@ def render():
     if medical:
         output[ROOT / 'README.md'] = medical_docs.render(medical)
         output[ROOT / 'docs/MEDICAL_LOAD.md'] = medical_docs.protocol(medical)
-        output[ROOT / 'results/medical-load-v2/README.md'] = medical_docs.archive_readme(medical)
+        output[ROOT / medical_docs.archive_path(medical) / 'README.md'] = medical_docs.archive_readme(medical)
         output[ROOT / 'docs/tasks/trial_shared_patient.md'] = '\n\n'.join([
             '# 同一患者的多项试验转介筛选', '[返回首页](../../README.md) · [原始来源](../datasets/trialgpt.md)',
             '## 多问题与并发性能',

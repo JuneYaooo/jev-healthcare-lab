@@ -1,0 +1,11 @@
+{
+  "family": "case_etiology",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.836313875042833,
+  "stop": null,
+  "raw_file": "case_etiology-r1-c32.jsonl.gz"
+}

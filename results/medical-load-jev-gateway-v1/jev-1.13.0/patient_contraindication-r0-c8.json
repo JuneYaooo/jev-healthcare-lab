@@ -1,0 +1,11 @@
+{
+  "family": "patient_contraindication",
+  "model": "jev-1.13.0",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.01863633398898,
+  "stop": null,
+  "raw_file": "patient_contraindication-r0-c8.jsonl.gz"
+}

@@ -1,0 +1,11 @@
+{
+  "family": "pgx_guideline_recommendation",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.01890204200754,
+  "stop": null,
+  "raw_file": "pgx_guideline_recommendation-r1-c8.jsonl.gz"
+}

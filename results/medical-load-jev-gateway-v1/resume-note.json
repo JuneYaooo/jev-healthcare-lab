@@ -1,0 +1,7 @@
+{
+  "reason": "Initial client accounting ceiling interrupted a window; raise the accounting ceiling for the unchanged full protocol. Incomplete window is excluded and retained; completed windows and quality calls are reused.",
+  "initial_limit_cny": 10,
+  "resumed_limit_cny": 60,
+  "billing_basis": "official list-price equivalent, not gateway invoice",
+  "repair": "The frozen v2 runner skipped existing interrupted metadata. Gateway preflight now archives interrupted windows before resuming; message_urgency_pair r0 c32 was explicitly rerun. Complete windows are retained."
+}

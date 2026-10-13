@@ -1,0 +1,11 @@
+{
+  "family": "tcm_pathogenesis_candidate",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.908855540968943,
+  "stop": null,
+  "raw_file": "tcm_pathogenesis_candidate-r1-c32.jsonl.gz"
+}

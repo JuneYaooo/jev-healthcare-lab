@@ -1,0 +1,11 @@
+{
+  "family": "monitoring_target",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 24.76949637499638,
+  "stop": null,
+  "raw_file": "monitoring_target-r1-c8.jsonl.gz"
+}

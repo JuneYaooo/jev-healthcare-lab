@@ -1,0 +1,30 @@
+{
+  "as_of": "2026-10-12",
+  "currency": "CNY",
+  "usd_cny": 6.7313,
+  "fx_source": "https://www.safe.gov.cn/AppStructured/hlw/RMBQuery.do",
+  "typesafe_source": "https://docs.typesafe.ai/models",
+  "deepseek_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "siliconflow_source": "https://cloud.siliconflow.cn/me/models",
+  "jev_usd_input_per_million": 0.042,
+  "flash_usd_offpeak_per_million": {
+    "hit": 0.003,
+    "miss": 0.15,
+    "output": 0.6
+  },
+  "flash_peak_multiplier": 2,
+  "qwen_cny_per_million": {
+    "qwen3.5-9b": {
+      "input": 0.5,
+      "output": 4
+    },
+    "qwen3.8-27b": {
+      "input": 3,
+      "output": 12
+    }
+  },
+  "qwen_verified_account_tpm": {
+    "qwen3.5-9b": 80000,
+    "qwen3.8-27b": 40000
+  }
+}

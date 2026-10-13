@@ -1,0 +1,11 @@
+{
+  "family": "medication_choice",
+  "model": "jev-1.13.0",
+  "repeat": 0,
+  "concurrency": 8,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.810984333977103,
+  "stop": null,
+  "raw_file": "medication_choice-r0-c8.jsonl.gz"
+}

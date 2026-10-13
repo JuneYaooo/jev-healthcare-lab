@@ -1,0 +1,11 @@
+{
+  "family": "prevention_choice",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 26.060439500026405,
+  "stop": null,
+  "raw_file": "prevention_choice-r1-c32.jsonl.gz"
+}

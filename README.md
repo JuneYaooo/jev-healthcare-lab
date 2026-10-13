@@ -2,13 +2,19 @@
 
 比较 JEV、DeepSeek Flash 与 Qwen 在具体医疗决策任务上的**准确率、持续吞吐和使用成本**。每次请求同时处理多项判断，多个请求持续并发；结果按医疗任务分别呈现。
 
-![医疗决策准确率、成本与吞吐对比](docs/assets/medical-load-v2/overview.png)
+![医疗决策准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/overview.png)
 
 本轮覆盖 26 个既有医疗任务的 1,514 项判断，另加 8 位模拟患者的 64 项试验转介判断。数据包含考试病例、模拟患者与公开标注，尚非临床部署验证。
 
-完整题集已完成的模型：DeepSeek V4.1 Flash、Qwen3.5-9B、Qwen3.8-27B。
+完整题集已完成的模型：JEV 1.13（小海马中转）、DeepSeek V4.1 Flash、Qwen3.5-9B、Qwen3.8-27B。
 
-**本轮尚未完成：JEV 1.13。** 相应成绩留空，当前尚不能完成四模型对比。[既有 JEV／Flash 阶段性测试](results/sustained-throughput-v1/README.md)另行保留。
+JEV 为小海马中转实测：请求 `jev-latest`，逐条核对返回版本为 `jev-1.13.0`，后端身份未独立验证。延迟与吞吐包含中转及共享服务影响；不能据此推断官方直连的极限性能。JEV 成本按返回 usage 与官方标价折算，中转实际计费未知。Flash、Qwen 沿用 2026-10-12 的同题实测，JEV 于 2026-10-13 补测（日期均为 UTC），未同时运行。
+
+三项任务体现出不同取舍（完整速度、成本及 Qwen 对比见表 1）：
+
+- [患者方案禁忌判断](#patient_contraindication)：JEV 准确率 77.78%，Flash 为 62.96%；本次 JEV 的 32 并发吞吐更高。
+- [用药方案选择](#medication_choice)：JEV 准确率 83.00%，Flash 为 62.00%；本次 JEV 的 32 并发吞吐更低。
+- [中医证型判断](#tcm_syndrome)：JEV 准确率 28.00%，Flash 为 41.00%；本次 JEV 的 32 并发吞吐更高。
 
 准确率按模型原样输出计分，非法选项也算错；它同时反映判断与输出可用性。吞吐表示每秒收到的合法判断数，**不等于每秒正确判断数**。成本按新病例、无缓存折扣的输入与输出用量折算，单位为人民币；Flash 区间对应闲时与高峰标价。
 
@@ -18,118 +24,118 @@
 
 | 医疗场景 | 具体任务 | 独立题量 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 成本 (元/千项判断) ↓ |
 | --- | --- | ---: | --- | ---: | ---: | ---: |
-| 接诊与分诊 | [分诊与就医紧急程度判断](#triage_urgency) | 100 | JEV 1.13 | — | — | — |
+| 接诊与分诊 | [分诊与就医紧急程度判断](#triage_urgency) | 100 | JEV 1.13（小海马中转） | 66.00 | 270.00 | 0.086 |
 | 接诊与分诊 | [分诊与就医紧急程度判断](#triage_urgency) | 100 | DeepSeek V4.1 Flash | 58.00 | 194.80 | 0.308–0.615 |
 | 接诊与分诊 | [分诊与就医紧急程度判断](#triage_urgency) | 100 | Qwen3.5-9B | 54.00 | 3.20 | 0.175 |
 | 接诊与分诊 | [分诊与就医紧急程度判断](#triage_urgency) | 100 | Qwen3.8-27B | 69.00 | 0.60 | 0.900 |
-| 接诊与分诊 | [患者消息处理优先级](#message_urgency_pair) | 30 | JEV 1.13 | — | — | — |
+| 接诊与分诊 | [患者消息处理优先级](#message_urgency_pair) | 30 | JEV 1.13（小海马中转） | 66.67 | 103.20 | 0.326 |
 | 接诊与分诊 | [患者消息处理优先级](#message_urgency_pair) | 30 | DeepSeek V4.1 Flash | 70.00 | 209.35 | 1.063–2.126 |
 | 接诊与分诊 | [患者消息处理优先级](#message_urgency_pair) | 30 | Qwen3.5-9B | 16.67 | 0.42 | 0.571 |
 | 接诊与分诊 | [患者消息处理优先级](#message_urgency_pair) | 30 | Qwen3.8-27B | 66.67 | 0.54 | 3.356 |
-| 检查与检验 | [检查方案选择](#examination_choice) | 100 | JEV 1.13 | — | — | — |
+| 检查与检验 | [检查方案选择](#examination_choice) | 100 | JEV 1.13（小海马中转） | 86.00 | 260.80 | 0.083 |
 | 检查与检验 | [检查方案选择](#examination_choice) | 100 | DeepSeek V4.1 Flash | 81.00 | 269.23 | 0.209–0.419 |
 | 检查与检验 | [检查方案选择](#examination_choice) | 100 | Qwen3.5-9B | 54.00 | 3.83 | 0.122 |
 | 检查与检验 | [检查方案选择](#examination_choice) | 100 | Qwen3.8-27B | 78.00 | 2.00 | 0.684 |
-| 诊断与鉴别 | [疾病分期与严重程度判断](#clinical_grade) | 100 | JEV 1.13 | — | — | — |
+| 诊断与鉴别 | [疾病分期与严重程度判断](#clinical_grade) | 100 | JEV 1.13（小海马中转） | 53.00 | 103.60 | 0.086 |
 | 诊断与鉴别 | [疾病分期与严重程度判断](#clinical_grade) | 100 | DeepSeek V4.1 Flash | 51.00 | 119.38 | 0.217–0.434 |
 | 诊断与鉴别 | [疾病分期与严重程度判断](#clinical_grade) | 100 | Qwen3.5-9B | 30.00 | 3.85 | 0.127 |
 | 诊断与鉴别 | [疾病分期与严重程度判断](#clinical_grade) | 100 | Qwen3.8-27B | 51.00 | 0.80 | 0.714 |
-| 诊断与鉴别 | [病例诊断选择](#diagnosis) | 200 | JEV 1.13 | — | — | — |
+| 诊断与鉴别 | [病例诊断选择](#diagnosis) | 200 | JEV 1.13（小海马中转） | 78.50 | 216.00 | 0.258 |
 | 诊断与鉴别 | [病例诊断选择](#diagnosis) | 200 | DeepSeek V4.1 Flash | 75.00 | 176.85 | 0.538–1.076 |
 | 诊断与鉴别 | [病例诊断选择](#diagnosis) | 200 | Qwen3.5-9B | 58.00 | 1.65 | 0.300 |
 | 诊断与鉴别 | [病例诊断选择](#diagnosis) | 200 | Qwen3.8-27B | 78.00 | 0.84 | 1.744 |
-| 诊断与鉴别 | [中医证型判断](#tcm_syndrome) | 100 | JEV 1.13 | — | — | — |
+| 诊断与鉴别 | [中医证型判断](#tcm_syndrome) | 100 | JEV 1.13（小海马中转） | 28.00 | 104.20 | 1.072 |
 | 诊断与鉴别 | [中医证型判断](#tcm_syndrome) | 100 | DeepSeek V4.1 Flash | 41.00 | 29.20 | 2.029–4.057 |
 | 诊断与鉴别 | [中医证型判断](#tcm_syndrome) | 100 | Qwen3.5-9B | 27.00 | 0.59 | 1.042 |
 | 诊断与鉴别 | [中医证型判断](#tcm_syndrome) | 100 | Qwen3.8-27B | 35.00 | 0.27 | 6.162 |
-| 诊断与鉴别 | [病例病因判断](#case_etiology) | 100 | JEV 1.13 | — | — | — |
+| 诊断与鉴别 | [病例病因判断](#case_etiology) | 100 | JEV 1.13（小海马中转） | 80.00 | 175.20 | 0.091 |
 | 诊断与鉴别 | [病例病因判断](#case_etiology) | 100 | DeepSeek V4.1 Flash | 81.00 | 236.40 | 0.220–0.439 |
 | 诊断与鉴别 | [病例病因判断](#case_etiology) | 100 | Qwen3.5-9B | 56.00 | 4.03 | 0.128 |
 | 诊断与鉴别 | [病例病因判断](#case_etiology) | 100 | Qwen3.8-27B | 82.00 | 1.00 | 0.721 |
-| 诊断与鉴别 | [中医候选病机判断](#tcm_pathogenesis_candidate) | 100 | JEV 1.13 | — | — | — |
+| 诊断与鉴别 | [中医候选病机判断](#tcm_pathogenesis_candidate) | 100 | JEV 1.13（小海马中转） | 71.00 | 134.40 | 0.147 |
 | 诊断与鉴别 | [中医候选病机判断](#tcm_pathogenesis_candidate) | 100 | DeepSeek V4.1 Flash | 78.00 | 155.00 | 0.359–0.719 |
 | 诊断与鉴别 | [中医候选病机判断](#tcm_pathogenesis_candidate) | 100 | Qwen3.5-9B | 59.00 | 2.80 | 0.196 |
 | 诊断与鉴别 | [中医候选病机判断](#tcm_pathogenesis_candidate) | 100 | Qwen3.8-27B | 70.00 | 0.97 | 1.131 |
-| 治疗与用药 | [患者方案禁忌判断](#patient_contraindication) | 54 | JEV 1.13 | — | — | — |
+| 治疗与用药 | [患者方案禁忌判断](#patient_contraindication) | 54 | JEV 1.13（小海马中转） | 77.78 | 260.20 | 0.086 |
 | 治疗与用药 | [患者方案禁忌判断](#patient_contraindication) | 54 | DeepSeek V4.1 Flash | 62.96 | 82.47 | 0.211–0.422 |
 | 治疗与用药 | [患者方案禁忌判断](#patient_contraindication) | 54 | Qwen3.5-9B | 38.89 | 3.35 | 0.123 |
 | 治疗与用药 | [患者方案禁忌判断](#patient_contraindication) | 54 | Qwen3.8-27B | 64.81 | 1.60 | 0.694 |
-| 治疗与用药 | [治疗方案选择](#treatment_choice) | 100 | JEV 1.13 | — | — | — |
+| 治疗与用药 | [治疗方案选择](#treatment_choice) | 100 | JEV 1.13（小海马中转） | 78.00 | 254.60 | 0.086 |
 | 治疗与用药 | [治疗方案选择](#treatment_choice) | 100 | DeepSeek V4.1 Flash | 73.00 | 178.57 | 0.214–0.428 |
 | 治疗与用药 | [治疗方案选择](#treatment_choice) | 100 | Qwen3.5-9B | 57.00 | 4.40 | 0.126 |
 | 治疗与用药 | [治疗方案选择](#treatment_choice) | 100 | Qwen3.8-27B | 72.00 | 2.00 | 0.704 |
-| 治疗与用药 | [用药方案选择](#medication_choice) | 100 | JEV 1.13 | — | — | — |
+| 治疗与用药 | [用药方案选择](#medication_choice) | 100 | JEV 1.13（小海马中转） | 83.00 | 184.80 | 0.086 |
 | 治疗与用药 | [用药方案选择](#medication_choice) | 100 | DeepSeek V4.1 Flash | 62.00 | 271.43 | 0.218–0.436 |
 | 治疗与用药 | [用药方案选择](#medication_choice) | 100 | Qwen3.5-9B | 43.00 | 3.98 | 0.128 |
 | 治疗与用药 | [用药方案选择](#medication_choice) | 100 | Qwen3.8-27B | 64.00 | 1.80 | 0.718 |
-| 治疗与用药 | [补液方案选择](#fluid_plan) | 16 | JEV 1.13 | — | — | — |
+| 治疗与用药 | [补液方案选择](#fluid_plan) | 16 | JEV 1.13（小海马中转） | 62.50 | 244.60 | 0.096 |
 | 治疗与用药 | [补液方案选择](#fluid_plan) | 16 | DeepSeek V4.1 Flash | 43.75 | 193.07 | 0.237–0.475 |
 | 治疗与用药 | [补液方案选择](#fluid_plan) | 16 | Qwen3.5-9B | 31.25 | 3.70 | 0.144 |
 | 治疗与用药 | [补液方案选择](#fluid_plan) | 16 | Qwen3.8-27B | 62.50 | 1.80 | 0.812 |
-| 治疗与用药 | [药物基因结果对应的指南建议选择](#pgx_guideline_recommendation) | 100 | JEV 1.13 | — | — | — |
+| 治疗与用药 | [药物基因结果对应的指南建议选择](#pgx_guideline_recommendation) | 100 | JEV 1.13（小海马中转） | 56.00 | 155.40 | 0.139 |
 | 治疗与用药 | [药物基因结果对应的指南建议选择](#pgx_guideline_recommendation) | 100 | DeepSeek V4.1 Flash | 53.00 | 323.40 | 0.407–0.814 |
 | 治疗与用药 | [药物基因结果对应的指南建议选择](#pgx_guideline_recommendation) | 100 | Qwen3.5-9B | 34.00 | 1.80 | 0.230 |
 | 治疗与用药 | [药物基因结果对应的指南建议选择](#pgx_guideline_recommendation) | 100 | Qwen3.8-27B | 62.00 | 1.14 | 1.311 |
-| 治疗与用药 | [给药途径与实施方法选择](#administration_route_choice) | 4 | JEV 1.13 | — | — | — |
+| 治疗与用药 | [给药途径与实施方法选择](#administration_route_choice) | 4 | JEV 1.13（小海马中转） | 100.00 | 129.80 | 0.093 |
 | 治疗与用药 | [给药途径与实施方法选择](#administration_route_choice) | 4 | DeepSeek V4.1 Flash | 75.00 | 164.90 | 0.229–0.457 |
 | 治疗与用药 | [给药途径与实施方法选择](#administration_route_choice) | 4 | Qwen3.5-9B | 50.00 | 3.30 | 0.132 |
 | 治疗与用药 | [给药途径与实施方法选择](#administration_route_choice) | 4 | Qwen3.8-27B | 50.00 | 1.30 | 0.749 |
-| 住院与护理 | [病例并发症判断](#case_complication) | 100 | JEV 1.13 | — | — | — |
+| 住院与护理 | [病例并发症判断](#case_complication) | 100 | JEV 1.13（小海马中转） | 90.00 | 188.60 | 0.089 |
 | 住院与护理 | [病例并发症判断](#case_complication) | 100 | DeepSeek V4.1 Flash | 66.00 | 214.32 | 0.215–0.429 |
 | 住院与护理 | [病例并发症判断](#case_complication) | 100 | Qwen3.5-9B | 53.00 | 3.55 | 0.126 |
 | 住院与护理 | [病例并发症判断](#case_complication) | 100 | Qwen3.8-27B | 84.00 | 2.20 | 0.707 |
-| 住院与护理 | [护理措施选择](#nursing_priority) | 42 | JEV 1.13 | — | — | — |
+| 住院与护理 | [护理措施选择](#nursing_priority) | 42 | JEV 1.13（小海马中转） | 88.10 | 205.40 | 0.090 |
 | 住院与护理 | [护理措施选择](#nursing_priority) | 42 | DeepSeek V4.1 Flash | 78.57 | 252.00 | 0.211–0.422 |
 | 住院与护理 | [护理措施选择](#nursing_priority) | 42 | Qwen3.5-9B | 57.14 | 4.80 | 0.123 |
 | 住院与护理 | [护理措施选择](#nursing_priority) | 42 | Qwen3.8-27B | 85.71 | 2.20 | 0.689 |
-| 住院与护理 | [营养与饮食方案选择](#nutrition_plan) | 11 | JEV 1.13 | — | — | — |
+| 住院与护理 | [营养与饮食方案选择](#nutrition_plan) | 11 | JEV 1.13（小海马中转） | 63.64 | 100.28 | 0.097 |
 | 住院与护理 | [营养与饮食方案选择](#nutrition_plan) | 11 | DeepSeek V4.1 Flash | 63.64 | 173.60 | 0.232–0.464 |
 | 住院与护理 | [营养与饮食方案选择](#nutrition_plan) | 11 | Qwen3.5-9B | 27.27 | 3.70 | 0.135 |
 | 住院与护理 | [营养与饮食方案选择](#nutrition_plan) | 11 | Qwen3.8-27B | 63.64 | 1.65 | 0.763 |
-| 住院与护理 | [护理与操作体位选择](#positioning_choice) | 10 | JEV 1.13 | — | — | — |
+| 住院与护理 | [护理与操作体位选择](#positioning_choice) | 10 | JEV 1.13（小海马中转） | 100.00 | 178.65 | 0.084 |
 | 住院与护理 | [护理与操作体位选择](#positioning_choice) | 10 | DeepSeek V4.1 Flash | 70.00 | 174.90 | 0.206–0.413 |
 | 住院与护理 | [护理与操作体位选择](#positioning_choice) | 10 | Qwen3.5-9B | 30.00 | 3.33 | 0.126 |
 | 住院与护理 | [护理与操作体位选择](#positioning_choice) | 10 | Qwen3.8-27B | 60.00 | 1.80 | 0.706 |
-| 住院与护理 | [病情监测与疗效判断](#monitoring_target) | 5 | JEV 1.13 | — | — | — |
+| 住院与护理 | [病情监测与疗效判断](#monitoring_target) | 5 | JEV 1.13（小海马中转） | 80.00 | 72.38 | 0.086 |
 | 住院与护理 | [病情监测与疗效判断](#monitoring_target) | 5 | DeepSeek V4.1 Flash | 100.00 | 161.75 | 0.208–0.416 |
 | 住院与护理 | [病情监测与疗效判断](#monitoring_target) | 5 | Qwen3.5-9B | 40.00 | 3.62 | 0.122 |
 | 住院与护理 | [病情监测与疗效判断](#monitoring_target) | 5 | Qwen3.8-27B | 80.00 | 1.50 | 0.686 |
-| 住院与护理 | [感染防控措施选择](#infection_precaution) | 5 | JEV 1.13 | — | — | — |
+| 住院与护理 | [感染防控措施选择](#infection_precaution) | 5 | JEV 1.13（小海马中转） | 100.00 | 162.38 | 0.095 |
 | 住院与护理 | [感染防控措施选择](#infection_precaution) | 5 | DeepSeek V4.1 Flash | 100.00 | 150.00 | 0.231–0.462 |
 | 住院与护理 | [感染防控措施选择](#infection_precaution) | 5 | Qwen3.5-9B | 40.00 | 2.90 | 0.132 |
 | 住院与护理 | [感染防控措施选择](#infection_precaution) | 5 | Qwen3.8-27B | 80.00 | 1.88 | 0.746 |
-| 出院与随访 | [复查项目与随访时机选择](#followup_plan) | 6 | JEV 1.13 | — | — | — |
+| 出院与随访 | [复查项目与随访时机选择](#followup_plan) | 6 | JEV 1.13（小海马中转） | 83.33 | 201.30 | 0.086 |
 | 出院与随访 | [复查项目与随访时机选择](#followup_plan) | 6 | DeepSeek V4.1 Flash | 50.00 | 163.80 | 0.222–0.444 |
 | 出院与随访 | [复查项目与随访时机选择](#followup_plan) | 6 | Qwen3.5-9B | 66.67 | 2.85 | 0.129 |
 | 出院与随访 | [复查项目与随访时机选择](#followup_plan) | 6 | Qwen3.8-27B | 66.67 | 1.95 | 0.727 |
-| 出院与随访 | [康复训练方案选择](#rehabilitation_choice) | 4 | JEV 1.13 | — | — | — |
+| 出院与随访 | [康复训练方案选择](#rehabilitation_choice) | 4 | JEV 1.13（小海马中转） | 100.00 | 127.50 | 0.100 |
 | 出院与随访 | [康复训练方案选择](#rehabilitation_choice) | 4 | DeepSeek V4.1 Flash | 100.00 | 156.10 | 0.231–0.462 |
 | 出院与随访 | [康复训练方案选择](#rehabilitation_choice) | 4 | Qwen3.5-9B | 50.00 | 3.30 | 0.132 |
 | 出院与随访 | [康复训练方案选择](#rehabilitation_choice) | 4 | Qwen3.8-27B | 75.00 | 1.50 | 0.746 |
-| 出院与随访 | [预防措施选择](#prevention_choice) | 13 | JEV 1.13 | — | — | — |
+| 出院与随访 | [预防措施选择](#prevention_choice) | 13 | JEV 1.13（小海马中转） | 76.92 | 88.70 | 0.092 |
 | 出院与随访 | [预防措施选择](#prevention_choice) | 13 | DeepSeek V4.1 Flash | 76.92 | 163.95 | 0.224–0.447 |
 | 出院与随访 | [预防措施选择](#prevention_choice) | 13 | Qwen3.5-9B | 69.23 | 4.03 | 0.129 |
 | 出院与随访 | [预防措施选择](#prevention_choice) | 13 | Qwen3.8-27B | 76.92 | 0.97 | 0.724 |
-| 出院与随访 | [健康教育与沟通行动选择](#patient_counseling) | 11 | JEV 1.13 | — | — | — |
+| 出院与随访 | [健康教育与沟通行动选择](#patient_counseling) | 11 | JEV 1.13（小海马中转） | 90.91 | 173.38 | 0.100 |
 | 出院与随访 | [健康教育与沟通行动选择](#patient_counseling) | 11 | DeepSeek V4.1 Flash | 90.91 | 204.95 | 0.232–0.464 |
 | 出院与随访 | [健康教育与沟通行动选择](#patient_counseling) | 11 | Qwen3.5-9B | 81.82 | 3.38 | 0.132 |
 | 出院与随访 | [健康教育与沟通行动选择](#patient_counseling) | 11 | Qwen3.8-27B | 90.91 | 2.12 | 0.746 |
-| 临床试验筛选 | [患者临床试验初筛与转介判断](#trial_referral) | 100 | JEV 1.13 | — | — | — |
+| 临床试验筛选 | [患者临床试验初筛与转介判断](#trial_referral) | 100 | JEV 1.13（小海马中转） | 54.00 | 160.60 | 0.194 |
 | 临床试验筛选 | [患者临床试验初筛与转介判断](#trial_referral) | 100 | DeepSeek V4.1 Flash | 58.00 | 76.00 | 0.605–1.211 |
 | 临床试验筛选 | [患者临床试验初筛与转介判断](#trial_referral) | 100 | Qwen3.5-9B | 45.00 | 1.72 | 0.347 |
 | 临床试验筛选 | [患者临床试验初筛与转介判断](#trial_referral) | 100 | Qwen3.8-27B | 60.00 | 0.57 | 1.929 |
-| 临床试验筛选 | [同一患者的多项试验转介筛选](#trial_shared_patient) | 64 | JEV 1.13 | — | — | — |
+| 临床试验筛选 | [同一患者的多项试验转介筛选](#trial_shared_patient) | 64 | JEV 1.13（小海马中转） | 67.19 | 205.60 | 0.165 |
 | 临床试验筛选 | [同一患者的多项试验转介筛选](#trial_shared_patient) | 64 | DeepSeek V4.1 Flash | 75.00 | 255.60 | 0.550–1.101 |
 | 临床试验筛选 | [同一患者的多项试验转介筛选](#trial_shared_patient) | 64 | Qwen3.5-9B | 75.00 | 1.74 | 0.297 |
 | 临床试验筛选 | [同一患者的多项试验转介筛选](#trial_shared_patient) | 64 | Qwen3.8-27B | 73.44 | 0.96 | 1.733 |
-| 病历与医疗质量控制 | [知情同意与隐私处置选择](#consent_action) | 3 | JEV 1.13 | — | — | — |
+| 病历与医疗质量控制 | [知情同意与隐私处置选择](#consent_action) | 3 | JEV 1.13（小海马中转） | 100.00 | 73.58 | 0.098 |
 | 病历与医疗质量控制 | [知情同意与隐私处置选择](#consent_action) | 3 | DeepSeek V4.1 Flash | 100.00 | 90.45 | 0.257–0.514 |
 | 病历与医疗质量控制 | [知情同意与隐私处置选择](#consent_action) | 3 | Qwen3.5-9B | 100.00 | 2.77 | 0.143 |
 | 病历与医疗质量控制 | [知情同意与隐私处置选择](#consent_action) | 3 | Qwen3.8-27B | 100.00 | 0.75 | 0.817 |
 
 “—”表示本轮未获得完整数据或样本不足。独立题量指不重复的判断项，不表示统计独立，也不等于独立患者数；患者／来源组数见每个任务表题。少于 20 题仅作探索性比较。三个空任务（剂量适宜性、危急值升级、就诊科室分流）暂不计分。
 
-[评估方法与适用边界](docs/MEDICAL_LOAD.md) · [数据集与许可](docs/datasets/README.md) · [原始响应与复算](results/medical-load-v2/README.md)
+[评估方法与适用边界](docs/MEDICAL_LOAD.md) · [数据集与许可](docs/datasets/README.md) · [原始响应与复算](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="triage_urgency"></a>
 
@@ -139,7 +145,7 @@
 
 | 模型 | 准确率 (%) ↑ | Macro-F1 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — | — |
+| JEV 1.13（小海马中转） | 66.00 | 62.84 | 270.00 | 1.559 | 0.086 |
 | DeepSeek V4.1 Flash | 58.00 | 54.61 | 194.80 | 2.406 | 0.308–0.615 |
 | Qwen3.5-9B | 54.00 | 54.82 | 3.20 | — | 0.175 |
 | Qwen3.8-27B | 69.00 | 68.99 | 0.60 | — | 0.900 |
@@ -148,7 +154,7 @@
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![分诊与就医紧急程度判断的并发吞吐对比](docs/assets/medical-load-v2/triage_urgency.svg)
+![分诊与就医紧急程度判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/triage_urgency.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -157,11 +163,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 69.00 | 1.557 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 47.40 | 2.332 | 8.00 |
 | Qwen3.5-9B | 8 | 3.40 | — | 1.91 |
 | Qwen3.8-27B | 8 | 1.40 | — | 1.32 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 270.00 | 1.559 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 194.80 | 2.406 | 31.98 |
 | Qwen3.5-9B | 32 | 3.20 | — | 1.67 |
 | Qwen3.8-27B | 32 | 0.60 | — | 2.05 |
@@ -170,7 +176,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/triage_urgency.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/triage_urgency.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="message_urgency_pair"></a>
 
@@ -180,7 +186,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 66.67 | 103.20 | 7.580 | 0.326 |
 | DeepSeek V4.1 Flash | 70.00 | 209.35 | 2.736 | 1.063–2.126 |
 | Qwen3.5-9B | 16.67 | 0.42 | — | 0.571 |
 | Qwen3.8-27B | 66.67 | 0.54 | — | 3.356 |
@@ -189,7 +195,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 本任务严格区分原始选项键，例如 `Patient #1` 不能改写成 `Patient_1`。这类输出合约错误也按错计，因此成绩同时反映判断和接口可直接使用的程度，不能全部归因于医学推理差异。
 
-![患者消息处理优先级的并发吞吐对比](docs/assets/medical-load-v2/message_urgency_pair.svg)
+![患者消息处理优先级的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -198,11 +204,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 10.75 | 18.868 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 46.60 | 3.671 | 7.99 |
 | Qwen3.5-9B | 8 | 0.31 | — | 0.37 |
 | Qwen3.8-27B | 8 | 0.48 | — | 0.68 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 103.20 | 7.580 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 209.35 | 2.736 | 31.96 |
 | Qwen3.5-9B | 32 | 0.42 | — | 0.33 |
 | Qwen3.8-27B | 32 | 0.54 | — | 0.33 |
@@ -211,7 +217,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/message_urgency_pair.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/message_urgency_pair.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="examination_choice"></a>
 
@@ -221,14 +227,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 86.00 | 260.80 | 1.578 | 0.083 |
 | DeepSeek V4.1 Flash | 81.00 | 269.23 | 1.635 | 0.209–0.419 |
 | Qwen3.5-9B | 54.00 | 3.83 | 2.779 | 0.122 |
 | Qwen3.8-27B | 78.00 | 2.00 | — | 0.684 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![检查方案选择的并发吞吐对比](docs/assets/medical-load-v2/examination_choice.svg)
+![检查方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/examination_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -237,11 +243,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 68.00 | 1.537 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 80.90 | 1.271 | 7.99 |
 | Qwen3.5-9B | 8 | 3.67 | 2.493 | 1.00 |
 | Qwen3.8-27B | 8 | 2.00 | — | 0.72 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 260.80 | 1.578 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 269.23 | 1.635 | 31.98 |
 | Qwen3.5-9B | 32 | 3.83 | 2.779 | 1.08 |
 | Qwen3.8-27B | 32 | 2.00 | — | 0.70 |
@@ -250,7 +256,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/examination_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/examination_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="clinical_grade"></a>
 
@@ -260,14 +266,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 53.00 | 103.60 | 6.026 | 0.086 |
 | DeepSeek V4.1 Flash | 51.00 | 119.38 | 5.390 | 0.217–0.434 |
 | Qwen3.5-9B | 30.00 | 3.85 | 2.572 | 0.127 |
 | Qwen3.8-27B | 51.00 | 0.80 | — | 0.714 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![疾病分期与严重程度判断的并发吞吐对比](docs/assets/medical-load-v2/clinical_grade.svg)
+![疾病分期与严重程度判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/clinical_grade.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -276,11 +282,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 35.80 | 3.893 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 61.60 | 1.810 | 7.99 |
 | Qwen3.5-9B | 8 | 3.85 | 3.322 | 1.03 |
 | Qwen3.8-27B | 8 | 0.80 | — | 2.55 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 103.60 | 6.026 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 119.38 | 5.390 | 31.99 |
 | Qwen3.5-9B | 32 | 3.85 | 2.572 | 1.01 |
 | Qwen3.8-27B | 32 | 0.80 | — | 1.88 |
@@ -289,7 +295,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/clinical_grade.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/clinical_grade.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="diagnosis"></a>
 
@@ -299,14 +305,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 78.50 | 216.00 | 1.961 | 0.258 |
 | DeepSeek V4.1 Flash | 75.00 | 176.85 | 4.117 | 0.538–1.076 |
 | Qwen3.5-9B | 58.00 | 1.65 | — | 0.300 |
 | Qwen3.8-27B | 78.00 | 0.84 | — | 1.744 |
 
 准确率和成本来自完整的 200 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![病例诊断选择的并发吞吐对比](docs/assets/medical-load-v2/diagnosis.svg)
+![病例诊断选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/diagnosis.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -315,11 +321,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 51.20 | 2.002 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 32.10 | 4.716 | 7.99 |
 | Qwen3.5-9B | 8 | 1.90 | — | 0.64 |
 | Qwen3.8-27B | 8 | 0.96 | — | 0.55 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 216.00 | 1.961 | 31.97 |
 | DeepSeek V4.1 Flash | 32 | 176.85 | 4.117 | 31.97 |
 | Qwen3.5-9B | 32 | 1.65 | — | 0.67 |
 | Qwen3.8-27B | 32 | 0.84 | — | 0.29 |
@@ -328,7 +334,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/diagnosis.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/diagnosis.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="tcm_syndrome"></a>
 
@@ -338,7 +344,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | Macro-F1 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — | — |
+| JEV 1.13（小海马中转） | 28.00 | 19.20 | 104.20 | 3.614 | 1.072 |
 | DeepSeek V4.1 Flash | 41.00 | 25.91 | 29.20 | 14.079 | 2.029–4.057 |
 | Qwen3.5-9B | 27.00 | 15.23 | 0.59 | — | 1.042 |
 | Qwen3.8-27B | 35.00 | 19.68 | 0.27 | — | 6.162 |
@@ -347,7 +353,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![中医证型判断的并发吞吐对比](docs/assets/medical-load-v2/tcm_syndrome.svg)
+![中医证型判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/tcm_syndrome.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -356,11 +362,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 29.40 | 3.330 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 60.60 | 1.407 | 7.99 |
 | Qwen3.5-9B | 8 | 0.65 | — | 0.29 |
 | Qwen3.8-27B | 8 | 0.27 | — | 0.20 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 104.20 | 3.614 | 31.97 |
 | DeepSeek V4.1 Flash | 32 | 29.20 | 14.079 | 31.99 |
 | Qwen3.5-9B | 32 | 0.59 | — | 0.25 |
 | Qwen3.8-27B | 32 | 0.27 | — | 0.22 |
@@ -369,7 +375,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/tcm_syndrome.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/tcm_syndrome.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="case_etiology"></a>
 
@@ -379,14 +385,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 80.00 | 175.20 | 2.931 | 0.091 |
 | DeepSeek V4.1 Flash | 81.00 | 236.40 | 1.466 | 0.220–0.439 |
 | Qwen3.5-9B | 56.00 | 4.03 | 2.108 | 0.128 |
 | Qwen3.8-27B | 82.00 | 1.00 | — | 0.721 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![病例病因判断的并发吞吐对比](docs/assets/medical-load-v2/case_etiology.svg)
+![病例病因判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/case_etiology.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -395,11 +401,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 40.80 | 2.470 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 59.10 | 1.118 | 7.99 |
 | Qwen3.5-9B | 8 | 3.80 | 2.966 | 1.07 |
 | Qwen3.8-27B | 8 | 2.00 | — | 1.26 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 175.20 | 2.931 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 236.40 | 1.466 | 31.97 |
 | Qwen3.5-9B | 32 | 4.03 | 2.108 | 0.96 |
 | Qwen3.8-27B | 32 | 1.00 | — | 2.28 |
@@ -408,7 +414,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/case_etiology.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/case_etiology.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="tcm_pathogenesis_candidate"></a>
 
@@ -418,7 +424,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | Macro-F1 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — | — |
+| JEV 1.13（小海马中转） | 71.00 | 68.72 | 134.40 | 7.319 | 0.147 |
 | DeepSeek V4.1 Flash | 78.00 | 78.00 | 155.00 | 7.781 | 0.359–0.719 |
 | Qwen3.5-9B | 59.00 | 53.99 | 2.80 | — | 0.196 |
 | Qwen3.8-27B | 70.00 | 69.21 | 0.97 | — | 1.131 |
@@ -429,7 +435,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 这是候选病机的判断任务，按既有标注计分；不能由此推导自由生成辨证与处方的能力。
 
-![中医候选病机判断的并发吞吐对比](docs/assets/medical-load-v2/tcm_pathogenesis_candidate.svg)
+![中医候选病机判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/tcm_pathogenesis_candidate.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -438,11 +444,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 36.40 | 6.488 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 30.60 | 6.432 | 8.00 |
 | Qwen3.5-9B | 8 | 2.40 | — | 0.78 |
 | Qwen3.8-27B | 8 | 1.46 | — | 0.84 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 134.40 | 7.319 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 155.00 | 7.781 | 31.99 |
 | Qwen3.5-9B | 32 | 2.80 | — | 0.74 |
 | Qwen3.8-27B | 32 | 0.97 | — | 1.18 |
@@ -451,7 +457,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/tcm_pathogenesis_candidate.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/tcm_pathogenesis_candidate.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="patient_contraindication"></a>
 
@@ -461,14 +467,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 77.78 | 260.20 | 1.577 | 0.086 |
 | DeepSeek V4.1 Flash | 62.96 | 82.47 | 5.906 | 0.211–0.422 |
 | Qwen3.5-9B | 38.89 | 3.35 | 3.133 | 0.123 |
 | Qwen3.8-27B | 64.81 | 1.60 | — | 0.694 |
 
 准确率和成本来自完整的 54 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![患者方案禁忌判断的并发吞吐对比](docs/assets/medical-load-v2/patient_contraindication.svg)
+![患者方案禁忌判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -477,11 +483,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 65.20 | 1.606 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 56.50 | 2.225 | 7.99 |
 | Qwen3.5-9B | 8 | 3.55 | 5.386 | 1.33 |
 | Qwen3.8-27B | 8 | 2.00 | — | 1.00 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 260.20 | 1.577 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 82.47 | 5.906 | 31.99 |
 | Qwen3.5-9B | 32 | 3.35 | 3.133 | 1.13 |
 | Qwen3.8-27B | 32 | 1.60 | — | 0.95 |
@@ -490,7 +496,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/patient_contraindication.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/patient_contraindication.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="treatment_choice"></a>
 
@@ -500,14 +506,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 78.00 | 254.60 | 1.706 | 0.086 |
 | DeepSeek V4.1 Flash | 73.00 | 178.57 | 3.063 | 0.214–0.428 |
 | Qwen3.5-9B | 57.00 | 4.40 | 6.105 | 0.126 |
 | Qwen3.8-27B | 72.00 | 2.00 | — | 0.704 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![治疗方案选择的并发吞吐对比](docs/assets/medical-load-v2/treatment_choice.svg)
+![治疗方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/treatment_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -516,11 +522,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 62.00 | 1.627 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 66.12 | 1.330 | 7.99 |
 | Qwen3.5-9B | 8 | 4.40 | 4.483 | 1.22 |
 | Qwen3.8-27B | 8 | 2.17 | — | 1.86 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 254.60 | 1.706 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 178.57 | 3.063 | 31.99 |
 | Qwen3.5-9B | 32 | 4.40 | 6.105 | 1.31 |
 | Qwen3.8-27B | 32 | 2.00 | — | 1.78 |
@@ -529,7 +535,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/treatment_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/treatment_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="medication_choice"></a>
 
@@ -539,14 +545,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 83.00 | 184.80 | 3.755 | 0.086 |
 | DeepSeek V4.1 Flash | 62.00 | 271.43 | 1.135 | 0.218–0.436 |
 | Qwen3.5-9B | 43.00 | 3.98 | 3.856 | 0.128 |
 | Qwen3.8-27B | 64.00 | 1.80 | — | 0.718 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![用药方案选择的并发吞吐对比](docs/assets/medical-load-v2/medication_choice.svg)
+![用药方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/medication_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -555,11 +561,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 54.80 | 2.327 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 66.67 | 1.265 | 7.99 |
 | Qwen3.5-9B | 8 | 4.00 | 2.450 | 1.04 |
 | Qwen3.8-27B | 8 | 2.00 | — | 0.69 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 184.80 | 3.755 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 271.43 | 1.135 | 31.97 |
 | Qwen3.5-9B | 32 | 3.98 | 3.856 | 1.32 |
 | Qwen3.8-27B | 32 | 1.80 | — | 0.81 |
@@ -568,7 +574,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/medication_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/medication_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="fluid_plan"></a>
 
@@ -578,7 +584,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 62.50 | 244.60 | 1.651 | 0.096 |
 | DeepSeek V4.1 Flash | 43.75 | 193.07 | 3.903 | 0.237–0.475 |
 | Qwen3.5-9B | 31.25 | 3.70 | — | 0.144 |
 | Qwen3.8-27B | 62.50 | 1.80 | — | 0.812 |
@@ -587,7 +593,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![补液方案选择的并发吞吐对比](docs/assets/medical-load-v2/fluid_plan.svg)
+![补液方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/fluid_plan.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -596,11 +602,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 64.60 | 1.618 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 76.75 | 1.174 | 7.99 |
 | Qwen3.5-9B | 8 | 3.48 | — | 0.96 |
 | Qwen3.8-27B | 8 | 1.80 | — | 0.85 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 244.60 | 1.651 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 193.07 | 3.903 | 31.98 |
 | Qwen3.5-9B | 32 | 3.70 | — | 1.04 |
 | Qwen3.8-27B | 32 | 1.80 | — | 0.72 |
@@ -609,7 +615,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/fluid_plan.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/fluid_plan.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="pgx_guideline_recommendation"></a>
 
@@ -619,14 +625,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 56.00 | 155.40 | 3.638 | 0.139 |
 | DeepSeek V4.1 Flash | 53.00 | 323.40 | 1.097 | 0.407–0.814 |
 | Qwen3.5-9B | 34.00 | 1.80 | — | 0.230 |
 | Qwen3.8-27B | 62.00 | 1.14 | — | 1.311 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![药物基因结果对应的指南建议选择的并发吞吐对比](docs/assets/medical-load-v2/pgx_guideline_recommendation.svg)
+![药物基因结果对应的指南建议选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/pgx_guideline_recommendation.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -635,11 +641,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 43.80 | 4.255 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 82.80 | 1.058 | 7.99 |
 | Qwen3.5-9B | 8 | 2.40 | — | 0.76 |
 | Qwen3.8-27B | 8 | 1.43 | — | 0.58 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 155.40 | 3.638 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 323.40 | 1.097 | 31.96 |
 | Qwen3.5-9B | 32 | 1.80 | — | 0.57 |
 | Qwen3.8-27B | 32 | 1.14 | — | 1.09 |
@@ -648,7 +654,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/pgx_guideline_recommendation.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/pgx_guideline_recommendation.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="administration_route_choice"></a>
 
@@ -658,7 +664,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 100.00 | 129.80 | 1.571 | 0.093 |
 | DeepSeek V4.1 Flash | 75.00 | 164.90 | 1.102 | 0.229–0.457 |
 | Qwen3.5-9B | 50.00 | 3.30 | 1.843 | 0.132 |
 | Qwen3.8-27B | 50.00 | 1.30 | — | 0.749 |
@@ -667,7 +673,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![给药途径与实施方法选择的并发吞吐对比](docs/assets/medical-load-v2/administration_route_choice.svg)
+![给药途径与实施方法选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/administration_route_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -676,11 +682,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 31.80 | 1.628 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 40.50 | 1.057 | 7.99 |
 | Qwen3.5-9B | 8 | 3.50 | 1.776 | 0.99 |
 | Qwen3.8-27B | 8 | 1.70 | — | 0.93 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 129.80 | 1.571 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 164.90 | 1.102 | 31.98 |
 | Qwen3.5-9B | 32 | 3.30 | 1.843 | 1.03 |
 | Qwen3.8-27B | 32 | 1.30 | — | 2.72 |
@@ -689,7 +695,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/administration_route_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/administration_route_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="case_complication"></a>
 
@@ -699,14 +705,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 90.00 | 188.60 | 3.744 | 0.089 |
 | DeepSeek V4.1 Flash | 66.00 | 214.32 | 2.277 | 0.215–0.429 |
 | Qwen3.5-9B | 53.00 | 3.55 | 2.224 | 0.126 |
 | Qwen3.8-27B | 84.00 | 2.20 | — | 0.707 |
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![病例并发症判断的并发吞吐对比](docs/assets/medical-load-v2/case_complication.svg)
+![病例并发症判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/case_complication.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -715,11 +721,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 49.20 | 3.906 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 68.12 | 1.268 | 7.99 |
 | Qwen3.5-9B | 8 | 3.52 | 2.162 | 0.98 |
 | Qwen3.8-27B | 8 | 1.40 | — | 1.79 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 188.60 | 3.744 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 214.32 | 2.277 | 31.98 |
 | Qwen3.5-9B | 32 | 3.55 | 2.224 | 0.92 |
 | Qwen3.8-27B | 32 | 2.20 | — | 0.88 |
@@ -728,7 +734,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/case_complication.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/case_complication.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="nursing_priority"></a>
 
@@ -738,14 +744,14 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 88.10 | 205.40 | 2.843 | 0.090 |
 | DeepSeek V4.1 Flash | 78.57 | 252.00 | 1.953 | 0.211–0.422 |
 | Qwen3.5-9B | 57.14 | 4.80 | 2.056 | 0.123 |
 | Qwen3.8-27B | 85.71 | 2.20 | — | 0.689 |
 
 准确率和成本来自完整的 42 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![护理措施选择的并发吞吐对比](docs/assets/medical-load-v2/nursing_priority.svg)
+![护理措施选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/nursing_priority.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -754,11 +760,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 47.60 | 3.234 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 75.40 | 1.294 | 8.00 |
 | Qwen3.5-9B | 8 | 4.40 | 2.309 | 0.97 |
 | Qwen3.8-27B | 8 | 2.00 | — | 0.67 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 205.40 | 2.843 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 252.00 | 1.953 | 31.98 |
 | Qwen3.5-9B | 32 | 4.80 | 2.056 | 0.94 |
 | Qwen3.8-27B | 32 | 2.20 | — | 0.85 |
@@ -767,7 +773,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/nursing_priority.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/nursing_priority.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="nutrition_plan"></a>
 
@@ -777,7 +783,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 63.64 | 100.28 | 4.526 | 0.097 |
 | DeepSeek V4.1 Flash | 63.64 | 173.60 | 3.069 | 0.232–0.464 |
 | Qwen3.5-9B | 27.27 | 3.70 | 2.063 | 0.135 |
 | Qwen3.8-27B | 63.64 | 1.65 | — | 0.763 |
@@ -786,7 +792,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![营养与饮食方案选择的并发吞吐对比](docs/assets/medical-load-v2/nutrition_plan.svg)
+![营养与饮食方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/nutrition_plan.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -795,11 +801,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 28.15 | 3.279 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 54.38 | 1.294 | 7.99 |
 | Qwen3.5-9B | 8 | 3.58 | 2.082 | 0.94 |
 | Qwen3.8-27B | 8 | 1.32 | — | 1.62 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 100.28 | 4.526 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 173.60 | 3.069 | 31.98 |
 | Qwen3.5-9B | 32 | 3.70 | 2.063 | 0.94 |
 | Qwen3.8-27B | 32 | 1.65 | — | 1.40 |
@@ -808,7 +814,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/nutrition_plan.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/nutrition_plan.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="positioning_choice"></a>
 
@@ -818,7 +824,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 100.00 | 178.65 | 1.521 | 0.084 |
 | DeepSeek V4.1 Flash | 70.00 | 174.90 | 1.300 | 0.206–0.413 |
 | Qwen3.5-9B | 30.00 | 3.33 | 2.114 | 0.126 |
 | Qwen3.8-27B | 60.00 | 1.80 | — | 0.706 |
@@ -827,7 +833,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![护理与操作体位选择的并发吞吐对比](docs/assets/medical-load-v2/positioning_choice.svg)
+![护理与操作体位选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/positioning_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -836,11 +842,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 46.25 | 1.432 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 47.25 | 1.076 | 7.99 |
 | Qwen3.5-9B | 8 | 3.23 | 2.361 | 1.10 |
 | Qwen3.8-27B | 8 | 2.00 | — | 1.46 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 178.65 | 1.521 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 174.90 | 1.300 | 31.98 |
 | Qwen3.5-9B | 32 | 3.33 | 2.114 | 1.04 |
 | Qwen3.8-27B | 32 | 1.80 | — | 0.79 |
@@ -849,7 +855,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/positioning_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/positioning_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="monitoring_target"></a>
 
@@ -859,7 +865,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 80.00 | 72.38 | 5.048 | 0.086 |
 | DeepSeek V4.1 Flash | 100.00 | 161.75 | 1.620 | 0.208–0.416 |
 | Qwen3.5-9B | 40.00 | 3.62 | 2.532 | 0.122 |
 | Qwen3.8-27B | 80.00 | 1.50 | — | 0.686 |
@@ -868,7 +874,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![病情监测与疗效判断的并发吞吐对比](docs/assets/medical-load-v2/monitoring_target.svg)
+![病情监测与疗效判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -877,11 +883,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 37.88 | 1.820 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 36.38 | 2.471 | 8.00 |
 | Qwen3.5-9B | 8 | 3.88 | 2.303 | 1.10 |
 | Qwen3.8-27B | 8 | 1.62 | — | 1.71 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 72.38 | 5.048 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 161.75 | 1.620 | 31.98 |
 | Qwen3.5-9B | 32 | 3.62 | 2.532 | 1.25 |
 | Qwen3.8-27B | 32 | 1.50 | — | 2.11 |
@@ -890,7 +896,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/monitoring_target.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/monitoring_target.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="infection_precaution"></a>
 
@@ -900,7 +906,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 100.00 | 162.38 | 1.669 | 0.095 |
 | DeepSeek V4.1 Flash | 100.00 | 150.00 | 1.916 | 0.231–0.462 |
 | Qwen3.5-9B | 40.00 | 2.90 | 3.126 | 0.132 |
 | Qwen3.8-27B | 80.00 | 1.88 | — | 0.746 |
@@ -909,7 +915,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![感染防控措施选择的并发吞吐对比](docs/assets/medical-load-v2/infection_precaution.svg)
+![感染防控措施选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/infection_precaution.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -918,11 +924,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 43.12 | 1.553 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 43.38 | 1.461 | 7.99 |
 | Qwen3.5-9B | 8 | 2.70 | 17.789 | 1.13 |
 | Qwen3.8-27B | 8 | 1.75 | — | 1.34 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 162.38 | 1.669 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 150.00 | 1.916 | 31.98 |
 | Qwen3.5-9B | 32 | 2.90 | 3.126 | 1.18 |
 | Qwen3.8-27B | 32 | 1.88 | — | 1.71 |
@@ -931,7 +937,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/infection_precaution.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/infection_precaution.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="followup_plan"></a>
 
@@ -941,7 +947,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 83.33 | 201.30 | 1.563 | 0.086 |
 | DeepSeek V4.1 Flash | 50.00 | 163.80 | 2.535 | 0.222–0.444 |
 | Qwen3.5-9B | 66.67 | 2.85 | 20.984 | 0.129 |
 | Qwen3.8-27B | 66.67 | 1.95 | — | 0.727 |
@@ -950,7 +956,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![复查项目与随访时机选择的并发吞吐对比](docs/assets/medical-load-v2/followup_plan.svg)
+![复查项目与随访时机选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/followup_plan.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -959,11 +965,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 53.25 | 1.538 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 41.85 | 2.559 | 7.99 |
 | Qwen3.5-9B | 8 | 4.05 | 3.424 | 1.09 |
 | Qwen3.8-27B | 8 | 1.80 | — | 0.70 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 201.30 | 1.563 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 163.80 | 2.535 | 31.98 |
 | Qwen3.5-9B | 32 | 2.85 | 20.984 | 2.07 |
 | Qwen3.8-27B | 32 | 1.95 | — | 0.82 |
@@ -972,7 +978,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/followup_plan.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/followup_plan.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="rehabilitation_choice"></a>
 
@@ -982,7 +988,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 100.00 | 127.50 | 1.673 | 0.100 |
 | DeepSeek V4.1 Flash | 100.00 | 156.10 | 1.187 | 0.231–0.462 |
 | Qwen3.5-9B | 50.00 | 3.30 | 2.197 | 0.132 |
 | Qwen3.8-27B | 75.00 | 1.50 | — | 0.746 |
@@ -991,7 +997,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![康复训练方案选择的并发吞吐对比](docs/assets/medical-load-v2/rehabilitation_choice.svg)
+![康复训练方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/rehabilitation_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1000,11 +1006,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 31.30 | 1.635 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 39.00 | 1.150 | 7.99 |
 | Qwen3.5-9B | 8 | 3.30 | 2.260 | 1.06 |
 | Qwen3.8-27B | 8 | 1.50 | — | 1.84 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 127.50 | 1.673 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 156.10 | 1.187 | 31.98 |
 | Qwen3.5-9B | 32 | 3.30 | 2.197 | 1.00 |
 | Qwen3.8-27B | 32 | 1.50 | — | 2.08 |
@@ -1013,7 +1019,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/rehabilitation_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/rehabilitation_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="prevention_choice"></a>
 
@@ -1023,7 +1029,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 76.92 | 88.70 | 5.940 | 0.092 |
 | DeepSeek V4.1 Flash | 76.92 | 163.95 | 2.995 | 0.224–0.447 |
 | Qwen3.5-9B | 69.23 | 4.03 | 2.163 | 0.129 |
 | Qwen3.8-27B | 76.92 | 0.97 | — | 0.724 |
@@ -1032,7 +1038,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![预防措施选择的并发吞吐对比](docs/assets/medical-load-v2/prevention_choice.svg)
+![预防措施选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/prevention_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1041,11 +1047,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 28.50 | 4.588 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 53.10 | 1.482 | 7.99 |
 | Qwen3.5-9B | 8 | 4.03 | 2.412 | 1.04 |
 | Qwen3.8-27B | 8 | 0.97 | — | 2.71 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 88.70 | 5.940 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 163.95 | 2.995 | 31.98 |
 | Qwen3.5-9B | 32 | 4.03 | 2.163 | 0.96 |
 | Qwen3.8-27B | 32 | 0.97 | — | 1.97 |
@@ -1054,7 +1060,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/prevention_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/prevention_choice.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="patient_counseling"></a>
 
@@ -1064,7 +1070,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 90.91 | 173.38 | 1.678 | 0.100 |
 | DeepSeek V4.1 Flash | 90.91 | 204.95 | 1.235 | 0.232–0.464 |
 | Qwen3.5-9B | 81.82 | 3.38 | 2.043 | 0.132 |
 | Qwen3.8-27B | 90.91 | 2.12 | — | 0.746 |
@@ -1073,7 +1079,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![健康教育与沟通行动选择的并发吞吐对比](docs/assets/medical-load-v2/patient_counseling.svg)
+![健康教育与沟通行动选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/patient_counseling.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1082,11 +1088,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 44.27 | 1.669 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 53.48 | 1.086 | 7.99 |
 | Qwen3.5-9B | 8 | 3.77 | 3.279 | 1.13 |
 | Qwen3.8-27B | 8 | 1.65 | — | 1.25 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 173.38 | 1.678 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 204.95 | 1.235 | 31.98 |
 | Qwen3.5-9B | 32 | 3.38 | 2.043 | 0.98 |
 | Qwen3.8-27B | 32 | 2.12 | — | 0.81 |
@@ -1095,7 +1101,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/patient_counseling.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/patient_counseling.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="trial_referral"></a>
 
@@ -1105,7 +1111,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | Macro-F1 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — | — |
+| JEV 1.13（小海马中转） | 54.00 | 49.64 | 160.60 | 2.439 | 0.194 |
 | DeepSeek V4.1 Flash | 58.00 | 55.23 | 76.00 | 7.781 | 0.605–1.211 |
 | Qwen3.5-9B | 45.00 | 37.67 | 1.72 | — | 0.347 |
 | Qwen3.8-27B | 60.00 | 57.91 | 0.57 | — | 1.929 |
@@ -1114,7 +1120,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![患者临床试验初筛与转介判断的并发吞吐对比](docs/assets/medical-load-v2/trial_referral.svg)
+![患者临床试验初筛与转介判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/trial_referral.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1123,11 +1129,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 46.40 | 2.164 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 39.20 | 3.585 | 8.00 |
 | Qwen3.5-9B | 8 | 1.53 | — | 0.80 |
 | Qwen3.8-27B | 8 | 0.86 | — | 0.70 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 160.60 | 2.439 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 76.00 | 7.781 | 31.99 |
 | Qwen3.5-9B | 32 | 1.72 | — | 0.54 |
 | Qwen3.8-27B | 32 | 0.57 | — | 0.90 |
@@ -1136,7 +1142,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/trial_referral.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/trial_referral.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="trial_shared_patient"></a>
 
@@ -1146,7 +1152,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | Macro-F1 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — | — |
+| JEV 1.13（小海马中转） | 67.19 | 47.74 | 205.60 | 1.938 | 0.165 |
 | DeepSeek V4.1 Flash | 75.00 | 57.13 | 255.60 | 2.322 | 0.550–1.101 |
 | Qwen3.5-9B | 75.00 | 51.47 | 1.74 | — | 0.297 |
 | Qwen3.8-27B | 73.44 | 54.31 | 0.96 | — | 1.733 |
@@ -1161,7 +1167,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![同一患者的多项试验转介筛选的并发吞吐对比](docs/assets/medical-load-v2/trial_shared_patient.svg)
+![同一患者的多项试验转介筛选的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/trial_shared_patient.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1170,11 +1176,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 56.20 | 1.949 | 7.99 |
 | DeepSeek V4.1 Flash | 8 | 80.60 | 1.231 | 7.99 |
 | Qwen3.5-9B | 8 | 1.74 | — | 0.59 |
 | Qwen3.8-27B | 8 | 0.78 | — | 0.51 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 205.60 | 1.938 | 31.98 |
 | DeepSeek V4.1 Flash | 32 | 255.60 | 2.322 | 31.96 |
 | Qwen3.5-9B | 32 | 1.74 | — | 0.50 |
 | Qwen3.8-27B | 32 | 0.96 | — | 0.40 |
@@ -1183,7 +1189,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/trial_shared_patient.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/trial_shared_patient.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
 
 <a id="consent_action"></a>
 
@@ -1193,7 +1199,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 准确率 (%) ↑ | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 成本 (元/千项判断) ↓ |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | — | — | — | — |
+| JEV 1.13（小海马中转） | 100.00 | 73.58 | 2.601 | 0.098 |
 | DeepSeek V4.1 Flash | 100.00 | 90.45 | 2.031 | 0.257–0.514 |
 | Qwen3.5-9B | 100.00 | 2.77 | 2.618 | 0.143 |
 | Qwen3.8-27B | 100.00 | 0.75 | — | 0.817 |
@@ -1202,7 +1208,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![知情同意与隐私处置选择的并发吞吐对比](docs/assets/medical-load-v2/consent_action.svg)
+![知情同意与隐私处置选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1211,11 +1217,11 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 | 模型 | 配置并发 | 吞吐量 (判断/秒) ↑ | 完整响应 P95 (秒) ↓ | 实际平均同时请求数 |
 | --- | ---: | ---: | ---: | ---: |
-| JEV 1.13 | 8 | — | — | — |
+| JEV 1.13（小海马中转） | 8 | 20.32 | 2.492 | 8.00 |
 | DeepSeek V4.1 Flash | 8 | 27.15 | 2.079 | 7.99 |
 | Qwen3.5-9B | 8 | 2.85 | 1.363 | 0.93 |
 | Qwen3.8-27B | 8 | 0.75 | — | 3.29 |
-| JEV 1.13 | 32 | — | — | — |
+| JEV 1.13（小海马中转） | 32 | 73.58 | 2.601 | 31.99 |
 | DeepSeek V4.1 Flash | 32 | 90.45 | 2.031 | 31.98 |
 | Qwen3.5-9B | 32 | 2.77 | 2.618 | 1.09 |
 | Qwen3.8-27B | 32 | 0.75 | — | 3.59 |
@@ -1224,4 +1230,4 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 </details>
 
-[任务定义与数据](docs/tasks/consent_action.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-v2/README.md)
+[任务定义与数据](docs/tasks/consent_action.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)

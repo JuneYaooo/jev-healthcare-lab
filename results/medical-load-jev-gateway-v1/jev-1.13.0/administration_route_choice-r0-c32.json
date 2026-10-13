@@ -1,0 +1,11 @@
+{
+  "family": "administration_route_choice",
+  "model": "jev-1.13.0",
+  "repeat": 0,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 23.785466375004034,
+  "stop": null,
+  "raw_file": "administration_route_choice-r0-c32.jsonl.gz"
+}

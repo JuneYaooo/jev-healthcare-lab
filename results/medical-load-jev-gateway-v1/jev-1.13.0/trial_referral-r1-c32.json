@@ -1,0 +1,11 @@
+{
+  "family": "trial_referral",
+  "model": "jev-1.13.0",
+  "repeat": 1,
+  "concurrency": 32,
+  "window_s": 20,
+  "warmup_s": 3,
+  "wall_s": 49.01691520801978,
+  "stop": null,
+  "raw_file": "trial_referral-r1-c32.jsonl.gz"
+}
