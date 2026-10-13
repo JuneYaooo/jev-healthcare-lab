@@ -204,6 +204,7 @@ def render(report):
               f'[评估方法与适用边界](docs/MEDICAL_LOAD.md) · [数据集与许可](docs/datasets/README.md) · [原始响应与复算]({archive_path(report)}/README.md)']
     for index, fid in enumerate(report['families'], 2):
         parts += task_sections(report, fid, index, root=True)
+    parts.append('[Linux.do 社区](https://linux.do/)')
     return '\n\n'.join(parts) + '\n'
 
 

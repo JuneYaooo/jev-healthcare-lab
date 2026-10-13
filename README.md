@@ -1254,3 +1254,5 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 </details>
 
 [任务定义与数据](docs/tasks/consent_action.md) · [评估方法](docs/MEDICAL_LOAD.md) · [原始记录与计价依据](results/medical-load-jev-gateway-v1/README.md)
+
+[Linux.do 社区](https://linux.do/)
