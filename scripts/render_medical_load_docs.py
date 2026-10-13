@@ -342,11 +342,13 @@ def visuals(report, *, english=False):
         ax.grid(alpha=.16)
         ax.margins(x=.30, y=.35)
         ax.set_xlim(left=0)
+    axes[0].set_title('准确率与成本', fontsize=12, pad=12)
+    axes[1].set_title('准确率与吞吐量', fontsize=12, pad=12)
     axes[0].set_xlabel('每千项判断成本（元）↓\nFlash 横线：闲时至高峰标价')
     axes[1].set_xlabel('等任务量吞吐（判断/秒）↑\n32 配置并发，受平台与账户额度影响\n未形成完整可汇总数据的模型不绘制')
     # Leave room for markers near zero without changing their measured values.
     axes[1].set_xlim(left=-.04 * axes[1].get_xlim()[1])
-    fig.suptitle(f'医疗多项决策：质量 × 成本 × 吞吐\n{len(eligible)} 个至少 20 题的既有任务；两轮持续负载', fontsize=16)
+    fig.suptitle(f'JEV 与对照模型的医疗任务表现\n准确率、使用成本与吞吐量对比 · 汇总 {len(eligible)} 项医疗任务', fontsize=16)
     if not shown:
         axes[0].text(.5, .5, '完整结果尚未齐备', transform=axes[0].transAxes, ha='center')
     localize(fig)

@@ -112,14 +112,16 @@ def chart_text(text, report):
         '任务平均准确率（%）↑': 'Mean task accuracy (%) ↑',
         '每千项判断成本（元）↓\nFlash 横线：闲时至高峰标价': 'Cost (CNY/1,000 decisions) ↓\nFlash line: off-peak to peak prices',
         '等任务量吞吐（判断/秒）↑\n32 配置并发，受平台与账户额度影响\n未形成完整可汇总数据的模型不绘制': 'Equal-task throughput (decisions/s) ↑\nConcurrency 32; platform and account limits apply\nModels with incomplete aggregate data omitted',
-        '医疗多项决策：质量 × 成本 × 吞吐': 'Medical decisions: accuracy × cost × throughput',
+        'JEV 与对照模型的医疗任务表现': 'JEV and comparison models on healthcare tasks',
+        '准确率与成本': 'Accuracy vs. cost',
+        '准确率与吞吐量': 'Accuracy vs. throughput',
         '完整结果尚未齐备': 'Complete results not yet available',
         ' / 千项': ' / 1,000', ' 判断/秒': ' decisions/s',
     }
     for source in sorted(labels, key=len, reverse=True):
         text = text.replace(source, labels[source])
     text = re.sub(r'（负载题集 (\d+) 项）', r' (\1 load-test decisions)', text)
-    text = re.sub(r'(\d+) 个至少 20 题的既有任务；两轮持续负载', r'\1 existing tasks with at least 20 items; two sustained-load rounds', text)
+    text = re.sub(r'准确率、使用成本与吞吐量对比 · 汇总 (\d+) 项医疗任务', r'Accuracy, usage cost, and throughput across \1 healthcare tasks', text)
     if re.search(r'[\u4e00-\u9fff]', text):
         raise ValueError('Missing English chart translation: ' + text)
     return text
