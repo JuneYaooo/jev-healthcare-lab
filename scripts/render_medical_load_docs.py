@@ -24,15 +24,6 @@ def asset_path(report):
     return 'docs/assets/' + archive_path(report).split('/')[-1]
 
 
-def channel_note(report):
-    if not report.get('gateway'):
-        return ''
-    return ('JEV 通过第三方 API 接入：请求 `jev-latest`，逐条核对返回版本为 `jev-1.13.0`，'
-            '后端身份未独立验证。延迟与吞吐包含接入平台及共享服务影响；不能据此推断官方直连的极限性能。'
-            'JEV 成本按返回 usage 与官方标价折算，接入平台实际计费未知。'
-            'Flash、Qwen 沿用 2026-10-12 的同题实测，JEV 于 2026-10-13 补测（日期均为 UTC），未同时运行。')
-
-
 def number(value, digits=2, percent=False):
     return '—' if value is None else f'{value * (100 if percent else 1):.{digits}f}'
 
@@ -183,13 +174,19 @@ def gateway_findings(report):
 def render(report):
     complete = [report['models'][m]['label'] for m in report['config']['models']
                 if all(f['models'][m]['quality']['complete'] for f in report['families'].values())]
-    parts = ['# Jev Healthcare Lab',
-             '比较 JEV、DeepSeek Flash 与 Qwen 在具体医疗决策任务上的**准确率、持续吞吐和使用成本**。每次请求同时处理多项判断，多个请求持续并发；结果按医疗任务分别呈现。',
+    parts = ['# JEV Healthcare Lab',
+             '**简体中文** | [English](README.en.md)',
+             '**评估 JEV 在医疗场景中的表现**：围绕分诊、诊断、用药、护理与临床试验筛选等具体任务，考察它的判断准确率、持续吞吐和使用成本，并与 DeepSeek Flash、Qwen 对照。',
+             '## 项目背景与目的',
+             'JEV 是 TypeSafe 推出的旗舰模型，官方将其定位为面向软件决策的 System One 模型：输入上下文（state）和类型化问题，直接返回程序可使用的结构化结果。其接口提供 Choice、Score、Noul 三类问题，并支持围绕同一份上下文并行处理多个独立判断。[官方介绍](https://docs.typesafe.ai/introduction)',
+             '医疗工作流包含许多范围明确的判断，例如识别就医紧急程度、判断方案禁忌、选择下一步检查，以及筛选患者可能适合的临床试验。这些任务为检验 JEV 的结构化决策能力提供了具体场景：输出能否直接被程序读取，以及判断本身是否正确，都需要通过医疗题目验证。',
+             '本项目希望回答三个问题：JEV 在哪些医疗任务上表现较好，在哪些任务上仍有短板；多题处理与持续并发时，准确率、吞吐和成本如何取舍；同一患者材料供多个问题共享的处理方式，在医疗筛选任务中表现如何。为此，项目公开固定题集、数据来源、评分方法与原始结果，便于复算和比较。',
+             '当前评测聚焦有明确选项与标准答案的 Choice 任务；Score、Noul 和置信度校准尚未纳入验证。结果用于研究与原型选型，不构成临床有效性验证。',
+             '## 评测结果',
              f'![医疗决策准确率、成本与吞吐对比]({asset_path(report)}/overview.png)',
              '本轮覆盖 26 个既有医疗任务的 1,514 项判断，另加 8 位模拟患者的 64 项试验转介判断。数据包含考试病例、模拟患者与公开标注，尚非临床部署验证。',
              '完整题集已完成的模型：' + '、'.join(complete) + '。']
     if report.get('gateway'):
-        parts.append(channel_note(report))
         parts.extend(gateway_findings(report))
     missing = [report['models'][m]['label'] for m in report['config']['models'] if m not in [k for k in report['config']['models']
                if all(f['models'][k]['quality']['complete'] for f in report['families'].values())]]
@@ -264,11 +261,10 @@ JEV 客户端上限为 76 请求／秒、9 万输入 token／秒；Flash 配置�
                                   'Flash 与 Qwen 沿用原测试队列；JEV 通过第三方 API 另行补测，同一模型各窗口顺序执行。题包哈希与计分方法一致，但测试日期与平台不同。')
         content = content.replace('JEV 客户端上限为 76 请求／秒、9 万输入 token／秒；',
                                   'JEV 接入平台额度未知，不套用官方直连接口限额；客户端最多 32 个在途请求，收到限流信号后退避，触发服务熔断即停止；')
-        content += '\n## 接入渠道与版本\n\n' + channel_note(report) + '\n'
     return content
 
 
-def visuals(report):
+def visuals(report, *, english=False):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -279,6 +275,16 @@ def visuals(report):
     plt.rcParams.update({'axes.spines.top': False, 'axes.spines.right': False,
                          'axes.unicode_minus': False, 'svg.fonttype': 'none'})
     directory = ROOT / asset_path(report)
+    if english:
+        directory /= 'en'
+
+    def localize(fig):
+        if english:
+            from medical_load_english import chart_text
+            from matplotlib.text import Text
+            for label in fig.findobj(Text):
+                label.set_text(chart_text(label.get_text(), report))
+
     directory.mkdir(parents=True, exist_ok=True)
     colors = dict(zip(report['config']['models'], ['#087f5b', '#3366cc', '#c07914', '#8b5fa6']))
     for fid, family in report['families'].items():
@@ -301,7 +307,8 @@ def visuals(report):
         ax.grid(axis='y', alpha=.18)
         if ax.lines:
             ax.legend(fontsize=8, loc='best', frameon=False)
-        fig.savefig(directory / (fid + '.svg'))
+        localize(fig)
+        fig.savefig(directory / (fid + '.svg'), metadata={'Date': None})
         plt.close(fig)
     eligible = [f for f in report['families'].values() if f['decisions'] >= 20 and f['id'] != 'trial_shared_patient']
     fig, axes = plt.subplots(1, 2, figsize=(13, 5), layout='constrained')
@@ -341,8 +348,9 @@ def visuals(report):
     fig.suptitle(f'医疗多项决策：质量 × 成本 × 吞吐\n{len(eligible)} 个至少 20 题的既有任务；两轮持续负载', fontsize=16)
     if not shown:
         axes[0].text(.5, .5, '完整结果尚未齐备', transform=axes[0].transAxes, ha='center')
+    localize(fig)
     fig.savefig(directory / 'overview.png', dpi=160)
-    fig.savefig(directory / 'overview.svg')
+    fig.savefig(directory / 'overview.svg', metadata={'Date': None})
     plt.close(fig)
     for path in directory.glob('*.svg'):
         path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()) + '\n')
@@ -353,8 +361,6 @@ def archive_readme(report):
         return f'''# JEV 医疗多问题与并发测试
 
 [结果总览](../../README.md) · [评估方法](../../docs/MEDICAL_LOAD.md)
-
-{channel_note(report)}
 
 27 个任务、1,578 项判断，沿用[原测试归档](../medical-load-v2/README.md)完全相同的题包和金标。JEV 的原始响应在本目录；Flash 与两款 Qwen 的原始响应继续保存在原归档。汇总文件记录两个来源，不将旧响应当作重新调用。
 
@@ -411,5 +417,7 @@ def archive_readme(report):
 
 if __name__ == '__main__':
     source = current_report_path()
-    visuals(json.loads(source.read_text()))
+    report = json.loads(source.read_text())
+    visuals(report)
+    visuals(report, english=True)
     print('Rendered medical-load overview and task charts')

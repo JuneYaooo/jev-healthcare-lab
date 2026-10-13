@@ -2,8 +2,6 @@
 
 [结果总览](../../README.md) · [评估方法](../../docs/MEDICAL_LOAD.md)
 
-JEV 通过第三方 API 接入：请求 `jev-latest`，逐条核对返回版本为 `jev-1.13.0`，后端身份未独立验证。延迟与吞吐包含接入平台及共享服务影响；不能据此推断官方直连的极限性能。JEV 成本按返回 usage 与官方标价折算，接入平台实际计费未知。Flash、Qwen 沿用 2026-10-12 的同题实测，JEV 于 2026-10-13 补测（日期均为 UTC），未同时运行。
-
 27 个任务、1,578 项判断，沿用[原测试归档](../medical-load-v2/README.md)完全相同的题包和金标。JEV 的原始响应在本目录；Flash 与两款 Qwen 的原始响应继续保存在原归档。汇总文件记录两个来源，不将旧响应当作重新调用。
 
 - [配置与渠道](config.json)、[题包](packets.jsonl)、[逐题来源](lineage.jsonl)、[价格快照](pricing.json)。

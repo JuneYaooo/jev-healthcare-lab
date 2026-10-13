@@ -567,7 +567,9 @@ def render():
     output[ROOT / 'docs/datasets/README.md'] = '\n\n'.join(parts) + '\n'
 
     if medical:
+        from medical_load_english import render as render_english
         output[ROOT / 'README.md'] = medical_docs.render(medical)
+        output[ROOT / 'README.en.md'] = render_english(medical, output[ROOT / 'README.md'])
         output[ROOT / 'docs/MEDICAL_LOAD.md'] = medical_docs.protocol(medical)
         output[ROOT / medical_docs.archive_path(medical) / 'README.md'] = medical_docs.archive_readme(medical)
         output[ROOT / 'docs/tasks/trial_shared_patient.md'] = '\n\n'.join([
