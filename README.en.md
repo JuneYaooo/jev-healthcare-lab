@@ -16,6 +16,8 @@ This project asks three questions: which healthcare tasks JEV handles well and w
 
 The current evaluation covers Choice tasks with explicit options and reference answers. Score, Noul, and confidence calibration have not been evaluated. Results support research and prototype selection; they do not establish clinical validity.
 
+Contributions of healthcare scenarios, datasets, and evaluation ideas are welcome. Let us know which scenarios you would like to see in [Issues](https://github.com/JuneYaooo/jev-healthcare-lab/issues). We will add new scenarios and evaluation results regularly.
+
 ## Evaluation results
 
 ![Medical decision accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/overview.png)

@@ -16,6 +16,8 @@ JEV 是 TypeSafe 推出的旗舰模型，官方将其定位为面向软件决策
 
 当前评测聚焦有明确选项与标准答案的 Choice 任务；Score、Noul 和置信度校准尚未纳入验证。结果用于研究与原型选型，不构成临床有效性验证。
 
+欢迎补充医疗场景、数据集或评测建议，也欢迎告诉我们你希望看到哪些场景。请在 [Issues](https://github.com/JuneYaooo/jev-healthcare-lab/issues) 中提出，项目会定期补充场景与评测结果。
+
 ## 评测结果
 
 ![医疗决策准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/overview.png)
