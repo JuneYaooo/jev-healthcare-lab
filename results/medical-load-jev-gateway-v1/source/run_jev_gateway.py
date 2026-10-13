@@ -21,7 +21,7 @@ BASE = ROOT / 'results/medical-load-v2'
 ARCHIVE = ROOT / 'results/medical-load-jev-gateway-v1'
 MODEL = 'jev-1.13.0'
 ENDPOINT = 'https://ai.xiaohaima-edu.com/v1/systemone'
-LABEL = 'JEV 1.13（小海马中转）'
+LABEL = 'JEV 1.13'
 
 
 def adapter():

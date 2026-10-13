@@ -911,7 +911,7 @@
   "limits": "No assumed official direct-provider quota. At most 32 in-flight requests; stop on service circuit.",
   "shared_patient": "8 hash-selected SIGIR synthetic patients, 8 hash-selected trials each, upstream 0/1/2 gold unchanged. Overlap with existing referral pool possible; not added to overall 26-task mean.",
   "channel": {
-    "label": "JEV 1.13（小海马中转）",
+    "label": "JEV 1.13",
     "endpoint": "https://ai.xiaohaima-edu.com/v1/systemone",
     "requested_model": "jev-latest",
     "required_response_model": "jev-1.13.0",
