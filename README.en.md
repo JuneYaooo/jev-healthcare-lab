@@ -175,9 +175,7 @@ Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespeci
 
 Macro-F1 equally weights classes present in this task’s reference labels. Candidate classes without reference examples do not receive additional zero-score entries; all models use the same class set.
 
-![Triage and urgency assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/triage_urgency.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/triage_urgency.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/triage_urgency.svg)
+![Triage and urgency assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/triage_urgency.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -218,9 +216,7 @@ Accuracy and cost use all 30 fixed decisions. Throughput and P95 use a prespecif
 
 Original option keys must match exactly: for example, `Patient #1` cannot be rewritten as `Patient_1`. Such output-contract errors count as incorrect, so scores reflect both judgment and direct API usability, not solely differences in medical reasoning.
 
-![Patient message prioritization: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/message_urgency_pair.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/message_urgency_pair.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/message_urgency_pair.svg)
+![Patient message prioritization: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/message_urgency_pair.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -259,9 +255,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Diagnostic test selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/examination_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/examination_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/examination_choice.svg)
+![Diagnostic test selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/examination_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -300,9 +294,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Disease staging and severity assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/clinical_grade.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/clinical_grade.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/clinical_grade.svg)
+![Disease staging and severity assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/clinical_grade.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -341,9 +333,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 200 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Case diagnosis selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/diagnosis.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/diagnosis.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/diagnosis.svg)
+![Case diagnosis selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/diagnosis.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -384,9 +374,7 @@ Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespeci
 
 Macro-F1 equally weights classes present in this task’s reference labels. Candidate classes without reference examples do not receive additional zero-score entries; all models use the same class set.
 
-![TCM syndrome classification: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/tcm_syndrome.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/tcm_syndrome.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/tcm_syndrome.svg)
+![TCM syndrome classification: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/tcm_syndrome.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -425,9 +413,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Case etiology assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/case_etiology.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/case_etiology.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/case_etiology.svg)
+![Case etiology assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/case_etiology.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -470,9 +456,7 @@ Macro-F1 equally weights classes present in this task’s reference labels. Cand
 
 This task scores judgments about candidate TCM pathogenesis against existing annotations; it does not establish the ability to generate syndrome analyses or prescriptions freely.
 
-![TCM candidate pathogenesis assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/tcm_pathogenesis_candidate.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/tcm_pathogenesis_candidate.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/tcm_pathogenesis_candidate.svg)
+![TCM candidate pathogenesis assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/tcm_pathogenesis_candidate.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -511,9 +495,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 54 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Patient-specific contraindication assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/patient_contraindication.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/patient_contraindication.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/patient_contraindication.svg)
+![Patient-specific contraindication assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/patient_contraindication.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -552,9 +534,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Treatment selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/treatment_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/treatment_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/treatment_choice.svg)
+![Treatment selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/treatment_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -593,9 +573,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Medication selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/medication_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/medication_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/medication_choice.svg)
+![Medication selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/medication_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -636,9 +614,7 @@ Accuracy and cost use all 16 fixed decisions. Throughput and P95 use a prespecif
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Fluid therapy selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/fluid_plan.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/fluid_plan.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/fluid_plan.svg)
+![Fluid therapy selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/fluid_plan.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -677,9 +653,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Pharmacogenomic guideline recommendation selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/pgx_guideline_recommendation.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/pgx_guideline_recommendation.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/pgx_guideline_recommendation.svg)
+![Pharmacogenomic guideline recommendation selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/pgx_guideline_recommendation.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -720,9 +694,7 @@ Accuracy and cost use all 4 fixed decisions. Throughput and P95 use a prespecifi
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Administration route and method selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/administration_route_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/administration_route_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/administration_route_choice.svg)
+![Administration route and method selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/administration_route_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -761,9 +733,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Case complication assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/case_complication.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/case_complication.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/case_complication.svg)
+![Case complication assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/case_complication.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -802,9 +772,7 @@ Configured concurrency is a worker limit; account quotas may reduce requests in 
 
 Accuracy and cost use all 42 fixed decisions. Throughput and P95 use a prespecified subset of 32 decisions, repeated over two sustained-load rounds. Repeated calls do not increase the unique sample count. P95 starts at HTTP dispatch, excludes quota waiting, and is omitted below 20 responses.
 
-![Nursing intervention selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/nursing_priority.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/nursing_priority.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/nursing_priority.svg)
+![Nursing intervention selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/nursing_priority.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -845,9 +813,7 @@ Accuracy and cost use all 11 fixed decisions. Throughput and P95 use a prespecif
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Nutrition and diet selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/nutrition_plan.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/nutrition_plan.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/nutrition_plan.svg)
+![Nutrition and diet selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/nutrition_plan.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -888,9 +854,7 @@ Accuracy and cost use all 10 fixed decisions. Throughput and P95 use a prespecif
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Patient positioning selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/positioning_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/positioning_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/positioning_choice.svg)
+![Patient positioning selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/positioning_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -931,9 +895,7 @@ Accuracy and cost use all 5 fixed decisions. Throughput and P95 use a prespecifi
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Clinical monitoring and treatment response assessment: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/monitoring_target.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/monitoring_target.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/monitoring_target.svg)
+![Clinical monitoring and treatment response assessment: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/monitoring_target.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -974,9 +936,7 @@ Accuracy and cost use all 5 fixed decisions. Throughput and P95 use a prespecifi
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Infection prevention measures: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/infection_precaution.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/infection_precaution.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/infection_precaution.svg)
+![Infection prevention measures: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/infection_precaution.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1017,9 +977,7 @@ Accuracy and cost use all 6 fixed decisions. Throughput and P95 use a prespecifi
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Follow-up testing and timing: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/followup_plan.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/followup_plan.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/followup_plan.svg)
+![Follow-up testing and timing: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/followup_plan.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1060,9 +1018,7 @@ Accuracy and cost use all 4 fixed decisions. Throughput and P95 use a prespecifi
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Rehabilitation plan selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/rehabilitation_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/rehabilitation_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/rehabilitation_choice.svg)
+![Rehabilitation plan selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/rehabilitation_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1103,9 +1059,7 @@ Accuracy and cost use all 13 fixed decisions. Throughput and P95 use a prespecif
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Preventive intervention selection: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/prevention_choice.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/prevention_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/prevention_choice.svg)
+![Preventive intervention selection: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/prevention_choice.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1146,9 +1100,7 @@ Accuracy and cost use all 11 fixed decisions. Throughput and P95 use a prespecif
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Patient education and communication: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/patient_counseling.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/patient_counseling.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/patient_counseling.svg)
+![Patient education and communication: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/patient_counseling.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1189,9 +1141,7 @@ Accuracy and cost use all 100 fixed decisions. Throughput and P95 use a prespeci
 
 Macro-F1 equally weights classes present in this task’s reference labels. Candidate classes without reference examples do not receive additional zero-score entries; all models use the same class set.
 
-![Clinical trial prescreening and referral: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/trial_referral.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/trial_referral.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/trial_referral.svg)
+![Clinical trial prescreening and referral: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/trial_referral.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1238,9 +1188,7 @@ The three reference classes contain 49, 9, and 6 items. Always predicting “irr
 
 Macro-F1 equally weights classes present in this task’s reference labels. Candidate classes without reference examples do not receive additional zero-score entries; all models use the same class set.
 
-![Multiple trial referrals for one patient: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/trial_shared_patient.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/trial_shared_patient.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/trial_shared_patient.svg)
+![Multiple trial referrals for one patient: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/trial_shared_patient.svg)
 
 <details>
 <summary>View both concurrency settings</summary>
@@ -1281,9 +1229,7 @@ Accuracy and cost use all 3 fixed decisions. Throughput and P95 use a prespecifi
 
 Limited sample coverage makes this an exploratory comparison; it cannot provide a robust estimate of clinical reliability.
 
-![Informed consent and privacy decisions: throughput by concurrency](docs/assets/medical-load-jev-gateway-v1/en/consent_action.svg)
-
-Download chart: [PNG](docs/assets/medical-load-jev-gateway-v1/en/consent_action.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/en/consent_action.svg)
+![Informed consent and privacy decisions: accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/consent_action.svg)
 
 <details>
 <summary>View both concurrency settings</summary>

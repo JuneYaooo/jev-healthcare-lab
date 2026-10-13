@@ -52,9 +52,7 @@
 
 本任务严格区分原始选项键，例如 `Patient #1` 不能改写成 `Patient_1`。这类输出合约错误也按错计，因此成绩同时反映判断和接口可直接使用的程度，不能全部归因于医学推理差异。
 
-![患者消息处理优先级的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
-
-下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
+![患者消息处理优先级的准确率、成本与吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>

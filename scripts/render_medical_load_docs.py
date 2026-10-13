@@ -104,8 +104,7 @@ def task_sections(report, fid, index, *, root=False):
         parts.append('这是候选病机的判断任务，按既有标注计分；不能由此推导自由生成辨证与处方的能力。')
     if fid == 'message_urgency_pair':
         parts.append('本任务严格区分原始选项键，例如 `Patient #1` 不能改写成 `Patient_1`。这类输出合约错误也按错计，因此成绩同时反映判断和接口可直接使用的程度，不能全部归因于医学推理差异。')
-    parts.append(f'![{title}的并发吞吐对比]({prefix}{asset_path(report)}/{fid}.svg)')
-    parts.append(f'下载图表：[PNG]({prefix}{asset_path(report)}/{fid}.png) · [SVG]({prefix}{asset_path(report)}/{fid}.svg)')
+    parts.append(f'![{title}的准确率、成本与吞吐对比]({prefix}{asset_path(report)}/{fid}.svg)')
     detail = []
     for c in ('8', '32'):
         winners = best_models(family, c)
@@ -256,7 +255,7 @@ JEV 客户端上限为 76 请求／秒、9 万输入 token／秒；Flash 配置�
 
 首页图只使用至少 20 项判断的 15 个既有任务，不包括新增共享患者面板。准确率和单位成本按任务等权平均；左图要求这 15 个任务质量与成本完整。右图另要求每个任务都有两轮完整、非零的 32 并发吞吐，再用调和平均表示等任务量的观测速度；存在零完成窗口时不估计总体持续容量，原始观测仍列在任务表中。图不是综合评分，不能掩盖具体任务的差异；选型以各任务表为准。
 
-并发图点为两轮合并吞吐，竖线为两轮观察范围，不是置信区间。没有做显著性检验；数据量较小、源标注未经独立临床复核的结果，不据此声称临床优越性。
+任务气泡图以成本为横轴、准确率为纵轴，气泡面积表示两轮合并的 32 并发有效输出吞吐；极低吞吐保留最小可见点，具体数值同时标注。Flash 横线表示闲时至高峰的价格区间，气泡位于区间中点。纵轴按各任务得分范围调整，比较跨任务差异时以刻度与数值为准。气泡大小不代表正确判断吞吐；没有做显著性检验，也不据此声称临床优越性。
 '''
     if report.get('gateway'):
         content = content.replace('results/medical-load-v2/config.json', archive_path(report) + '/config.json')

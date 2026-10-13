@@ -175,9 +175,7 @@ JEV 是 TypeSafe 推出的旗舰模型，官方将其定位为面向软件决策
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![分诊与就医紧急程度判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/triage_urgency.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/triage_urgency.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/triage_urgency.svg)
+![分诊与就医紧急程度判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/triage_urgency.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -218,9 +216,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 本任务严格区分原始选项键，例如 `Patient #1` 不能改写成 `Patient_1`。这类输出合约错误也按错计，因此成绩同时反映判断和接口可直接使用的程度，不能全部归因于医学推理差异。
 
-![患者消息处理优先级的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
+![患者消息处理优先级的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/message_urgency_pair.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -259,9 +255,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![检查方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/examination_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/examination_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/examination_choice.svg)
+![检查方案选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/examination_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -300,9 +294,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![疾病分期与严重程度判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/clinical_grade.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/clinical_grade.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/clinical_grade.svg)
+![疾病分期与严重程度判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/clinical_grade.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -341,9 +333,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 200 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![病例诊断选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/diagnosis.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/diagnosis.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/diagnosis.svg)
+![病例诊断选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/diagnosis.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -384,9 +374,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![中医证型判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/tcm_syndrome.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/tcm_syndrome.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/tcm_syndrome.svg)
+![中医证型判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/tcm_syndrome.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -425,9 +413,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![病例病因判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/case_etiology.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/case_etiology.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/case_etiology.svg)
+![病例病因判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/case_etiology.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -470,9 +456,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 这是候选病机的判断任务，按既有标注计分；不能由此推导自由生成辨证与处方的能力。
 
-![中医候选病机判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/tcm_pathogenesis_candidate.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/tcm_pathogenesis_candidate.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/tcm_pathogenesis_candidate.svg)
+![中医候选病机判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/tcm_pathogenesis_candidate.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -511,9 +495,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 54 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![患者方案禁忌判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/patient_contraindication.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
+![患者方案禁忌判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -552,9 +534,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![治疗方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/treatment_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/treatment_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/treatment_choice.svg)
+![治疗方案选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/treatment_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -593,9 +573,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![用药方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/medication_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/medication_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/medication_choice.svg)
+![用药方案选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/medication_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -636,9 +614,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![补液方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/fluid_plan.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/fluid_plan.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/fluid_plan.svg)
+![补液方案选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/fluid_plan.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -677,9 +653,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![药物基因结果对应的指南建议选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/pgx_guideline_recommendation.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/pgx_guideline_recommendation.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/pgx_guideline_recommendation.svg)
+![药物基因结果对应的指南建议选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/pgx_guideline_recommendation.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -720,9 +694,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![给药途径与实施方法选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/administration_route_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/administration_route_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/administration_route_choice.svg)
+![给药途径与实施方法选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/administration_route_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -761,9 +733,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 100 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![病例并发症判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/case_complication.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/case_complication.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/case_complication.svg)
+![病例并发症判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/case_complication.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -802,9 +772,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 准确率和成本来自完整的 42 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![护理措施选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/nursing_priority.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/nursing_priority.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/nursing_priority.svg)
+![护理措施选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/nursing_priority.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -845,9 +813,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![营养与饮食方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/nutrition_plan.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/nutrition_plan.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/nutrition_plan.svg)
+![营养与饮食方案选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/nutrition_plan.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -888,9 +854,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![护理与操作体位选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/positioning_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/positioning_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/positioning_choice.svg)
+![护理与操作体位选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/positioning_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -931,9 +895,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![病情监测与疗效判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/monitoring_target.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
+![病情监测与疗效判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -974,9 +936,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![感染防控措施选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/infection_precaution.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/infection_precaution.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/infection_precaution.svg)
+![感染防控措施选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/infection_precaution.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1017,9 +977,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![复查项目与随访时机选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/followup_plan.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/followup_plan.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/followup_plan.svg)
+![复查项目与随访时机选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/followup_plan.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1060,9 +1018,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![康复训练方案选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/rehabilitation_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/rehabilitation_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/rehabilitation_choice.svg)
+![康复训练方案选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/rehabilitation_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1103,9 +1059,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![预防措施选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/prevention_choice.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/prevention_choice.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/prevention_choice.svg)
+![预防措施选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/prevention_choice.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1146,9 +1100,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![健康教育与沟通行动选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/patient_counseling.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/patient_counseling.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/patient_counseling.svg)
+![健康教育与沟通行动选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/patient_counseling.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1189,9 +1141,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![患者临床试验初筛与转介判断的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/trial_referral.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/trial_referral.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/trial_referral.svg)
+![患者临床试验初筛与转介判断的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/trial_referral.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1238,9 +1188,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本的候选类别不另加零分项，各模型使用相同类别集合。
 
-![同一患者的多项试验转介筛选的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/trial_shared_patient.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/trial_shared_patient.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/trial_shared_patient.svg)
+![同一患者的多项试验转介筛选的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/trial_shared_patient.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
@@ -1281,9 +1229,7 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![知情同意与隐私处置选择的并发吞吐对比](docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
-
-下载图表：[PNG](docs/assets/medical-load-jev-gateway-v1/consent_action.png) · [SVG](docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
+![知情同意与隐私处置选择的准确率、成本与吞吐对比](docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>

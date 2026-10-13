@@ -52,9 +52,7 @@
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![病情监测与疗效判断的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
-
-下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/monitoring_target.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
+![病情监测与疗效判断的准确率、成本与吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/monitoring_target.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>

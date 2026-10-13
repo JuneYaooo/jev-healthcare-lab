@@ -53,9 +53,7 @@
 
 样本覆盖有限，只作探索性比较，尤其不能据此稳定估计临床可靠性。
 
-![知情同意与隐私处置选择的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
-
-下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/consent_action.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
+![知情同意与隐私处置选择的准确率、成本与吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/consent_action.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>

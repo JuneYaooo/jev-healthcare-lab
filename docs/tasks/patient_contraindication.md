@@ -51,9 +51,7 @@
 
 准确率和成本来自完整的 54 项固定题集；吞吐与 P95 来自其中预先选定的 32 项判断，持续循环施压两轮。重复调用不增加独立题量。P95 从实际发出计时，不含额度排队；不足 20 个响应时留空。
 
-![患者方案禁忌判断的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
-
-下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
+![患者方案禁忌判断的准确率、成本与吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
 
 <details>
 <summary>查看本任务的两个并发档</summary>
