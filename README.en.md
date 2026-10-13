@@ -20,6 +20,8 @@ The current evaluation covers Choice tasks with explicit options and reference a
 
 ![Medical decision accuracy, cost, and throughput](docs/assets/medical-load-jev-gateway-v1/en/overview.png)
 
+**Overview scope: this chart includes the 15 of 26 main evaluation tasks with at least 20 items each. The other 11 tasks contain only 3–16 items and remain in the complete results table below.** This filter reduces the influence of small-sample tasks on task-averaged results. The additional multiple-trial screening panel for a shared patient is reported separately and excluded from this chart because it may overlap with the existing question set.
+
 This round covers 1,514 decisions across 26 existing medical tasks, plus 64 trial referral decisions for eight simulated patients. Data include exam cases, simulated patients, and public annotations; this is not a clinical deployment validation.
 
 Models that completed the full question set: JEV 1.13, DeepSeek V4.1 Flash, Qwen3.5-9B, Qwen3.8-27B.

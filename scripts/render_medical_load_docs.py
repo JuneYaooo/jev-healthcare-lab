@@ -185,6 +185,7 @@ def render(report):
              '当前评测聚焦有明确选项与标准答案的 Choice 任务；Score、Noul 和置信度校准尚未纳入验证。结果用于研究与原型选型，不构成临床有效性验证。',
              '## 评测结果',
              f'![医疗决策准确率、成本与吞吐对比]({asset_path(report)}/overview.png)',
+             '**汇总范围：26 项主评测任务中，15 项题量不少于 20，纳入本图；其余 11 项仅有 3–16 题，仍在下方完整结果表中展示。** 这一筛选用于减少小样本任务对任务平均结果的影响。新增的“同一患者多项试验筛选”单独展示，因可能与既有题集重合，不计入本图。',
              '本轮覆盖 26 个既有医疗任务的 1,514 项判断，另加 8 位模拟患者的 64 项试验转介判断。数据包含考试病例、模拟患者与公开标注，尚非临床部署验证。',
              '完整题集已完成的模型：' + '、'.join(complete) + '。']
     if report.get('gateway'):
@@ -348,7 +349,8 @@ def visuals(report, *, english=False):
     axes[1].set_xlabel('等任务量吞吐（判断/秒）↑\n32 配置并发，受平台与账户额度影响\n未形成完整可汇总数据的模型不绘制')
     # Leave room for markers near zero without changing their measured values.
     axes[1].set_xlim(left=-.04 * axes[1].get_xlim()[1])
-    fig.suptitle(f'JEV 与对照模型的医疗任务表现\n准确率、使用成本与吞吐量对比 · 汇总 {len(eligible)} 项医疗任务', fontsize=16)
+    total_tasks = sum(f['id'] != 'trial_shared_patient' for f in report['families'].values())
+    fig.suptitle(f'JEV 与对照模型的医疗任务表现\n准确率、使用成本与吞吐量对比\n纳入 {total_tasks} 项任务中题量不少于 20 的 {len(eligible)} 项', fontsize=16)
     if not shown:
         axes[0].text(.5, .5, '完整结果尚未齐备', transform=axes[0].transAxes, ha='center')
     localize(fig)

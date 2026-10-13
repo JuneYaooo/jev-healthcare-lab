@@ -32,6 +32,7 @@ TASK_TITLES = {
 }
 
 COPY = {
+    '**汇总范围：26 项主评测任务中，15 项题量不少于 20，纳入本图；其余 11 项仅有 3–16 题，仍在下方完整结果表中展示。** 这一筛选用于减少小样本任务对任务平均结果的影响。新增的“同一患者多项试验筛选”单独展示，因可能与既有题集重合，不计入本图。': '**Overview scope: this chart includes the 15 of 26 main evaluation tasks with at least 20 items each. The other 11 tasks contain only 3–16 items and remain in the complete results table below.** This filter reduces the influence of small-sample tasks on task-averaged results. The additional multiple-trial screening panel for a shared patient is reported separately and excluded from this chart because it may overlap with the existing question set.',
     '从接口设计和本次任务表现看，JEV 很适合高频、结构化、边界明确的决策场景：将上下文转为明确选项上的判断，再由程序组合成筛选、分流或审核流程。它在具体医疗任务上的适用程度，仍需结合各任务的准确率与错误类型判断。': 'JEV’s interface design and the task results here make it well suited to frequent, structured decisions with clearly defined scope: turning context into judgments over explicit options that software can combine into screening, routing, or review workflows. Its suitability for a specific healthcare task still depends on that task’s accuracy and error patterns.',
     '**简体中文** | [English](README.en.md)': '[简体中文](README.md) | **English**',
     '**评估 JEV 在医疗场景中的表现**：围绕分诊、诊断、用药、护理与临床试验筛选等具体任务，考察它的判断准确率、持续吞吐和使用成本，并与 DeepSeek Flash、Qwen 对照。': '**Evaluating JEV in healthcare scenarios**: measure decision accuracy, sustained throughput, and usage cost across triage, diagnosis, medication, nursing, and clinical trial screening, with DeepSeek Flash and Qwen as comparison models.',
@@ -112,6 +113,7 @@ def chart_text(text, report):
         '任务平均准确率（%）↑': 'Mean task accuracy (%) ↑',
         '每千项判断成本（元）↓\nFlash 横线：闲时至高峰标价': 'Cost (CNY/1,000 decisions) ↓\nFlash line: off-peak to peak prices',
         '等任务量吞吐（判断/秒）↑\n32 配置并发，受平台与账户额度影响\n未形成完整可汇总数据的模型不绘制': 'Equal-task throughput (decisions/s) ↑\nConcurrency 32; platform and account limits apply\nModels with incomplete aggregate data omitted',
+        '准确率、使用成本与吞吐量对比': 'Accuracy, usage cost, and throughput',
         'JEV 与对照模型的医疗任务表现': 'JEV and comparison models on healthcare tasks',
         '准确率与成本': 'Accuracy vs. cost',
         '准确率与吞吐量': 'Accuracy vs. throughput',
@@ -121,7 +123,7 @@ def chart_text(text, report):
     for source in sorted(labels, key=len, reverse=True):
         text = text.replace(source, labels[source])
     text = re.sub(r'（负载题集 (\d+) 项）', r' (\1 load-test decisions)', text)
-    text = re.sub(r'准确率、使用成本与吞吐量对比 · 汇总 (\d+) 项医疗任务', r'Accuracy, usage cost, and throughput across \1 healthcare tasks', text)
+    text = re.sub(r'纳入 (\d+) 项任务中题量不少于 20 的 (\d+) 项', r'Includes \2 of \1 tasks, each with at least 20 items', text)
     if re.search(r'[\u4e00-\u9fff]', text):
         raise ValueError('Missing English chart translation: ' + text)
     return text
