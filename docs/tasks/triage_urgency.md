@@ -54,6 +54,8 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 ![分诊与就医紧急程度判断的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/triage_urgency.svg)
 
+下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/triage_urgency.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/triage_urgency.svg)
+
 <details>
 <summary>查看本任务的两个并发档</summary>
 

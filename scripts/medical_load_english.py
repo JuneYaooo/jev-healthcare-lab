@@ -32,6 +32,7 @@ TASK_TITLES = {
 }
 
 COPY = {
+    '下载图表：': 'Download chart: ',
     '**汇总范围：26 项主评测任务中，15 项题量不少于 20，纳入本图；其余 11 项仅有 3–16 题，仍在下方完整结果表中展示。** 这一筛选用于减少小样本任务对任务平均结果的影响。新增的“同一患者多项试验筛选”单独展示，因可能与既有题集重合，不计入本图。': '**Overview scope: this chart includes the 15 of 26 main evaluation tasks with at least 20 items each. The other 11 tasks contain only 3–16 items and remain in the complete results table below.** This filter reduces the influence of small-sample tasks on task-averaged results. The additional multiple-trial screening panel for a shared patient is reported separately and excluded from this chart because it may overlap with the existing question set.',
     '从接口设计和本次任务表现看，JEV 很适合高频、结构化、边界明确的决策场景：将上下文转为明确选项上的判断，再由程序组合成筛选、分流或审核流程。它在具体医疗任务上的适用程度，仍需结合各任务的准确率与错误类型判断。': 'JEV’s interface design and the task results here make it well suited to frequent, structured decisions with clearly defined scope: turning context into judgments over explicit options that software can combine into screening, routing, or review workflows. Its suitability for a specific healthcare task still depends on that task’s accuracy and error patterns.',
     '**简体中文** | [English](README.en.md)': '[简体中文](README.md) | **English**',
@@ -100,7 +101,8 @@ def render(report, chinese):
     directory = 'docs/assets/' + report.get('gateway', {}).get('archive', 'results/medical-load-v2').split('/')[-1]
     text = text.replace(f'{directory}/overview.png', f'{directory}/en/overview.png')
     for fid in report['families']:
-        text = text.replace(f'{directory}/{fid}.svg', f'{directory}/en/{fid}.svg')
+        for extension in ('svg', 'png'):
+            text = text.replace(f'{directory}/{fid}.{extension}', f'{directory}/en/{fid}.{extension}')
     return text
 
 

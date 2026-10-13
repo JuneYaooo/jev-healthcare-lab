@@ -53,6 +53,8 @@
 
 ![疾病分期与严重程度判断的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/clinical_grade.svg)
 
+下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/clinical_grade.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/clinical_grade.svg)
+
 <details>
 <summary>查看本任务的两个并发档</summary>
 

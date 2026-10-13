@@ -54,6 +54,8 @@ Macro-F1 对本任务金标中出现的类别等权平均；没有金标样本�
 
 ![患者临床试验初筛与转介判断的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/trial_referral.svg)
 
+下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/trial_referral.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/trial_referral.svg)
+
 <details>
 <summary>查看本任务的两个并发档</summary>
 

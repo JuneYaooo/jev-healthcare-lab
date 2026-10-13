@@ -53,6 +53,8 @@
 
 ![患者方案禁忌判断的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
 
+下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/patient_contraindication.svg)
+
 <details>
 <summary>查看本任务的两个并发档</summary>
 

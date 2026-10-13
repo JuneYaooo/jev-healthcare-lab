@@ -56,6 +56,8 @@
 
 ![复查项目与随访时机选择的并发吞吐对比](../../docs/assets/medical-load-jev-gateway-v1/followup_plan.svg)
 
+下载图表：[PNG](../../docs/assets/medical-load-jev-gateway-v1/followup_plan.png) · [SVG](../../docs/assets/medical-load-jev-gateway-v1/followup_plan.svg)
+
 <details>
 <summary>查看本任务的两个并发档</summary>
 

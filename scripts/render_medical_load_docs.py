@@ -105,6 +105,7 @@ def task_sections(report, fid, index, *, root=False):
     if fid == 'message_urgency_pair':
         parts.append('本任务严格区分原始选项键，例如 `Patient #1` 不能改写成 `Patient_1`。这类输出合约错误也按错计，因此成绩同时反映判断和接口可直接使用的程度，不能全部归因于医学推理差异。')
     parts.append(f'![{title}的并发吞吐对比]({prefix}{asset_path(report)}/{fid}.svg)')
+    parts.append(f'下载图表：[PNG]({prefix}{asset_path(report)}/{fid}.png) · [SVG]({prefix}{asset_path(report)}/{fid}.svg)')
     detail = []
     for c in ('8', '32'):
         winners = best_models(family, c)
@@ -289,28 +290,11 @@ def visuals(report, *, english=False):
 
     directory.mkdir(parents=True, exist_ok=True)
     colors = dict(zip(report['config']['models'], ['#087f5b', '#3366cc', '#c07914', '#8b5fa6']))
-    for fid, family in report['families'].items():
-        fig, ax = plt.subplots(figsize=(8, 3.2), layout='constrained')
-        ax.set_title(f"{family['title']}（负载题集 {family['load_decisions']} 项）\n"
-                     '点：两轮合并吞吐；竖线：两轮范围', fontsize=10)
-        for model, value in family['models'].items():
-            xs, ys, lo, hi = [], [], [], []
-            for c in ('8', '32'):
-                v = value['load'][c]
-                if v['throughput'] is None:
-                    continue
-                xs.append(int(c)); ys.append(v['throughput'])
-                lo.append(max(0, v['throughput']-v['throughput_range'][0]))
-                hi.append(max(0, v['throughput_range'][1]-v['throughput']))
-            if xs:
-                ax.errorbar(xs, ys, yerr=[lo, hi], marker='o', capsize=3, linewidth=1.8,
-                            color=colors[model], label=report['models'][model]['label'])
-        ax.set(xticks=[8, 32], xlabel='配置并发（账户额度可能限制实际并发）', ylabel='吞吐量（判断/秒）', ylim=(0, None))
-        ax.grid(axis='y', alpha=.18)
-        if ax.lines:
-            ax.legend(fontsize=8, loc='best', frameon=False)
-        localize(fig)
+    from medical_task_charts import figure as task_figure
+    for fid in report['families']:
+        fig = task_figure(report, fid, colors, english=english)
         fig.savefig(directory / (fid + '.svg'), metadata={'Date': None})
+        fig.savefig(directory / (fid + '.png'), dpi=180)
         plt.close(fig)
     eligible = [f for f in report['families'].values() if f['decisions'] >= 20 and f['id'] != 'trial_shared_patient']
     fig, axes = plt.subplots(1, 2, figsize=(13, 5), layout='constrained')
