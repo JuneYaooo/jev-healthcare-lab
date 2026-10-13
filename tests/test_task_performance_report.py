@@ -46,10 +46,10 @@ class TaskPerformanceArchiveTests(unittest.TestCase):
         medical = (root / 'results/medical-load-v2/comparison.json').exists()
         if medical:
             current = json.loads((root / 'results/medical-load-v2/comparison.json').read_text())
-            self.assertIn('| 医疗场景 | 具体任务 | 独立题量 | 模型 |', readme)
+            self.assertIn('<th>医疗场景</th><th>具体任务</th><th>独立题量</th><th>模型</th>', readme)
             self.assertIn('overview.png', readme)
             for fid, family in current['families'].items():
-                self.assertIn(f"[{family['title']}](#{fid})", readme)
+                self.assertIn(f'<a href="#{fid}">{family["title"]}</a>', readme)
                 self.assertIn(f"{family['decisions']} 项独立判断", readme)
             for model in current['models'].values():
                 self.assertIn(model['label'], readme)

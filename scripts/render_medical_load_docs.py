@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import statistics
+from html import escape
+from itertools import groupby
 
 import run_medical_load as run
 
@@ -48,6 +50,36 @@ def table(headers, rows, text_columns=1, numeric_columns=None):
                       *['| ' + ' | '.join(str(x).replace('|', '\\|') for x in row) + ' |' for row in rows]])
 
 
+BEST_NOTE = '粗体表示同一任务、同一并发档内已测模型的最优观测值，并列最优均加粗；不表示统计显著性。成本区间重叠、无法确定最低者时不加粗。'
+
+
+def best_models(family, concurrency='32'):
+    metrics = {key: {} for key in ('accuracy', 'macro_f1', 'throughput', 'p95_http_s', 'cost')}
+    for model, result in family['models'].items():
+        for key in ('accuracy', 'macro_f1'):
+            metrics[key][model] = result['quality'][key]
+        for key in ('throughput', 'p95_http_s'):
+            metrics[key][model] = result['load'][concurrency][key]
+        metrics['cost'][model] = result['quality']['cost_cny_per_1000']
+    winners = {}
+    for key, values in metrics.items():
+        known = {m: v for m, v in values.items() if v is not None}
+        if key == 'cost':
+            winners[key] = {m for m, v in known.items()
+                            if all(v == other or v[1] <= other[0] for other in known.values())}
+        else:
+            best = (min if key == 'p95_http_s' else max)(known.values()) if known else None
+            winners[key] = {m for m, v in known.items() if v == best}
+    return winners
+
+
+def emphasized(value, model, metric, winners, *, html=False):
+    text = escape(value) if html else value
+    if model not in winners[metric]:
+        return text
+    return f'<strong>{text}</strong>' if html else f'**{text}**'
+
+
 def task_sections(report, fid, index, *, root=False):
     family = report['families'][fid]
     has_f1 = fid in {'trial_referral', 'triage_urgency', 'tcm_syndrome',
@@ -55,12 +87,16 @@ def task_sections(report, fid, index, *, root=False):
     title = family['title']
     prefix = '' if root else '../../'
     rows = []
+    winners = best_models(family)
     for model in report['config']['models']:
         result = family['models'][model]
         q, load = result['quality'], result['load']['32']
-        rows.append([report['models'][model]['label'], number(q['accuracy'], percent=True),
-                     *([number(q['macro_f1'], percent=True)] if has_f1 else []),
-                     number(load['throughput']), number(load['p95_http_s'], 3), price(q['cost_cny_per_1000'])])
+        def mark(value, metric):
+            return emphasized(value, model, metric, winners)
+        rows.append([report['models'][model]['label'], mark(number(q['accuracy'], percent=True), 'accuracy'),
+                     *([mark(number(q['macro_f1'], percent=True), 'macro_f1')] if has_f1 else []),
+                     mark(number(load['throughput']), 'throughput'), mark(number(load['p95_http_s'], 3), 'p95_http_s'),
+                     mark(price(q['cost_cny_per_1000']), 'cost')])
     parts = [f'<a id="{fid}"></a>', f'## {title}' if root else '### 当前多题评测',
              f"**表 {index}｜{title}：{family['decisions']} 项独立判断，{family['cases']} 个来源组；每请求最多 {family['batch']} 项。准确率测试配置 8 并发，负载测试配置 32 并发。**",
              table(['模型', '准确率 (%) ↑', *(['Macro-F1 (%) ↑'] if has_f1 else []),
@@ -80,10 +116,13 @@ def task_sections(report, fid, index, *, root=False):
     parts.append(f'![{title}的并发吞吐对比]({prefix}{asset_path(report)}/{fid}.svg)')
     detail = []
     for c in ('8', '32'):
+        winners = best_models(family, c)
         for model in report['config']['models']:
             v = family['models'][model]['load'][c]
-            detail.append([report['models'][model]['label'], c, number(v['throughput']),
-                           number(v['p95_http_s'], 3), number(v['mean_http_concurrency'])])
+            detail.append([report['models'][model]['label'], c,
+                           emphasized(number(v['throughput']), model, 'throughput', winners),
+                           emphasized(number(v['p95_http_s'], 3), model, 'p95_http_s', winners),
+                           number(v['mean_http_concurrency'])])
     parts.append('<details>\n<summary>查看本任务的两个并发档</summary>\n\n'
                  + f'**表 {index}a｜{title}：每请求最多 {family["batch"]} 项，负载题集 {family["load_decisions"]} 项，各档两轮。**\n\n'
                  + table(['模型', '配置并发', '吞吐量 (判断/秒) ↑', '完整响应 P95 (秒) ↓', '实际平均同时请求数'], detail)
@@ -92,19 +131,36 @@ def task_sections(report, fid, index, *, root=False):
                  + f'[评估方法]({prefix}docs/MEDICAL_LOAD.md) · [原始记录与计价依据]({prefix}{archive_path(report)}/README.md)')
     if report.get('gateway') and not root:
         parts.append('JEV 返回版本为 `jev-1.13.0`；成本按官方标价估算，非实际账单。渠道与测试日期差异见评估方法。')
+    if not root:
+        parts.append(BEST_NOTE)
     return parts
 
 
-def overview_rows(report):
+def overview_table(report):
     scenes = {s['id']: s['title'] for s in json.loads((run.data.DEFAULT / 'taxonomy.json').read_text())['scenarios']}
-    rows = []
-    for family in report['families'].values():
-        for model, values in family['models'].items():
-            rows.append([scenes[family['scenario']], f"[{family['title']}](#{family['id']})",
-                         family['decisions'], report['models'][model]['label'],
-                         number(values['quality']['accuracy'], percent=True),
-                         number(values['load']['32']['throughput']), price(values['quality']['cost_cny_per_1000'])])
-    return rows
+    models = report['config']['models']
+    headers = ['医疗场景', '具体任务', '独立题量', '模型', '准确率 (%) ↑', '吞吐量 (判断/秒) ↑', '成本 (元/千项判断) ↓']
+    rows = ['<table>', '<thead><tr>' + ''.join(f'<th>{escape(h)}</th>' for h in headers) + '</tr></thead>', '<tbody>']
+    for scene, group in groupby(report['families'].values(), key=lambda f: f['scenario']):
+        families = list(group)
+        for index, family in enumerate(families):
+            winners = best_models(family)
+            for mi, model in enumerate(models):
+                cells = []
+                if index == 0 and mi == 0:
+                    cells.append(f'<td rowspan="{len(families) * len(models)}">{escape(scenes[scene])}</td>')
+                if mi == 0:
+                    cells.extend([
+                        f'<td rowspan="{len(models)}"><a href="#{escape(family["id"], quote=True)}">{escape(family["title"])}</a></td>',
+                        f'<td rowspan="{len(models)}" align="right">{family["decisions"]}</td>'])
+                result = family['models'][model]
+                cells.append(f'<td>{escape(report["models"][model]["label"])}</td>')
+                for metric, value in [('accuracy', number(result['quality']['accuracy'], percent=True)),
+                                      ('throughput', number(result['load']['32']['throughput'])),
+                                      ('cost', price(result['quality']['cost_cny_per_1000']))]:
+                    cells.append('<td align="right">' + emphasized(value, model, metric, winners, html=True) + '</td>')
+                rows.append('<tr>' + ''.join(cells) + '</tr>')
+    return '\n'.join([*rows, '</tbody>', '</table>'])
 
 
 def gateway_findings(report):
@@ -142,7 +198,8 @@ def render(report):
     parts += ['准确率按模型原样输出计分，非法选项也算错；它同时反映判断与输出可用性。吞吐表示每秒收到的合法判断数，**不等于每秒正确判断数**。成本按新病例、无缓存折扣的输入与输出用量折算，单位为人民币；Flash 区间对应闲时与高峰标价。',
               '吞吐为固定题组反复请求的服务实测，受网络、供应商缓存与账户额度影响。Qwen 本次账户上限分别为 8 万／4 万 token 每分钟；因此结果可用于比较当前接入条件，不能用于宣称模型的极限吞吐。',
               '**表 1｜医疗任务总览。准确率与成本来自完整题集的 8 并发多题测试；吞吐取预先指定的 32 并发档、两轮持续负载结果。点击任务进入详细结果。**',
-              table(['医疗场景', '具体任务', '独立题量', '模型', '准确率 (%) ↑', '吞吐量 (判断/秒) ↑', '成本 (元/千项判断) ↓'], overview_rows(report), numeric_columns={2, 4, 5, 6}),
+              overview_table(report),
+              BEST_NOTE,
               '“—”表示本轮未获得完整数据或样本不足。独立题量指不重复的判断项，不表示统计独立，也不等于独立患者数；患者／来源组数见每个任务表题。少于 20 题仅作探索性比较。三个空任务（剂量适宜性、危急值升级、就诊科室分流）暂不计分。',
               f'[评估方法与适用边界](docs/MEDICAL_LOAD.md) · [数据集与许可](docs/datasets/README.md) · [原始响应与复算]({archive_path(report)}/README.md)']
     for index, fid in enumerate(report['families'], 2):
