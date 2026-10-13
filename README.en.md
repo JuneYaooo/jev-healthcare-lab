@@ -10,6 +10,8 @@ JEV is TypeSafe’s flagship model, described by its developers as a System One 
 
 Healthcare workflows involve many narrowly scoped judgments: assessing urgency, checking contraindications, choosing the next diagnostic test, or screening trials that may suit a patient. These tasks provide concrete settings for evaluating JEV’s structured decisions. Both machine-readable output and the correctness of the underlying judgment need to be tested on medical questions.
 
+JEV’s interface design and the task results here make it well suited to frequent, structured decisions with clearly defined scope: turning context into judgments over explicit options that software can combine into screening, routing, or review workflows. Its suitability for a specific healthcare task still depends on that task’s accuracy and error patterns.
+
 This project asks three questions: which healthcare tasks JEV handles well and where it falls short; how accuracy, throughput, and cost trade off when processing multiple questions under sustained concurrency; and how sharing one patient’s context across multiple questions performs in medical screening. Frozen question sets, data provenance, scoring methods, and raw results are available for reproduction and comparison.
 
 The current evaluation covers Choice tasks with explicit options and reference answers. Score, Noul, and confidence calibration have not been evaluated. Results support research and prototype selection; they do not establish clinical validity.
@@ -30,7 +32,7 @@ Three tasks illustrate different tradeoffs (see Table 1 for full throughput, cos
 
 Accuracy is scored from unmodified model outputs, with invalid options counted as errors; it reflects both judgment and output usability. Throughput counts valid decisions received per second, **not correct decisions per second**. Cost is estimated in CNY from input and output usage for fresh cases without cache discounts; Flash ranges reflect off-peak and peak list prices.
 
-Throughput is measured by repeatedly requesting fixed question sets and is affected by network conditions, provider caching, and account quotas. The two Qwen accounts were limited to 80,000 and 40,000 tokens per minute, respectively. Results compare the tested access conditions and do not establish maximum model throughput.
+**Test account limitations: account quotas, request rate limits, and shared service conditions may prevent some performance metrics—especially response speed and throughput—from fully reflecting model capabilities.** The values shown are observations under the tested conditions, not model performance ceilings; speed differences between models should not be extrapolated directly to other deployment conditions. The two Qwen accounts were limited to 80,000 and 40,000 tokens per minute, respectively. Network conditions and provider caching also affect results.
 
 **Table 1 | Healthcare task overview. Accuracy and cost use the full question set at concurrency 8; throughput uses two sustained-load rounds at the prespecified concurrency of 32. Select a task for details.**
 
